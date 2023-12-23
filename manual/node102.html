@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>using ic1ion as a module in mcphas,mcdiff,mcdisp,...</TITLE>
+<META NAME="description" CONTENT="using ic1ion as a module in mcphas,mcdiff,mcdisp,...">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node103.html">
+<LINK REL="previous" HREF="node101.html">
+<LINK REL="up" HREF="node99.html">
+<LINK REL="next" HREF="node103.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1841"
+  HREF="node103.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1835"
+  HREF="node99.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1829"
+  HREF="node101.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1837"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1839"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1842"
+  HREF="node103.html">icf1ion - Intermediate Crystal</A>
+<B> Up:</B> <A NAME="tex2html1836"
+  HREF="node99.html">ic1ion - a module</A>
+<B> Previous:</B> <A NAME="tex2html1830"
+  HREF="node101.html">cpic1ion - calculation of</A>
+ &nbsp; <B>  <A NAME="tex2html1838"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1840"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000183000000000000000"></A><A NAME="8831"></A>
+<BR>
+using <I CLASS="slanted">ic1ion</I> as a module in <I CLASS="slanted">mcphas</I>,<I CLASS="slanted">mcdiff</I>,<I CLASS="slanted">mcdisp</I>,...
+</H2>
+
+<P>
+Currently <I CLASS="slanted">ic1ion<A NAME="8835"></A></I> is loadable by mcphas<A NAME="8836"></A> as an external module. The single
+ion parameter file is just the same as given in the above format for running <I CLASS="slanted">ic1ion<A NAME="8837"></A></I> as 
+a stand alone program. However, some input files have to follow special conventions in order that 
+<I CLASS="slanted">mcphas, mcdisp, mcdiff</I> work correctly: 
+
+<P>
+
+<UL>
+<LI>the standard operator sequence for ic1ion is different from all other modules, it is
+puts Ia=Sx Ib=Sy Ic=Sz Id=Lx Ie=Ly If=Lz
+</LI>
+<LI>for higher order operators, we made Ig==T22S, Ih==T21S, Ii==T20, Ij==T21, Ik==T22,
+Il==T33S, etc... the operators <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img811.png"
+ ALT="$\hat T_{kq}$"></SPAN> are described in equation&nbsp;(<A HREF="node104.html#tkqhermitian">124</A>)
+</LI>
+<LI>the magnetic moments are calculated in mcalc according 
+to <!-- MATH
+ $\mathbf M=\mu_B(2<\mathbf S>+<\mathbf L>)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="197" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img812.png"
+ ALT="$\mathbf M=\mu_B(2&lt;\mathbf S&gt;+&lt;\mathbf L&gt;)$"></SPAN>
+</LI>
+<LI>Also the inelastic neutron scattering cross section
+ in <I CLASS="slanted">mcdisp<A NAME="8842"></A></I> is evaluated using the first
+  in dipole approximation and beyond for the magnetic formfactor.
+</LI>
+</UL>
+
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>

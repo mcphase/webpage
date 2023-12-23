@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>Progam Workflow</TITLE>
+<META NAME="description" CONTENT="Progam Workflow">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="previous" HREF="node65.html">
+<LINK REL="up" HREF="node61.html">
+<LINK REL="next" HREF="node67.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1287"
+  HREF="node67.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1281"
+  HREF="node61.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1277"
+  HREF="node65.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1283"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1285"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1288"
+  HREF="node67.html">Single Ion Modules</A>
+<B> Up:</B> <A NAME="tex2html1282"
+  HREF="node61.html">Crystal Field Phonon Interaction</A>
+<B> Previous:</B> <A NAME="tex2html1278"
+  HREF="node65.html">The total Crystal field</A>
+ &nbsp; <B>  <A NAME="tex2html1284"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1286"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000155000000000000000">
+Progam Workflow</A>
+</H2>
+
+<P>
+Technically the Hamiltonian (<A HREF="node65.html#H">106</A>) is of the general form for 
+McPhase&nbsp;[<A
+ HREF="node151.html#rotter12-213201">35</A>], with single
+ion and interaction terms. The corresponding  mean field procedure can be done by an internal single ion module 
+&rdquo;epsilon&rdquo;, which represents not an ion, but the
+strain. Given <!-- MATH
+ $\langle u_{j}^{\alpha} \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="34" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img692.png"
+ ALT="$\langle u_{j}^{\alpha} \rangle$"></SPAN> and <!-- MATH
+ $\langle O_{\gamma}(\vec J_i) \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="63" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img693.png"
+ ALT="$\langle O_{\gamma}(\vec J_i) \rangle$"></SPAN> and
+appropriate interaction constants to the &rdquo;epsilon&rdquo; from (<A HREF="node63.html#Hmix">95</A>) and (<A HREF="node65.html#Hcfph">103</A>), respectively,
+the right side in (<A HREF="node65.html#zeroeps">108</A>) can be evaluated in each mean field loop 
+in module &rdquo;epsilon&rdquo; function <EM>Icalc</EM>. Then elastic constants in (<A HREF="node65.html#zeroeps">108</A>) can be used to calculate
+a new strain <SPAN CLASS="MATH"><IMG
+ WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img574.png"
+ ALT="$\bar \epsilon$"></SPAN>, a six component vector. Via the aforementioned appropriate
+interaction constants (from (<A HREF="node63.html#Gmix">96</A>) and (<A HREF="node65.html#Gcfph">104</A>)) the strain will produce mean
+fields on lattice displacements and magnetic charge density (crystal field) and so on ...
+The free energy returned by the module &rdquo;epsilon&rdquo; should correspond to the elastic energy
+per unit cell given by equation (<A HREF="node62.html#Eelconstvoigt">94</A>). 
+
+<P>
+For the dynamics the &rdquo;epsilon&rdquo; module should not
+yield any single ion excitations. The excitations can be calculated without taking into account the
+term <SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$H_{mix}$"></SPAN>, because this is linear in the displacement operators and in the harmonic
+approximation the spectrum of the harmonic Einstein oscillator will not change with such an
+internal force. The strain has only to be taken into account as a linear modification of the crystal field
+parameters in the first term of equation (<A HREF="node65.html#Hcfph">103</A>). This is done automatically by creating the
+file <EM>mcdisp.mf</EM> with the &rdquo;epsilon&rdquo; module.
+
+<P>
+Elastic constants and mixing term parameters <SPAN CLASS="MATH"><IMG
+ WIDTH="40" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img694.png"
+ ALT="$G_{mix}$"></SPAN> should be created with the
+option <EM>-bvk</EM> of the program <EM>makenn</EM> and stored in the 
+file <EM>mcphas.j</EM>. Using <EM>makenn</EM> with the option <EM>-cfph</EM> will create
+the magnetoelastic parameters <SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img695.png"
+ ALT="$G_{\rm cfph}$"></SPAN> and <!-- MATH
+ $\Gamma_{\rm cfph}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="38" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img696.png"
+ ALT="$\Gamma_{\rm cfph}$"></SPAN>.
+
+<P>
+If the program <EM>mcphas</EM> is started with option <I CLASS="slanted">-doeps</I>
+and it finds elastic constants in the input file <EM>mcphas.j</EM>, it
+ will use these and determine selfconsistently the strain <SPAN CLASS="MATH"><IMG
+ WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img66.png"
+ ALT="$\epsilon$"></SPAN> by solving equations
+(<A HREF="node65.html#zeroeps">108</A>). Elastic energy and strain tensor are stored in <EM>results/mcphas.fum</EM>.
+
+<P>
+In this way it should be possible to model Jahn Teller transitions,
+phase diagrams, magnetostriction, thermal expansion (magnetic part) and dynamics consistently based
+only on point charges and Born von Karman springs. 
+
+<P>
+The length change <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img697.png"
+ ALT="$\Delta L/L$"></SPAN> of a sample in a dilatometer experiment
+can be calculated from the strain tensor components
+ using&nbsp;<A NAME="tex2html34"
+  HREF="footnode.html#foot5993"><SUP><SPAN CLASS="arabic">15</SPAN></SUP></A>
+<P>
+<BR>
+<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+
+<!-- MATH
+ \begin{equation}
+\frac{\Delta L}{L}=\sum_{\alpha\beta} \epsilon_{\alpha\beta} \hat L_{\alpha} \hat L_{\beta}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="134" HEIGHT="51" BORDER="0"
+ SRC="img698.png"
+ ALT="\begin{displaymath}
+\frac{\Delta L}{L}=\sum_{\alpha\beta} \epsilon_{\alpha\beta} \hat L_{\alpha} \hat L_{\beta}
+\end{displaymath}"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">104</SPAN>)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+where <!-- MATH
+ $\hat \mathbf L$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img699.png"
+ ALT="$\hat \mathbf L$"></SPAN> denotes the unit vector in the direction of
+measurement.
+
+<P>
+Utopia: in a further step stress tensor components could be envisaged 
+to act similar as an external magnetic field in <EM>McPhase</EM>, these will only act on the
+&rdquo;espilon&rdquo; module and on no other module. The equations given above have to be adapted accordingly 
+and then it should be possible to calculate in addition to magnetic phase diagrams also stress dependence
+of Jahn Teller transitions and excitations. 
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1287"
+  HREF="node67.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1281"
+  HREF="node61.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1277"
+  HREF="node65.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1283"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1285"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1288"
+  HREF="node67.html">Single Ion Modules</A>
+<B> Up:</B> <A NAME="tex2html1282"
+  HREF="node61.html">Crystal Field Phonon Interaction</A>
+<B> Previous:</B> <A NAME="tex2html1278"
+  HREF="node65.html">The total Crystal field</A>
+ &nbsp; <B>  <A NAME="tex2html1284"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1286"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

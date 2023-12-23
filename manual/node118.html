@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>analysing the results of searchspace</TITLE>
+<META NAME="description" CONTENT="analysing the results of searchspace">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node119.html">
+<LINK REL="previous" HREF="node117.html">
+<LINK REL="up" HREF="node114.html">
+<LINK REL="next" HREF="node119.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2074"
+  HREF="node119.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2068"
+  HREF="node114.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2062"
+  HREF="node117.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2070"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2072"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2075"
+  HREF="node119.html">Starting a fit</A>
+<B> Up:</B> <A NAME="tex2html2069"
+  HREF="node114.html">Searchspace and Simannfit -</A>
+<B> Previous:</B> <A NAME="tex2html2063"
+  HREF="node117.html">Starting a parameter space</A>
+ &nbsp; <B>  <A NAME="tex2html2071"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2073"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000214000000000000000">
+analysing the results of <I CLASS="slanted">searchspace</I></A>
+</H2>
+
+<P>
+The results of a parameter search can be analysed by starting searchspace for example as
+
+<P>
+<BLOCKQUOTE>
+<I CLASS="slanted">searchspace -13 results/searchspace.2.localminima mcphas.jjj [end possible other input files]</I>.
+
+</BLOCKQUOTE>
+
+<P>
+In this example the parameter set (line) number 13 is taken from the
+ file <I CLASS="slanted">results/searchspace.2.localminima</I>. Obviously this parameter set is the local minimum number 13
+from a previous searchspace run with searchspace level 2. Using this input
+ searchspace updates <I CLASS="slanted">mcphas.jjj</I> and
+other parameter files with this parameter set.
+The standard deviation can be recalculated now easily by typing <I CLASS="slanted">calcsta</I>, thereby all
+output files are updated and the quality of this parmaeter set can be inspected, e.g. by
+making graphs etc.
+Note that also the files <I CLASS="slanted">*.forfit</I> are updated with
+these parameters (this is useful for a later use with <I CLASS="slanted">simannfit</I>).
+
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>

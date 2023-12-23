@@ -1,0 +1,310 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>Derivation of the Chargedensity Formula</TITLE>
+<META NAME="description" CONTENT="Derivation of the Chargedensity Formula">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node139.html">
+<LINK REL="previous" HREF="node137.html">
+<LINK REL="up" HREF="manual.html">
+<LINK REL="next" HREF="node139.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2352"
+  HREF="node139.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2346"
+  HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2340"
+  HREF="node137.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2348"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2350"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2353"
+  HREF="node139.html">Dynamical Susceptibility and Excitations</A>
+<B> Up:</B> <A NAME="tex2html2347"
+  HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A NAME="tex2html2341"
+  HREF="node137.html">Magnetic Form factors for</A>
+ &nbsp; <B>  <A NAME="tex2html2349"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2351"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION000360000000000000000"></A><A NAME="chargedensityoperator"></A>
+<BR>
+Derivation of the Chargedensity Formula
+</H1>
+
+<P>
+The charge density operator for an electron system is given by a sum of delta
+ functions on the location of the individual electrons in a system carrying
+an elementary charge <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img77.png"
+ ALT="$e$"></SPAN>:
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+
+<!-- MATH
+ \begin{equation}
+\hat\rho(\mathbf r) = \sum_i -|e| \delta(\mathbf r_i - \mathbf r)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="162" HEIGHT="46" BORDER="0"
+ SRC="img1241.png"
+ ALT="\begin{displaymath}
+\hat\rho(\mathbf r) = \sum_i -\vert e\vert \delta(\mathbf r_i - \mathbf r)
+\end{displaymath}"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">194</SPAN>)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P> 
+
+<P>
+Using spherical coordinates the delta function in this expression can be rewritten as
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+
+<!-- MATH
+ \begin{equation}
+\delta(\mathbf r_i - \mathbf r) = \frac{1}{r^2}\delta(r-r_i) \delta(\Omega- \Omega_i)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="226" HEIGHT="39" BORDER="0"
+ SRC="img1242.png"
+ ALT="\begin{displaymath}
+\delta(\mathbf r_i - \mathbf r) = \frac{1}{r^2}\delta(r-r_i) \delta(\Omega- \Omega_i)
+\end{displaymath}"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">195</SPAN>)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P> 
+
+<P>
+The delta function of spherical harmonics can be expressed by spherical and tesseral harmonic
+ functions (see appendix&nbsp;<A HREF="node130.html#tesseral">F</A>):
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+
+<!-- MATH
+ \begin{equation}
+\delta(\Omega- \Omega_i)= \sum_{l,m} Y_l^{m\star}(\Omega_i) Y_l^{m}(\Omega)= \sum_{l,m} Z_l^{m}(\Omega_i) Z_l^{m}(\Omega)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="371" HEIGHT="48" BORDER="0"
+ SRC="img1243.png"
+ ALT="\begin{displaymath}
+\delta(\Omega- \Omega_i)= \sum_{l,m} Y_l^{m\star}(\Omega_i) Y_l^{m}(\Omega)= \sum_{l,m} Z_l^{m}(\Omega_i) Z_l^{m}(\Omega)
+\end{displaymath}"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">196</SPAN>)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P> 
+
+<P>
+Using the above equations and assuming the same radial part <SPAN CLASS="MATH"><IMG
+ WIDTH="36" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img805.png"
+ ALT="$R(r)$"></SPAN> of the wave function for all electrons in an unfilled 
+shell the radial integrals in the expectation value of the charge density operator can be substituted by the radial 
+wavefunction <SPAN CLASS="MATH"><IMG
+ WIDTH="36" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img805.png"
+ ALT="$R(r)$"></SPAN> and we obtain the expression
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+
+<!-- MATH
+ \begin{equation}
+\langle \hat\rho(\mathbf r)\rangle=
+	       -|e|  |R(r)|^2 \sum_{l,m}Z_l^{m}(\Omega) \langle\sum_i Z_l^{m}(\Omega_i)\rangle
+\end{equation}
+ -->
+<A NAME="chargedensity2"></A>
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="chargedensity2"></A><IMG
+ WIDTH="304" HEIGHT="48" BORDER="0"
+ SRC="img1244.png"
+ ALT="\begin{displaymath}
+\langle \hat\rho(\mathbf r)\rangle=
+-\vert e\vert \vert R(...
+...m_{l,m}Z_l^{m}(\Omega) \langle\sum_i Z_l^{m}(\Omega_i)\rangle
+\end{displaymath}"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">197</SPAN>)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P> 
+
+<P>
+If higher multiplets are neglected, 
+the expectation values of tesseral harmonics at the right side of equation (<A HREF="#chargedensity2">210</A>) can
+be rewritten using the operator equivalent method by Stevens[<A
+ HREF="node151.html#hutchings64-227">25</A>]:
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+
+<!-- MATH
+ \begin{equation}
+\langle\sum_i Z_l^{m}(\Omega_i)\rangle = |p_{lm}| \theta_{l} \langle O_l^m(\mathbf J)\rangle_T
+\end{equation}
+ -->
+<A NAME="chargedensity_coefficients"></A>
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="chargedensity_coefficients"></A><IMG
+ WIDTH="225" HEIGHT="46" BORDER="0"
+ SRC="img1245.png"
+ ALT="\begin{displaymath}
+\langle\sum_i Z_l^{m}(\Omega_i)\rangle = \vert p_{lm}\vert \theta_{l} \langle O_l^m(\mathbf J)\rangle_T
+\end{displaymath}"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">198</SPAN>)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P> 
+
+<P>
+For the notation see [<A
+ HREF="node151.html#hutchings64-227">25</A>]:
+ <SPAN CLASS="MATH"><IMG
+ WIDTH="32" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1246.png"
+ ALT="$p_{nm}$"></SPAN> the pre factors of harmonic tesseral
+functions <!-- MATH
+ $Z_{lm}(\Omega)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="55" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1247.png"
+ ALT="$Z_{lm}(\Omega)$"></SPAN> as given in table IV in [<A
+ HREF="node151.html#hutchings64-227">25</A>] and in appendix&nbsp;<A HREF="node130.html#tesseral">F</A>,
+ and <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1248.png"
+ ALT="$\theta_l$"></SPAN>
+corresponds to the number of <SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1249.png"
+ ALT="$4f$"></SPAN> electrons (<SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img843.png"
+ ALT="$\nu$"></SPAN>) in the
+<SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1250.png"
+ ALT="$4f^{\nu}$"></SPAN> configuration for <SPAN CLASS="MATH"><IMG
+ WIDTH="38" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1251.png"
+ ALT="$l=0$"></SPAN> and to
+ the Stevens factors <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img56.png"
+ ALT="$\alpha$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1252.png"
+ ALT="$\beta$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img375.png"
+ ALT="$\gamma$"></SPAN> for <SPAN CLASS="MATH"><IMG
+ WIDTH="26" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1253.png"
+ ALT="$l=$"></SPAN>&nbsp;2,4,6, respectively.
+
+<P>
+This results in the following expression for the chargedensity:
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+
+<!-- MATH
+ \begin{equation}
+\langle \hat\rho(\mathbf r)\rangle=-|e||R_{4f}(r)|^2 \sum_{l=0,2,4,6}\sum_{m=-l,...,l}
+	         |p_{lm}| \theta_{l} \langle O_l^m(\mathbf J)\rangle_T Z_{lm}(\Omega)
+\end{equation}
+ -->
+<A NAME="chargedensity_operator2"></A>
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="chargedensity_operator2"></A><IMG
+ WIDTH="433" HEIGHT="48" BORDER="0"
+ SRC="img1254.png"
+ ALT="\begin{displaymath}
+\langle \hat\rho(\mathbf r)\rangle=-\vert e\vert\vert R_{4f...
+...t \theta_{l} \langle O_l^m(\mathbf J)\rangle_T Z_{lm}(\Omega)
+\end{displaymath}"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">199</SPAN>)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P> 
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2352"
+  HREF="node139.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2346"
+  HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2340"
+  HREF="node137.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2348"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2350"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2353"
+  HREF="node139.html">Dynamical Susceptibility and Excitations</A>
+<B> Up:</B> <A NAME="tex2html2347"
+  HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A NAME="tex2html2341"
+  HREF="node137.html">Magnetic Form factors for</A>
+ &nbsp; <B>  <A NAME="tex2html2349"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2351"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

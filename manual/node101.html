@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>cpic1ion - calculation of the specific heat from ic1ion.out</TITLE>
+<META NAME="description" CONTENT="cpic1ion - calculation of the specific heat from ic1ion.out">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node102.html">
+<LINK REL="previous" HREF="node100.html">
+<LINK REL="up" HREF="node99.html">
+<LINK REL="next" HREF="node102.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1827"
+  HREF="node102.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1821"
+  HREF="node99.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1815"
+  HREF="node100.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1823"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1825"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1828"
+  HREF="node102.html">using ic1ion as a</A>
+<B> Up:</B> <A NAME="tex2html1822"
+  HREF="node99.html">ic1ion - a module</A>
+<B> Previous:</B> <A NAME="tex2html1816"
+  HREF="node100.html">using ic1ion as a</A>
+ &nbsp; <B>  <A NAME="tex2html1824"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1826"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000182000000000000000">
+<I CLASS="slanted">cpic1ion</I> - calculation of the specific heat from <I CLASS="slanted">ic1ion.out</I></A>
+</H2>
+ The crystal field contribution to the specific heat may be calculated 
+from the output file <I CLASS="slanted">ic1ion.out</I> using the  program <I CLASS="slanted">cpic1ion</I>, e.g. <B>cpic1ion 10 100 1 [options]</B>
+calculates the specific heat in the temperature interval 10-100 K with a step width
+of 1 K. Alternatively a comparison to experimental data can be made by <B>cpic1ion 1 2 cpexp.dat</B>,
+where the temperatures are given in column 1 and the experimental specific heat in column
+2 of file cpexp.dat. The calculated specific heat is compared to the experimental data and
+a standard deviation <EM>sta</EM> is calculated and output is written to stdout.
+Other quantities can be calculated using the options: -s  (calculate entropy  (J/molK) instead of cp),
+-f (calculate free energy (J/mol) instead of cp),-u  (calculate magnetic energy (J/mol) instead of cp),
+-z (calculate partition sum instead of cp).
+
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>

@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>Programs of General Interest</TITLE>
+<META NAME="description" CONTENT="Programs of General Interest">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node125.html">
+<LINK REL="previous" HREF="node123.html">
+<LINK REL="up" HREF="manual.html">
+<LINK REL="next" HREF="node125.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2156"
+  HREF="node125.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2150"
+  HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2144"
+  HREF="node123.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2152"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2154"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2157"
+  HREF="node125.html">Module kramer - a</A>
+<B> Up:</B> <A NAME="tex2html2151"
+  HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A NAME="tex2html2145"
+  HREF="node123.html">Programs for Manipulation of</A>
+ &nbsp; <B>  <A NAME="tex2html2153"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2155"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION000240000000000000000">
+Programs of General Interest</A>
+</H1>
+
+<P>
+<DL>
+<DT><STRONG><I CLASS="slanted">beep<A NAME="11568"></A>:</STRONG></DT>
+<DD>just make a beep<A NAME="11569"></A> to signal attention 
+</DD>
+<DT><STRONG><I CLASS="slanted">gauss<A NAME="11570"></A> fwhm stp min max:</STRONG></DT>
+<DD>calculate a gaussian, output goes to console 
+(stdout), the formula for a gaussian is:
+<!-- MATH
+ $\sigma={\rm fwhm}/\sqrt{8*log(2)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="161" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1012.png"
+ ALT="$\sigma={\rm fwhm}/\sqrt{8*log(2)}$"></SPAN>,
+<!-- MATH
+ ${\rm gauss}(x)=\frac{exp(-x^2/2 \sigma^2)}{\sqrt{2*\pi}\sigma}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="168" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1026.png"
+ ALT="${\rm gauss}(x)=\frac{exp(-x^2/2 \sigma^2)}{\sqrt{2*\pi}\sigma}$"></SPAN>
+</DD>
+<DT><STRONG><I CLASS="slanted">gauss2d<A NAME="11576"></A> fwhm1 fwhm2 theta  stpx minx maxx stpy miny maxy:</STRONG></DT>
+<DD>calculate a 2 dimensional gaussian, output goes to console 
+(stdout), the formula for a two dimensional gaussian is:
+<!-- MATH
+ $\sigma={\rm fwhm}/\sqrt{8*log(2)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="161" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1012.png"
+ ALT="$\sigma={\rm fwhm}/\sqrt{8*log(2)}$"></SPAN>,
+<!-- MATH
+ ${\rm gauss}(x,y)=\frac{exp(-u_1^2/2 \sigma_1^2)}{\sqrt{2*\pi}\sigma_1}\frac{exp(-u_2^2/2 \sigma_2^2)}{\sqrt{2*\pi}\sigma_2}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="267" HEIGHT="44" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1027.png"
+ ALT="${\rm gauss}(x,y)=\frac{exp(-u_1^2/2 \sigma_1^2)}{\sqrt{2*\pi}\sigma_1}\frac{exp(-u_2^2/2 \sigma_2^2)}{\sqrt{2*\pi}\sigma_2}$"></SPAN> with <!-- MATH
+ $u_1=x cos(\theta)-ysin(\theta)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="163" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1028.png"
+ ALT="$u_1=x cos(\theta)-ysin(\theta)$"></SPAN> and <!-- MATH
+ $u_2=y cos(\theta)+xsin(\theta)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="163" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1029.png"
+ ALT="$u_2=y cos(\theta)+xsin(\theta)$"></SPAN>,
+<SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1030.png"
+ ALT="$\theta$"></SPAN> is the rotation angle in degree.
+</DD>
+<DT><STRONG><I CLASS="slanted">lorentz<A NAME="11584"></A> fwhm stp min max:</STRONG></DT>
+<DD>calculate a lorentzian, output goes to 
+console (stdout)the formula for a Lorentz curve is: 
+<!-- MATH
+ ${\rm lorentz}(x)=\frac{1.0}{\pi{\rm fwhm}(1.0+x^2/fwhm^2)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="234" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1031.png"
+ ALT="${\rm lorentz}(x)=\frac{1.0}{\pi{\rm fwhm}(1.0+x^2/fwhm^2)}$"></SPAN>
+</DD>
+<DT><STRONG><I CLASS="slanted">plotbook *.ps:</STRONG></DT>
+<DD>program plotbook to arrange many (single side) ps-images to one 
+booklet (needs: latex, pstops,ghostscript, perl)
+</DD>
+<DT><STRONG><I CLASS="slanted">script2html<A NAME="11588"></A> calc1.bat calc2.bat ...</STRONG></DT>
+<DD>This program creates a html file from scripts containing just the text
+ in the scripts.
+</I></I></I></I></I></I><PRE>
+ input: calc1.bat, calc2.bat ...    scripts (bat files)
+                                   (must be located in the current directory)
+ output: stdout      ...........   html file created from the scripts
+                                   (use "&gt;" to pipe into file)
+ example:
+
+ script2html calc.bat notes.txt &gt; report.html
+
+ [creates the html file report.html from files calc.bat and notes.txt]
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">setvariable<A NAME="11591"></A> varname value *.*:</STRONG></DT>
+<DD>sets a variable in a file, e.g. <I CLASS="slanted">setvariable T 20 Co.sipf</I> replaces
+T=15 by T=20 in file <I CLASS="slanted">Co.sipf</I>.
+</DD>
+<DT><STRONG><I CLASS="slanted">substitute<A NAME="11594"></A> oldtext newtext *.*:</STRONG></DT>
+<DD>replaces every instance of 
+oldtext with newtext in file(s) *.*
+</DD>
+</DL></I></I></I></I></I></I></I></I>
+
+<P>
+
+<P>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2156"
+  HREF="node125.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2150"
+  HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2144"
+  HREF="node123.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2152"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2154"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2157"
+  HREF="node125.html">Module kramer - a</A>
+<B> Up:</B> <A NAME="tex2html2151"
+  HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A NAME="tex2html2145"
+  HREF="node123.html">Programs for Manipulation of</A>
+ &nbsp; <B>  <A NAME="tex2html2153"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2155"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

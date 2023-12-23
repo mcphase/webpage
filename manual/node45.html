@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>example of input file mcdisp.mf</TITLE>
+<META NAME="description" CONTENT="example of input file mcdisp.mf">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node46.html">
+<LINK REL="previous" HREF="node44.html">
+<LINK REL="up" HREF="node44.html">
+<LINK REL="next" HREF="node46.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html994"
+  HREF="node46.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html988"
+  HREF="node44.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html982"
+  HREF="node44.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html990"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html992"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html995"
+  HREF="node46.html">example of input file</A>
+<B> Up:</B> <A NAME="tex2html989"
+  HREF="node44.html">mcdisp - the Calculation</A>
+<B> Previous:</B> <A NAME="tex2html983"
+  HREF="node44.html">mcdisp - the Calculation</A>
+ &nbsp; <B>  <A NAME="tex2html991"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html993"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H5><A NAME="SECTION000120001000000000000">
+example of input file <I CLASS="slanted">mcdisp.mf</I></A>
+</H5>
+this file contains temperature <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img41.png"
+ ALT="$T$"></SPAN>, the external field <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img357.png"
+ ALT="$H$"></SPAN> and
+the exchange fields on the different sites:
+
+<P>
+<PRE>
+# Parameter file  mcdisp.mf - read by mcdisp version 3.0
+#&lt;!--mcdisp.mcdisp.mf&gt;
+#*********************************************************************
+# mcdisp - program to calculate the dispersion of magnetic excitations
+# reference: M. Rotter et al. J. Appl. Phys. A74 (2002) 5751
+#*********************************************************************
+#'T'             temperature T
+#'Ha' 'Hb' 'Hc'  magnetic field
+#'n'             number of atoms in magnetic unit cell
+#'nofatoms'      number of atoms in primitive crystal unit cell
+#'nofcomponents' dimension of moment vector of a magnetic atoms
+T=2 Ha=0 Hb=0 Hc=0 n=10 nofatoms=2 nofcomponents=3
+ 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000
+ 0.2708 0.3354 -0.3354 -0.2708 0.2947 -0.2708 -0.3354 0.3354 0.2708 -0.2947
+ 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000
+ 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000
+ 0.2708 0.3354 -0.3354 -0.2708 0.2947 -0.2708 -0.3354 0.3354 0.2708 -0.2947
+ 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000
+</PRE>
+
+<P>
+The file <I CLASS="slanted">mcdisp.mf<A NAME="3801"></A></I> can be easily set up by using the program <I CLASS="slanted">
+setup_mcdisp_mf<A NAME="3802"></A></I> or alternatively by the program <I CLASS="slanted">spins<A NAME="3803"></A></I> 
+described in section&nbsp;<A HREF="node110.html#displaydensities">17.3</A>.
+                            Note, in case of non-orthogonal axes the convention for applied field <SPAN CLASS="MATH"><IMG
+ WIDTH="84" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img138.png"
+ ALT="$Ha, Hb, Hc$"></SPAN> 
+                            is <SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img210.png"
+ ALT="$Hb\vert\vert\vec b$"></SPAN>, <!-- MATH
+ $Hc||(\vec a \times \vec b)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="81" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img211.png"
+ ALT="$Hc\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img142.png"
+ ALT="$Ha$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img143.png"
+ ALT="$Hb$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img144.png"
+ ALT="$Hc$"></SPAN>.
+
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>

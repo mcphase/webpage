@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>External module function spindensity_coeff - used by densplt, spins, display_density,display_densities</TITLE>
+<META NAME="description" CONTENT="External module function spindensity_coeff - used by densplt, spins, display_density,display_densities">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node95.html">
+<LINK REL="previous" HREF="node93.html">
+<LINK REL="up" HREF="node80.html">
+<LINK REL="next" HREF="node95.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1725"
+  HREF="node95.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1719"
+  HREF="node80.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1713"
+  HREF="node93.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1721"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1723"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1726"
+  HREF="node95.html">External module function dspindensity_coeff1</A>
+<B> Up:</B> <A NAME="tex2html1720"
+  HREF="node80.html">Module Functions for Observables</A>
+<B> Previous:</B> <A NAME="tex2html1714"
+  HREF="node93.html">External module function dchargedensity_coeff1</A>
+ &nbsp; <B>  <A NAME="tex2html1722"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1724"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION0001721400000000000000"></A><A NAME="7265"></A><A NAME="7266"></A><A NAME="7267"></A><A NAME="7268"></A>
+<BR>
+External module function <I CLASS="slanted">spindensity_coeff</I> -
+used by <I CLASS="slanted">densplt</I>,
+<I CLASS="slanted">spins</I>,
+<I CLASS="slanted">display_density</I>,<I CLASS="slanted">display_densities</I>
+</H3>
+
+<P>
+In order to calculate spindensities
+the following function has to be
+present in the module file <I CLASS="slanted">*.so</I>:
+
+<P>
+<PRE>
+extern "C" void spindensity_coeff(Vector &amp;aSlm, int &amp; xyz, double *T,Vector &amp;Hxc, 
+   Vector &amp; Hext,double *gJ,Vector &amp;MODPAR,char **sipffilename,ComplexMatrix &amp; Icalc_parstorage);
+</PRE>
+
+<P>
+Note for windows users with MINGW the declaration should be <I CLASS="slanted">extern "C" __declspec(dllexport) void 
+spindensity_coeff(...)</I>.
+
+<P>
+The meaning of the symbols is as follows:
+<SMALL CLASS="FOOTNOTESIZE">
+</SMALL><PRE>
+  on input
+    xyz         direction index 1,2,3 = x,y,z (component for the spindensity vector to be calculated)
+    T           temperature[K]
+    Hxc        vector of exchange field [meV] (can be n-dimensional, for a set of n operators)
+     Hext      external magnetic field [T]
+    gJ          Lande factor
+    MODPAR      Vector with Parameters  read in single ion property file
+    sipffilename    file name of the single ion parameter file
+    Icalc_parstorage parameter matrix (initialized by Icalc_parameter_storage_matrix_init)
+                   it should/may contain any information, e.g. population numbers of the
+				   states (imaginary part of row 0)
+                   and eigenvalues (real part of row 0) with values set by the most recent call
+                   for this ion (making use of this matrix is optional)
+  on output
+    aSlm         Output single ion moments =expectation values of
+                coefficients of Zlm R^2(r) at a given temperature T and
+                effective field H
+</PRE>
+
+<P>
+The module function must perform the following tasks:
+
+<OL>
+<LI>calculate the coefficients of <SPAN CLASS="MATH"><IMG
+ WIDTH="67" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img796.png"
+ ALT="$Z_l^m R^2(r)$"></SPAN> in the expansion of
+      the spin density vector <!-- MATH
+ $M^S_{x,y,z}=\sum_{l,m} a^{x,y,z}_{S,lm} Z_l^m R^2(r)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="210" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img797.png"
+ ALT="$M^S_{x,y,z}=\sum_{l,m} a^{x,y,z}_{S,lm} Z_l^m R^2(r)$"></SPAN>
+      The output Vector alm(1,...,49) should contain  <!-- MATH
+ $a^{x,y,z}_{S,lm}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img798.png"
+ ALT="$a^{x,y,z}_{S,lm}$"></SPAN>
+      in the following order (lm):  00,1-1, 10,11, 2-2, 2-1,20,21,22, 3-3, 3-2, ...,65,66
+</LI>
+<LI>if <SPAN CLASS="MATH"><IMG
+ WIDTH="44" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img745.png"
+ ALT="$T&lt;0$"></SPAN> all quantities should be evaluated assuming that all Boltzmann probabilities <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img105.png"
+ ALT="$p_i$"></SPAN>
+ are zero except for the state number <SPAN CLASS="MATH"><IMG
+ WIDTH="71" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img746.png"
+ ALT="$n=(-T)$"></SPAN>, for which the probability <SPAN CLASS="MATH"><IMG
+ WIDTH="50" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img747.png"
+ ALT="$p_n=1$"></SPAN>.
+</LI>
+</OL>
+
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>

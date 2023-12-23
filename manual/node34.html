@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>subdirectory ./fit - experimental data for fit (optional) </TITLE>
+<META NAME="description" CONTENT="subdirectory ./fit - experimental data for fit (optional) ">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="previous" HREF="node33.html">
+<LINK REL="up" HREF="node23.html">
+<LINK REL="next" HREF="node35.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html829"
+  HREF="node35.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html823"
+  HREF="node23.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html819"
+  HREF="node33.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html825"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html827"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html830"
+  HREF="node35.html">Starting a simulation</A>
+<B> Up:</B> <A NAME="tex2html824"
+  HREF="node23.html">Input Files</A>
+<B> Previous:</B> <A NAME="tex2html820"
+  HREF="node33.html">subdirectory ./results - directory</A>
+ &nbsp; <B>  <A NAME="tex2html826"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html828"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION0001011100000000000000">
+subdirectory <I CLASS="slanted">./fit</I> - experimental data for fit (optional) </A>
+</H3> 
+
+<P>
+In order that <I CLASS="slanted">McPhase</I> can calculate the standard deviation between
+ experimental data and the results of the simulation, some experimental data
+ can be given in the subdirectory <I CLASS="slanted">./fit</I>. The filenames and the data-format
+ are the same as the output files of <I CLASS="slanted">McPhas</I>, e.g. <I CLASS="slanted">mcphas.fum</I>, <I CLASS="slanted">mcphas.hkl</I>
+ etc. <I CLASS="slanted">McPhase</I> looks into the directory <I CLASS="slanted">./fit</I> and if it finds any
+ of these files, the standard deviation is increased correspondingly. 
+
+<P>
+What measurement data can be used to calculate a standard deviation ?
+
+<P>
+<DL>
+<DT><STRONG><I CLASS="slanted">mcphas.fum</I></STRONG></DT>
+<DD>if given in column 11, 12, 13 in <I CLASS="slanted">./fit/mcphas.fum</I> the
+            magnetisation in the <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$a$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$b$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$c$"></SPAN> direction is used for calculation
+	    of the standard deviation sta. The standard deviation is calculated
+	    as <!-- MATH
+ ${\rm sta}=\sum_{\rm data points i} ({\mathbf m}_i^{calc}-{\mathbf m}_i^{meas})^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="249" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img196.png"
+ ALT="${\rm sta}=\sum_{\rm data points i} ({\mathbf m}_i^{calc}-{\mathbf m}_i^{meas})^2$"></SPAN>.
+	    All three components of the magnetic moment have to be given and are used.
+
+<P>
+</DD>
+</DL>
+
+<P>
+Note that the measured data has to be given in those (H-T) points which are 
+calculated by mcphas<A NAME="2309"></A> in order to be used by the program to increase <I CLASS="slanted">sta</I>.
+It is usually most effective to fit only few data points, because a large set
+of data points will not improve the quality of the fit and only require a large
+amount of calculation time.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html829"
+  HREF="node35.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html823"
+  HREF="node23.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html819"
+  HREF="node33.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html825"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html827"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html830"
+  HREF="node35.html">Starting a simulation</A>
+<B> Up:</B> <A NAME="tex2html824"
+  HREF="node23.html">Input Files</A>
+<B> Previous:</B> <A NAME="tex2html820"
+  HREF="node33.html">subdirectory ./results - directory</A>
+ &nbsp; <B>  <A NAME="tex2html826"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html828"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

@@ -1,0 +1,720 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>Transforming Crystal Field Parameters by Rotation of the Coordinate System</TITLE>
+<META NAME="description" CONTENT="Transforming Crystal Field Parameters by Rotation of the Coordinate System">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node136.html">
+<LINK REL="previous" HREF="node132.html">
+<LINK REL="up" HREF="manual.html">
+<LINK REL="next" HREF="node134.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2282"
+  HREF="node134.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2276"
+  HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2270"
+  HREF="node132.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2278"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2280"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2283"
+  HREF="node134.html">Forward Rotation Matrices</A>
+<B> Up:</B> <A NAME="tex2html2277"
+  HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A NAME="tex2html2271"
+  HREF="node132.html">Symmetry considerations for Crystal</A>
+ &nbsp; <B>  <A NAME="tex2html2279"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2281"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION000330000000000000000"></A><A NAME="rotateBlm"></A>
+<BR>
+Transforming Crystal Field Parameters  by Rotation of the Coordinate 
+System
+</H1>
+
+<P>
+There is a special program <I CLASS="slanted">cf2mcphas</I> for rotating crystal field parameters
+(Stevens Notation) 
+given in the orientation <SPAN CLASS="MATH"><IMG
+ WIDTH="35" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1168.png"
+ ALT="$abc\vert\vert$"></SPAN>xyz to the <I CLASS="slanted">McPhase</I> notation <SPAN CLASS="MATH"><IMG
+ WIDTH="35" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1168.png"
+ ALT="$abc\vert\vert$"></SPAN>yzx. The 
+original crystal field parameters have to be given in a file of the above format of a 
+single
+ion parameter file. Output is written to stdout. Note, there is also a program <I CLASS="slanted">mcphas2cf</I> for transforming parameters back. For more general rotations of 
+crystal field parameters you can use the program <I CLASS="slanted">rotateBlm</I>(see 
+chapter&nbsp;<A HREF="node122.html#addprog">19</A>).
+
+<P>
+As an example we consider a tetragonal system, where the crystal field parameters
+are usually given such that  <SPAN CLASS="MATH"><IMG
+ WIDTH="35" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1168.png"
+ ALT="$abc\vert\vert$"></SPAN>xyz - we denote these parameters as
+ <SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img35.png"
+ ALT="$B_l^m$"></SPAN>. For tetragonal symmetry only <!-- MATH
+ $B_2^0, B_4^0, B_4^4, B_6^0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="105" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1169.png"
+ ALT="$B_2^0, B_4^0, B_4^4, B_6^0$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1170.png"
+ ALT="$B_6^6$"></SPAN> are
+ not zero. In order to use these parameters in <I CLASS="slanted">mocule cfield</I>, they 
+ have to be transformed to a coordinate system <SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$xyz$"></SPAN> with <SPAN CLASS="MATH"><IMG
+ WIDTH="60" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1171.png"
+ ALT="$abc\vert\vert yzx$"></SPAN>. Denoting the new
+ crystal field parameters which are to be used as <SPAN CLASS="MATH"><IMG
+ WIDTH="36" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1172.png"
+ ALT="$Blm$"></SPAN> the transformation
+ is given by 
+
+<P>
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+B20&=&-\frac{1}{2} B_2^0  \nonumber \\
+ B22&=&+\frac{3}{2} B_2^0  \nonumber \\
+ B40&=&+\frac{3}{8} B_4^0+\frac{1}{8} B_4^4     \nonumber \\
+ B42&=&-\frac{5}{2} B_4^0+\frac{1}{2} B_4^4    \nonumber \\
+ B44&=&\frac{35}{8} B_4^0+\frac{1}{8} B_4^4  \nonumber \\
+ B60&=&-\frac{5}{16} B_6^0-\frac{1}{16} B_6^4  \nonumber \\
+ B62&=&+\frac{105}{32} B_6^0+\frac{5}{32} B_6^4  \nonumber \\
+ B64&=&-\frac{63}{16} B_6^0+\frac{13}{16} B_6^4  \nonumber \\
+ B66&=&\frac{231}{32} B_6^0+\frac{11}{32} B_6^4  \nonumber \\
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1173.png"
+ ALT="$\displaystyle B20$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="48" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1174.png"
+ ALT="$\displaystyle -\frac{1}{2} B_2^0$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1175.png"
+ ALT="$\displaystyle B22$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="48" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1176.png"
+ ALT="$\displaystyle +\frac{3}{2} B_2^0$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1177.png"
+ ALT="$\displaystyle B40$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="99" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1178.png"
+ ALT="$\displaystyle +\frac{3}{8} B_4^0+\frac{1}{8} B_4^4$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1179.png"
+ ALT="$\displaystyle B42$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="99" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1180.png"
+ ALT="$\displaystyle -\frac{5}{2} B_4^0+\frac{1}{2} B_4^4$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1181.png"
+ ALT="$\displaystyle B44$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="95" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1182.png"
+ ALT="$\displaystyle \frac{35}{8} B_4^0+\frac{1}{8} B_4^4$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1183.png"
+ ALT="$\displaystyle B60$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="115" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1184.png"
+ ALT="$\displaystyle -\frac{5}{16} B_6^0-\frac{1}{16} B_6^4$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1185.png"
+ ALT="$\displaystyle B62$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="123" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1186.png"
+ ALT="$\displaystyle +\frac{105}{32} B_6^0+\frac{5}{32} B_6^4$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1187.png"
+ ALT="$\displaystyle B64$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="115" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1188.png"
+ ALT="$\displaystyle -\frac{63}{16} B_6^0+\frac{13}{16} B_6^4$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1189.png"
+ ALT="$\displaystyle B66$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="111" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1190.png"
+ ALT="$\displaystyle \frac{231}{32} B_6^0+\frac{11}{32} B_6^4$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+As a second example we consider an orthorhombic system, where the crystal field 
+parameters
+are given such that  <SPAN CLASS="MATH"><IMG
+ WIDTH="35" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1168.png"
+ ALT="$abc\vert\vert$"></SPAN>xyz - we denote these parameters as
+ <SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img35.png"
+ ALT="$B_l^m$"></SPAN>. For orthorhombic symmetry only <!-- MATH
+ $B_2^0,B_2^2, B_4^0,B_4^2, B_4^4, B_6^0, B_6^2, %
+B_6^4$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="213" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1191.png"
+ ALT="$B_2^0,B_2^2, B_4^0,B_4^2, B_4^4, B_6^0, B_6^2, %
+B_6^4$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1170.png"
+ ALT="$B_6^6$"></SPAN> are
+ not zero. In order to use these parameters in <I CLASS="slanted">mocule cfield</I>, they 
+ have to be transformed to a coordinate system <SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$xyz$"></SPAN> with <SPAN CLASS="MATH"><IMG
+ WIDTH="60" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1171.png"
+ ALT="$abc\vert\vert yzx$"></SPAN>. Denoting the new
+ crystal field parameters which are to be used as <SPAN CLASS="MATH"><IMG
+ WIDTH="36" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1172.png"
+ ALT="$Blm$"></SPAN> the transformation
+ is given by 
+
+<P>
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+B20&=&-\frac{1}{2} B_2^0 -\frac{1}{2} B_2^2  \nonumber \\
+ B22&=&+\frac{3}{2} B_2^0 -\frac{1}{2} B_2^2  \nonumber \\
+ B40&=&+\frac{3}{8} B_4^0 +\frac{1}{8} B_4^2 +\frac{1}{8} B_4^4     \nonumber \\
+ B42&=&-\frac{5}{2} B_4^0 -\frac{1}{2} B_4^2 +\frac{1}{2} B_4^4    \nonumber \\
+ B44&=&\frac{35}{8} B_4^0 -\frac{7}{8} B_4^2 +\frac{1}{8} B_4^4  \nonumber \\
+ B60&=&-\frac{5}{16} B_6^0-\frac{1}{16} B_6^2-\frac{1}{16} B_6^4-\frac{1}{16} B_6^6  %
+\nonumber \\
+ B62&=&+\frac{105}{32} B_6^0+\frac{5}{32} B_6^4+...  \nonumber \\
+ B64&=&-\frac{63}{16} B_6^0+\frac{13}{16} B_6^4+...  \nonumber \\
+ B66&=&\frac{231}{32} B_6^0+\frac{11}{32} B_6^4+...  \nonumber \\
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1173.png"
+ ALT="$\displaystyle B20$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="99" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1192.png"
+ ALT="$\displaystyle -\frac{1}{2} B_2^0 -\frac{1}{2} B_2^2$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1175.png"
+ ALT="$\displaystyle B22$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="99" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1193.png"
+ ALT="$\displaystyle +\frac{3}{2} B_2^0 -\frac{1}{2} B_2^2$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1177.png"
+ ALT="$\displaystyle B40$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="150" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1194.png"
+ ALT="$\displaystyle +\frac{3}{8} B_4^0 +\frac{1}{8} B_4^2 +\frac{1}{8} B_4^4$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1179.png"
+ ALT="$\displaystyle B42$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="150" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1195.png"
+ ALT="$\displaystyle -\frac{5}{2} B_4^0 -\frac{1}{2} B_4^2 +\frac{1}{2} B_4^4$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1181.png"
+ ALT="$\displaystyle B44$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="146" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1196.png"
+ ALT="$\displaystyle \frac{35}{8} B_4^0 -\frac{7}{8} B_4^2 +\frac{1}{8} B_4^4$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1183.png"
+ ALT="$\displaystyle B60$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="437" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1197.png"
+ ALT="$\displaystyle -\frac{5}{16} B_6^0-\frac{1}{16} B_6^2-\frac{1}{16} B_6^4-\frac{1}{16} B_6^6 &lt;tex2html_comment_mark&gt;$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1185.png"
+ ALT="$\displaystyle B62$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="156" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1198.png"
+ ALT="$\displaystyle +\frac{105}{32} B_6^0+\frac{5}{32} B_6^4+...$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1187.png"
+ ALT="$\displaystyle B64$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="148" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1199.png"
+ ALT="$\displaystyle -\frac{63}{16} B_6^0+\frac{13}{16} B_6^4+...$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1189.png"
+ ALT="$\displaystyle B66$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="143" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1200.png"
+ ALT="$\displaystyle \frac{231}{32} B_6^0+\frac{11}{32} B_6^4+...$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+As a second example we consider an dhcp system with quasi cubic sites, where the crystal 
+field parameters
+are given such that  <SPAN CLASS="MATH"><IMG
+ WIDTH="35" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1168.png"
+ ALT="$abc\vert\vert$"></SPAN>xyz - we denote these parameters as
+ <SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img35.png"
+ ALT="$B_l^m$"></SPAN>. Only <!-- MATH
+ $B_2^0,B_2^{-1},B_2^2, B_4^0,B_4^{-1},B_4^2,B_4^{-3}, B_4^4, %
+B_6^0,B_6^{-1}, B_6^2,B_6^{-3}, B_6^4$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="398" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1201.png"
+ ALT="$B_2^0,B_2^{-1},B_2^2, B_4^0,B_4^{-1},B_4^2,B_4^{-3}, B_4^4, %
+B_6^0,B_6^{-1}, B_6^2,B_6^{-3}, B_6^4$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1170.png"
+ ALT="$B_6^6$"></SPAN> are
+ not zero. In order to use these parameters in <I CLASS="slanted">mocule cfield</I>, they 
+ have to be transformed to a coordinate system <SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$xyz$"></SPAN> with <SPAN CLASS="MATH"><IMG
+ WIDTH="60" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1171.png"
+ ALT="$abc\vert\vert yzx$"></SPAN>. Denoting the new
+ crystal field parameters which are to be used as <SPAN CLASS="MATH"><IMG
+ WIDTH="36" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1172.png"
+ ALT="$Blm$"></SPAN> the transformation
+ is given by 
+
+<P>
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+B21&=&-2B_2^{-1}  \nonumber \\
+ B20&=&-\frac{1}{2} B_2^0 -\frac{1}{2} B_2^2  \nonumber \\
+ B22&=&+\frac{3}{2} B_2^0 -\frac{1}{2} B_2^2  \nonumber \\
+ B4-3&=&-\frac{7}{4} B_4^{-1} -\frac{3}{4} B_4^{-3}  \nonumber \\
+ B4-1&=&+\frac{3}{4} B_4^{-1} -\frac{1}{4} B_4^{-3}  \nonumber \\
+ B40&=&+\frac{3}{8} B_4^0 +\frac{1}{8} B_4^2 +\frac{1}{8} B_4^4     \nonumber \\
+ B42&=&-\frac{5}{2} B_4^0 -\frac{1}{2} B_4^2 +\frac{1}{2} B_4^4    \nonumber \\
+ B44&=&\frac{35}{8} B_4^0 -\frac{7}{8} B_4^2 +\frac{1}{8} B_4^4  \nonumber \\
+ B60&=&-\frac{5}{16} B_6^0-\frac{1}{16} B_6^4+...  \nonumber \\
+ B62&=&+\frac{105}{32} B_6^0+\frac{5}{32} B_6^4+...  \nonumber \\
+ B64&=&-\frac{63}{16} B_6^0+\frac{13}{16} B_6^4+...  \nonumber \\
+ B66&=&\frac{231}{32} B_6^0+\frac{11}{32} B_6^4+...  \nonumber \\
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1202.png"
+ ALT="$\displaystyle B21$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="54" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1203.png"
+ ALT="$\displaystyle -2B_2^{-1}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1173.png"
+ ALT="$\displaystyle B20$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="99" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1192.png"
+ ALT="$\displaystyle -\frac{1}{2} B_2^0 -\frac{1}{2} B_2^2$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1175.png"
+ ALT="$\displaystyle B22$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="99" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1193.png"
+ ALT="$\displaystyle +\frac{3}{2} B_2^0 -\frac{1}{2} B_2^2$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="52" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1204.png"
+ ALT="$\displaystyle B4-3$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="119" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1205.png"
+ ALT="$\displaystyle -\frac{7}{4} B_4^{-1} -\frac{3}{4} B_4^{-3}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="52" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1206.png"
+ ALT="$\displaystyle B4-1$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="119" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1207.png"
+ ALT="$\displaystyle +\frac{3}{4} B_4^{-1} -\frac{1}{4} B_4^{-3}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1177.png"
+ ALT="$\displaystyle B40$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="150" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1194.png"
+ ALT="$\displaystyle +\frac{3}{8} B_4^0 +\frac{1}{8} B_4^2 +\frac{1}{8} B_4^4$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1179.png"
+ ALT="$\displaystyle B42$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="150" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1195.png"
+ ALT="$\displaystyle -\frac{5}{2} B_4^0 -\frac{1}{2} B_4^2 +\frac{1}{2} B_4^4$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1181.png"
+ ALT="$\displaystyle B44$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="146" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1196.png"
+ ALT="$\displaystyle \frac{35}{8} B_4^0 -\frac{7}{8} B_4^2 +\frac{1}{8} B_4^4$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1183.png"
+ ALT="$\displaystyle B60$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="148" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1208.png"
+ ALT="$\displaystyle -\frac{5}{16} B_6^0-\frac{1}{16} B_6^4+...$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1185.png"
+ ALT="$\displaystyle B62$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="156" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1198.png"
+ ALT="$\displaystyle +\frac{105}{32} B_6^0+\frac{5}{32} B_6^4+...$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1187.png"
+ ALT="$\displaystyle B64$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="148" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1199.png"
+ ALT="$\displaystyle -\frac{63}{16} B_6^0+\frac{13}{16} B_6^4+...$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1189.png"
+ ALT="$\displaystyle B66$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="143" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1200.png"
+ ALT="$\displaystyle \frac{231}{32} B_6^0+\frac{11}{32} B_6^4+...$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+
+<P>
+The general transformation matrices are given by
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><UL>
+<LI><A NAME="tex2html2284"
+  HREF="node134.html">Forward Rotation Matrices</A>
+<LI><A NAME="tex2html2285"
+  HREF="node135.html">Reverse Rotation Matrices</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2282"
+  HREF="node134.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2276"
+  HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2270"
+  HREF="node132.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2278"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2280"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2283"
+  HREF="node134.html">Forward Rotation Matrices</A>
+<B> Up:</B> <A NAME="tex2html2277"
+  HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A NAME="tex2html2271"
+  HREF="node132.html">Symmetry considerations for Crystal</A>
+ &nbsp; <B>  <A NAME="tex2html2279"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2281"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

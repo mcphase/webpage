@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>Intermediate Coupling</TITLE>
+<META NAME="description" CONTENT="Intermediate Coupling">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="previous" HREF="node14.html">
+<LINK REL="up" HREF="node13.html">
+<LINK REL="next" HREF="node16.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html536"
+  HREF="node16.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html530"
+  HREF="node13.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html526"
+  HREF="node14.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html532"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html534"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html537"
+  HREF="node16.html">singleion - a Crystal</A>
+<B> Up:</B> <A NAME="tex2html531"
+  HREF="node13.html">The Hamiltonian</A>
+<B> Previous:</B> <A NAME="tex2html527"
+  HREF="node14.html">Rare Earth Ions</A>
+ &nbsp; <B>  <A NAME="tex2html533"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html535"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00082000000000000000">
+Intermediate Coupling</A>
+</H2>
+
+<P>
+For some rare earth ions and for transition metals or actinides it is necessary to
+include more singleion ion states with differen L,S into the calculation. This
+can be done in intermediate coupling using the module <I CLASS="slanted">ic1ion</I><A NAME="508"></A>, which
+explicitely includes electrostatic and  spin orbit interactions for each ion:
+
+<P>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="ichamilton"></A>
+<!-- MATH
+ \begin{eqnarray}
+{\mathcal H}&=& \sum_n \left \{ \sum_{i_n=1}^{\nu_n}
+ \left [ \frac{p_{i_n}^2}{2m_e}
+        -\frac{Z_n e^2}{4\pi\epsilon_0|\mathbf r_{i_n}-\mathbf R_n|}
+        +\zeta_n  \mathbf l^{i_n} \cdot \mathbf s^{i_n}
+        + \sum_{lm} L_l^m(n) T_{lm}^n
+\right ]
+              + \sum_{i_n>j_n=1}^{\nu_n}\frac{e^2}{4\pi\epsilon_0|\mathbf r_{i_n}-\mathbf r_{j_n}|} \right \} \nonumber \\
+	    && - \sum_{n}  \mu_B (2\mathbf S^n+\mathbf L^n) {\mathbf H}  \nonumber\\
+            && -\frac{1}{2} \sum_{nn'} \left[ 
+({\hat \mathbf L}^n,{\hat \mathbf S}^n )
+\stackrel{=}{\mathcal J}(nn') 
+\left ( \begin{array}{c} {\hat \mathbf L}^{n'} \\
+        {\hat \mathbf S}^{n'} \end{array}
+\right )
+     + \sum_{kk'} \sum_{qq'}  \mathcal{K}_{kk'}^{qq'}(nn') \hat{T}_{kq}^n T_{k'q'}^{n'} \right]
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img67.png"
+ ALT="$\displaystyle {\mathcal H}$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="641" HEIGHT="75" ALIGN="MIDDLE" BORDER="0"
+ SRC="img69.png"
+ ALT="$\displaystyle \sum_n \left \{ \sum_{i_n=1}^{\nu_n}
+\left [ \frac{p_{i_n}^2}{2m_...
+...n}\frac{e^2}{4\pi\epsilon_0\vert\mathbf r_{i_n}-\mathbf r_{j_n}\vert} \right \}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="158" HEIGHT="47" ALIGN="MIDDLE" BORDER="0"
+ SRC="img70.png"
+ ALT="$\displaystyle - \sum_{n} \mu_B (2\mathbf S^n+\mathbf L^n) {\mathbf H}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="453" HEIGHT="73" ALIGN="MIDDLE" BORDER="0"
+ SRC="img71.png"
+ ALT="$\displaystyle -\frac{1}{2} \sum_{nn'} \left[
+({\hat \mathbf L}^n,{\hat \mathbf ...
+...'} \sum_{qq'} \mathcal{K}_{kk'}^{qq'}(nn') \hat{T}_{kq}^n T_{k'q'}^{n'} \right]$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">4</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+Here <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img72.png"
+ ALT="$\nu_n$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img73.png"
+ ALT="$Z_n$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img74.png"
+ ALT="$\mathbf R_n$"></SPAN> denote the number of electrons, the charge of the nucleus
+and the position
+ of the ion number <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img46.png"
+ ALT="$n$"></SPAN>,respectively, for each electron being
+<SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img75.png"
+ ALT="$p$"></SPAN> the momentum, <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img76.png"
+ ALT="$m_e$"></SPAN> the mass, <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img77.png"
+ ALT="$e$"></SPAN> the charge and <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img78.png"
+ ALT="$\mathbf r$"></SPAN> the location.
+Spin orbit coupling is written in terms of the orbital momentum <SPAN CLASS="MATH"><IMG
+ WIDTH="9" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img79.png"
+ ALT="$\mathbf l$"></SPAN> and
+spin <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img80.png"
+ ALT="$\mathbf s$"></SPAN> of the individual electrons. The
+ Zeman interaction and two ion interaction are written in terms of 
+the (inverse) total spin <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img81.png"
+ ALT="$\mathbf S_n$"></SPAN> and (inverse) total orbital momentum <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img82.png"
+ ALT="$\mathbf L_n$"></SPAN>
+of ion number <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img46.png"
+ ALT="$n$"></SPAN>. The crystal field in intermediate coupling is written
+in terms of Wybourne parameters <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$L_l^m$"></SPAN> and Wybourne operators <SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img84.png"
+ ALT="$T_{lm}^n$"></SPAN>, operator equivalents
+of real valued 
+spherical harmonic functions 
+<!-- MATH
+ $T_{l0}=\sqrt{4\pi/(2l+1)}\sum_iY_{l0}(\Omega_{i_n})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="225" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img85.png"
+ ALT="$T_{l0}=\sqrt{4\pi/(2l+1)}\sum_iY_{l0}(\Omega_{i_n})$"></SPAN>, 
+<!-- MATH
+ $T_{l,\pm|m|}=\sqrt{4\pi/(2l+1)}\sum_i \sqrt{\pm1}[Y_{l,-|m|}(\Omega_{i_n})\pm (-1)^m Y_{l,|m|}(\Omega_{i_n})]$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="457" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img86.png"
+ ALT="$T_{l,\pm\vert m\vert}=\sqrt{4\pi/(2l+1)}\sum_i \sqrt{\pm1}[Y_{l,-\vert m\vert}(\Omega_{i_n})\pm (-1)^m Y_{l,\vert m\vert}(\Omega_{i_n})]$"></SPAN> for the ion <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img46.png"
+ ALT="$n$"></SPAN>,
+for details on crystal field parameter 
+conventions see appendix&nbsp;<A HREF="node129.html#cfparconventions">E</A>.
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html536"
+  HREF="node16.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html530"
+  HREF="node13.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html526"
+  HREF="node14.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html532"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html534"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html537"
+  HREF="node16.html">singleion - a Crystal</A>
+<B> Up:</B> <A NAME="tex2html531"
+  HREF="node13.html">The Hamiltonian</A>
+<B> Previous:</B> <A NAME="tex2html527"
+  HREF="node14.html">Rare Earth Ions</A>
+ &nbsp; <B>  <A NAME="tex2html533"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html535"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

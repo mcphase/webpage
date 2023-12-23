@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>Fitting is an art: some general remarks</TITLE>
+<META NAME="description" CONTENT="Fitting is an art: some general remarks">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="previous" HREF="node120.html">
+<LINK REL="up" HREF="node114.html">
+<LINK REL="next" HREF="node122.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2114"
+  HREF="node122.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2108"
+  HREF="node114.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2104"
+  HREF="node120.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2110"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2112"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2115"
+  HREF="node122.html">Programs for Specific Tasks</A>
+<B> Up:</B> <A NAME="tex2html2109"
+  HREF="node114.html">Searchspace and Simannfit -</A>
+<B> Previous:</B> <A NAME="tex2html2105"
+  HREF="node120.html">Stopping a fit/parameter space</A>
+ &nbsp; <B>  <A NAME="tex2html2111"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2113"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000217000000000000000">
+Fitting is an art: some general remarks</A>
+</H2>
+
+<P>
+Fitting data is in most cases not a straightforward procedure and requires
+a lot of experience and intuition. Even the fitting of a Gaussian to some
+experimental data is sometimes difficult and the available algorithms fail,
+ if the initial
+stepwidths or starting values are not chosen with some care.
+This rule holds even more for complex non linear fitting in a large
+parameter space. In many cases a simple theoretical model is used
+and it is <B>not</B> clear at the beginning if this model is able
+to describe the data at all. 
+So how can reasonable starting parameters be found ? What value
+for the statistical temperature has to be chosen ?
+
+<P>
+One possible way to attack this problem is to monitor the status of a fit
+by viewing online its quality when fitting. The value of <EM>sta</EM> which is put onto
+the screen together with the standard deviation is only a very rudimentary information.
+In most cases it is necessary to view the data which is to be fitted graphically and
+see how the calculated data matches. It is also advisable to monitor the
+standard deviation and how it changes with time. After starting the
+fit it should the be possible to judge, if stepwidths should be modified or if
+the parameter range was chosen too small or too large etc.
+
+<P>
+To view online the contents of a file which contains data in column format
+the program <I CLASS="slanted">display</I> can be used. To start the display<A NAME="10773"></A> of
+the file <EM>data.dat</EM> with x-axis data in column 1 and y-axis data
+in column 2 just type (java has to be installed in order to use this):
+
+<P>
+display<A NAME="10775"></A> 1 2 data.dat
+
+<P>
+In order to send this data display<A NAME="10776"></A> to the background type under Linux:
+
+<P>
+display<A NAME="10777"></A> 1 2 data.dat &amp;
+
+<P>
+and under windows:
+
+<P>
+start display<A NAME="10778"></A> 1 2 data.dat
+
+<P>
+<BR>
+<BR>
+<BR>
+<EM>Exercises:</EM>
+
+<UL>
+<LI>Start the fit example given for the fitting of the magnetic 
+excitations of CeCu<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$_2$"></SPAN> in <I CLASS="slanted">mcphas/examples/cecu2a/fit</I>.
+First copy the file <I CLASS="slanted">mcphas.jjj.sav</I> to <I CLASS="slanted">mcphas.jjj</I>
+Then start the fit by typing <I CLASS="slanted">simannfit 10 mcphas.jjj</I>.
+</LI>
+<LI>Stop the fit by editing <I CLASS="slanted">calcsta</I> as described above.
+</LI>
+<LI>Copy <I CLASS="slanted">mcphas.jjj.fit</I> to <I CLASS="slanted">mcphas.jjj</I>  and type
+<I CLASS="slanted">calcsta</I>. What is the standard-deviation ? 
+</LI>
+<LI>In order to fit  crystal field parameters to transition
+energies of neutron intensities write a module
+<I CLASS="slanted">calcsta</I> for CeCu<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$_2$"></SPAN> which uses only the program
+cfield to calculate the transition matrix elements
+and compare them to experimental data.
+The section&nbsp;<A HREF="node122.html#addprog">19</A> contains some further programs which
+might help. 
+</LI>
+</UL>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2114"
+  HREF="node122.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2108"
+  HREF="node114.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2104"
+  HREF="node120.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2110"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2112"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2115"
+  HREF="node122.html">Programs for Specific Tasks</A>
+<B> Up:</B> <A NAME="tex2html2109"
+  HREF="node114.html">Searchspace and Simannfit -</A>
+<B> Previous:</B> <A NAME="tex2html2105"
+  HREF="node120.html">Stopping a fit/parameter space</A>
+ &nbsp; <B>  <A NAME="tex2html2111"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2113"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

@@ -1,0 +1,436 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>using ic1ion as a stand-alone program to do crystal field calculations</TITLE>
+<META NAME="description" CONTENT="using ic1ion as a stand-alone program to do crystal field calculations">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node101.html">
+<LINK REL="previous" HREF="node99.html">
+<LINK REL="up" HREF="node99.html">
+<LINK REL="next" HREF="node101.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1813"
+  HREF="node101.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1807"
+  HREF="node99.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1801"
+  HREF="node99.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1809"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1811"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1814"
+  HREF="node101.html">cpic1ion - calculation of</A>
+<B> Up:</B> <A NAME="tex2html1808"
+  HREF="node99.html">ic1ion - a module</A>
+<B> Previous:</B> <A NAME="tex2html1802"
+  HREF="node99.html">ic1ion - a module</A>
+ &nbsp; <B>  <A NAME="tex2html1810"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1812"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000181000000000000000"></A><A NAME="8796"></A>
+<BR>
+using <I CLASS="slanted">ic1ion</I> as a stand-alone program to do crystal field calculations
+</H2>
+
+<P>
+<I CLASS="slanted">ic1ion</I> can be started by issuing the command <I CLASS="slanted">ic1ion</I> (reading input from single ion 
+parameter file <I CLASS="slanted">mcphas.ic</I>). Alternatively, the single ion parameter file can be specified on the commandline as
+
+<P>
+<I CLASS="slanted">ic1ion filename</I>
+
+<P>
+<I CLASS="slanted">ic1ion</I> also accepts these options: 
+<DL>
+<DT><STRONG><I CLASS="slanted">-h</I></STRONG></DT>
+<DD>which outputs in the file <I CLASS="slanted">results/ic1ion.out</I> only
+the header containing the free ion (Coulomb and spin-orbit) and single ion (crystal field and magnetic fields)
+parameters. 
+</DD>
+</DL>
+The single ion parameter file has to be of the form (note the crystal field parameters in Wybourne notation
+can be calculated by <I CLASS="slanted">pointc</I><A NAME="8807"></A>):
+<SMALL CLASS="FOOTNOTESIZE">
+</SMALL><PRE>
+#!MODULE=ic1ion
+#&lt;!--mcphase.sipf--&gt;
+# single ion property file example for module ic1ion
+
+#-------------------------------------------------------------------------------------------
+# OBLIGATORY PARAMETERS
+#------------------------------------------------------------------------------------------
+
+# Configuration *********************************************
+# (i) either specify single ion type by IONTYPE 
+
+# IONTYPE=Co2+
+
+# (ii) or by giving parameters explicitly:
+# from Griffith 1971 p 487  B=1115  C=4366 ZETA=533
+# p379 CoIII=Co2+ is 3d7 configuration
+conf = d7
+F0=0
+F2=1738.7
+F4=124.74
+zeta=533
+# from equations p 83 A=F0-49*F4  B=F2-5*F4 C=35*F4
+# we get F4=C/35  F2=B+5*F4
+# however F0 is not determined from this table ...
+#*******************************************************
+
+# for charges and chrgplt to work you need to specify the number of electrons in the shell
+
+nof_electrons=7
+
+#-------------------------------------------------------------------------------------------
+# OPTIONAL PARAMETERS
+#-------------------------------------------------------------------------------------------
+
+# some keywords, each in a separate line (each keyword sets a flag to true and holds
+# for the rest of the file to be read)
+
+# --- add a magnetic field (Tesla) ---
+Bx=1
+By=2
+Bz=0.1
+
+# -- choose the basis to be used for output of eigenstates in ic1ion.out ----
+# Either:
+#
+# basis=mSmL
+#
+# For |L,S,mS,mL&gt; basis. Or
+ 
+ basis=JmJ
+
+# For |L,S,J,mJ&gt; basis (default if none specified).
+
+# to allow output of more than 4 components of the eigenvector in ic1ion.out, 
+# you need to specify the number X of eigenvectors here:
+
+# eigenvectors=X
+
+# --- some faster algorithms for matrix diagonalisation ...
+
+# uncomment the next line to save matrices which are often used the first time they are
+# calcultated in the directory results/mms, and then reread for subsequent instances.
+
+# save_matrices
+
+# if the next line is uncommented then it will use the Arnoldi method to calculate only 
+# a few of the lowest eigenvalues in Icalc() [those for which the thermal occupation
+# factor at 300K is nonzero]. Note: this method may sometimes give erroneous eigenvectors
+# due to numerical instabilities. In addition, it may be disabled in Mac OS X versions.
+
+# arnoldi
+
+# Another more reliable method to find only a few of the lowest eigenvalue uses the 
+# relatively robust representation algorithm in Lapack and can be accessibly by 
+# uncommenting the keyword: "partial" below. This method takes about 2/3 the
+# time of the full computation of Icalc(), whereas the arnoldi routine takes about
+# 1/5 the time.
+
+# partial
+
+# Finally the full Hamiltonian matrix may be truncated at some levels, leaving only
+# the lowest lying energy levels to be used in the calculation of the moments.
+# This option is activated by uncommenting the line below, specifying a ratio X of
+# levels to keep. For example, if X=0.2, for f2, 20% of the full 91 levels == 18
+# levels will be used for the Icalc() calculation.
+# This routine first calculates and diagonalises the singleion Hamiltonian without 
+# the Zeeman or mean-field terms, and then uses these eigenvectors to make a unitary 
+# transformation matrix to rotate the multipolar and L and S operators into this
+# new basis. Then it truncates the matrix, leaving only the X fraction lowest 
+# levels.
+# This method is much faster (for low values of X) even than the arnoldi method, but
+# is much more approximate. Note The most computationally extensive operations are 
+# carried out at the start - the diagonalisation of the single ion Hamiltonian, and
+# matrix-matrix multiplication to rotate the operator matrices. Once done the rotated 
+# matrices are stored in memory and then reused when the &lt;J&gt; expectation values have 
+# to be evaluated. the routine uses the Icalc_parstorage matrix for storing the 
+# rotated matrices.
+# One should experiment with the value of X and compare it with using the full matrix 
+# diagonalisation before relying on the results. 
+# This approximation method is probably not necessary for d-electron matrices (as 
+# those are usually quite small), but for f-electrons it is quite useful!
+# Uncomment the next line to use the truncate method with 1/5th of all levels
+
+# truncate_matrix=0.2
+
+# a list of crystal field parameters (Llm denote Wybourne parameters)
+units=meV
+L22S=-4.8939
+L21S=-3.26255
+L20=2.8304
+L21=-2.44691
+L22=1.42739
+L44S=0.0574029
+L43S=-0.0425222
+L42S=0.00309947
+L41S=0.0862038
+L40=0.0162131
+L41=0.0646528
+L42=-0.000904011
+L43=0.11307
+L44=0.0900338
+L66S=0.00305141
+L65S=0.006398
+L64S=0.00110317
+L63S=0.00151215
+L62S=0.00344795
+L61S=-0.00449046
+L60=-0.00389599
+L61=-0.00336784
+L62=-0.00100565
+L63=-0.00402095
+L64=0.00173027
+L65=0.000486626
+L66=-0.00348322
+
+# Blm denote Stevens normalised parameters. They are related to Wyborne
+# parameters by: Blm = l(lm) t(lm) Llm  where l(lm) is a l- and m-dependent
+# factor and t(lm) is the Stevens operator equivalent factor, usually 
+# denoted alpha, beta, gamma for l=2,4,6 respectively. Please note that
+# by default the factor &lt;J||alpha||J&gt; etc. for a J-multiplet is used for
+# f-electron ions whilst &lt;L||alpha||L&gt; etc. ignoring spin is used for 
+# d-electron ions as per convention in the literature. You can force the
+# use of one or the other type of factors by uncommenting the following:
+
+#use_L_operator_equivalent
+#use_J_operator_equivalent
+
+B20=-0.001
+
+# Note that the parameters output in the header of the ic1ion.out file
+# is given in the type of the last input parameter read (e.g. Stevens
+# normalisation in this case).
+
+# magnetisation calculation can be triggered by the following parameters
+calcmag
+# default magnetisation output units is Bohr magneton per ion
+
+# if the following is uncommented, ic1ion will output magnetisation in emu/mol
+#emu
+
+# if the following is uncommented, ic1ion will output magnetisation in Am^2/mol
+#simag
+
+ xT   = 1
+ xHa  = 0
+ xHb  = 0
+ xHc  = 0
+ xmin = 1
+ xstep= 1
+ xmax = 300
+ yT   = 0
+ yHa  = 1
+ yHb  = 0
+ yHc  = 0
+ ymin = 1
+ ystep= 1
+ ymax = 1
+
+#-------------------------------------------------------------------------------------------
+# the following parameters are read, when ic1ion is used as a module for other
+# programs in the mcphase program suite, such as mcphas, mcdiff, mcdisp ...
+
+#-------------------------------------------------------
+# Neutron Scattering Length (10^-12 cm) (can be complex)
+#-------------------------------------------------------
+SCATTERINGLENGTHREAL=0.249
+SCATTERINGLENGTHIMAG=0
+#  ... note: - if an occupancy other than 1.0 is needed, just reduce 
+#              the scattering length linear accordingly
+ 
+ 
+#--------------------------------------------------------------------------------------
+# Neutron Magnetic Form Factor coefficients - thanks to J Brown
+#   d = 2*pi/Q      
+#   s = 1/2/d = Q/4/pi   
+#   sin(theta) = lambda * s
+#   r= s*s = Q*Q/16/pi/pi
+#
+#   &lt;j0(Qr)&gt;=   FFj0A*EXP(-FFj0a*r) + FFj0B*EXP(-FFj0b*r) + FFj0C*EXP(-FFj0c*r) + FFj0D
+#   &lt;j2(Qr)&gt;=r*(FFj2A*EXP(-FFj2a*r) + FFj2B*EXP(-FFj2b*r) + FFj2C*EXP(-FFj2c*r) + FFj2D
+#   &lt;j4(Qr)&gt;=r*(FFj4A*EXP(-FFj4a*r) + FFj4B*EXP(-FFj4b*r) + FFj4C*EXP(-FFj4c*r) + FFj4D
+#   &lt;j6(Qr)&gt;=r*(FFj6A*EXP(-FFj6a*r) + FFj6B*EXP(-FFj6b*r) + FFj6C*EXP(-FFj6c*r) + FFj6D
+#
+#   Dipole Approximation for Neutron Magnetic Formfactor:
+#        -Spin Form Factor       FS(Q)=&lt;j0(Q)&gt;
+#        -Angular Form Factor    FL(Q)=&lt;j0(Q)&gt;+&lt;j2(Q)&gt;
+#        -Rare Earth Form Factor F(Q) =&lt;j0(Q)&gt;+&lt;j2(Q)&gt;*(2/gJ-1)
+#--------------------------------------------------------------------------------------
+FFj0A=0.4085 FFj0a=23.8526 FFj0B=0.6091 FFj0b=8.2456 FFj0C=-0.1676 FFj0c=0.0415 FFj0D=0.1496     
+FFj2A=3.4386 FFj2a=16.5303 FFj2B=1.9638 FFj2b=6.1415 FFj2C=0.2997 FFj2c=2.2669 FFj2D=0.0009     
+FFj4A=-0.4759 FFj4a=14.0462 FFj4B=0.2747 FFj4b=3.7306 FFj4C=0.2458 FFj4c=1.2504 FFj4D=0.0057 
+
+
+#---------------------------------------------------------
+# radial wave function parameters (for use in programs pointc, chrgplt, charges) 
+# R_Np,XIp(r)= r^(Np-1) . exp(-xi r) . (2 XIp)^(Np+0.5) / sqrt(2Np!)  
+# values tabulated in clementi &amp; roetti Atomic data and nuclear data tables 14 (1974) 177-478
+# Co2+ is isoelectronic to Fe+, looking at page  422 of Clemente &amp; Roetti 
+# the 3D radial wave function is expanded as R(r)=sum_p C_p R_Np,XIp(r)
+#---------------------------------------------------------
+N1=3 XI1=4.95296 C1=0.36301 
+N2=3 XI2=12.2963 C2=0.02707 
+N3=3 XI3=7.03565 C3=0.14777
+N4=3 XI4=2.74850 C4=0.49771 
+N5=3 XI5=1.69027 C5=0.11388 
+# for program pointcharge alternatively, the radial matrix elements may be given:
+
+#---------------------------------------------------------
+# Radial Matrix Elements (e.g. Abragam Bleaney 1971 p 399)
+#---------------------------------------------------------
+#&lt;r^2&gt; in units of a0^2 a0=0.5292 Angstroem
+R2=1.24653
+#&lt;r^4&gt; in units of a0^4 a0=0.5292 Angstroem
+R4=3.67281
+#&lt;r^6&gt; in units of a0^6 a0=0.5292 Angstroem
+R6=21.0652
+
+#---------------------------------------------------------
+#pointcharges charge[|e|]  x[A] y[A] z[A]
+#---------------------------------------------------------
+pointcharge=  0.3            3    4    2
+
+
+#-------------------------------------------------------
+# Debye-Waller Factor: sqr(Intensity)~|sf|~EXP(-2 * DWF *s*s)=EXP (-W)
+#                      with s=sin(theta)/lambda=Q/4pi
+# relation to other notations: 2*DWF=Biso=8 pi^2 &lt;u^2&gt;
+# unit of DWF is [A^2]
+#-------------------------------------------------------
+DWF=0.4
+</PRE>
+The output files are written to directory <I CLASS="slanted">results</I> and contain energy eigentstates (<I CLASS="slanted">ic1ion.out</I>) ,
+polycrystal neutron transitions and intensities (<I CLASS="slanted">ic1ion.trs</I>) and, optional, 
+the magnetisation (<I CLASS="slanted">ic1ion.mag</I>). Note in these
+output files the parameters alpha/beta/gamma
+in the header are not the Steven's operator equivalent factors, but
+rather the parameters of the configuration interactions. The operator equivalent factors are listed as 
+<TT>&lt;L||alpha||L&gt;</TT> etc. or <TT>&lt;J||alpha||J&gt;</TT> etc. depending on whether <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img706.png"
+ ALT="$J$"></SPAN>- or <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img26.png"
+ ALT="$L$"></SPAN>-operator equivalents
+are used. <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img26.png"
+ ALT="$L$"></SPAN>- (<SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img706.png"
+ ALT="$J$"></SPAN>-)operators are default for <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img27.png"
+ ALT="$d$"></SPAN>- (<SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img102.png"
+ ALT="$f$"></SPAN>-)electron ions. In practice, as the <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img706.png"
+ ALT="$J$"></SPAN>- or <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img26.png"
+ ALT="$L$"></SPAN>- 
+operators are valid only within an <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img26.png"
+ ALT="$L$"></SPAN>- or <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img706.png"
+ ALT="$J$"></SPAN>-manifold, whilst <I CLASS="slanted">ic1ion</I> calculates the splitting of the
+full <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img808.png"
+ ALT="$l^\nu$"></SPAN> configuration with many manifolds, the operator equivalent factors only serve to convert the input
+Stevens parameters into Wybourne normalisation, which is used internally by the program to calculate the
+Hamiltonian, for details on crystal field parameter conventions see appendix&nbsp;<A HREF="node129.html#cfparconventions">E</A>.
+
+<P>
+Note that if you wish to compare the output of <I CLASS="slanted">ic1ion</I> with published energies/wavefunctions using Stevens
+parameters for rare earths, you should set the Slater <I CLASS="slanted">F2, F4, F6</I> and spin-orbit <I CLASS="slanted">zeta</I> integrals to
+very high values - such as 10<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img809.png"
+ ALT="$^7$"></SPAN> meV, in order to obtain the <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img810.png"
+ ALT="$LS$"></SPAN>-coupling limit. For comparison with Stevens
+parameters within an <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img26.png"
+ ALT="$L$"></SPAN>-manifold for <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img27.png"
+ ALT="$d$"></SPAN>-electron ions, the Slater integrals should be set to high
+values but the spin-orbit integral to zero. In this case the <I CLASS="slanted">ic1ion</I> output will have twice the
+degeneracy of a pure <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img26.png"
+ ALT="$L$"></SPAN>-manifold calculation because the spin is taken into account in <I CLASS="slanted">ic1ion</I> and
+generates an additional two-fold degeneracy. If a non-zero (e.g. literature specified) spin-orbit integral
+<I CLASS="slanted">zeta</I> is specified, then this degeneracy will be lifted.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1813"
+  HREF="node101.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1807"
+  HREF="node99.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1801"
+  HREF="node99.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1809"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1811"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1814"
+  HREF="node101.html">cpic1ion - calculation of</A>
+<B> Up:</B> <A NAME="tex2html1808"
+  HREF="node99.html">ic1ion - a module</A>
+<B> Previous:</B> <A NAME="tex2html1802"
+  HREF="node99.html">ic1ion - a module</A>
+ &nbsp; <B>  <A NAME="tex2html1810"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1812"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

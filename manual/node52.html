@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>Powder-averaging the spectra</TITLE>
+<META NAME="description" CONTENT="Powder-averaging the spectra">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="previous" HREF="node51.html">
+<LINK REL="up" HREF="node49.html">
+<LINK REL="next" HREF="node53.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1091"
+  HREF="node53.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1085"
+  HREF="node49.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1081"
+  HREF="node51.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1087"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1089"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1092"
+  HREF="node53.html">Resonant Inelastic X-ray Scattering(RIXS)</A>
+<B> Up:</B> <A NAME="tex2html1086"
+  HREF="node49.html">Powder Neutron Cross Section</A>
+<B> Previous:</B> <A NAME="tex2html1082"
+  HREF="node51.html">Calculation of the Dispersion</A>
+ &nbsp; <B>  <A NAME="tex2html1088"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1090"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000123300000000000000">
+Powder-averaging the spectra</A>
+</H3>
+The third and last step in the calculation of the powder pattern is the averaging
+of the spectra with the same value of <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img93.png"
+ ALT="$Q$"></SPAN>. This is done by restarting module
+<I CLASS="slanted">powdermagnon</I> by: 
+
+<P>
+powdermagnon -r results
+<BR>
+mcdisp.qei 0.5 30 0.2 
+
+<P>
+meaning take  results from file <I CLASS="slanted">results
+<BR>
+mcdisp.qei</I> and average the
+spectra. Output is printed to the console (STDOUT) and can be piped to a file in
+order to print it with <I CLASS="slanted">displaycontour<A NAME="3923"></A></I>. An example is given in fig.&nbsp;
+<A HREF="node49.html#prni2b2c_2K">13</A> and <A HREF="node49.html#prni2b2c_10K">14</A>.
+Parameters in the above command  are:
+
+<UL>
+<LI>0.5 ....Emin   [meV] minimal energy
+</LI>
+<LI>30 ....Emax   [meV] maximal energy
+</LI>
+<LI>0.2....deltaE [meV] energy step width
+</LI>
+</UL>
+
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>

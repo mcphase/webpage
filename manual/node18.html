@@ -1,0 +1,671 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>Example - how to evaluate the crystal field of NdCu using singleion</TITLE>
+<META NAME="description" CONTENT="Example - how to evaluate the crystal field of NdCu using singleion">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node19.html">
+<LINK REL="previous" HREF="node17.html">
+<LINK REL="up" HREF="node16.html">
+<LINK REL="next" HREF="node19.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html583"
+  HREF="node19.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html577"
+  HREF="node16.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html571"
+  HREF="node17.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html579"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html581"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html584"
+  HREF="node19.html">Using the so1ion module</A>
+<B> Up:</B> <A NAME="tex2html578"
+  HREF="node16.html">singleion - a Crystal</A>
+<B> Previous:</B> <A NAME="tex2html572"
+  HREF="node17.html">Doing Single Ion Calculations</A>
+ &nbsp; <B>  <A NAME="tex2html580"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html582"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00092000000000000000"></A><A NAME="998"></A><A NAME="cfieldexample"></A>
+<BR>
+Example - how to evaluate the crystal field of NdCu<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$_2$"></SPAN> using
+ <I CLASS="slanted">singleion</I>
+</H2>
+
+<P>
+A simple input file is made up in the following:
+
+<P>
+
+<UL>
+<LI>The first line in the input file sets the type of single ion module, for rare earth in spin-orbit
+    coupling we use <I CLASS="slanted">so1ion</I><A NAME="1002"></A>.
+</LI>
+<LI>Comment lines start with #. 
+</LI>
+<LI>The type of ion has to be given plus
+several lines containing the crystal field parameters. 
+</LI>
+</UL>
+
+<P>
+It follows an example, we take the values
+for NdCu<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$_2$"></SPAN> from literature&nbsp;[<A
+ HREF="node151.html#gratz91-9297">24</A>]. Note that
+if the crystal field parameters are not known, there are different
+possibilities to obtain values, such as ab initio calculation,
+point charge calculations (use module <I CLASS="slanted">pointc<A NAME="1005"></A></I>) and fitting
+to experimental data (see section&nbsp;<A HREF="node114.html#simannfit">18</A>).
+
+<P>
+<PRE>
+#!MODULE=so1ion
+#&lt;!--mcphas.cf--&gt;
+# comment followed by
+# the ion type and the crystal field parameters [meV]
+ IONTYPE=Nd3+
+ GJ=0.727273
+# - note you can also do any pure spin problem by entering e.g. IONTYPE=S=2.5 
+ B20=  0.116765                                           
+ B22  =  0.134172                                           
+ B40  =  0.0019225                                          
+ B42  =  0.0008704                                          
+ B44  =  0.0016916                                          
+ B60  =  0.0000476                                          
+ B62  =  0.0000116                                          
+ B64  =  0.0000421                                          
+ B66  =  0.0003662       
+# instead of the Stevens parameters Blm 
+# second order crystal field parameters Dx^2 Dy^2 and Dz^2 can be entered in meV
+# - this corresponds to the Hamiltonian H=+Dx2 Jx^2+Dy2 Jy^2+Dz2 Jz^2
+Dx2=0.1
+Dy2=0
+Dz2=0.4
+</PRE>
+
+<P>
+
+<OL>
+<LI>The calculation of the single ion properties is 
+performed using <I CLASS="slanted">singleion</I><A NAME="1011"></A> with the option <I CLASS="slanted">-r</I>, 
+i.e. type the command 
+
+<P>
+<B>singleion -r Nd3p.sipf 20 0 0 0  0 0 0</B> 
+
+<P>
+Here Nd3p.sipf refers to the name of the single ion property file, the numbers 20 0 0 0  0 0 0 indicate the
+temperature in Kelvin, the 3 components of the applied magnetic field in Tesla and the 3 components
+of the exchange field in meV, respectively.
+Files <I CLASS="slanted">Nd3p.sipf.levels.cef, Nd3p.sipf.trs</I> and <I CLASS="slanted">_Nd3p.sipf</I>
+ are generated in directory <I CLASS="slanted">results</I>, which must exist in order to run the program.
+<I CLASS="slanted">_Nd3p.sipf</I> contains the same information as the input file <I CLASS="slanted">Nd3p.sipf</I>, however
+it is not just  copy, but formatted newly by the program <I CLASS="slanted">singleion</I>. In particular
+ all numerical values are taken from the internal storage, thus this file can be used to
+check, whether the input file was read correctly (a typical error which can be detected
+this way would be to enter a number as &rdquo;4,25&rdquo;  instead of &rdquo;4.26&rdquo; (correct way). In the
+first case a wrong number will be read and used in the calculation.
+The other output files of program <I CLASS="slanted">singleion</I> contain the results of the calculation, i.e.
+the diagonalisation of the Hamilton operator and the neutron scattering cross section.
+The program <I CLASS="slanted">singleion</I><A NAME="1022"></A> outputs a variety of results, such as eigenvectors and 
+energies of the crystal field states. In addition it provides 
+the neutron powder cross section for each crystal field
+transition (in barn/sr) at a given temperature according to the formula
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+
+<!-- MATH
+ \begin{equation}
+\sigma(i\rightarrow k)=\left(\frac{\hbar \gamma e^2}{mc^2}\right)^2
+\frac{exp(-E_i/k_BT)}{\sum_j exp(-E_j/k_BT)} \frac{2}{3}\sum_{\alpha=x,y,z}
+|\langle i|J_{\alpha}|k\rangle|^2
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="419" HEIGHT="56" BORDER="0"
+ SRC="img92.png"
+ ALT="\begin{displaymath}
+\sigma(i\rightarrow k)=\left(\frac{\hbar \gamma e^2}{mc^2}\...
+...a=x,y,z}
+\vert\langle i\vert J_{\alpha}\vert k\rangle\vert^2
+\end{displaymath}"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">7</SPAN>)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+Note: in this calculation energy and Q dependence
+of the double differential scattering cross section are not considered and
+integration over all energies and scattering angles has been performed.
+In order to get a more realistic scattering intensity, the
+form factor (giving a <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img93.png"
+ ALT="$Q$"></SPAN> dependence), the
+factor <SPAN CLASS="MATH"><IMG
+ WIDTH="34" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img94.png"
+ ALT="$k'/k$"></SPAN> and the Debye Waller factor <SPAN CLASS="MATH"><IMG
+ WIDTH="95" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img95.png"
+ ALT="$exp(-W(Q))$"></SPAN> should be considered.
+
+<P>
+Here comes the output file <I CLASS="slanted">results/Nd3p.sipf.levels.cef</I>:
+<SMALL CLASS="FOOTNOTESIZE">
+</SMALL><PRE> 
+#
+#
+#!d=10 sipffile=Nd3p.sipf T= 20 K Hexta=0 T Hextb=0 T Hextc=0 T Hxc1=0 meV  Hxc2=0 meV  
+                                       Hxc3=0 meV   Ia=0  Ib=-1.25627e-15  Ic=5.58172e-16 
+#! Eigenvalues = -5.85363 -5.85363 -2.94823 -2.94823 -0.86682 -0.86682  1.39302  
+                                       1.39302  8.27566  8.27566 
+#Eigenvectors [as colunmns]
+#Real Part
+-0.022805 -0.042996 +0.025080 -0.000746 -0.000979 +0.009997 +0.242313 -0.000570 +0.968599 +0.000466 
++0.786799 -0.417315 -0.009191 -0.309074 -0.119114 -0.011666 +0.000725 +0.308423 -0.000020 +0.041658 
++0.174846 +0.329651 -0.305620 +0.009088 +0.070534 -0.720191 -0.469697 +0.001105 +0.151679 +0.000073 
+-0.203103 +0.107725 -0.008431 -0.283518 +0.671893 +0.065804 +0.001456 +0.618963 -0.000080 +0.166744 
+-0.052032 -0.098100 +0.853917 -0.025393 +0.007647 -0.078084 -0.492365 +0.001158 +0.096278 +0.000046 
++0.098100 -0.052032 +0.025393 +0.853917 -0.078084 -0.007647 +0.001158 +0.492365 -0.000046 +0.096278 
++0.107725 +0.203103 -0.283518 +0.008431 -0.065804 +0.671893 -0.618963 +0.001456 +0.166744 +0.000080 
+-0.329651 +0.174846 -0.009088 -0.305620 -0.720191 -0.070534 +0.001105 +0.469697 -0.000073 +0.151679 
+-0.417315 -0.786799 -0.309074 +0.009191 +0.011666 -0.119114 -0.308423 +0.000725 +0.041658 +0.000020 
++0.042996 -0.022805 +0.000746 +0.025080 +0.009997 +0.000979 -0.000570 -0.242313 -0.000466 +0.968599 
+#Imaginary Part
+0         0         0         0         0         0         0         0         0         0         
+0         0         0         0         0         0         0         0         0         0         
+0         0         0         0         0         0         0         0         0         0         
+0         0         0         0         0         0         0         0         0         0         
+0         0         0         0         0         0         0         0         0         0         
+0         0         0         0         0         0         0         0         0         0         
+0         0         0         0         0         0         0         0         0         0         
+0         0         0         0         0         0         0         0         0         0         
+0         0         0         0         0         0         0         0         0         0         
+0         0         0         0         0         0         0         0         0         0
+</PRE>
+
+<P>
+Here comes the output file <I CLASS="slanted">results/Nd3p.sipf.trs</I>:
+<SMALL CLASS="FOOTNOTESIZE">
+</SMALL><PRE>
+#output file of program mcdisp version 5.2Sat Oct 31 04:57:16 2015
+#!&lt;--mcphas.mcdisp.trs--&gt;
+#*********************************************************************
+# mcdisp - program to calculate the dispersion of magnetic excitations
+# reference: M. Rotter et al. J. Appl. Phys. A74 (2002) 5751
+#            M. Rotter J. Comp. Mat. Sci. 38 (2006) 400
+#*********************************************************************
+#(*)The unpolarized powder average neutron cross section sigma for each transition 
+#   is calculated neglecting the formfactor, the Debye Wallerfactor, factor k'/k as follows:
+#-------------------------------------------------------------- 
+#            Transition intensities in barn/sr.                |
+#                                                              |
+# =                                                            |
+# |                           2                                |
+# |     = const wi  |&lt;i|M |k&gt;|                                 |
+# |                      T                                     |
+# =                                                            |
+#  E -&gt; E                                                      |
+#   i    k                                                     |
+#                                                              |
+#                            with                              |
+#                                                              |
+#                      - E /T                                  |
+#                     e   i                                    |
+# wi    = const --------------                                 |
+#               ----    - E /T                                 |
+#               &gt;    n e   i                                   |
+#               ----  i                                        |
+#                i                                             |
+#                                                              |
+#                                                              |
+#                                -----                         |
+#                      2     2   \                        2   |
+#        |&lt;i,r|M |k,s&gt;|   = ---   &gt;     |&lt;i,r|M -&lt;M &gt;|k,s&gt;|    |
+#               T            3   /             u   u           |
+#                                -----                         |
+#                             u = x,y,z                        |
+#                                                              |
+#                                                              |
+#                             and                              |
+#                                                              |
+#                                   1       2                  |
+#                  const  =      ( --- r   )                   |
+#                                   2   0                      |
+#                                                              |
+#                                      -12                     |
+#                  r     = -0.53908* 10    cm                  |
+#                   0                                          |
+#                                                              |
+#                                                              |
+#                 M   =  L  + 2 S  = g  J                      |
+#                                     J                        |
+#                                                              |
+#--------------------------------------------------------------|
+#                                                              |
+#                       1.Sum rule :                           |
+#                                                              |
+#                                                              |
+#  ----  =       2                                             |
+#  &gt;     |     =--- *g *g *const * J(J+1) *wi                  |
+#  ----  =       3    J  J                                     |
+#   k     E -&gt; E                                               |
+#          i    k                                              |
+#                                                              |
+#--------------------------------------------------------------|
+#                                                              |
+#                       2. sum rule :                          |
+#                                                              |
+#                                                              |
+#            ----  =            2                              |
+#            &gt;     |         = --- * const*g *g *J(J+1)        |
+#            ----  =            3           J  J               |
+#             k,i   E -&gt; E                                     |
+#                    i    k                                    |
+#-------------------------------------------------------------- 
+#! ninit= 1e+08 (max number of initial states) -do not modify: needed to 
+                      count transitions
+#! pinit= 0 (minimum population number of initial states)-do not modify: needed 
+                      to count transitions
+#! maxE= 1e+10 meV(maximum value of transition energy)-do not modify: needed to 
+                      count transitions
+#! T= 20 K Ha=0 Hb=0 Hc=0 T
+#*********************************************************************
+#i j k ionnr transnr energy |gamma_s| sigma_mag_dip[barn/sr](*)    wnn'|&lt;n|I1-&lt;I1&gt;|n'&gt;|^2 
+                      wnn'|&lt;n|I2-&lt;I2&gt;|n'&gt;|^2 ... with wnn'=wn-wn' for n!=n'  and wnn=wn/k_B T 
+1 1 1  1     1        -1e-06   0.578897   0.0255675            0  0.450589  0.128308
+1 1 1  1     2             0    1.97195   0.0870932     0.931383  0.981677 0.0588932
+1 1 1  1     2             0    1.97195   0.0870932     0.931383  0.981677 0.0588932
+1 1 1  1     3        2.9054   0.732717    0.023043     0.605775  0.115041 0.0119001
+1 1 1  1     3       -2.9054   0.732717  0.00427206     0.605775  0.115041 0.0119001
+1 1 1  1     4        2.9054   0.506209   0.0159196     0.147164   0.35519 0.00385427
+1 1 1  1     4       -2.9054   0.506209  0.00295142     0.147164   0.35519 0.00385427
+1 1 1  1     5       4.98681   0.619651    0.016806    0.0312924  0.427228  0.161131
+1 1 1  1     5      -4.98681   0.619651  0.000931608    0.0312924  0.427228  0.161131
+</PRE>
+</LI>
+<LI>at the end of the file <I CLASS="slanted">results/Nd3p.sipf.trs</I> the neutron scattering cross 
+section of the different 
+transitions is given as a list of energy (column 6) vs intensity (column 8).
+However by default only 5 pairs of levels are considered. In order to consider all
+possible pairs of levels (in our case 55), you have to enter the option <I CLASS="slanted">-nt 55</I>, i.e.
+issue the command
+
+<P>
+<B>singleion -r Nd3p.sipf -nt 55  20 0 0 0  0 0 0</B> 
+
+<P>
+In order to calculate a spectrum these results
+have to be convolute<A NAME="1042"></A>d with the resolution function of a neutron spectrometer. This can be 
+done by the program <I CLASS="slanted">convolute<A NAME="1043"></A></I>. For example, the commands
+
+<P>
+<B>gauss 0.5 0.05 -4 4 <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img96.png"
+ ALT="$&gt;$"></SPAN> res.dat</B>
+
+<P>
+<B>convolute 6 8 results/Nd3p.sipf.trs 1 2 res.dat <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img96.png"
+ ALT="$&gt;$"></SPAN> results/Nd3p.sipf.cvt</B> 
+
+<P>
+create a Gaussian resolution function (of 0.5&nbsp;meV full width half maximum stored in
+stepsize 0.5 meV from -4 to 4 meV) and convolute the calculated neutron 
+transition energies vs intensities in file <I CLASS="slanted">results/Nd3p.sipf.trs</I>
+with this Gaussian resolution function. The step size of the
+output spectrum is 0.05&nbsp;meV. The output spectrum is contained in file <I CLASS="slanted">results/Nd3p.sipf.cvt</I>.
+</LI>
+<LI>Use program  <I CLASS="slanted">display</I>
+ to view the spectrum: 
+
+<P>
+<B>display<A NAME="1049"></A> 1 2 results/Nd3p.sipf.cvt</B>
+
+<P>
+In order to create an image file for printing the viewed
+spectrum can be saved by either a printscreen or by
+using the option <I CLASS="slanted">-o file.jpg</I> of the  <I CLASS="slanted">display</I> program. Such
+a jpg image is shown in figure&nbsp;<A HREF="#spectrum">5</A>.
+
+<DIV ALIGN="CENTER"><A NAME="spectrum"></A><A NAME="1200"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5:</STRONG>
+
+Calculated crystal field neutron spectrum of NdCu<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$_2$"></SPAN> at a temperature of 10&nbsp;K.
+Horizontal axis is energy transfer in meV and vertical axis is neutron intensity
+in barns per meV and Nd atom and sr.
+[plot created by program <I CLASS="slanted">display</I>]</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="554" HEIGHT="201" ALIGN="BOTTOM" BORDER="0"
+ SRC="img97.png"
+ ALT="\includegraphics[angle=0,width=1.0\textwidth]{figsrc/10KCEFspectrum.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+</LI>
+<LI>In order to calculate the magnetisation for our problem (in the paramagnetic state), 
+ the magnetic field has to be given in the command line and
+program <I CLASS="slanted">singleion<A NAME="1060"></A></I> has to be started with the option <I CLASS="slanted">-M</I>, i.e. 
+
+<P>
+<B>singleion -M -r Nd3p.sipf 10 0 0 1 0 0 0</B>
+
+<P>
+The
+numbers denote a temperature (10&nbsp;K) and  a field 1 Tesla along the z-axis.
+ By default the results are written directly to the screen, however they can be piped into
+a file by 
+
+<P>
+<B>singleion -M -r Nd3p.sipf 10 0 0 1 0 0 0 <SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img98.png"
+ ALT="$&gt;&gt;$"></SPAN> results/moment.rtplot</B>
+
+<P>
+Here the &rdquo;<SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img98.png"
+ ALT="$&gt;&gt;$"></SPAN>&rdquo; sign appends the ouput of each command, thus iterating the 
+command for several different magnetic fields allows to calculate a 
+magnetisation curve -  fig.&nbsp;<A HREF="#moment">6</A> shows the result.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="moment"></A><A NAME="1202"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6:</STRONG>
+
+Calculated magnetic moment for field applied along <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$x$"></SPAN> direction (<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$c$"></SPAN> axis, note the
+notation of the crystal field <SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$xyz$"></SPAN> axes with respect to the crystal lattice is
+<SPAN CLASS="MATH"><IMG
+ WIDTH="60" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$xyz\vert\vert cab$"></SPAN> in our example)
+ of NdCu<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$_2$"></SPAN> at a temperature of 10&nbsp;K.
+[plot created by program <I CLASS="slanted">gnuplot</I>]</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="282" HEIGHT="268" ALIGN="BOTTOM" BORDER="0"
+ SRC="img99.png"
+ ALT="\includegraphics[angle=0,width=0.7\columnwidth]{figsrc/moment.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+</LI>
+<LI>In a similar way the temperature dependence of the susceptibility can be calculated, actually
+one calculates the magnetisation at variable temperature.
+
+<P>
+</LI>
+<LI>The crystal field contribution to the specific heat may be calculated 
+from the output file <I CLASS="slanted">results/Nd3p.sipf.levels.cf</I> using the  program <I CLASS="slanted">cpsingleion</I><A NAME="1074"></A>,
+e.g. 
+
+<P>
+<B>cpsingleion 10 100 1 results/Nd3p.sipf.levels.cef</B>
+calculates the specific heat in the temperature interval 10-100 K with a step width
+of 1 K. Alternatively a comparison to experimental data can be made by
+ <B>cpsingleion  1 2 cpexp.dat results/Nd3p.sipf.levels.cef</B>,
+where the temperatures are given in column 1 and the experimental specific heat in column
+2 of file <I CLASS="slanted">cpexp.dat</I>. The calculated specific heat is compared to the experimental data
+ and
+a standard deviation <EM>sta</EM> is calculated and output is written to stdout.
+Other quantities can be calculated using the options: -s  (calculate entropy  (J/molK) instead of cp),
+-f (calculate free energy (J/mol) instead of cp),-u  (calculate magnetic energy (J/mol) instead of cp),
+-z (calculate partition sum instead of cp).
+Fig.&nbsp;<A HREF="#cpndcu2">7</A> shows an example.
+
+<DIV ALIGN="CENTER"><A NAME="cpndcu2"></A><A NAME="1203"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 7:</STRONG>
+
+Calculated specific heat of NdCu<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$_2$"></SPAN> in zero magnetic field as calculated
+by <I CLASS="slanted">cpsingleion</I> (crystal field contribution) in comparison with experimental
+data&nbsp;[<A
+ HREF="node151.html#gratz91-9297">24</A>]. The dashed line shows the results of a calculation,
+which in addition to the crystal field takes into account the two ion interaction
+ in <I CLASS="slanted">mcphas</I> - see below and chapter&nbsp;<A HREF="node22.html#runmcphas">7</A>.
+[plot created by program <I CLASS="slanted">gnuplot</I>]</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="262" HEIGHT="265" ALIGN="BOTTOM" BORDER="0"
+ SRC="img100.png"
+ ALT="\includegraphics[angle=0,width=0.7\columnwidth]{figsrc/cpall.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+</LI>
+<LI>The spin-disorder resistivity due to scattering of conduction <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img101.png"
+ ALT="$s$"></SPAN>-electrons with the localised
+<SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img102.png"
+ ALT="$f$"></SPAN>-electrons via the exchange interaction can be calculated in the first Born approximation as&nbsp;[<A
+ HREF="node151.html#raowallace">26</A>],
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+
+<!-- MATH
+ \begin{equation}
+\rho_{s-f}(T) = \frac{3\pi N m}{\hbar e^2 E_F} G^2(g-1)^2 \sum_{m_s,m_s',i,i'}
+      \langle m_s',i' | {\mathbf s \cdot J} | m_s, i \rangle^2 p_i f_{ii'}
+\end{equation}
+ -->
+<A NAME="eq:cfres"></A>
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:cfres"></A><IMG
+ WIDTH="435" HEIGHT="53" BORDER="0"
+ SRC="img103.png"
+ ALT="\begin{displaymath}
+\rho_{s-f}(T) = \frac{3\pi N m}{\hbar e^2 E_F} G^2(g-1)^2 ...
+... \vert {\mathbf s \cdot J} \vert m_s, i \rangle^2 p_i f_{ii'}
+\end{displaymath}"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">8</SPAN>)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img104.png"
+ ALT="$G$"></SPAN> is the exchange constant, <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img105.png"
+ ALT="$p_i$"></SPAN> is the Bose factor <!-- MATH
+ $e^{-\beta E_i}/Z$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="63" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img106.png"
+ ALT="$e^{-\beta E_i}/Z$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img107.png"
+ ALT="$f_{ii'}$"></SPAN> is the
+Fermi function <!-- MATH
+ $2/(1+e^{-\beta(E_i-E_{i'})})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="138" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img108.png"
+ ALT="$2/(1+e^{-\beta(E_i-E_{i'})})$"></SPAN>. The program <I CLASS="slanted">rhoso1ion</I> can be used to calculate this
+resistivity for magnetic ions in a crystal field. The wavefunctions <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img109.png"
+ ALT="$\vert i\rangle$"></SPAN> are taken from the file <I CLASS="slanted">
+results/Nd3p.sipf.levels.cef</I> output by <I CLASS="slanted">singleion</I>. The matrix elements of <!-- MATH
+ ${\mathbf s \cdot J}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="33" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img110.png"
+ ALT="${\mathbf s \cdot J}$"></SPAN> are calculated according to
+the formulae of Dekker&nbsp;[<A
+ HREF="node151.html#dekker">27</A>]. <I CLASS="slanted">rhoso1ion</I> calculates only the sum in the above equation, however.
+The constant coefficient <!-- MATH
+ $\rho_0=(3\pi N m/\hbar e^2 E_F) G^2(g-1)^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="227" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img111.png"
+ ALT="$\rho_0=(3\pi N m/\hbar e^2 E_F) G^2(g-1)^2$"></SPAN> is set to unity, or may be specified using
+the option <I CLASS="slanted">-rho0</I> or <I CLASS="slanted">-r</I>. The syntax is otherwise the same as <I CLASS="slanted">cpsingleion</I>. For example, to
+calculate the resistivity from 10 to 100 K in 1 K steps with <SPAN CLASS="MATH"><IMG
+ WIDTH="61" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img112.png"
+ ALT="$\rho_0 = 0.2$"></SPAN>&nbsp;<SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img113.png"
+ ALT="$\Omega$"></SPAN>.cm, the command 
+
+<P>
+<B>rhoso1ion 10 100 1 -r 0.2 -i results/Nd3p.sipf.levels.cef</B>
+
+<P>
+can be used. Alternatively, for comparison with data,
+
+<P>
+<B>rhoso1ion 1 2 rhoexp.dat -r 0.2 -i results/Nd3p.sipf.levels.cef</B> 
+
+<P>
+can be used. Note that as the temperature dependence of the resistivity in this case is mainly a
+function of the Bose and Fermi functions, at high temperatures where all <SPAN CLASS="MATH"><IMG
+ WIDTH="49" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img114.png"
+ ALT="$2J+1$"></SPAN> crystal field levels are
+thermally occupied, the resistivity will saturate to a value <SPAN CLASS="MATH"><IMG
+ WIDTH="80" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img115.png"
+ ALT="$\rho_0 J(J+1)$"></SPAN>.
+
+<P>
+</LI>
+</OL>
+
+<P>
+<BR>
+<BR>
+<BR>
+<EM>Exercises:</EM>
+
+<UL>
+<LI>Use <I CLASS="slanted">singleion<A NAME="1119"></A></I> to calculate the energies, eigenvectors and
+transition matrix elements (for inelastic
+neutron scattering) for Nd<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$^{3+}$"></SPAN> in an orthorhombic crystal field.
+Use the parameters given in section&nbsp;<A HREF="node19.html#cf1ion">6.3</A>.
+</LI>
+</UL>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html583"
+  HREF="node19.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html577"
+  HREF="node16.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html571"
+  HREF="node17.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html579"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html581"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html584"
+  HREF="node19.html">Using the so1ion module</A>
+<B> Up:</B> <A NAME="tex2html578"
+  HREF="node16.html">singleion - a Crystal</A>
+<B> Previous:</B> <A NAME="tex2html572"
+  HREF="node17.html">Doing Single Ion Calculations</A>
+ &nbsp; <B>  <A NAME="tex2html580"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html582"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

@@ -1,0 +1,356 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>mcphas.j - lattice and exchange parameters</TITLE>
+<META NAME="description" CONTENT="mcphas.j - lattice and exchange parameters">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node28.html">
+<LINK REL="previous" HREF="node26.html">
+<LINK REL="up" HREF="node23.html">
+<LINK REL="next" HREF="node28.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html733"
+  HREF="node28.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html727"
+  HREF="node23.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html721"
+  HREF="node26.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html729"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html731"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html734"
+  HREF="node28.html">Example mcphas.j file for</A>
+<B> Up:</B> <A NAME="tex2html728"
+  HREF="node23.html">Input Files</A>
+<B> Previous:</B> <A NAME="tex2html722"
+  HREF="node26.html">Example mcphas.ini file for</A>
+ &nbsp; <B>  <A NAME="tex2html730"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html732"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000101400000000000000"></A><A NAME="1958"></A><A NAME="mcphasj"></A>
+<BR>
+<I CLASS="slanted">mcphas.j</I> - lattice and exchange parameters
+</H3>
+This file provides the information about 
+the crystallographic
+ structure and the magnetic exchange interactions.
+For every atom in the crystallographic basis there
+has to be given the coordinates, the number of neighbours to be considered, the 
+Land&#233; factor <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img163.png"
+ ALT="$g_J$"></SPAN>, the single ion property filename and  a set of exchange parameters.
+If the exchange parameters (and neighbour positions) are not known for your system, you 
+can use the program module <I CLASS="slanted">makenn<A NAME="1960"></A></I> (see section <A HREF="node122.html#addprog">19</A>) to generate 
+a list of nearest neighbours and
+exchange parameters, currently implemented in <I CLASS="slanted">makenn<A NAME="1962"></A></I> are dipolar interactions,
+exchange interactions via the Bethe-Slater curve or the RKKY model. Note that in order
+to use <I CLASS="slanted">makenn<A NAME="1963"></A></I> you have to set up a working <I CLASS="slanted">mcphas.j<A NAME="1964"></A></I> file, which may or
+may not contain neighbours and interactions.
+
+<P>
+Use program <I CLASS="slanted">addj<A NAME="1965"></A></I> to add exchange parameter set stored in different 
+such <I CLASS="slanted">.j</I> files (see section&nbsp;<A HREF="node122.html#addprog">19</A>).
+
+<P>
+<DL>
+<DT><STRONG>Line 1,2:</STRONG></DT>
+<DD>Comment Lines
+</DD>
+<DT><STRONG>Line 3:</STRONG></DT>
+<DD>lattice constants a,b,c and crystal angles alpha, beta, gamma 
+</DD>
+<DT><STRONG>Line 4-6:</STRONG></DT>
+<DD>primitive lattice vectors
+</DD>
+<DT><STRONG>Line 7:</STRONG></DT>
+<DD>Number of atoms in the primitive crystallographic unit cell (<I CLASS="slanted">nofatoms</I>)
+</DD>
+<DT><STRONG>Line 8:</STRONG></DT>
+<DD>a comment line with stars
+</DD>
+<DT><STRONG>Line 9:</STRONG></DT>
+<DD>coordinates  (<SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img164.png"
+ ALT="$d_a$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img165.png"
+ ALT="$d_b$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img166.png"
+ ALT="$d_c$"></SPAN>) of 1<SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img167.png"
+ ALT="$^{st}$"></SPAN> magnetic ion in the crystallographic unit cell  with
+respect to the lattice vectors <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img168.png"
+ ALT="$\vec a$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img169.png"
+ ALT="$\vec b$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img170.png"
+ ALT="$\vec c$"></SPAN>. The number of neighbours of this 
+ion, for which interaction constants are given in the interaction table (nofneighbours). 
+If <I CLASS="slanted">diagonalexchange</I>
+is set to 0 the 9 components of the exchange tensor are given in column 4-12. 
+If <I CLASS="slanted">diagonalexchange</I>
+ is 1, only 3 components are given (column 4-6).
+If <I CLASS="slanted">diagonalexchange</I>
+ is 2, specific components of the exchange tensor can be given in columns 4 onwards. The indices of these components
+ must be given in the following line (Line 9a below).
+The file name of the corresponding single ion
+parameter file (sipffilename).
+</DD>
+<DT><STRONG>Line 9a:</STRONG></DT>
+<DD>If <I CLASS="slanted">diagonalexchange=2</I>, then this line gives the indices of the exchange tensor corresponding to 
+ the columns 4 onwards. It must have a variable called <I CLASS="slanted">indexexchange</I> followed by a list of names of components of the interaction
+ tensor separated by space. E.g.
+
+<P>
+<code>  #! indexexchange= JaJb JbJc  </code> 
+
+<P>
+means column 4 gives the the interaction constant between the
+ first angular momentum component of the current ion with the second angular momentum component of its neighbour, whilst 
+ column 5 has the interaction constant between the second angular momentum component of this ion with the third component of its
+ neighbour. Alternatively, pairs of numbers may be given, as in <code>  #! indexexchange= 1,2 2,3  </code>
+ Additionally another parameter <I CLASS="slanted">symmetricexchange</I> can be set to 1, where the value in each column is also used 
+ for the transposed tensor component. Thus <code>  #! symmetricexchange=1 indexexchange= JaJb  </code> is the same as 
+<BR>
+ <code>  #! indexexchange= JaJb JbJa  </code> where the 4th and 5th column are the same.
+</DD>
+<DT><STRONG>Line 10:</STRONG></DT>
+<DD>Comment line
+</DD>
+<DT><STRONG>Line 11-(10+nofneighbours):</STRONG></DT>
+<DD>Interaction table for ion number 1.   
+Note: the neighbour coordinates (column 1-3) are given with respect to the lattice vectors
+<SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img168.png"
+ ALT="$\vec a$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img169.png"
+ ALT="$\vec b$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img170.png"
+ ALT="$\vec c$"></SPAN>. The program then calculates from these values the coordinates
+with respect to the primitive lattice <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img171.png"
+ ALT="$\vec r_1$"></SPAN>,&nbsp;<SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img172.png"
+ ALT="$\vec r_2$"></SPAN>,&nbsp;<SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img173.png"
+ ALT="$\vec r_3$"></SPAN>.
+(<!-- MATH
+ $d_a \vec a + d_b \vec b + d_c \vec c = d_1 \vec r_1 + d_2 \vec r_2 + d_3 \vec r_3$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="260" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img174.png"
+ ALT="$ d_a \vec a + d_b \vec b + d_c \vec c = d_1 \vec r_1 + d_2 \vec r_2 + d_3 \vec r_3$"></SPAN>).
+Column 4,5,6 ...contain the components of the interaction tensor <!-- MATH
+ $\stackrel{=}{\mathcal J}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="47" ALIGN="MIDDLE" BORDER="0"
+ SRC="img175.png"
+ ALT="$\stackrel{=}{\mathcal J}$"></SPAN>. 
+Note that in case of non-orthogonal axes the 
+components of the moments and the interaction tensor <!-- MATH
+ $Ja, Jb, Jc, Jaa, Jbb, Jcc, Jab ...$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="214" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img176.png"
+ ALT="$Ja, Jb, Jc, Jaa, Jbb, Jcc, Jab ...$"></SPAN> 
+refer to the orthogonal coordinate system
+defined with respect to the nonorthogonal lattice <!-- MATH
+ $\vec a,\vec b,\vec c$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="40" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img177.png"
+ ALT="$\vec a,\vec b,\vec c$"></SPAN> as
+<SPAN CLASS="MATH"><IMG
+ WIDTH="37" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img178.png"
+ ALT="$Jb\vert\vert\vec b$"></SPAN>, <!-- MATH
+ $Jc||(\vec a \times \vec b)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="77" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img179.png"
+ ALT="$Jc\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img180.png"
+ ALT="$Ja$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img181.png"
+ ALT="$Jb$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img182.png"
+ ALT="$Jc$"></SPAN>.
+</DD>
+<DT><STRONG>Line (11+nofneighbours) - end:</STRONG></DT>
+<DD>for each ion in the unit cell line 8 - (10+nofneighbours)
+are repeated.
+</DD>
+</DL>
+
+<P>
+<BR>
+<BR>
+
+<P>
+<SMALL CLASS="SMALL"><B>Information for experienced users:</B>
+</SMALL><DL>
+<DT><STRONG><I CLASS="slanted">mcphas.jjj:</I></STRONG></DT>
+<DD>format of exchange parameter file, which only needs a reduced set of exchange
+parameters in the input file. Using the program <I CLASS="slanted">jjj2j</I> the file can be transformed
+to <I CLASS="slanted">mcphas.j<A NAME="1984"></A></I> by adding lines for all the equivalent neighbours. The format definition
+of <I CLASS="slanted">mcphas.jjj</I> is the same as <I CLASS="slanted">mcphas.j<A NAME="1986"></A></I>, however each line denotes several
+equivalent neighbour atoms (instead of only one in <I CLASS="slanted">mcphas.j<A NAME="1987"></A></I>) according to the
+ following rules:
+
+<UL>
+<LI>If a nonzero coordinate <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img164.png"
+ ALT="$d_a$"></SPAN> (or <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img165.png"
+ ALT="$d_b$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img166.png"
+ ALT="$d_c$"></SPAN>) in the interaction table
+ corresponds to it's value at the nearest
+ lattice point of the primitive lattice,
+  additional interactions of the same size
+with  neighbours with coordinate <SPAN CLASS="MATH"><IMG
+ WIDTH="32" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img183.png"
+ ALT="$-d_a$"></SPAN> (or <SPAN CLASS="MATH"><IMG
+ WIDTH="31" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img184.png"
+ ALT="$-d_b$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="31" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img185.png"
+ ALT="$-d_c$"></SPAN>, respectively)
+are taken into account. This
+holds for each of the three coordinates <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img164.png"
+ ALT="$d_a$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img165.png"
+ ALT="$d_b$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img166.png"
+ ALT="$d_c$"></SPAN>
+ resulting in a maximum
+number of 8 equivalent neighbours per line in the interaction table.
+</LI>
+<LI>If the value of <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img164.png"
+ ALT="$d_a$"></SPAN> (or <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img165.png"
+ ALT="$d_b$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img166.png"
+ ALT="$d_c$"></SPAN>) is zero or differs
+from it's value at the nearest lattice point of the primitive lattice, it is 
+changed to the value at the nearest lattice point and <B>no</B> interaction 
+with  neighbours with coordinates <SPAN CLASS="MATH"><IMG
+ WIDTH="32" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img183.png"
+ ALT="$-d_a$"></SPAN> (or <SPAN CLASS="MATH"><IMG
+ WIDTH="31" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img184.png"
+ ALT="$-d_b$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="31" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img185.png"
+ ALT="$-d_c$"></SPAN>) is
+ taken into account. If such
+ interaction is needed it may be given in a different line and may
+have different magnitude. In this way also crystallographic lattices
+with no mirror symmetry may be described.
+</LI>
+</UL>
+</DD>
+<DT><STRONG><I CLASS="slanted">mcphas.coq:</I></STRONG></DT>
+<DD>exchange parameters etc [ in old format]...see examples for details, use <I CLASS="slanted">coq2jjj</I> to 
+transform <I CLASS="slanted">mcphas.coq</I> to <I CLASS="slanted">mcphas.jjj</I> format
+</DD>
+</DL>
+<P>
+
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html733"
+  HREF="node28.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html727"
+  HREF="node23.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html721"
+  HREF="node26.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html729"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html731"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html734"
+  HREF="node28.html">Example mcphas.j file for</A>
+<B> Up:</B> <A NAME="tex2html728"
+  HREF="node23.html">Input Files</A>
+<B> Previous:</B> <A NAME="tex2html722"
+  HREF="node26.html">Example mcphas.ini file for</A>
+ &nbsp; <B>  <A NAME="tex2html730"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html732"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

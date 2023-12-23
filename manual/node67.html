@@ -1,0 +1,519 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>Single Ion Modules</TITLE>
+<META NAME="description" CONTENT="Single Ion Modules">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node74.html">
+<LINK REL="previous" HREF="node61.html">
+<LINK REL="up" HREF="manual.html">
+<LINK REL="next" HREF="node68.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1301"
+  HREF="node68.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1295"
+  HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1289"
+  HREF="node66.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1297"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1299"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1302"
+  HREF="node68.html">Land&#233; Factor</A>
+<B> Up:</B> <A NAME="tex2html1296"
+  HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A NAME="tex2html1290"
+  HREF="node66.html">Progam Workflow</A>
+ &nbsp; <B>  <A NAME="tex2html1298"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1300"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION000160000000000000000"></A><A NAME="simod"></A>
+<BR>
+Single Ion Modules
+</H1>
+
+<P>
+In table&nbsp;<A HREF="#simodtable">3</A> the different single ion modules are listed
+together with the standard operator sequence <!-- MATH
+ $\hat I_a,\hat I_b,\hat I_c ...$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="73" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$\hat I_a,\hat I_b,\hat I_c ...$"></SPAN>.
+
+<P>
+Usually, internal single ion modules are used as a starting point.
+Alternatively, the single ion properties can be calculated by a program
+module which has to be written in <I CLASS="slanted">c</I>. Details about this can be found 
+in chapter <A HREF="node74.html#extsimod">14</A>. Several external modules are supplied also
+with the program package.
+
+<P>
+<BR>
+<DIV ALIGN="CENTER">
+   
+<A NAME="simodtable"></A>   
+<A NAME="7351"></A>
+<TABLE CELLPADDING=3 BORDER="1" ALIGN="CENTER">
+<CAPTION><STRONG>Table 3:</STRONG>
+Single ion<A NAME="6703"></A> modules and standard operator sequence <!-- MATH
+ $\hat I_a,\hat I_b,\hat I_c ...$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="73" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$\hat I_a,\hat I_b,\hat I_c ...$"></SPAN>.</CAPTION>
+<TR><TD ALIGN="LEFT">module</TD>
+<TD ALIGN="LEFT"><!-- MATH
+ $\hat I_a,\hat I_b,\hat I_c ...$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="73" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$\hat I_a,\hat I_b,\hat I_c ...$"></SPAN></TD>
+</TR>
+<TR><TD ALIGN="LEFT">INTERNAL MODULES</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I CLASS="slanted">so1ion</I></TD>
+<TD ALIGN="LEFT"><!-- MATH
+ $\hat J_a,\hat J_b,\hat J_c,\hat O_{2-2},\hat O_{2-1},\hat O_{20},\hat O_{21},\hat O_{22},\hat O_{3-3}...\hat O_{66},\hat J_a^2,\hat J_b^2,\hat J_c^2,\hat J_a^4,\hat J_b^4,\hat J_c^4$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="477" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img700.png"
+ ALT="$\hat J_a,\hat J_b,\hat J_c,\hat O_{2-2},\hat O_{2-1},\hat O_{20},\hat O_{21},\h...
+.....\hat O_{66},\hat J_a^2,\hat J_b^2,\hat J_c^2,\hat J_a^4,\hat J_b^4,\hat J_c^4$"></SPAN></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I CLASS="slanted">cfield</I></TD>
+<TD ALIGN="LEFT"><!-- MATH
+ $\hat J_a,\hat J_b,\hat J_c,\hat O_{2-2},\hat O_{2-1},\hat O_{20},\hat O_{21},\hat O_{22},\hat O_{3-3}...\hat O_{66}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="330" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img701.png"
+ ALT="$\hat J_a,\hat J_b,\hat J_c,\hat O_{2-2},\hat O_{2-1},\hat O_{20},\hat O_{21},\hat O_{22},\hat O_{3-3}...\hat O_{66}$"></SPAN></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I CLASS="slanted">kramer</I></TD>
+<TD ALIGN="LEFT"><!-- MATH
+ $\hat J_a,\hat J_b,\hat J_c$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="65" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img702.png"
+ ALT="$\hat J_a,\hat J_b,\hat J_c$"></SPAN></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I CLASS="slanted">brillouin</I></TD>
+<TD ALIGN="LEFT"><!-- MATH
+ $\hat J_a,\hat J_b,\hat J_c$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="65" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img702.png"
+ ALT="$\hat J_a,\hat J_b,\hat J_c$"></SPAN></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I CLASS="slanted">cluster</I></TD>
+<TD ALIGN="LEFT">defined in sipf file</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I CLASS="slanted">phonon</I></TD>
+<TD ALIGN="LEFT"><!-- MATH
+ $\hat u_a,\hat u_b,\hat u_c$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="66" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img703.png"
+ ALT="$\hat u_a,\hat u_b,\hat u_c$"></SPAN></TD>
+</TR>
+<TR><TD ALIGN="LEFT">EXTERNAL MODULES</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I CLASS="slanted">examples/cecu2a/1ion_mod/kramer.so</I></TD>
+<TD ALIGN="LEFT"><!-- MATH
+ $\hat J_a,\hat J_b,\hat J_c$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="65" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img702.png"
+ ALT="$\hat J_a,\hat J_b,\hat J_c$"></SPAN></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I CLASS="slanted">examples/dyni2b2c/1ion_mod/quartett.so</I></TD>
+<TD ALIGN="LEFT"><!-- MATH
+ $\hat J_a,\hat J_b,\hat J_c$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="65" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img702.png"
+ ALT="$\hat J_a,\hat J_b,\hat J_c$"></SPAN></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I CLASS="slanted">examples/erni2b2c/1ion_mod/quartett.so</I></TD>
+<TD ALIGN="LEFT"><!-- MATH
+ $\hat J_a,\hat J_b,\hat J_c$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="65" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img702.png"
+ ALT="$\hat J_a,\hat J_b,\hat J_c$"></SPAN></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I CLASS="slanted">examples/gdni2b2c/1ion_mod/brillouin.so</I></TD>
+<TD ALIGN="LEFT"><!-- MATH
+ $\hat J_a,\hat J_b,\hat J_c$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="65" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img702.png"
+ ALT="$\hat J_a,\hat J_b,\hat J_c$"></SPAN></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I CLASS="slanted">examples/ndcu2b_1dim/1ion_mod/kramer.so</I></TD>
+<TD ALIGN="LEFT"><!-- MATH
+ $\hat J_a,\hat J_b,\hat J_c$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="65" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img702.png"
+ ALT="$\hat J_a,\hat J_b,\hat J_c$"></SPAN></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I CLASS="slanted">ic1ion</I></TD>
+<TD ALIGN="LEFT"><!-- MATH
+ $\hat S_a,\hat S_b,\hat S_c,\hat L_a,\hat L_b,\hat L_c,\hat T_2^{-2},\hat T_2^{-1},\hat T_2^{0},\hat T_2^{1},\hat T_2^{2},\hat T_3^{-3}...\hat T_6^{6}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="358" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img704.png"
+ ALT="$\hat S_a,\hat S_b,\hat S_c,\hat L_a,\hat L_b,\hat L_c,\hat T_2^{-2},\hat T_2^{-1},\hat T_2^{0},\hat T_2^{1},\hat T_2^{2},\hat T_3^{-3}...\hat T_6^{6}$"></SPAN></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I CLASS="slanted">icf1ion</I></TD>
+<TD ALIGN="LEFT"><!-- MATH
+ $\hat S_a,\hat S_b,\hat S_c,\hat L_a,\hat L_b,\hat L_c,\hat T_2^{-2},\hat T_2^{-1},\hat T_2^{0},\hat T_2^{1},\hat T_2^{2},\hat T_3^{-3}...\hat T_6^{6}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="358" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img704.png"
+ ALT="$\hat S_a,\hat S_b,\hat S_c,\hat L_a,\hat L_b,\hat L_c,\hat T_2^{-2},\hat T_2^{-1},\hat T_2^{0},\hat T_2^{1},\hat T_2^{2},\hat T_3^{-3}...\hat T_6^{6}$"></SPAN></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I CLASS="slanted">bin/cf1ion_module/cfield.so</I></TD>
+<TD ALIGN="LEFT"><!-- MATH
+ $\hat J_a,\hat J_b,\hat J_c,\hat O_{2-2},\hat O_{2-1},\hat O_{20},\hat O_{21},\hat O_{22},\hat O_{4-4}...,\hat O_{44},\hat O_{6-6}...\hat O_{66}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="418" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img705.png"
+ ALT="$\hat J_a,\hat J_b,\hat J_c,\hat O_{2-2},\hat O_{2-1},\hat O_{20},\hat O_{21},\hat O_{22},\hat O_{4-4}...,\hat O_{44},\hat O_{6-6}...\hat O_{66}$"></SPAN></TD>
+</TR>
+</TABLE>
+</DIV>
+<BR>
+
+<P>
+The filename given for each atom in <I CLASS="slanted">mcphas.j<A NAME="6761"></A></I>
+or <I CLASS="slanted">mcdiff.in<A NAME="6762"></A></I> determines, which single ion module 
+is to be used for a specific ion in the calculation.
+As internal single ion modules there are currently available an isotropic spin (internal module <I CLASS="slanted">brillouin</I>, 
+see
+appendix&nbsp;<A HREF="node126.html#brillouin">B</A>), an 
+ anisotropic doublet (internal module <I CLASS="slanted">kramers</I>, see appendix&nbsp;<A HREF="node125.html#kramers">A</A>), 
+and the rare earth crystal field (internal module <I CLASS="slanted">so1ion<A NAME="6767"></A></I> and
+cfield, see section&nbsp;<A HREF="node16.html#cfield">6</A>).
+
+<P>
+<BR>
+<BR> 
+<B>Internal Single Ion Property Modules:</B> 
+<BLOCKQUOTE>
+[<I CLASS="slanted">brillouin</I>]
+If the internal module <I CLASS="slanted">brillouin</I>
+ (Brillouin function used for single ion properties,
+  see appendix&nbsp;<A HREF="node126.html#brillouin">B</A>) is used,
+the single ion property file must start with
+</BLOCKQUOTE><PRE>#!MODULE=brillouin
+</PRE><BLOCKQUOTE> and
+the corresponding spin
+ quantum number <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img706.png"
+ ALT="$J$"></SPAN> has to be given in the first uncommented
+lines.
+Here is an example:
+</BLOCKQUOTE><PRE>
+#!MODULE=brillouin
+#&lt;!--mcphas.sipf--&gt;
+# single ion parameter file for Gd
+J = 3.5
+</PRE><BLOCKQUOTE>
+[<I CLASS="slanted">kramer</I>] If the internal module <I CLASS="slanted">kramers</I> (anisotropic doublet ground state, see appendix 
+&nbsp;<A HREF="node125.html#kramers">A</A>) is used,
+the single ion property file must start with
+</BLOCKQUOTE><PRE>#!MODULE=kramer
+</PRE><BLOCKQUOTE> and
+the corresponding saturation magnetisations have to be given in the first uncommented
+line.
+Here is an example:
+</BLOCKQUOTE><PRE>
+#!MODULE=kramer
+#&lt;!--mcphas.sipf--&gt;
+# single ion parameter file for CeCu2
+paramnames= |&lt;+|Ja|-&gt;| |&lt;-|Jb|-&gt;| |&lt;+|Jc|-&gt;|
+params= 1.6 0.58333   1.1
+</PRE><BLOCKQUOTE>
+[<I CLASS="slanted">so1ion<A NAME="6786"></A></I>]In order to use the rare earth crystal field module the first line should read
+</BLOCKQUOTE><PRE>#!MODULE=so1ion
+</PRE>
+<P>
+<BLOCKQUOTE>then the ion name should be given followed by a list of nonzero crystal field parameters
+(for a more detailed description of this module refer to section&nbsp;<A HREF="node16.html#cfield">6</A>).
+</BLOCKQUOTE>
+<P><PRE>
+#!MODULE=so1ion
+#&lt;!--mcphase.sipf--&gt;
+ IONTYPE=Ce3+
+ B20=  0.1e-1                                           
+ B22  =  -0.3e-1                                       
+ B40  =  0.0
+ B42  =  0.0
+ B44  =  0.0
+ B60  =  0.0
+ B62  =  0.0
+ B64  =  0.0
+ B66  =  0.0
+</PRE>
+<P>
+<BLOCKQUOTE>The standard operator sequence of this module can be modified by enabling 
+perl parsing<A NAME="6792"></A>
+of the sipf file, i.e. putting instead of &rdquo;IONTYPE=&rdquo; a line &rdquo;#!perl with IONTYPE=&rdquo;.
+Then (i) all variables have to be given in perl notation, i.e. putting a &rdquo;$&rdquo; sign
+in front of the variable name. (ii) all lines (except comment lines starting with
+'#') and variable declarations have to end with ';'. In the following example
+we show how to redefine operator <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img707.png"
+ ALT="$\hat I_1$"></SPAN> (by default the x component of the
+total angular momentum <SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img708.png"
+ ALT="$\hat J_x$"></SPAN> to <!-- MATH
+ $\hat I_1 \equiv 5 \hat O_4^4 + O_4^0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="106" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img709.png"
+ ALT="$\hat I_1 \equiv 5 \hat O_4^4 + O_4^0$"></SPAN>.
+Moreover, one of the RIXS operator is (re)defined, which enables to specify 
+the appropriate tensor (note, that this will be only effective, if all the variables
+SIGMA0r,SIGMA0i,SIGMA1r,SIGMA1i,SIGMA2r,SIGMA2i are zero).
+</BLOCKQUOTE>
+<P><PRE>
+#!MODULE=so1ion
+#&lt;!--mcphase.sipf--&gt;
+#!perl with IONTYPE=Ce3+
+ $B20=  0.1e-1;                                       
+ $B22  =  -0.3e-1;
+ $B40  =  0.0;
+ $B42  =  0.0;
+ $B44  =  0.0;
+ $B60  =  0.0;
+ $B62  =  0.0;
+ $B64  =  0.0;
+ $B66  =  0.0;
+ $I1 = 5.0 * $O44 + $O40; # for quadrupolar interactions
+
+# for anisotropic Resonant Inelastic X-ray Scattering
+$sigma1_a2u=1.423;
+$R12=-2* $sigma1_a2u * $Jz;
+# Note: Operators which may be redefined here are denoted by the variables:
+# I1 I2 I3 ....
+# Jx Jy Jz
+# Jx2 Jy2 Jz2  (=Jx*Jx Jy*Jy Jz*Jz)
+# O22S O21S O20 O21 O22 O31S .... O66
+</PRE>
+<P>
+<BLOCKQUOTE>[<I CLASS="slanted">cluster<A NAME="6795"></A></I>]
+This module is designed to combine several subsystems (described
+by other modules - currently kramer or so1ion) into a cluster with bilinear
+interactions. The Hamiltonian of such a cluster is then
+diagonalized exactly. Clusters can interact via interaction operators
+<SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img710.png"
+ ALT="$I_n$"></SPAN>, which can be defined in the sipf file. 
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>Here is an example of a cluster module input file, which is designed
+to model the hyperfine interaction of the f electrons and the nucleus
+of Pr<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$^{3+}$"></SPAN>.
+</BLOCKQUOTE>
+<P><PRE>
+#!MODULE=cluster
+#&lt;!--mcphase.sipf--&gt;
+# here must be set the filename containing the structure of the cluster
+#!structurefile=cluster.j
+
+# in this example we set I1,I2,I3 the I1 I2 I3 of the first ion in the cluster, which 
+# is modelled by Pr3p.sipf (electronic magnetic moment) ... these degrees of freedom
+# interact by Heisenberg/RKKY interactions
+$I1=$I1_1;
+$I2=$I1_2;
+$I3=$I1_3;
+
+# here should follow the description of cluster magnetic moments in terms
+# of moments of the individual ions
+$GJ=0.8;
+$Gnuc=-0.9367e-3;
+$M1=$I1_1-&gt;multiply_scalar($GJ)+ $I2_1-&gt;multiply_scalar($Gnuc);
+$M2=$I1_2-&gt;multiply_scalar($GJ)+ $I2_2-&gt;multiply_scalar($Gnuc);
+$M3=$I1_3-&gt;multiply_scalar($GJ)+ $I2_3-&gt;multiply_scalar($Gnuc);
+</PRE>
+<P>
+<BLOCKQUOTE>The structure of the cluster is described by a structurefile which has
+to contain the information about the internal structure of the cluster
+(positions and sipf files of the constituting subsystems, interactions),
+the notation is exactly the same as for the input file <I CLASS="slanted">mcphas.j</I>,
+here comes an example to be used with the above <I CLASS="slanted">cluster.sipf</I> to describe
+hyperfine interactions in Pr:
+</BLOCKQUOTE><PRE>
+# cluster description
+#&lt;!--mcphase.mcphas.j--&gt;
+#
+# Lattice Constants (A)
+#! a=4.261 b=4.261 c=4.261 alpha=  90 beta=  90 gamma=  90
+#! r1a= 1 r2a= 0 r3a= 0
+#! r1b= 0 r2b= 1 r3b= 0   primitive lattice vectors [a][b][c]
+#! r1c= 0 r2c= 0 r3c= 1
+#! nofatoms=2  nofcomponents=3  number of atoms in cluster unit cell/number of components of each spin
+#*********************************************************************
+#! da=   0 [a] db=   0 [b] dc=   0 [c] nofneighbours=1 diagonalexchange=1  sipffilename=Pr3p.sipf
+#da[a]   db[b]     dc[c]       Jaa[meV]  Jbb[meV]  Jcc[meV]  Jab[meV]  Jba[meV]  Jac[meV]  Jca[meV]  Jbc[meV]  Jcb[meV]
+# A=52mK=52e-3*0.08622 meV
++0       0         0.01      -4.4824e-3  -4.4824e-3  -4.4824e-3
+#*********************************************************************
+#! da=   0 [a] db=   0 [b] dc=   0.01 [c] nofneighbours=1 diagonalexchange=1  sipffilename=prnuc.sipf
+#da[a]   db[b]     dc[c]       Jaa[meV]  Jbb[meV]  Jcc[meV]  Jab[meV]  Jba[meV]  Jac[meV]  Jca[meV]  Jbc[meV]  Jcb[meV]
++0       0        -0.01      -4.4824e-3  -4.4824e-3  -4.4824e-3
+</PRE><BLOCKQUOTE>
+Of course the sipf files<I CLASS="slanted">Pr3p.sipf </I>and <I CLASS="slanted">prnuc.sipf</I> must exist and describe
+the 4f shell and the nucleus of Pr, respectively. For more details on this
+example see folder <I CLASS="slanted">examples/Pr3Pd20Si6</I>. Another example worth looking
+at is <I CLASS="slanted">examples/LaCo3_podlesnyak_polaron</I>. There the calculation of the 
+magnetic structure factor of a spin polaron is demonstrated.
+Note: currently the observables, which are implemented in the cluster module are 
+magnetisation and Fourier transform of magnetization density (<SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img711.png"
+ ALT="$M(\mathbf Q)$"></SPAN>).
+In order to enable these, the three components of the magnetization (M1 M2 M3) and of the 
+individual magnetic moments of the cluster (M1_1 M1_2 M1_3 M2_1 M2_2 M2_3 ... Mn_1 Mn_2 Mn_3)
+have to be given in terms of the operators I1_1,I1_2,...In_m... (n=1,..,nofatoms of cluster,
+m=1... nofcomponents of cluster). 
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>On the operators
+</BLOCKQUOTE>
+
+<UL>
+<LI>in the mean field loop only the I1 I2 I3  operators are used, the interactions in mcphas.j refer to these operators. 
+</LI>
+<LI>I1_1 I1_2 etc are not used later on, only on loading the module they are needed to be 
+      able to define other operators
+</LI>
+<LI>M1 M2 M3 are the components (x y z) of the magnetic moment (observable), these are 
+      used in order to be able to calculate the magnetic moment in <I CLASS="slanted">mcphas.fum</I>, to draw a
+      magnetic moment picture in <I CLASS="slanted">spins.c</I> (<I CLASS="slanted">display_densities</I>) and to generate output for 
+      mcdiff (done by spins.c)
+</LI>
+<LI>M1_1 etc are the components of the magnetic moment of ion 1 in the cluster 
+      (observable), they are what we need in order to "look into the cluster"
+      (<I CLASS="slanted">jvx fst, spins.out spins*.eps</I>). For <I CLASS="slanted">mcdisp</I> and <I CLASS="slanted">mcdiff</I> these operators are needed
+      in order to "go beyond dipole approximation for the total cluster" ... i.e. dipole 
+      approximation = based on the total moment M1 M2 M3 observable (treats cluster as 
+      one atom situated at the position which you enter for the cluster in mcphas.j),
+       beyond dipole intensities = based on M1_1 M1_2 at positions described by cluster.j 
+      relatively to the position of the cluster center which you enter in mcphas.j
+</LI>
+</UL>
+<P>
+
+<P>
+In addition to the basic parameters described above the single ion property file 
+may/should contain additional parameters as described below. 
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1303"
+  HREF="node68.html">Land&#233; Factor</A>
+<LI><A NAME="tex2html1304"
+  HREF="node69.html">Magnetic Formfactor Coefficients</A>
+<LI><A NAME="tex2html1305"
+  HREF="node70.html">Debye Waller Factor</A>
+<LI><A NAME="tex2html1306"
+  HREF="node71.html">Nuclear Neutron Scattering Length</A>
+<LI><A NAME="tex2html1307"
+  HREF="node72.html">Radial Wavefunction</A>
+<LI><A NAME="tex2html1308"
+  HREF="node73.html">Radial Matrix Elements</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1301"
+  HREF="node68.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1295"
+  HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1289"
+  HREF="node66.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1297"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1299"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1302"
+  HREF="node68.html">Land&#233; Factor</A>
+<B> Up:</B> <A NAME="tex2html1296"
+  HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A NAME="tex2html1290"
+  HREF="node66.html">Progam Workflow</A>
+ &nbsp; <B>  <A NAME="tex2html1298"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1300"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

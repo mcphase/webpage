@@ -1,0 +1,585 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>Output Files - mcphas.qvc,phs,sps,mf,fum,j1...,xyt,hkl </TITLE>
+<META NAME="description" CONTENT="Output Files - mcphas.qvc,phs,sps,mf,fum,j1...,xyt,hkl ">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="previous" HREF="node36.html">
+<LINK REL="up" HREF="node22.html">
+<LINK REL="next" HREF="node38.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html869"
+  HREF="node38.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html863"
+  HREF="node22.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html859"
+  HREF="node36.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html865"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html867"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html870"
+  HREF="node38.html">mcdiff - calculate and</A>
+<B> Up:</B> <A NAME="tex2html864"
+  HREF="node22.html">mcphas - calculation of</A>
+<B> Previous:</B> <A NAME="tex2html860"
+  HREF="node36.html">Options for a running</A>
+ &nbsp; <B>  <A NAME="tex2html866"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html868"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000104000000000000000"></A><A NAME="outputfiles"></A>
+<BR>
+Output Files - <I CLASS="slanted">mcphas.qvc,phs,sps,mf,fum,j1...,xyt,hkl</I> 
+</H2>
+ (in directory ./results/ after a simulation run) 
+
+<P>
+<DL>
+<DT><STRONG><I CLASS="slanted">mcphas.qvc</STRONG></DT>
+<DD>the set of test q-vectors used for calculation of free energy.
+                           Components of these q vectors refer to the reciprocal lattice <!-- MATH
+ $\vec a^*,\vec b^*,\vec c^*$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="62" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img201.png"
+ ALT="$\vec a^*,\vec b^*,\vec c^*$"></SPAN>.
+</DD>
+<DT><STRONG><I CLASS="slanted">mcphas.phs</STRONG></DT>
+<DD>spin-configuration table of different types of spin-configurations. 
+</I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><EM>Note</EM>: 
+                           there is no natural criteria for deciding, if one spin-configuration is
+			   different from another one. Therefore the list of &rdquo;different&rdquo;
+			   spin-configurations is dependent on the meaning of &rdquo;different&rdquo;.
+</I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted">The program <I CLASS="slanted">McPhase</I> decides whether a spin-configuration is
+			   different from another by a simple criteria, namely by the
+			   angle between the spins. Comparing two spin configurations it calculates
+			   the angle between corresponding spins and if for one spin the
+			   angle is not small, the configuration is treated as a different
+			   configuration. Therefore for example a ferromagnet with moments
+			   in <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$a$"></SPAN> has a different spin configuration than a ferromagnet with
+			   moments in <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$b$"></SPAN> direction. 
+</DD>
+<DT><STRONG><I CLASS="slanted">mcphas.sps</STRONG></DT>
+<DD><SPAN CLASS="MATH"><IMG
+ WIDTH="49" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img198.png"
+ ALT="$T-H$"></SPAN> dependence of spin-configuration. The spin configurations stored in this
+                           file may be displayed using the program <I CLASS="slanted">spins<A NAME="2372"></A></I>, an example is given
+			   in figure&nbsp;<A HREF="node110.html#spingraphic">18</A>. The expectation values 
+                           <!-- MATH
+ $\langle \hat I_{\alpha} \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="32" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img202.png"
+ ALT="$\langle \hat I_{\alpha} \rangle$"></SPAN> (<!-- MATH
+ $\alpha=1,\dots,{\rm nofcomponents}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="182" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img203.png"
+ ALT="$\alpha=1,\dots,{\rm nofcomponents}$"></SPAN>, 
+                           note that for the single ion module <I CLASS="slanted">so1ion</I> 
+                           <!-- MATH
+ $\hat I_1=\hat J_x,\hat I_2=\hat J_y,\hat I_3=\hat J_z,\hat I_4=\hat O_2^{-2},\hat I_5=\hat O_2^{-1}, \dots$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="343" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img204.png"
+ ALT="$\hat I_1=\hat J_x,\hat I_2=\hat J_y,\hat I_3=\hat J_z,\hat I_4=\hat O_2^{-2},\hat I_5=\hat O_2^{-1}, \dots$"></SPAN>,
+                           for the complete list see appendix <A HREF="node131.html#stevens">G</A>) are stored in this file  for i=1,2,...,number of spins in magnetic unit cell.
+</I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">mcphas.mf</STRONG></DT>
+<DD><SPAN CLASS="MATH"><IMG
+ WIDTH="49" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img198.png"
+ ALT="$T-H$"></SPAN> dependence of exchange field configuration, stored as <SPAN CLASS="MATH"><IMG
+ WIDTH="49" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img205.png"
+ ALT="$H_{xc}(i)$"></SPAN>(unit is in meV)
+                            for i=1,2,...,number of spins in magnetic unit cell.
+</I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">mcphas.fum</STRONG></DT>
+<DD>free energy <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img102.png"
+ ALT="$f$"></SPAN> according to equation (<A HREF="node25.html#freeenergy">18</A>), magnetic energy per site <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img206.png"
+ ALT="$u$"></SPAN>
+</I></I></I></I></I>
+<BR>
+<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+
+<!-- MATH
+ \begin{equation}
+u=f+Ts=f-T\partial f/\partial T=\frac{1}{N_b}\sum_{s,i} \epsilon^s_i \frac{e^{-\epsilon^s_i/kT}}{z^s}+\frac{E_{corr}}{N_b}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="388" HEIGHT="54" BORDER="0"
+ SRC="img207.png"
+ ALT="\begin{displaymath}
+u=f+Ts=f-T\partial f/\partial T=\frac{1}{N_b}\sum_{s,i} \epsilon^s_i \frac{e^{-\epsilon^s_i/kT}}{z^s}+\frac{E_{corr}}{N_b}
+\end{displaymath}"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">20</SPAN>)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+                            Note, that form the numerical derivative of <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img206.png"
+ ALT="$u$"></SPAN> with respect to temperature 
+                             the specific heat per site in mean field approximation can be calculated <!-- MATH
+ $c_V=\partial u/\partial T$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="90" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img208.png"
+ ALT="$c_V=\partial u/\partial T$"></SPAN>.
+                           Finally, <I CLASS="slanted">mcphas.fum</I> contains the calculated
+                           magnetisation  (only if a <I CLASS="slanted">mcalc</I> function is present in the single ion module).
+                            As an example for the information
+			   contained in this file the calculated magnetisation  of NdCu<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$_2$"></SPAN> is shown in
+			   fig&nbsp;<A HREF="node36.html#magnetization">9</A>.
+                            Note, in case of non-orthogonal axes the convention for applied field <SPAN CLASS="MATH"><IMG
+ WIDTH="84" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img138.png"
+ ALT="$Ha, Hb, Hc$"></SPAN> and
+                            also for the magnetisation components <SPAN CLASS="MATH"><IMG
+ WIDTH="82" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img209.png"
+ ALT="$ma,mb,mc$"></SPAN> in these tables 
+                            is <SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img210.png"
+ ALT="$Hb\vert\vert\vec b$"></SPAN>, <!-- MATH
+ $Hc||(\vec a \times \vec b)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="81" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img211.png"
+ ALT="$Hc\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img142.png"
+ ALT="$Ha$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img143.png"
+ ALT="$Hb$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img144.png"
+ ALT="$Hc$"></SPAN>.
+</I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">mcphas1.j1 .j1 .j2 ...</STRONG></DT>
+<DD>spin-spin correlation functions for sub-lattice 1 neighbour 1 2 ...
+	       (linear combination is proportional to magnetostriction)
+	       The spin-spin correlation functions for neighbour <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img212.png"
+ ALT="$k$"></SPAN> are defined by
+	       the following sum of dyadic products:
+</I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I>
+<BR>
+<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+
+<!-- MATH
+ \begin{equation}
+\frac{1}{N_b}\sum_{s=1}^{N_b} <{\hat \mathbf I}^s> \otimes  <{\hat \mathbf I}^{s+k}>
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="183" HEIGHT="57" BORDER="0"
+ SRC="img213.png"
+ ALT="\begin{displaymath}
+\frac{1}{N_b}\sum_{s=1}^{N_b} &lt;{\hat \mathbf I}^s&gt; \otimes &lt;{\hat \mathbf I}^{s+k}&gt;
+\end{displaymath}"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">21</SPAN>)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+	       with <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img145.png"
+ ALT="$N_b$"></SPAN> being the number of magnetic atoms in the magnetic unit cell.
+                For example for the single ion module <I CLASS="slanted">so1ion</I> 
+               <!-- MATH
+ $\hat I_1=\hat J_x,\hat I_2=\hat J_y,\hat I_3=\hat J_z,\hat I_4=\hat O_2^{-2},\hat I_5=\hat O_2^{-1},
+               \dots$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="343" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img204.png"
+ ALT="$\hat I_1=\hat J_x,\hat I_2=\hat J_y,\hat I_3=\hat J_z,\hat I_4=\hat O_2^{-2},\hat I_5=\hat O_2^{-1}, \dots$"></SPAN>, for the complete list see appendix <A HREF="node131.html#stevens">G</A>.
+	       Single ion and two-ion magnetostriction can be calculated using the <!-- MATH
+ $<\hat I_{\alpha}>$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="53" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img214.png"
+ ALT="$&lt;\hat I_{\alpha}&gt;$"></SPAN> from <I CLASS="slanted">mcphas.xyt</I> and the
+	       spin-spin correlation functions from <I CLASS="slanted">mcphas1.j1 .j1 .j2 ...</I>. As an example the magnetostriction analysis of
+	       NdCu<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$_2$"></SPAN> is shown in figure&nbsp;<A HREF="node36.html#magnetostrictiongraphic">10</A>. For details 
+             please refer to&nbsp;[<A
+ HREF="node151.html#rotter02-8885">18</A>].
+                            Note, in case of non-orthogonal axes the convention for applied field <SPAN CLASS="MATH"><IMG
+ WIDTH="84" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img138.png"
+ ALT="$Ha, Hb, Hc$"></SPAN> and
+                            also for the moment components in these tables 
+                            is <SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img210.png"
+ ALT="$Hb\vert\vert\vec b$"></SPAN>, <!-- MATH
+ $Hc||(\vec a \times \vec b)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="81" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img211.png"
+ ALT="$Hc\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img142.png"
+ ALT="$Ha$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img143.png"
+ ALT="$Hb$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img144.png"
+ ALT="$Hc$"></SPAN>.
+</DD>
+<DT><STRONG><I CLASS="slanted">mcphas.xyt</STRONG></DT>
+<DD>phase diagram as x,y,T, H, phase-number j according to spin-configuration table
+               given in mcphas.phs, a periodicity key, thermal expectationvalues <!-- MATH
+ $\langle \hat  I_{\alpha} \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="32" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img202.png"
+ ALT="$\langle \hat I_{\alpha} \rangle$"></SPAN> 
+               (averaged over the unit cell).
+ Figure&nbsp;<A HREF="node112.html#phasediagramgraphic">21</A>
+	       shows the phase diagram of NdCu<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$_2$"></SPAN> for magnetic fields parallel to the orthorhombic <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$b$"></SPAN>-direction.
+                            Note, in case of non-orthogonal axes the convention for applied field <SPAN CLASS="MATH"><IMG
+ WIDTH="84" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img138.png"
+ ALT="$Ha, Hb, Hc$"></SPAN> 
+                             in these tables 
+                            is <SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img210.png"
+ ALT="$Hb\vert\vert\vec b$"></SPAN>, <!-- MATH
+ $Hc||(\vec a \times \vec b)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="81" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img211.png"
+ ALT="$Hc\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img142.png"
+ ALT="$Ha$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img143.png"
+ ALT="$Hb$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img144.png"
+ ALT="$Hc$"></SPAN>.
+              Note that  the phase-number is not necessarily a unique number for each phase in the phase diagram, because
+the program numbers phases according to their similarity in the moments. For example, any tetragonal easy plane magnet 
+will have domains with moments parallel to <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$a$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$b$"></SPAN>. The program will generate both domains and find equal energy for both. It will give each domain a separate phase number, because spin directions are completely different. Because both domains have the same free energy at every temperature, the phase-index will vary in a random manner. In order to generate a beautiful phase diagram figure, such equivalent domains have to be identified and phase numbers have to be substituted.
+</DD>
+<DT><STRONG><I CLASS="slanted">mcphas.hkl</STRONG></DT>
+<DD>calculated (unpolarised) neutron diffraction data (the calculated magnetic intensities
+    correspond to the magnetic structure + Polarisation factor + magnetic Formfactor (dipole approx). The
+    Lorentz-factor  and  instrumental corrections are not calculated.). The single ion module function
+    <I CLASS="slanted">mcalc</I> is used to evaluate the magnetic moment on each site.
+    As an example figure&nbsp;<A HREF="node111.html#neutintgraphic">20</A>
+    shows the calculated temperature dependence of magnetic amplitudes for NdCu<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$_2$"></SPAN>.
+                           <SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img215.png"
+ ALT="$h,k,l$"></SPAN> refer to the reciprocal lattice <!-- MATH
+ $\vec a^*,\vec b^*,\vec c^*$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="62" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img201.png"
+ ALT="$\vec a^*,\vec b^*,\vec c^*$"></SPAN>.
+                            Note, in case of non-orthogonal axes the convention for applied field <SPAN CLASS="MATH"><IMG
+ WIDTH="84" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img138.png"
+ ALT="$Ha, Hb, Hc$"></SPAN> 
+                             in these tables 
+                            is <SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img210.png"
+ ALT="$Hb\vert\vert\vec b$"></SPAN>, <!-- MATH
+ $Hc||(\vec a \times \vec b)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="81" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img211.png"
+ ALT="$Hc\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img142.png"
+ ALT="$Ha$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img143.png"
+ ALT="$Hb$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img144.png"
+ ALT="$Hc$"></SPAN>.
+</I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">mcphasa.hkl</STRONG></DT>
+<DD>Fourier Transform of the <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$a$"></SPAN>-component of the magnetic Moments.
+                           <SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img215.png"
+ ALT="$h,k,l$"></SPAN> refer to the reciprocal lattice <!-- MATH
+ $\vec a^*,\vec b^*,\vec c^*$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="62" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img201.png"
+ ALT="$\vec a^*,\vec b^*,\vec c^*$"></SPAN>. The single ion module function
+    <I CLASS="slanted">mcalc</I> is used to evaluate the magnetic moment on each site.
+                            Note, in case of non-orthogonal axes the convention for applied field <SPAN CLASS="MATH"><IMG
+ WIDTH="84" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img138.png"
+ ALT="$Ha, Hb, Hc$"></SPAN> and
+                            the magnetic moment component in these tables 
+                            is <SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img210.png"
+ ALT="$Hb\vert\vert\vec b$"></SPAN>, <!-- MATH
+ $Hc||(\vec a \times \vec b)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="81" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img211.png"
+ ALT="$Hc\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img142.png"
+ ALT="$Ha$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img143.png"
+ ALT="$Hb$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img144.png"
+ ALT="$Hc$"></SPAN>.
+</DD>
+<DT><STRONG><I CLASS="slanted">mcphasb.hkl</STRONG></DT>
+<DD>Fourier Transform of the <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$b$"></SPAN>-component of the magnetic Moments. The single ion module function
+    <I CLASS="slanted">mcalc</I> is used to evaluate the magnetic moment on each site. 
+                           <SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img215.png"
+ ALT="$h,k,l$"></SPAN> refer to the reciprocal lattice <!-- MATH
+ $\vec a^*,\vec b^*,\vec c^*$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="62" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img201.png"
+ ALT="$\vec a^*,\vec b^*,\vec c^*$"></SPAN>.
+                            Note, in case of non-orthogonal axes the convention for applied field <SPAN CLASS="MATH"><IMG
+ WIDTH="84" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img138.png"
+ ALT="$Ha, Hb, Hc$"></SPAN> and
+                            the magnetic moment component in these tables 
+                            is <SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img210.png"
+ ALT="$Hb\vert\vert\vec b$"></SPAN>, <!-- MATH
+ $Hc||(\vec a \times \vec b)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="81" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img211.png"
+ ALT="$Hc\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img142.png"
+ ALT="$Ha$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img143.png"
+ ALT="$Hb$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img144.png"
+ ALT="$Hc$"></SPAN>.
+</DD>
+<DT><STRONG><I CLASS="slanted">mcphasc.hkl</STRONG></DT>
+<DD>Fourier Transform of the <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$c$"></SPAN>-component of the magnetic Moments. The single ion module function
+    <I CLASS="slanted">mcalc</I> is used to evaluate the magnetic moment on each site.
+                           <SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img215.png"
+ ALT="$h,k,l$"></SPAN> refer to the reciprocal lattice <!-- MATH
+ $\vec a^*,\vec b^*,\vec c^*$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="62" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img201.png"
+ ALT="$\vec a^*,\vec b^*,\vec c^*$"></SPAN>.
+                            Note, in case of non-orthogonal axes the convention for applied field <SPAN CLASS="MATH"><IMG
+ WIDTH="84" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img138.png"
+ ALT="$Ha, Hb, Hc$"></SPAN> and
+                            the magnetic moment component in these tables 
+                            is <SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img210.png"
+ ALT="$Hb\vert\vert\vec b$"></SPAN>, <!-- MATH
+ $Hc||(\vec a \times \vec b)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="81" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img211.png"
+ ALT="$Hc\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img142.png"
+ ALT="$Ha$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img143.png"
+ ALT="$Hb$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img144.png"
+ ALT="$Hc$"></SPAN>.
+</DD>
+</DL></I></I></I></I></I></I></I></I></I></I></I> 
+
+<P>
+<BR>
+<BR>
+<BR>
+<EM>Exercises:</EM>
+
+<UL>
+<LI>Look at the output files of <I CLASS="slanted">McPhase</I>  in the directory
+<I CLASS="slanted">examples/ndcu2b_new/results</I>.  At which magnetic field
+the ferromagnetically aligned state is achieved (at <SPAN CLASS="MATH"><IMG
+ WIDTH="32" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$T=$"></SPAN>2&nbsp;K)?
+</LI>
+<LI>What is the propagation vector in the different antiferromagnetic phases at <SPAN CLASS="MATH"><IMG
+ WIDTH="32" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$T=$"></SPAN>2&nbsp;K ?
+</LI>
+</UL>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html869"
+  HREF="node38.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html863"
+  HREF="node22.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html859"
+  HREF="node36.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html865"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html867"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html870"
+  HREF="node38.html">mcdiff - calculate and</A>
+<B> Up:</B> <A NAME="tex2html864"
+  HREF="node22.html">mcphas - calculation of</A>
+<B> Previous:</B> <A NAME="tex2html860"
+  HREF="node36.html">Options for a running</A>
+ &nbsp; <B>  <A NAME="tex2html866"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html868"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

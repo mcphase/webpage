@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>Setting up parameter files for fitting</TITLE>
+<META NAME="description" CONTENT="Setting up parameter files for fitting">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node116.html">
+<LINK REL="previous" HREF="node114.html">
+<LINK REL="up" HREF="node114.html">
+<LINK REL="next" HREF="node116.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2032"
+  HREF="node116.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2026"
+  HREF="node114.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2020"
+  HREF="node114.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2028"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2030"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2033"
+  HREF="node116.html">Telling the fitting program,</A>
+<B> Up:</B> <A NAME="tex2html2027"
+  HREF="node114.html">Searchspace and Simannfit -</A>
+<B> Previous:</B> <A NAME="tex2html2021"
+  HREF="node114.html">Searchspace and Simannfit -</A>
+ &nbsp; <B>  <A NAME="tex2html2029"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2031"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000211000000000000000">
+Setting up parameter files for fitting</A>
+</H2>
+
+<P>
+In order to fit, it is necessary to tell the fitting programs <I CLASS="slanted">searchspace<A NAME="10651"></A></I> and
+ <I CLASS="slanted">simannfit<A NAME="10652"></A></I>, which 
+parameters in some input files should be varied. Take for instance
+the input file <I CLASS="slanted">mcphas.jjj</I>: if you want to vary a parameter, create a file 
+<I CLASS="slanted">mcphas.jjj.forfit</I> which is an exact copy of <I CLASS="slanted">mcphas.jjj</I> - in 
+this file you substitute the value of the parameter which you want to vary  
+ by <EM>par</EM>name[value,min,max,xx,stp].
+ Here value denotes the starting value, min and max the parameter range, xx an arbitrary
+ number (this field will be used by the algorithm to calculate the error of the
+ parameter). Stp denotes the maximum step width for this parameter.
+Here follows an example:
+
+<P>
+
+<OL>
+<LI>Original input file <I CLASS="slanted">/mcphas/examples/ndba2cu3o7/mcdiff.in</I>:
+<SMALL CLASS="FOOTNOTESIZE">
+</SMALL><PRE>
+...
+#
+#{atom-file} da[a]  db[b]    dc[c]     dr1[r1]  dr2[r2]  dr3[r3]   &lt;Ma&gt;     &lt;Mb&gt;  &lt;Mc&gt; [mb]
+#{corresponding effective fields gjmbHeff [meV]- if passed to mcdiff only these are used 
+# for caculation (not the magnetic moments)}
+{Nd3p.sipf} 0.50000 0.50000 0.50000 0.50000 0.50000 0.50000 +0.00000 +0.00000 -1.36910  
+           corresponding effective fields gjmbHeff [meV]--&gt; +0.00000 +0.00000 -0.07530
+{Nd3p.sipf} 0.50000 0.50000 1.50000 0.50000 0.50000 1.50000 +0.00000 +0.00000 +1.36910  
+           corresponding effective fields gjmbHeff [meV]--&gt; +0.00000 +0.00000 +0.07530
+...
+</PRE>
+
+<P>
+</LI>
+<LI>Modified input file<I CLASS="slanted">/mcphas/examples/dba2cu3o7/mcdiff.in.forfit</I>: 
+<SMALL CLASS="FOOTNOTESIZE">
+</SMALL><PRE>
+...
+#{atom-file} da[a]  db[b]    dc[c]     dr1[r1]  dr2[r2]  dr3[r3]   &lt;Ma&gt;     &lt;Mb&gt;  &lt;Mc&gt; [mb]
+#{corresponding effective fields gjmbHeff [meV]- if passed to mcdiff only these are used 
+# for caculation (not the magnetic moments)}
+{Nd3p.sipf} 0.5000 0.5000 0.5000 0.5000 0.5000 0.5000  0.0000 0.0000 -1.3691  
+  corresponding effective fields gjmbHeff [meV]--&gt;     0.0000 parHb %%@
+[-2.815596e-003,-2.000000e-002,1.000000e-002,2.762505e-005,4.851325e-003] parHc %%@
+[-5.328829e-002,-9.000000e-002,-5.000000e-002,1.614710e-005,4.896285e-003]
+{Nd3p.sipf} 0.5000 0.5000 1.5000 0.5000 0.5000 1.5000  0.0000 0.0000 1.3691  
+   corresponding effective fields gjmbHeff [meV]--&gt;    0.0000 function[-1*parHb] function[-1*parHc]
+...
+</PRE>
+
+<P>
+</LI>
+</OL>
+
+<P>
+As can be seen constraints on the parameters can be implemented by
+substituting the parameter value by <EM>function[par</EM>name<EM>]</EM>.
+This means for instance, that instead of <EM>function[par2a]</EM> the algorithm
+uses the parameter <EM>par2a</EM> specified at another place of the input file.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="searchspace"></A><A NAME="10811"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 23:</STRONG>
+Coverage of a two-dimensional parameter space by program <I CLASS="slanted">searchspace<A NAME="10674"></A></I></CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+<IMG
+ WIDTH="445" HEIGHT="357" ALIGN="BOTTOM" BORDER="0"
+ SRC="img950.png"
+ ALT="\includegraphics[angle=0, width=0.8\textwidth]{figsrc/searchspace.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<B>What does searchspace/simannfit do with these parameter files ?</B>
+
+<P>
+The fitting programs <I CLASS="slanted">searchspace<A NAME="10677"></A></I> and 
+<I CLASS="slanted">simannfit<A NAME="10678"></A></I> take the modified file and generate from it an
+input file in the original format (using several different
+sets of parameters) and call the program
+<I CLASS="slanted">calcsta</I> for each parameter set.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2032"
+  HREF="node116.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2026"
+  HREF="node114.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2020"
+  HREF="node114.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2028"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2030"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2033"
+  HREF="node116.html">Telling the fitting program,</A>
+<B> Up:</B> <A NAME="tex2html2027"
+  HREF="node114.html">Searchspace and Simannfit -</A>
+<B> Previous:</B> <A NAME="tex2html2021"
+  HREF="node114.html">Searchspace and Simannfit -</A>
+ &nbsp; <B>  <A NAME="tex2html2029"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2031"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

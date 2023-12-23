@@ -1,0 +1,240 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>External module function dP1 - used by mcdisp</TITLE>
+<META NAME="description" CONTENT="External module function dP1 - used by mcdisp">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node92.html">
+<LINK REL="previous" HREF="node90.html">
+<LINK REL="up" HREF="node80.html">
+<LINK REL="next" HREF="node92.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1683"
+  HREF="node92.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1677"
+  HREF="node80.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1671"
+  HREF="node90.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1679"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1681"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1684"
+  HREF="node92.html">External module function chargedensity_coeff</A>
+<B> Up:</B> <A NAME="tex2html1678"
+  HREF="node80.html">Module Functions for Observables</A>
+<B> Previous:</B> <A NAME="tex2html1672"
+  HREF="node90.html">External module function pcalc</A>
+ &nbsp; <B>  <A NAME="tex2html1680"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1682"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION0001721100000000000000"></A><A NAME="7208"></A>
+<BR>
+External module function <I CLASS="slanted">dP1</I> - used by <I CLASS="slanted">mcdisp</I>
+</H3>
+
+<P>
+In order to calculate neutron intensities for phonon scattering
+the external single ion module has to provide the transition matrix elements of
+ the phonon displacement <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img787.png"
+ ALT="$P_{\alpha}$"></SPAN> in units of &#197;, which for the transition i (=1,2,3)
+is usually given by:
+<!-- MATH
+ $\langle-|\hat P_{\alpha}|+\rangle=S_{i\alpha}\frac{\hbar}{\sqrt{2m\Delta_i}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="161" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img788.png"
+ ALT="$\langle-\vert\hat P_{\alpha}\vert+\rangle=S_{i\alpha}\frac{\hbar}{\sqrt{2m\Delta_i}}$"></SPAN>,
+with <SPAN CLASS="MATH"><IMG
+ WIDTH="73" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.png"
+ ALT="$\alpha=1,2,3$"></SPAN> for the different spatial directions and <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$m$"></SPAN> is the mass of the
+oscillating atom (compare section&nbsp;<A HREF="node59.html#phonons">11</A>). 
+
+<P>
+Note, that in this
+expression the sum over the different equally spaced phonon levels (of the harmonic oscillator)
+in the single ion susceptibility is already done. If the levels are not equally spaced, such
+as by interaction with other degrees of freedom, one has to take into account each transition
+separately by the expression
+<!-- MATH
+ ${\rm P1}^s_{\alpha}=\sqrt{(p_- -p_+)}\langle -|\hat P^s_{\alpha}-\langle\hat  P^s_{\alpha}\rangle_{\mathbf H,T}|+\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="279" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img789.png"
+ ALT="${\rm P1}^s_{\alpha}=\sqrt{(p_--p_+)}\langle -\vert\hat P^s_{\alpha}-\langle\hat P^s_{\alpha}\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>. 
+
+<P>
+The format to be used is:
+<SMALL CLASS="FOOTNOTESIZE">
+</SMALL><PRE>
+extern "C" int dP1(int &amp; tn,double &amp; T,Vector &amp; Hxc,Vector &amp; Hext,double * g_J,Vector &amp; MODPAR,
+char ** sipffilename,ComplexVector &amp; p1,float &amp; maxE, ComplexMatrix &amp; est)
+</PRE>
+<P>
+<SMALL CLASS="FOOTNOTESIZE">The meaning of the symbols is as follows:
+</SMALL>
+<P>
+<PRE>
+on input
+   |tn|            transition-number  
+   sign(tn)        &gt;0 standard, &lt;0 routine should do some printout to stdout for user information
+   MODPAR          Vector with Parameters  read in single ion property file
+   sipffilename    file name of the single ion parameter file
+   g_J             Lande factor
+   T               Temperature[K]
+   Hxc             vector of exchange field [meV] (can be n-dimensional, for a set of n operators)
+   Hext            external magnetic field [T]
+   est             eigenstate matrix (initialized by estates)
+                   it should/may also contain population numbers of the states
+				   (imaginary part of row 0)
+                   and eigenvalues (real part of row 0) with values set by the most recent call
+				   for this ion (use of this matrix is optional)
+   u1(1)           ninit + i pinit (from mcdisp options  -ninit and -pinit)
+   maxE            upper boundary for transition energy (meV) to be considered
+                   (from mcdisp option -maxE)
+on output
+   int             total number of transitions (normally =3 for the unperturbed 
+                   atomic Einstein oscillator in three 
+                   independent spatial directions, but may be larger if
+                   coupling of phonons to other degrees of freedom such as CEF
+                   is treated on a quantum mechanical level in the module)                   
+   P1              transition matrix element vector of the phonon displacement
+                   for an Einstein oscillator p1=hbar/sqrt(2m hbar Delta), 
+                   or more general if phonon levels are not equally spaced:
+                    P1=&lt;-|P-&lt;P&gt;|+&gt;sqrt((p- - p+))
+</PRE>
+The module function must perform the following tasks:
+
+<OL>
+<LI>check if the dimensions of vector Hxc (taken by <I CLASS="slanted">mcphas</I> from the number of 
+interaction constant columns in <I CLASS="slanted">mcphas.j<A NAME="7227"></A></I>)
+ and MODPAR (taken by <I CLASS="slanted">mcphas</I> from the number of params in the single ion property
+file) agree with the module specifications. If the check fails the module function should exit the
+program with an appropriate error message
+</LI>
+<LI>the module function should do a numbering of all possible single ion transitions and return
+the total number of transitions as an integer. Input file parameters params are supplied as a vector MODPAR and
+Lande factor as g_J and  can be used for this purpose. The numbering will depend on
+the parameters ninit, pinit and maxE which are provided as input. These parameters
+have to be considered. <EM>IMPORTANT: the numbering scheme of transitions has to
+be the same for du1calc and all the corresponding d...1 functions for observables !</EM>
+</LI>
+<LI>for the transition number tn the vector p1 is to
+ be filled with the displacement transition matrix elements (&#197;)
+<!-- MATH
+ $\langle-|\hat P_{\alpha}|+\rangle=S_{tn,\alpha}\frac{\hbar}{\sqrt{2m\Delta_{tn}}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="180" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img790.png"
+ ALT="$\langle-\vert\hat P_{\alpha}\vert+\rangle=S_{tn,\alpha}\frac{\hbar}{\sqrt{2m\Delta_{tn}}}$"></SPAN>
+or more general
+<!-- MATH
+ ${\mathbf P1^s_{\alpha}}=\sqrt{(p_- -p_+)}\langle -|\hat P^s_{\alpha}-\langle\hat  P^s_{\alpha}\rangle_{\mathbf H,T}|+\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="281" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img791.png"
+ ALT="${\mathbf P1^s_{\alpha}}=\sqrt{(p_--p_+)}\langle -\vert\hat P^s_{\alpha}-\langle\hat P^s_{\alpha}\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>.
+</LI>
+<LI>If the energy of this transition
+is zero, i.e. <SPAN CLASS="MATH"><IMG
+ WIDTH="74" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img756.png"
+ ALT="$\Delta(tn)=0$"></SPAN> (diffuse scattering), 
+the above expression  would be zero because <SPAN CLASS="MATH"><IMG
+ WIDTH="73" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img757.png"
+ ALT="$(p_--p_+)$"></SPAN> vanishes.
+In this case the single ion module should calculate <SPAN CLASS="MATH"><IMG
+ WIDTH="63" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img758.png"
+ ALT="$(p_+/kT)$"></SPAN> instead of <SPAN CLASS="MATH"><IMG
+ WIDTH="73" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img757.png"
+ ALT="$(p_--p_+)$"></SPAN>.
+</LI>
+<LI>if <SPAN CLASS="MATH"><IMG
+ WIDTH="44" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img745.png"
+ ALT="$T&lt;0$"></SPAN> all quantities should be evaluated assuming that all Boltzmann probabilities <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img105.png"
+ ALT="$p_i$"></SPAN>
+ are zero except for the state number <SPAN CLASS="MATH"><IMG
+ WIDTH="71" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img746.png"
+ ALT="$n=(-T)$"></SPAN>, for which the probability <SPAN CLASS="MATH"><IMG
+ WIDTH="50" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img747.png"
+ ALT="$p_n=1$"></SPAN>.
+</LI>
+</OL>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1683"
+  HREF="node92.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1677"
+  HREF="node80.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1671"
+  HREF="node90.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1679"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1681"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1684"
+  HREF="node92.html">External module function chargedensity_coeff</A>
+<B> Up:</B> <A NAME="tex2html1678"
+  HREF="node80.html">Module Functions for Observables</A>
+<B> Previous:</B> <A NAME="tex2html1672"
+  HREF="node90.html">External module function pcalc</A>
+ &nbsp; <B>  <A NAME="tex2html1680"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1682"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

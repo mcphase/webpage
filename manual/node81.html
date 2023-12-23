@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>External module function mcalc - used by mcdiff and mcphas </TITLE>
+<META NAME="description" CONTENT="External module function mcalc - used by mcdiff and mcphas ">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node82.html">
+<LINK REL="previous" HREF="node80.html">
+<LINK REL="up" HREF="node80.html">
+<LINK REL="next" HREF="node82.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1543"
+  HREF="node82.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1537"
+  HREF="node80.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1531"
+  HREF="node80.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1539"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1541"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1544"
+  HREF="node82.html">External module function dm1</A>
+<B> Up:</B> <A NAME="tex2html1538"
+  HREF="node80.html">Module Functions for Observables</A>
+<B> Previous:</B> <A NAME="tex2html1532"
+  HREF="node80.html">Module Functions for Observables</A>
+ &nbsp; <B>  <A NAME="tex2html1540"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1542"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000172100000000000000"></A><A NAME="7017"></A><A NAME="7019"></A>
+<BR>
+External module function <I CLASS="slanted">mcalc</I> - used by <I CLASS="slanted">mcdiff</I>
+and <I CLASS="slanted">mcphas</I>  
+</H3>
+
+<P>
+In order to calculate magnetic moments
+ the following function has to be present in the module file <I CLASS="slanted">*.so</I>:
+
+<P>
+<PRE>
+extern "C" void mcalc(Vector &amp; m,double * T, Vector &amp; Hxc, Vector &amp; Hext,
+                      double * gJ, Vector &amp; MODPAR,
+                      char ** sipffilename, ComplexMatrix &amp; Icalc_parstorage);
+</PRE>
+
+<P>
+Note for windows users with MINGW the declaration
+ should be <I CLASS="slanted">extern "C" __declspec(dllexport) void mcalc(...)</I>.
+
+<P>
+The meaning of the symbols is as follows:
+<SMALL CLASS="FOOTNOTESIZE">
+</SMALL><PRE>
+  on input
+    T           temperature[K]
+    Hxc         vector of exchange field [meV] (n-dimensional, for a set of n operators I)
+    Hext        external magnetic field [T] (3 components)
+    gJ          Lande factor as read from sipf file
+    MODPAR      Vector with Parameters  read from single ion property file
+    sipffilename    file name of the single ion parameter file
+    Icalc_parstorage parameter matrix (initialized by Icalc_parameter_storage_matrix_init)
+                   it should/may contain any information, e.g. population numbers of the
+                   states (imaginary part of row 0)
+                   and eigenvalues (real part of row 0) with values set by the most recent call
+                   for this ion (use of this matrix is optional, it is provided to save time by
+                   storing here information instead of recalculating it for every call of Icalc)
+  on output    
+    m             =&lt;2S+L&gt;, thermal expectation value of the magnetic moment operator &lt;m&gt; 
+                  in units of muB
+    Icalc_parstorage     parameter matrix matrix (optional)
+                   it should/may contain any information for the next call of mcalc/Icalc, e.g.
+                   population numbers of the states (imaginary part of row 0)
+                   and eigenvalues (real part of row 0) ...
+</PRE>
+The module function must perform the following tasks:
+
+<OL>
+<LI>check if the dimensions of vector Hxc (taken by <I CLASS="slanted">mcphas</I> from the number of 
+interaction constant columns in <I CLASS="slanted">mcphas.j<A NAME="7028"></A></I>)
+ and MODPAR (taken by <I CLASS="slanted">mcphas</I> from the number of params in the single ion property
+file) agree with the module specifications.  If the check fails the module function should exit the
+program with an appropriate error message
+</LI>
+<LI>the module should calculate from external field <!-- MATH
+ $\mathbf H_{ext}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="37" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img739.png"
+ ALT="$\mathbf H_{ext}$"></SPAN> at a given temperature the 
+thermal expectation values of the three components of the magnetic moment
+and return them as
+a vector <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img760.png"
+ ALT="$\mathbf m$"></SPAN>. Input file parameters params are supplied as a vector MODPAR and
+Lande factor as gJ and  can be used for this purpose. The Hamiltonian
+is usually assumed to be of the general form
+ <!-- MATH
+ $\hat H=\hat H_0- \hat \mathbf M \mathbf H_{ext} - \hat I_a {\rm Hxc}(1) -\hat I_b {\rm Hxc}(2) -\hat I_c {\rm Hxc}(3)
+-\hat I_d {\rm Hxc}(4) ...$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="468" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img742.png"
+ ALT="$\hat H=\hat H_0- \hat \mathbf M \mathbf H_{ext} - \hat I_a {\rm Hxc}(1) - \hat I_b {\rm Hxc}(2) -\hat I_c {\rm Hxc}(3)
+-\hat I_d {\rm Hxc}(4) ...$"></SPAN>.
+</LI>
+<LI>if <SPAN CLASS="MATH"><IMG
+ WIDTH="44" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img745.png"
+ ALT="$T&lt;0$"></SPAN> all quantities should be evaluated assuming that all Boltzmann probabilities <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img105.png"
+ ALT="$p_i$"></SPAN>
+ are zero except for the state number <SPAN CLASS="MATH"><IMG
+ WIDTH="71" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img746.png"
+ ALT="$n=(-T)$"></SPAN>, for which the probability <SPAN CLASS="MATH"><IMG
+ WIDTH="50" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img747.png"
+ ALT="$p_n=1$"></SPAN>.
+</LI>
+</OL>
+
+<P>
+Thus the function resembles closely Icalc, however no U and lnZ are calculated and
+the magnetic moment vector m, which is returned, has always exactly 3 components.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1543"
+  HREF="node82.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1537"
+  HREF="node80.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1531"
+  HREF="node80.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1539"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1541"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1544"
+  HREF="node82.html">External module function dm1</A>
+<B> Up:</B> <A NAME="tex2html1538"
+  HREF="node80.html">Module Functions for Observables</A>
+<B> Previous:</B> <A NAME="tex2html1532"
+  HREF="node80.html">Module Functions for Observables</A>
+ &nbsp; <B>  <A NAME="tex2html1540"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1542"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

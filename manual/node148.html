@@ -1,0 +1,307 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>Solution of the exercises</TITLE>
+<META NAME="description" CONTENT="Solution of the exercises">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node149.html">
+<LINK REL="previous" HREF="node147.html">
+<LINK REL="up" HREF="manual.html">
+<LINK REL="next" HREF="node149.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2497"
+  HREF="node149.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2491"
+  HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2485"
+  HREF="node147.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2493"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2495"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2498"
+  HREF="node149.html">Unit Conventions in McPhase</A>
+<B> Up:</B> <A NAME="tex2html2492"
+  HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A NAME="tex2html2486"
+  HREF="node147.html">Theory for program bfk</A>
+ &nbsp; <B>  <A NAME="tex2html2494"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2496"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION000390000000000000000">
+Solution of the exercises</A>
+</H1>
+
+<P>
+<DL>
+<DT><STRONG>section&nbsp;<A HREF="node13.html#hamiltonian">5</A> <EM>The Hamiltonian</EM></STRONG></DT>
+<DD>
+
+<OL>
+<LI>Fast and simple: take some book on crystal fields&nbsp;[<A
+ HREF="node151.html#hutchings64-227">25</A>] and look up which parameters are nonzero 
+ for the orthorhombic crystal field (<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1628.png"
+ ALT="$B_2^0$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1629.png"
+ ALT="$B_2^2$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1630.png"
+ ALT="$B_4^0$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1631.png"
+ ALT="$B_4^2$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1632.png"
+ ALT="$B_4^4$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1633.png"
+ ALT="$B_6^0$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1634.png"
+ ALT="$B_6^2$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1635.png"
+ ALT="$B_6^4$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1170.png"
+ ALT="$B_6^6$"></SPAN>).
+
+<P>
+Detailed Calculation: take the point group <SPAN CLASS="MATH"><IMG
+ WIDTH="26" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1636.png"
+ ALT="$D_2^h$"></SPAN>, the Stevens Operators <SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img62.png"
+ ALT="$O_l^m$"></SPAN> taken as a vector form
+ a representation of this point group, which is reducible. Follow the procedure outlined in the book&nbsp;[<A
+ HREF="node151.html#elliott79-1">68</A>]
+ to split this representation into irreducible parts. The basis vectors of the unit representation may then be 
+ linear combined with some arbitrary crystal field parameters to give the most general crystal field.
+ Note that the basis vectors of the unit representation can be obtained efficiently by constructing the
+ projection operator (eq. 4.51 in&nbsp;[<A
+ HREF="node151.html#elliott79-1">68</A>])
+  into the subspace transforming according to the irreducible unit representation. 
+</LI>
+<LI>Unfortunately no table is available for all relevant problems. Some cases are given in&nbsp;[<A
+ HREF="node151.html#morin90-1">69</A>].
+ 2 ways are possible to solve the problem. The accurate group theoretical approach which follows the calculation
+ outlined above for the crystal field  and needs a lot of knowledge in group theory. However a more intuitive 
+calculation
+ can be made by writing down the most general two ion interaction and subsequent introduction of symmetry elements which
+ will then give relation between parameters. As an example in the primitive orthorhombic lattice there are 2 nearest 
+neighbours, which
+ are equivalent. 
+
+<P>
+In general the bilinear two ion interaction  has the form 
+ <!-- MATH
+ $-\frac{1}{2}  \sum_{ij}  {\mathbf J}_i^{alpha}{\mathcal J}_{\alpha\beta}(ij){\mathbf J}_j^{\beta}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="173" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1637.png"
+ ALT="$-\frac{1}{2} \sum_{ij} {\mathbf J}_i^{alpha}{\mathcal J}_{\alpha\beta}(ij){\mathbf J}_j^{\beta}$"></SPAN>.
+ <SPAN CLASS="MATH"><IMG
+ WIDTH="9" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img331.png"
+ ALT="$i$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img656.png"
+ ALT="$j$"></SPAN> number the different positions of the magnetic ions in the lattice. Without loss of 
+ generality the interaction constants <!-- MATH
+ ${\mathcal J}_{\alpha\beta}(ij)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="57" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1638.png"
+ ALT="${\mathcal J}_{\alpha\beta}(ij)$"></SPAN> can be chosen such that
+ <!-- MATH
+ ${\mathcal J}_{\alpha\beta}(ij)={\mathcal J}_{\beta\alpha}(ji)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="131" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1639.png"
+ ALT="${\mathcal J}_{\alpha\beta}(ij)={\mathcal J}_{\beta\alpha}(ji)$"></SPAN> (because the expression is symmetric in
+ angular momentum components any anisotropic part of the interaction tensor does not contribute to the
+ interaction energy).  
+
+<P>
+If <SPAN CLASS="MATH"><IMG
+ WIDTH="9" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img331.png"
+ ALT="$i$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img656.png"
+ ALT="$j$"></SPAN> are nearest neighbours on a orthorhombic lattice, they are situated on one of the
+ crystallographic axes, for example at [<SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1640.png"
+ ALT="$\pm$"></SPAN>100]. The off-diagonal components of the corresponding
+ interaction tensor <!-- MATH
+ ${\mathcal J}_{\alpha\beta}(\pm100)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="80" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1641.png"
+ ALT="${\mathcal J}_{\alpha\beta}(\pm100)$"></SPAN> vanish, because spin-configurations such as
+ a moment (m00) on [000] and (0m0) on [100] must have the same magnetic energy as (m00) on [000] and
+ (0-m0) on [100]. Furthermore the spin-configuration with (m00) on [000] and (m'00) on [100] must
+ have the same magnetic energy as (m00) on [000] and (m'00) on [-100]. This and similar
+ considerations lead to the conclusion that the interaction tensor must be the same for [-100] and
+ [+100]. Therefore the most general form of the interaction <!-- MATH
+ ${\mathcal J}_{\alpha\beta}(\pm100)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="80" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1641.png"
+ ALT="${\mathcal J}_{\alpha\beta}(\pm100)$"></SPAN>
+ is 
+ <BR>
+<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+
+<!-- MATH
+ \begin{equation}
+{\mathcal J}_{\alpha\beta}(\pm100)=\left(
+ \begin{array}{ccc}
+ {\mathcal J}_{aa}(\pm100) & 0 & 0 \\
+ 0 & {\mathcal J}_{bb}(\pm100) &  0 \\
+ 0 & 0 & {\mathcal J}_{cc}(\pm100) \\
+ \end{array}
+ \right)
+ 
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="386" HEIGHT="84" BORDER="0"
+ SRC="img1642.png"
+ ALT="\begin{displaymath}
+{\mathcal J}_{\alpha\beta}(\pm100)=\left(
+\begin{array}{...
+... &amp; 0 &amp; {\mathcal J}_{cc}(\pm100) \\
+\end{array}
+\right)
+\end{displaymath}"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">257</SPAN>)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+</LI>
+</OL>
+</DD>
+<DT><STRONG>section&nbsp;<A HREF="node17.html#cfieldsep">6.1</A> <EM>Using <I CLASS="slanted">so1ion</I> separately</EM></STRONG></DT>
+<DD>
+
+<UL>
+<LI>type: so1ion -c -B m m Nd3+ 2 10 rk
+</LI>
+<LI>edit file bkq.parameter and enter the crystal field parameters given in section&nbsp;<A HREF="node19.html#cf1ion">6.3</A>
+</LI>
+<LI>type: so1ion -r -B
+</LI>
+<LI>edit file results/so1ion.output to see the result of the calculation
+ 
+</LI>
+</UL>
+</DD>
+<DT><STRONG>section&nbsp;<A HREF="node35.html#start">7.2</A> <EM>starting a simulation</EM></STRONG></DT>
+<DD> 
+
+<P>
+
+<OL>
+<LI>In the crystallographic basis there are two ions.
+</LI>
+<LI>... the simulation should run after typing <I CLASS="slanted">mcphas</I>
+ 
+</LI>
+</OL>
+</DD>
+<DT><STRONG>section&nbsp;<A HREF="node37.html#outputfiles">7.4</A> <EM>output files</EM></STRONG></DT>
+<DD>
+
+<OL>
+<LI>at 2.8 Tesla
+</LI>
+<LI>(0.6 0 0), (2/3 0 0) and (0.625 0 0)
+ 
+</LI>
+</OL>
+</DD>
+<DT><STRONG>section&nbsp;<A HREF="node44.html#mcdisp">9</A> <EM><I CLASS="slanted">McDisp</I> - the calculation program for magnetic excitations</EM></STRONG></DT>
+<DD> 
+<BR>
+the inspection of the file <I CLASS="slanted">mcdisp.mf<A NAME="18508"></A></I> shows that the calculation is performed at 3.2 Tesla field
+ parallel to <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$b$"></SPAN>, i.e. in the ferromagnetically aligned state. Due to the two ions in the crystallographic
+ unit cell in general 2 modes are expected for each crystal field transition. After running <I CLASS="slanted">mcdisp<A NAME="18509"></A></I>
+ the results may be inspected in file <I CLASS="slanted">./results/mcdisp.qom</I>, graphically using the program <I CLASS="slanted">disp</I>.
+ It turns out the the soft mode (gap at (2/310) shows the largest intensity.
+</DD>
+</DL>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2497"
+  HREF="node149.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2491"
+  HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2485"
+  HREF="node147.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2493"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2495"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2498"
+  HREF="node149.html">Unit Conventions in McPhase</A>
+<B> Up:</B> <A NAME="tex2html2492"
+  HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A NAME="tex2html2486"
+  HREF="node147.html">Theory for program bfk</A>
+ &nbsp; <B>  <A NAME="tex2html2494"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2496"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

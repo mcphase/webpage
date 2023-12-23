@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>Program hkl, hkl2d and mcdiff - graphical display of magnetic diffraction intensity</TITLE>
+<META NAME="description" CONTENT="Program hkl, hkl2d and mcdiff - graphical display of magnetic diffraction intensity">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node112.html">
+<LINK REL="previous" HREF="node110.html">
+<LINK REL="up" HREF="node107.html">
+<LINK REL="next" HREF="node112.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1971"
+  HREF="node112.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1965"
+  HREF="node107.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1959"
+  HREF="node110.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1967"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1969"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1972"
+  HREF="node112.html">Program phased - graphical</A>
+<B> Up:</B> <A NAME="tex2html1966"
+  HREF="node107.html">Programs for Graphical display</A>
+<B> Previous:</B> <A NAME="tex2html1960"
+  HREF="node110.html">Programs display_densities - display</A>
+ &nbsp; <B>  <A NAME="tex2html1968"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1970"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000204000000000000000"></A><A NAME="10163"></A><A NAME="10164"></A><A NAME="10165"></A><A NAME="10166"></A>
+<BR>
+Program <I CLASS="slanted">hkl</I>, <I CLASS="slanted">hkl2d</I> and <I CLASS="slanted">mcdiff</I> - graphical 
+display of magnetic diffraction intensity
+</H2>
+<DL>
+<DT><STRONG><I CLASS="slanted">hkl<A NAME="10168"></A></I> [options] [file] </STRONG></DT>
+<DD>produces neutron intensity graphic
+ and postscript-file <I CLASS="slanted">hkl.eps</I>. <I CLASS="slanted">perl</I> and
+<I CLASS="slanted">pgplot</I> must be installed in order to use this program.
+ Options are -n (plot reflex number n)
+-h (help). If no file is given the program uses file <I CLASS="slanted">mcphas.hkl</I>.
+</DD>
+<DT><STRONG><I CLASS="slanted">hkl2d<A NAME="10173"></A></I> [options] [file] </STRONG></DT>
+<DD>same as <I CLASS="slanted">hkl<A NAME="10174"></A></I> but two-dimensional colour 
+plot of intensity.
+</DD>
+</DL> 
+the following example (fig.&nbsp;<A HREF="#neutintgraphic">20</A>) shows the temperature dependence of the neutron intensity
+on the different harmonics of NdCu<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$_2$"></SPAN>.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="neutintgraphic"></A><A NAME="10181"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 20:</STRONG>
+NdCu<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$_2$"></SPAN>: calculated temperature dependence of magnetic amplitudes of the
+main propagation vector and higher harmonics (at zero magnetic field).</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+<IMG
+ WIDTH="13" HEIGHT="2" ALIGN="BOTTOM" BORDER="0"
+ SRC="img944.png"
+ ALT="\includegraphics[angle=-90, width=0.8\textwidth]{figsrc/ndcu2b/resultss/hkl.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+In addition to the display<A NAME="10184"></A> of the temperature dependence there is the
+possibility to generate a powder diffraction pattern by the 
+program mcdiff&nbsp;<A NAME="10185"></A>. The 
+recommended procedure is to use 
+
+<P>
+<DL>
+<DT><STRONG><I CLASS="slanted">setup_mcdiff_in<A NAME="10187"></A></I> T Ha Hb Hc:</STRONG></DT>
+<DD>to generate a file <I CLASS="slanted">mcdiff.in</I> which
+contains the spin configuration, lattice etc. information at a
+desired temperature. Edit this output file and at the beginning
+of the file insert some additional information as described in section&nbsp;<A HREF="node38.html#mcdiff">8</A>.
+
+<P>
+Continue by using  the modules
+</DD>
+<DT><STRONG><I CLASS="slanted">mcdiff<A NAME="10190"></A></I>:</STRONG></DT>
+<DD>as described in detail in section&nbsp;<A HREF="node38.html#mcdiff">8</A> to
+generate a list of reflections with the corresponding neutron powder
+intensities (file <I CLASS="slanted">mcdiff<A NAME="10192"></A>.out</I>). In order to create a powder pattern 
+a further step is required using the program
+</DD>
+<DT><STRONG><I CLASS="slanted">convolute<A NAME="10193"></A></I>... mcdiff<A NAME="10194"></A>.out [+options] resolution file:</STRONG></DT>
+<DD>is also described in section&nbsp;<A HREF="node122.html#addprog">19</A>. This program convolute<A NAME="10196"></A>s the
+reflection list with a specific resolution function.
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1971"
+  HREF="node112.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1965"
+  HREF="node107.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1959"
+  HREF="node110.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1967"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1969"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1972"
+  HREF="node112.html">Program phased - graphical</A>
+<B> Up:</B> <A NAME="tex2html1966"
+  HREF="node107.html">Programs for Graphical display</A>
+<B> Previous:</B> <A NAME="tex2html1960"
+  HREF="node110.html">Programs display_densities - display</A>
+ &nbsp; <B>  <A NAME="tex2html1968"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1970"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

@@ -1,0 +1,225 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>Module Tasks:</TITLE>
+<META NAME="description" CONTENT="Module Tasks:">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node21.html">
+<LINK REL="previous" HREF="node19.html">
+<LINK REL="up" HREF="node19.html">
+<LINK REL="next" HREF="node21.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html611"
+  HREF="node21.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html605"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html599"
+  HREF="node19.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html607"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html609"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html612"
+  HREF="node21.html">Module Usage:</A>
+<B> Up:</B> <A NAME="tex2html606"
+  HREF="node19.html">Using the so1ion module</A>
+<B> Previous:</B> <A NAME="tex2html600"
+  HREF="node19.html">Using the so1ion module</A>
+ &nbsp; <B>  <A NAME="tex2html608"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html610"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00093100000000000000">
+Module Tasks:</A>
+</H3>
+
+<P>
+The single ion module <I CLASS="slanted">so1ion<A NAME="1133"></A></I> provides to <I CLASS="slanted">mcphas</I> the magnetic properties
+of a single rare earth ion subject to the crystal field. Its main duty is
+to calculate the magnetic moment given an external magnetic field <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img42.png"
+ ALT="$\mathbf H$"></SPAN> and an exchange field <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img116.png"
+ ALT="$\mathbf H^s$"></SPAN>. 
+To be more explicit - given the external magnetic  and the exchange field  by <I CLASS="slanted">mcphas</I>
+ the module <I CLASS="slanted">so1ion<A NAME="1136"></A></I>
+ diagonalises the crystal field and Zeeman Hamiltonian (<A HREF="#cfze">9</A>):
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+
+<!-- MATH
+ \begin{equation}
+{\hat \mathcal H}=  B_l^m \hat O_{lm}({\hat \mathbf J})
+	     -  g_{J} \mu_B {\hat \mathbf J} \cdot {\mathbf H} - {\hat \mathbf J} \cdot { \mathbf H^s}
+\end{equation}
+ -->
+<A NAME="cfze"></A>
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="cfze"></A><IMG
+ WIDTH="263" HEIGHT="49" BORDER="0"
+ SRC="img117.png"
+ ALT="\begin{displaymath}
+{\hat \mathcal H}= B_l^m \hat O_{lm}({\hat \mathbf J})
+...
+... J} \cdot {\mathbf H} - {\hat \mathbf J} \cdot { \mathbf H^s}
+\end{displaymath}"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">9</SPAN>)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+and calculates the expectation value of the angular momentum
+ <!-- MATH
+ $\langle \hat \mathbf J \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="26" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img118.png"
+ ALT="$\langle \hat \mathbf J \rangle$"></SPAN>
+according to
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+
+<!-- MATH
+ \begin{equation}
+\langle \hat \mathbf J \rangle =
+\sum_{i=1}^{2J+1} p_{i} \langle i |\hat \mathbf J | i \rangle
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="129" HEIGHT="56" BORDER="0"
+ SRC="img119.png"
+ ALT="\begin{displaymath}
+\langle \hat \mathbf J \rangle =
+\sum_{i=1}^{2J+1} p_{i} \langle i \vert\hat \mathbf J \vert i \rangle
+\end{displaymath}"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">10</SPAN>)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+with 
+
+<P>
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+p_{i}&=&\frac{\exp(-\epsilon_{i}/kT)}{z}\\
+z&=&\sum_{i=1}^{2J+1} \exp(-\epsilon_{i}/kT)
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="17" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img120.png"
+ ALT="$\displaystyle p_{i}$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="97" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img121.png"
+ ALT="$\displaystyle \frac{\exp(-\epsilon_{i}/kT)}{z}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">11</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="12" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img122.png"
+ ALT="$\displaystyle z$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="126" HEIGHT="67" ALIGN="MIDDLE" BORDER="0"
+ SRC="img123.png"
+ ALT="$\displaystyle \sum_{i=1}^{2J+1} \exp(-\epsilon_{i}/kT)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">12</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+Here <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img124.png"
+ ALT="$z$"></SPAN> is the partition sum, <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img109.png"
+ ALT="$\vert i\rangle$"></SPAN> the eigenstate corresponding to
+the eigenvalue <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img125.png"
+ ALT="$\epsilon_{i}$"></SPAN> of the Hamiltonian (<A HREF="#cfze">9</A>). 
+<A NAME="tex2html19"
+  HREF="footnode.html#foot1212"><SUP><SPAN CLASS="arabic">11</SPAN></SUP></A>
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html611"
+  HREF="node21.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html605"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html599"
+  HREF="node19.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html607"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html609"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html612"
+  HREF="node21.html">Module Usage:</A>
+<B> Up:</B> <A NAME="tex2html606"
+  HREF="node19.html">Using the so1ion module</A>
+<B> Previous:</B> <A NAME="tex2html600"
+  HREF="node19.html">Using the so1ion module</A>
+ &nbsp; <B>  <A NAME="tex2html608"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html610"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

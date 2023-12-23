@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>Creation of the q-vector list</TITLE>
+<META NAME="description" CONTENT="Creation of the q-vector list">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node51.html">
+<LINK REL="previous" HREF="node49.html">
+<LINK REL="up" HREF="node49.html">
+<LINK REL="next" HREF="node51.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1065"
+  HREF="node51.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1059"
+  HREF="node49.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1053"
+  HREF="node49.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1061"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1063"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1066"
+  HREF="node51.html">Calculation of the Dispersion</A>
+<B> Up:</B> <A NAME="tex2html1060"
+  HREF="node49.html">Powder Neutron Cross Section</A>
+<B> Previous:</B> <A NAME="tex2html1054"
+  HREF="node49.html">Powder Neutron Cross Section</A>
+ &nbsp; <B>  <A NAME="tex2html1062"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1064"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000123100000000000000">
+Creation of the q-vector list</A>
+</H3>
+The first step is to create a list of reflections to be used for 
+the averaging of the powder neutron cross section. 
+
+<P>
+just type: powdermagnon 0.3 2 0.1 80
+
+<P>
+meaning take file <I CLASS="slanted">mcphas.j<A NAME="3911"></A></I>, generate a reflection list and put it to 
+file <I CLASS="slanted">mcdisp.par<A NAME="3912"></A></I>. Parameters in the above command are
+
+<UL>
+<LI>0.3 ....qmin   [1/A] minimal q vector
+</LI>
+<LI>2   ....qmax   [1/A] maximal q vector
+</LI>
+<LI>0.1 ....deltaq [1/A] step width in q
+</LI>
+<LI>80  ....number of steps in polar coordinate <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img218.png"
+ ALT="$\Theta$"></SPAN>
+        (steps in polar angle <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img379.png"
+ ALT="$\phi$"></SPAN> are  then calculated in module
+        <I CLASS="slanted">powdermagnon</I> by <!-- MATH
+ $\delta \phi= \delta \Theta*\pi/(4*sin(\Theta))$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="177" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img380.png"
+ ALT="$\delta \phi= \delta \Theta*\pi/(4*sin(\Theta))$"></SPAN>
+</LI>
+</UL>
+
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>

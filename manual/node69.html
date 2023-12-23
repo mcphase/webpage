@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>Magnetic Formfactor Coefficients</TITLE>
+<META NAME="description" CONTENT="Magnetic Formfactor Coefficients">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node70.html">
+<LINK REL="previous" HREF="node68.html">
+<LINK REL="up" HREF="node67.html">
+<LINK REL="next" HREF="node70.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1335"
+  HREF="node70.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1329"
+  HREF="node67.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1323"
+  HREF="node68.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1331"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1333"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1336"
+  HREF="node70.html">Debye Waller Factor</A>
+<B> Up:</B> <A NAME="tex2html1330"
+  HREF="node67.html">Single Ion Modules</A>
+<B> Previous:</B> <A NAME="tex2html1324"
+  HREF="node68.html">Land&#233; Factor</A>
+ &nbsp; <B>  <A NAME="tex2html1332"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1334"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000162000000000000000">
+Magnetic Formfactor Coefficients</A>
+</H2>
+
+<P>
+For the more accurate calculation of neutron intensities it is
+necessary to give the magnetic form factor (see the table in appendix&nbsp;<A HREF="node136.html#ffacts">J</A>)
+in the single ion property input file. This can
+easily be don by adding some additional lines to a single ion property file:
+
+<P>
+<SMALL CLASS="FOOTNOTESIZE">
+</SMALL><PRE>
+#--------------------------------------------------------------------------------------
+# Neutron Magnetic Form Factor coefficients - thanks to J Brown
+#   d = 2*pi/Q      
+#   s = 1/2/d = Q/4/pi   
+#   sin(theta) = lambda * s
+#   r= s*s = Q*Q/16/pi/pi
+#
+#   &lt;j0(Qr)&gt;=   FFj0A*EXP(-FFj0a*r) + FFj0B*EXP(-FFj0b*r) + FFj0C*EXP(-FFj0c*r) + FFj0D
+#   &lt;j2(Qr)&gt;=r*(FFj2A*EXP(-FFj2a*r) + FFj2B*EXP(-FFj2b*r) + FFj2C*EXP(-FFj2c*r) + FFj2D
+#   &lt;j4(Qr)&gt;=r*(FFj4A*EXP(-FFj4a*r) + FFj4B*EXP(-FFj4b*r) + FFj4C*EXP(-FFj4c*r) + FFj4D
+#   &lt;j6(Qr)&gt;=r*(FFj6A*EXP(-FFj6a*r) + FFj6B*EXP(-FFj6b*r) + FFj6C*EXP(-FFj6c*r) + FFj6D
+#
+#   Dipole Approximation for Neutron Magnetic Formfactor:
+#        -Spin Form Factor       FS(Q)=&lt;j0(Q)&gt;
+#        -Angular Form Factor    FL(Q)=&lt;j0(Q)&gt;+&lt;j2(Q)&gt;
+#        -Rare Earth Form Factor F(Q) =&lt;j0(Q)&gt;+&lt;j2(Q)&gt;*(2/gJ-1)
+
+#--------------------------------------------------------------------------------------
+FFj0A=0.0540 FFj0a=25.0293 FFj0B=0.3101 FFj0b=12.1020 FFj0C=0.6575 FFj0c=4.7223 FFj0D=-0.0216
+FFj2A=0.6751 FFj2a=18.3421 FFj2B=1.6272 FFj2b=7.2600 FFj2C=0.9644 FFj2c=2.6016 FFj2D=0.0150
+FFj4A=-0.4053 FFj4a=+14.0141 FFj4B=+0.0329 FFj4b=+7.0046 FFj4C=+0.3759 FFj4c=+1.7074 FFj4D=+0.0209
+FFj6A=-0.0416 FFj6a=+8.0136 FFj6B=-0.1261 FFj6b=+4.0399 FFj6C=+0.1400 FFj6c=+1.0873 FFj6D=+0.0102
+</PRE>
+In order to go beyond the dipolar approximation for the magnetic formfactor in case
+of rare earth ions and using module <I CLASS="slanted">so1ion</I> the coefficients <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img712.png"
+ ALT="$Z(K')$"></SPAN> have to
+be given (see appendix&nbsp;<A HREF="node137.html#zk">K</A> for values):
+<SMALL CLASS="FOOTNOTESIZE">
+</SMALL><PRE>
+#----------------------------------------------------------------------
+# coefficients of Z(K') according to Lovesey (Neutron Scattering) vol.2
+# chapter 11.6.1 page 233
+#  ... these coefficients are needed to go beyond dipolar approx.
+#      for the neutron magnetic formfactor in rare earth ions
+#----------------------------------------------------------------------
+Z1c0=+1.63636364  Z1c2=+2.95041322
+		  Z3c2=-0.20896503  Z3c4=-0.25329095
+				    Z5c4=+0.03820789  Z5c6=+0.14258681
+						      Z7c6=-0.00614959
+</PRE>
+
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>

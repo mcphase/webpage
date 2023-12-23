@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>Unit Conventions in McPhase</TITLE>
+<META NAME="description" CONTENT="Unit Conventions in McPhase">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node150.html">
+<LINK REL="previous" HREF="node148.html">
+<LINK REL="up" HREF="manual.html">
+<LINK REL="next" HREF="node150.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2511"
+  HREF="node150.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2505"
+  HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2499"
+  HREF="node148.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2507"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2509"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2512"
+  HREF="node150.html">Installation of the program</A>
+<B> Up:</B> <A NAME="tex2html2506"
+  HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A NAME="tex2html2500"
+  HREF="node148.html">Solution of the exercises</A>
+ &nbsp; <B>  <A NAME="tex2html2508"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2510"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION000400000000000000000">
+Unit Conventions in McPhase</A>
+</H1>
+
+<P>
+In most cases units of input parameters and output properties in <I CLASS="slanted">McPhase</I> cannot be modified and 
+are fixed in the program code. In output files usually the unit is given in the column header.
+In table (<A HREF="#units">8</A>) the unit conventions are listed.
+
+<P>
+<BR>
+<DIV ALIGN="CENTER">
+   
+<A NAME="units"></A>   
+<A NAME="18556"></A>
+<TABLE CELLPADDING=3 BORDER="1" ALIGN="CENTER">
+<CAPTION><STRONG>Table 8:</STRONG>
+Units in the program package 
+<I CLASS="slanted">McPhase</I>:</CAPTION>
+<TR><TD ALIGN="LEFT">Physical Quantity</TD>
+<TD ALIGN="LEFT">symbol</TD>
+<TD ALIGN="LEFT">unit</TD>
+<TD ALIGN="LEFT">typical file(s)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Charge</TD>
+<TD ALIGN="LEFT">CHARGE</TD>
+<TD ALIGN="LEFT"><SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img995.png"
+ ALT="$\vert e\vert$"></SPAN></TD>
+<TD ALIGN="LEFT">*.sipf</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Debye Waller Factor</TD>
+<TD ALIGN="LEFT">DWF, <SPAN CLASS="MATH"><IMG
+ WIDTH="49" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1643.png"
+ ALT="$B_{iso}/2$"></SPAN></TD>
+<TD ALIGN="LEFT">&#197;<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img955.png"
+ ALT="$^2$"></SPAN></TD>
+<TD ALIGN="LEFT">*.sipf, mcdiff.in</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Energy</TD>
+<TD ALIGN="LEFT">cf-parameters Blm Llm, free energy u</TD>
+<TD ALIGN="LEFT">meV</TD>
+<TD ALIGN="LEFT">*.sipf, mcphas.fum ...</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Lattice Constant</TD>
+<TD ALIGN="LEFT">a,b,c</TD>
+<TD ALIGN="LEFT">&#197;</TD>
+<TD ALIGN="LEFT">mcdiff.in, mcphas.j</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Magnetic Field</TD>
+<TD ALIGN="LEFT">H, Ha, Hb, Hc</TD>
+<TD ALIGN="LEFT">Tesla</TD>
+<TD ALIGN="LEFT">mcphas.ini, mcdisp.mf ...</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Magnetic Moment</TD>
+<TD ALIGN="LEFT">mu, <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1644.png"
+ ALT="$\mu$"></SPAN></TD>
+<TD ALIGN="LEFT"><SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img761.png"
+ ALT="$\mu_B$"></SPAN></TD>
+<TD ALIGN="LEFT">mcphas.fum</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Neutron Cross Section</TD>
+<TD ALIGN="LEFT">sigma ,<SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img393.png"
+ ALT="$\sigma$"></SPAN></TD>
+<TD ALIGN="LEFT">barn</TD>
+<TD ALIGN="LEFT">mcdisp.qei</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Neutron Scattering Length</TD>
+<TD ALIGN="LEFT">SCATTERINGLENGTHREAL</TD>
+<TD ALIGN="LEFT"><SPAN CLASS="MATH"><IMG
+ WIDTH="43" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1645.png"
+ ALT="$10^{-12}$"></SPAN>&nbsp;cm</TD>
+<TD ALIGN="LEFT">*.sipf, mcdiff.in</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">SCATTERINGLENGTHIMAG</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Radial Integrals</TD>
+<TD ALIGN="LEFT">R2,R4,R6 , <!-- MATH
+ $\langle r^l \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1101.png"
+ ALT="$\langle r^l \rangle$"></SPAN></TD>
+<TD ALIGN="LEFT"><SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1646.png"
+ ALT="$a_0^2$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="86" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1647.png"
+ ALT="$a0=0.5292$"></SPAN>&nbsp;&#197;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Temperature</TD>
+<TD ALIGN="LEFT">T</TD>
+<TD ALIGN="LEFT">Kelvin</TD>
+<TD ALIGN="LEFT">mcphas.ini, mcdisp.mf ...</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Wave length</TD>
+<TD ALIGN="LEFT">lambda, <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1648.png"
+ ALT="$\lambda$"></SPAN></TD>
+<TD ALIGN="LEFT">&#197;</TD>
+<TD ALIGN="LEFT">mcdiff.in</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Wave vector</TD>
+<TD ALIGN="LEFT">k, ki, kf, Q, Qx, Qy, Qz</TD>
+<TD ALIGN="LEFT">1/&#197;</TD>
+<TD ALIGN="LEFT">mcdisp.par</TD>
+</TR>
+</TABLE>
+</DIV>
+<BR>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2511"
+  HREF="node150.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2505"
+  HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2499"
+  HREF="node148.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2507"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2509"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2512"
+  HREF="node150.html">Installation of the program</A>
+<B> Up:</B> <A NAME="tex2html2506"
+  HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A NAME="tex2html2500"
+  HREF="node148.html">Solution of the exercises</A>
+ &nbsp; <B>  <A NAME="tex2html2508"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2510"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

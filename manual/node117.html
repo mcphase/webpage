@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>Starting a parameter space search</TITLE>
+<META NAME="description" CONTENT="Starting a parameter space search">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node118.html">
+<LINK REL="previous" HREF="node116.html">
+<LINK REL="up" HREF="node114.html">
+<LINK REL="next" HREF="node118.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2060"
+  HREF="node118.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2054"
+  HREF="node114.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2048"
+  HREF="node116.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2056"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2058"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2061"
+  HREF="node118.html">analysing the results of</A>
+<B> Up:</B> <A NAME="tex2html2055"
+  HREF="node114.html">Searchspace and Simannfit -</A>
+<B> Previous:</B> <A NAME="tex2html2049"
+  HREF="node116.html">Telling the fitting program,</A>
+ &nbsp; <B>  <A NAME="tex2html2057"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2059"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000213000000000000000">
+Starting a parameter space search</A>
+</H2>
+
+<P>
+If the program <I CLASS="slanted">calcsta</I> has been set up, the parameter space may be
+searched by the program <I CLASS="slanted">searchspace<A NAME="10725"></A></I>. It is started
+by the command (in the example you should go to the directory <I CLASS="slanted">/mcphas/examples/cecu2a/fit</I>) 
+:
+
+<P>
+<BLOCKQUOTE>
+<I CLASS="slanted">searchspace 0 mcphas.jjj [and possible other input parameter files]</I>.
+
+</BLOCKQUOTE>
+
+<P>
+Note that the user written program <I CLASS="slanted">calcsta</I> has to be in the
+directory where <I CLASS="slanted">searchspace<A NAME="10731"></A></I> is started from.
+The &rdquo;0&rdquo; in the command means that the search is started for the first time.
+The program generates an output file <I CLASS="slanted">searchspace.0</I> with a list
+of parameter sets. This list may be shortened to stop searching 
+some regions of the parameter space and subsequently the program may be started
+with
+
+<P>
+<BLOCKQUOTE>
+<I CLASS="slanted">searchspace 1 mcphas.jjj [and possible other input parameter files]</I>.
+
+</BLOCKQUOTE>
+
+<P>
+Now the values stored in <I CLASS="slanted">searchspace.0</I> are read and 
+the parameter space is searched in more detail and a longer list 
+of parameters is stored as <I CLASS="slanted">searchspace.1</I>. This may be again
+edited to drop some regions of the parameter space and <I CLASS="slanted">searchspace<A NAME="10738"></A></I>
+may be started with <I CLASS="slanted">searchspace 2 ...</I> and so on ....
+
+<P>
+The program creates new parameter sets from an old set by incrementing/decrementing
+each of the parameters subsequently by a small step. In the first level this step
+is just equal to a quarter of the parameter range. Going from one level to
+ the next this step is halved. Figure&nbsp;<A HREF="node115.html#searchspace">18.1</A> shows how a two dimensional
+ parameter space is covered by this procedure. If all neighbouring points of
+ a given point show a larger value of <I CLASS="slanted">sta</I>, then the set is recorded, because it might be
+ near a minimum of <I CLASS="slanted">sta</I>. The parameter values are stored in the file
+ <I CLASS="slanted">results/searchspace.searchspace-level.localminima</I>.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2060"
+  HREF="node118.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2054"
+  HREF="node114.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2048"
+  HREF="node116.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2056"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2058"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2061"
+  HREF="node118.html">analysing the results of</A>
+<B> Up:</B> <A NAME="tex2html2055"
+  HREF="node114.html">Searchspace and Simannfit -</A>
+<B> Previous:</B> <A NAME="tex2html2049"
+  HREF="node116.html">Telling the fitting program,</A>
+ &nbsp; <B>  <A NAME="tex2html2057"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2059"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

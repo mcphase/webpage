@@ -1,0 +1,428 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>mcdiff - calculate and fit magnetic Neutron or Resonant Xray Scattering</TITLE>
+<META NAME="description" CONTENT="mcdiff - calculate and fit magnetic Neutron or Resonant Xray Scattering">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node44.html">
+<LINK REL="previous" HREF="node22.html">
+<LINK REL="up" HREF="manual.html">
+<LINK REL="next" HREF="node39.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html883"
+  HREF="node39.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html877"
+  HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html871"
+  HREF="node37.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html879"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html881"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html884"
+  HREF="node39.html">How to generate and</A>
+<B> Up:</B> <A NAME="tex2html878"
+  HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A NAME="tex2html872"
+  HREF="node37.html">Output Files - mcphas.qvc,phs,sps,mf,fum,j1...,xyt,hkl</A>
+ &nbsp; <B>  <A NAME="tex2html880"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html882"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION000110000000000000000"></A><A NAME="2836"></A><A NAME="mcdiff"></A>
+<BR>
+<I CLASS="slanted">mcdiff</I> - calculate and fit  magnetic Neutron or Resonant Xray 
+Scattering
+</H1>
+
+<P>
+In order to calculate neutron diffraction and resonant magnetic Xray scattering
+at a specified temperature and magnetic field you can use the module <I CLASS="slanted">mcdiff<A NAME="2838"></A></I>.
+An input file <I CLASS="slanted">mcdiff.in </I> for this program can be easily created from
+the output file <I CLASS="slanted">mcphas.sps</I> by the program <I CLASS="slanted">setup_mcdiff_in<A NAME="2841"></A></I>
+(in <I CLASS="slanted">mcdiff.in </I> structural data of non magnetic atoms and wavelength
+                        and maximal angle have to be edited).
+<A NAME="tex2html24"
+  HREF="footnode.html#foot3232"><SUP><SPAN CLASS="arabic">13</SPAN></SUP></A> 
+<I CLASS="slanted">mcdiff<A NAME="2844"></A></I> then calculates neutron reflection and intensity list.
+Miller indices always refer to the lattice <!-- MATH
+ $\vec a^*, \vec b^*, \vec c^*$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="62" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img201.png"
+ ALT="$\vec a^*,\vec b^*,\vec c^*$"></SPAN>, which
+is the reciprocal lattice of <!-- MATH
+ $\vec a, \vec b, \vec c$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="40" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img177.png"
+ ALT="$\vec a,\vec b,\vec c$"></SPAN> as defined by lattice
+parameters <SPAN CLASS="MATH"><IMG
+ WIDTH="40" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img216.png"
+ ALT="$a,b,c$"></SPAN> and angles <!-- MATH
+ $\alpha,\beta,\gamma$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img217.png"
+ ALT="$\alpha,\beta,\gamma$"></SPAN>.
+
+<P>
+Here follows an example input file (see examples/ndcu2b_new/mcdiff<A NAME="2845"></A>.in):
+
+<P>
+<SMALL CLASS="FOOTNOTESIZE">
+</SMALL><PRE>
+#
+#&lt;!--mcdiff.mcdiff.in&gt;
+#***************************************************************
+#      mcdiff is a program for the calculation of elastic
+#   neutron diffraction and resonant magnetic Xray scattering 
+#  reference: M. Rotter and A. Boothroyd PRB 79 (2009) 140405R
+#*************************************************************** 
+# this input file contains 4 sections corresponding to different
+# groups of parameters
+#
+# - all lines have to start with a # sign with the  exception of 
+#   the lines containing atomic positional parameters
+# - the other parameters have to be defined in the corresponding 
+#   section by statements such as parameter=value
+# - the sequence of the parameters within a section is arbitrary
+# 
+#
+# %SECTION 1%  OVERALL PARAMETERS
+#
+#! lambda   = 2.3587  wavelength (A)
+#
+#! thetamax = 10   maximum bragg angle (deg)
+#
+#! ovalltemp= 0  overall temperature factor (A^2) 
+#           ...I ~ EXP(-2 * ovalltemp * sintheta^2 / lambda^2) 
+#                  relation to other notations:
+#                  ovalltemp = Biso = 8 pi^2 Uiso^2
+#
+#! lorentz=0  type of lorentzfactor to be used
+#            0.....no lorentzfactor 
+#            1.....neutron powder flat sample
+#            2.....neutron powder cylindrical sample
+#            3.....neutron single crystal
+#            4.....neutron TOF powder cyl. sample - d-pattern log scaled
+#            5.....neutron TOF powder cyl. sample - d-pattern normal scaled
+#
+#     out* controls the type of output in user defined column * of mcdiff.out
+#! out4=30    (optional)
+#! out5=31    (optional)
+#! out6=32    (optional)
+#! out10=1    (optional)
+#! out11=0    (optional)
+#     ... in out*=n the numbers n have the following meaning:
+#            0....LF          
+#            1....|NSF|[b]    
+#            2....Re(NSF)[b]  
+#            3....Im(NSF)[b]  
+#            4....|MSF|       
+#            5....|MSF.P|     
+#            6....Re(MSF.P)   
+#            7....Im(MSF.P)   
+#            8....|MSFdip|    
+#            9....|MSFdip.P|  
+#            10....Re(MSFdip.P)
+#            11....Im(MSFdip.P)
+#            12....angl(Q,P)[deg]
+#            13....i(MSFxMSF*).P
+#            14....I+          
+#            15....I-          
+#            16....I+/I-       
+#            17....i(MSFxMSF*)dip.P
+#            18....Idip+       
+#            19....Idip-       
+#            20....Idip+/Idip- 
+#            21....2*|MSF.P|/sin^2(angl(Q,P)
+#            22....2*|MSFdip.P|/sin^2(angl(Q,P)
+#            23....2|NSF|sqrt(4PI/3.65)(|g|-sqrt(g^2-1/sin(angl(Q,P))))_with_g=(1+I+/I-)/(1-I+/I-)
+#            24....2|NSF|sqrt(4PI/3.65)(|g|+sqrt(g^2-1/sin(angl(Q,P))))_with_g=(1+I+/I-)/(1-I+/I-)
+#            25....2|NSF|sqrt(4PI/3.65)(|g|-sqrt(g^2-1/sin(angl(Q,P))))_with_g=(1+Idip+/Idip-)/(1-Idip+/Idip-)
+#            26....2|NSF|sqrt(4PI/3.65)(|g|+sqrt(g^2-1/sin(angl(Q,P))))_with_g=(1+Idip+/Idip-)/(1-Idip+/Idip-)
+#            27....Qx[1/A]     
+#            28....Qy[1/A]     
+#            29....Qz[1/A]     
+#            30....d[A]        
+#            31....|Q|[1/A]    
+#            32....2theta      
+#
+#           In the above the intensities I+ and I- are the spinflip and nonspinflip intensities
+#           in a polarised neutron experiment:
+#            I+-=LF exp(-OTF Q^2/8pi^2) 
+#                    [ |NSF/NB|^2 + 3.65/4pi (|MSF|^2-+i(MSF x MSF*).P)/NB^2 
+#                        +-  sqrt(3.65/4pi)/NB^2 (NSF (MSF*.P) + NSF* (MSF.P)]
+#           LF  ..... Lorentzfactor
+#           MSF ..... magnetic structure factor
+#           NSF ..... nuclear structure factor
+#
+#
+#             For some of the above options we need the
+#! Pa=  0.0000   Components of Polarisation Vector in terms of lattice vectors P=(Pa * a + Pb * b + Pc *c)
+#! Pb=  0.0000   Note: the length of P, i.e. |P| indicates the degree of beam polarisation (|P|&lt;=1)
+#! Pc=  1.0000
+#
+#
+# %SECTION 2% LIST OF NONMAGNETIC ATOMS IN CRYSTALLOGRAPHIC UNIT CELL
+#
+#
+#! natcryst=0      number of nonmagnetic atoms in primitive crystalographic unit cell
+#
+# it follows a list of natcryst lines with nonmagnetic atoms
+# ... notes: - if an occupancy other than 1.0 is needed, just reduce 
+#              the scattering length linear accordingly
+#            - Debye Waller Factor notation: sqr(Intensity) ~ structure factor ~ 
+#              ~sum_n ()n exp(-2 DWFn sin^2(theta) / lambda^2)=EXP (-Wn),  
+#              relation to other notations: 2*DWF = B = 8 pi^2 &lt;u^2&gt;, units DWF (A^2)
+#
+#! use_dadbdc=0
+#            - 0 means: da db and dc are not used by the program (unless you enter a line #! use_dadbdc=1),
+#               dr1,dr2 and dr3 refer to the primitive lattice given below
+# Real Imag[scattering length(10^-12cm)]   da(a)    db(b)    dc(c)    dr1(r1)  dr2(r2)  dr3(r3)  DWF(A^2)
+#
+#
+# %SECTION 3% DESCRIPTION OF THE LATTICE
+#
+#
+# Note: what follows here may directly be taken from the output of program spins 
+#       (file spins.out) or charges (file charges.out)
+# -----------------------------------------------------------------------------
+#
+# lattice constants (A) and angles 
+#! a=4.3843 b=7.0326 c=7.4194 alpha=  90 beta=  90 gamma=  90
+#
+# primitive lattice vectors 
+#! r1a= 0.500000 r2a= 0.000000 r3a= 0.000000
+#! r1b= 0.500000 r2b= 1.000000 r3b= 0.000000   primitive lattice vectors (a)(b)(c)
+#! r1c= 0.500000 r2c= 0.000000 r3c= 1.000000
+#
+#
+#
+# %SECTION 4% DESCRIPTION OF MAGNETIC UNIT CELL AND LIST OF MAGNETIC ATOMS
+#
+#
+# here follows the description of the magnetic unit cell with respect
+# to the primitive crystallographic unit cell:
+# 'nr1', 'nr2', 'nr3' ...the crystallographic unit cell has to be taken 
+#                        nr1 nr2 and nr3 times along r1 r2 and r3,
+#                        respectively to get magnetic unit cell
+# 'nat' denotes the number of magnetic atoms in magnetic unit cell
+#
+# Temperature,  External Magnetic Field: Magnetic Unit Cell
+#! T=1.5 K Ha=0 T Hb= 0 T Hc= 0 T: nr1=10 nr2=1 nr3=1 nat=20 
+#
+#
+# It follows a list of nat lines with to describe the magnetic moment configuration
+# Notes:
+# 'atom-filename' means the single ion property filename of this magnetic atom:
+#                 -it must contain the Formfactor Coefficients (e.g. see international tables)
+#                                      Lande factor
+#                                      Neutron Scattering Length (10^-12 cm) 
+#                 -it may contain a    Debey Waller Factor
+# 'da' 'db' and 'dc' are not used by the program (unless you enter a line #! use_dadbdc=1)
+# 'dr1','dr2' and 'dr3' refer to the primitive lattice given below
+# 'Ma','Mb','Mc' denote the magnetic moment components in Bohr magnetons
+#                in case of non orthogonal lattices instead of Ma Mb Mc the components Mx My Mz
+#                have to be given, which refer to an right handed orthogonal coordinate system 
+#                defined by y||b, z||(a x b) and x normal to y and z
+#  &lt;Sa&gt;  &lt;La&gt; &lt;Sb&gt; &lt;Lb &gt;  &lt;Sc&gt; &lt;Lc&gt;  (optional) denote the spin and orbital angular momentum components 
+# 'Hxc1' 'Hxc2' 'Hxc3' (optional line, used to go beyond dipole approx for formfactor)
+#                                     denote the corresponding exchange fields in meV
+#
+#{atom-file} da[a]  db[b]    dc[c]     dr1[r1]  dr2[r2]  dr3[r3]   &lt;Ma&gt;     &lt;Mb&gt;     &lt;Mc&gt; [mb] [optional &lt;Sa&gt; &lt;La&gt; &lt;Sb&gt; &lt;Lb&gt; &lt;Sc&gt; &lt;Lc&gt; ]
+#{corresponding exchange fields Hxc [meV]- if passed to mcdiff only these are used for calculation (not the magnetic moments)}
+{Nd3p.sipf}  0.00000  0.00000  0.00000   0.00000  0.00000  0.00000   +0.00000 +2.09990 +0.00000  +0.00000 +0.00000 -0.78750 +3.67490 +0.00000 +0.00000
+{Nd3p.sipf}  0.00000  0.50000  0.07660  -0.00000  0.50000  0.07660   +0.00000 +2.09990 +0.00000  +0.00000 +0.00000 -0.78750 +3.67490 +0.00000 +0.00000
+{Nd3p.sipf}  0.50000  0.50000  0.50000   1.00000  0.00000  0.00000   +0.00000 +2.14380 +0.00000  +0.00000 +0.00000 -0.80390 +3.75160 +0.00000 +0.00000
+{Nd3p.sipf}  0.50000  1.00000  0.57660   1.00000  0.50000  0.07660   +0.00000 +2.14380 +0.00000  +0.00000 +0.00000 -0.80390 +3.75160 +0.00000 +0.00000
+{Nd3p.sipf}  1.00000  1.00000  1.00000   2.00000  0.00000  0.00000   +0.00000 -2.14380 +0.00000  +0.00000 +0.00000 +0.80390 -3.75160 +0.00000 +0.00000
+{Nd3p.sipf}  1.00000  1.50000  1.07660   2.00000  0.50000  0.07660   +0.00000 -2.14380 +0.00000  +0.00000 +0.00000 +0.80390 -3.75160 +0.00000 +0.00000
+{Nd3p.sipf}  1.50000  1.50000  1.50000   3.00000 -0.00000 -0.00000   +0.00000 -2.09990 +0.00000  +0.00000 +0.00000 +0.78750 -3.67490 +0.00000 +0.00000
+{Nd3p.sipf}  1.50000  2.00000  1.57660   3.00000  0.50000  0.07660   +0.00000 -2.09990 +0.00000  +0.00000 +0.00000 +0.78750 -3.67490 +0.00000 +0.00000
+{Nd3p.sipf}  2.00000  2.00000  2.00000   4.00000  0.00000  0.00000   +0.00000 +2.11700 +0.00000  +0.00000 +0.00000 -0.79390 +3.70470 +0.00000 +0.00000
+{Nd3p.sipf}  2.00000  2.50000  2.07660   4.00000  0.50000  0.07660   +0.00000 +2.11700 +0.00000  +0.00000 +0.00000 -0.79390 +3.70470 +0.00000 +0.00000
+{Nd3p.sipf}  2.50000  2.50000  2.50000   5.00000  0.00000 -0.00000   +0.00000 -2.09990 +0.00000  +0.00000 +0.00000 +0.78750 -3.67490 +0.00000 +0.00000
+{Nd3p.sipf}  2.50000  3.00000  2.57660   5.00000  0.50000  0.07660   +0.00000 -2.09990 +0.00000  +0.00000 +0.00000 +0.78750 -3.67490 +0.00000 +0.00000
+{Nd3p.sipf}  3.00000  3.00000  3.00000   6.00000 -0.00000 -0.00000   +0.00000 -2.14380 +0.00000  +0.00000 +0.00000 +0.80390 -3.75160 +0.00000 +0.00000
+{Nd3p.sipf}  3.00000  3.50000  3.07660   6.00000  0.50000  0.07660   +0.00000 -2.14380 +0.00000  +0.00000 +0.00000 +0.80390 -3.75160 +0.00000 +0.00000
+{Nd3p.sipf}  3.50000  3.50000  3.50000   7.00000  0.00000  0.00000   +0.00000 +2.14380 +0.00000  +0.00000 +0.00000 -0.80390 +3.75160 +0.00000 +0.00000
+{Nd3p.sipf}  3.50000  4.00000  3.57660   7.00000  0.50000  0.07660   +0.00000 +2.14380 +0.00000  +0.00000 +0.00000 -0.80390 +3.75160 +0.00000 +0.00000
+{Nd3p.sipf}  4.00000  4.00000  4.00000   8.00000  0.00000  0.00000   +0.00000 +2.09990 +0.00000  +0.00000 +0.00000 -0.78750 +3.67490 +0.00000 +0.00000
+{Nd3p.sipf}  4.00000  4.50000  4.07660   8.00000  0.50000  0.07660   +0.00000 +2.09990 +0.00000  +0.00000 +0.00000 -0.78750 +3.67490 +0.00000 +0.00000
+{Nd3p.sipf}  4.50000  4.50000  4.50000   9.00000  0.00000  0.00000   +0.00000 -2.11700 +0.00000  +0.00000 +0.00000 +0.79390 -3.70470 +0.00000 +0.00000
+{Nd3p.sipf}  4.50000  5.00000  4.57660   9.00000  0.50000  0.07660   +0.00000 -2.11700 +0.00000  +0.00000 +0.00000 +0.79390 -3.70470 +0.00000 +0.00000
+</PRE>
+
+<P>
+After issuing the command <I CLASS="slanted">mcdiff<A NAME="2848"></A></I> 
+the program calculates the following output file <I CLASS="slanted">results/mcdiff<A NAME="2849"></A>.out</I>:
+
+<P>
+<SMALL CLASS="FOOTNOTESIZE">
+</SMALL><PRE>
+#{output file of program mcdiff ./results/mcdiff.out input file: mcdiff.in mcdiff version 3.0 Tue Jun 23 %%@
+12:51:43 2009
+#!&lt;--mcdiff.mcdiff.out--&gt;
+#***********************************************************************
+#*
+#* mcdiff - program to calculate neutron and magnetic xray diffraction
+#*
+#* reference: M. Rotter and A. Boothroyd PRB 79 (2009) 140405R
+#***********************************************************************
+#! unit cell: a= 4.3843 A  b= 4.3843 A c= 2.4194 A  alpha=90  beta=90 gamma=90
+#                   /  4.384 A \     /  0.000 A \     /  0.000 A \ 
+#                b1=|  0.000 A |  b2=|  4.384 A |  b3=| -0.000 A |
+#                   \ -0.000 A /     \  0.000 A /     \  4.839 A /
+#! Wavelength=0.9 A   number of atoms: 4
+#! T= 2 K Ha= 0 T Hb= 0 T Hc= 0 T
+#! Overall temperature factor B=0.3 A^2: Intensity is proportional to exp(-2*B*(sin(theta)/lambda)^2)
+# Lorentz Factor: 1 / sin^2(2theta)   neutron powder flat sample
+#
+# Lorentz Factor not considered for resonant magnetic xray scattering - F1 and F2 transition intensities %%@
+calculated
+# according to fRMXS as given in equation (2) of Longfield et al. PRB 66 054417 (2002) and maximized with %%@
+respect to azimuth.
+#
+#! nofatoms=4 atoms in unit cell: List of atomic positions dr1 dr2 dr3, moments m scattering lengths sl,
+# Debye Waller factor (sqr(Intensity)~|NSF| ~sum_i ()i exp(-2 DWFi sin^2(theta) / lambda^2)=EXP (-Wi),
+# units DWF [A^2], relation to other notations 2*DWF=B=8 pi^2 &lt;u^2&gt;)
+#  and  Lande factors total angular momentum J (=0 if dipole approximation is used) &lt;j0&gt; and &lt;j2&gt; formfactor
+# coefficients
+#  dr1[r1]dr2[r2]dr3[r3]ma[MuB]mb[MuB]mc[MuB]sl[10^-12cm]  DWF[A^2] gJ     &lt;j0&gt;:A a      B      b      C      %%@
+c      D      &lt;j2&gt;A  a      B      b      C      c      D
+#  0.000  0.000  0.000  0.000  0.000 -2.130  0.484+0.000i  0.000  0.857 F(Q)=j0-(1-2/gJ)j2 formfactor for %%@
+rare earth/transition metals with gJ=2 0.295 17.685  0.292  6.733  0.431  5.383 -0.019  0.981 18.063  1.841  %%@
+7.769  0.991  2.845  0.012 
+#  0.000  0.000  0.500  0.000  0.000  2.130  0.484+0.000i  0.000  0.857 F(Q)=j0-(1-2/gJ)j2 formfactor for %%@
+rare earth/transition metals with gJ=2 0.295 17.685  0.292  6.733  0.431  5.383 -0.019  0.981 18.063  1.841  %%@
+7.769  0.991  2.845  0.012 
+#  0.500  0.500  0.250  0.000  0.000  0.000  0.772+0.000i  0.000  0.000  1.000  0.000  0.000  0.000  0.000  %%@
+0.000  0.000  0.000  0.000  0.000  0.000  0.000  0.000  0.000 
+#  0.500  0.500  0.750  0.000  0.000  0.000  0.772+0.000i  0.000  0.000  1.000  0.000  0.000  0.000  0.000  %%@
+0.000  0.000  0.000  0.000  0.000  0.000  0.000  0.000  0.000 
+#}
+#{h     k      l      d[A]    |Q|[1/A] 2theta  Inuc(2t) Imag(2t) Itot(2t) |NSF|     LF   Imag_dip(2t) %%@
+F1:max-Isigpi azim Ipisig azim Ipipig azim F2:max-Isigpi azim Ipisig azim Ipipig azim  |^ma_q| |^mb_q| %%@
+|^mc_q| |^ma^2_q||^mb^2_q||^mc^2_q||(^ma*^mb)_q||(^ma*^mc)_q||(^mb*^mc)_q|}
+ 0.000  0.000  0.500  4.8388  1.2985  10.672   0.0000   0.0000   0.0000   0.0000  29.1583   0.0000        %%@
+0.010111 270 0.010111  90 0.000000   0   0.000000 360 0.000000 180 0.000000  90    0.0000   0.0000   1.0652   %%@
+0.0000   0.0000   0.0000   0.0000   0.0000   0.0000
+ 0.000  0.000 -0.500  4.8388  1.2985  10.672   0.0000   0.0000   0.0000   0.0000  29.1583   0.0000        %%@
+0.010111  90 0.010111 270 0.000000 360   0.000000 180 0.000000 360 0.000000  90    0.0000   0.0000   1.0652   %%@
+0.0000   0.0000   0.0000   0.0000   0.0000   0.0000
+ 1.000  0.000  0.000  4.3843  1.4331  11.782   0.4935   0.0000   0.4935   0.5760  23.9836   0.0000        %%@
+0.000000   0 0.000000   0 0.000000   0   0.013544 314 0.013544 314 0.000571 270    0.0000   0.0000   0.0000   %%@
+0.0000   0.0000   2.2691   0.0000   0.0000   0.0000
+-1.000  0.000 -0.000  4.3843  1.4331  11.782   0.4935   0.0000   0.4935   0.5760  23.9836   0.0000        %%@
+0.000000   0 0.000000   0 0.000000   0   0.013544 314 0.013544 314 0.000571 270    0.0000   0.0000   0.0000   %%@
+0.0000   0.0000   2.2691   0.0000   0.0000   0.0000
+ 0.000  1.000 -0.000  4.3843  1.4331  11.782   0.4935   0.0000   0.4935   0.5760  23.9836   0.0000        %%@
+0.000000   0 0.000000   0 0.000000   0   0.013544 314 0.013544 314 0.000571 270    0.0000   0.0000   0.0000   %%@
+0.0000   0.0000   2.2691   0.0000   0.0000   0.0000
+-0.000 -1.000  0.000  4.3843  1.4331  11.782   0.4935   0.0000   0.4935   0.5760  23.9836   0.0000        %%@
+0.000000   0 0.000000   0 0.000000   0   0.013544 314 0.013544 314 0.000571 270    0.0000   0.0000   0.0000   %%@
+0.0000   0.0000   2.2691   0.0000   0.0000   0.0000
+ 1.000  0.000  0.500  3.2490  1.9339  15.923   0.0000   0.4821   0.4821   0.0000  13.2870   0.4821        %%@
+0.775763   0 0.775763 180 0.046891  90   0.000000  98 0.000000 278 0.000000   0    0.0000   0.0000   1.0652   %%@
+0.0000   0.0000   0.0000   0.0000   0.0000   0.0000
+ 1.000  0.000 -0.500  3.2490  1.9339  15.923   0.0000   0.4821   0.4821   0.0000  13.2870   0.4821        %%@
+0.775763 360 0.775763 180 0.046891 270   0.000000 262 0.000000  82 0.000000 360    0.0000   0.0000   1.0652   %%@
+0.0000   0.0000   0.0000   0.0000   0.0000   0.0000
+etc ....
+-----------------------------------------------------------------------
+</PRE>
+
+<P>
+This reflection list contains the Miller indices, the d-spacing, the scattering vector,
+the scattering angle 2<SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img218.png"
+ ALT="$\Theta$"></SPAN>, nuclear and magnetic neutron scattering intensities
+and the corresponding structure-, Lorentzfactor. Moreover it contains the
+intensities for the different scattering channels of resonant magnetic x-ray scattering,
+the intensity is shown together with the azimuth value where it is maximum. In addition,
+the absolute value of the Fourier transform of the magnetic moment components in the different
+crystal directions and of some products of the moment components is given.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html885"
+  HREF="node39.html">How to generate and view a powder diffraction profile</A>
+<LI><A NAME="tex2html886"
+  HREF="node40.html">How to calculate only specific reflections, azimuth dependence and fitting of neutron 
+intensities</A>
+<LI><A NAME="tex2html887"
+  HREF="node41.html">Formalism I - Resonant Magnetic Xray Scattering Intensity</A>
+<LI><A NAME="tex2html888"
+  HREF="node42.html">Formalism II - Neutron Cross section</A>
+<LI><A NAME="tex2html889"
+  HREF="node43.html">Going beyond the Dipole Approximation for the Neutron Form factor</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html883"
+  HREF="node39.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html877"
+  HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html871"
+  HREF="node37.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html879"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html881"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html884"
+  HREF="node39.html">How to generate and</A>
+<B> Up:</B> <A NAME="tex2html878"
+  HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A NAME="tex2html872"
+  HREF="node37.html">Output Files - mcphas.qvc,phs,sps,mf,fum,j1...,xyt,hkl</A>
+ &nbsp; <B>  <A NAME="tex2html880"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html882"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

@@ -1,0 +1,508 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>Going beyond the Dipole Approximation for the Neutron Form factor</TITLE>
+<META NAME="description" CONTENT="Going beyond the Dipole Approximation for the Neutron Form factor">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="previous" HREF="node42.html">
+<LINK REL="up" HREF="node38.html">
+<LINK REL="next" HREF="node44.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html956"
+  HREF="node44.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html950"
+  HREF="node38.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html946"
+  HREF="node42.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html952"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html954"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html957"
+  HREF="node44.html">mcdisp - the Calculation</A>
+<B> Up:</B> <A NAME="tex2html951"
+  HREF="node38.html">mcdiff - calculate and</A>
+<B> Previous:</B> <A NAME="tex2html947"
+  HREF="node42.html">Formalism II - Neutron</A>
+ &nbsp; <B>  <A NAME="tex2html953"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html955"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000115000000000000000"></A><A NAME="mcdiff_gobeyond"></A>
+<BR>
+Going beyond the Dipole Approximation for the Neutron Form factor
+</H2>
+
+<P>
+Usually the magnetic form factor is calculated by the dipole approximation (see appendix&nbsp;<A HREF="node136.html#ffacts">J</A>).
+In order to go beyond the dipole approximation (see&nbsp;[<A
+ HREF="node151.html#lovesey84-1">29</A>] chapter 11.6.2,equations 
+11.141-11.143, mind: there is a small error in equ 11.141 and 11.142 in this book, see below) for the 
+magnetic form factor it is necessary to take into account the expectation values
+<!-- MATH
+ $\langle j_4(Q) \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="55" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img317.png"
+ ALT="$\langle j_4(Q) \rangle$"></SPAN> and <!-- MATH
+ $\langle j_6(Q) \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="55" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img318.png"
+ ALT="$\langle j_6(Q) \rangle$"></SPAN> 
+(in addition to <!-- MATH
+ $\langle j_0(Q) \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="55" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img319.png"
+ ALT="$\langle j_0(Q) \rangle$"></SPAN> and <!-- MATH
+ $\langle j_2(Q) \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="55" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img320.png"
+ ALT="$\langle j_2(Q) \rangle$"></SPAN>). 
+Moreover the ground state wave functions, the <SPAN CLASS="MATH"><IMG
+ WIDTH="43" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img321.png"
+ ALT="$Z(K)$"></SPAN>-coefficients (see appendix&nbsp;<A HREF="node137.html#zk">K</A>
+or [<A
+ HREF="node151.html#lovesey84-1">29</A>],table 11.1)
+and the momentum quantum number for each magnetic ion is required. This
+information has to be given in the input file 
+in the following format:
+
+<P>
+<SMALL CLASS="FOOTNOTESIZE">
+</SMALL><PRE>
+...
+# %SECTION 4% DESCRIPTION OF MAGNETIC UNIT CELL AND LIST OF MAGNETIC ATOMS
+#
+#
+# here follows the description of the magnetic unit cell with respect
+# to the primitive crystallographic unit cell:
+# 'nr1', 'nr2', 'nr3' ...the crystallographic unit cell has to be taken 
+#                        nr1 nr2 and nr3 times along r1 r2 and r3,
+#                        respectively to get magnetic unit cell
+# 'nat' denotes the number of magnetic atoms in magnetic unit cell
+#
+# Temperature,  External Magnetic Field: Magnetic Unit Cell
+#! T=1.3 K Ha=0 T Hb= 0 T Hc= 0 T: nr1=2 nr2=2 nr3=2 nat=8 
+#
+#
+# It follows a list of nat lines with to describe the magnetic moment configuration
+# Notes:
+# 'atom-filename' means the single ion property filename of this magnetic atom:
+#                 -it must contain the Formfactor Coefficients (e.g. see international tables)
+#                                      Lande factor
+#                                      Neutron Scattering Length (10^-12 cm) 
+#                 -it may contain a    Debey Waller Factor
+# 'da' 'db' and 'dc' are not used by the program (unless you enter a line #! use_dadbdc=1)
+# 'dr1','dr2' and 'dr3' refer to the primitive lattice given below
+# 'Ma','Mb','Mc' denote the magnetic moment components in Bohr magnetons
+#                in case of non orthogonal lattices instead of Ma Mb Mc the components Mi Mj Mk
+#                have to be given, which refer to an right handed orthogonal coordinate system 
+#                defined by j||b, k||(a x b) and i normal to k and j
+#  &lt;Sa&gt;  &lt;La&gt; &lt;Sb&gt; &lt;Lb &gt;  &lt;Sc&gt; &lt;Lc&gt;  (optional) denote the spin and orbital angular momentum components 
+# 'Hxc1' 'Hxc2' 'Hxc3' (optional line, used to go beyond dipole approx for formfactor)
+#                                     denote the exchange fields in meV 
+#
+#{atom-file} da[a]  db[b]    dc[c]     dr1[r1]  dr2[r2]  dr3[r3]   &lt;Ma&gt;     &lt;Mb&gt;     &lt;Mc&gt; [mb] [optional &lt;Sa&gt;  &lt;La&gt; &lt;Sb&gt; &lt;Lb &gt;  &lt;Sc&gt; &lt;Lc&gt;] 
+#{corresponding exchange fields Hxc [meV]- if passed to mcdiff only these are used for calculation (not the magnetic moments)}
+{Ce3p.sipf}  0.00000  0.00000  0.00000   0.00000  0.00000  0.00000   +0.69590 +0.69620 +0.00000  
+                    corresponding exchange fields Hxc [meV]--&gt; +0.58640 +0.58660 +0.00000
+{Ce3p.sipf}  0.50000  0.50000  0.50000   0.00000  0.00000  1.00000   -0.69590 -0.69620 +0.00000 
+                    corresponding exchange fields Hxc [meV]--&gt; -0.58640 -0.58660 +0.00000
+{Ce3p.sipf}  0.00000  1.00000  0.00000   0.00000  1.00000  0.00000   -0.69590 -0.69620 +0.00000 
+                    corresponding exchange fields Hxc [meV]--&gt; -0.58640 -0.58660 +0.00000
+{Ce3p.sipf}  0.50000  1.50000  0.50000   0.00000  1.00000  1.00000   +0.69590 +0.69620 +0.00000 
+                    corresponding exchange fields Hxc [meV]--&gt; +0.58640 +0.58660 +0.00000
+{Ce3p.sipf}  1.00000  0.00000  0.00000   1.00000  0.00000  0.00000   -0.69590 -0.69620 +0.00000 
+                    corresponding exchange fields Hxc [meV]--&gt; -0.58640 -0.58660 +0.00000
+{Ce3p.sipf}  1.50000  0.50000  0.50000   1.00000  0.00000  1.00000   +0.69590 +0.69620 +0.00000 
+                    corresponding exchange fields Hxc [meV]--&gt; +0.58640 +0.58660 +0.00000
+{Ce3p.sipf}  1.00000  1.00000  0.00000   1.00000  1.00000  0.00000   +0.69590 +0.69620 +0.00000  
+                    corresponding exchange fields Hxc [meV]--&gt; +0.58640 +0.58660 +0.00000
+{Ce3p.sipf}  1.50000  1.50000  0.50000   1.00000  1.00000  1.00000   -0.69590 -0.69620 +0.00000
+                    corresponding exchange fields Hxc [meV]--&gt; -0.58640 -0.58660 +0.00000
+</PRE>
+
+<P>
+Such a file can be easily created by using the program <I CLASS="slanted">spins<A NAME="3115"></A></I>. Alternatively, if no complete <I CLASS="slanted">mcphas</I> model
+calculation is available, the meanfields can be varied such as to
+give a good fit to experimental data.
+
+<P>
+If such information is given the formalism used by <I CLASS="slanted">mcdiff<A NAME="3117"></A></I> changes in the following way. 
+(i) If possible, the expectation values of  <!-- MATH
+ $\langle L_{d\alpha} \rangle_{T,H}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="67" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img296.png"
+ ALT="$\langle L_{d\alpha} \rangle_{T,H}$"></SPAN> <!-- MATH
+ $\langle S_{d\alpha} \rangle_{T,H}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="66" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img295.png"
+ ALT="$\langle S_{d\alpha} \rangle_{T,H}$"></SPAN> <!-- MATH
+ $\langle M_{d\alpha} \rangle_{T,H}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="72" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img322.png"
+ ALT="$\langle M_{d\alpha} \rangle_{T,H}$"></SPAN> are evaluated by the module functions <I CLASS="slanted">Lcalc, Scalc and mcalc</I>, respectively. These values are used to calculate the neutron intensities in dipole approximation (Idip).
+(ii) For the full intensity calculation instead of equation (<A HREF="node42.html#msf">31</A>) the magnetic structure factor <SPAN CLASS="MATH"><IMG
+ WIDTH="60" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img323.png"
+ ALT="$\vert MSF\vert^2$"></SPAN> is calculated according to
+
+<P>
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+|\vec{\rm MSF}|^2 &=& \left ( \sum_{dd',\alpha\beta}(\delta_{\alpha\beta}-\hat \mathbf Q_{\alpha} \hat \mathbf Q_{\beta})
+\langle \hat \mathcal Q^{d \dag }_{\alpha} \rangle_{T,H} 
+\langle \hat \mathcal Q^{d'}_{\beta} \rangle_{T,H}
+ e^{-i\mathbf Q(\mathbf B_d-\mathbf B_{d'})} e^{-W_d-W_{d'}} \right )\\
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="54" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img324.png"
+ ALT="$\displaystyle \vert\vec{\rm MSF}\vert^2$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="455" HEIGHT="73" ALIGN="MIDDLE" BORDER="0"
+ SRC="img325.png"
+ ALT="$\displaystyle \left ( \sum_{dd',\alpha\beta}(\delta_{\alpha\beta}-\hat \mathbf ...
+...ngle_{T,H}
+e^{-i\mathbf Q(\mathbf B_d-\mathbf B_{d'})} e^{-W_d-W_{d'}} \right )$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">46</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+Here the thermal expectation values <!-- MATH
+ $\langle \dots \rangle_{T,H}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="59" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img326.png"
+ ALT="$\langle \dots \rangle_{T,H}$"></SPAN>
+ of the scattering operators <!-- MATH
+ $\hat \mathcal Q_{\alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="26" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img327.png"
+ ALT="$\hat \mathcal Q_{\alpha}$"></SPAN> have to be evaluated
+for each ion <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img27.png"
+ ALT="$d$"></SPAN>. Note that  the scattering operators correspond to the
+Fourier transform of the atomic magnetisation density: <!-- MATH
+ $\hat \mathcal Q=\frac{1}{2\mu_B}\hat M(\mathbf Q)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="109" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img328.png"
+ ALT="$\hat \mathcal Q=\frac{1}{2\mu_B}\hat M(\mathbf Q)$"></SPAN>.
+If present in the single ion module, the function <I CLASS="slanted">mq</I> is called to calculate this quantity.
+
+<P>
+For example, for the single ion module <I CLASS="slanted">so1ion</I> the scattering operator <!-- MATH
+ $\hat \mathcal Q=\frac{1}{2\mu_B}\hat M(\mathbf Q)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="109" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img328.png"
+ ALT="$\hat \mathcal Q=\frac{1}{2\mu_B}\hat M(\mathbf Q)$"></SPAN> is calculated as follows (for <I CLASS="slanted">ic1ion</I> see section&nbsp;<A HREF="node105.html#ic1ionmq">15.6</A>): 
+once the eigenstates of each ion are known  in terms of 
+atomic wave functions <SPAN CLASS="MATH"><IMG
+ WIDTH="63" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img329.png"
+ ALT="$\vert SLJM \rangle $"></SPAN> (with <!-- MATH
+ $M=-J,-J+1,\dots J$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="159" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img330.png"
+ ALT="$M=-J,-J+1,\dots J$"></SPAN>) this
+evaluation can be performed by means of the following expressions for
+ the matrix elements of the scattering operator (compare chapter 11.6.2
+ in&nbsp;[<A
+ HREF="node151.html#lovesey84-1">29</A>],equations 
+11.141-11.143, mind: there is a small error in equation 11.141 
+and 11.142 in this reference - the imaginary <SPAN CLASS="MATH"><IMG
+ WIDTH="9" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img331.png"
+ ALT="$i$"></SPAN> has been misplaced ... the following 
+equations have been corrected for this mistake):
+
+<P>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="scattoperator"></A>
+<!-- MATH
+ \begin{eqnarray}
+\langle SLJM|\hat \mathcal Q_x |SLJM' \rangle & =& \frac{1}{2} \sum_{K',Q'} f(K') P(K',Q') \times \\
+&& \times               [Y_{K'-1,Q'+1}(\hat \mathbf Q)\sqrt{(K'-Q')(K'-Q'-1)}- 
+	        Y_{K'-1,Q'-1}(\hat \mathbf Q)\sqrt{(K'+Q')(K'+Q'-1)}] \nonumber \\
+\langle SLJM|\hat \mathcal Q_y |SLJM' \rangle & =& \frac{-i}{2} \sum_{K',Q'} f(K') P(K',Q') \times \\
+&& \times               [Y_{K'-1,Q'+1}(\hat \mathbf Q)\sqrt{(K'-Q')(K'-Q'-1)}+ 
+	        Y_{K'-1,Q'-1}(\hat \mathbf Q)\sqrt{(K'+Q')(K'+Q'-1)}] \nonumber \\
+\langle SLJM|\hat \mathcal Q_z |SLJM' \rangle & =&  \sum_{K',Q'} f(K') P(K',Q') 
+               [Y_{K'-1,Q'}(\hat \mathbf Q)\sqrt{(K'-Q')(K'+Q')}]
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="148" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img332.png"
+ ALT="$\displaystyle \langle SLJM\vert\hat \mathcal Q_x \vert SLJM' \rangle$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="176" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img333.png"
+ ALT="$\displaystyle \frac{1}{2} \sum_{K',Q'} f(K') P(K',Q') \times$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">47</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="605" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img334.png"
+ ALT="$\displaystyle \times [Y_{K'-1,Q'+1}(\hat \mathbf Q)\sqrt{(K'-Q')(K'-Q'-1)}-
+Y_{K'-1,Q'-1}(\hat \mathbf Q)\sqrt{(K'+Q')(K'+Q'-1)}]$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="148" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img335.png"
+ ALT="$\displaystyle \langle SLJM\vert\hat \mathcal Q_y \vert SLJM' \rangle$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="186" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img336.png"
+ ALT="$\displaystyle \frac{-i}{2} \sum_{K',Q'} f(K') P(K',Q') \times$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">48</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="605" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img337.png"
+ ALT="$\displaystyle \times [Y_{K'-1,Q'+1}(\hat \mathbf Q)\sqrt{(K'-Q')(K'-Q'-1)}+
+Y_{K'-1,Q'-1}(\hat \mathbf Q)\sqrt{(K'+Q')(K'+Q'-1)}]$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="148" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img338.png"
+ ALT="$\displaystyle \langle SLJM\vert\hat \mathcal Q_z \vert SLJM' \rangle$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="396" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img339.png"
+ ALT="$\displaystyle \sum_{K',Q'} f(K') P(K',Q')
+[Y_{K'-1,Q'}(\hat \mathbf Q)\sqrt{(K'-Q')(K'+Q')}]$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">49</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+Here the different symbols have the following meaning:
+
+<P>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="zkfkpkq"></A>
+<!-- MATH
+ \begin{eqnarray}
+Z(K') & = & c_{K'-1} \langle j_{K'-1}(Q) \rangle+c_{K'+1} \langle  j_{K'+1}(Q) \rangle \\
+f(K') & = & \sqrt{4\pi}Z(K')/K' \\
+P(K',Q') & = & (-1)^{J-M'}
+\left (\begin{array}{ccc}
+K' & J & J \\
+-Q' & M' & -M \\
+\end{array} \right)
+\left (\begin{array}{ccc}
+K' & J & J \\
+0 &  J & -J \\
+\end{array} \right)^{-1} 
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="47" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img340.png"
+ ALT="$\displaystyle Z(K')$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="256" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img341.png"
+ ALT="$\displaystyle c_{K'-1} \langle j_{K'-1}(Q) \rangle+c_{K'+1} \langle j_{K'+1}(Q) \rangle$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">50</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="45" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img342.png"
+ ALT="$\displaystyle f(K')$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="105" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img343.png"
+ ALT="$\displaystyle \sqrt{4\pi}Z(K')/K'$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">51</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="72" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img344.png"
+ ALT="$\displaystyle P(K',Q')$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="370" HEIGHT="61" ALIGN="MIDDLE" BORDER="0"
+ SRC="img345.png"
+ ALT="$\displaystyle (-1)^{J-M'}
+\left (\begin{array}{ccc}
+K' &amp; J &amp; J \\
+-Q' &amp; M' &amp; -...
+...left (\begin{array}{ccc}
+K' &amp; J &amp; J \\
+0 &amp; J &amp; -J \\
+\end{array} \right)^{-1}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">52</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+The coefficients <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img346.png"
+ ALT="$c_{K'}$"></SPAN> have been tabulated (see appendix&nbsp;<A HREF="node137.html#zk">K</A> or table 11.1 of [<A
+ HREF="node151.html#lovesey84-1">29</A>])
+and have to be given in the single ion parameter file(s) by entering the following lines
+
+<P>
+<PRE>
+# coefficients of Z(K') according to Lovesey chapter 11.6.1 page 233
+Z1c0=1.63636364  Z1c2=2.95041322
+Z3c2=-0.20896503 Z3c4=-0.25329095
+Z5c4=0.03820789  Z5c6=0.14258681
+Z7c6=-0.00614959
+</PRE>
+
+<P>
+The <!-- MATH
+ $Y_{lm}(\hat \mathbf Q)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="55" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img347.png"
+ ALT="$Y_{lm}(\hat \mathbf Q)$"></SPAN> are the spherical harmonics evaluated for the direction of the
+scattering vector with respect to the crystal field coordinate system <SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$xyz$"></SPAN>.
+The factor <SPAN CLASS="MATH"><IMG
+ WIDTH="72" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img348.png"
+ ALT="$P(K',Q')$"></SPAN> is defined in terms of <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img349.png"
+ ALT="$3j$"></SPAN>-symbols.
+
+<P>
+
+<P>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html956"
+  HREF="node44.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html950"
+  HREF="node38.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html946"
+  HREF="node42.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html952"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html954"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html957"
+  HREF="node44.html">mcdisp - the Calculation</A>
+<B> Up:</B> <A NAME="tex2html951"
+  HREF="node38.html">mcdiff - calculate and</A>
+<B> Previous:</B> <A NAME="tex2html947"
+  HREF="node42.html">Formalism II - Neutron</A>
+ &nbsp; <B>  <A NAME="tex2html953"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html955"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>Radial Wavefunction</TITLE>
+<META NAME="description" CONTENT="Radial Wavefunction">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node73.html">
+<LINK REL="previous" HREF="node71.html">
+<LINK REL="up" HREF="node67.html">
+<LINK REL="next" HREF="node73.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1377"
+  HREF="node73.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1371"
+  HREF="node67.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1365"
+  HREF="node71.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1373"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1375"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1378"
+  HREF="node73.html">Radial Matrix Elements</A>
+<B> Up:</B> <A NAME="tex2html1372"
+  HREF="node67.html">Single Ion Modules</A>
+<B> Previous:</B> <A NAME="tex2html1366"
+  HREF="node71.html">Nuclear Neutron Scattering Length</A>
+ &nbsp; <B>  <A NAME="tex2html1374"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1376"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000165000000000000000">
+Radial Wavefunction</A>
+</H2>
+
+<P>
+In order to calculate the charge density correctly (programs <I CLASS="slanted">charges, chrgplt</I>) and
+to evaluate the pointcharge model (program <I CLASS="slanted">pointc</I>) the radial wave function has to be entered in the 
+parametrization of Clementi and Roetti:
+<SMALL CLASS="FOOTNOTESIZE">
+</SMALL><PRE>
+#------------------------------------------------------------------------------------------------------
+# radial wave function parameters R_Np,XIp(r)= r^(Np-1) . exp(-xi r) . (2 XIp)^(Np+0.5) / sqrt(2Np!)  
+# values tabulated in clementi &amp; roetti Atomic data and nuclear data tables 14 (1974) 177-478
+# Co2+ is isoelectronic to Fe+, looking at page  422 of Clemente &amp; Roetti 
+# the 3D radial wave function is expanded as R(r)=sum_p C_p R_Np,XIp(r)
+#------------------------------------------------------------------------------------------------------
+N1=3 XI1=4.95296 C1=0.36301 
+N2=3 XI2=12.2963 C2=0.02707 
+N3=3 XI3=7.03565 C3=0.14777
+N4=3 XI4=2.74850 C4=0.49771 
+N5=3 XI5=1.69027 C5=0.11388
+</PRE>
+
+<P>
+The radial wavefunction may be calculated numerically using the program <I CLASS="slanted">radwavfunc</I><A NAME="6842"></A>.
+
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>

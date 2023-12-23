@@ -1,0 +1,249 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>Running McPhase and McDisp</TITLE>
+<META NAME="description" CONTENT="Running McPhase and McDisp">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="previous" HREF="node57.html">
+<LINK REL="up" HREF="node55.html">
+<LINK REL="next" HREF="node59.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1173"
+  HREF="node59.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1167"
+  HREF="node55.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1163"
+  HREF="node57.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1169"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1171"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1174"
+  HREF="node59.html">Including Phonons and Crystal-Field</A>
+<B> Up:</B> <A NAME="tex2html1168"
+  HREF="node55.html">Including Quadrupolar and Higher</A>
+<B> Previous:</B> <A NAME="tex2html1164"
+  HREF="node57.html">Option indexexchange in order</A>
+ &nbsp; <B>  <A NAME="tex2html1170"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1172"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000133000000000000000">
+Running <I CLASS="slanted">McPhase</I> and <I CLASS="slanted">McDisp</I></A>
+</H2>
+
+<P>
+The programs <I CLASS="slanted">mcphas</I> and <I CLASS="slanted">mcdisp<A NAME="4691"></A></I> are run completely the same way as usual, only
+the output files contain also information about the (thermal) expectation values of <SPAN CLASS="MATH"><IMG
+ WIDTH="62" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img470.png"
+ ALT="$&lt;O_l^m&gt;$"></SPAN>
+dependent on temperature and magnetic field. 
+Using the module so1ion the notation <SPAN CLASS="MATH"><IMG
+ WIDTH="54" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img424.png"
+ ALT="$&lt;\hat J_a&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="53" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img425.png"
+ ALT="$&lt;\hat J_b&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="53" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img426.png"
+ ALT="$&lt;\hat J_c&gt;$"></SPAN>,
+<SPAN CLASS="MATH"><IMG
+ WIDTH="54" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img471.png"
+ ALT="$&lt;\hat J_d&gt;$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="53" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img472.png"
+ ALT="$&lt;\hat J_e&gt;$"></SPAN>, etc. correspond to <SPAN CLASS="MATH"><IMG
+ WIDTH="54" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img473.png"
+ ALT="$&lt;J_a&gt;$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="53" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img474.png"
+ ALT="$&lt;J_b&gt;$"></SPAN>,
+<SPAN CLASS="MATH"><IMG
+ WIDTH="53" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img475.png"
+ ALT="$&lt;J_c&gt;$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="83" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img476.png"
+ ALT="$&lt;O_{22}(s)&gt;$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="83" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img477.png"
+ ALT="$&lt;O_{21}(s)&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="63" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img478.png"
+ ALT="$&lt;O_{20}&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="63" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img479.png"
+ ALT="$&lt;O_{21}&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="63" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img480.png"
+ ALT="$&lt;O_{22}&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="83" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img481.png"
+ ALT="$&lt;O_{33}(s)&gt;$"></SPAN>, ...
+ respectively.
+Note that by the higher order interactions not only the static properties are changed, but also the
+dispersion of the magnetic excitations is influenced.
+
+<P>
+The directory <I CLASS="slanted">examples/gdru2si2</I> contains an example of a simulation of biquadratic (i.e. isotropic 
+quadrupolar) interactions leading to an improved description of magnetic susceptibility.
+
+<P>
+For DyCu<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$_2$"></SPAN> the conversion
+of the magnetic axis due to quadrupolar exchange has been calculated according to the model 
+[<A
+ HREF="node151.html#yoshida98-1421">8</A>]. The calculated quadrupolar phase diagram is shown in figure&nbsp;<A HREF="#qphased">15</A>.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="qphased"></A><A NAME="4738"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 15:</STRONG>
+DyCu<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$_2$"></SPAN>: calculated quadrupolar phased diagram. When applying a large magnetic field
+parallel to the <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$c$"></SPAN> axis of the orthorhombic crystal, the system undergoes a structural transformation
+associated with a reorientation of the structural unit cell. This effect can be modelled by a large
+quadrupolar interaction.[plot created with program <I CLASS="slanted">phased</I>]</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+<IMG
+ WIDTH="181" HEIGHT="2" ALIGN="BOTTOM" BORDER="0"
+ SRC="img482.png"
+ ALT="\includegraphics[angle=-90, width=0.5\textwidth]{figsrc/dyphased.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+When large  quadrupolar interactions are present, the excitation spectrum is changed and
+quadrupolar modes (orbitons) with a finite dispersion are expected. 
+These modes correspond to an cooperative oscillation of the quadrupolar moments such as shown
+in figure&nbsp;<A HREF="#qmodes">16</A>.
+The program <I CLASS="slanted">mcdisp<A NAME="4709"></A></I>
+is able to calculate this dispersion and the corresponding neutron scattering cross section as shown
+in figure&nbsp;<A HREF="#qintensity">17</A> for the case of PrCu<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$_2$"></SPAN>. 
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="qmodes"></A><A NAME="4715"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 16:</STRONG>
+Orbital excitations viewed  as correlated changes in 4f-charge densities.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+<IMG
+ WIDTH="333" HEIGHT="184" ALIGN="BOTTOM" BORDER="0"
+ SRC="img483.png"
+ ALT="\includegraphics[angle=0, width=0.6\textwidth]{figsrc/orbiton.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="qintensity"></A><A NAME="4743"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 17:</STRONG>
+PrCu<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$_2$"></SPAN>: calculated dispersion of quadrupolar excitations in a field of 5 Tesla parallel to the <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$a$"></SPAN> axis 
+of this orthorhombic system.
+[plot created with program <I CLASS="slanted">displaycontour<A NAME="4722"></A></I>]</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+<IMG
+ WIDTH="350" HEIGHT="230" ALIGN="BOTTOM" BORDER="0"
+ SRC="img484.png"
+ ALT="\includegraphics[angle=0, width=0.5\textwidth]{figsrc/prcu2_0k0_5T.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1173"
+  HREF="node59.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1167"
+  HREF="node55.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1163"
+  HREF="node57.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1169"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1171"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1174"
+  HREF="node59.html">Including Phonons and Crystal-Field</A>
+<B> Up:</B> <A NAME="tex2html1168"
+  HREF="node55.html">Including Quadrupolar and Higher</A>
+<B> Previous:</B> <A NAME="tex2html1164"
+  HREF="node57.html">Option indexexchange in order</A>
+ &nbsp; <B>  <A NAME="tex2html1170"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1172"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>Formalism for going beyond the dipolar approximation</TITLE>
+<META NAME="description" CONTENT="Formalism for going beyond the dipolar approximation">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="previous" HREF="node104.html">
+<LINK REL="up" HREF="node99.html">
+<LINK REL="next" HREF="node106.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1881"
+  HREF="node106.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1875"
+  HREF="node99.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1871"
+  HREF="node104.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1877"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1879"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1882"
+  HREF="node106.html">bfk - Inelastic neutron-scattering</A>
+<B> Up:</B> <A NAME="tex2html1876"
+  HREF="node99.html">ic1ion - a module</A>
+<B> Previous:</B> <A NAME="tex2html1872"
+  HREF="node104.html">Formalism</A>
+ &nbsp; <B>  <A NAME="tex2html1878"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1880"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000186000000000000000"></A><A NAME="ic1ionmq"></A>
+<BR>
+Formalism for going beyond the dipolar approximation
+</H2>
+
+<P>
+<I CLASS="slanted">ic1ion</I> is prepared to do calculations of the neutron cross section going beyond the dipole approximation for 
+the scattering cross section. The formulation of the scattering operator
+ implemented in the functions <I CLASS="slanted">mq</I> and <I CLASS="slanted">dncalc</I> have been given by Lovesey and Balcar&nbsp;[<A
+ HREF="node151.html#lovesey84-1">29</A>], 6.87b:
+
+<P>
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+\langle  l^\nu v S L J M| \hat \mathcal Q_q | l^\nu v' S' L' J' M' \rangle &=& \sqrt{4\pi}\sum_{K',Q,Q'} \left [ %
+Y_{K'-1}^{Q}(\hat \mathbf Q) \left (\frac{2K'+1}{K'+1}\right ) \right. \\
+&& \times \{ A(K'-1,K')+B(K'-1,K')(K'-1 Q K' Q'|1q)\}\\
+&& \left . + Y_{K'}^{Q}(\hat \mathbf Q) B(K',K') (K' Q K' Q'|1q) \right ] (K' Q' J' M'|JM)
+ 
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="208" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img892.png"
+ ALT="$\displaystyle \langle l^\nu v S L J M\vert \hat \mathcal Q_q \vert l^\nu v' S' L' J' M' \rangle$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="250" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img893.png"
+ ALT="$\displaystyle \sqrt{4\pi}\sum_{K',Q,Q'} \left [ %
+Y_{K'-1}^{Q}(\hat \mathbf Q) \left (\frac{2K'+1}{K'+1}\right ) \right.$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">124</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="374" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img894.png"
+ ALT="$\displaystyle \times \{ A(K'-1,K')+B(K'-1,K')(K'-1 Q K' Q'\vert 1q)\}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">125</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="368" HEIGHT="45" ALIGN="MIDDLE" BORDER="0"
+ SRC="img895.png"
+ ALT="$\displaystyle \left . + Y_{K'}^{Q}(\hat \mathbf Q) B(K',K') (K' Q K' Q'\vert 1q) \right ] (K' Q' J' M'\vert JM)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">126</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+... these are the spherical components with <SPAN CLASS="MATH"><IMG
+ WIDTH="83" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img896.png"
+ ALT="$q=-1,0,1$"></SPAN>, which are related to the cartesian components by
+
+<P>
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+\hat \mathcal Q_x &=& +\frac{1}{\sqrt{2}}(\hat \mathcal Q_{+1} +\hat \mathcal Q_{-1})\\
+\hat \mathcal Q_y &=& -\frac{i}{\sqrt{2}}(\hat \mathcal Q_{+1} -\hat \mathcal Q_{-1}) \\
+\hat \mathcal Q_z &=& \hat \mathcal Q_0  \\
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="25" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img897.png"
+ ALT="$\displaystyle \hat \mathcal Q_x$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="133" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img898.png"
+ ALT="$\displaystyle +\frac{1}{\sqrt{2}}(\hat \mathcal Q_{+1} +\hat \mathcal Q_{-1})$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">127</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="24" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img899.png"
+ ALT="$\displaystyle \hat \mathcal Q_y$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="133" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img900.png"
+ ALT="$\displaystyle -\frac{i}{\sqrt{2}}(\hat \mathcal Q_{+1} -\hat \mathcal Q_{-1})$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">128</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="24" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img901.png"
+ ALT="$\displaystyle \hat \mathcal Q_z$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="24" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img902.png"
+ ALT="$\displaystyle \hat \mathcal Q_0$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">129</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+The coefficients <SPAN CLASS="MATH"><IMG
+ WIDTH="68" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img903.png"
+ ALT="$A(K,K')$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="69" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img904.png"
+ ALT="$B(K,K')$"></SPAN> are complex to obtain, formulas will not be given here, we refer the reader 
+to&nbsp;[<A
+ HREF="node151.html#lovesey84-1">29</A>] and just mention, that the computation involves
+of 3j, 6j and 9j symbols and some fractional parentage coefficients. 
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1881"
+  HREF="node106.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1875"
+  HREF="node99.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1871"
+  HREF="node104.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1877"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1879"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1882"
+  HREF="node106.html">bfk - Inelastic neutron-scattering</A>
+<B> Up:</B> <A NAME="tex2html1876"
+  HREF="node99.html">ic1ion - a module</A>
+<B> Previous:</B> <A NAME="tex2html1872"
+  HREF="node104.html">Formalism</A>
+ &nbsp; <B>  <A NAME="tex2html1878"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1880"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

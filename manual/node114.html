@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>Searchspace and Simannfit - Fitting Experimental Data</TITLE>
+<META NAME="description" CONTENT="Searchspace and Simannfit - Fitting Experimental Data">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node122.html">
+<LINK REL="previous" HREF="node107.html">
+<LINK REL="up" HREF="manual.html">
+<LINK REL="next" HREF="node115.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2011"
+  HREF="node115.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2005"
+  HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1999"
+  HREF="node113.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2007"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2009"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2012"
+  HREF="node115.html">Setting up parameter files</A>
+<B> Up:</B> <A NAME="tex2html2006"
+  HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A NAME="tex2html2000"
+  HREF="node113.html">Program felog - display</A>
+ &nbsp; <B>  <A NAME="tex2html2008"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2010"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION000210000000000000000"></A><A NAME="simannfit"></A>
+<BR>
+<I CLASS="slanted">Searchspace and Simannfit</I> - Fitting Experimental Data
+</H1>
+
+<P>
+In order to fit experimental data a very general concept of fitting program 
+has been developed. 
+<I CLASS="slanted">Perl</I> has to be installed on the system in order to run
+this fitting program.
+
+<P>
+The program <I CLASS="slanted">searchspace<A NAME="10635"></A></I> is used to cover the parameter space and test
+different regions of this space for local minima 
+of a specific function <I CLASS="slanted">sta(par1, par2 par3 ...)</I> of
+these parameters.. It may be used to 
+find good starting values for the program <I CLASS="slanted">simannfit<A NAME="10637"></A></I>.
+
+<P>
+The program <I CLASS="slanted">simannfit<A NAME="10638"></A></I> uses a simulated annealing algorithm described
+in&nbsp;[<A
+ HREF="node151.html#kirkpatrick83-671">3</A>].
+This algorithm does a random walk through the parameter space 
+with the aim to fit the parameters to  a minimum of the function <I CLASS="slanted">sta</I>.
+  Starting at a set of parameter values (par1, par2, par3) the algorithm
+changes these values by a randomly chosen step width (the maximum step width
+is specified at the beginning) to (par1', par2', par3').
+ The function <I CLASS="slanted">sta(par1', par2', par3', ...)</I> is calculated at
+for these new parameter values. The step is accepted if 
+<!-- MATH
+ $exp([sta(par')-sta(par)]/T)<{\rm a random number out of} [0,1]$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="413" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img948.png"
+ ALT="$exp([sta(par')-sta(par)]/T)&lt;{\rm a random number out of} [0,1]$"></SPAN>.
+Otherwise it is rejected. The statistical temperature <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img41.png"
+ ALT="$T$"></SPAN> involved in this
+condition is lowered from step to step as well as the maximum step width allowed.
+
+<P>
+In the following we describe how to set up the program packages of <I CLASS="slanted">McPhase</I> to
+solve a specific fitting problem.
+As an example we refer to the fitting of the magnetic 
+excitations of CeCu<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$_2$"></SPAN> in <I CLASS="slanted">mcphas/examples/cecu2a/fit</I>. 
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="safit"></A><A NAME="10648"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 22:</STRONG>
+Layout of the fitting modules.</CAPTION>
+<TR><TD><IMG
+ WIDTH="388" HEIGHT="377" ALIGN="BOTTOM" BORDER="0"
+ SRC="img949.png"
+ ALT="\includegraphics[angle=0,width=0.7\columnwidth]{figsrc/simannfit.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2013"
+  HREF="node115.html">Setting up parameter files for fitting</A>
+<LI><A NAME="tex2html2014"
+  HREF="node116.html">Telling the fitting program, how to calculate the standard deviation <I CLASS="slanted">sta</I> which should be minimised</A>
+<LI><A NAME="tex2html2015"
+  HREF="node117.html">Starting a parameter space search</A>
+<LI><A NAME="tex2html2016"
+  HREF="node118.html">analysing the results of <I CLASS="slanted">searchspace</I></A>
+<LI><A NAME="tex2html2017"
+  HREF="node119.html">Starting a fit</A>
+<LI><A NAME="tex2html2018"
+  HREF="node120.html">Stopping a fit/parameter space search</A>
+<LI><A NAME="tex2html2019"
+  HREF="node121.html">Fitting is an art: some general remarks</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2011"
+  HREF="node115.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2005"
+  HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1999"
+  HREF="node113.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2007"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2009"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2012"
+  HREF="node115.html">Setting up parameter files</A>
+<B> Up:</B> <A NAME="tex2html2006"
+  HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A NAME="tex2html2000"
+  HREF="node113.html">Program felog - display</A>
+ &nbsp; <B>  <A NAME="tex2html2008"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2010"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

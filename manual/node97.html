@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>External module function dorbmomdensity_coeff1 - used by mcdisp</TITLE>
+<META NAME="description" CONTENT="External module function dorbmomdensity_coeff1 - used by mcdisp">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node98.html">
+<LINK REL="previous" HREF="node96.html">
+<LINK REL="up" HREF="node80.html">
+<LINK REL="next" HREF="node98.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1767"
+  HREF="node98.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1761"
+  HREF="node80.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1755"
+  HREF="node96.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1763"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1765"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1768"
+  HREF="node98.html">External module function ro_calc</A>
+<B> Up:</B> <A NAME="tex2html1762"
+  HREF="node80.html">Module Functions for Observables</A>
+<B> Previous:</B> <A NAME="tex2html1756"
+  HREF="node96.html">External module function orbmomdensity_coeff</A>
+ &nbsp; <B>  <A NAME="tex2html1764"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1766"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION0001721700000000000000"></A><A NAME="7323"></A>
+<BR>
+External module function <I CLASS="slanted">dorbmomdensity_coeff1</I> - used by <I CLASS="slanted">mcdisp</I>
+</H3>
+
+<P>
+In order to visualize orbital moment density  fluctuations 
+ the external single ion module has to provide the transition
+matrix elements of the spindensity coefficient operator <!-- MATH
+ $a^{x,y,z}_{L,lm}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img803.png"
+ ALT="$a^{x,y,z}_{L,lm}$"></SPAN> by a
+vector <SPAN CLASS="MATH"><IMG
+ WIDTH="50" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img799.png"
+ ALT="$aSlm1$"></SPAN>, which is given by:
+ <!-- MATH
+ ${\rm aL1}^s_{\alpha=lm}=\sqrt{(p_- -p_+)}\langle -|a^{x,y,z}_{L,lm}-\langle a^{x,y,z}_{L,lm}\rangle_{\mathbf H,T}|+\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="348" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img807.png"
+ ALT="${\rm aL1}^s_{\alpha=lm}=\sqrt{(p_--p_+)}\langle -\vert a^{x,y,z}_{L,lm}-\langle a^{x,y,z}_{L,lm}\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>. 
+
+<P>
+The format to be used is:
+<SMALL CLASS="FOOTNOTESIZE">
+</SMALL><PRE>
+extern "C" int dspindensity_ceoff1(int &amp; tn,double &amp; T,Vector &amp; Hxc,Vector &amp; Hext,double * g_J,Vector &amp; MODPAR,
+char ** sipffilename,ComplexVector &amp; aLlm1,int &amp; xyz,float &amp; maxE, ComplexMatrix &amp; est)
+</PRE>
+The meaning of the symbols follows exactly that of function 
+<I CLASS="slanted">dm1</I> and therefore not explained here.
+
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>

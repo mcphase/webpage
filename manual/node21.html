@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>Module Usage:</TITLE>
+<META NAME="description" CONTENT="Module Usage:">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="previous" HREF="node20.html">
+<LINK REL="up" HREF="node19.html">
+<LINK REL="next" HREF="node22.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html623"
+  HREF="node22.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html617"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html613"
+  HREF="node20.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html619"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html621"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html624"
+  HREF="node22.html">mcphas - calculation of</A>
+<B> Up:</B> <A NAME="tex2html618"
+  HREF="node19.html">Using the so1ion module</A>
+<B> Previous:</B> <A NAME="tex2html614"
+  HREF="node20.html">Module Tasks:</A>
+ &nbsp; <B>  <A NAME="tex2html620"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html622"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00093200000000000000">
+Module Usage:</A>
+</H3>
+
+<P>
+The program <I CLASS="slanted">mcphas</I> (-calculation of the magnetic phase diagram) 
+requires a single ion
+property input file of the same format as given above in
+section&nbsp;<A HREF="node18.html#cfieldexample">6.2</A> (also for each ion in the
+crystallographic unit cell):
+
+<P>
+
+<UL>
+<LI>The first line in the single ion property file tells <I CLASS="slanted">mcphas</I> that the module
+<I CLASS="slanted">so1ion<A NAME="1173"></A></I> should be used for this ion. 
+</LI>
+<LI>Comment lines start with #. 
+</LI>
+<LI>The type of ion has to be given plus
+several lines containing the crystal field parameters. 
+</LI>
+</UL>
+
+<P>
+It follows a simple  example (for more complicated examples see section <A HREF="node29.html#sifile">7.1.6</A> and 
+<I CLASS="slanted">mcphas.cf1</I> in the 
+directory <I CLASS="slanted">examples/ndcu2b_new</I>):
+
+<P>
+<PRE>
+#!MODULE=so1ion
+#&lt;!--mcphas.sipf--&gt;
+# comment followed by
+# the ion type and the crystal field parameters [meV]
+ IONTYPE=Nd3+
+# - note you can also do any pure spin problem by entering e.g. IONTYPE=S=2.5 
+ B20=  0.116765                                           
+ B22  =  0.134172                                           
+ B40  =  0.0019225                                          
+ B42  =  0.0008704                                          
+ B44  =  0.0016916                                          
+ B60  =  0.0000476                                          
+ B62  =  0.0000116                                          
+ B64  =  0.0000421                                          
+ B66  =  0.0003662
+</PRE>
+
+<P>
+<DL>
+<DT><STRONG>Note:</STRONG></DT>
+<DD>In order to use the <I CLASS="slanted">so1ion<A NAME="1181"></A></I>  module in <I CLASS="slanted">McPhase</I> a convention for
+the orientation of the <SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$xyz$"></SPAN> coordinate system (of the crystal field) relative
+to the crystal axis <SPAN CLASS="MATH"><IMG
+ WIDTH="26" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img128.png"
+ ALT="$abc$"></SPAN> has to be made:
+ The axes convention adopted in module <I CLASS="slanted">so1ion</I> for the crystal field parameters
+is - <SPAN CLASS="MATH"><IMG
+ WIDTH="30" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img129.png"
+ ALT="$\vec a\vert\vert x$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img130.png"
+ ALT="$\vec b\vert\vert y$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img131.png"
+ ALT="$\vec c\vert\vert z$"></SPAN>. <A NAME="tex2html20"
+  HREF="footnode.html#foot1215"><SUP><SPAN CLASS="arabic">12</SPAN></SUP></A>
+In case of non-orthogonal axes the convention 
+is <SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$y\vert\vert\vec b$"></SPAN>, <!-- MATH
+ $z||(\vec a \times \vec b)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="68" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img136.png"
+ ALT="$z\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$x$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img137.png"
+ ALT="$y$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img124.png"
+ ALT="$z$"></SPAN>.
+
+<P>
+The reason for
+this unique choice is to make it possible to treat quadrupolar interactions - the 
+generalisation of bilinear interactions to these higher order interactions
+is much easier in a unique axes convention.
+
+<P>
+<SMALL CLASS="SMALL">
+<B>Information for experienced users:</B> the first line in the single ion property file
+can either refer to  one of the standard
+single ion property modules (e.g. Kramers ground state
+doublet #!MODULE=kramers, full crystal field #!MODULE=so1ion) or a shared library file, which will be 
+loaded
+dynamically into the program at runtime 
+ - for a description
+of this file see section&nbsp;<A HREF="node29.html#sifile">7.1.6</A>.
+</SMALL>
+
+<P>
+
+<P>
+</DD>
+</DL>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html623"
+  HREF="node22.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html617"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html613"
+  HREF="node20.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html619"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html621"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html624"
+  HREF="node22.html">mcphas - calculation of</A>
+<B> Up:</B> <A NAME="tex2html618"
+  HREF="node19.html">Using the so1ion module</A>
+<B> Previous:</B> <A NAME="tex2html614"
+  HREF="node20.html">Module Tasks:</A>
+ &nbsp; <B>  <A NAME="tex2html620"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html622"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

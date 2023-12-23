@@ -1,0 +1,1896 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>Theory for program bfk - Inelastic neutron-scattering from RE ions in a crystal field
+including damping effects due to the exchange interaction with conduction
+electrons</TITLE>
+<META NAME="description" CONTENT="Theory for program bfk - Inelastic neutron-scattering from RE ions in a crystal field
+including damping effects due to the exchange interaction with conduction
+electrons">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node148.html">
+<LINK REL="previous" HREF="node139.html">
+<LINK REL="up" HREF="manual.html">
+<LINK REL="next" HREF="node148.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2483"
+  HREF="node148.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2477"
+  HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2471"
+  HREF="node146.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2479"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2481"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2484"
+  HREF="node148.html">Solution of the exercises</A>
+<B> Up:</B> <A NAME="tex2html2478"
+  HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A NAME="tex2html2472"
+  HREF="node146.html">Dipole Approximation</A>
+ &nbsp; <B>  <A NAME="tex2html2480"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2482"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION000380000000000000000"></A><A NAME="18121"></A><A NAME="bfktheory"></A>
+<BR>
+Theory for  program <I CLASS="slanted">bfk</I> - Inelastic neutron-scattering from RE ions in a crystal field
+including damping effects due to the exchange interaction with conduction
+electrons
+</H1>
+
+<P>
+
+<P>
+<BR>
+This is an extension  of the theory published by Klaus W. Becker, Peter Fulde and
+Joachim Keller in Z. Physik B 28,9-18, 1977 [<A
+ HREF="node151.html#becker77-9">4</A>]
+"Line width of crystal-field excitations in metallic rare-earth systems"
+and an  introduction to the computer program for the calculation of  the neutron 
+scattering cross section. The computer program <I CLASS="slanted">bfk</I> is written by J. Keller,
+University of Regensburg.
+
+<P>
+Here we present a brief outline of the theoretical concepts to calculate the
+dynamical susceptibility of the Re ions and the scattering cross section.  
+
+<P>
+The neutron-scattering cross section is related to the dynamic susceptibility
+of the  RE ions 
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+\chi_{\alpha\beta}(t)={i\over \hbar} \Theta(t)\langle [J^\dagger_\alpha(t), J_\beta(0)]\rangle
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="210" HEIGHT="39" BORDER="0"
+ SRC="img1512.png"
+ ALT="\begin{displaymath}
+\chi_{\alpha\beta}(t)={i\over \hbar} \Theta(t)\langle [J^\dagger_\alpha(t), J_\beta(0)]\rangle
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+whose Fourier-Laplace transform
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+\chi_{\alpha,\beta}(z)=\int_{-\infty}^{+\infty} dt e^{izt}\chi_{\alpha\beta}(t), \quad z=\omega
++i\delta
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="292" HEIGHT="47" BORDER="0"
+ SRC="img1513.png"
+ ALT="\begin{displaymath}
+\chi_{\alpha,\beta}(z)=\int_{-\infty}^{+\infty} dt e^{izt}\chi_{\alpha\beta}(t), \quad z=\omega
++i\delta
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+determines the inelastic neutron scattering crossection   
+(Stephen W. Lovesey; "Theory of neutron 
+scattering from condensed matter"
+Vol 2, equ. 11,144).
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+{d^2\sigma \over d\Omega d E'}=  {k' \over
+k}({r_0\over 2}g_J F(Q))^2{1\over \pi }
+\sum_{\alpha\beta}(\delta_{\alpha\beta}
+- \tilde Q_\alpha \tilde Q_\beta)
+{ \chi{"}_{\alpha,\beta}(\omega)\over 1-e^{-\beta \hbar \omega}} 
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="386" HEIGHT="53" BORDER="0"
+ SRC="img1514.png"
+ ALT="\begin{displaymath}
+{d^2\sigma \over d\Omega d E'}= {k' \over
+k}({r_0\over 2}g_J...
+...hi{''}_{\alpha,\beta}(\omega)\over 1-e^{-\beta \hbar \omega}}
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+Here <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img212.png"
+ ALT="$k$"></SPAN> and
+<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img261.png"
+ ALT="$k'$"></SPAN> denote the  wave number of the neutron before and after the
+scattering. <!-- MATH
+ $\vec Q = \vec k - \vec k'$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="79" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1515.png"
+ ALT="$\vec Q = \vec k - \vec k'$"></SPAN> is the scattering wave vector,
+<!-- MATH
+ $\tilde Q = \vec Q/\vert\vec Q\vert$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="79" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1516.png"
+ ALT="$\tilde Q = \vec Q/\vert\vec Q\vert$"></SPAN>. 
+<!-- MATH
+ $r_0= -0.54 \cdot 10^{-12}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="131" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1517.png"
+ ALT="$r_0= -0.54 \cdot 10^{-12}$"></SPAN> cm is the basic scattering length, <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img163.png"
+ ALT="$g_J$"></SPAN> is the Land&#233; factor, 
+<SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1518.png"
+ ALT="$F(Q)$"></SPAN> the atomic form factor of the
+rare earth ion.
+
+<P>
+
+<P><P>
+<BR>
+Formal evaluation of the dynamic and static susceptiblity.
+
+<P>
+The dynamic spin-susceptibilities are correlation functions of the form
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+\chi_{i,k}(t)=i \Theta(t) \langle [A_i^\dagger(t),A_k(0)]\rangle
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="205" HEIGHT="30" BORDER="0"
+ SRC="img1519.png"
+ ALT="\begin{displaymath}
+\chi_{i,k}(t)=i \Theta(t) \langle [A_i^\dagger(t),A_k(0)]\rangle
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="34" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1520.png"
+ ALT="$A(t)$"></SPAN> is a Heisenberg operator
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+A(t)= \exp(iHt)A\exp(-iHt)
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="202" HEIGHT="29" BORDER="0"
+ SRC="img1521.png"
+ ALT="\begin{displaymath}
+A(t)= \exp(iHt)A\exp(-iHt)
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+Introducing a Liouville operator (acting on operators of dynamical
+variables) by <!-- MATH
+ ${\cal L}A = [H,A]$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="89" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1522.png"
+ ALT="${\cal L}A = [H,A]$"></SPAN> the Heisenberg operator can also be
+written formally as  
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+A(t)= \exp(i{\cal L}t) A
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="122" HEIGHT="29" BORDER="0"
+ SRC="img1523.png"
+ ALT="\begin{displaymath}
+A(t)= \exp(i{\cal L}t) A
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+With help of this definition the dynamical susceptibility <SPAN CLASS="MATH"><IMG
+ WIDTH="30" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1524.png"
+ ALT="$\chi_{i,k}$"></SPAN> of 
+two variables <SPAN CLASS="MATH"><IMG
+ WIDTH="48" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1525.png"
+ ALT="$A_i, A_k$"></SPAN> can be written as
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+\chi_{i,k}(t)=i \Theta(t) \langle [A_i^\dagger(t),A_k(0)]\rangle
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="205" HEIGHT="30" BORDER="0"
+ SRC="img1519.png"
+ ALT="\begin{displaymath}
+\chi_{i,k}(t)=i \Theta(t) \langle [A_i^\dagger(t),A_k(0)]\rangle
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+and their Laplace transform
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+\chi_{i,k}(z)=i\int_0^\infty dt e^{izt} \langle [A_i^\dagger(t),A_k(0)]\rangle
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="250" HEIGHT="44" BORDER="0"
+ SRC="img1526.png"
+ ALT="\begin{displaymath}
+\chi_{i,k}(z)=i\int_0^\infty dt e^{izt} \langle [A_i^\dagger(t),A_k(0)]\rangle
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+With help of the Liouvillian these quantities can be written as
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+\chi_{i,k}(t)=i \Theta(t) \langle [A_i^\dagger,A_k\exp^{-i{\cal L}t}\rangle
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="218" HEIGHT="30" BORDER="0"
+ SRC="img1527.png"
+ ALT="\begin{displaymath}
+\chi_{i,k}(t)=i \Theta(t) \langle [A_i^\dagger,A_k\exp^{-i{\cal L}t}\rangle
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+and their Laplace transform
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+\chi_{i,k}(z)= -\langle [A_i^\dagger,{1\over {z-\cal
+L}}A_k(0)]\rangle
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="208" HEIGHT="40" BORDER="0"
+ SRC="img1528.png"
+ ALT="\begin{displaymath}
+\chi_{i,k}(z)= -\langle [A_i^\dagger,{1\over {z-\cal
+L}}A_k(0)]\rangle
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P> 
+
+<P>
+The static isothermal susceptibilities can also formally be calculated with help of
+the Liouvillian.   
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+\chi_{i,k}(0) = \int_0^\beta d \lambda \langle e^{\lambda H}
+A_i^\dagger e^{-\lambda H}  A_k\rangle
+ = \int_0^\beta d \lambda \langle (e^{\lambda {\cal L}}
+A_i^\dagger)   A_k\rangle
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="379" HEIGHT="47" BORDER="0"
+ SRC="img1529.png"
+ ALT="\begin{displaymath}
+\chi_{i,k}(0) = \int_0^\beta d \lambda \langle e^{\lambda H}...
+... \lambda \langle (e^{\lambda {\cal L}}
+A_i^\dagger) A_k\rangle
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+
+<P>
+The static susceptibilities are used to define a scalar product between  the
+dynamical variables:
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+(A_i \vert A_k) =  {1\over \beta }\int_0^\beta d\lambda \langle
+(e^{\lambda{\cal L}}A_i^\dagger)A_k\rangle ={1\over \beta} \chi_{ik}(0)
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="299" HEIGHT="47" BORDER="0"
+ SRC="img1530.png"
+ ALT="\begin{displaymath}
+(A_i \vert A_k) = {1\over \beta }\int_0^\beta d\lambda \lang...
+...da{\cal L}}A_i^\dagger)A_k\rangle ={1\over \beta} \chi_{ik}(0)
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+It fulfills the axioms of a scalar product and  furthermore it has the important property
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+({\cal L}A_i\vert A_k)=(A_i\vert {\cal L}A_k)={1\over \beta}\langle
+[A_i^\dagger,A_k]\rangle
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="250" HEIGHT="42" BORDER="0"
+ SRC="img1531.png"
+ ALT="\begin{displaymath}
+({\cal L}A_i\vert A_k)=(A_i\vert {\cal L}A_k)={1\over \beta}\langle
+[A_i^\dagger,A_k]\rangle
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+With help of this relation the dynamical susceptibility can be
+expressed as
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+\chi_{i,k}(z)= -\beta (A_i\vert {{\cal L}\over {z-\cal L}} A_k)
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="185" HEIGHT="41" BORDER="0"
+ SRC="img1532.png"
+ ALT="\begin{displaymath}
+\chi_{i,k}(z)= -\beta (A_i\vert {{\cal L}\over {z-\cal L}} A_k)
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+and finally as 
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+\chi_{ik}(z)=\chi_{ik}(0)-z\beta (A_i\vert {1\over {z-\cal L}}A_k)
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="239" HEIGHT="40" BORDER="0"
+ SRC="img1533.png"
+ ALT="\begin{displaymath}
+\chi_{ik}(z)=\chi_{ik}(0)-z\beta (A_i\vert {1\over {z-\cal L}}A_k)
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+The second term is the so-called relaxation function 
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+\Phi_{ik}(z)=(A_i \vert {1 \over {z-\cal L}}A_k)
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="159" HEIGHT="40" BORDER="0"
+ SRC="img1534.png"
+ ALT="\begin{displaymath}
+\Phi_{ik}(z)=(A_i \vert {1 \over {z-\cal L}}A_k)
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+
+<P>
+
+<P><P>
+<BR>
+
+<P>
+The model:
+
+<P>
+We calculate the spin susceptibility of a RE ion in the presence of exchange
+interaction with conduction electrons. The system is described by the
+Hamiltonian
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+H=H_{cf}+H_{el}+H_{el,cf}
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="166" HEIGHT="30" BORDER="0"
+ SRC="img1535.png"
+ ALT="\begin{displaymath}
+H=H_{cf}+H_{el}+H_{el,cf}
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+The first part is the cf-Hamiltonian of the spin-system: 
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+H_{cf}= \sum_n E_n K_{nn}, \quad K_{nm}= \vert n\rangle \langle m\vert
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="246" HEIGHT="45" BORDER="0"
+ SRC="img1536.png"
+ ALT="\begin{displaymath}
+H_{cf}= \sum_n E_n K_{nn}, \quad K_{nm}= \vert n\rangle \langle m\vert
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+written in terms of the crystal field eigenstates <!-- MATH
+ $\vert n\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1537.png"
+ ALT="$\vert n\rangle$"></SPAN>. 
+The second part is the Hamiltonian of the conduction electrons
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+H_{el}=\sum_{k\alpha}\epsilon_kc^\dagger_{k\alpha}c_{k\alpha}
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="130" HEIGHT="45" BORDER="0"
+ SRC="img1538.png"
+ ALT="\begin{displaymath}
+H_{el}=\sum_{k\alpha}\epsilon_kc^\dagger_{k\alpha}c_{k\alpha}
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+The third part is the 
+ interaction between local moments and  the conduction electrons
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+H_{el,cf}= - J_{ex}\vec J \cdot \vec \sigma, \quad \vec \sigma = \sum_{k\alpha
+Q\beta}\vec \sigma_{\alpha\beta}c^\dagger_{k\alpha}c_{k+Q\beta}, \quad \vec
+J=\sum_{n,m}\vec J_{n,m}K_{nm}.
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="459" HEIGHT="48" BORDER="0"
+ SRC="img1539.png"
+ ALT="\begin{displaymath}
+H_{el,cf}= - J_{ex}\vec J \cdot \vec \sigma, \quad \vec \sig...
+...alpha}c_{k+Q\beta}, \quad \vec
+J=\sum_{n,m}\vec J_{n,m}K_{nm}.
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+We assume, that the energies <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1540.png"
+ ALT="$E_n$"></SPAN> and the eigenstates <!-- MATH
+ $\vert n\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1537.png"
+ ALT="$\vert n\rangle$"></SPAN>
+expressed by angular momentum eigenstates are known.
+
+<P>
+
+<P><P>
+<BR>
+Definition of dynamical variables
+
+<P>
+In our case we use as dynamical variable the standard-basis operators
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+A_\mu= K_{\mu}
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="63" HEIGHT="30" BORDER="0"
+ SRC="img1541.png"
+ ALT="\begin{displaymath}
+A_\mu= K_{\mu}
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+describing a  transition <SPAN CLASS="MATH"><IMG
+ WIDTH="67" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1542.png"
+ ALT="$\mu= [nm]$"></SPAN> between CEF levels <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$m$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img46.png"
+ ALT="$n$"></SPAN>. 
+In the absence of the interaction with conduction electrons
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+{\cal L}A_\mu = (E_n-E_m)A_\mu
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="149" HEIGHT="30" BORDER="0"
+ SRC="img1543.png"
+ ALT="\begin{displaymath}
+{\cal L}A_\mu = (E_n-E_m)A_\mu
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+In order to
+get the spin suceptibility we have to multiply the final expressions by the
+spin-matrixelements:
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+\chi_{\alpha \beta}
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="26" HEIGHT="30" BORDER="0"
+ SRC="img1544.png"
+ ALT="\begin{displaymath}
+\chi_{\alpha \beta}
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+
+<P>
+The idea of the projection formalism to calculate the dynamical
+susceptibility of a variable <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1545.png"
+ ALT="$A$"></SPAN> is to project this variable  onto a closed
+set of dynamical variables <SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1546.png"
+ ALT="$A_i$"></SPAN> and to solve approximately the coupled
+equations between these variables. For this purpose a projector is defined
+by
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+{\cal P} A= \sum_{\nu \mu}A_\nu P^{-1}_{\nu \mu}(A_\mu\vert A) \quad
+P_{\nu\mu}=(A_\nu\vert A_\mu)
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="289" HEIGHT="46" BORDER="0"
+ SRC="img1547.png"
+ ALT="\begin{displaymath}
+{\cal P} A= \sum_{\nu \mu}A_\nu P^{-1}_{\nu \mu}(A_\mu\vert A) \quad
+P_{\nu\mu}=(A_\nu\vert A_\mu)
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+where <!-- MATH
+ $P^{-1}_{\nu \mu}=[P^{-1}]_{\nu \mu}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="108" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1548.png"
+ ALT="$ P^{-1}_{\nu \mu}=[P^{-1}]_{\nu \mu}$"></SPAN> is the <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1549.png"
+ ALT="${\nu\mu}$"></SPAN>-component of the inverse matrix of
+<SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1550.png"
+ ALT="$P$"></SPAN>. 
+
+<P>
+For the  resolvent operator of the relaxation function
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+{\cal F}(z)= {1\over {z-\cal L}}, \quad ({z-\cal L}){\cal F}(z)=1
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="233" HEIGHT="40" BORDER="0"
+ SRC="img1551.png"
+ ALT="\begin{displaymath}
+{\cal F}(z)= {1\over {z-\cal L}}, \quad ({z-\cal L}){\cal F}(z)=1
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+one obtains the exact equation
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+({\cal P}(z-{\cal P}{\cal L}{\cal P} - {\cal P} {\cal M}(z) {\cal P}){\cal P} {\cal
+F}(z) {\cal P}= {\cal P}
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="268" HEIGHT="29" BORDER="0"
+ SRC="img1552.png"
+ ALT="\begin{displaymath}
+({\cal P}(z-{\cal P}{\cal L}{\cal P} - {\cal P} {\cal M}(z) {\cal P}){\cal P} {\cal
+F}(z) {\cal P}= {\cal P}
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+with the memory function
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+{\cal M}(z)={\cal PLQ}{1\over z-{\cal QLQ} }{\cal QLP}
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="201" HEIGHT="40" BORDER="0"
+ SRC="img1553.png"
+ ALT="\begin{displaymath}
+{\cal M}(z)={\cal PLQ}{1\over z-{\cal QLQ} }{\cal QLP}
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+where <!-- MATH
+ ${\cal Q}=1-{\cal P}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="78" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1554.png"
+ ALT="${\cal Q}=1-{\cal P}$"></SPAN>. In components
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+\Phi_{\nu\mu}(z)= (A_\nu\vert {1\over z-{\cal L}} A_\mu)
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="166" HEIGHT="40" BORDER="0"
+ SRC="img1555.png"
+ ALT="\begin{displaymath}
+\Phi_{\nu\mu}(z)= (A_\nu\vert {1\over z-{\cal L}} A_\mu)
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+\sum_\lambda \Bigl(z\delta_{\nu\lambda}-\sum_\kappa\bigl[L_{\nu\kappa}+
+M_{\nu\kappa}(z)\bigr]P^{-1}_{\kappa\lambda}\Bigr)\Phi_{\lambda\mu}(z)
+=P_{\nu \mu}
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="348" HEIGHT="45" BORDER="0"
+ SRC="img1556.png"
+ ALT="\begin{displaymath}
+\sum_\lambda \Bigl(z\delta_{\nu\lambda}-\sum_\kappa\bigl[L_{...
+...]P^{-1}_{\kappa\lambda}\Bigr)\Phi_{\lambda\mu}(z)
+=P_{\nu \mu}
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+with
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+L_{\nu\mu}=(A_\nu\vert {\cal L}A_\mu)
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="115" HEIGHT="30" BORDER="0"
+ SRC="img1557.png"
+ ALT="\begin{displaymath}
+L_{\nu\mu}=(A_\nu\vert {\cal L}A_\mu)
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+and the memory function 
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+M_{\nu\mu}(z)=(A_\nu\vert{\cal M}(z)A_\mu)
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="168" HEIGHT="30" BORDER="0"
+ SRC="img1558.png"
+ ALT="\begin{displaymath}
+M_{\nu\mu}(z)=(A_\nu\vert{\cal M}(z)A_\mu)
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+
+<P>
+Now we apply the formalism to the coupled spin-electron system and restrict
+ourselves to the lowest order contributions of the spin electron
+interaction. As dynamical variables we choose a decomposition of the  
+original spin-variable:
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+J^\alpha=\sum_{n_1,n_2}J^\alpha_{n_2,n_1}K_{n_2,n_1}=\sum_\nu J^\alpha_\nu A_\nu,
+\quad 
+A_\nu= K_{n_1n_2}   
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="353" HEIGHT="46" BORDER="0"
+ SRC="img1559.png"
+ ALT="\begin{displaymath}
+J^\alpha=\sum_{n_1,n_2}J^\alpha_{n_2,n_1}K_{n_2,n_1}=\sum_\nu J^\alpha_\nu A_\nu,
+\quad
+A_\nu= K_{n_1n_2}
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img843.png"
+ ALT="$\nu$"></SPAN> denotes a transition <SPAN CLASS="MATH"><IMG
+ WIDTH="62" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1560.png"
+ ALT="$n_2 \gets n_1$"></SPAN> performed with the
+standard-basis operator <!-- MATH
+ $\vert n_2\rangle\langle n_1\vert$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="58" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1561.png"
+ ALT="$\vert n_2\rangle\langle n_1\vert$"></SPAN>. 
+
+<P>
+In lowest (zeroth) order in the el-cf interaction  
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+{\cal L}A_\nu = (E_{n_2}-E_{n_1)}A_\nu
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="155" HEIGHT="30" BORDER="0"
+ SRC="img1562.png"
+ ALT="\begin{displaymath}
+{\cal L}A_\nu = (E_{n_2}-E_{n_1)}A_\nu
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+and  the scalar product is diagonal in lowest order in the transition
+operators,
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+P_{\nu\mu}=(A_\nu\vert A_\mu)\simeq\delta_{\nu
+\mu}P_\nu, \quad P_\nu=(A_\nu\vert
+A_\nu)={p(n_1)-p(n_2)\over \beta (E_{n2}-E_{n_1})}
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="404" HEIGHT="44" BORDER="0"
+ SRC="img1563.png"
+ ALT="\begin{displaymath}
+P_{\nu\mu}=(A_\nu\vert A_\mu)\simeq\delta_{\nu
+\mu}P_\nu, \q...
+...(A_\nu\vert
+A_\nu)={p(n_1)-p(n_2)\over \beta (E_{n2}-E_{n_1})}
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+where <!-- MATH
+ $p(n)=\exp(-\beta E_n)/Z$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="153" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1564.png"
+ ALT="$p(n)=\exp(-\beta E_n)/Z$"></SPAN> is the thermal occupation number. For the
+frequency term we then get 
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+L_{\nu\mu}=\delta_{\nu\mu}(A_\nu\vert A_\nu) (E_{n_2}-E_{n_1} )
++O(J_{ex}^2)
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="278" HEIGHT="30" BORDER="0"
+ SRC="img1565.png"
+ ALT="\begin{displaymath}
+L_{\nu\mu}=\delta_{\nu\mu}(A_\nu\vert A_\nu) (E_{n_2}-E_{n_1} )
++O(J_{ex}^2)
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+Neglecting the second-order energy corrections in the following we obtain
+the equation for the relaxation function 
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+\Phi_{\nu\mu}(z)=\bigl[\Omega^{-1}\bigr]_{\nu\mu}(z)
+P_\mu, \quad
+\Omega_{\nu\mu}(z)=(z-E_\nu)\delta_{\nu\mu} -
+M_{\nu\mu}(z)[P^{-1}]_\mu, \quad
+E_\nu = E_{n_2}- E_{n_1}
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="570" HEIGHT="33" BORDER="0"
+ SRC="img1566.png"
+ ALT="\begin{displaymath}
+\Phi_{\nu\mu}(z)=\bigl[\Omega^{-1}\bigr]_{\nu\mu}(z)
+P_\mu, ...
+...u} -
+M_{\nu\mu}(z)[P^{-1}]_\mu, \quad
+E_\nu = E_{n_2}- E_{n_1}
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+and it remains to calculate the memoryfunction containing the relaxation
+processes. 
+
+<P>
+In lowest order in the electron-spin interaction <!-- MATH
+ ${\cal QL}A_\nu$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="48" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1567.png"
+ ALT="${\cal QL}A_\nu$"></SPAN> can be replaced by <!-- MATH
+ ${\cal L}_{el,cf}A_\nu$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="62" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1568.png"
+ ALT="${\cal L}_{el,cf}A_\nu$"></SPAN>.
+Then we get for the memory function
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+M_{\nu \mu}(z)= ({\cal L}_{el,cf}A_\nu \vert{1\over z- {\cal
+L}_0}{\cal L}_{el,cf}A_\mu)=
+M_{n_2n_1,m_2m_1}(z)
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="381" HEIGHT="41" BORDER="0"
+ SRC="img1569.png"
+ ALT="\begin{displaymath}
+M_{\nu \mu}(z)= ({\cal L}_{el,cf}A_\nu \vert{1\over z- {\cal
+L}_0}{\cal L}_{el,cf}A_\mu)=
+M_{n_2n_1,m_2m_1}(z)
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+with
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+M_{n_2n_1,m_2m_1}(z)=({\cal L}_{el,cf} K_{n_2n_1}\vert{1\over z-{\cal
+L}_0}{\cal L}_{el,cf} K_{m_2m_1})
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="359" HEIGHT="41" BORDER="0"
+ SRC="img1570.png"
+ ALT="\begin{displaymath}
+M_{n_2n_1,m_2m_1}(z)=({\cal L}_{el,cf} K_{n_2n_1}\vert{1\over z-{\cal
+L}_0}{\cal L}_{el,cf} K_{m_2m_1})
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+
+<P>
+Now
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+{\cal L}_{el,cf} K_{n_2n_1} = J_{ex}\sum_t \vec \sigma(\vec  J_{n_1t}
+K_{n_2t} - \vec
+J_{tn_2}K_{tn_1})
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="317" HEIGHT="45" BORDER="0"
+ SRC="img1571.png"
+ ALT="\begin{displaymath}
+{\cal L}_{el,cf} K_{n_2n_1} = J_{ex}\sum_t \vec \sigma(\vec J_{n_1t}
+K_{n_2t} - \vec
+J_{tn_2}K_{tn_1})
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+with
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+\vec \sigma = \sum_{k\alpha, k+Q\beta}\vec \sigma_{\alpha\beta}
+c^\dagger_{k\alpha}c_{k+Q\beta}
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="176" HEIGHT="48" BORDER="0"
+ SRC="img1572.png"
+ ALT="\begin{displaymath}
+\vec \sigma = \sum_{k\alpha, k+Q\beta}\vec \sigma_{\alpha\beta}
+c^\dagger_{k\alpha}c_{k+Q\beta}
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+With help of the symmetry properties 
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+( \sigma^i K_{nm}\vert {1\over z- {\cal L}_0}\sigma^j K_{n'm'})=
+\delta_{ij}\delta_{nn'}\delta_{mm'}G_{nm}(z)
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="326" HEIGHT="41" BORDER="0"
+ SRC="img1573.png"
+ ALT="\begin{displaymath}
+( \sigma^i K_{nm}\vert {1\over z- {\cal L}_0}\sigma^j K_{n'm'})=
+\delta_{ij}\delta_{nn'}\delta_{mm'}G_{nm}(z)
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+with
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+G_{nm}(z)=( \sigma^i K_{nm}\vert {1\over  {z-\cal L}_0}\sigma^i K_{nm})
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="236" HEIGHT="41" BORDER="0"
+ SRC="img1574.png"
+ ALT="\begin{displaymath}
+G_{nm}(z)=( \sigma^i K_{nm}\vert {1\over {z-\cal L}_0}\sigma^i K_{nm})
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+we obtain
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+M_{n_2n_1,m_2m_1}(z)=J_{ex}^2\sum_i\Bigl[&
+\delta_{n_2m_2}\sum_tJ^i_{m_1t}J^i_{tn_1}G_{n_2t}
++ \delta_{n_1m_1}\sum_tJ^i_{
+n_2t}J^i_{tm_2}G_{tn_1}\nonumber \\
+&-J^i_{m_1n_1}J^i_{n_2m_2}G_{n_2m_1}
+-J^i_{n_2m_2}J^i_{m_1n_1}G_{m_2n_1}\Bigr]\nonumber
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="185" HEIGHT="48" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1575.png"
+ ALT="$\displaystyle M_{n_2n_1,m_2m_1}(z)=J_{ex}^2\sum_i\Bigl[$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="343" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1576.png"
+ ALT="$\textstyle \delta_{n_2m_2}\sum_tJ^i_{m_1t}J^i_{tn_1}G_{n_2t}
++ \delta_{n_1m_1}\sum_tJ^i_{
+n_2t}J^i_{tm_2}G_{tn_1}$"></TD>
+<TD>&nbsp;</TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="298" HEIGHT="45" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1577.png"
+ ALT="$\textstyle -J^i_{m_1n_1}J^i_{n_2m_2}G_{n_2m_1}
+-J^i_{n_2m_2}J^i_{m_1n_1}G_{m_2n_1}\Bigr]$"></TD>
+<TD>&nbsp;</TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+In order to calculate the relaxation functions <SPAN CLASS="MATH"><IMG
+ WIDTH="60" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1578.png"
+ ALT="$G_{n,m}(z)$"></SPAN>
+we use the general relation between relaxation function and dynamic
+susceptibility
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+\chi(z)= \chi(0)-\beta z \Phi(z)
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="150" HEIGHT="29" BORDER="0"
+ SRC="img1579.png"
+ ALT="\begin{displaymath}
+\chi(z)= \chi(0)-\beta z \Phi(z)
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+and calculate instead the corresponding susceptibility (using tr
+<!-- MATH
+ $\sigma^i\sigma^i)=2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="69" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1580.png"
+ ALT="$\sigma^i\sigma^i)=2$"></SPAN>):
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+G_{nm}(z)&= {2\over \beta \omega}\sum_{k,k+Q} \langle \Bigl[K_{mn}
+ c^\dagger_{k+Q}c_{k},(z - E_n +
+E_m  -\epsilon_k+\epsilon_{k+Q})^{-1} K_{nm}
+c^\dagger_{k}c_{k+Q}\Bigr]\rangle \nonumber\\
+&=  {2\over \beta \omega
+}\sum_{k,Q}(f_{k+Q}(1-f_{k})p_m-f_{k}(1-f_{k+Q})p_n)(
+z-E_n+E_m-\epsilon_{k}+\epsilon_{k+Q})^{-1}\nonumber
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="57" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1581.png"
+ ALT="$\displaystyle G_{nm}(z)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="506" HEIGHT="45" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1582.png"
+ ALT="$\textstyle = {2\over \beta \omega}\sum_{k,k+Q} \langle \Bigl[K_{mn}
+c^\dagger_{...
+...+
+E_m -\epsilon_k+\epsilon_{k+Q})^{-1} K_{nm}
+c^\dagger_{k}c_{k+Q}\Bigr]\rangle$"></TD>
+<TD>&nbsp;</TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="540" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1583.png"
+ ALT="$\textstyle = {2\over \beta \omega
+}\sum_{k,Q}(f_{k+Q}(1-f_{k})p_m-f_{k}(1-f_{k+Q})p_n)(
+z-E_n+E_m-\epsilon_{k}+\epsilon_{k+Q})^{-1}$"></TD>
+<TD>&nbsp;</TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+We are interested in the imaginary part describing the relaxation processes:
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+Im G_{nm}(\omega+i\delta)= - {2\pi \over \beta \omega
+}\sum_{k,Q}\Bigl(f_{k+Q}(1-f_{k})p_m-f_{k}(1-f_{k+Q})p_n \Bigr)
+ \delta(\omega -E_n+E_m-\epsilon_{k}+\epsilon_{k+Q})
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="594" HEIGHT="51" BORDER="0"
+ SRC="img1584.png"
+ ALT="\begin{displaymath}
+Im G_{nm}(\omega+i\delta)= - {2\pi \over \beta \omega
+}\sum_...
+..._n \Bigr)
+\delta(\omega -E_n+E_m-\epsilon_{k}+\epsilon_{k+Q})
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+Writing <!-- MATH
+ $\rho=\omega - \omega_{nm}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="93" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1585.png"
+ ALT="$ \rho=\omega - \omega_{nm}$"></SPAN> and <!-- MATH
+ $\omega_{nm}=E_n-E_m$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="119" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1586.png"
+ ALT="$\omega_{nm}=E_n-E_m$"></SPAN> we obtain
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+Im G_{nm}(\omega+i\delta)= - {2\pi N^2(0)\over \beta \omega} \int d\epsilon
+ (f(\epsilon)(1-f(\epsilon+\rho) p_m
+- f(\epsilon+\rho)(1-f(\epsilon))p_n)
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="553" HEIGHT="45" BORDER="0"
+ SRC="img1587.png"
+ ALT="\begin{displaymath}
+Im G_{nm}(\omega+i\delta)= - {2\pi N^2(0)\over \beta \omega}...
+...)(1-f(\epsilon+\rho) p_m
+- f(\epsilon+\rho)(1-f(\epsilon))p_n)
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+For the integrals we get
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+\int d\epsilon f(\epsilon)(1-f(\epsilon+\rho)=&\int d\epsilon
+\exp(\beta(\epsilon+\rho))/
+(1+\exp(\beta\epsilon))(1+\exp(\beta(\epsilon+\rho))\nonumber\\
+=&
+(\omega-\omega_{nm})\exp(\beta(\omega-\omega_{nm}))/
+(-1+\exp(\beta(\omega-\omega_{nm})\nonumber
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="172" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1588.png"
+ ALT="$\displaystyle \int d\epsilon f(\epsilon)(1-f(\epsilon+\rho)=$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="355" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1589.png"
+ ALT="$\textstyle \int d\epsilon
+\exp(\beta(\epsilon+\rho))/
+(1+\exp(\beta\epsilon))(1+\exp(\beta(\epsilon+\rho))$"></TD>
+<TD>&nbsp;</TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1590.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="364" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1591.png"
+ ALT="$\textstyle (\omega-\omega_{nm})\exp(\beta(\omega-\omega_{nm}))/
+(-1+\exp(\beta(\omega-\omega_{nm})$"></TD>
+<TD>&nbsp;</TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+\int d\epsilon f(\epsilon+\rho )(1-f(\epsilon)=&\int d\epsilon
+\exp(\beta(\epsilon)/
+(1+\exp(\beta\epsilon))(1+\exp(\beta(\epsilon+\rho))\nonumber\\
+=&
+(\omega-\omega_{nm})/
+(-1+\exp(\beta(\omega-\omega_{nm}))\nonumber
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="172" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1592.png"
+ ALT="$\displaystyle \int d\epsilon f(\epsilon+\rho )(1-f(\epsilon)=$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="321" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1593.png"
+ ALT="$\textstyle \int d\epsilon
+\exp(\beta(\epsilon)/
+(1+\exp(\beta\epsilon))(1+\exp(\beta(\epsilon+\rho))$"></TD>
+<TD>&nbsp;</TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1590.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="249" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1594.png"
+ ALT="$\textstyle (\omega-\omega_{nm})/
+(-1+\exp(\beta(\omega-\omega_{nm}))$"></TD>
+<TD>&nbsp;</TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+This makes
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+Im G_{nm}=-{2\pi N^2(0)\over \beta \omega}(\omega -\omega_{nm}) {1-\exp(-\beta
+\omega)\over
+1-\exp[(\omega_{nm}-\omega)\beta]}p_m
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="389" HEIGHT="45" BORDER="0"
+ SRC="img1595.png"
+ ALT="\begin{displaymath}
+Im G_{nm}=-{2\pi N^2(0)\over \beta \omega}(\omega -\omega_{n...
+...\exp(-\beta
+\omega)\over
+1-\exp[(\omega_{nm}-\omega)\beta]}p_m
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+which has to be used to calculate the imaginary part of the memory function.
+Writing 
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+F_{nm}(\omega )= {1\over \beta \omega}(\omega -\omega_{nm}) {1-\exp(-\beta
+\omega)\over
+1-\exp[(\omega_{nm}-\omega)\beta]}p_m
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="336" HEIGHT="44" BORDER="0"
+ SRC="img1596.png"
+ ALT="\begin{displaymath}
+F_{nm}(\omega )= {1\over \beta \omega}(\omega -\omega_{nm}) {1-\exp(-\beta
+\omega)\over
+1-\exp[(\omega_{nm}-\omega)\beta]}p_m
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+which also be written in symmetrized form as
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+F_{nm}(\omega )= {\sqrt{p_np_m}\over \beta}{(\omega -\omega_{nm})\over
+\omega} {\exp(\beta \omega)/2) - \exp(-\beta \omega)/2)\over
+\exp(\beta (\omega-\omega_{nm})/2) - \exp(-\beta (\omega -\omega_{nm})/2)}
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="508" HEIGHT="44" BORDER="0"
+ SRC="img1597.png"
+ ALT="\begin{displaymath}
+F_{nm}(\omega )= {\sqrt{p_np_m}\over \beta}{(\omega -\omega_...
+...\omega-\omega_{nm})/2) - \exp(-\beta (\omega -\omega_{nm})/2)}
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+we obtain with <SPAN CLASS="MATH"><IMG
+ WIDTH="91" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1598.png"
+ ALT="$g=J_{ex}N(0)$"></SPAN>
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+M_{n_2n_1,m_2m_1}(\omega) =- i 2\pi g^2
+\sum_i\Bigl[&
+\delta_{n_2m_2}\sum_tJ^i_{m_1t}J^i_{tn_1}F_{n_2t}
++ \delta_{n_1m_1}\sum_tJ^i_{
+n_2t}J^i_{tm_2}F_{tn_1}\nonumber\\
+&-J^i_{m_1n_1}J^i_{n_2m_2}F_{n_2m_1}
+-J^i_{n_2m_2}J^i_{m_1n_1}F_{m_2n_1}\Bigr]
+\nonumber
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="215" HEIGHT="48" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1599.png"
+ ALT="$\displaystyle M_{n_2n_1,m_2m_1}(\omega) =- i 2\pi g^2
+\sum_i\Bigl[$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="338" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1600.png"
+ ALT="$\textstyle \delta_{n_2m_2}\sum_tJ^i_{m_1t}J^i_{tn_1}F_{n_2t}
++ \delta_{n_1m_1}\sum_tJ^i_{
+n_2t}J^i_{tm_2}F_{tn_1}$"></TD>
+<TD>&nbsp;</TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="293" HEIGHT="45" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1601.png"
+ ALT="$\textstyle -J^i_{m_1n_1}J^i_{n_2m_2}F_{n_2m_1}
+-J^i_{n_2m_2}J^i_{m_1n_1}F_{m_2n_1}\Bigr]$"></TD>
+<TD>&nbsp;</TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+from which we get the memory function matrix in the space of dynamical variables
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+M_{\nu \mu}(\omega)= M_{n_2n_1,m_2m_1}(\omega)
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="180" HEIGHT="30" BORDER="0"
+ SRC="img1602.png"
+ ALT="\begin{displaymath}
+M_{\nu \mu}(\omega)= M_{n_2n_1,m_2m_1}(\omega)
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+
+<P>
+
+<P><P>
+<BR>
+
+<P>
+Summary:
+For the neutron scattering cross section we need the function 
+<!-- MATH
+ $Im \chi^{\alpha\beta}(\omega+i\delta)/(1-\exp(-\beta\omega)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="219" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1603.png"
+ ALT="$Im \chi^{\alpha\beta}(\omega+i\delta)/(1-\exp(-\beta\omega)$"></SPAN>, where
+<!-- MATH
+ $\chi^{\alpha\beta}(z)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="51" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1604.png"
+ ALT="$\chi^{\alpha\beta}(z)$"></SPAN> is the frequency dependent part of the dynamic
+susceptibility <!-- MATH
+ $\chi^{\alpha\beta}(z)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="51" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1604.png"
+ ALT="$\chi^{\alpha\beta}(z)$"></SPAN> for spin components  <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1605.png"
+ ALT="$J^\alpha$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1606.png"
+ ALT="$J^\beta$"></SPAN>, which is
+related to the corresponding relaxation function <!-- MATH
+ $\Phi^{\alpha,\beta}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="36" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1607.png"
+ ALT="$\Phi^{\alpha,\beta}$"></SPAN> by
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+\chi^{\alpha\beta}(z) = \chi^{\alpha\beta}(0) - \beta z \Phi^{\alpha\beta}(z)
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="201" HEIGHT="29" BORDER="0"
+ SRC="img1608.png"
+ ALT="\begin{displaymath}
+\chi^{\alpha\beta}(z) = \chi^{\alpha\beta}(0) - \beta z \Phi^{\alpha\beta}(z)
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+For the full dynamical susceptibility we need the static suseptibility
+<!-- MATH
+ $\chi^{\alpha\beta}(0)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="51" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1609.png"
+ ALT="$ \chi^{\alpha\beta}(0) $"></SPAN>
+which  in lowest order in the exchange interaction is given by 
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+\chi^{\alpha\beta}(0)  = \sum_\nu  (J^\alpha_\nu)^\dagger \beta P_\nu J^\beta_\nu
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="176" HEIGHT="45" BORDER="0"
+ SRC="img1610.png"
+ ALT="\begin{displaymath}
+\chi^{\alpha\beta}(0) = \sum_\nu (J^\alpha_\nu)^\dagger \beta P_\nu J^\beta_\nu
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+The above relaxation function is calculated with help of the Mori-Zwanzig
+projection formalism by 
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+\Phi^{\alpha\beta}(z)=\sum_{\mu\nu}
+(J^\alpha_\nu)^*\Phi_{\nu\mu}(z)J^\beta_\mu
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="197" HEIGHT="46" BORDER="0"
+ SRC="img1611.png"
+ ALT="\begin{displaymath}
+\Phi^{\alpha\beta}(z)=\sum_{\mu\nu}
+(J^\alpha_\nu)^*\Phi_{\nu\mu}(z)J^\beta_\mu
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img843.png"
+ ALT="$\nu$"></SPAN> denotes a transition from <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1612.png"
+ ALT="$n_1$"></SPAN> to <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1613.png"
+ ALT="$n_2$"></SPAN> between crystal field
+levels of the magnetic ion. The partial relaxation functions are obtained by 
+solving the matrix
+equation
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+\Phi_{\nu\mu}(z)= [\Omega^{-1}]_{\nu\mu}P_\mu
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="139" HEIGHT="30" BORDER="0"
+ SRC="img1614.png"
+ ALT="\begin{displaymath}
+\Phi_{\nu\mu}(z)= [\Omega^{-1}]_{\nu\mu}P_\mu
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+with
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+\Omega_{\nu\mu}(z)= (z-\omega_\nu)\delta_{\nu\mu}  -M_{\nu\mu}(z)/P_\mu
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="247" HEIGHT="30" BORDER="0"
+ SRC="img1615.png"
+ ALT="\begin{displaymath}
+\Omega_{\nu\mu}(z)= (z-\omega_\nu)\delta_{\nu\mu} -M_{\nu\mu}(z)/P_\mu
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+where <!-- MATH
+ $\omega_\nu =E_{n_2}- E_{n_1}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="115" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1616.png"
+ ALT="$\omega_\nu =E_{n_2}- E_{n_1}$"></SPAN> is the energy difference of cf-levels.
+
+<P>
+Only terms in  lowest  order in the el-ion interaction are kept. We neglect
+frequency shifts due to the electron-ion interaction. 
+Then the  memory function is purely
+imaginary (with a negative  sign).
+
+<P>
+Note that compared to our paper BFK, Z.Physik B28, 9-18, 1977 we have used here 
+a different sign-convention.
+
+<P>
+For numerical reasons it is more convenient to calculate the relaxation
+function in the following way:
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+\Phi_{\nu\mu}(z)= P_\nu[\bar\Omega^{-1}]_{\nu\mu}P_\mu
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="158" HEIGHT="30" BORDER="0"
+ SRC="img1617.png"
+ ALT="\begin{displaymath}
+\Phi_{\nu\mu}(z)= P_\nu[\bar\Omega^{-1}]_{\nu\mu}P_\mu
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+with
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+\bar \Omega_{\nu\mu}(z)= P_\nu(z-\omega_\nu)\delta_{\nu\mu}  - M_{\nu\mu}(z)
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="237" HEIGHT="30" BORDER="0"
+ SRC="img1618.png"
+ ALT="\begin{displaymath}
+\bar \Omega_{\nu\mu}(z)= P_\nu(z-\omega_\nu)\delta_{\nu\mu} - M_{\nu\mu}(z)
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+
+<P>
+From the relaxation function we get for the dynamic scattering cross section 
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+{d^2\sigma \over d\Omega d E'} =  {k' \over
+k}S(\vec Q,\omega)
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="138" HEIGHT="41" BORDER="0"
+ SRC="img926.png"
+ ALT="\begin{displaymath}
+{d^2\sigma \over d\Omega d E'} = {k' \over
+k}S(\vec Q,\omega)
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+with
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+S(\vec Q, \omega)=({r_0\over 2}g_J F(\kappa))^2{1\over \pi }
+\sum_{\alpha\beta}(\delta_{\alpha\beta}
+- \hat Q_\alpha \hat Q_\beta)
+Im \Phi^{\alpha,\beta}(\omega){-\beta \omega \over 1-e^{-\beta \hbar \omega}} 
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="448" HEIGHT="52" BORDER="0"
+ SRC="img1619.png"
+ ALT="\begin{displaymath}
+S(\vec Q, \omega)=({r_0\over 2}g_J F(\kappa))^2{1\over \pi }...
+...\beta}(\omega){-\beta \omega \over 1-e^{-\beta \hbar \omega}}
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+Here the scattering function depends only on the scattering vector
+<!-- MATH
+ $\vec Q= \vec k - \vec k'$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="79" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1515.png"
+ ALT="$\vec Q = \vec k - \vec k'$"></SPAN> and the energy loss <!-- MATH
+ $(\hbar)\omega =E(k)-E(k')$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="148" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1620.png"
+ ALT="$(\hbar)\omega =E(k)-E(k')$"></SPAN>
+Note that in our formulas <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img350.png"
+ ALT="$\omega$"></SPAN> contains a factor <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1621.png"
+ ALT="$\hbar$"></SPAN> and is the
+energy loss. If we want to have meV as energy unit and Kelvin as temperature
+unit, we have to write <SPAN CLASS="MATH"><IMG
+ WIDTH="83" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1622.png"
+ ALT="$\beta= 11.6/T$"></SPAN>.
+
+<P>
+For the analysis of polarised neutron scattering the different
+spin-components <!-- MATH
+ $S^{\alpha\beta}(\vec Q,\omega)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="74" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1623.png"
+ ALT="$S^{\alpha\beta}(\vec Q,\omega)$"></SPAN> of <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img265.png"
+ ALT="$S$"></SPAN> are needed. 
+These are defined by
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+S(\vec Q,\omega)= \sum_{\alpha\beta}(\delta_{\alpha\beta}
+- \hat Q_\alpha \hat Q_\beta)S^{\alpha\beta}(\vec Q,\omega)
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="265" HEIGHT="48" BORDER="0"
+ SRC="img1624.png"
+ ALT="\begin{displaymath}
+S(\vec Q,\omega)= \sum_{\alpha\beta}(\delta_{\alpha\beta}
+- \hat Q_\alpha \hat Q_\beta)S^{\alpha\beta}(\vec Q,\omega)
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+with
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+S^{\alpha\beta}(\vec Q,\omega)=
+Im \chi^{\alpha\beta}/(1-e^{-\beta \hbar \omega})=
+Im \Phi^{\alpha,\beta}(\omega){-\beta \omega \over 1-e^{-\beta \hbar \omega}}
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="399" HEIGHT="41" BORDER="0"
+ SRC="img1625.png"
+ ALT="\begin{displaymath}
+S^{\alpha\beta}(\vec Q,\omega)=
+Im \chi^{\alpha\beta}/(1-e^{...
+...\beta}(\omega){-\beta \omega \over 1-e^{-\beta \hbar \omega}}
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+The complex dynamic susceptbility is calculated from
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+\chi^{\alpha\beta}(\omega)= \chi^{\alpha\beta}(0)-\beta \omega
+\Phi^{\alpha\beta}(\omega)= \sum_{\mu\nu}\beta (J^\alpha_\mu)^*(P_{\mu\nu}-\omega
+\Phi_{\mu\nu}(\omega ))J^\beta_\nu
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="440" HEIGHT="46" BORDER="0"
+ SRC="img1626.png"
+ ALT="\begin{displaymath}
+\chi^{\alpha\beta}(\omega)= \chi^{\alpha\beta}(0)-\beta \ome...
+...ha_\mu)^*(P_{\mu\nu}-\omega
+\Phi_{\mu\nu}(\omega ))J^\beta_\nu
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+where the static susceptibilities <!-- MATH
+ $\beta P_{\mu\nu}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="39" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1627.png"
+ ALT="$\beta P_{\mu\nu}$"></SPAN> are diagonal in our
+approximation.  
+
+<P>
+
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2483"
+  HREF="node148.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2477"
+  HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2471"
+  HREF="node146.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2479"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2481"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2484"
+  HREF="node148.html">Solution of the exercises</A>
+<B> Up:</B> <A NAME="tex2html2478"
+  HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A NAME="tex2html2472"
+  HREF="node146.html">Dipole Approximation</A>
+ &nbsp; <B>  <A NAME="tex2html2480"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2482"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

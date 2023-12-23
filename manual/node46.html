@@ -1,0 +1,448 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>example of input file mcdisp.par</TITLE>
+<META NAME="description" CONTENT="example of input file mcdisp.par">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="previous" HREF="node45.html">
+<LINK REL="up" HREF="node44.html">
+<LINK REL="next" HREF="node47.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1006"
+  HREF="node47.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1000"
+  HREF="node44.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html996"
+  HREF="node45.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1002"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1004"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1007"
+  HREF="node47.html">Viewing the results of</A>
+<B> Up:</B> <A NAME="tex2html1001"
+  HREF="node44.html">mcdisp - the Calculation</A>
+<B> Previous:</B> <A NAME="tex2html997"
+  HREF="node45.html">example of input file</A>
+ &nbsp; <B>  <A NAME="tex2html1003"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1005"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H5><A NAME="SECTION000120002000000000000"></A><A NAME="3805"></A>
+<BR>
+example of input file <I CLASS="slanted">mcdisp.par</I>
+</H5>
+
+<P>
+<SMALL CLASS="FOOTNOTESIZE">
+</SMALL><PRE>
+# Parameter file  mcdisp.par - read by mcdisp version 5.1
+#&lt;!--mcdisp.mcdisp.par&gt;
+#*********************************************************************
+# mcdisp - program to calculate the dispersion of magnetic excitations
+# reference: M. Rotter et al. J. Appl. Phys. A74 (2002) 5751
+#*********************************************************************
+#
+# mcdisp calculates the neutron scattering cross section dsigma/dOmegadE' [barn/sr/meV/f.u.]
+#           f.u.=crystallogrpaphic unit cell (r1xr2xr3) for inelastic and diffuse scattering
+#
+# depending on what is kept constant it follows either kf or ki (1/A)
+#!kf=3.474
+# 
+# emin and emax define the energy range in which neutron intensities are calculated
+# for full calculation of the dynamical susceptibility (option "-r", inversion of the MF-RPA equation 
+# for each point in Q-omega space) the minimum and maximum energy has to be given (energy stepwidth is 
+# equal to the parameter epsilon given in the command line after "-r")
+#
+#!emin=0.1
+#!emax=80
+#
+# optional switches which can be 0 or 1 are
+#!calculate_magmoment_oscillation=1  creates mcdisp.qem
+#!calculate_spinmoment_oscillation=0  creates mcdisp.qes
+#!calculate_orbmoment_oscillation=0  creates mcdisp.qeo
+#!calculate_chargedensity_oscillation=1  creates mcdisp.qee
+#!calculate_spindensity_oscillation=0  creates mcdisp.qsd
+#!calculate_orbmomdensity_oscillation=0  creates mcdisp.qod
+#!calculate_phonon_oscillation=0  creates mcdisp.qep
+#
+# (optional) number of parallel threads on your machine
+#  (if not set program will attempt to determine this automatically)
+# nofthreads=2
+#
+#     out* controls the type of output in user defined columns in files mcdisp.qei,qex,qom,dsigma,dsigma.tot
+#!out1=1 
+#!out2=6 
+#!out3=7 
+#!out4=4 
+#     ... in out*=n the numbers n have the following meaning:
+#            0....Qinc[1/A] 
+#            1....Qx[1/A]   
+#            2....Qy[1/A]   
+#            3....Qz[1/A]   
+#            4....T[K]      
+#            5....Ha[T]     
+#            6....Hb[T]     
+#            7....Hc[T]     
+#            8....|Q|[1/A]  
+#
+# optional switch outS for control of the output of the magnetic scattering function in results/mcdisp.qei
+#! outS=3
+# .. valid values are
+# 0: not output of Salphabeta
+# 1: output Sperpalphabeta(Q,omega) in dipole approximation, with alpha,beta=x,y,z
+# 2: output Sperpalphabeta(Q,omega) going beyond dipole approximation (if possible), with alpha,beta=x,y,z
+# 3: output Sperpalphabeta(Q,omega) in dipole approximation, with alpha,beta=u,v,w
+# 4: output Sperpalphabeta(Q,omega) going beyond dipole approximation (if possible), with alpha,beta=u,v,w
+# 5: output Salphabeta(Q,omega) in dipole approximation, with alpha,beta=x,y,z (no output of dip intensity)
+# 6: output Salphabeta(Q,omega) in dipole approximation, with alpha,beta=u,v,w (no output of dip intensity)
+#
+# xyz coordinate refer to y||b, z||(a x b) and x normal to y and z
+# uvw coordinates refer to u||Q=k-k', w perpendicular to the scattering plane
+#     (as determined by the cross product of subsequent vectors in the input
+#     q-vector list) and v perpendicular to u and w, such that uvw form a righthanded system
+#
+#
+# Commands such as the following are used to generate a hkl list (to activate put #! instead of # at beginning of line):
+#
+# - a Q vector mesh to be mapped in the calculation it can be in Miller indices
+#hmin=0 hmax=1 deltah=0.1
+#kmin=0 kmax=1 deltak=0.1
+#lmin=0 lmax=1 deltal=0.1
+#
+# or in Qx Qy Qz (1/A) where y||b z||axb and x perpendicular to y and z
+#Qxmin=0 Qxmax=1 deltaQx=0.1
+#Qymin=0 Qymax=1 deltaQy=0.1
+#Qzmin=0 Qzmax=1 deltaQz=0.1
+#
+# - file(s) containing list of Q vectors with (optional) energies of observed excitations to be fitted
+# h k l [E(meV) [statistical_weight  [intensity [fwhm ]]]]
+#
+# hklfile=file1
+# hklfile=file2
+# ...
+#
+# or
+# Qx Qy Qz(1/A) [E(meV) [statistical_weight  [intensity [fwhm ]]]]
+#
+# QxQyQzfile=file1
+# QxQyQzfile=file2
+# ...
+#
+#
+# - some lines in reciprocal space 
+#
+#hklline=h1=0 k1=1 l1=0 to hN=1 kN=1 lN=0 Nstp=21
+#hklline=h1=0 k1=2 l1=0 to hN=1 kN=1 lN=0 Nstp=21
+#
+#QxQyQzline=Qx1=0 Qy1=1 Qz1=0 to QxN=1 QyN=1 QzN=0 Nstp=21
+#QxQyQzline=Qx1=0 Qy1=2 Qz1=0 to QxN=1 QyN=1 QzN=0 Nstp=21
+#
+# - some planes in reciprocal space 
+#
+#hklplane=h0=0 k0=1 l0=0 to hN=1 kN=1 lN=0 Nstp=21 to hM=1 kM=0 lM=3 Mstp=21  
+# or
+#QxyQzplane=Qx0=0 Qy0=1 Qz0=0 to QxN=1 QyN=1 QzN=0 Nstp=21 to QxM=1 QyM=0 QzM=3 Mstp=21  
+# 
+#
+# - a list of Q vectors with (optional) energies of observed excitations to be fitted
+# h k l [E(meV) [statistical_weight  [intensity [fwhm ]]]]
+1 0 0 
+2 0 0 
+3 0 0 
+0.1 0 0 
+0 0.1 0 
+0 0 0.1
+</PRE>
+
+<P>
+this file describes, which <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img358.png"
+ ALT="$q$"></SPAN> vectors will be calculated.
+Miller indices always refer to the lattice <!-- MATH
+ $\vec a^*, \vec b^*, \vec c^*$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="62" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img201.png"
+ ALT="$\vec a^*,\vec b^*,\vec c^*$"></SPAN>, which
+is the reciprocal lattice of <!-- MATH
+ $\vec a, \vec b, \vec c$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="40" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img177.png"
+ ALT="$\vec a,\vec b,\vec c$"></SPAN> as defined by lattice
+parameters <SPAN CLASS="MATH"><IMG
+ WIDTH="40" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img216.png"
+ ALT="$a,b,c$"></SPAN> and angles <!-- MATH
+ $\alpha,\beta,\gamma$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img217.png"
+ ALT="$\alpha,\beta,\gamma$"></SPAN> as given in
+input file <I CLASS="slanted">mcphas.j</I>.
+
+<P>
+The
+program <I CLASS="slanted">mcdisp<A NAME="3809"></A></I> then calculates only 
+the excitation energies at these reflections and (if measured
+energies are given) computes a standard deviation
+and prints
+this deviation to stdout as &rdquo;sta=3120.31&rdquo; [this can directly
+be used by fitting program such as <I CLASS="slanted">simannfit<A NAME="3810"></A></I>].
+
+<P>
+The standard deviation is calculated by taking for a set of measured energies (at a 
+given q-vector) the squared sum of differences to the nearest
+calculated energy. Statistical weighting as given by the user in <I CLASS="slanted">mcdisp.par</I>
+for each q-vector is applied. If the weighting is less than zero, the 
+inverse squared sum of differences to the nearest
+calculated energy is taken (&rdquo;antipeak&rdquo;, this is useful in order to 
+tell the program, that there is no peak at this energy).
+In addition to the standard deviation &rdquo;sta&rdquo; some other quantitites are calculated and 
+may be used in fitting experimental data:
+
+<P>
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+{\rm sta}                              & =& \sum_i |weight(i)|*[Eexp(i) - nearestEcalc(i)]^{[2*sign(weight(i))]}\\
+{\rm sta\_int   }                       & = &\sum_i |weight(i)|*[Eexp(i) - nearestEcalc_{\rm with %
+Int>0.1mb/srf.u.}]^{[2*sign(weight(i))]}\\
+{\rm sta\_without\_antipeaks }           & =& \sum_{i, weight(i)>0}  weight(i)*[Eexp(i) - nearestEcalc(i)]^2\\
+{\rm sta\_int\_without\_antipeaks }       & =&\sum_{i,weight(i)>0}  weight(i)*[Eexp(i) - nearestEcalc_{\rm with %
+Int>0.1mb/srf.u.}]^2\\
+{\rm sta\_without\_weights }              &=& \sum_i [Eexp(i) - nearestEcalc(i)]^{[2*sign(weight(i))]}\\
+{\rm sta\_int\_without\_weights}          & =&\sum_i [Eexp(i) - nearestEcalc_{\rm with %
+Int>0.1mb/srf.u.}]^{[2*sign(weight(i))]}\\
+{\rm sta\_without\_antipeaks\_weights}    & = &\sum_{i, weight(i)>0}[Eexp(i) - nearestEcalc(i)]^2\\
+{\rm sta\_int\_without\_antipeaks\_weights}& =& \sum_{i, weight(i)>0} [Eexp(i) - nearestEcalc_{\rm with %
+Int>0.1mb/srf.u.}]^2\\
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="24" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img359.png"
+ ALT="$\displaystyle {\rm sta}$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="423" HEIGHT="48" ALIGN="MIDDLE" BORDER="0"
+ SRC="img360.png"
+ ALT="$\displaystyle \sum_i \vert weight(i)\vert*[Eexp(i) - nearestEcalc(i)]^{[2*sign(weight(i))]}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">53</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="49" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img361.png"
+ ALT="$\displaystyle {\rm sta\_int }$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="526" HEIGHT="48" ALIGN="MIDDLE" BORDER="0"
+ SRC="img362.png"
+ ALT="$\displaystyle \sum_i \vert weight(i)\vert*[Eexp(i) - nearestEcalc_{\rm with %
+Int&gt;0.1mb/srf.u.}]^{[2*sign(weight(i))]}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">54</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="155" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img363.png"
+ ALT="$\displaystyle {\rm sta\_without\_antipeaks }$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="367" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img364.png"
+ ALT="$\displaystyle \sum_{i, weight(i)&gt;0} weight(i)*[Eexp(i) - nearestEcalc(i)]^2$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">55</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="180" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img365.png"
+ ALT="$\displaystyle {\rm sta\_int\_without\_antipeaks }$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="470" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img366.png"
+ ALT="$\displaystyle \sum_{i,weight(i)&gt;0} weight(i)*[Eexp(i) - nearestEcalc_{\rm with %
+Int&gt;0.1mb/srf.u.}]^2$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">56</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="141" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img367.png"
+ ALT="$\displaystyle {\rm sta\_without\_weights }$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="331" HEIGHT="48" ALIGN="MIDDLE" BORDER="0"
+ SRC="img368.png"
+ ALT="$\displaystyle \sum_i [Eexp(i) - nearestEcalc(i)]^{[2*sign(weight(i))]}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">57</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="166" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img369.png"
+ ALT="$\displaystyle {\rm sta\_int\_without\_weights}$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="434" HEIGHT="48" ALIGN="MIDDLE" BORDER="0"
+ SRC="img370.png"
+ ALT="$\displaystyle \sum_i [Eexp(i) - nearestEcalc_{\rm with %
+Int&gt;0.1mb/srf.u.}]^{[2*sign(weight(i))]}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">58</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="213" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img371.png"
+ ALT="$\displaystyle {\rm sta\_without\_antipeaks\_weights}$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="284" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img372.png"
+ ALT="$\displaystyle \sum_{i, weight(i)&gt;0}[Eexp(i) - nearestEcalc(i)]^2$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">59</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="237" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img373.png"
+ ALT="$\displaystyle {\rm sta\_int\_without\_antipeaks\_weights}$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
+ WIDTH="387" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img374.png"
+ ALT="$\displaystyle \sum_{i, weight(i)&gt;0} [Eexp(i) - nearestEcalc_{\rm with %
+Int&gt;0.1mb/srf.u.}]^2$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">60</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+The output files of program <I CLASS="slanted">McDisp</I> are 
+
+<P>
+<BLOCKQUOTE>
+[<I CLASS="slanted">mcdisp.trs</I>:] contains all single ion transitions with strengths <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img375.png"
+ ALT="$\gamma$"></SPAN> 
+and neutron intensities.
+[<I CLASS="slanted">mcdisp.qom</I>:] Contains the energies of the modes and scattering cross sections  for each mode 
+calculated using the DMD algorithm described in section&nbsp;<A HREF="node140.html#DMDform">M.1</A>
+[<I CLASS="slanted">mcdisp.qei</I>] energies and neutron scattering intensities calculated by the DMD algorithm, if 
+        the energy of a mode is outside interval  [emin,emax] the value -1 is output for the intensity.
+[<I CLASS="slanted">mcdisp.qem .qes .qel .qsd .qod .qee</I>] eigenvectors for different observables (relative phase and amplitudes)
+[<I CLASS="slanted">mcdisp.dsigma</I>(only created with option <I CLASS="slanted">-r</I>):] Contains the energy dependence of the scattering cross 
+section
+calculated according to section&nbsp;<A HREF="node139.html#formalism">M</A> within the energy range specified by [emin,emax] given in <I CLASS="slanted">
+mcdisp.par</I>. 
+[<I CLASS="slanted">mcdisp.dsigma.tot</I>:] sum of intensities in interval  [emin,emax].  For option <I CLASS="slanted">-r</I> : Sum of intensities calculated in <I CLASS="slanted">
+mcdisp.dsigma</I>.
+
+</BLOCKQUOTE>
+
+<P>
+<BR>
+<BR>
+<BR>
+<EM>Exercises:</EM>
+
+<UL>
+<LI>Type <I CLASS="slanted">mcdisp -max 3</I> to
+calculate the dispersion of magnetic excitations for NdCu<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$_2$"></SPAN>.
+and inspect the results
+<I CLASS="slanted">examples/ndcu2b_new/results/mcdisp.qei</I>.
+Which  transition has the largest intensity ?
+</LI>
+</UL>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1006"
+  HREF="node47.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1000"
+  HREF="node44.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html996"
+  HREF="node45.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1002"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1004"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1007"
+  HREF="node47.html">Viewing the results of</A>
+<B> Up:</B> <A NAME="tex2html1001"
+  HREF="node44.html">mcdisp - the Calculation</A>
+<B> Previous:</B> <A NAME="tex2html997"
+  HREF="node45.html">example of input file</A>
+ &nbsp; <B>  <A NAME="tex2html1003"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1005"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

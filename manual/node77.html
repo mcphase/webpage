@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
+<HTML>
+<HEAD>
+<TITLE>External module function Icalc_parameter_storage_matrix_init - used by mcphas,singleion,spins and densplt,mcdiff </TITLE>
+<META NAME="description" CONTENT="External module function Icalc_parameter_storage_matrix_init - used by mcphas,singleion,spins and densplt,mcdiff ">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node78.html">
+<LINK REL="previous" HREF="node76.html">
+<LINK REL="up" HREF="node75.html">
+<LINK REL="next" HREF="node78.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1473"
+  HREF="node78.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1467"
+  HREF="node75.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1461"
+  HREF="node76.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1469"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1471"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1474"
+  HREF="node78.html">External module function du1calc</A>
+<B> Up:</B> <A NAME="tex2html1468"
+  HREF="node75.html">Basic Module Functions</A>
+<B> Previous:</B> <A NAME="tex2html1462"
+  HREF="node76.html">External module function Icalc</A>
+ &nbsp; <B>  <A NAME="tex2html1470"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1472"
+  HREF="node152.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000171200000000000000"></A><A NAME="6945"></A><A NAME="6946"></A><A NAME="6947"></A><A NAME="6948"></A><A NAME="6949"></A>
+<BR>
+External module function <I CLASS="slanted">Icalc_parameter_storage_matrix_init</I> - used by <I CLASS="slanted">
+mcphas</I>,<I CLASS="slanted">singleion</I>,<I CLASS="slanted">spins</I> and <I CLASS="slanted">
+densplt</I>,<I CLASS="slanted">mcdiff</I>  
+</H3>
+
+<P>
+This routine is optional, i.e. it may be programmed, but is not absolutely necessary.
+Before any call to Icalc this function will be called. subsequent calls to Icalc will provide this matrix to 
+Icalc, Icalc may set values to this matrix to be read in the next call
+of Icalc.
+
+<P>
+This feature provides the designer of a single ion module  with the possiblity to store information for subsquent 
+calls of Icalc,
+ usually the eigenvalues and eigenstates of a problem. This can be very useful to accelerate computations. For 
+example, in <I CLASS="slanted">mcphas</I> meanfield iterations require
+to solve a similar eigenvalue problem in each iteration step. Therefore the <I CLASS="slanted">mcphas</I> module provides
+to the single ion module on every call to the function <I CLASS="slanted">Icalc</I> the parmeter matrix 
+which the module stored in its last call for a specfic ion in the magnetic unit cell.
+
+<P>
+At the start of the programs <I CLASS="slanted">mcphas</I> <I CLASS="slanted">mcdiff</I> <I CLASS="slanted">singleion</I> the function <I CLASS="slanted">
+Icalc_parameter_storage_matrix_init</I>
+is called (if present in the module) and it should initialize a Complex Matrix by a command such as
+
+<P>
+<I CLASS="slanted">(*parstorage)=ComplexMatrix(0,nofrows,1,nofcols);</I>
+
+<P>
+and fill this matrix with sensible numerical values, in particular for the effective field, temperature given at 
+the input of this function.
+Parameters <I CLASS="slanted">MODPAR</I> and Lande Factor <I CLASS="slanted">gJ</I> may be used for this purpose.
+
+<P>
+The routine should look similar to
+<SMALL CLASS="FOOTNOTESIZE">
+</SMALL><PRE>
+#include "vector.h"          // MatPack vector class must be included
+
+#ifdef __linux__
+extern "C" void Icalc_parameter_storage_matrix_init(
+#else
+extern "C" __declspec(dllexport) void Icalc_parameter_storage_matrix_init(
+#endif
+// on output
+                     ComplexMatrix * parstorage,    // storage matrix
+// on input
+                       Hxc ,                 //   vector of exchange field [meV] (can be n-dimensional, for a set of n operators)
+                       Hext,                 // external magnetic field [T]
+                      double *g_J,           // Input Lande g-factor
+                      double &amp;T,             // Input temperature (K)
+                      Vector &amp;MODPAR,     // Input vector of parameters 
+                                          //from single ion property file
+                      char **sipffilename)// Single ion properties filename
+{ // ... some code to compute eigenvectors and eigenvalues
+
+// dimension matrix
+(*parstorage)=ComplexMatrix(0,nofrows,1,nofcols);
+
+// fill matrix with values
+int l,m;
+          for(l=1;l&lt;=nofrows;++l)for(m=1;m&lt;=nofcols;++m)
+          {(*parstorage)(l,m)=complex &lt;double&gt; ( 4 , 2);}
+                 // instead of 4 and 2 put the real 
+                 //and imaginary parts to be stored
+}
+</PRE>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1473"
+  HREF="node78.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1467"
+  HREF="node75.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1461"
+  HREF="node76.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1469"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1471"
+  HREF="node152.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1474"
+  HREF="node78.html">External module function du1calc</A>
+<B> Up:</B> <A NAME="tex2html1468"
+  HREF="node75.html">Basic Module Functions</A>
+<B> Previous:</B> <A NAME="tex2html1462"
+  HREF="node76.html">External module function Icalc</A>
+ &nbsp; <B>  <A NAME="tex2html1470"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1472"
+  HREF="node152.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>
