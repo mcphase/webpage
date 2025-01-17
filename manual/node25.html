@@ -1,494 +1,201 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>mcphas.ini - controlling the algorithm</TITLE>
-<META NAME="description" CONTENT="mcphas.ini - controlling the algorithm">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Example mcphas.ini file for a simple antiferromagnet</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node26.html">
 <LINK REL="previous" HREF="node24.html">
-<LINK REL="up" HREF="node23.html">
 <LINK REL="next" HREF="node26.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html705"
-  HREF="node26.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html699"
-  HREF="node23.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html693"
-  HREF="node24.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html701"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html703"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node26.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node22.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node24.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html484"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html486"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html706"
-  HREF="node26.html">Example mcphas.ini file for</A>
-<B> Up:</B> <A NAME="tex2html700"
-  HREF="node23.html">Input Files</A>
-<B> Previous:</B> <A NAME="tex2html694"
-  HREF="node24.html">Example - a simple</A>
- &nbsp; <B>  <A NAME="tex2html702"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html704"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node26.html">mcphas.j - lattice and</A>
+<B> Up:</B> <A
+ HREF="node22.html">Input Files</A>
+<B> Previous:</B> <A
+ HREF="node24.html">mcphas.ini - controlling the</A>
+ &nbsp; <B>  <A ID="tex2html485"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html487"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION000101200000000000000"></A><A NAME="1666"></A>
+<H3><A ID="SECTION000101300000000000000"></A><A ID="792"></A>
 <BR>
-<I CLASS="slanted">mcphas.ini</I> - controlling the algorithm
+Example <I CLASS="slanted">mcphas.ini</I> file for a simple antiferromagnet
 </H3>
-   Initial file containing algorithm control parameters, for instance the range and spacing of
-   propagation vectors Q or the number of Monte Carlo trials for initial spin configurations
-    - <EM>mind</EM>: this
-   file is rewritten and reread  when running the program and may be changed by the
-   user in order to manipulate the running simulation.
 
 <P>
-<I CLASS="slanted">mcphas.ini<A NAME="1668"></A></I> consists of several sections:
-<DL>
-<DT><STRONG>MCPHASE RUNTIME CONTROL:</STRONG></DT>
-<DD>this section contains the parameters
-controlling the status of the calculation.
-</DD>
-<DT><STRONG>XY PHASEDIAGRAM PARAMETERS:</STRONG></DT>
-<DD>here the temperature and field range and
-step widths of the calculation are specified.
-The definition of the x and y
-axis in terms of temperature and magnetic field is followed by the
-corresponding range and step width. An offset may be given for all
-field and temperature values.
-Note that for most cases of interest
-this offset is zero (T0=0, Ha0=0, Hb0=0, Hc0=0).
- For the simple case of calculating a Temperature-Field phase diagram
- It is just necessary to set xT=1 and give the temperature range by
-xmin/xmax/xstep. For field in b direction then just set yHb=1 and 
-define the range in ymin/ymax/ystep.
-In case of non-orthogonal axes the applied magnetic field
-components <SPAN CLASS="MATH"><IMG
- WIDTH="84" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img138.png"
- ALT="$Ha, Hb, Hc$"></SPAN> refer to the orthogonal coordinate system
-defined with respect to the nonorthogonal lattice <!-- MATH
- $\mathbf a,\mathbf b,\mathbf c$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="45" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img139.png"
- ALT="$\mathbf a,\mathbf b,\mathbf c$"></SPAN> as
-<SPAN CLASS="MATH"><IMG
- WIDTH="44" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img140.png"
- ALT="$Hb\vert\vert\mathbf b$"></SPAN>, <!-- MATH
- $Hc||(\mathbf a \times \mathbf b)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="85" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img141.png"
- ALT="$Hc\vert\vert(\mathbf a \times \mathbf b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
- WIDTH="27" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
- SRC="img142.png"
- ALT="$Ha$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
- WIDTH="25" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img143.png"
- ALT="$Hb$"></SPAN> and <SPAN CLASS="MATH"><IMG
- WIDTH="25" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
- SRC="img144.png"
- ALT="$Hc$"></SPAN>.
+Here is an example of <I CLASS="slanted">mcphas.ini<A ID="793"></A></I>, the comments describe the meaning of the different
+parameters:
 
 <P>
-</DD>
-<DT><STRONG>GENERATION OF SPINCONFIGURATIONS:</STRONG></DT>
-<DD>at the beginning of the program
-some initial values of spin configurations are generated from a set of 
-propagation vectors. This section defines the range of propagation vectors
-and the step width.
-Depending on the value of the propagation Q with respect to the primitive reciprocal lattice
-1-, 2- or 3-dimensional simulations of magnetic lattices
-are possible. It is advisable to 
-think carefully about the chosen range and spacing of Q vectors in order
-to limit calculation time.
+<PRE>
+#&lt;!--mcphase.mcphas.ini--&gt;
 
+[MCPHASE RUNTIME CONTROL]
+
+
+# to stop program set exit to 1
+exit=0
+
+# to hold program set pause to 1
+pause=0
+
+# to display all structures while iterating set displayall to 1
+# (mind that by using this option mcphas gets very slow)
+displayall=0
+
+# to create a logfile of the propagation versus free energy  set logfevsQ to 1
+# (mind this uses a lot of disc space)
+logfevsQ=0
+
+
+[XY PHASEDIAGRAM PARAMETERS]
+
+
+# xy phasediagram axes - parameters
+# structures are calculated in the xy - phasediagram
+# the direction of x and y can be chosen:
+# vector in (H-T) space corresponding to x axis (xT [K] xHa [T] xHb [T] xHc [T])
+xT=1
+xHa=0
+xHb=0
+xHc=0
+
+# range of x
+xmin=2
+xmax=8
+xstep=0.2
+
+# vector in (H-T) space corresponding to y axis (yT [K] yHa [T] yHb [T] yHc [T])
+yT=0
+yHa=0
+yHb=1
+yHc=0
+
+# range of y
+ymin=0
+ymax=4
+ystep=0.2
+
+# offset
+T0=0
+Ha0=0
+Hb0=0
+Hc0=0
+
+
+[GENERATION OF SPIN CONFIGURATIONS]
+
+
+# test q vector (qmin qmax deltaq)
+hmin=0
+hmax=0
+deltah=0.05
+kmin=0
+kmax=0
+deltak=0.05
+lmin=0
+lmax=1
+deltal=0.02
+
+# maximal periodicity of spinconfigurations generated by q vectors
+maxqperiod=30
+
+# maximal number of test spinconfigurations 
+maxnoftestspincf=1000
+
+# maximal number of spins in spinconfigurations generated by q vectors
+maxnofspins=270
+
+# number of random (Monte Carlo) spin inversions  to try for each initial spinconfiguration
+nofrndtries=5
+
+
+[PARAMETERS FOR SUB FECALC SELFCONSISTENCY PROCESS]
+
+# (optional) number of parallel threads on your machine
+#  (if not set program will attempt to determine this automatically)
+# nofthreads=2
+
+# maximum number of selfconsistency loops
+maxnofmfloops=1000
+# special cases usefule for testing possible spin configurations without convergence
+#(setting these values will ignore convergence limit maxstamf): 
+#   maxnofmfloops=1  do only a calculation of mean fields  using the initial 
+#                    spin configuration and evaluate free energy using original 
+#                    spins 
+#   maxnofmfloops=2  calculate meanfields and from these mean fields calculate
+#                    spins and evaluate free energy without doing further loops
+#                    to reach convergence
+
+
+
+# standard deviation - limit to end selfconsistency process
+# standard deviation is defined by ...sta=sqrt(sum_{i=1}^{n} (newmf-old mf)i^2/n)
+# the meanfield is given by mf=gj mb H [meV] (gj...lande factor, mb... bohr magneton)
+maxstamf=1e-05
+
+# step ratio (bigstep=actual step/calculated step) to perform actually
+# (in case the sta increases in subsequent steps the program steps only
+# smallstep=0.2xbigstep for ten steps and then again with bigstep
+# if bigstep is set &gt;1, then only the digits after the comma are relevant
+# the digits before the comma give the ratio of bigstep/smallstep
+bigstep=1
+
+# sum_{i=1}^{n} abs(actual change of angular momentum &lt;Ji&gt; with respect to
+# initial  configuration) &gt; maxspinchange will  end selfconsistency process
+maxspinchange=60
+
+
+[OUTPUT OF PHYSICAL PROPERTIES]
+
+
+# output of physical properties to compare with experiment
+# 1. For thermal expansion and magnetostriction
+#  how many spinspin correlation functions
+#  should be calculated
+nofspincorrs=2
+
+#  2. For Neutron Diffraction
+#  calculation of mxnofhkl strongest reflections
+maxnofhkls=10
+
+# maximum scattering vector |Q|[1/A] for calculated hkl's
+maxQ=1
+</PRE>
 <P>
-For example a good starting point is to begin with a calculation with large
-step widths (e.g. 0.1)  covering the Brillouin zone. This should give an idea
-of the propagation vectors which are stabilised. An advanced calculation
-could then fine tune the propagation and determine its accurate value (using
-small step widths in a limited area of the zone).
-The verbose option of <I CLASS="slanted">mcphas</I> allows to inspect the propagation vectors
-which are actually used in the calculation.
-Trick: in order to get a quick overview of the
-q-vector range covered by the mcphas<A NAME="1671"></A> simulation start mcphas, exit and 
-just type <I CLASS="slanted">felog ./results/mcphas.qvc</I> (need <I CLASS="slanted">perl,perldl,pdl,pgplot</I> packages).
-
-<P>
-In order to limit calculation time, the maximum periodicity
-of the magnetic unit cell with respect to the crystallographic unit cell 
-(maxqperiod) and the maximum number of spins in the magnetic unit cell 
-(maxnofspins) can be limited. Also the maximum number of test spin configurations
-in the internal table can be limited (maxnoftestspincf).
-A critical feature with respect to calculation time is also the number of
-spin configurations which are generated by a random process from a tabulated
-SPINCONFIGURATIONS during the calculation. 
-
-<P>
-In summary the variables in this section are mainly important to adapt the
-program to a given computer system with finite speed. They have to be set
-to optimise between speed and accuracy of the calculation. In order to
-find appropriate values it is best to perform some calculations 
-and restrict the parameters step by step if insufficient speed is obtained.
-Also the examples included in the program package may serve as starting
-points.
-
-<P>
-</DD>
-<DT><STRONG>PARAMETERS FOR SUB FECALC SELFCONSISTENCY PROCESS:</STRONG></DT>
-<DD>the most important
-procedure in the module <I CLASS="slanted">mcphas</I> is the sub <I CLASS="slanted">fecalc</I><A NAME="1676"></A>. In this part of the 
-program the self consistent calculation of the magnetic moment configuration
-is performed as shown schematically in fig.&nbsp;<A HREF="#fecalc">8</A>. 
-In the mean field approximation the Hamiltonian&nbsp;(<A HREF="node13.html#hamilton">1</A>) is approximated
-by a sum over the <SPAN CLASS="MATH"><IMG
- WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img145.png"
- ALT="$N_b$"></SPAN> sites in the magnetic supercell
-
-<P>
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
-
-<!-- MATH
- \begin{equation}
-{\hat \mathcal H}=\sum_{s=1}^{N_b} \hat H^{MF}(s) + E_{corr}
-\end{equation}
- -->
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="174" HEIGHT="57" BORDER="0"
- SRC="img146.png"
- ALT="\begin{displaymath}
-{\hat \mathcal H}=\sum_{s=1}^{N_b} \hat H^{MF}(s) + E_{corr}
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">13</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-
-<P>
-with the single ion Hamiltonian
-
-<P>
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
-
-<!-- MATH
- \begin{equation}
-\hat H^{MF}(s)=  \hat H(s)
-	     - \sum_{\alpha=1}^{\rm nofcomponents} H_{\alpha}^s \hat I_{\alpha}^s
-\end{equation}
- -->
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="256" HEIGHT="57" BORDER="0"
- SRC="img147.png"
- ALT="\begin{displaymath}
-\hat H^{MF}(s)= \hat H(s)
-- \sum_{\alpha=1}^{\rm nofcomponents} H_{\alpha}^s \hat I_{\alpha}^s
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">14</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-
-<P>
-In case of module <I CLASS="slanted">so1ion<A NAME="1693"></A></I> in it's simplest 
-application with <!-- MATH
- ${\rm nofcomponents}=3$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="137" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img148.png"
- ALT="${\rm nofcomponents}=3$"></SPAN> interaction operators only, the interaction operators
-are defined to be equal to the total angular momentum, i.e. <!-- MATH
- $\hat I_{\alpha}=\hat J_{\alpha}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="59" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img149.png"
- ALT="$\hat I_{\alpha}=\hat J_{\alpha}$"></SPAN>
-(with the magnetic moment <!-- MATH
- $\mathbf M=g_{J} \mu_B \langle \hat \mathbf J \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="101" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img150.png"
- ALT="$\mathbf M=g_{J} \mu_B \langle \hat \mathbf J \rangle$"></SPAN> )
-and the single ion Hamiltonian is given by
-
-<P>
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
-
-<!-- MATH
- \begin{equation}
-\hat H^{MF}_{\rm so1ion}(s)=  \underbrace{ B_l^m \hat O_{lm}({\hat \mathbf J}^s)
-	     - g_{Js} \mu_B {\hat \mathbf J}^s \cdot {\mathbf H} }_{\hat H(s) }-   {\hat \mathbf I}^s \cdot {\mathbf H}^s 
-\end{equation}
- -->
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="337" HEIGHT="58" BORDER="0"
- SRC="img151.png"
- ALT="\begin{displaymath}
-\hat H^{MF}_{\rm so1ion}(s)= \underbrace{ B_l^m \hat O_{lm}...
-...bf H} }_{\hat H(s) }- {\hat \mathbf I}^s \cdot {\mathbf H}^s
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">15</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-
-<P>
-Note, here <SPAN CLASS="MATH"><IMG
- WIDTH="25" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img152.png"
- ALT="${\mathbf H}^s$"></SPAN> denotes the exchange field at the site <SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img101.png"
- ALT="$s$"></SPAN> and <SPAN CLASS="MATH"><IMG
- WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img153.png"
- ALT="${\mathbf H}$"></SPAN> denotes the applied
-magnetic field.
-
-<P>
-The correction term is defined by
-
-<P>
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
-
-<!-- MATH
- \begin{equation}
-E_{corr}=\frac{1}{2}\sum_{s=1}^{N_b}\sum_{\alpha=1}^{\rm nofcomponents}  \langle {\hat I}^s_{\alpha}
- \rangle {H}^s_{\alpha} 
-\end{equation}
- -->
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="231" HEIGHT="57" BORDER="0"
- SRC="img154.png"
- ALT="\begin{displaymath}
-E_{corr}=\frac{1}{2}\sum_{s=1}^{N_b}\sum_{\alpha=1}^{\rm no...
-...onents} \langle {\hat I}^s_{\alpha}
-\rangle {H}^s_{\alpha}
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">16</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-
-<P>
-and the components exchange fields <SPAN CLASS="MATH"><IMG
- WIDTH="25" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img152.png"
- ALT="${\mathbf H}^s$"></SPAN> are given by
-
-<P>
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
-
-<!-- MATH
- \begin{equation}
-H^s_{\alpha}=\sum_{\mathbf G'}\sum_{s'=1}^{N_b}\sum_{\beta=1}^{\rm nofcomponents} {\mathcal J}_{\alpha\beta}
-(\mathbf r_s-(\mathbf G'+\mathbf r_{s'})) \langle \hat I^{s'}_{\beta} \rangle
-\end{equation}
- -->
-<A NAME="meanfield"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="meanfield"></A><IMG
- WIDTH="402" HEIGHT="53" BORDER="0"
- SRC="img155.png"
- ALT="\begin{displaymath}
-H^s_{\alpha}=\sum_{\mathbf G'}\sum_{s'=1}^{N_b}\sum_{\beta...
-...athbf G'+\mathbf r_{s'})) \langle \hat I^{s'}_{\beta} \rangle
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">17</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-
-<P>
-The exchange fields <SPAN CLASS="MATH"><IMG
- WIDTH="25" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img152.png"
- ALT="${\mathbf H}^s$"></SPAN> and the moments <!-- MATH
- $\langle {\hat\mathbf I}^s \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="30" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img156.png"
- ALT="$\langle {\hat\mathbf I}^s \rangle$"></SPAN> 
-are determined in a self consistent
-way. For a given magnetic unit cell and initial configuration 
-of moments
-the exchange fields are calculated according to equation&nbsp;(<A HREF="#meanfield">17</A>). 
-Then, for each
-magnetic ion the single ion property module is taken 
-and the  moment <!-- MATH
- $\langle {\hat\mathbf I}^s \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="30" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img156.png"
- ALT="$\langle {\hat\mathbf I}^s \rangle$"></SPAN> is 
-calculated from it's mean field. The mean fields are used again in equation&nbsp;(<A HREF="#meanfield">17</A>)
-and so on .... until convergence is reached. 
-Then, the free energy per site <SPAN CLASS="MATH"><IMG
- WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img102.png"
- ALT="$f$"></SPAN>
-
-<P>
-<BR>
-<DIV ALIGN="CENTER"><A NAME="freeenergy"></A>
-<!-- MATH
- \begin{eqnarray}
-f&=&-kT\frac{1}{N_b}\sum_s \ln(z_s) + \frac{E_{corr}}{N_B} \\
-  z_s&=&\sum_i \exp(-\epsilon^s_i/kT) \, {\rm\dots  partition \, sum \, of \, the \, site} \, s  \\
-&&\epsilon_i^s \, {\rm\dots  \, eigenvalues \, of \, }\hat H^{MF}(s) \nonumber
-\end{eqnarray}
- -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
- WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img157.png"
- ALT="$\displaystyle f$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img68.png"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="188" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
- SRC="img158.png"
- ALT="$\displaystyle -kT\frac{1}{N_b}\sum_s \ln(z_s) + \frac{E_{corr}}{N_B}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">18</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
- WIDTH="18" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img159.png"
- ALT="$\displaystyle z_s$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img68.png"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="314" HEIGHT="48" ALIGN="MIDDLE" BORDER="0"
- SRC="img160.png"
- ALT="$\displaystyle \sum_i \exp(-\epsilon^s_i/kT) \, {\rm\dots partition \, sum \, of \, the \, site} \, s$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">19</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="198" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img161.png"
- ALT="$\displaystyle \epsilon_i^s \, {\rm\dots \, eigenvalues \, of \, }\hat H^{MF}(s)$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-&nbsp;</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
-
-<P>
-of the stabilised
-configuration is calculated (this is why this sub is called <I CLASS="slanted">fecalc</I>). 
-The free energies of a lot of different stabilised configurations have to
-be compared in order to find out which configuration has lowest free energy, i.e.
-is stable in thermal  equilibrium.
-
-<P>
-It may happen that this process does
-not converge due to bad choice of the initial configuration, therefore a maximum number
-of mean field loops has to be given by the user.
-The results of a calculation may be significantly influenced by
-changing parameters such as the maximum number of iteration loops 
-in this section. 
-In fact the simulation is always a compromise of calculation time and accuracy: if only
-a few initial spin configurations are tried at each (H-T) point, the calculation speed is
-fast, however it is possible that the program misses the magnetic structure with the
-lowest free energy. The same holds if other critical parameters of the simulation are
-restricted too much.
-
-<P>
-</DD>
-<DT><STRONG>OUTPUT OF PHYSICAL PROPERTIES:</STRONG></DT>
-<DD>Some options for the output of the calculation can be changed in this section.
-</DD>
-</DL>
-
-<P>
-
-<DIV ALIGN="CENTER"><A NAME="fecalc"></A><A NAME="1775"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM"><STRONG>Figure 8:</STRONG>
-Mean field process of sub <I CLASS="slanted">fecalc</I>.</CAPTION>
-<TR><TD><IMG
- WIDTH="493" HEIGHT="287" ALIGN="BOTTOM" BORDER="0"
- SRC="img162.png"
- ALT="\includegraphics[angle=0,width=0.9\columnwidth]{figsrc/fecalc.eps}"></TD></TR>
-</TABLE>
-</DIV>
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html705"
-  HREF="node26.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html699"
-  HREF="node23.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html693"
-  HREF="node24.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html701"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html703"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A NAME="tex2html706"
-  HREF="node26.html">Example mcphas.ini file for</A>
-<B> Up:</B> <A NAME="tex2html700"
-  HREF="node23.html">Input Files</A>
-<B> Previous:</B> <A NAME="tex2html694"
-  HREF="node24.html">Example - a simple</A>
- &nbsp; <B>  <A NAME="tex2html702"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html704"
-  HREF="node152.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 
 </BODY>
 </HTML>

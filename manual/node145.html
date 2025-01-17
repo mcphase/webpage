@@ -1,394 +1,535 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Magnetic inelastic Scattering</TITLE>
-<META NAME="description" CONTENT="Magnetic inelastic Scattering">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Transforming Crystal Field Parameters by Rotation of the Coordinate System</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node148.html">
 <LINK REL="previous" HREF="node144.html">
-<LINK REL="up" HREF="node143.html">
 <LINK REL="next" HREF="node146.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2457"
-  HREF="node146.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2451"
-  HREF="node143.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2447"
-  HREF="node144.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2453"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html2455"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node146.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node144.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html1080"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html1082"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html2458"
-  HREF="node146.html">Dipole Approximation</A>
-<B> Up:</B> <A NAME="tex2html2452"
-  HREF="node143.html">Application to Neutron scattering</A>
-<B> Previous:</B> <A NAME="tex2html2448"
-  HREF="node144.html">Coherent Nuclear Inelastic Scattering</A>
- &nbsp; <B>  <A NAME="tex2html2454"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html2456"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node146.html">Forward Rotation Matrices</A>
+<B> Up:</B> <A
+ HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A
+ HREF="node144.html">Symmetry considerations for Crystal</A>
+ &nbsp; <B>  <A ID="tex2html1081"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1083"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION000374200000000000000">
-Magnetic inelastic Scattering</A>
-</H3>
+<H1><A ID="SECTION000330000000000000000"></A><A ID="rotateBlm"></A>
+<BR>
+Transforming Crystal Field Parameters  by Rotation of the Coordinate System
+</H1>
 
 <P>
-Similar, the magnetic inelastic scattering is given by
+There is a special program <I CLASS="slanted">cf2mcphas</I> for rotating crystal field parameters
+(Stevens Notation) 
+given in the orientation <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1264.svg"
+ ALT="$abc\vert\vert$"></SPAN>xyz to the <I CLASS="slanted">McPhase</I> notation <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1264.svg"
+ ALT="$abc\vert\vert$"></SPAN>yzx. The 
+original crystal field parameters have to be given in a file of the above format of a single
+ion parameter file. Output is written to stdout. Note, there is also a program <I CLASS="slanted">mcphas2cf</I> for transforming parameters back. For more general rotations of 
+crystal field parameters you can use the program <I CLASS="slanted">rotateBlm</I>(see chapter&nbsp;<A HREF="node134.html#addprog">19</A>).
+
+<P>
+As an example we consider a tetragonal system, where the crystal field parameters
+are usually given such that  <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1264.svg"
+ ALT="$abc\vert\vert$"></SPAN>xyz - we denote these parameters as
+ <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img41.svg"
+ ALT="$B_l^m$"></SPAN>. For tetragonal symmetry only <!-- MATH
+ $B_2^0, B_4^0, B_4^4, B_6^0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img1265.svg"
+ ALT="$B_2^0, B_4^0, B_4^4, B_6^0$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img777.svg"
+ ALT="$B_6^6$"></SPAN> are
+ not zero. In order to use these parameters in <I CLASS="slanted">mocule cfield</I>, they 
+ have to be transformed to a coordinate system <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img6.svg"
+ ALT="$xyz$"></SPAN> with <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1266.svg"
+ ALT="$abc\vert\vert yzx$"></SPAN>. Denoting the new
+ crystal field parameters which are to be used as <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1267.svg"
+ ALT="$Blm$"></SPAN> the transformation
+ is given by 
 
 <P>
 <BR>
-<DIV ALIGN="CENTER"><A NAME="Sinelperp"></A>
+<DIV CLASS="displaymath">
+
 <!-- MATH
  \begin{eqnarray}
-S_{\rm mag\perp}^{\rm inel,\alpha\beta}(\mathbf Q,\omega)&=&\left( \frac{ \gamma r_0}{2 \mu_B}  \right)^2
-\frac{1}{2\pi\hbar}\int_{-\infty}^{+\infty}dt e^{i\omega t}
-\frac{1}{N}\sum_{nn'} e^{-W_n(Q)- W_{n'}(Q)}\\
-&\times&  e^{-i\mathbf Q \cdot (\mathbf R_n-\mathbf R_{n'})}   (\langle \hat M_{\perp\alpha}^{n \dag }(t,\mathbf Q)  \hat M_{\perp\beta}^{n'}(0,\mathbf Q) \rangle_{T,H}
-- \langle \hat M^{n \dag }_{\perp\alpha}(\mathbf Q)\rangle_{T,H} \langle \hat M^{n'}_{\perp\beta}(\mathbf Q) \rangle_{T,H})\nonumber
+B20&=&-\frac{1}{2} B_2^0  \nonumber \\
+ B22&=&+\frac{3}{2} B_2^0  \nonumber \\
+ B40&=&+\frac{3}{8} B_4^0+\frac{1}{8} B_4^4     \nonumber \\
+ B42&=&-\frac{5}{2} B_4^0+\frac{1}{2} B_4^4    \nonumber \\
+ B44&=&\frac{35}{8} B_4^0+\frac{1}{8} B_4^4  \nonumber \\
+ B60&=&-\frac{5}{16} B_6^0-\frac{1}{16} B_6^4  \nonumber \\
+ B62&=&+\frac{105}{32} B_6^0+\frac{5}{32} B_6^4  \nonumber \\
+ B64&=&-\frac{63}{16} B_6^0+\frac{13}{16} B_6^4  \nonumber \\
+ B66&=&\frac{231}{32} B_6^0+\frac{11}{32} B_6^4  \nonumber \\
 \end{eqnarray}
  -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
- WIDTH="99" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img1480.png"
- ALT="$\displaystyle S_{\rm mag\perp}^{\rm inel,\alpha\beta}(\mathbf Q,\omega)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img68.png"
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1268.svg"
+ ALT="$\displaystyle B20$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="342" HEIGHT="61" ALIGN="MIDDLE" BORDER="0"
- SRC="img1481.png"
- ALT="$\displaystyle \left( \frac{ \gamma r_0}{2 \mu_B} \right)^2
-\frac{1}{2\pi\hbar}\...
-...-\infty}^{+\infty}dt e^{i\omega t}
-\frac{1}{N}\sum_{nn'} e^{-W_n(Q)- W_{n'}(Q)}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">252</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1469.png"
- ALT="$\textstyle \times$"></TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="513" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img1482.png"
- ALT="$\displaystyle e^{-i\mathbf Q \cdot (\mathbf R_n-\mathbf R_{n'})} (\langle \hat ...
-...thbf Q)\rangle_{T,H} \langle \hat M^{n'}_{\perp\beta}(\mathbf Q) \rangle_{T,H})$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-&nbsp;</TD></TR>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1269.svg"
+ ALT="$\displaystyle -\frac{1}{2} B_2^0$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1270.svg"
+ ALT="$\displaystyle B22$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1271.svg"
+ ALT="$\displaystyle +\frac{3}{2} B_2^0$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1272.svg"
+ ALT="$\displaystyle B40$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1273.svg"
+ ALT="$\displaystyle +\frac{3}{8} B_4^0+\frac{1}{8} B_4^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1274.svg"
+ ALT="$\displaystyle B42$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1275.svg"
+ ALT="$\displaystyle -\frac{5}{2} B_4^0+\frac{1}{2} B_4^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1276.svg"
+ ALT="$\displaystyle B44$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1277.svg"
+ ALT="$\displaystyle \frac{35}{8} B_4^0+\frac{1}{8} B_4^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1278.svg"
+ ALT="$\displaystyle B60$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1279.svg"
+ ALT="$\displaystyle -\frac{5}{16} B_6^0-\frac{1}{16} B_6^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1280.svg"
+ ALT="$\displaystyle B62$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1281.svg"
+ ALT="$\displaystyle +\frac{105}{32} B_6^0+\frac{5}{32} B_6^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1282.svg"
+ ALT="$\displaystyle B64$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1283.svg"
+ ALT="$\displaystyle -\frac{63}{16} B_6^0+\frac{13}{16} B_6^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1284.svg"
+ ALT="$\displaystyle B66$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1285.svg"
+ ALT="$\displaystyle \frac{231}{32} B_6^0+\frac{11}{32} B_6^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
 </TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
 
 <P>
-The total magnetic cross section is <!-- MATH
- $4\pi (\gamma r_0)^2=4\pi\left(\frac{\hbar \gamma e^2}{mc^2}\right)^2
-=3.65$
+As a second example we consider an orthorhombic system, where the crystal field parameters
+are given such that  <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1264.svg"
+ ALT="$abc\vert\vert$"></SPAN>xyz - we denote these parameters as
+ <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img41.svg"
+ ALT="$B_l^m$"></SPAN>. For orthorhombic symmetry only <!-- MATH
+ $B_2^0,B_2^2, B_4^0,B_4^2, B_4^4, B_6^0, B_6^2, %%@
+B_6^4$
  -->
 <SPAN CLASS="MATH"><IMG
- WIDTH="212" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
- SRC="img1483.png"
- ALT="$4\pi (\gamma r_0)^2=4\pi\left(\frac{\hbar \gamma e^2}{mc^2}\right)^2
-=3.65$"></SPAN>&nbsp;barn. 
-In (<A HREF="#Sinelperp">265</A>) the first term in the bracket corresponds to the total and the second term to the elastic
-scattering.
-If we split the index <SPAN CLASS="MATH"><IMG
- WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img46.png"
- ALT="$n$"></SPAN> into basis and 
-lattice part <!-- MATH
- $n=(\ensuremath{\boldsymbol\ell},s)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="69" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img1472.png"
- ALT="$n=(\ensuremath{\boldsymbol\ell},s)$"></SPAN> and 
-compare equation&nbsp;(<A HREF="node141.html#sigmass">238</A>), we see that 
-the scattering function depends on the correlation function between the magnetisation operator
-<!-- MATH
- $\hat \mathbf M_{\perp}(\mathbf Q)=\hat \mathbf M(\mathbf Q)-\mathbf Q (\hat \mathbf M_{\perp}(\mathbf Q) \cdot \mathbf Q)/Q^2$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="275" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img1484.png"
- ALT="$\hat \mathbf M_{\perp}(\mathbf Q)=\hat \mathbf M(\mathbf Q)-\mathbf Q (\hat \mathbf M_{\perp}(\mathbf Q) \cdot \mathbf Q)/Q^2$"></SPAN>, which is the observable in the case of magnetic neutron scattering 
-(<!-- MATH
- $\mathcal O \leftrightarrow \frac{ \gamma r_0}{2 \mu_B}  e^{-W(Q)} \hat \mathbf M_{\perp}(\mathbf Q)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="175" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img1485.png"
- ALT="$\mathcal O \leftrightarrow \frac{ \gamma r_0}{2 \mu_B} e^{-W(Q)} \hat \mathbf M_{\perp}(\mathbf Q)$"></SPAN>).
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img1286.svg"
+ ALT="$B_2^0,B_2^2, B_4^0,B_4^2, B_4^4, B_6^0, B_6^2, %%@
+B_6^4$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img777.svg"
+ ALT="$B_6^6$"></SPAN> are
+ not zero. In order to use these parameters in <I CLASS="slanted">mocule cfield</I>, they 
+ have to be transformed to a coordinate system <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img6.svg"
+ ALT="$xyz$"></SPAN> with <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1266.svg"
+ ALT="$abc\vert\vert yzx$"></SPAN>. Denoting the new
+ crystal field parameters which are to be used as <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1267.svg"
+ ALT="$Blm$"></SPAN> the transformation
+ is given by 
 
 <P>
 <BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+<DIV CLASS="displaymath">
 
-<!-- MATH
- \begin{equation}
-S_{\rm mag\perp}^{\rm inel,\alpha\beta}(\mathbf Q,\omega)=
-\sum_{ss'}
-  \frac{{\Sigma^{ss'}_{\alpha\beta}}({\mathbf Q},\omega)}{2\pi \hbar N_b} 
-\end{equation}
- -->
-<A NAME="sinelmag"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="sinelmag"></A><IMG
- WIDTH="216" HEIGHT="55" BORDER="0"
- SRC="img1486.png"
- ALT="\begin{displaymath}
-S_{\rm mag\perp}^{\rm inel,\alpha\beta}(\mathbf Q,\omega)=
-\...
-...gma^{ss'}_{\alpha\beta}}({\mathbf Q},\omega)}{2\pi \hbar N_b}
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">253</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-
-<P>
-<SPAN CLASS="MATH"><IMG
- WIDTH="51" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img1476.png"
- ALT="$W_s(Q)$"></SPAN> is  the Debye-Waller
-factor of the atom number <SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img101.png"
- ALT="$s$"></SPAN> in the magnetic unit cell<A NAME="tex2html66"
-  HREF="footnode.html#foot16177"><SUP><SPAN CLASS="arabic">30</SPAN></SUP></A>. <SPAN CLASS="MATH"><IMG
- WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img145.png"
- ALT="$N_b$"></SPAN> denotes the number of magnetic
-atoms in the magnetic unit cell.
-Therefore, if the generalised eigenvalue problem (<A HREF="node140.html#evproblem">235</A>) for the dynamical matrix
-has been solved, the magnetic neutron scattering function can
-be  evaluated with the help of equations (<A HREF="node141.html#fluctdissbeyond">239</A>) and (<A HREF="node141.html#Xcalc">247</A>):
-
-<P>
-<BR>
-<DIV ALIGN="CENTER"><A NAME="sinelmagfinal"></A>
 <!-- MATH
  \begin{eqnarray}
-S_{\rm mag\perp}^{\rm inel,\alpha\beta}(\mathbf Q,\omega)&=&
-\sum_{r,ss'}
-\frac{(\sqrt{\Gamma_{\rm mag}^s(\mathbf Q)})^\ast\sqrt{\Gamma_{\rm mag}^{s'}(\mathbf Q)} }
-{N_b(1-e^{-\hbar{\omega^r}(\mathbf Q)/kT})} \times \\\nonumber
-&& \times \mathcal V^s_{{\rm mag},\alpha1}(\mathbf Q)
-{ \mathcal T^{sr}}(\mathbf Q)\hbar {\omega^r}(\mathbf Q)
- \delta(\hbar {\omega^r}(\mathbf Q) - 
-\hbar \omega) {\mathcal T^{rs'\dag }}(\mathbf Q) 
-\mathcal V^{s'\dag }_{{\rm mag},1\beta}(\mathbf Q)
+B20&=&-\frac{1}{2} B_2^0 -\frac{1}{2} B_2^2  \nonumber \\
+ B22&=&+\frac{3}{2} B_2^0 -\frac{1}{2} B_2^2  \nonumber \\
+ B40&=&+\frac{3}{8} B_4^0 +\frac{1}{8} B_4^2 +\frac{1}{8} B_4^4     \nonumber \\
+ B42&=&-\frac{5}{2} B_4^0 -\frac{1}{2} B_4^2 +\frac{1}{2} B_4^4    \nonumber \\
+ B44&=&\frac{35}{8} B_4^0 -\frac{7}{8} B_4^2 +\frac{1}{8} B_4^4  \nonumber \\
+ B60&=&-\frac{5}{16} B_6^0-\frac{1}{16} B_6^2-\frac{1}{16} B_6^4-\frac{1}{16} B_6^6  %%@
+\nonumber \\
+ B62&=&+\frac{105}{32} B_6^0+\frac{5}{32} B_6^4+...  \nonumber \\
+ B64&=&-\frac{63}{16} B_6^0+\frac{13}{16} B_6^4+...  \nonumber \\
+ B66&=&\frac{231}{32} B_6^0+\frac{11}{32} B_6^4+...  \nonumber \\
 \end{eqnarray}
  -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
- WIDTH="99" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img1480.png"
- ALT="$\displaystyle S_{\rm mag\perp}^{\rm inel,\alpha\beta}(\mathbf Q,\omega)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img68.png"
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1268.svg"
+ ALT="$\displaystyle B20$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="220" HEIGHT="79" ALIGN="MIDDLE" BORDER="0"
- SRC="img1487.png"
- ALT="$\displaystyle \sum_{r,ss'}
-\frac{(\sqrt{\Gamma_{\rm mag}^s(\mathbf Q)})^\ast\sq...
-...{\rm mag}^{s'}(\mathbf Q)} }
-{N_b(1-e^{-\hbar{\omega^r}(\mathbf Q)/kT})} \times$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">254</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="449" HEIGHT="42" ALIGN="MIDDLE" BORDER="0"
- SRC="img1488.png"
- ALT="$\displaystyle \times \mathcal V^s_{{\rm mag},\alpha1}(\mathbf Q)
-{ \mathcal T^{...
-...cal T^{rs'\dag }}(\mathbf Q)
-\mathcal V^{s'\dag }_{{\rm mag},1\beta}(\mathbf Q)$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-&nbsp;</TD></TR>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1287.svg"
+ ALT="$\displaystyle -\frac{1}{2} B_2^0 -\frac{1}{2} B_2^2$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1270.svg"
+ ALT="$\displaystyle B22$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1288.svg"
+ ALT="$\displaystyle +\frac{3}{2} B_2^0 -\frac{1}{2} B_2^2$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1272.svg"
+ ALT="$\displaystyle B40$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1289.svg"
+ ALT="$\displaystyle +\frac{3}{8} B_4^0 +\frac{1}{8} B_4^2 +\frac{1}{8} B_4^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1274.svg"
+ ALT="$\displaystyle B42$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1290.svg"
+ ALT="$\displaystyle -\frac{5}{2} B_4^0 -\frac{1}{2} B_4^2 +\frac{1}{2} B_4^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1276.svg"
+ ALT="$\displaystyle B44$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1291.svg"
+ ALT="$\displaystyle \frac{35}{8} B_4^0 -\frac{7}{8} B_4^2 +\frac{1}{8} B_4^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1278.svg"
+ ALT="$\displaystyle B60$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1292.svg"
+ ALT="$\displaystyle -\frac{5}{16} B_6^0-\frac{1}{16} B_6^2-\frac{1}{16} B_6^4-\frac{1}{16} B_6^6 %%@
+$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1280.svg"
+ ALT="$\displaystyle B62$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1293.svg"
+ ALT="$\displaystyle +\frac{105}{32} B_6^0+\frac{5}{32} B_6^4+...$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1282.svg"
+ ALT="$\displaystyle B64$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1294.svg"
+ ALT="$\displaystyle -\frac{63}{16} B_6^0+\frac{13}{16} B_6^4+...$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1284.svg"
+ ALT="$\displaystyle B66$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1295.svg"
+ ALT="$\displaystyle \frac{231}{32} B_6^0+\frac{11}{32} B_6^4+...$"></TD><TD class="rfill">&nbsp;</TD></TR>
 </TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
 
 <P>
-Once the eigenvectors <!-- MATH
- $\underline{\mathcal T}$
+As a second example we consider an dhcp system with quasi cubic sites, where the crystal field parameters
+are given such that  <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1264.svg"
+ ALT="$abc\vert\vert$"></SPAN>xyz - we denote these parameters as
+ <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img41.svg"
+ ALT="$B_l^m$"></SPAN>. Only <!-- MATH
+ $B_2^0,B_2^{-1},B_2^2, B_4^0,B_4^{-1},B_4^2,B_4^{-3}, B_4^4, %%@
+B_6^0,B_6^{-1}, B_6^2,B_6^{-3}, B_6^4$
  -->
 <SPAN CLASS="MATH"><IMG
- WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img1356.png"
- ALT="$\underline{\mathcal T}$"></SPAN> of the system have been determined, this expression can be 
- evaluated. 
-<I CLASS="slanted">mcdisp</I> evaluates for every mode the expression (<A HREF="#sinelmagfinal">267</A>) with exception
-of the <SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img1273.png"
- ALT="$\delta$"></SPAN>-function and multiplies it by <SPAN CLASS="MATH"><IMG
- WIDTH="34" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img94.png"
- ALT="$k'/k$"></SPAN> in order to get the nuclear Intensity <SPAN CLASS="MATH"><IMG
- WIDTH="31" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img1479.png"
- ALT="$I_{\rm nuc}$"></SPAN> in
-barns/meV formula unit. In addition, the components of the magnetic scattering function
+ STYLE="height: 2.88ex; vertical-align: -0.74ex; " SRC="img1296.svg"
+ ALT="$B_2^0,B_2^{-1},B_2^2, B_4^0,B_4^{-1},B_4^2,B_4^{-3}, B_4^4, %%@
+B_6^0,B_6^{-1}, B_6^2,B_6^{-3}, B_6^4$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img777.svg"
+ ALT="$B_6^6$"></SPAN> are
+ not zero. In order to use these parameters in <I CLASS="slanted">mocule cfield</I>, they 
+ have to be transformed to a coordinate system <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img6.svg"
+ ALT="$xyz$"></SPAN> with <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1266.svg"
+ ALT="$abc\vert\vert yzx$"></SPAN>. Denoting the new
+ crystal field parameters which are to be used as <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1267.svg"
+ ALT="$Blm$"></SPAN> the transformation
+ is given by 
+
+<P>
+<BR>
+<DIV CLASS="displaymath">
+
 <!-- MATH
- $S_{\rm mag}^{\rm inel,\alpha\beta}(\mathbf Q,\omega)$
+ \begin{eqnarray}
+B21&=&-2B_2^{-1}  \nonumber \\
+ B20&=&-\frac{1}{2} B_2^0 -\frac{1}{2} B_2^2  \nonumber \\
+ B22&=&+\frac{3}{2} B_2^0 -\frac{1}{2} B_2^2  \nonumber \\
+ B4-3&=&-\frac{7}{4} B_4^{-1} -\frac{3}{4} B_4^{-3}  \nonumber \\
+ B4-1&=&+\frac{3}{4} B_4^{-1} -\frac{1}{4} B_4^{-3}  \nonumber \\
+ B40&=&+\frac{3}{8} B_4^0 +\frac{1}{8} B_4^2 +\frac{1}{8} B_4^4     \nonumber \\
+ B42&=&-\frac{5}{2} B_4^0 -\frac{1}{2} B_4^2 +\frac{1}{2} B_4^4    \nonumber \\
+ B44&=&\frac{35}{8} B_4^0 -\frac{7}{8} B_4^2 +\frac{1}{8} B_4^4  \nonumber \\
+ B60&=&-\frac{5}{16} B_6^0-\frac{1}{16} B_6^4+...  \nonumber \\
+ B62&=&+\frac{105}{32} B_6^0+\frac{5}{32} B_6^4+...  \nonumber \\
+ B64&=&-\frac{63}{16} B_6^0+\frac{13}{16} B_6^4+...  \nonumber \\
+ B66&=&\frac{231}{32} B_6^0+\frac{11}{32} B_6^4+...  \nonumber \\
+\end{eqnarray}
  -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="99" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img1489.png"
- ALT="$S_{\rm mag}^{\rm inel,\alpha\beta}(\mathbf Q,\omega)$"></SPAN> can be output (to be used to interpret
-polarised magnetic neutron scattering).<SPAN CLASS="MATH"><IMG
- WIDTH="31" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img1490.png"
- ALT="$\alpha,\beta$"></SPAN> then refer to either the xyz coordinate system
-(<SPAN CLASS="MATH"><IMG
- WIDTH="28" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img354.png"
- ALT="$y\vert\vert b$"></SPAN>,<!-- MATH
- $z||(a \times b)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="68" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img355.png"
- ALT="$z\vert\vert(a \times b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
- WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img4.png"
- ALT="$x$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img137.png"
- ALT="$y$"></SPAN> and <SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img124.png"
- ALT="$z$"></SPAN>)
-or the uvw coordinate system 
-(<!-- MATH
- $\mathbf u||\mathbf Q=\mathbf k- \mathbf k'$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="101" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img1491.png"
- ALT="$\mathbf u\vert\vert\mathbf Q=\mathbf k- \mathbf k'$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="17" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
- SRC="img1492.png"
- ALT="$\mathbf w$"></SPAN> perpendicular to the scattering plane (as determined by the cross product of
-subsequent vectors in the input q-vector list of <I CLASS="slanted">mcdisp</I>)
- and <SPAN CLASS="MATH"><IMG
- WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
- SRC="img1493.png"
- ALT="$\mathbf v$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
- WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
- SRC="img529.png"
- ALT="$\mathbf u$"></SPAN> and <SPAN CLASS="MATH"><IMG
- WIDTH="17" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
- SRC="img1492.png"
- ALT="$\mathbf w$"></SPAN>, such that uvw for a righthanded system).
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1297.svg"
+ ALT="$\displaystyle B21$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.88ex; vertical-align: -0.74ex; " SRC="img1298.svg"
+ ALT="$\displaystyle -2B_2^{-1}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1268.svg"
+ ALT="$\displaystyle B20$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1287.svg"
+ ALT="$\displaystyle -\frac{1}{2} B_2^0 -\frac{1}{2} B_2^2$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1270.svg"
+ ALT="$\displaystyle B22$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1288.svg"
+ ALT="$\displaystyle +\frac{3}{2} B_2^0 -\frac{1}{2} B_2^2$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.01ex; vertical-align: -0.31ex; " SRC="img1299.svg"
+ ALT="$\displaystyle B4-3$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1300.svg"
+ ALT="$\displaystyle -\frac{7}{4} B_4^{-1} -\frac{3}{4} B_4^{-3}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.01ex; vertical-align: -0.31ex; " SRC="img1301.svg"
+ ALT="$\displaystyle B4-1$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1302.svg"
+ ALT="$\displaystyle +\frac{3}{4} B_4^{-1} -\frac{1}{4} B_4^{-3}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1272.svg"
+ ALT="$\displaystyle B40$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1289.svg"
+ ALT="$\displaystyle +\frac{3}{8} B_4^0 +\frac{1}{8} B_4^2 +\frac{1}{8} B_4^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1274.svg"
+ ALT="$\displaystyle B42$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1290.svg"
+ ALT="$\displaystyle -\frac{5}{2} B_4^0 -\frac{1}{2} B_4^2 +\frac{1}{2} B_4^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1276.svg"
+ ALT="$\displaystyle B44$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1291.svg"
+ ALT="$\displaystyle \frac{35}{8} B_4^0 -\frac{7}{8} B_4^2 +\frac{1}{8} B_4^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1278.svg"
+ ALT="$\displaystyle B60$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1303.svg"
+ ALT="$\displaystyle -\frac{5}{16} B_6^0-\frac{1}{16} B_6^4+...$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1280.svg"
+ ALT="$\displaystyle B62$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1293.svg"
+ ALT="$\displaystyle +\frac{105}{32} B_6^0+\frac{5}{32} B_6^4+...$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1282.svg"
+ ALT="$\displaystyle B64$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1294.svg"
+ ALT="$\displaystyle -\frac{63}{16} B_6^0+\frac{13}{16} B_6^4+...$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1284.svg"
+ ALT="$\displaystyle B66$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1295.svg"
+ ALT="$\displaystyle \frac{231}{32} B_6^0+\frac{11}{32} B_6^4+...$"></TD><TD class="rfill">&nbsp;</TD></TR>
+</TABLE></DIV>
 
 <P>
-Form factor effects on the scattering intensity are
- due to the <SPAN CLASS="MATH"><IMG
- WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img256.png"
- ALT="$\mathbf Q$"></SPAN>-dependence of the magnetisation operator, which means that
-the transformation matrices <!-- MATH
- $\overline{\mathcal V}^s$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="22" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
- SRC="img1393.png"
- ALT="$\overline{\mathcal V}^s$"></SPAN>
- and the eigenvalues <SPAN CLASS="MATH"><IMG
- WIDTH="20" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img1408.png"
- ALT="$\Gamma^s$"></SPAN> are also
-<SPAN CLASS="MATH"><IMG
- WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img256.png"
- ALT="$\mathbf Q$"></SPAN>-dependent.  These quantities have
- to be calculated by evaluating the transition
-matrix elements<A NAME="tex2html67"
-  HREF="footnode.html#foot16236"><SUP><SPAN CLASS="arabic">31</SPAN></SUP></A> 
-of <!-- MATH
- $\hat \mathbf M_{\perp}(\mathbf Q)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="58" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img1494.png"
- ALT="$\hat \mathbf M_{\perp}(\mathbf Q)$"></SPAN> for every 
-scattering vector <SPAN CLASS="MATH"><IMG
- WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img256.png"
- ALT="$\mathbf Q$"></SPAN> 
-and diagonalising the matrix (<A HREF="node141.html#mumatrix">243</A>) 
-with <!-- MATH
- $\mathcal O \leftrightarrow \hat \mathbf M_{\perp}(\mathbf Q)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="96" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img1495.png"
- ALT="$\mathcal O \leftrightarrow \hat \mathbf M_{\perp}(\mathbf Q)$"></SPAN>.
-For small <SPAN CLASS="MATH"><IMG
- WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img93.png"
- ALT="$Q$"></SPAN> this procedure can be simplified by using the dipole approximation,
-which is described below.
 
 <P>
+The general transformation matrices are given by
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><UL>
+<LI><A ID="tex2html1084"
+  HREF="node146.html">Forward Rotation Matrices</A>
+<LI><A ID="tex2html1085"
+  HREF="node147.html">Reverse Rotation Matrices</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
 
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html2457"
-  HREF="node146.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2451"
-  HREF="node143.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2447"
-  HREF="node144.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2453"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html2455"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node146.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node144.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html1080"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html1082"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html2458"
-  HREF="node146.html">Dipole Approximation</A>
-<B> Up:</B> <A NAME="tex2html2452"
-  HREF="node143.html">Application to Neutron scattering</A>
-<B> Previous:</B> <A NAME="tex2html2448"
-  HREF="node144.html">Coherent Nuclear Inelastic Scattering</A>
- &nbsp; <B>  <A NAME="tex2html2454"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html2456"
-  HREF="node152.html">Index</A></B> </DIV>
+<B> Next:</B> <A
+ HREF="node146.html">Forward Rotation Matrices</A>
+<B> Up:</B> <A
+ HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A
+ HREF="node144.html">Symmetry considerations for Crystal</A>
+ &nbsp; <B>  <A ID="tex2html1081"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1083"
+  HREF="node164.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

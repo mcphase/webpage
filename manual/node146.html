@@ -1,312 +1,182 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Dipole Approximation</TITLE>
-<META NAME="description" CONTENT="Dipole Approximation">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Forward Rotation Matrices</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="previous" HREF="node143.html">
-<LINK REL="up" HREF="node139.html">
+<LINK REL="next" HREF="node147.html">
+<LINK REL="previous" HREF="node145.html">
 <LINK REL="next" HREF="node147.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2469"
-  HREF="node147.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2463"
-  HREF="node139.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2459"
-  HREF="node145.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2465"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html2467"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node147.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node145.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node145.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html1086"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html1088"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html2470"
-  HREF="node147.html">Theory for program bfk</A>
-<B> Up:</B> <A NAME="tex2html2464"
-  HREF="node139.html">Dynamical Susceptibility and Excitations</A>
-<B> Previous:</B> <A NAME="tex2html2460"
-  HREF="node145.html">Magnetic inelastic Scattering</A>
- &nbsp; <B>  <A NAME="tex2html2466"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html2468"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node147.html">Reverse Rotation Matrices</A>
+<B> Up:</B> <A
+ HREF="node145.html">Transforming Crystal Field Parameters</A>
+<B> Previous:</B> <A
+ HREF="node145.html">Transforming Crystal Field Parameters</A>
+ &nbsp; <B>  <A ID="tex2html1087"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1089"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION000375000000000000000">
-Dipole Approximation</A>
-</H2>
-
-<P>
-Frequently the neutron scattering cross section may be calculated 
-in the dipole
-approximation, which is valid if <SPAN CLASS="MATH"><IMG
- WIDTH="32" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img1496.png"
- ALT="$1/Q$"></SPAN> is much 
-larger than the spatial dimension of a subsystem, i.e.
- the radius of the electron shell. 
- Any deviations from spherical symmetry of the magnetic moment density
-(due to the crystal electric field) are neglected in this approximation.
-In the dipole approximation the scattering operator is written as a product of a form-factor and total angular momentum 
-operator: 
-
-<P>
+<H3><A ID="SECTION000330100000000000000"></A> <A ID="ap-cf2mcphMat"></A>
 <BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+Forward Rotation Matrices
+</H3>
+
+<P>
+These matrices rotate a set of crystal field parameters (or Stevens operators) by <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img254.svg"
+ ALT="$\Theta$"></SPAN>=90<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.12ex; " SRC="img1304.svg"
+ ALT="$^o$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1305.svg"
+ ALT="$\Phi$"></SPAN>=90<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.12ex; " SRC="img1304.svg"
+ ALT="$^o$"></SPAN>.
+
+<P>
+
+<DIV CLASS="displaymath">
 
 <!-- MATH
  \begin{equation}
-\hat M^{n}_{\alpha}(\mathbf Q) \approx -\mu_B[F^n_S(Q) g_S \hat S^{n}_{\alpha} + F^n_L(Q) g_L \hat L^{n}_{\alpha}]
+\stackrel{=}{\mathbf S}_2(\pi/2,\pi/2) = \left(
+\begin{array}{ccccc}
+ 0 &    0 &    0 &  1/2 &    0 \\
+-2 &    0 &    0 &    0 &    0 \\
+ 0 &    0 & -1/2 &    0 & -1/2 \\
+ 0 &    1 &    0 &    0 &    0 \\
+ 0 &    0 &  3/2 &    0 & -1/2 \\
+\end{array} \right)
 \end{equation}
  -->
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="298" HEIGHT="29" BORDER="0"
- SRC="img1497.png"
- ALT="\begin{displaymath}
-\hat M^{n}_{\alpha}(\mathbf Q) \approx -\mu_B[F^n_S(Q) g_S \hat S^{n}_{\alpha} + F^n_L(Q) g_L \hat L^{n}_{\alpha}]
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">255</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
+ &nbsp;  <A ID="eq:S2"></A><IMG
+ STYLE="height: 14.12ex; vertical-align: -6.50ex; " SRC="img1306.svg"
+ ALT="$\displaystyle
+\stackrel{=}{\mathbf S}_2(\pi/2,\pi/2) = \left(
+\begin{array}{cc...
+...1/2 \\
+0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 3/2 &amp; 0 &amp; -1/2 \\
+\end{array} \right)
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">185</SPAN>)</SPAN>
+</DIV>
 
 <P>
-where the spin and orbital <SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1498.png"
- ALT="$g$"></SPAN>-factors 
-are <SPAN CLASS="MATH"><IMG
- WIDTH="50" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1499.png"
- ALT="$g_S \approx 2$"></SPAN> and <SPAN CLASS="MATH"><IMG
- WIDTH="50" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1500.png"
- ALT="$g_L=1$"></SPAN>, respectively. <!-- MATH
- $F_S(Q)=\langle j_0 (Q) \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="120" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img1501.png"
- ALT="$F_S(Q)=\langle j_0 (Q) \rangle$"></SPAN> and
- <!-- MATH
- $F_L(Q)=\langle j_0 (Q) \rangle + \langle j_2 (Q) \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="191" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img1502.png"
- ALT="$F_L(Q)=\langle j_0 (Q) \rangle + \langle j_2 (Q) \rangle$"></SPAN> are the spin and orbital form factor for the ion <SPAN CLASS="MATH"><IMG
- WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img46.png"
- ALT="$n$"></SPAN>, 
-respectively, whilst <!-- MATH
- $\hat S^{n}_{\alpha}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="23" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img1503.png"
- ALT="$\hat S^{n}_{\alpha}$"></SPAN> and <!-- MATH
- $\hat L^{n}_{\alpha}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="24" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img1504.png"
- ALT="$\hat L^{n}_{\alpha}$"></SPAN> are their total angular momentum operators. We 
-consider
-three cases of the dipole approximation:
 
-<P>
-<P>
-<BLOCKQUOTE>[<!-- MATH
- $\hat M^{n}_{\alpha}(\mathbf Q) \leftrightarrow -\mu_B
-\{ F^n_S(Q) g_S \hat S^{n}_{\alpha} + F^n_L(Q) g_L \hat L^{n}_{\alpha} \}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="314" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img1505.png"
- ALT="$\hat M^{n}_{\alpha}(\mathbf Q) \leftrightarrow -\mu_B
-\{ F^n_S(Q) g_S \hat S^{n}_{\alpha} + F^n_L(Q) g_L \hat L^{n}_{\alpha} \}$"></SPAN> : ]
-In this case, the full expression of the dipole approximation is used, whereby the scattering operator is replaced by
-a linear combination of spin and orbital momentum.
-</BLOCKQUOTE>
-<P>
-<BLOCKQUOTE>[<!-- MATH
- $\hat M^{n}_{\alpha}(\mathbf Q) \leftrightarrow -\mu_B
-F^n_S(Q) g_S \hat S^{n}_{\alpha}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="196" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img1506.png"
- ALT="$\hat M^{n}_{\alpha}(\mathbf Q) \leftrightarrow -\mu_B
-F^n_S(Q) g_S \hat S^{n}_{\alpha}$"></SPAN>:]
-In many magnetic ions the orbital moment is 
-zero, so it is sufficient
-to consider only the spin momentum. 
-This is the case for the half filled shells Gd<SPAN CLASS="MATH"><IMG
- WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img3.png"
- ALT="$^{3+}$"></SPAN>, Eu<SPAN CLASS="MATH"><IMG
- WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1062.png"
- ALT="$^{2+}$"></SPAN>, or where the orbital moment is
-quenched by the crystal field in transition metal ions.
-</BLOCKQUOTE>
-<P>
-<BLOCKQUOTE>[<!-- MATH
- $\hat M^{n}_{\alpha}(\mathbf Q) \leftrightarrow -\mu_B
- g_J F^n(Q) \hat J_{\alpha}^n$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="195" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img1507.png"
- ALT="$\hat M^{n}_{\alpha}(\mathbf Q) \leftrightarrow -\mu_B
-g_J F^n(Q) \hat J_{\alpha}^n$"></SPAN>:]
-For rare earth based systems the orbital momentum cannot be neglected, however the
-spin orbit interaction is very strong so that in many cases it is sufficient to consider
-only the ground state multiplet according to Hund's rules. In this approximation the
-spin and orbital momentum are both proportional to the total angular momentum <!-- MATH
- $\hat \mathbf J$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="13" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
- SRC="img394.png"
- ALT="$\hat \mathbf J$"></SPAN> and the
-magnetisation operator may be written as 
+<DIV CLASS="displaymath">
+
 <!-- MATH
- $\hat M^{n}_{\alpha} \approx -\mu_B g_J F^n(Q)  \hat J_{\alpha}^n$
+ \begin{equation}
+\stackrel{=}{\mathbf S}_4(\pi/2,\pi/2) = \left(
+\begin{array}{ccccccccc}
+ 0 &    0 &    0 &    0 &    0 &    0 &    0 & -1/8 &    0 \\
+ 1 &    0 & -7/2 &    0 &    0 &  7/8 &    0 &    0 &    0 \\
+ 0 &    0 &    0 &    0 &    0 &    0 &    0 & -1/4 &    0 \\
+ 1 &    0 &  1/2 &    0 &    0 & -1/4 &    0 &    0 &    0 \\
+ 0 &    0 &    0 &    0 &  3/8 &    0 &  1/8 &    0 &  1/8 \\
+ 0 & -2/5 &    0 & -3/4 &    0 &    0 &    0 &    0 &    0 \\
+ 0 &    0 &    0 &    0 & -5/2 &    0 & -1/2 &    0 &  1/2 \\
+ 0 & -3/4 &    0 &  7/4 &    0 &    0 &    0 &    0 &    0 \\
+ 0 &    0 &    0 &    0 & 35/8 &    0 & -7/8 &    0 &  1/8 \\
+\end{array} \right)
+\end{equation}
  -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="165" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img1508.png"
- ALT="$\hat M^{n}_{\alpha} \approx -\mu_B g_J F^n(Q) \hat J_{\alpha}^n $"></SPAN> with
-the form factor  <!-- MATH
- $F(Q)=\langle j_0 (Q) \rangle + \frac{2-g_J}{g_J}\langle j_2 (Q) \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="218" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
- SRC="img1509.png"
- ALT="$F(Q)=\langle j_0 (Q) \rangle + \frac{2-g_J}{g_J}\langle j_2 (Q) \rangle $"></SPAN>.
-In this approximation the observable is the total angular momentum operator
-(<SPAN CLASS="MATH"><IMG
- WIDTH="20" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img163.png"
- ALT="$g_J$"></SPAN> denotes the Land&#233; splitting factor).
-
-</BLOCKQUOTE>
+ &nbsp;  <A ID="eq:S4"></A><IMG
+ STYLE="height: 25.22ex; vertical-align: -12.08ex; " SRC="img1307.svg"
+ ALT="$\displaystyle
+\stackrel{=}{\mathbf S}_4(\pi/2,\pi/2) = \left(
+\begin{array}{cc...
+...&amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 35/8 &amp; 0 &amp; -7/8 &amp; 0 &amp; 1/8 \\
+\end{array} \right)
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">186</SPAN>)</SPAN>
+</DIV>
 
 <P>
-<I CLASS="slanted">mcdisp<A NAME="15963"></A></I> automatically calculates the intensity in
-dipole approximation and also going beyond, if the single ion module of an
-ion allows for that, the result
-is stored in file <I CLASS="slanted">mcdisp.qei</I>.
+<SPAN CLASS="SCRIPTSIZE"></SPAN>
+<DIV CLASS="displaymath">
 
-<P>
-In dipole approximation a scattering function without polarisation factor
-can be defined:
-
-<P>
-<BR>
-<DIV ALIGN="CENTER"><A NAME="Sinel"></A>
 <!-- MATH
- \begin{eqnarray}
-S_{\rm mag}^{\rm inel,\alpha\beta}(\mathbf Q,\omega)&=&\left( \frac{ \gamma r_0}{2 \mu_B}  \right)^2
-\frac{1}{2\pi\hbar}\int_{-\infty}^{+\infty}dt e^{i\omega t}
-\frac{1}{N}\sum_{nn'} e^{-W_n(Q)- W_{n'}(Q)}\\
-&\times&  e^{-i\mathbf Q \cdot (\mathbf R_n-\mathbf R_{n'})}   (\langle \hat M_{\alpha}^{n \dag }(t,\mathbf Q)  \hat M_{\beta}^{n'}(0,\mathbf Q) \rangle_{T,H}
-- \langle \hat M^{n \dag }_{\alpha}(\mathbf Q)\rangle_{T,H} \langle \hat M^{n'}_{\beta}(\mathbf Q) \rangle_{T,H})\nonumber
-\end{eqnarray}
+ \begin{equation}
+\stackrel{=}{\mathbf S}_6(\pi/2,\pi/2) = \left(
+\begin{array}{ccccccccccccc}
+   0 &    0 &    0 &      0 &     0 &      0 &      0 &     0 &      0 & -11/32 &     0 & %%@
+1/32 &      0 \\
+-3/8 &    0 & 11/4 &      0 & -33/8 &      0 &      0 & 33/32 &      0 &      0 &     0 &    %%@
+0 &      0 \\
+   0 &    0 &    0 &      0 &     0 &      0 &      0 &     0 &      0 &   -3/8 &     0 &  %%@
+1/8 &      0 \\
+-5/8 &    0 &  5/4 &      0 &   9/8 &      0 &      0 &  -3/8 &      0 &      0 &     0 &    %%@
+0 &      0 \\
+   0 &    0 &    0 &      0 &     0 &      0 &      0 &     0 &      0 &   9/32 &     0 & %%@
+5/32 &      0 \\
+-3/4 &    0 & -1/2 &      0 &  -1/4 &      0 &      0 &  5/32 &      0 &      0 &     0 &    %%@
+0 &      0 \\
+   0 &    0 &    0 &      0 &     0 &      0 &  -5/16 &     0 &  -1/16 &      0 & -1/16 &    %%@
+0 &  -1/16 \\
+   0 &  1/8 &    0 &    3/8 &     0 &    5/8 &      0 &     0 &      0 &      0 &     0 &    %%@
+0 &      0 \\
+   0 &    0 &    0 &      0 &     0 &      0 & 105/32 &     0 &  17/32 &      0 &  5/32 &    %%@
+0 & -15/32 \\
+   0 & 5/16 &    0 &   1/16 &     0 & -15/16 &      0 &     0 &      0 &      0 &     0 &    %%@
+0 &      0 \\
+   0 &    0 &    0 &      0 &     0 &      0 & -63/16 &     0 &  -3/16 &      0 & 13/16 &    %%@
+0 &  -3/16 \\
+   0 & 5/16 &    0 & -33/16 &     0 &  33/16 &      0 &     0 &      0 &      0 &     0 &    %%@
+0 &      0 \\
+   0 &    0 &    0 &      0 &     0 &      0 & 231/32 &     0 & -33/32 &      0 & 11/32 &    %%@
+0 &  -1/32 \\
+\end{array} \right)
+\end{equation}
  -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
- WIDTH="99" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
- SRC="img1510.png"
- ALT="$\displaystyle S_{\rm mag}^{\rm inel,\alpha\beta}(\mathbf Q,\omega)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img68.png"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="342" HEIGHT="61" ALIGN="MIDDLE" BORDER="0"
- SRC="img1481.png"
- ALT="$\displaystyle \left( \frac{ \gamma r_0}{2 \mu_B} \right)^2
-\frac{1}{2\pi\hbar}\...
-...-\infty}^{+\infty}dt e^{i\omega t}
-\frac{1}{N}\sum_{nn'} e^{-W_n(Q)- W_{n'}(Q)}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">256</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1469.png"
- ALT="$\textstyle \times$"></TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="500" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img1511.png"
- ALT="$\displaystyle e^{-i\mathbf Q \cdot (\mathbf R_n-\mathbf R_{n'})} (\langle \hat ...
-...}(\mathbf Q)\rangle_{T,H} \langle \hat M^{n'}_{\beta}(\mathbf Q) \rangle_{T,H})$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-&nbsp;</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
+ &nbsp;  <A ID="eq:S6"></A><IMG
+ STYLE="height: 36.33ex; vertical-align: -17.65ex; " SRC="img1308.svg"
+ ALT="$\displaystyle
+\stackrel{=}{\mathbf S}_6(\pi/2,\pi/2) = \left(
+\begin{array}{cc...
+... &amp; 0 &amp; 231/32 &amp; 0 &amp; -33/32 &amp; 0 &amp; 11/32 &amp; %%@
+0 &amp; -1/32 \\
+\end{array} \right)
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">187</SPAN>)</SPAN>
+</DIV><SPAN CLASS="SCRIPTSIZE"></SPAN>
 
 <P>
-<I CLASS="slanted">mcdisp</I> can be set to ouput this scattering function, which is sometimes
-convenient to analyse a model system. However, we have to keep in mind that
-it does not correspond to a observable in neutron scattering (the polarisation
-factor is missing and going beyond dipole approximation it depends on the
-gauge of the orbital magnetic moment density).
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html2469"
-  HREF="node147.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2463"
-  HREF="node139.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2459"
-  HREF="node145.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2465"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html2467"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A NAME="tex2html2470"
-  HREF="node147.html">Theory for program bfk</A>
-<B> Up:</B> <A NAME="tex2html2464"
-  HREF="node139.html">Dynamical Susceptibility and Excitations</A>
-<B> Previous:</B> <A NAME="tex2html2460"
-  HREF="node145.html">Magnetic inelastic Scattering</A>
- &nbsp; <B>  <A NAME="tex2html2466"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html2468"
-  HREF="node152.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 
 </BODY>
 </HTML>

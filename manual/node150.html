@@ -1,260 +1,259 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Installation of the program package</TITLE>
-<META NAME="description" CONTENT="Installation of the program package">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Derivation of the Chargedensity Formula</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node151.html">
 <LINK REL="previous" HREF="node149.html">
-<LINK REL="up" HREF="manual.html">
 <LINK REL="next" HREF="node151.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2525"
-  HREF="node151.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2519"
-  HREF="manual.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2513"
-  HREF="node149.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2521"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html2523"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node151.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node149.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html1102"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html1104"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html2526"
-  HREF="node151.html">Bibliography</A>
-<B> Up:</B> <A NAME="tex2html2520"
-  HREF="manual.html">McPhase USERS MANUAL</A>
-<B> Previous:</B> <A NAME="tex2html2514"
-  HREF="node149.html">Unit Conventions in McPhase</A>
- &nbsp; <B>  <A NAME="tex2html2522"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html2524"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node151.html">Dynamical Susceptibility and Excitations</A>
+<B> Up:</B> <A
+ HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A
+ HREF="node149.html">Magnetic Form factors for</A>
+ &nbsp; <B>  <A ID="tex2html1103"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1105"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION000410000000000000000">
-Installation of the program package</A>
+<H1><A ID="SECTION000360000000000000000"></A><A ID="chargedensityoperator"></A>
+<BR>
+Derivation of the Chargedensity Formula
 </H1>
 
 <P>
-<PRE>
-
-McPhase  home page:
-    http://www.mcphase.de
-
----------------------------------------------------------------------
-I WINDOWS
----------------------------------------------------------------------
-
-the windows version of McPhase provides all calculation programs
-however less graphic tools. 
-
-Preriquisites:
-- for  running McPhase, McDisp
-    Windows 2000, XP, VISTA, 7
------------------------------------------------------------------------
-Installation Procedure:
-
- just run mcphX_Y.exe and follow the instructions
-
- In case of problems:
- In order that McPhas finds its exe files,you have to edit
- the file dos.bat and modify the following commands:
- 
- set the variable MCPHASE_DIR to your mcphase directory (no spaces in pathname
- allowed), in our example  to c:\mcphas
-  
-   set MCPHASE_DIR=c:\mcphas
-  
- Now the Installation should be complete and to test this 
-   open the mcphas-shell, change into an example directory:
-
-   cd c:\mcphas\examples\ndcu2b_new
-
-  and type:
-
-   mcphas
-
--&gt; the program should start running
-
-
-[ for compiling the sources:
-  (necessary if mcphas does not run on your system after installation
-    * gcc for windows (e.g. MinGW-4.3.5.exe (or newer) and MSYS-1.0.10.exe
-    available at http://www.mingw.org)
-    * java (&gt; 1.6.0)  available at java.sun.com,
-     if you do not know wether java (and which version) is installed
-     on your computer, open a dos shell and type:
-     java -version
-
-    install MSYS2 (see http://msys2.github.io)
-    install gcc and gcc-fortran using packman
-
-    cd  mcphas\
-    type: make clean
-          make
-
- OPTIMIZATION:
- if you want to compile with more optimization to make the program faster, try instead of
- make
-
- make clean
- make fast=1
-
- If you have a multiple core processor and want to set the number of threads -
- There are 3 ways to set the number of threads:
-
-1. Using a system variable: MCPHASE_NOFTHREADS - this could be set
-e.g. in dos.bat (I've not changed this file - so for the distribution
-you could change it maybe to a commented out value for users to see).
-
-2. In mcphas.ini or mcdisp.par with the variable: nofthreads=
-
-3. If neither of the above variables are specified, the program
-attempts to determine the number of (logical) cores and sets the
-number of threads equal to this value. For a modern-ish quad core
-computer this number will probably be 8 (two logical cores per
-physical cores with hyperthreading).
-
-If it fails to determine the number of cores it sets it to 1.
-
-There is a hardcoded maximum of 255 threads.
-
-
-]
-
--------------------------------------------------------------------
-II  LINUX 
--------------------------------------------------------------------
-Prerequisits:
-- for compiling and running McPhas, McDisp
-    Suse Linux 6.0/ 6.2/ 7.0/ 7.1 / 7.2 / 8.1 / 9.2
-         with
-    gcc, gfortran or g77
-    perl
-    java
-    PDL 2.0      PerlDL
-            http://pdl.perl.org
-    
-- option (needed only for some old plotting programs):
-    flex
-    yacc
-    PGPLOT 5.2.0 graphics library
-            http://www.astro.caltech.edu/~tjp/pgplot/
-    PGPLOT 2.11/2.18  pgplot module for perl
-            ftp://ftp.freenet.de/pub/ftp.cpan.org/pub/CPAN/modules/by-
-            module/PGPLOT/
-            http://www.aao.gov.au/local/www/kgb/pgperl/    
-            NOTE THE INSTALLATION BUG FOR &gt;SUSE 6.2: after typing 'perl 
-            Makefile.PL'
-	    you have to manually edit 'Makefile' and substitute 'f2c' with 'g2c' 
-            before
-	    continuing with 'make' and 'make test' ...   
------------------------------------------------------------------------
-Installation Procedure:
-
-a) unpack and untar the zip file into your mcphase directory, in our example /usr/local
-
-    gunzip mcphas-*.*.tar.gz
-
-    tar -xvf mcphas-X.Y.tar
-
-
-b) In order that McPhas finds its  files,you have to edit
- the file lin.bat and modify the following commands:
- 
- set the variable MCPHASE_DIR to your mcphase directory, in our example
- to /usr/local/mcphas
-  
-   export MCPHASE_DIR=/usr/local/mcphas
-   
-    - in order to use the plotting programs
-      make sure that the other variables are set correctly
-
-   in order to set the above environment at login put the above export
-   commands into /etc/profile.local 
-   e.g. put there:
-
-   . /data/martin/mcphas/lin.bat
-
-
-
-c) Now the installation should be complete. To test the Program: 
-   goto your mcphase directory and set the environment variables correctly by typing:
-   
-   . ./lin.bat
-   
-   
-   goto directory ./demo
-   and run the demos to test many of the programs of the package
-
-[e) if it is necessary to recompile the sources -
-
-    goto $MCPHASE_DIR and type:
-
-    make
-   
- OPTIMIZATION:
- if you want to compile with more optimization to make the program faster, try instead of
- make
-
- make clean
- make fast=1
- 
- (this might work not on all systems)
-
-  If you have a multiple core processor and want to set the number of threads -
-  There are 3 ways to set the number of threads:
-
- 1. Using a system variable: MCPHASE_NOFTHREADS - this could be set
- e.g. in dos.bat (I've not changed this file - so for the distribution
- you could change it maybe to a commented out value for users to see).
-
- 2. In mcphas.ini or mcdisp.par with the variable: nofthreads=
-
- 3. If neither of the above variables are specified, the program
- attempts to determine the number of (logical) cores and sets the
- number of threads equal to this value. For a modern-ish quad core
- computer this number will probably be 8 (two logical cores per
- physical cores with hyperthreading).
-
- If it fails to determine the number of cores it sets it to 1.
-
- There is a hardcoded maximum of 255 threads.
-
-f) type 
-
-   make clean
-   
-   to remove files which are not needed
-]
-</PRE>
+The charge density operator for an electron system is given by a sum of delta
+ functions on the location of the individual electrons in a system carrying
+an elementary charge <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img103.svg"
+ ALT="$e$"></SPAN>:
 
 <P>
 
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\hat\rho(\mathbf r) = \sum_i -|e| \delta(\mathbf r_i - \mathbf r)
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 5.62ex; vertical-align: -3.09ex; " SRC="img1336.svg"
+ ALT="$\displaystyle \hat\rho(\mathbf r) = \sum_i -\vert e\vert \delta(\mathbf r_i - \mathbf r)
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">201</SPAN>)</SPAN>
+</DIV> 
+
 <P>
-   <BR><HR>
+Using spherical coordinates the delta function in this expression can be rewritten as
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\delta(\mathbf r_i - \mathbf r) = \frac{1}{r^2}\delta(r-r_i) \delta(\Omega- \Omega_i)
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1337.svg"
+ ALT="$\displaystyle \delta(\mathbf r_i - \mathbf r) = \frac{1}{r^2}\delta(r-r_i) \delta(\Omega- \Omega_i)
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">202</SPAN>)</SPAN>
+</DIV> 
+
+<P>
+The delta function of spherical harmonics can be expressed by spherical and tesseral harmonic
+ functions (see appendix&nbsp;<A HREF="node142.html#tesseral">F</A>):
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\delta(\Omega- \Omega_i)= \sum_{l,m} Y_l^{m\star}(\Omega_i) Y_l^{m}(\Omega)= \sum_{l,m} Z_l^{m}(\Omega_i) Z_l^{m}(\Omega)
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 5.99ex; vertical-align: -3.46ex; " SRC="img1338.svg"
+ ALT="$\displaystyle \delta(\Omega- \Omega_i)= \sum_{l,m} Y_l^{m\star}(\Omega_i) Y_l^{m}(\Omega)= \sum_{l,m} Z_l^{m}(\Omega_i) Z_l^{m}(\Omega)
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">203</SPAN>)</SPAN>
+</DIV> 
+
+<P>
+Using the above equations and assuming the same radial part <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img895.svg"
+ ALT="$R(r)$"></SPAN> of the wave function for all electrons in an unfilled shell the radial integrals in the expectation value of the charge density operator can be substituted by the radial wavefunction <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img895.svg"
+ ALT="$R(r)$"></SPAN> and we obtain the expression
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\langle \hat\rho(\mathbf r)\rangle=
+	       -|e|  |R(r)|^2 \sum_{l,m}Z_l^{m}(\Omega) \langle\sum_i Z_l^{m}(\Omega_i)\rangle
+\end{equation}
+ -->
+ &nbsp;  <A ID="chargedensity2"></A><IMG
+ STYLE="height: 5.99ex; vertical-align: -3.46ex; " SRC="img1339.svg"
+ ALT="$\displaystyle
+\langle \hat\rho(\mathbf r)\rangle=
+-\vert e\vert \vert R(r)\vert^2 \sum_{l,m}Z_l^{m}(\Omega) \langle\sum_i Z_l^{m}(\Omega_i)\rangle
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">204</SPAN>)</SPAN>
+</DIV> 
+
+<P>
+If higher multiplets are neglected, 
+the expectation values of tesseral harmonics at the right side of equation (<A HREF="#chargedensity2">220</A>) can
+be rewritten using the operator equivalent method by Stevens[<A
+ HREF="node163.html#hutchings64-227">26</A>]:
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\langle\sum_i Z_l^{m}(\Omega_i)\rangle = |p_{lm}| \theta_{l} \langle O_l^m(\mathbf J)\rangle_T
+\end{equation}
+ -->
+ &nbsp;  <A ID="chargedensity_coefficients"></A><IMG
+ STYLE="height: 5.62ex; vertical-align: -3.09ex; " SRC="img1340.svg"
+ ALT="$\displaystyle
+\langle\sum_i Z_l^{m}(\Omega_i)\rangle = \vert p_{lm}\vert \theta_{l} \langle O_l^m(\mathbf J)\rangle_T
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">205</SPAN>)</SPAN>
+</DIV> 
+
+<P>
+For the notation see [<A
+ HREF="node163.html#hutchings64-227">26</A>]:
+ <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img1341.svg"
+ ALT="$p_{nm}$"></SPAN> the pre factors of harmonic tesseral
+functions <!-- MATH
+ $Z_{lm}(\Omega)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1342.svg"
+ ALT="$Z_{lm}(\Omega)$"></SPAN> as given in table IV in [<A
+ HREF="node163.html#hutchings64-227">26</A>] and in appendix&nbsp;<A HREF="node142.html#tesseral">F</A>,
+ and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img1343.svg"
+ ALT="$\theta_l$"></SPAN>
+corresponds to the number of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img1344.svg"
+ ALT="$4f$"></SPAN> electrons (<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img933.svg"
+ ALT="$\nu$"></SPAN>) in the
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img1345.svg"
+ ALT="$4f^{\nu}$"></SPAN> configuration for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1346.svg"
+ ALT="$l=0$"></SPAN> and to
+ the Stevens factors <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img82.svg"
+ ALT="$\alpha$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img1347.svg"
+ ALT="$\beta$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img411.svg"
+ ALT="$\gamma$"></SPAN> for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1348.svg"
+ ALT="$l=$"></SPAN>&nbsp;2,4,6, respectively.
+
+<P>
+This results in the following expression for the chargedensity:
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\langle \hat\rho(\mathbf r)\rangle=-|e||R_{4f}(r)|^2 \sum_{l=0,2,4,6}\sum_{m=-l,...,l}
+	         |p_{lm}| \theta_{l} \langle O_l^m(\mathbf J)\rangle_T Z_{lm}(\Omega)
+\end{equation}
+ -->
+ &nbsp;  <A ID="chargedensity_operator2"></A><IMG
+ STYLE="height: 5.99ex; vertical-align: -3.46ex; " SRC="img1349.svg"
+ ALT="$\displaystyle
+\langle \hat\rho(\mathbf r)\rangle=-\vert e\vert\vert R_{4f}(r)\...
+...\vert p_{lm}\vert \theta_{l} \langle O_l^m(\mathbf J)\rangle_T Z_{lm}(\Omega)
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">206</SPAN>)</SPAN>
+</DIV> 
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node151.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node149.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html1102"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html1104"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node151.html">Dynamical Susceptibility and Excitations</A>
+<B> Up:</B> <A
+ HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A
+ HREF="node149.html">Magnetic Form factors for</A>
+ &nbsp; <B>  <A ID="tex2html1103"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1105"
+  HREF="node164.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

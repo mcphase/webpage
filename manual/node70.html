@@ -1,76 +1,80 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Debye Waller Factor</TITLE>
-<META NAME="description" CONTENT="Debye Waller Factor">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Calculation of the Exchange Striction Parameters using makenn</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node71.html">
 <LINK REL="previous" HREF="node69.html">
-<LINK REL="up" HREF="node67.html">
 <LINK REL="next" HREF="node71.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1349"
-  HREF="node71.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1343"
-  HREF="node67.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1337"
-  HREF="node69.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1345"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1347"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node71.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node60.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node69.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html700"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html702"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1350"
-  HREF="node71.html">Nuclear Neutron Scattering Length</A>
-<B> Up:</B> <A NAME="tex2html1344"
-  HREF="node67.html">Single Ion Modules</A>
-<B> Previous:</B> <A NAME="tex2html1338"
-  HREF="node69.html">Magnetic Formfactor Coefficients</A>
- &nbsp; <B>  <A NAME="tex2html1346"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1348"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node71.html">Magnetoelastic Options to mcphas</A>
+<B> Up:</B> <A
+ HREF="node60.html">Crystal Field Phonon Interaction</A>
+<B> Previous:</B> <A
+ HREF="node69.html">Setting up a Point</A>
+ &nbsp; <B>  <A ID="tex2html701"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html703"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION000163000000000000000">
-Debye Waller Factor</A>
+<H2><A ID="SECTION0001510000000000000000"></A><A ID="determineExstricpar"></A>
+<BR>
+Calculation of the Exchange Striction Parameters using <I CLASS="slanted">makenn</I>
 </H2>
 
 <P>
-For the more accurate calculation of neutron intensities it is
-necessary to give the magnetic form factor (see the table in appendix&nbsp;<A HREF="node136.html#ffacts">J</A>)
-and the Debye Waller Factor in the single ion property input file. This can
-easily be don by adding some additional lines to a single ion property file:
-<SMALL CLASS="FOOTNOTESIZE">
-</SMALL><PRE>
-#-------------------------------------------------------
-# Debye-Waller Factor: sqr(Intensity)~|sf|~EXP(-2 * DWF *s*s)=EXP (-W)
-#                      with s=sin(theta)/lambda=Q/4pi
-# relation to other notations: 2*DWF=Biso=8 pi^2 &lt;u^2&gt;
-# unit of DWF is [A^2]
-#-------------------------------------------------------
-DWF=0.4
+The positional derivatives of the two ion interactions in equation&nbsp;(<A HREF="node65.html#Hwexstric">115</A>)
+has to be evaluated in order to calculate the exchange striction. Within the McPhase 
+package the program <I CLASS="slanted">makenn</I>  may perform this task and it will use analytical formulas.
+Here comes a typical code example:
+
+<P>
+<PRE>
+REM create exchange interaction
+call makenn 7 -kaneyoshi 6 4.5 4
+call copy results/makenn.j mcphas.j
+REM ... and its position derivatives using the -djd... option of makenn
+call makenn 7 -kaneyoshi 6 4.5 4 -djdx
+call makenn 7 -kaneyoshi 6 4.5 4 -djdy
+call makenn 7 -kaneyoshi 6 4.5 4 -djdz
+call copy results/makenn.djdx mcphas.djdx
+call copy results/makenn.djdy mcphas.djdy
+call copy results/makenn.djdz mcphas.djdz
+
+REM start mcphase with option -doeps to calculate strain
+call mcphasit -doeps
 </PRE>
 
 <P>

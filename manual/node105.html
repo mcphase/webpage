@@ -1,224 +1,135 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Formalism for going beyond the dipolar approximation</TITLE>
-<META NAME="description" CONTENT="Formalism for going beyond the dipolar approximation">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>External module function spindensity_coeff - used by densplt, spins, display_density,display_densities</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node106.html">
 <LINK REL="previous" HREF="node104.html">
-<LINK REL="up" HREF="node99.html">
 <LINK REL="next" HREF="node106.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1881"
-  HREF="node106.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1875"
-  HREF="node99.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1871"
-  HREF="node104.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1877"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1879"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node106.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node88.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node104.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html900"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html902"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1882"
-  HREF="node106.html">bfk - Inelastic neutron-scattering</A>
-<B> Up:</B> <A NAME="tex2html1876"
-  HREF="node99.html">ic1ion - a module</A>
-<B> Previous:</B> <A NAME="tex2html1872"
-  HREF="node104.html">Formalism</A>
- &nbsp; <B>  <A NAME="tex2html1878"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1880"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node106.html">External module function dspindensity_coeff1</A>
+<B> Up:</B> <A
+ HREF="node88.html">Module Functions for Observables</A>
+<B> Previous:</B> <A
+ HREF="node104.html">External module function dchargedensity_coeff1</A>
+ &nbsp; <B>  <A ID="tex2html901"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html903"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION000186000000000000000"></A><A NAME="ic1ionmq"></A>
+<H3><A ID="SECTION0001721700000000000000"></A><A ID="3686"></A><A ID="3687"></A><A ID="3688"></A><A ID="3689"></A>
 <BR>
-Formalism for going beyond the dipolar approximation
-</H2>
+External module function <I CLASS="slanted">spindensity_coeff</I> -
+used by <I CLASS="slanted">densplt</I>,
+<I CLASS="slanted">spins</I>,
+<I CLASS="slanted">display_density</I>,<I CLASS="slanted">display_densities</I>
+</H3>
 
 <P>
-<I CLASS="slanted">ic1ion</I> is prepared to do calculations of the neutron cross section going beyond the dipole approximation for 
-the scattering cross section. The formulation of the scattering operator
- implemented in the functions <I CLASS="slanted">mq</I> and <I CLASS="slanted">dncalc</I> have been given by Lovesey and Balcar&nbsp;[<A
- HREF="node151.html#lovesey84-1">29</A>], 6.87b:
+In order to calculate spindensities
+the following function has to be
+present in the module file <I CLASS="slanted">*.so</I>:
 
 <P>
-<BR>
-<DIV ALIGN="CENTER">
+<PRE>
+extern "C" void spindensity_coeff(Vector &amp;aSlm, int &amp; xyz, double *T,Vector &amp;Hxc, 
+   Vector &amp; Hext,double *gJ,Vector &amp;MODPAR,char **sipffilename,ComplexMatrix &amp; Icalc_parstorage);
+</PRE>
 
-<!-- MATH
- \begin{eqnarray}
-\langle  l^\nu v S L J M| \hat \mathcal Q_q | l^\nu v' S' L' J' M' \rangle &=& \sqrt{4\pi}\sum_{K',Q,Q'} \left [ %
-Y_{K'-1}^{Q}(\hat \mathbf Q) \left (\frac{2K'+1}{K'+1}\right ) \right. \\
-&& \times \{ A(K'-1,K')+B(K'-1,K')(K'-1 Q K' Q'|1q)\}\\
-&& \left . + Y_{K'}^{Q}(\hat \mathbf Q) B(K',K') (K' Q K' Q'|1q) \right ] (K' Q' J' M'|JM)
- 
-\end{eqnarray}
+<P>
+Note for windows users with MINGW the declaration should be <I CLASS="slanted">extern "C" __declspec(dllexport) void spindensity_coeff(...)</I>.
+
+<P>
+The meaning of the symbols is as follows:
+<SPAN CLASS="FOOTNOTESIZE">
+</SPAN><PRE>
+  on input
+    xyz         direction index 1,2,3 = x,y,z (component for the spindensity vector to be calculated)
+    T           temperature[K]
+    Hxc        vector of exchange field [meV] (can be n-dimensional, for a set of n operators)
+     Hext      external magnetic field [T]
+    gJ          Lande factor
+    MODPAR      Vector with Parameters  read in single ion property file
+    sipffilename    file name of the single ion parameter file
+    Icalc_parstorage parameter matrix (initialized by Icalc_parameter_storage_matrix_init)
+                   it should/may contain any information, e.g. population numbers of the
+				   states (imaginary part of row 0)
+                   and eigenvalues (real part of row 0) with values set by the most recent call
+                   for this ion (making use of this matrix is optional)
+  on output
+    aSlm         Output single ion moments =expectation values of
+                coefficients of Zlm R^2(r) at a given temperature T and
+                effective field H
+</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+
+<P>
+The module function must perform the following tasks:
+
+<OL>
+<LI>calculate the coefficients of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.77ex; " SRC="img886.svg"
+ ALT="$Z_l^m R^2(r)$"></SPAN> in the expansion of
+      the spin density vector <!-- MATH
+ $M^S_{x,y,z}=\sum_{l,m} a^{x,y,z}_{S,lm} Z_l^m R^2(r)$
  -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
- WIDTH="208" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img892.png"
- ALT="$\displaystyle \langle l^\nu v S L J M\vert \hat \mathcal Q_q \vert l^\nu v' S' L' J' M' \rangle$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img68.png"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="250" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
- SRC="img893.png"
- ALT="$\displaystyle \sqrt{4\pi}\sum_{K',Q,Q'} \left [ %
-Y_{K'-1}^{Q}(\hat \mathbf Q) \left (\frac{2K'+1}{K'+1}\right ) \right.$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">124</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="374" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
- SRC="img894.png"
- ALT="$\displaystyle \times \{ A(K'-1,K')+B(K'-1,K')(K'-1 Q K' Q'\vert 1q)\}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">125</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="368" HEIGHT="45" ALIGN="MIDDLE" BORDER="0"
- SRC="img895.png"
- ALT="$\displaystyle \left . + Y_{K'}^{Q}(\hat \mathbf Q) B(K',K') (K' Q K' Q'\vert 1q) \right ] (K' Q' J' M'\vert JM)$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">126</SPAN>)</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
-
-<P>
-... these are the spherical components with <SPAN CLASS="MATH"><IMG
- WIDTH="83" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img896.png"
- ALT="$q=-1,0,1$"></SPAN>, which are related to the cartesian components by
-
-<P>
-<BR>
-<DIV ALIGN="CENTER">
-
-<!-- MATH
- \begin{eqnarray}
-\hat \mathcal Q_x &=& +\frac{1}{\sqrt{2}}(\hat \mathcal Q_{+1} +\hat \mathcal Q_{-1})\\
-\hat \mathcal Q_y &=& -\frac{i}{\sqrt{2}}(\hat \mathcal Q_{+1} -\hat \mathcal Q_{-1}) \\
-\hat \mathcal Q_z &=& \hat \mathcal Q_0  \\
-\end{eqnarray}
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.19ex; vertical-align: -1.13ex; " SRC="img887.svg"
+ ALT="$M^S_{x,y,z}=\sum_{l,m} a^{x,y,z}_{S,lm} Z_l^m R^2(r)$"></SPAN>
+      The output Vector alm(1,...,49) should contain  <!-- MATH
+ $a^{x,y,z}_{S,lm}$
  -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
- WIDTH="25" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img897.png"
- ALT="$\displaystyle \hat \mathcal Q_x$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img68.png"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="133" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
- SRC="img898.png"
- ALT="$\displaystyle +\frac{1}{\sqrt{2}}(\hat \mathcal Q_{+1} +\hat \mathcal Q_{-1})$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">127</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
- WIDTH="24" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img899.png"
- ALT="$\displaystyle \hat \mathcal Q_y$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img68.png"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="133" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
- SRC="img900.png"
- ALT="$\displaystyle -\frac{i}{\sqrt{2}}(\hat \mathcal Q_{+1} -\hat \mathcal Q_{-1})$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">128</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
- WIDTH="24" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img901.png"
- ALT="$\displaystyle \hat \mathcal Q_z$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img68.png"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="24" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img902.png"
- ALT="$\displaystyle \hat \mathcal Q_0$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">129</SPAN>)</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.05ex; vertical-align: -1.13ex; " SRC="img888.svg"
+ ALT="$a^{x,y,z}_{S,lm}$"></SPAN>
+      in the following order (lm):  00,1-1, 10,11, 2-2, 2-1,20,21,22, 3-3, 3-2, ...,65,66
+</LI>
+<LI>if <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.90ex; vertical-align: -0.21ex; " SRC="img830.svg"
+ ALT="$T&lt;0$"></SPAN> all quantities should be evaluated assuming that all Boltzmann probabilities <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img139.svg"
+ ALT="$p_i$"></SPAN>
+ are zero except for the state number <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img831.svg"
+ ALT="$n=(-T)$"></SPAN>, for which the probability <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img832.svg"
+ ALT="$p_n=1$"></SPAN>.
+</LI>
+</OL>
 
 <P>
-The coefficients <SPAN CLASS="MATH"><IMG
- WIDTH="68" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img903.png"
- ALT="$A(K,K')$"></SPAN> and <SPAN CLASS="MATH"><IMG
- WIDTH="69" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img904.png"
- ALT="$B(K,K')$"></SPAN> are complex to obtain, formulas will not be given here, we refer the reader 
-to&nbsp;[<A
- HREF="node151.html#lovesey84-1">29</A>] and just mention, that the computation involves
-of 3j, 6j and 9j symbols and some fractional parentage coefficients. 
-
-<P>
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html1881"
-  HREF="node106.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1875"
-  HREF="node99.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1871"
-  HREF="node104.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1877"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1879"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A NAME="tex2html1882"
-  HREF="node106.html">bfk - Inelastic neutron-scattering</A>
-<B> Up:</B> <A NAME="tex2html1876"
-  HREF="node99.html">ic1ion - a module</A>
-<B> Previous:</B> <A NAME="tex2html1872"
-  HREF="node104.html">Formalism</A>
- &nbsp; <B>  <A NAME="tex2html1878"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1880"
-  HREF="node152.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 
 </BODY>
 </HTML>

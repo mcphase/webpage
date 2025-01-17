@@ -1,120 +1,78 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>External module function chargedensity_coeff - used by densplt, spins, display_density,display_densities</TITLE>
-<META NAME="description" CONTENT="External module function chargedensity_coeff - used by densplt, spins, display_density,display_densities">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>External module function Lcalc - used by mcdiff and mcphas </TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node93.html">
 <LINK REL="previous" HREF="node91.html">
-<LINK REL="up" HREF="node80.html">
 <LINK REL="next" HREF="node93.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1697"
-  HREF="node93.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1691"
-  HREF="node80.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1685"
-  HREF="node91.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1693"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1695"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node93.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node88.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node91.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html848"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html850"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1698"
-  HREF="node93.html">External module function dchargedensity_coeff1</A>
-<B> Up:</B> <A NAME="tex2html1692"
-  HREF="node80.html">Module Functions for Observables</A>
-<B> Previous:</B> <A NAME="tex2html1686"
-  HREF="node91.html">External module function dP1</A>
- &nbsp; <B>  <A NAME="tex2html1694"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1696"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node93.html">External module function LMcalc</A>
+<B> Up:</B> <A
+ HREF="node88.html">Module Functions for Observables</A>
+<B> Previous:</B> <A
+ HREF="node91.html">External module function dm1</A>
+ &nbsp; <B>  <A ID="tex2html849"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html851"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION0001721200000000000000"></A><A NAME="7241"></A><A NAME="7242"></A><A NAME="7243"></A><A NAME="7244"></A>
+<H3><A ID="SECTION000172400000000000000"></A><A ID="3459"></A><A ID="3461"></A>
 <BR>
-External module function <I CLASS="slanted">chargedensity_coeff</I> -
-used by <I CLASS="slanted">densplt</I>,
-<I CLASS="slanted">spins</I>,
-<I CLASS="slanted">display_density</I>,<I CLASS="slanted">display_densities</I>
+External module function <I CLASS="slanted">Lcalc</I> - used by <I CLASS="slanted">mcdiff</I>
+and <I CLASS="slanted">mcphas</I>  
 </H3>
 
 <P>
-In order to calculate the chargedensity, the expansion coefficients
-have to be evaluated and
+In order to calculate the angular momentum <!-- MATH
+ $\langle \hat \mathbf L \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img803.svg"
+ ALT="$\langle \hat \mathbf L\rangle$"></SPAN>
  the following function has to be present in the module file <I CLASS="slanted">*.so</I>:
 
 <P>
 <PRE>
-extern "C" void chargedensity_coeff(Vector &amp; cd,double * T, Vector &amp; Hxc, Vector &amp; Hext,
+extern "C" void Lcalc(Vector &amp; L,double * T, Vector &amp; Hxc, Vector &amp; Hext,
                       double * gJ, Vector &amp; MODPAR,
                       char ** sipffilename, ComplexMatrix &amp; Icalc_parstorage);
 </PRE>
 
 <P>
-it works exactly as <I CLASS="slanted">mcalc</I> with the only modification
-that the vector cd has 28 components, therefore we do not give more details here.
-
-<P>
-The module function must perform the following task:
-
-<OL>
-<LI>calculate the coefficients of <!-- MATH
- $-|e|Z_l^m R^2(r)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="96" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
- SRC="img792.png"
- ALT="$-\vert e\vert Z_l^m R^2(r)$"></SPAN> in the expansion of
-      the charge density in equation (<A HREF="node138.html#chargedensity2">210</A>).
-      The output Vector cd(1,...,28) should contain  coefficients 
-     (i.e. <!-- MATH
- $\langle\sum_i Z_l^m (\Omega_i)\rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="94" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img728.png"
- ALT="$\langle\sum_i Z_l^m(\Omega_i)\rangle$"></SPAN>)
-      in the following order (lm):  00, 2-2, 2-1,20,21,22, 4-4, 4-3,..,44,6-6,6-5 ...,65,66
-</LI>
-<LI>if <SPAN CLASS="MATH"><IMG
- WIDTH="44" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img745.png"
- ALT="$T&lt;0$"></SPAN> all quantities should be evaluated assuming that all Boltzmann probabilities <SPAN CLASS="MATH"><IMG
- WIDTH="17" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img105.png"
- ALT="$p_i$"></SPAN>
- are zero except for the state number <SPAN CLASS="MATH"><IMG
- WIDTH="71" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img746.png"
- ALT="$n=(-T)$"></SPAN>, for which the probability <SPAN CLASS="MATH"><IMG
- WIDTH="50" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img747.png"
- ALT="$p_n=1$"></SPAN>.
-</LI>
-</OL>
+it works exactly as <I CLASS="slanted">mcalc</I>, therefore we do not give more details here.
 
 <P>
 <BR><HR>

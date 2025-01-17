@@ -1,71 +1,80 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>cpic1ion - calculation of the specific heat from ic1ion.out</TITLE>
-<META NAME="description" CONTENT="cpic1ion - calculation of the specific heat from ic1ion.out">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>External module function pcalc - used by mcdiff and mcphas </TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node102.html">
 <LINK REL="previous" HREF="node100.html">
-<LINK REL="up" HREF="node99.html">
 <LINK REL="next" HREF="node102.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1827"
-  HREF="node102.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1821"
-  HREF="node99.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1815"
-  HREF="node100.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1823"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1825"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node102.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node88.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node100.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html884"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html886"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1828"
-  HREF="node102.html">using ic1ion as a</A>
-<B> Up:</B> <A NAME="tex2html1822"
-  HREF="node99.html">ic1ion - a module</A>
-<B> Previous:</B> <A NAME="tex2html1816"
-  HREF="node100.html">using ic1ion as a</A>
- &nbsp; <B>  <A NAME="tex2html1824"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1826"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node102.html">External module function dP1</A>
+<B> Up:</B> <A
+ HREF="node88.html">Module Functions for Observables</A>
+<B> Previous:</B> <A
+ HREF="node100.html">External module functions drixs1</A>
+ &nbsp; <B>  <A ID="tex2html885"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html887"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION000182000000000000000">
-<I CLASS="slanted">cpic1ion</I> - calculation of the specific heat from <I CLASS="slanted">ic1ion.out</I></A>
-</H2>
- The crystal field contribution to the specific heat may be calculated 
-from the output file <I CLASS="slanted">ic1ion.out</I> using the  program <I CLASS="slanted">cpic1ion</I>, e.g. <B>cpic1ion 10 100 1 [options]</B>
-calculates the specific heat in the temperature interval 10-100 K with a step width
-of 1 K. Alternatively a comparison to experimental data can be made by <B>cpic1ion 1 2 cpexp.dat</B>,
-where the temperatures are given in column 1 and the experimental specific heat in column
-2 of file cpexp.dat. The calculated specific heat is compared to the experimental data and
-a standard deviation <EM>sta</EM> is calculated and output is written to stdout.
-Other quantities can be calculated using the options: -s  (calculate entropy  (J/molK) instead of cp),
--f (calculate free energy (J/mol) instead of cp),-u  (calculate magnetic energy (J/mol) instead of cp),
--z (calculate partition sum instead of cp).
+<H3><A ID="SECTION0001721300000000000000"></A><A ID="3619"></A><A ID="3621"></A>
+<BR>
+External module function <I CLASS="slanted">pcalc</I> - used by <I CLASS="slanted">mcdiff</I>
+and <I CLASS="slanted">mcphas</I>  
+</H3>
+
+<P>
+In order to calculate the position  <!-- MATH
+ $\langle \hat \mathbf P \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img810.svg"
+ ALT="$\langle \hat \mathbf P\rangle$"></SPAN>
+ the following function has to be present in the module file <I CLASS="slanted">*.so</I>:
+
+<P>
+<PRE>
+extern "C" void pcalc(Vector &amp; P,double * T, Vector &amp; Fxc, Vector &amp; Hext,
+                      double * gJ, Vector &amp; MODPAR,
+                      char ** sipffilename, ComplexMatrix &amp; Icalc_parstorage);
+</PRE>
+
+<P>
+It returns the position vector <I CLASS="slanted">P</I> of an Einstein oscillator in units of
+Å under the action of a Force <I CLASS="slanted">Fxc</I> in units of meV.
+For the rest it works exactly as <I CLASS="slanted">mcalc</I>, therefore we do not give more details here.
 
 <P>
 <BR><HR>

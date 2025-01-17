@@ -38,6 +38,12 @@ M.~Rotter and A.~T. Boothroyd,
   magnetic structures by neutron diffraction``,
 \newblock {\em Phys. Rev. B}   {\bf 79} (2009) 140405(R)
 
+\bibitem{romhany14-xxx}
+J.~Romhany, J.~Brink  and I.~Rousochatzakis,
+\newblock ``Entangled tetrahedron ground state and excitations of the
+  magneto-electric skyrmion material Cu2OSeO3``,
+\newblock  (2014)
+
 \bibitem{yoshida98-1421}
 Y.~Yoshida, K.~Sugiyama, T.~Takeuchi, Y.~Kimura, D.~Aoki, M.~Kouzaki,
   R.~Settai, K.~Kindo  and Y.~Onuki,
@@ -177,6 +183,14 @@ M~Havekort,
 R~Shiina, H.~Shiba  and P.~Thalmeier,
 \newblock {\em J. Phys. Soc. Jpn.}   6(1997) 1741
 
+\bibitem{morin90-1}
+P.~Morin and D.~Schmitt,
+\newblock ``Quadrupolar interaction and magnetoelastic effects in rare earth
+  intermetallic compounds``,
+\newblock  in: {\em Ferromagnetic Materials}   Vol.~5,  ed.   K.~H.~J. Buschow
+  and E.~P. Wohlfarth,
+\newblock Elsevier Sci.~Pub.~  Amsterdam,The Netherlands  (1990)   1
+
 \bibitem{palmer78-2465}
 Stuart~B. Palmer and Jens~H. Jensen,
 \newblock ``Magnetic effects on the elastic constants of praseodymium``,
@@ -198,6 +212,24 @@ Martin Rotter, Manh~Duc Le, Andrew~T Boothroyd  and Jesus~Angel Blanco,
 \newblock ``Dynamical matrix diagonalization for the calculation of dispersive
   excitations``,
 \newblock {\em Journal of Physics: Condensed Matter}   {\bf 24} 21(2012) 213201
+
+\bibitem{roman23-125137}
+M.~Roman, M.~Fritthum, B.~Stoeger, D.T. Adroja  and H.~Michor,
+\newblock ``Charge density wave and crystalline electric field effects in
+  TmNiC$_2$``,
+\newblock {\em Phys. Rev. B}   {\bf 107} (2023) 125137
+
+\bibitem{edvardsson98-230}
+S.~Edvardsson and M.~Klintenberg,
+\newblock ``CRole of the electrostatic model in calculating rare-earth crystal
+  field parameters``,
+\newblock {\em J. Alloys and Comp.}   {\bf 275-277} (1998) 230
+
+\bibitem{gratz93-7955}
+E.~Gratz, A.~Lindbaum  and M.~Rotter,
+\newblock ``The influence of the crystal field on the anisotropic thermal
+  expansion in TmCu$_2$``,
+\newblock {\em J.~Phys.~Cond.~Mat.~}   {\bf 5} (1993) 7955
 
 \bibitem{racah49-1352}
 Giulio Racah,
@@ -378,13 +410,5 @@ Martin Rotter,
 J.~P. Elliott and P.~G. Dawber,
 \newblock {\em Symmetry in physics},
 \newblock McMillan Press LTD  (1979)
-
-\bibitem{morin90-1}
-P.~Morin and D.~Schmitt,
-\newblock ``Quadrupolar interaction and magnetoelastic effects in rare earth
-  intermetallic compounds``,
-\newblock  in: {\em Ferromagnetic Materials}   Vol.~5,  ed.   K.~H.~J. Buschow
-  and E.~P. Wohlfarth,
-\newblock Elsevier Sci.~Pub.~  Amsterdam,The Netherlands  (1990)   1
 
 \end{thebibliography}

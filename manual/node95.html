@@ -1,94 +1,78 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>External module function dspindensity_coeff1 - used by mcdisp</TITLE>
-<META NAME="description" CONTENT="External module function dspindensity_coeff1 - used by mcdisp">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>External module function Scalc - used by mcdiff and mcphas </TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node96.html">
 <LINK REL="previous" HREF="node94.html">
-<LINK REL="up" HREF="node80.html">
 <LINK REL="next" HREF="node96.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1739"
-  HREF="node96.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1733"
-  HREF="node80.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1727"
-  HREF="node94.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1735"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1737"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node96.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node88.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node94.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html860"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html862"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1740"
-  HREF="node96.html">External module function orbmomdensity_coeff</A>
-<B> Up:</B> <A NAME="tex2html1734"
-  HREF="node80.html">Module Functions for Observables</A>
-<B> Previous:</B> <A NAME="tex2html1728"
-  HREF="node94.html">External module function spindensity_coeff</A>
- &nbsp; <B>  <A NAME="tex2html1736"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1738"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node96.html">External module function SMcalc</A>
+<B> Up:</B> <A
+ HREF="node88.html">Module Functions for Observables</A>
+<B> Previous:</B> <A
+ HREF="node94.html">External module function dL1</A>
+ &nbsp; <B>  <A ID="tex2html861"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html863"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION0001721500000000000000"></A><A NAME="7284"></A>
+<H3><A ID="SECTION000172700000000000000"></A><A ID="3490"></A><A ID="3492"></A>
 <BR>
-External module function <I CLASS="slanted">dspindensity_coeff1</I> - used by <I CLASS="slanted">mcdisp</I>
+External module function <I CLASS="slanted">Scalc</I> - used by <I CLASS="slanted">mcdiff</I>
+and <I CLASS="slanted">mcphas</I>  
 </H3>
 
 <P>
-In order to visualize spin density  fluctuations 
- the external single ion module has to provide the transition
-matrix elements of the spindensity coefficient operator <!-- MATH
- $a^{x,y,z}_{S,lm}$
+In order to calculate the total spin <!-- MATH
+ $\langle \hat \mathbf S \rangle$
  -->
 <SPAN CLASS="MATH"><IMG
- WIDTH="41" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
- SRC="img798.png"
- ALT="$a^{x,y,z}_{S,lm}$"></SPAN> by a
-vector <SPAN CLASS="MATH"><IMG
- WIDTH="50" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img799.png"
- ALT="$aSlm1$"></SPAN>, which is given by:
- <!-- MATH
- ${\rm aS1}^s_{\alpha=lm}=\sqrt{(p_- -p_+)}\langle -|a^{x,y,z}_{S,lm}-\langle a^{x,y,z}_{S,lm}\rangle_{\mathbf H,T}|+\rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="346" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img800.png"
- ALT="${\rm aS1}^s_{\alpha=lm}=\sqrt{(p_--p_+)}\langle -\vert a^{x,y,z}_{S,lm}-\langle a^{x,y,z}_{S,lm}\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>. 
+ STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img805.svg"
+ ALT="$\langle \hat\mathbf S\rangle$"></SPAN>
+ the following function has to be present in the module file <I CLASS="slanted">*.so</I>:
 
 <P>
-The format to be used is:
-<SMALL CLASS="FOOTNOTESIZE">
-</SMALL><PRE>
-extern "C" int dspindensity_ceoff1(int &amp; tn,double &amp; T,Vector &amp; Hxc,Vector &amp; Hext,double * g_J,Vector &amp; MODPAR,
-char ** sipffilename,ComplexVector &amp; aSlm1,int &amp; xyz,float &amp; maxE, ComplexMatrix &amp; est)
+<PRE>
+extern "C" void Scalc(Vector &amp; S,double * T, Vector &amp; Hxc, Vector &amp; Hext,
+                      double * gJ, Vector &amp; MODPAR,
+                      char ** sipffilename, ComplexMatrix &amp; Icalc_parstorage);
 </PRE>
-The meaning of the symbols follows exactly that of function 
-<I CLASS="slanted">dm1</I> and therefore not explained here.
+
+<P>
+it works exactly as <I CLASS="slanted">mcalc</I>, therefore we do not give more details here.
 
 <P>
 <BR><HR>

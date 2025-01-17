@@ -1,76 +1,137 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Land&#233; Factor</TITLE>
-<META NAME="description" CONTENT="Land&#233; Factor">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Calculation of the Crystal Field Phonon Interaction using a Point Charge Model</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node69.html">
 <LINK REL="previous" HREF="node67.html">
-<LINK REL="up" HREF="node67.html">
 <LINK REL="next" HREF="node69.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1321"
-  HREF="node69.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1315"
-  HREF="node67.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1309"
-  HREF="node67.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1317"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1319"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node69.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node60.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node67.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html692"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html694"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1322"
-  HREF="node69.html">Magnetic Formfactor Coefficients</A>
-<B> Up:</B> <A NAME="tex2html1316"
-  HREF="node67.html">Single Ion Modules</A>
-<B> Previous:</B> <A NAME="tex2html1310"
-  HREF="node67.html">Single Ion Modules</A>
- &nbsp; <B>  <A NAME="tex2html1318"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1320"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node69.html">Setting up a Point</A>
+<B> Up:</B> <A
+ HREF="node60.html">Crystal Field Phonon Interaction</A>
+<B> Previous:</B> <A
+ HREF="node67.html">Calculation of the Elastic</A>
+ &nbsp; <B>  <A ID="tex2html693"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html695"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION000161000000000000000">
-Land&#233; Factor</A>
+<H2><A ID="SECTION000158000000000000000"></A><A ID="determineBlmfromPC"></A>
+<BR>
+Calculation of the Crystal Field Phonon Interaction using a Point Charge Model
 </H2>
 
 <P>
-In order to calculate the magnetisation and Zeeman term, the Land&#233; factor
-has to be entered in the single ion property file. For a rare earth ion this
-factor gives the ratio of negative angular momentum / magnetic moment.
-Note, for intermediate coupling schemes this factor has no meaning (should be set to zero).
+If crystal field - phonon coupling is to be applied in running <I CLASS="slanted">mcphas</I> and <I CLASS="slanted">mcdisp</I>,
+ magnetic ions may be added to a phonon set-up of <I CLASS="slanted">mcphas.j</I>.
+These magnetic ions should not be placed at exactly the same position as the phonon atoms - i.e. da db dc should be chosen
+(slightly) different to enable the mcphas.j loader to identify which is which.
 
 <P>
-<PRE>
-#Lande Factor
-GJ=0.85714
-</PRE>
+The coupling between phononic and crystal field degrees of freedom can be calculated from equations
+(<A HREF="node64.html#Gcfph">108</A>) and (<A HREF="node64.html#Gammacfph">109</A>).
+ This can be done
+using the program  <I CLASS="slanted">makenn</I> with option <I CLASS="slanted">-cfph</I>  applying small differential changes to
+the atomic positions in the unit cell in order to evaluate the gradient of the crystal field
+parameters. <I CLASS="slanted">makenn</I> will do this calculation for every magnetic ion in the unit cell,
+i.e. for all ions which have the <I CLASS="slanted">so1ion</I> or <I CLASS="slanted">ic1ion</I> module in the <I CLASS="slanted">sipf</I> file.
+It will create for these ions a new position in makenn.j with the required
+shift and also store a designated sipf file. After running <I CLASS="slanted">makenn</I> with option <I CLASS="slanted">-cfph</I> 
+the user should only take care to change the module <I CLASS="slanted">so1ion</I>  or <I CLASS="slanted">ic1ion</I> to  or <I CLASS="slanted">phonon</I>
+in the original sipf files of the magnetic ions so that there is always one phononic and one magnetic
+sipf file for each magnetic atom in the unit cell.
 
 <P>
-<BR><HR>
+For examples see  several models on crystal field phonon interaction 
+in <I CLASS="slanted">examples</I>, for starting a linear chain of Ce<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img3.svg"
+ ALT="$^{3+}$"></SPAN> ions including a
+theory manuscript can be found in <I CLASS="slanted">examples/Ce3p_chain_cfphonon</I>.
+
+<P>
+Note <I CLASS="slanted">makenn</I>  makes use of the program <I CLASS="slanted">pointc</I><A ID="2835"></A> to calculate 
+crystal field parameters <!-- MATH
+ $B_{\gamma}(i)=B_l^m$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img684.svg"
+ ALT="$B_{\gamma}(i)=B_l^m$"></SPAN> (<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img411.svg"
+ ALT="$\gamma$"></SPAN> is a short hand
+notation for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img685.svg"
+ ALT="$lm$"></SPAN>) at site <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.76ex; vertical-align: -0.12ex; " SRC="img367.svg"
+ ALT="$i$"></SPAN> with Stevens convention (or alternatively also <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img109.svg"
+ ALT="$L_l^m$"></SPAN> with
+Wybourne normalisation, see appendix&nbsp;<A HREF="node141.html#cfparconventions">E</A> for details and definition of symbols) 
+using the well known expressions of the point charge model (<A HREF="node64.html#pcmodelclc">103</A>).
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node69.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node60.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node67.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html692"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html694"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node69.html">Setting up a Point</A>
+<B> Up:</B> <A
+ HREF="node60.html">Crystal Field Phonon Interaction</A>
+<B> Previous:</B> <A
+ HREF="node67.html">Calculation of the Elastic</A>
+ &nbsp; <B>  <A ID="tex2html693"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html695"
+  HREF="node164.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

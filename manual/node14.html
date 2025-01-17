@@ -1,224 +1,202 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Rare Earth Ions</TITLE>
-<META NAME="description" CONTENT="Rare Earth Ions">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Intermediate Coupling</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node15.html">
 <LINK REL="previous" HREF="node13.html">
-<LINK REL="up" HREF="node13.html">
 <LINK REL="next" HREF="node15.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html524"
-  HREF="node15.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html518"
-  HREF="node13.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html512"
-  HREF="node13.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html520"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html522"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node15.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node12.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node13.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html407"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html409"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html525"
-  HREF="node15.html">Intermediate Coupling</A>
-<B> Up:</B> <A NAME="tex2html519"
-  HREF="node13.html">The Hamiltonian</A>
-<B> Previous:</B> <A NAME="tex2html513"
-  HREF="node13.html">The Hamiltonian</A>
- &nbsp; <B>  <A NAME="tex2html521"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html523"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node15.html">singleion - a Crystal</A>
+<B> Up:</B> <A
+ HREF="node12.html">The Hamiltonian</A>
+<B> Previous:</B> <A
+ HREF="node13.html">Rare Earth Ions</A>
+ &nbsp; <B>  <A ID="tex2html408"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html410"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00081000000000000000">
-Rare Earth Ions</A>
+<H2><A ID="SECTION00082000000000000000">
+Intermediate Coupling</A>
 </H2>
 
 <P>
-A more specific example of is the following magnetic  Hamiltonian <SPAN CLASS="MATH"><IMG
- WIDTH="17" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
- SRC="img60.png"
- ALT="$\mathcal H$"></SPAN> for rare earth ions,
- which may be treated with the program package:
+For some rare earth ions and for transition metals or actinides it is necessary to
+include more singleion ion states with differen L,S into the calculation. This
+can be done in intermediate coupling using the module <I CLASS="slanted">ic1ion</I><A ID="349"></A>, which
+explicitely includes electrostatic and  spin orbit interactions for each ion:
 
 <P>
 <BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
-
+<DIV CLASS="displaymath"><A ID="ichamilton"></A>
 <!-- MATH
- \begin{equation}
-{\mathcal H}= \sum_{n,lm} B_l^m O_{lm}({\mathbf J}^n)
-             -\frac{1}{2}  \sum_{nn'} {\mathcal J}(nn') {\mathbf J}^n{\mathbf J}^{n'}
-	     - \sum_{n} g_{Jn} \mu_B {\mathbf J}^n {\mathbf H} 
-\end{equation}
+ \begin{eqnarray}
+{\mathcal H}&=& \sum_n \left \{ \sum_{i_n=1}^{\nu_n}
+ \left [ \frac{p_{i_n}^2}{2m_e}
+        -\frac{Z_n e^2}{4\pi\epsilon_0|\mathbf r_{i_n}-\mathbf R_n|}
+        +\zeta_n  \mathbf l^{i_n} \cdot \mathbf s^{i_n}
+        + \sum_{lm} L_l^m(n) T_{lm}^n
+\right ]
+              + \sum_{i_n>j_n=1}^{\nu_n}\frac{e^2}{4\pi\epsilon_0|\mathbf r_{i_n}-\mathbf r_{j_n}|} \right \} \nonumber \\
+	    && - \sum_{n}  \mu_B (2\mathbf S^n+\mathbf L^n) {\mathbf H}  \nonumber\\
+            && -\frac{1}{2} \sum_{nn'} \left[ 
+({\hat \mathbf L}^n,{\hat \mathbf S}^n )
+\stackrel{=}{\mathcal J}(nn') 
+\left ( \begin{array}{c} {\hat \mathbf L}^{n'} \\
+        {\hat \mathbf S}^{n'} \end{array}
+\right )
+     + \sum_{kk'} \sum_{qq'}  \mathcal{K}_{kk'}^{qq'}(nn') \hat{T}_{kq}^n T_{k'q'}^{n'} \right]
+\end{eqnarray}
  -->
-<A NAME="hamiltonre"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="hamiltonre"></A><IMG
- WIDTH="448" HEIGHT="53" BORDER="0"
- SRC="img61.png"
- ALT="\begin{displaymath}
-{\mathcal H}= \sum_{n,lm} B_l^m O_{lm}({\mathbf J}^n)
-...
-... J}^{n'}
-- \sum_{n} g_{Jn} \mu_B {\mathbf J}^n {\mathbf H}
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">2</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img93.svg"
+ ALT="$\displaystyle {\mathcal H}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 8.56ex; vertical-align: -3.72ex; " SRC="img95.svg"
+ ALT="$\displaystyle \sum_n \left \{ \sum_{i_n=1}^{\nu_n}
+\left [ \frac{p_{i_n}^2}{2m_...
+...n}\frac{e^2}{4\pi\epsilon_0\vert\mathbf r_{i_n}-\mathbf r_{j_n}\vert} \right \}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.55ex; vertical-align: -3.02ex; " SRC="img96.svg"
+ ALT="$\displaystyle - \sum_{n} \mu_B (2\mathbf S^n+\mathbf L^n) {\mathbf H}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 8.56ex; vertical-align: -3.72ex; " SRC="img97.svg"
+ ALT="$\displaystyle -\frac{1}{2} \sum_{nn'} \left[
+({\hat \mathbf L}^n,{\hat \mathbf ...
+...'} \sum_{qq'} \mathcal{K}_{kk'}^{qq'}(nn') \hat{T}_{kq}^n T_{k'q'}^{n'} \right]$"></TD><TD class="rfill">(<SPAN CLASS="arabic">4</SPAN>)</TD></TR>
+</TABLE></DIV>
 
 <P>
-The first term describes the crystal field (Stevens Operators <SPAN CLASS="MATH"><IMG
- WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img62.png"
- ALT="$O_l^m$"></SPAN>, see table in appendix&nbsp;<A HREF="node131.html#stevens">G</A>), the second 
-the magnetic
-exchange interaction, the third the Zeeman energy if an external magnetic field is applied.
-Instead (or rather in addition) to this it is also possible to treat the 
-more general two ion exchange coupling
-
-<P>
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
-
+Here <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img98.svg"
+ ALT="$\nu_n$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img99.svg"
+ ALT="$Z_n$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.46ex; " SRC="img100.svg"
+ ALT="$\mathbf R_n$"></SPAN> denote the number of electrons, the charge of the nucleus
+and the position
+ of the ion number <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
+ ALT="$n$"></SPAN>,respectively, for each electron being
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img101.svg"
+ ALT="$p$"></SPAN> the momentum, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img102.svg"
+ ALT="$m_e$"></SPAN> the mass, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img103.svg"
+ ALT="$e$"></SPAN> the charge and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.26ex; vertical-align: -0.12ex; " SRC="img104.svg"
+ ALT="$\mathbf r$"></SPAN> the location.
+Spin orbit coupling is written in terms of the orbital momentum <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img105.svg"
+ ALT="$\mathbf l$"></SPAN> and
+spin <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.26ex; vertical-align: -0.12ex; " SRC="img106.svg"
+ ALT="$\mathbf s$"></SPAN> of the individual electrons. The
+ Zeman interaction and two ion interaction are written in terms of 
+the (inverse) total spin <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.46ex; " SRC="img107.svg"
+ ALT="$\mathbf S_n$"></SPAN> and (inverse) total orbital momentum <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.46ex; " SRC="img108.svg"
+ ALT="$\mathbf L_n$"></SPAN>
+of ion number <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
+ ALT="$n$"></SPAN>. The crystal field in intermediate coupling is written
+in terms of Wybourne parameters <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img109.svg"
+ ALT="$L_l^m$"></SPAN> and Wybourne operators <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img110.svg"
+ ALT="$T_{lm}^n$"></SPAN>, operator equivalents
+of real valued 
+spherical harmonic functions 
 <!-- MATH
- \begin{equation}
-{\mathcal H}_{JJ}=
-             -\frac{1}{2}  \sum_{nn'} \sum_ {ll'} \sum_{mm'}
-	     {\mathcal K}_{ll'}^{mm'}(nn') O_{lm}({\mathbf J}^n) O_{l'm'}({\mathbf J}^{n'})
-\end{equation}
- -->
-<A NAME="multipolehamilton"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="multipolehamilton"></A><IMG
- WIDTH="401" HEIGHT="51" BORDER="0"
- SRC="img63.png"
- ALT="\begin{displaymath}
-{\mathcal H}_{JJ}=
--\frac{1}{2} \sum_{nn'} \sum_ {ll'}...
-...}^{mm'}(nn') O_{lm}({\mathbf J}^n) O_{l'm'}({\mathbf J}^{n'})
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">3</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-
-<P>
-For further information on the notation and symmetry restrictions to the
-parameters in the Hamiltonian refer to&nbsp;[<A
- HREF="node151.html#jensen91-1">1</A>].
-
-<P>
-In addition to the above terms in the Hamiltonian the coupling of magnetic and lattice properties
-is possible by introducing magnetoelastic interactions:
-In order to calculate magnetoelastic effects the parameters <SPAN CLASS="MATH"><IMG
- WIDTH="29" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img35.png"
- ALT="$B_l^m$"></SPAN>, <!-- MATH
- ${\mathcal J}(ij)$
+ $T_{l0}=\sqrt{4\pi/(2l+1)}\sum_iY_{l0}(\Omega_{i_n})$
  -->
 <SPAN CLASS="MATH"><IMG
- WIDTH="43" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img64.png"
- ALT="${\mathcal J}(ij)$"></SPAN> (or more general
-the <!-- MATH
- ${\mathcal K}_{ll'}^{mm'}(ij)$
+ STYLE="height: 3.10ex; vertical-align: -0.82ex; " SRC="img111.svg"
+ ALT="$T_{l0}=\sqrt{4\pi/(2l+1)}\sum_iY_{l0}(\Omega_{i_n})$"></SPAN>, 
+<!-- MATH
+ $T_{l,\pm|m|}=\sqrt{4\pi/(2l+1)}\sum_i \sqrt{\pm1}[Y_{l,-|m|}(\Omega_{i_n})\pm (-1)^m Y_{l,|m|}(\Omega_{i_n})]$
  -->
 <SPAN CLASS="MATH"><IMG
- WIDTH="69" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
- SRC="img65.png"
- ALT="${\mathcal K}_{ll'}^{mm'}(ij)$"></SPAN>) are expanded in a Taylor expansion in the strain tensor
-<SPAN CLASS="MATH"><IMG
- WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img66.png"
- ALT="$\epsilon$"></SPAN> resulting in the magnetoelastic interaction (i.e. keeping only the terms linear
-in <SPAN CLASS="MATH"><IMG
- WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img66.png"
- ALT="$\epsilon$"></SPAN>). The equilibrium strain can be 
-calculated by considering in addition the elastic energy and minimising the total free energy.
-The procedure is described in detail in&nbsp;[<A
- HREF="node151.html#rotter02-8885">18</A>].
+ STYLE="height: 3.22ex; vertical-align: -0.94ex; " SRC="img112.svg"
+ ALT="$T_{l,\pm\vert m\vert}=\sqrt{4\pi/(2l+1)}\sum_i \sqrt{\pm1}[Y_{l,-\vert m\vert}(\Omega_{i_n})\pm (-1)^m Y_{l,\vert m\vert}(\Omega_{i_n})]$"></SPAN> for the ion <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
+ ALT="$n$"></SPAN>,
+for details on crystal field parameter 
+conventions see appendix&nbsp;<A HREF="node141.html#cfparconventions">E</A>.
 
 <P>
-<BR>
-<BR>
-<BR>
-
-<P>
-<EM>Exercises:</EM>
-
-<UL>
-<LI>Write down the list of nonzero crystal field parameters in the crystal field Hamiltonian
-of a Nd<SPAN CLASS="MATH"><IMG
- WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img3.png"
- ALT="$^{3+}$"></SPAN> ion in an orthorhombic crystal field (Section&nbsp;<A HREF="node16.html#cfield">6</A> describes how such a parameter set
-enters a <I CLASS="slanted">McPhase</I> calculation).
-</LI>
-<LI>Taking a primitive orthorhombic lattice of Nd<SPAN CLASS="MATH"><IMG
- WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img3.png"
- ALT="$^{3+}$"></SPAN> ions write down the most general
-anisotropic bilinear interaction  for the nearest neighbour exchange interaction
-(Section&nbsp;<A HREF="node27.html#mcphasj">7.1.4</A> describes how such a parameters set enters a <I CLASS="slanted">McPhase calculation</I>).
-</LI>
-</UL>
-
 <P>
 
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html524"
-  HREF="node15.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html518"
-  HREF="node13.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html512"
-  HREF="node13.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html520"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html522"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node15.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node12.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node13.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html407"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html409"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html525"
-  HREF="node15.html">Intermediate Coupling</A>
-<B> Up:</B> <A NAME="tex2html519"
-  HREF="node13.html">The Hamiltonian</A>
-<B> Previous:</B> <A NAME="tex2html513"
-  HREF="node13.html">The Hamiltonian</A>
- &nbsp; <B>  <A NAME="tex2html521"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html523"
-  HREF="node152.html">Index</A></B> </DIV>
+<B> Next:</B> <A
+ HREF="node15.html">singleion - a Crystal</A>
+<B> Up:</B> <A
+ HREF="node12.html">The Hamiltonian</A>
+<B> Previous:</B> <A
+ HREF="node13.html">Rare Earth Ions</A>
+ &nbsp; <B>  <A ID="tex2html408"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html410"
+  HREF="node164.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

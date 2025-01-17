@@ -1,92 +1,488 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>About this document ...</TITLE>
-<META NAME="description" CONTENT="About this document ...">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Evaluating results - Graphical Visualisation of Spin and Charge Oscillations of Excitations</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node155.html">
 <LINK REL="previous" HREF="node153.html">
-<LINK REL="up" HREF="manual.html">
+<LINK REL="next" HREF="node155.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_g.png"> 
-<A NAME="tex2html2571"
-  HREF="manual.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2567"
-  HREF="node153.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2573"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html2575"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node155.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node151.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node153.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html1125"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html1127"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Up:</B> <A NAME="tex2html2572"
-  HREF="manual.html">McPhase USERS MANUAL</A>
-<B> Previous:</B> <A NAME="tex2html2568"
-  HREF="node153.html">Shortlist of important Commands</A>
- &nbsp; <B>  <A NAME="tex2html2574"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html2576"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node155.html">Application to Neutron scattering</A>
+<B> Up:</B> <A
+ HREF="node151.html">Dynamical Susceptibility and Excitations</A>
+<B> Previous:</B> <A
+ HREF="node153.html">Calculation of the Correlation</A>
+ &nbsp; <B>  <A ID="tex2html1126"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1128"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION000450000000000000000">
-About this document ...</A>
-</H1><SMALL CLASS="SMALL">
- </SMALL><STRONG> <BIG CLASS="XHUGE"><B><EM>McPhase</EM></B></BIG> 
+<H2><A ID="SECTION000373000000000000000"></A><A ID="visualization"></A>
 <BR>
- <BR>
-<BR>
-<BR> 
-<B>USERS MANUAL</B>
-<BR>
-  <BR>
-<BR>
-<BR>
-<BR>
-<BR>
-<BR> 
-<BR>
-<BR>
-<BR>
-<BR>
-<BR>
-<BR>
-<BR>
-<BR></STRONG><P>
-This document was generated using the
-<A HREF="http://www.latex2html.org/"><STRONG>LaTeX</STRONG>2<tt>HTML</tt></A> translator Version 2017.2 (Released Jan 23, 2017)
+Evaluating results - Graphical Visualisation of Spin and Charge Oscillations of Excitations
+</H2>
+
 <P>
-Copyright &#169; 1993, 1994, 1995, 1996,
-Nikos Drakos, 
-Computer Based Learning Unit, University of Leeds.
+In section&nbsp;<A HREF="node153.html#chiobservable">M.2</A> we showed how to calculate the dynamical susceptibility and
+the correlation function of observables by the DMD method. The eigenvalues of the generalised
+eigenvalue problem (<A HREF="node152.html#evproblem">245</A>) correspond to the excitation energies of the system at some wavevector <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.02ex; vertical-align: -0.57ex; " SRC="img1417.svg"
+ ALT="${\bf Q}$"></SPAN>.
+The eigenvectors may be used in equation (<A HREF="node153.html#Xcalc">257</A>) to calculate for each excitation
+the dynamical susceptibility.
+This may be used to visualise the time or spatial dependence
+of the observables (e.g. spins, angular moments, 
+ charge density or atom positions etc.)
+associated with such an excitation.
+
+<P>
+In linear response theory the dynamical susceptibility is derived by applying a perturbation to the
+Hamiltonian (<A HREF="node12.html#hamiltonian">5</A>) of the system, which is of the form
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\hat \mathcal H_{\rm perturb}=\sum_{n',\beta} H^{n'}_{\beta}\hat  \mathcal O^{n'}_{\beta}
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 3.00ex; vertical-align: -3.46ex; " SRC="img1509.svg"
+ ALT="$\displaystyle \hat \mathcal H_{\rm perturb}=\sum_{n',\beta} H^{n'}_{\beta}\hat \mathcal O^{n'}_{\beta}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">245</SPAN>)</SPAN>
+</DIV>
+
+<P>
+We assume a spatial and time dependent field of frequency <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img386.svg"
+ ALT="$\omega$"></SPAN> and wavevector <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.27ex; vertical-align: -0.57ex; " SRC="img289.svg"
+ ALT="$\mathbf Q$"></SPAN>
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+H^{n'}_{\beta}=H^{s'}_{\beta}
+\exp(i\mathbf Q \cdot \mathbf R_{n'}-i\omega t), \qquad \mathbf R_{n'}\equiv\ensuremath{\boldsymbol\ell}'+\mathbf b_{s'}
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 3.00ex; vertical-align: -1.01ex; " SRC="img1510.svg"
+ ALT="$\displaystyle H^{n'}_{\beta}=H^{s'}_{\beta}
+\exp(i\mathbf Q \cdot \mathbf R_{n'...
+...ga t), \qquad \mathbf R_{n'}\equiv\ensuremath{\boldsymbol\ell}'+\mathbf b_{s'}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">246</SPAN>)</SPAN>
+</DIV>
+
+<P>
+By virtue of its definition, the dynamical susceptibility describes
+the response 
+(change <!-- MATH
+ $\Delta \langle \hat \mathcal O_{\alpha} \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 5.99ex; vertical-align: -0.70ex; " SRC="img1511.svg"
+ ALT="$\Delta \langle \hat \mathcal O_{\alpha} \rangle$"></SPAN>
+ of expectation values <!-- MATH
+ $\langle \hat  \mathcal O_{\alpha}\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 5.99ex; vertical-align: -0.70ex; " SRC="img1512.svg"
+ ALT="$\langle \hat \mathcal O_{\alpha}\rangle$"></SPAN>)
+of the system in Fourier space:
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\Delta \langle \hat  \mathcal O^s_{\alpha}\rangle(\mathbf Q,\omega)=\sum_{s'\beta}X^{ss'}_{\alpha\beta}(\mathbf Q,\omega) %%@
+H^{s'}_{\beta}
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 3.38ex; vertical-align: -3.46ex; " SRC="img1513.svg"
+ ALT="$\displaystyle \Delta \langle \hat \mathcal O^s_{\alpha}\rangle(\mathbf Q,\omega)=\sum_{s'\beta}X^{ss'}_{\alpha\beta}(\mathbf Q,\omega) %%@
+H^{s'}_{\beta}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">247</SPAN>)</SPAN>
+</DIV>
+
+<P>
+The corresponding oscillation of the moments <!-- MATH
+ $\langle \hat  \mathcal O_{\alpha}\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 5.99ex; vertical-align: -0.70ex; " SRC="img1512.svg"
+ ALT="$\langle \hat \mathcal O_{\alpha}\rangle$"></SPAN> in real space and time is given by
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\Delta \langle \hat \mathcal O^{n}_{\alpha}\rangle=
+\Delta \langle \hat \mathcal O^s_{\alpha}\rangle(\mathbf Q,\omega)
+\exp(i\mathbf Q \cdot\mathbf R_{n}-i\omega t)=
+\exp(i\mathbf Q \cdot\mathbf R_{n}-i\omega t) \sum_{s'\beta}X^{ss'}_{\alpha\beta}(\mathbf Q,\omega) H^{s'}_{\beta}
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 3.00ex; vertical-align: -3.46ex; " SRC="img1514.svg"
+ ALT="$\displaystyle \Delta \langle \hat \mathcal O^{n}_{\alpha}\rangle=
+\Delta \langl...
+...\omega t) \sum_{s'\beta}X^{ss'}_{\alpha\beta}(\mathbf Q,\omega) H^{s'}_{\beta}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">248</SPAN>)</SPAN>
+</DIV>
+
+<P>
+We eliminate the sum in this equation by choosing the components of the applied field <!-- MATH
+ $H^{s'}_{\beta}=H %%@
+\delta_{1s'}\delta_{1\beta}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -1.09ex; " SRC="img1515.svg"
+ ALT="$H^{s'}_{\beta}=H %%@
+\delta_{1s'}\delta_{1\beta}$"></SPAN>. In physical terms this means that we apply an oscillating field only to
+the first component of the first subsystem (atom) in each unit cell and calculate the linear response
+of all components of all subsystems (atoms) to this applied field:
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\Delta \langle \hat \mathcal O^n_{\alpha}\rangle=
+\exp(i\mathbf Q \cdot\mathbf R_{n}-i\omega t) X^{s1}_{\alpha1}(\mathbf Q,\omega) H
+\end{equation}
+ -->
+ &nbsp;  <A ID="osc"></A><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.70ex; " SRC="img1516.svg"
+ ALT="$\displaystyle
+\Delta \langle \hat \mathcal O^n_{\alpha}\rangle=
+\exp(i\mathbf Q \cdot\mathbf R_{n}-i\omega t) X^{s1}_{\alpha1}(\mathbf Q,\omega) H
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">249</SPAN>)</SPAN>
+</DIV>
+
+<P>
+Due to the divergence of the susceptibility at the excitation (<!-- MATH
+ $\omega={\omega^r}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.12ex; " SRC="img1517.svg"
+ ALT="$\omega={\omega^r}$"></SPAN>) a small
+applied field <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img393.svg"
+ ALT="$H$"></SPAN> will induce a large oscillation amplitude of the moments, the amplitude
+of the oscillation will depend on the relation of magnitude of the applied field <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img393.svg"
+ ALT="$H$"></SPAN> and
+the rate of damping of the magnetic excitation. Therefore we set the amplitude <SPAN CLASS="MATH"><IMG
+ STYLE="height: 4.58ex; vertical-align: -0.46ex; " SRC="img1518.svg"
+ ALT="$a_1$"></SPAN> of the
+oscillation equal to <!-- MATH
+ $a_1=H/(\hbar\omega-\hbar{\omega^r})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -0.70ex; " SRC="img1519.svg"
+ ALT="$a_1=H/(\hbar\omega-\hbar{\omega^r})$"></SPAN>. Substituting this into (<A HREF="#osc">265</A>) and
+considering the susceptibility obtained from equation (<A HREF="node153.html#Xcalc">257</A>) etc. we obtain
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\Delta \langle \hat \mathcal O^n_{\alpha}\rangle=
+a_1 \exp(i\mathbf Q \cdot\mathbf R_{n}-i{\omega^r} t)
+\left (\sqrt{\Gamma^s}\right )^\ast \mathcal V^s_{\alpha1}
+{\mathcal T^{sr}}(\mathbf Q)\hbar {\omega^r} 
+ {\mathcal T^{r1\dag }}(\mathbf Q) %%@
+\mathcal V^{1\dag }_{11}\sqrt{\Gamma^{1}}
+\end{equation}
+ -->
+ &nbsp;  <A ID="oscill"></A><IMG
+ STYLE="height: 3.09ex; vertical-align: -1.63ex; " SRC="img1520.svg"
+ ALT="$\displaystyle
+\Delta \langle \hat \mathcal O^n_{\alpha}\rangle=
+a_1 \exp(i\math...
+...\mathcal T^{r1\dag }}(\mathbf Q) %%@
+\mathcal V^{1\dag }_{11}\sqrt{\Gamma^{1}}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">250</SPAN>)</SPAN>
+</DIV>
+
+<P>
+This procedure fails if <!-- MATH
+ $\mathcal T^{r1\dag }(\mathbf Q)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.70ex; " SRC="img1521.svg"
+ ALT="$\mathcal T^{r1\dag }(\mathbf Q)$"></SPAN> or
+ <!-- MATH
+ $\mathcal V^{1\dag }_{11}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.72ex; vertical-align: -0.74ex; " SRC="img1522.svg"
+ ALT="$\mathcal V^{1\dag }_{11}$"></SPAN> is zero
+which occurs when the mode <SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.12ex; " SRC="img1523.svg"
+ ALT="$r$"></SPAN> of the subsystem
+ <SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.09ex; vertical-align: -0.12ex; " SRC="img1524.svg"
+ ALT="$s=1$"></SPAN> does not change its moment <!-- MATH
+ $\langle \hat \mathcal O^1_1\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 4.58ex; vertical-align: -0.70ex; " SRC="img1525.svg"
+ ALT="$\langle \hat \mathcal O^1_1\rangle$"></SPAN>. Therefore
+it is convenient to redefine the amplitude 
+<!-- MATH
+ $a=a_1 {\mathcal T^{r1\dag }}(\mathbf Q)  \mathcal %%@
+V^{1\dag }_{11}\sqrt{\hbar {\omega^r}\Gamma^{1}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.34ex; vertical-align: -0.74ex; " SRC="img1526.svg"
+ ALT="$a=a_1 {\mathcal T^{r1\dag }}(\mathbf Q) \mathcal %%@
+V^{1\dag }_{11}\sqrt{\hbar {\omega^r}\Gamma^{1}}$"></SPAN>, giving
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\Delta \langle \hat \mathcal O^n_{\alpha}\rangle=
+a \exp(i\mathbf Q \cdot\mathbf R_{n}-i{\omega^r} t)
+\left ( \sqrt{\hbar {\omega^r}\Gamma^s}\right )^\ast
+\mathcal V^s_{\alpha1} {\mathcal T^{sr}}(\mathbf Q) \equiv
+a \exp(i\mathbf Q \cdot\mathbf R_{n}-i{\omega^r} t) {e^{s}_{\alpha}}
+\end{equation}
+ -->
+ &nbsp;  <A ID="oscillation"></A><IMG
+ STYLE="height: 2.55ex; vertical-align: -1.63ex; " SRC="img1527.svg"
+ ALT="$\displaystyle
+\Delta \langle \hat \mathcal O^n_{\alpha}\rangle=
+a \exp(i\mathbf...
+...Q) \equiv
+a \exp(i\mathbf Q \cdot\mathbf R_{n}-i{\omega^r} t) {e^{s}_{\alpha}}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">251</SPAN>)</SPAN>
+</DIV>
+
+<P>
+If the eigenvector components <!-- MATH
+ ${e^{s}_{\alpha}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.66ex; vertical-align: -0.69ex; " SRC="img1528.svg"
+ ALT="${e^{s}_{\alpha}}$"></SPAN>
+ of this oscillation are stored for each mode <!-- MATH
+ ${\omega^r}(\mathbf Q)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1529.svg"
+ ALT="${\omega^r}(\mathbf Q)$"></SPAN>, the
+ dynamic fluctuation of this observable may be visualised in space and time
+(files for the different observables are <I CLASS="slanted">mcdisp.qem, mcdisp.qel, mcdisp.qes, mcdisp.qee, ...</I>).
+In this way it is possible to produce figures and animated movies of spin or charge
+density oscillations. 
+
+<P>
+This is done  by the program <I CLASS="slanted">display_densities</I>
+(see section<A HREF="node121.html#displaydensities">17.3</A>), or step by step, by programs
+<I CLASS="slanted">spins</I> and <I CLASS="slanted">javaview</I>.
+A visualisation of the magnetic moment-oscillation can for example be created by
+ commands <I CLASS="slanted">spins -M T Ha Hb Hc h k l E</I> and <I CLASS="slanted">java javaview 
+model=results/spins.*.jvx Animation.LastKey=16</I>.
+ Note in <I CLASS="slanted">mcdisp.qem</I> the eigenvector components
+for different <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.12ex; " SRC="img1530.svg"
+ ALT="$t$"></SPAN> in <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.34ex; vertical-align: -0.70ex; " SRC="img1531.svg"
+ ALT="$s=(ijklt)$"></SPAN> 
+(refering to different single ion transitions at the same ion <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img1532.svg"
+ ALT="$ijkl$"></SPAN>)
+ are summed up.
+
+<P>
+I order to visualize a charge density the eigenvector <SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.57ex; vertical-align: -0.69ex; " SRC="img1533.svg"
+ ALT="$e^s_{r\alpha}$"></SPAN>
+ indices <!-- MATH
+ $\alpha= 1,...,28$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 69.68ex; vertical-align: -0.57ex; " SRC="img1534.svg"
+ ALT="$\alpha= 1,...,28$"></SPAN> refer to observables given by equation
+(<A HREF="node150.html#chargedensity_coefficients">221</A>) with <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1228.svg"
+ ALT="$l$"></SPAN> even, which are used
+to calculate the chargedensity according to equation (<A HREF="node150.html#chargedensity_operator2">222</A>)
+in appendix&nbsp;<A HREF="node150.html#chargedensityoperator">L</A>.
+The corresponding 
+ oscillations 
+<!-- MATH
+ $\Delta \langle \hat \mathcal O^n_{\alpha = (lm)}\rangle
+=\Delta \langle\sum_i Z_l^{m}(\Omega_i)\rangle_n =
+\Delta |p_{lm}| \theta_{l} \langle O_l^m(\mathbf J_n)\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 69.68ex; vertical-align: -1.27ex; " SRC="img1535.svg"
+ ALT="$\Delta \langle \hat \mathcal O^n_{\alpha = (lm)}\rangle
+=\Delta \langle\sum_i Z...
+...angle_n =
+\Delta \vert p_{lm}\vert \theta_{l} \langle O_l^m(\mathbf J_n)\rangle$"></SPAN>
+ can be directly inserted into
+(<A HREF="node150.html#chargedensity2">220</A>) in order to evaluate the charge density oscillations. 
+This is done by program
+<I CLASS="slanted">spins</I> with option <I CLASS="slanted">-c</I>,
+ the commands are <I CLASS="slanted">spins -c -M T Ha Hb Hc h k l E</I> and <I CLASS="slanted">java javaview 
+model=results/spins.*.jvx Animation.LastKey=16</I>. 
+Fig.&nbsp;<A HREF="#animationAF1">36</A> shows a snapshot of the result of such an 
+animation (on screen both chargedensities and spins will move).
+
+<P>
+
+<DIV class="CENTER"><A ID="dispF1"></A><A ID="8880"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 34:</STRONG>
+NdCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN> Magnetic Excitations [meV] along (<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img59.svg"
+ ALT="$h$"></SPAN>00) in the phase F1 in comparison to experimental data&nbsp;[<A
+ HREF="node163.html#rotter02-751">18</A>].</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG
+ STYLE="height: 73.37ex; vertical-align: -0.12ex; " SRC="img1536.svg"
+ ALT="\includegraphics[angle=0, width=0.6\textwidth]{figsrc/dispF1.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV class="CENTER"><A ID="8881"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 35:</STRONG>
+NdCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN> Magnetic Excitations [meV] along (<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img59.svg"
+ ALT="$h$"></SPAN>00) in the phase AF1 in comparison to experimental data&nbsp;[<A
+ HREF="node163.html#rotter02-751">18</A>].</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG
+ STYLE="height: 3.01ex; vertical-align: -0.12ex; " SRC="img1537.svg"
+ ALT="\includegraphics[angle=-0, width=0.6\textwidth]{figsrc/dispAF1.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV class="CENTER"><A ID="animationAF1"></A><A ID="8882"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 36:</STRONG>
+NdCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN> - snapshot of animation of the mode 
+at Q=(0.67 1 0) at energy 0.7&nbsp;meV in phase AF1 at 
+H=0 and T=1.5&nbsp;K [plot created by program 
+<I CLASS="slanted">display_densities</I><A ID="7408"></A>]
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG
+ STYLE="height: 3.01ex; vertical-align: -0.12ex; " SRC="img1538.svg"
+ ALT="\includegraphics[angle=-0, width=0.6\textwidth]{figsrc/animationAF1.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node155.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node151.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node153.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html1125"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html1127"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-Copyright &#169; 1997, 1998, 1999,
-<A HREF="http://www.maths.mq.edu.au/~ross/">Ross Moore</A>, 
-Mathematics Department, Macquarie University, Sydney.
-<P>
-The command line arguments were: <BR>
- <STRONG>latex2html</STRONG> <TT>-local_icons manual.tex</TT>
-<P>
-The translation was initiated on 2023-02-14
-<BR><HR>
+<B> Next:</B> <A
+ HREF="node155.html">Application to Neutron scattering</A>
+<B> Up:</B> <A
+ HREF="node151.html">Dynamical Susceptibility and Excitations</A>
+<B> Previous:</B> <A
+ HREF="node153.html">Calculation of the Correlation</A>
+ &nbsp; <B>  <A ID="tex2html1126"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1128"
+  HREF="node164.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

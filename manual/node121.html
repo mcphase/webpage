@@ -1,170 +1,362 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Fitting is an art: some general remarks</TITLE>
-<META NAME="description" CONTENT="Fitting is an art: some general remarks">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Programs display_densities - display of the superstructure and excitations</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node122.html">
 <LINK REL="previous" HREF="node120.html">
-<LINK REL="up" HREF="node114.html">
 <LINK REL="next" HREF="node122.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2114"
-  HREF="node122.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2108"
-  HREF="node114.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2104"
-  HREF="node120.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2110"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html2112"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node122.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node118.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node120.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html976"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html978"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html2115"
-  HREF="node122.html">Programs for Specific Tasks</A>
-<B> Up:</B> <A NAME="tex2html2109"
-  HREF="node114.html">Searchspace and Simannfit -</A>
-<B> Previous:</B> <A NAME="tex2html2105"
-  HREF="node120.html">Stopping a fit/parameter space</A>
- &nbsp; <B>  <A NAME="tex2html2111"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html2113"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node122.html">Program hkl, hkl2d and</A>
+<B> Up:</B> <A
+ HREF="node118.html">Programs for Graphical display</A>
+<B> Previous:</B> <A
+ HREF="node120.html">Programs display_density - display</A>
+ &nbsp; <B>  <A ID="tex2html977"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html979"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION000217000000000000000">
-Fitting is an art: some general remarks</A>
+<H2><A ID="SECTION000203000000000000000"></A><A ID="4254"></A><A ID="displaydensities"></A>
+<BR>
+Programs <I CLASS="slanted">display_densities</I>  - display of the superstructure
+and excitations
 </H2>
 
 <P>
-Fitting data is in most cases not a straightforward procedure and requires
-a lot of experience and intuition. Even the fitting of a Gaussian to some
-experimental data is sometimes difficult and the available algorithms fail,
- if the initial
-stepwidths or starting values are not chosen with some care.
-This rule holds even more for complex non linear fitting in a large
-parameter space. In many cases a simple theoretical model is used
-and it is <B>not</B> clear at the beginning if this model is able
-to describe the data at all. 
-So how can reasonable starting parameters be found ? What value
-for the statistical temperature has to be chosen ?
+The program <I CLASS="slanted">display_densities</I><A ID="4257"></A> 
+can be used simply to popout spin/exchange field configuration 
+and also to display a 3d animation of spin/moment/densities, even including a movie of
+excitations.
 
 <P>
-One possible way to attack this problem is to monitor the status of a fit
-by viewing online its quality when fitting. The value of <EM>sta</EM> which is put onto
-the screen together with the standard deviation is only a very rudimentary information.
-In most cases it is necessary to view the data which is to be fitted graphically and
-see how the calculated data matches. It is also advisable to monitor the
-standard deviation and how it changes with time. After starting the
-fit it should the be possible to judge, if stepwidths should be modified or if
-the parameter range was chosen too small or too large etc.
+
+<DIV class="CENTER"><A ID="spingraphic"></A><A ID="8540"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 25:</STRONG>
+Calculated Spin-Structure of NdCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN> at <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img21.svg"
+ ALT="$T=$"></SPAN>&nbsp;1.5&nbsp;K and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img22.svg"
+ ALT="$H=0$"></SPAN>.
+[plot created by program <I CLASS="slanted">display_densities</I><A ID="4263"></A>]</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+
+<IMG
+ STYLE="height: 84.40ex; vertical-align: -0.12ex; " SRC="img1028.svg"
+ ALT="\includegraphics[angle=0, width=1.0\textwidth]{figsrc/ndcu2b/resultss/spinsab.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
 
 <P>
-To view online the contents of a file which contains data in column format
-the program <I CLASS="slanted">display</I> can be used. To start the display<A NAME="10773"></A> of
-the file <EM>data.dat</EM> with x-axis data in column 1 and y-axis data
-in column 2 just type (java has to be installed in order to use this):
+<DL>
+<DT><STRONG> display_densities -f[c 12 0.1] mcphas.sps T Ha Hb Hc</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG> display_densities -f mcphas.sps x y</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG> display_densities -f mcphas.sps n</STRONG></DT>
+<DD>if used with -f filename this file has to be a mcphas.mf or mcphas.sps or mcphas.tst file,
+the spin configuration
+   at given temperature T[K] and magnetic effective field H[T]
+    is read and extracted from this file and printed on screen (stdout), nothing
+ else is done. Insterad of temperature and magnetic field also the x y point coordinates
+in the phasediagram or the index n (from the sequence of spin configuartions) can be given.
+the option -fc 12 0.1 displays a commented user readable information about the 12 largerst
+spin components in the primitive unit cell with absolute values larger than 0.1 (useful for
+inspection of numbers).
+</DD>
+<DT><STRONG> display_densities -tMSL -prefix 001 &nbsp; T Ha Hb Hc</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG> display_densities -tHex -prefix 001T Ha Hb Hc</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG> display_densities -tI -prefix 001T Ha Hb Hc</STRONG></DT>
+<DD>if used with -t... output to stdout a table with T Ha Hb Hc atom positions and
+for -tMSL 
+              magnetic moments <!-- MATH
+ $\langle Mx \rangle \langle My \rangle \langle Mz \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1029.svg"
+ ALT="$\langle Mx \rangle \langle My \rangle \langle Mz \rangle$"></SPAN>, orbital moments and spin 
+              of each atom in the magnetic unitc cell , for 
+       -tHex  exchange fields and for 
+       -tI    with expectation values of interaction operators <!-- MATH
+ $\langle I \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img779.svg"
+ ALT="$\langle I \rangle$"></SPAN>.
 
 <P>
-display<A NAME="10775"></A> 1 2 data.dat
+</DD>
+<DT><STRONG>display_densities -c<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
+ ALT="$\vert$"></SPAN>-s<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
+ ALT="$\vert$"></SPAN>-o<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
+ ALT="$\vert$"></SPAN>-m<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
+ ALT="$\vert$"></SPAN>-j-p i j k<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
+ ALT="$\vert$"></SPAN>-div-S<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
+ ALT="$\vert$"></SPAN>-L<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
+ ALT="$\vert$"></SPAN>-M-P-prefix 001T Ha Hb Hc [h k l E]</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>display_densities -c<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
+ ALT="$\vert$"></SPAN>-s<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
+ ALT="$\vert$"></SPAN>-o<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
+ ALT="$\vert$"></SPAN>-m<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
+ ALT="$\vert$"></SPAN>-j-p i j k<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
+ ALT="$\vert$"></SPAN>-div-S<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
+ ALT="$\vert$"></SPAN>-L<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
+ ALT="$\vert$"></SPAN>-M-P-prefix 001x y</STRONG></DT>
+<DD>if used without a filename, the information is read from results/mcphas.* res
+ults/mcdisp.*
+   output files and 3d graphical animations are created.
+</DD>
+</DL> 
+<PRE>
+   options are:
+         -c ... calculate chargedensity
+         -s ... calculate spindensity
+         -o ... calculate angular orbital momentum density
+         -m ... calculate magnetic moment density
+         -j ... calculate currentdensity
+         -p i j k ... calculate projection of spin/orbital/current/magnetic moment density
+                  along direction i j k, e.g. 0 0 1
+         -div    ... calculate divergence of spin/orbital/current/magnetic moment density
+         -S  ... show arrow indicating spin
+         -L  ... show arrow indicating orbital angular momentum
+         -M  ... show arrow indicating magnetic moment
+         -P  ... calculate phononic displacement
+         note, that in order to animate changes in the above quantities, the corresponding
+         switch has to be enabled in the mcdisp calculation (mcdisp.par) and the single ion
+         modules have to be capable of calculating the corresponding observables.
+ 
+         -prefix 001 ... use input file(s) results/001mc* instead of results/mc*
+ 
+   examples:
+        display_densities -c 2 0 0 1
+        ...calculates the charge density at T=2K and H=(0,0,1) Tesla
+        display_densities  -tI 2 0 0 1 
+        ... outputs a table with atomic positions and expectations values &lt;I&gt;
+</PRE>
 
 <P>
-In order to send this data display<A NAME="10776"></A> to the background type under Linux:
+
+<DIV class="CENTER"><A ID="chargegraphic"></A><A ID="8541"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 26:</STRONG>
+Calculated 4f Charge-Structure of NdCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN> at <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img21.svg"
+ ALT="$T=$"></SPAN>&nbsp;1.5&nbsp;K and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img22.svg"
+ ALT="$H=0$"></SPAN>.
+[plot created by program <I CLASS="slanted">display_densities</I><A ID="4276"></A>]</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+
+<IMG
+ STYLE="height: 59.15ex; vertical-align: -0.12ex; " SRC="img1030.svg"
+ ALT="\includegraphics[angle=0, width=0.7\textwidth]{figsrc/ndcu2b/resultss/chargesab.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
 
 <P>
-display<A NAME="10777"></A> 1 2 data.dat &amp;
+The program can be used to calculate (partial) chargedensity for the unfilled shells
+ of magnetic ions in  a magnetic unit cell, which has been calculated by <I CLASS="slanted">mcphas</I> and
+ stored in <I CLASS="slanted">mcphas.mf</I> for a specific temperature and magnetic field.
+   For the calculation of the charge density the  formula are used as given in
+appendix&nbsp;<A HREF="node150.html#chargedensityoperator">L</A>. 
+In order to do so <I CLASS="slanted">display_densities</I><A ID="4283"></A>  requires input files and the result of a
+full <I CLASS="slanted">mcphas</I> simulation.
+Alternatively, <I CLASS="slanted">display_densities</I><A ID="4286"></A>
+can  calculate the spindensity, the orbital magnetic moment density, the total magnetic
+moment density (in Trammel gauge) and the (orbital) electric current density.
 
 <P>
-and under windows:
+The program outputs a magnetic structure (and magnetic excitation)
+  graphic/movie in the output files of different format:
+  results/spins*.eps (postscript), results/spins*.fst (fp_studio),
+  results/spins.out (ascii) and results/spins*.jvx (javaview).
 
 <P>
-start display<A NAME="10778"></A> 1 2 data.dat
+Output files:
 
-<P>
-<BR>
-<BR>
-<BR>
-<EM>Exercises:</EM>
-
-<UL>
-<LI>Start the fit example given for the fitting of the magnetic 
-excitations of CeCu<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN> in <I CLASS="slanted">mcphas/examples/cecu2a/fit</I>.
-First copy the file <I CLASS="slanted">mcphas.jjj.sav</I> to <I CLASS="slanted">mcphas.jjj</I>
-Then start the fit by typing <I CLASS="slanted">simannfit 10 mcphas.jjj</I>.
+<OL>
+<LI>encapsulated postscript ps-file <I CLASS="slanted">results/spins*.eps</I>
+                  of a spin/orbital/totalmagnetic moment configuration, 
 </LI>
-<LI>Stop the fit by editing <I CLASS="slanted">calcsta</I> as described above.
+<LI>the files <I CLASS="slanted">results/spins.fst</I> and <I CLASS="slanted">results/spins_prim.fst</I> are created, 
+                which can be read by the fullprof program <I CLASS="slanted">fp_studio</I>
+                for on screen display<A ID="4292"></A> of a spin/orbital/totalmagnetic moment configuration,
 </LI>
-<LI>Copy <I CLASS="slanted">mcphas.jjj.fit</I> to <I CLASS="slanted">mcphas.jjj</I>  and type
-<I CLASS="slanted">calcsta</I>. What is the standard-deviation ? 
+<LI>the configuration of expectation values <!-- MATH
+ $\langle\mathbf I\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1031.svg"
+ ALT="$\langle\mathbf I\rangle$"></SPAN> (or whatever is stored in the file addressed by the option -f)
+                 is printed to stdout - therefore this program can be used with option <I CLASS="slanted">-f results/mcphas.mf</I> 
+			       to generate an input file
+			       for program <I CLASS="slanted">McDisp</I> (example: <I CLASS="slanted">spins -f results/mcphas.mf 1 1 0 0  <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.57ex; vertical-align: -0.21ex; " SRC="img130.svg"
+ ALT="$&gt;$"></SPAN> mcdisp.mf</I>)  
 </LI>
-<LI>In order to fit  crystal field parameters to transition
-energies of neutron intensities write a module
-<I CLASS="slanted">calcsta</I> for CeCu<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN> which uses only the program
-cfield to calculate the transition matrix elements
-and compare them to experimental data.
-The section&nbsp;<A HREF="node122.html#addprog">19</A> contains some further programs which
-might help. 
+<LI>the text file <I CLASS="slanted">results/spins.out</I> is created, which is useful to produce input files for
+              the diffraction program <I CLASS="slanted">mcdiff<A ID="4297"></A></I> (done in the script <I CLASS="slanted">setup_mcdiff_in</I>)
 </LI>
-</UL>
+<LI>the graphics files <I CLASS="slanted">results/spins.jvx</I> and <I CLASS="slanted">results/spins_prim.jvx</I>, which can be displayed
+         by the program <I CLASS="slanted">javaview</I>, e.g. by the command <I CLASS="slanted">java javaview spin_prim.jvx</I>.
+</LI>
+<LI>if <I CLASS="slanted">spins</I> is used with arguments <I CLASS="slanted">h k l E(meV)</I>, it takes the eigenvectors of magnetic 
+excitations
+        from files <I CLASS="slanted">results/mcdisp.q*</I>  created by <I CLASS="slanted">mcdisp</I>) and produces a graphical
+        animation of the spin osciallation which is associated with this magnetic mode. The output is a series
+        of files <I CLASS="slanted">results/spins.*.jvx</I> and <I CLASS="slanted">results/spins_prim.*.jvx</I> which can be viewed by program
+        <I CLASS="slanted">javaview</I>, e.g. by the command <I CLASS="slanted">java javaview "model=results/spins_prim.*.jvx" 
+        Animation.LastKey=16 background="255 255 255"</I>.  <I CLASS="slanted">javaview</I> is also able to produce a sequence
+		of gif files (press c in the animation window), which can then be processed by an animation editor
+		to generate an animation, which can be inserted in presentations. For example, you can use
+ <I CLASS="slanted">Imagemagick</I> graphics package (has to be installed separately!)
+        to create an animation. The following command will issue a proper gif animation, which you can include in 
+           power point        
+        presentations etc.: <I CLASS="slanted">convert -delay 1 -size 100x100 -loop 1 geomAnim.*.gif output.gif</I>.
+ 
+</LI>
+</OL>
 
 <P>
+Note, in case of non-orthogonal axes the convention 
+                           for applied field <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img172.svg"
+ ALT="$Ha, Hb, Hc$"></SPAN> 
+                            is <SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img246.svg"
+ ALT="$Hb\vert\vert\vec b$"></SPAN>, <!-- MATH
+ $Hc||(\vec a \times \vec b)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img247.svg"
+ ALT="$Hc\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img176.svg"
+ ALT="$Ha$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img177.svg"
+ ALT="$Hb$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img178.svg"
+ ALT="$Hc$"></SPAN>.
+
+<P>
+The graphics output format can be fine tuned in <I CLASS="slanted">results/graphic_parameters.set</I> 
+  by  <I CLASS="slanted">spins_scale_moment</I>,
+<I CLASS="slanted">show_abc_unitcell, show_primitive_crystal_unitcell, show_magnetic_unitcell, show_atoms, 
+scale_view_1,
+scale_view_2, scale_view_3</I>,  
+<I CLASS="slanted">spins_wave_amplitude, spins_show_ellipses, spins_show_direction_of_static_moment</I>.
+<I CLASS="slanted">show_abc_unitcell, show_primitive_crystal_unitcell, show_magnetic_unitcell, show_atoms, show_density</I>...
+
+<P>
+Technical information: the program <I CLASS="slanted">display_densities</I><A ID="4321"></A> 
+is actually a script which
+calls  <I CLASS="slanted">spins<A ID="4322"></A></I> 
+ (a program with the same arguments as <I CLASS="slanted">display_densities</I>
+which calculates the iso surfaces and stores
+it in format for the java based graphic program <I CLASS="slanted">javaview</I> and
+also as a grid. The way in which this is done is controlled by 
+the parameter file <I CLASS="slanted">results/graphic_parameters.set</I>
+.... in  order to display the results graphically the following java
+programs are called:
+<PRE>
+  java javaview results/spins.jvx
+  java javaview "model=results/spins.*.jvx" Animation.LastKey=16 background="255 255 255"
+</PRE>
 
 <P>
 
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html2114"
-  HREF="node122.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2108"
-  HREF="node114.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2104"
-  HREF="node120.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2110"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html2112"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node122.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node118.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node120.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html976"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html978"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html2115"
-  HREF="node122.html">Programs for Specific Tasks</A>
-<B> Up:</B> <A NAME="tex2html2109"
-  HREF="node114.html">Searchspace and Simannfit -</A>
-<B> Previous:</B> <A NAME="tex2html2105"
-  HREF="node120.html">Stopping a fit/parameter space</A>
- &nbsp; <B>  <A NAME="tex2html2111"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html2113"
-  HREF="node152.html">Index</A></B> </DIV>
+<B> Next:</B> <A
+ HREF="node122.html">Program hkl, hkl2d and</A>
+<B> Up:</B> <A
+ HREF="node118.html">Programs for Graphical display</A>
+<B> Previous:</B> <A
+ HREF="node120.html">Programs display_density - display</A>
+ &nbsp; <B>  <A ID="tex2html977"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html979"
+  HREF="node164.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

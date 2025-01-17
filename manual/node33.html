@@ -1,68 +1,138 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>subdirectory ./results - directory where calculated data is stored</TITLE>
-<META NAME="description" CONTENT="subdirectory ./results - directory where calculated data is stored">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>subdirectory ./fit - experimental data for fit (optional) </TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node34.html">
 <LINK REL="previous" HREF="node32.html">
-<LINK REL="up" HREF="node23.html">
 <LINK REL="next" HREF="node34.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html817"
-  HREF="node34.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html811"
-  HREF="node23.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html805"
-  HREF="node32.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html813"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html815"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node34.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node22.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node32.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html516"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html518"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html818"
-  HREF="node34.html">subdirectory ./fit - experimental</A>
-<B> Up:</B> <A NAME="tex2html812"
-  HREF="node23.html">Input Files</A>
-<B> Previous:</B> <A NAME="tex2html806"
-  HREF="node32.html">Example mcphas.tst file for</A>
- &nbsp; <B>  <A NAME="tex2html814"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html816"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node34.html">Starting a simulation</A>
+<B> Up:</B> <A
+ HREF="node22.html">Input Files</A>
+<B> Previous:</B> <A
+ HREF="node32.html">subdirectory ./results - directory</A>
+ &nbsp; <B>  <A ID="tex2html517"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html519"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION0001011000000000000000">
-subdirectory <I CLASS="slanted">./results</I> - directory where calculated data is stored</A>
-</H3>
+<H3><A ID="SECTION0001011100000000000000">
+subdirectory <I CLASS="slanted">./fit</I> - experimental data for fit (optional) </A>
+</H3> 
 
 <P>
-In order to be able to save the results of a calculation the directory <I CLASS="slanted">./results</I> has to
-exist. Mind that all files in this directory will be overwritten without warning. 
+In order that <I CLASS="slanted">McPhase</I> can calculate the standard deviation between
+ experimental data and the results of the simulation, some experimental data
+ can be given in the subdirectory <I CLASS="slanted">./fit</I>. The filenames and the data-format
+ are the same as the output files of <I CLASS="slanted">McPhas</I>, e.g. <I CLASS="slanted">mcphas.fum</I>, <I CLASS="slanted">mcphas.hkl</I>
+ etc. <I CLASS="slanted">McPhase</I> looks into the directory <I CLASS="slanted">./fit</I> and if it finds any
+ of these files, the standard deviation is increased correspondingly. 
 
 <P>
-<BR><HR>
+What measurement data can be used to calculate a standard deviation ?
+
+<P>
+<DL>
+<DT><STRONG><I CLASS="slanted">mcphas.fum</I></STRONG></DT>
+<DD>if given in column 8,9,10,.. in <I CLASS="slanted">./fit/mcphas.fum</I> the
+            free energy <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img136.svg"
+ ALT="$f$"></SPAN>, the energy <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img230.svg"
+ ALT="$u$"></SPAN>, the magnetisation and the strain is used for calculation
+	    of the standard deviation sta. The standard deviation is calculated
+	    as <!-- MATH
+ ${\rm sta}=\sum_{\rm data points i} ({m}_i^{calc}-{m}_i^{meas})^2/({\Delta m}_i^{meas})^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.21ex; vertical-align: -1.13ex; " SRC="img231.svg"
+ ALT="${\rm sta}=\sum_{\rm data points i} ({m}_i^{calc}-{m}_i^{meas})^2/({\Delta m}_i^{meas})^2$"></SPAN>.
+	    A measured quantity is used for fitting only, if the experimental error <!-- MATH
+ ${\Delta m}_i^{meas}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.51ex; vertical-align: -0.69ex; " SRC="img232.svg"
+ ALT="${\Delta m}_i^{meas}$"></SPAN> is given
+            after the number <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.37ex; vertical-align: -0.72ex; " SRC="img233.svg"
+ ALT="${m}_i^{meas}$"></SPAN> in the file <I CLASS="slanted">./fit/mcphas.fum</I> 
+            using the notation: <PRE> 3.24+-0.2
+</PRE>
+
+<P>
+</DD>
+</DL>
+
+<P>
+Note that the measured data has to be given in those (H-T) points which are 
+calculated by mcphas<A ID="894"></A> in order to be used by the program to increase <I CLASS="slanted">sta</I>.
+It is usually most effective to fit only few data points, because a large set
+of data points will not improve the quality of the fit and only require a large
+amount of calculation time.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node34.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node22.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node32.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html516"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html518"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node34.html">Starting a simulation</A>
+<B> Up:</B> <A
+ HREF="node22.html">Input Files</A>
+<B> Previous:</B> <A
+ HREF="node32.html">subdirectory ./results - directory</A>
+ &nbsp; <B>  <A ID="tex2html517"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html519"
+  HREF="node164.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

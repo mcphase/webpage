@@ -1,94 +1,80 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>External module function dchargedensity_coeff1 - used by mcdisp</TITLE>
-<META NAME="description" CONTENT="External module function dchargedensity_coeff1 - used by mcdisp">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>External module function LMcalc - used by singleion </TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node94.html">
 <LINK REL="previous" HREF="node92.html">
-<LINK REL="up" HREF="node80.html">
 <LINK REL="next" HREF="node94.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1711"
-  HREF="node94.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1705"
-  HREF="node80.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1699"
-  HREF="node92.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1707"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1709"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node94.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node88.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node92.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html852"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html854"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1712"
-  HREF="node94.html">External module function spindensity_coeff</A>
-<B> Up:</B> <A NAME="tex2html1706"
-  HREF="node80.html">Module Functions for Observables</A>
-<B> Previous:</B> <A NAME="tex2html1700"
-  HREF="node92.html">External module function chargedensity_coeff</A>
- &nbsp; <B>  <A NAME="tex2html1708"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1710"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node94.html">External module function dL1</A>
+<B> Up:</B> <A
+ HREF="node88.html">Module Functions for Observables</A>
+<B> Previous:</B> <A
+ HREF="node92.html">External module function Lcalc</A>
+ &nbsp; <B>  <A ID="tex2html853"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html855"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION0001721300000000000000"></A><A NAME="7253"></A>
+<H3><A ID="SECTION000172500000000000000"></A><A ID="3467"></A>
 <BR>
-External module function <I CLASS="slanted">dchargedensity_coeff1</I> - used by <I CLASS="slanted">mcdisp</I>
+External module function <I CLASS="slanted">LMcalc</I> - used by 
+<I CLASS="slanted">singleion</I> 
 </H3>
 
 <P>
-In order to visualize charge density  fluctuations 
- the external single ion module has to provide the transition
-matrix elements of the chargedensity coefficient operator <!-- MATH
- $\sum_i \hat Z_{lm}(\Omega_i)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="85" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img793.png"
- ALT="$\sum_i \hat Z_{lm}(\Omega_i)$"></SPAN> by a
-vector <SPAN CLASS="MATH"><IMG
- WIDTH="27" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img794.png"
- ALT="$cd1$"></SPAN>, which is given by:
- <!-- MATH
- ${\rm cd1}^s_{\alpha=lm}=\sqrt{(p_- -p_+)}\langle -|\sum_i \hat  Z^s_{lm}(\Omega_i)-\langle \sum_i\hat  Z^s_{lm}(\Omega_i)\rangle_{\mathbf H,T}|+\rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="435" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img795.png"
- ALT="${\rm cd1}^s_{\alpha=lm}=\sqrt{(p_--p_+)}\langle -\vert\sum_i \hat Z^s_{lm}(\Omega_i)-\langle \sum_i\hat Z^s_{lm}(\Omega_i)\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>. 
+This function is optional and intended to accellerate <I CLASS="slanted">singleion</I> by vectorizing the temperature and
+thus save computation resources when using the option <I CLASS="slanted">-Tsteps</I>. It has the same parameters as 
+<I CLASS="slanted">Lcalc</I> with the following modifications:
 
 <P>
-The format to be used is:
-<SMALL CLASS="FOOTNOTESIZE">
-</SMALL><PRE>
-extern "C" int dchargedensity_ceoff1(int &amp; tn,double &amp; T,Vector &amp; Hxc,Vector &amp; Hext,double * g_J,Vector &amp; MODPAR,
-char ** sipffilename,ComplexVector &amp; cd1,float &amp; maxE, ComplexMatrix &amp; est)
-</PRE>
-The meaning of the symbols follows exactly that of function 
-<I CLASS="slanted">dm1</I> and therefore not explained here.
+
+<OL>
+<LI><I CLASS="slanted">double <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.31ex; vertical-align: -0.12ex; " SRC="img833.svg"
+ ALT="$\ast$"></SPAN> T</I> is replaced by <I CLASS="slanted">Vector &amp; T</I> containing the temperatures for which 
+the calculation is to be done.
+</LI>
+<LI><I CLASS="slanted">Vector &amp; m </I> is replaced by <I CLASS="slanted">Matrix &amp; L</I> which should be filled with column
+vectors containing the  angular momentum <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img852.svg"
+ ALT="$\mathbf L$"></SPAN>. Each column corresponds to a temperature given as input<I CLASS="slanted">Vector &amp; T</I>.
+ 
+</LI>
+</OL>
 
 <P>
 <BR><HR>

@@ -1,86 +1,224 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>External module function Lcalc - used by mcdiff and mcphas </TITLE>
-<META NAME="description" CONTENT="External module function Lcalc - used by mcdiff and mcphas ">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>External module function Icalc - used by mcphas, singleion </TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node84.html">
 <LINK REL="previous" HREF="node82.html">
-<LINK REL="up" HREF="node80.html">
 <LINK REL="next" HREF="node84.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1571"
-  HREF="node84.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1565"
-  HREF="node80.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1559"
-  HREF="node82.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1567"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1569"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node84.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node82.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node82.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html791"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html793"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1572"
-  HREF="node84.html">External module function dL1</A>
-<B> Up:</B> <A NAME="tex2html1566"
-  HREF="node80.html">Module Functions for Observables</A>
-<B> Previous:</B> <A NAME="tex2html1560"
-  HREF="node82.html">External module function dm1</A>
- &nbsp; <B>  <A NAME="tex2html1568"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1570"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node84.html">External module function IMcalc</A>
+<B> Up:</B> <A
+ HREF="node82.html">Basic Module Functions</A>
+<B> Previous:</B> <A
+ HREF="node82.html">Basic Module Functions</A>
+ &nbsp; <B>  <A ID="tex2html792"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html794"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION000172300000000000000"></A><A NAME="7062"></A><A NAME="7064"></A>
+<H3><A ID="SECTION000171100000000000000"></A><A ID="3282"></A>
 <BR>
-External module function <I CLASS="slanted">Lcalc</I> - used by <I CLASS="slanted">mcdiff</I>
-and <I CLASS="slanted">mcphas</I>  
+External module function <I CLASS="slanted">Icalc</I> - used by <I CLASS="slanted">mcphas</I>,
+<I CLASS="slanted">singleion</I> 
 </H3>
 
 <P>
-In order to calculate the angular momentum <!-- MATH
- $\langle \hat \mathbf L \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="27" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img718.png"
- ALT="$\langle \hat \mathbf L\rangle$"></SPAN>
+In order to run <I CLASS="slanted">mcphas</I>,<I CLASS="slanted">singleion<A ID="3284"></A></I>
  the following function has to be present in the module file <I CLASS="slanted">*.so</I>:
 
 <P>
 <PRE>
-extern "C" void Lcalc(Vector &amp; L,double * T, Vector &amp; Hxc, Vector &amp; Hext,
+extern "C" void Icalc(Vector &amp; I,double * T, Vector &amp; Hxc, Vector &amp; Hext,
                       double * gJ, Vector &amp; MODPAR,
-                      char ** sipffilename, ComplexMatrix &amp; Icalc_parstorage);
+                      char ** sipffilename, double * lnZ,double * U,
+                      ComplexMatrix &amp; Icalc_parstorage);
 </PRE>
 
 <P>
-it works exactly as <I CLASS="slanted">mcalc</I>, therefore we do not give more details here.
+Note for windows users with MINGW the declaration should be <I CLASS="slanted">extern "C" __declspec(dllexport) void Icalc(...)</I>.
 
 <P>
-<BR><HR>
+The meaning of the symbols is as follows:
+<SPAN CLASS="FOOTNOTESIZE">
+</SPAN><PRE>
+  on input
+    T           temperature[K]
+    Hxc         vector of exchange field [meV] (n-dimensional, for a set of n operators I)
+    Hext        external magnetic field [T] (3 components)
+    gJ          Lande factor as read from sipf file
+    MODPAR      Vector with Parameters  read from single ion property file
+    sipffilename    file name of the single ion parameter file
+    Icalc_parstorage parameter matrix (initialized by Icalc_parameter_storage_matrix_init)
+                   it should/may contain any information, e.g. population numbers of the
+                   states (imaginary part of row 0)
+                   and eigenvalues (real part of row 0) with values set by the most recent call
+                   for this ion (use of this matrix is optional, it is provided to save time by
+                   storing here information instead of recalculating it for every call of Icalc)
+  on output    
+    I           thermal expectation value of operator &lt;I&gt; (n- dimensional with n&gt;=1,
+                may be an arbitrary set of operators,
+    lnZ         natural logarithm of single ion partition function
+    U           single ion magnetic energy [meV]
+    Icalc_parstorage     parameter matrix matrix (optional)
+                   it should/may contain any information for the next call of Icalc, e.g.
+                   population numbers of the states (imaginary part of row 0)
+                   and eigenvalues (real part of row 0) ...
+</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+The module function must perform the following tasks:
+
+<OL>
+<LI>check if the dimensions of vectors <!-- MATH
+ ${\hat \mathbf I}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.43ex; vertical-align: -0.12ex; " SRC="img823.svg"
+ ALT="${\hat \mathbf I}$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img187.svg"
+ ALT="${\mathbf H}$"></SPAN>xc 
+(taken by <I CLASS="slanted">mcphas</I> from the number of 
+interaction constant columns in <I CLASS="slanted">mcphas.j<A ID="3295"></A></I>)
+ and MODPAR (taken by <I CLASS="slanted">mcphas</I> from the number of params in the single ion property
+file) agree with the module specifications. Note a module may be designed to 
+take different dimensions depending on the input files, however the dimensions
+of vectors  <!-- MATH
+ ${\hat \mathbf I}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.43ex; vertical-align: -0.12ex; " SRC="img823.svg"
+ ALT="${\hat \mathbf I}$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img187.svg"
+ ALT="${\mathbf H}$"></SPAN>xc  has to agree and must be within the 
+range of dimensions which
+can be treated by the module. If the check fails the module function should exit the
+program with an appropriate error message
+</LI>
+<LI>the module should calculate from external field <!-- MATH
+ $\mathbf H_{ext}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.46ex; " SRC="img824.svg"
+ ALT="$\mathbf H_{ext}$"></SPAN> at a given temperature the 
+thermal expectation values of the operators <!-- MATH
+ $\langle\hat I_a\rangle, \langle\hat  I_b\rangle,\langle\hat  I_c\rangle etc$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img825.svg"
+ ALT="$\langle\hat I_a\rangle, \langle\hat I_b\rangle,\langle\hat I_c\rangle etc$"></SPAN> 
+and return them as
+a vector <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img826.svg"
+ ALT="$\mathbf I$"></SPAN>. Input file parameters params are supplied as a vector MODPAR and
+Lande factor as gJ and  can be used for this purpose. The Hamiltonian
+is usually assumed to be of the general form
+ <!-- MATH
+ $\hat H=\hat H_0- \hat \mathbf M \mathbf H_{ext} - \hat I_a {\rm Hxc}(1) - \hat I_b {\rm Hxc}(2) -\hat I_c {\rm Hxc}(3)
+-\hat I_d {\rm Hxc}(4) ...$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img827.svg"
+ ALT="$\hat H=\hat H_0- \hat \mathbf M \mathbf H_{ext} - \hat I_a {\rm Hxc}(1) - \hat I_b {\rm Hxc}(2) -\hat I_c {\rm Hxc}(3)
+-\hat I_d {\rm Hxc}(4) ...$"></SPAN>.
+</LI>
+<LI>the natural logarithm of the partition sum Z should be calculated and returned as lnZ,
+<!-- MATH
+ $Z=\sum_i e^{-\epsilon_i/kT}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.98ex; vertical-align: -0.81ex; " SRC="img828.svg"
+ ALT="$Z=\sum_i e^{-\epsilon_i/kT}$"></SPAN>
+</LI>
+<LI>the magnetic energy U should be calculated and returned as U, <!-- MATH
+ $U=\sum_i p_i=\sum_i \epsilon_i e^{-\epsilon_i/kT}/Z$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.98ex; vertical-align: -0.81ex; " SRC="img829.svg"
+ ALT="$U=\sum_i p_i=\sum_i \epsilon_i e^{-\epsilon_i/kT}/Z$"></SPAN>
+</LI>
+<LI>if <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.90ex; vertical-align: -0.21ex; " SRC="img830.svg"
+ ALT="$T&lt;0$"></SPAN> all quantities should be evaluated assuming that all Boltzmann probabilities <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img139.svg"
+ ALT="$p_i$"></SPAN>
+ are zero except for the state number <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img831.svg"
+ ALT="$n=(-T)$"></SPAN>, for which the probability <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img832.svg"
+ ALT="$p_n=1$"></SPAN>.
+</LI>
+</OL>
+
+<P>
+... as an example the anisotropic doublet function is given as a
+loadable module in the file <I CLASS="slanted">./examples/cecu2a/1ion_mod/kramer.c</I>, in the same
+directory a Makefile is given in order to show how this loadable
+module is compiled (for details see appendix&nbsp;<A HREF="node137.html#kramers">A</A>).
+
+<P>
+Another more complicated example, the calculation of the magnetisation
+in a tetragonal quasi-quartet system is given in Appendix&nbsp;<A HREF="node139.html#dyni2b2c">C</A>.
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node84.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node82.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node82.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html791"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html793"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node84.html">External module function IMcalc</A>
+<B> Up:</B> <A
+ HREF="node82.html">Basic Module Functions</A>
+<B> Previous:</B> <A
+ HREF="node82.html">Basic Module Functions</A>
+ &nbsp; <B>  <A ID="tex2html792"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html794"
+  HREF="node164.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

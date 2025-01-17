@@ -1,85 +1,80 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>External module function pcalc - used by mcdiff and mcphas </TITLE>
-<META NAME="description" CONTENT="External module function pcalc - used by mcdiff and mcphas ">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>External module function mMcalc - used by singleion </TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node91.html">
 <LINK REL="previous" HREF="node89.html">
-<LINK REL="up" HREF="node80.html">
 <LINK REL="next" HREF="node91.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1669"
-  HREF="node91.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1663"
-  HREF="node80.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1657"
-  HREF="node89.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1665"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1667"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node91.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node88.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node89.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html840"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html842"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1670"
-  HREF="node91.html">External module function dP1</A>
-<B> Up:</B> <A NAME="tex2html1664"
-  HREF="node80.html">Module Functions for Observables</A>
-<B> Previous:</B> <A NAME="tex2html1658"
-  HREF="node89.html">External module functions drixs1</A>
- &nbsp; <B>  <A NAME="tex2html1666"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1668"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node91.html">External module function dm1</A>
+<B> Up:</B> <A
+ HREF="node88.html">Module Functions for Observables</A>
+<B> Previous:</B> <A
+ HREF="node89.html">External module function mcalc</A>
+ &nbsp; <B>  <A ID="tex2html841"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html843"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION0001721000000000000000"></A><A NAME="7198"></A><A NAME="7200"></A>
+<H3><A ID="SECTION000172200000000000000"></A><A ID="3423"></A>
 <BR>
-External module function <I CLASS="slanted">pcalc</I> - used by <I CLASS="slanted">mcdiff</I>
-and <I CLASS="slanted">mcphas</I>  
+External module function <I CLASS="slanted">mMcalc</I> - used by 
+<I CLASS="slanted">singleion</I> 
 </H3>
 
 <P>
-In order to calculate the position  <!-- MATH
- $\langle \hat \mathbf P \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="29" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img725.png"
- ALT="$\langle \hat \mathbf P\rangle$"></SPAN>
- the following function has to be present in the module file <I CLASS="slanted">*.so</I>:
+This function is optional and intended to accellerate <I CLASS="slanted">singleion</I> by vectorizing the temperature and
+thus save computation resources when using the option <I CLASS="slanted">-Tsteps</I>. It has the same parameters as 
+<I CLASS="slanted">mcalc</I> with the following modifications:
 
 <P>
-<PRE>
-extern "C" void pcalc(Vector &amp; P,double * T, Vector &amp; Fxc, Vector &amp; Hext,
-                      double * gJ, Vector &amp; MODPAR,
-                      char ** sipffilename, ComplexMatrix &amp; Icalc_parstorage);
-</PRE>
 
-<P>
-It returns the position vector <I CLASS="slanted">P</I> of an Einstein oscillator in units of
-&#197; under the action of a Force <I CLASS="slanted">Fxc</I> in units of meV.
-For the rest it works exactly as <I CLASS="slanted">mcalc</I>, therefore we do not give more details here.
+<OL>
+<LI><I CLASS="slanted">double <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.31ex; vertical-align: -0.12ex; " SRC="img833.svg"
+ ALT="$\ast$"></SPAN> T</I> is replaced by <I CLASS="slanted">Vector &amp; T</I> containing the temperatures for which 
+the calculation is to be done.
+</LI>
+<LI><I CLASS="slanted">Vector &amp; m </I> is replaced by <I CLASS="slanted">Matrix &amp; m</I> which should be filled with column
+vectors containing the  magnetic moments <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.26ex; vertical-align: -0.12ex; " SRC="img846.svg"
+ ALT="$\mathbf m$"></SPAN>. Each column corresponds to a temperature given as input<I CLASS="slanted">Vector &amp; T</I>.
+ 
+</LI>
+</OL>
 
 <P>
 <BR><HR>

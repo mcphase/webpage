@@ -1,204 +1,1299 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Forward Rotation Matrices</TITLE>
-<META NAME="description" CONTENT="Forward Rotation Matrices">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Programs for Specific Tasks in the World of McPhase</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node135.html">
-<LINK REL="previous" HREF="node133.html">
-<LINK REL="up" HREF="node133.html">
+<LINK REL="previous" HREF="node125.html">
 <LINK REL="next" HREF="node135.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2298"
-  HREF="node135.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2292"
-  HREF="node133.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2286"
-  HREF="node133.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2294"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html2296"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node135.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node133.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html1036"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html1038"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html2299"
-  HREF="node135.html">Reverse Rotation Matrices</A>
-<B> Up:</B> <A NAME="tex2html2293"
-  HREF="node133.html">Transforming Crystal Field Parameters</A>
-<B> Previous:</B> <A NAME="tex2html2287"
-  HREF="node133.html">Transforming Crystal Field Parameters</A>
- &nbsp; <B>  <A NAME="tex2html2295"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html2297"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node135.html">Programs for Manipulation of</A>
+<B> Up:</B> <A
+ HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A
+ HREF="node133.html">Crystal Field Example: Fitting</A>
+ &nbsp; <B>  <A ID="tex2html1037"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1039"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION000330100000000000000"></A> <A NAME="ap-cf2mcphMat"></A>
+<H1><A ID="SECTION000220000000000000000"></A><A ID="addprog"></A>
 <BR>
-Forward Rotation Matrices
-</H3>
+Programs for Specific Tasks in the World of McPhase
+</H1>
 
 <P>
-These matrices rotate a set of crystal field parameters (or Stevens operators) by 
+This section  contains some further programs which do some important manipulations
+in magnetism, ...
+<DL>
+<DT><STRONG><I CLASS="slanted">addj<A ID="4587"></A> 
+file1.j file2.j:</STRONG></DT>
+<DD>adds exchange parameters of file2.j to the parameters in
+file1.j - output is written to stdout, if file2.j is not given, a copy of the input file is saved 
+</I>
+<P>
+<DL>
+<DT><STRONG>Option: -nofcomponents 23</STRONG></DT>
+<DD>fixes the nofcomponents to 23 by 
+                         reducing (removing entries) or increasing (by filling with zeroes) 
+                         the exchange parameter tables
+</DD>
+<DT><STRONG>Option:            -ni</STRONG></DT>
+<DD>forces output without indexchange 
+</DD>
+</DL><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">anisotropy:</STRONG></DT>
+<DD> program to calculate the magnetic anistropy
+by doing a mcphas or
+               single ion calculation for different external magnetic field
+               directions and evaluating the expectation value of the magnetic 
+               moment.
+</I></I><PRE>
+     usage: anisotropy -h
+           anisotropy  T H xn yn zn nofsteps [-r sipffilename Hxc1 Hxc2 ... Hxcnofcomponents]
+           anisotropy  T H -p nofthetasteps [-r sipffilename Hxc1 Hxc2 ... Hxcnofcomponents]
+
+     -h           : this (help) message
+      T           : temperature in Kelvin
+      H           : absolute value of the external magnetic field (T)
+      xn,yn,zn    : direction normal to plane, in which the anisotropy
+                    should be calculated ... e.g. if you want to
+                    calculate the anisotropy in the xy plane, then
+                    enter xn yn zn = 0 0 1
+      nofsteps    : number of steps to be calculated 
+     -p           : calculate polycrystal average
+      nofthetastepssteps    : number of theta steps to be calculated for polycrystal average
+
+    option:
+    -r sipffilename: filename of single ion parameter file
+                      Hxc1,Hxc2,... are the exchange field components (meV)
+                     (exchange field is kept constant, external magnetic
+                     field is rotated in the anisotropy calculation)
+
+    output files:
+
+    ./results/anisotropy.out  contains anisotropy information
+</PRE><I CLASS="slanted"></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">cfsplit:</STRONG></DT>
+<DD> Calculates via group theory, the multiplicity of crystal field split levels 
+for particular point symmetries. The command is: "<I CLASS="slanted">cfsplit <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1056.svg"
+ ALT="$\langle$"></SPAN>PTGP<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1057.svg"
+ ALT="$\rangle$"></SPAN> <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1056.svg"
+ ALT="$\langle$"></SPAN>J<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1057.svg"
+ ALT="$\rangle$"></SPAN></I>"
+where <I CLASS="slanted"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1056.svg"
+ ALT="$\langle$"></SPAN>PTGP<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1057.svg"
+ ALT="$\rangle$"></SPAN></I> is the name of the point group (both Hermman-Maguin and 
+Schoenflies notation are understood), and <I CLASS="slanted"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1056.svg"
+ ALT="$\langle$"></SPAN>J<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1057.svg"
+ ALT="$\rangle$"></SPAN></I> is the half-integer value 
+of the total angular momentum J of the lowest multiplet. E.g. "<I CLASS="slanted">cfsplit Oh 2</I>" gives the 
+familiar cubic Eg/T2g splitting (last line of output).
+See also: <I CLASS="slanted">symhmltn</I> which calculates the allowed two-ion exchange terms for a point group.
+</I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">cif2mcphas [options] <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1056.svg"
+ ALT="$\langle$"></SPAN>INPUT.CIF<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1057.svg"
+ ALT="$\rangle$"></SPAN>:</STRONG></DT>
+<DD>
+Creates a set of McPhase input files (mcphas.j, sipfs) from the crystal structure given in a CIF 
+(Crystallographic Information File), with or without user interaction. CIF input files may be obtained 
+from online repositories such as the Inorganic Crystal Structures Database (ICSD), the Crystallography 
+Online Database (COD) or the American Mineralogist Database (AMCSD), or they may be generated by many 
+crystal structures programs, including FullProf. In fully automated mode, the program is invoked with 
+the name of the CIF input file as: "<I CLASS="slanted">cif2mcphas <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1056.svg"
+ ALT="$\langle$"></SPAN>INPUT.CIF<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1057.svg"
+ ALT="$\rangle$"></SPAN></I>". In this case, the
+program tries to guess which crystallographic sites contains magnetic or non-magnetic ions, and what the 
+valence (oxidation state) of that ion is. This information may also be given by the user in interactive
+mode, with the following command: "<I CLASS="slanted">cif2mcphas <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1056.svg"
+ ALT="$\langle$"></SPAN>INPUT.CIF<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1057.svg"
+ ALT="$\rangle$"></SPAN> -i</I>" (e.g. by including
+the switch <I CLASS="slanted">-i</I> (or <I CLASS="slanted">&ndash;interactive</I>) before or after the CIF input filename). The online help
+may be access by invoking the program without arguments or with the <I CLASS="slanted">-h</I> (<I CLASS="slanted">&ndash;help</I>) switch.
+Finally, if you do not have a CIF of the structure you want to calculate, you can use the template here:
+</I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I><PRE>
+; Please replace text in square brackets [] with your data
+_cell_length_a                     [a_in_Angstrom]
+_cell_length_b                     [b_in_Angstrom]
+_cell_length_c                     [b_in_Angstrom]
+_cell_angle_alpha                  [alpha_in_degrees]
+_cell_angle_beta                   [beta_in_degrees]
+_cell_angle_gamma                  [gamma_in_degrees]
+; The H-M symbol generally needed by cif2mcphas but some spacegroups
+; which have only one setting can be identified purely by the number.
+; Most orthorhombic or low symmetry spacegroups have multiple centring,
+; origin choices or unique axes which will require an H-M symbol.
+; If this is the case, and you give just the spacegroup number,
+; cif2mcphas may return with an error.
+; If you don't use one of these fields, you must comment it out, by
+; putting a ";" or "#" at the start of the line.
+_symmetry_space_group_name_H-M     [Hermann-Maguin_symbol_with_spaces]
+_symmetry_Int_Tables_number        [SpacegroupNumber]
+; At the end of the file, please list the non-equivalent
+; sites' fractional coordinates of this structure.
+loop_
+_atom_site_label
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+[AtomSite] [x_coord] [y_coord] [z_coord]
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">replacing instances of e.g. [AtomSite] or [x_coord] with the site name and fraction <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img4.svg"
+ ALT="$x$"></SPAN>-coordinate, etc.
+This template can also be generated using the command "<I CLASS="slanted">cif2mcphas -c</I>" or "<I CLASS="slanted">cif2mcphas &ndash;create</I>".
+See also: <I CLASS="slanted">icsdread</I> which downloads and creates a CIF from an entry of the (free) Korean ICSD mirror.
+</I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">For example, this template may be filled with the following information
+</I></I></I></I><PRE>
+_cell_length_a                     3.4891(4)
+_cell_length_b                     4.4898(6)
+_cell_length_c                     6.0033(8)
+_cell_angle_alpha                  90
+_cell_angle_beta                   90
+_cell_angle_gamma                  90
+_space_group_crystal_system        'orthorhombic'
+_symmetry_Int_Tables_number        38
+_symmetry_space_group_name_H-M     'A m m 2'
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+ Tm1 Tm 0.5000 0.0000   0.3850(2)     
+ Ni1 Ni 0.0000 0.0000  -0.0034(3)      
+ C1 C   0.0000 0.349(2) 0.1851(18)     
+; C-C bond charge as 0 0.5 z as C1
+ E1 E 0.0000 0.500(2) C1
+; atomic radii  Tm 227 pm C 170pm  Ni 163pm
+; C-Ni bonds at Ni+(C1-Ni)*163/(163+170)
+ E2 E Ni+(C1-Ni)*163/(163+170) Ni+(C1-Ni)*163/(163+170)  Ni+(C1-Ni)*163/(163+170)
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">Note that atomic coordinates may also be expressed as formulas, with positions
+from previous lines as variables. In the above example the bond charge of bonding 
+electrons is denoted by the symbol E. The position coordinate is defined relative
+to the position of C1 and Ni. 
+</I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><EM>Options:</EM>
+</I></I></I></I><DL>
+<DT><STRONG> -h </STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>&ndash;help</STRONG></DT>
+<DD>prints help message
+ 
+</DD>
+<DT><STRONG>-c</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - create</STRONG></DT>
+<DD>create cif template without any structure information
+</DD>
+<DT><STRONG>-i</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - interactive</STRONG></DT>
+<DD>no automatic guess of pointcharges, magnetic configurations etc. 
+</DD>
+<DT><STRONG>-pc 3.6</STRONG></DT>
+<DD>do point charge calculation including charges up to 3.6 Angstroms.
+</DD>
+<DT><STRONG>-ch</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - charges</STRONG></DT>
+<DD>input charges to override defaults, e.g. -pc 5.6 -ch O=-2,Ce=+3,Pd=+2
+</DD>
+<DT><STRONG>-sp       </STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - savepcfile</STRONG></DT>
+<DD>save the .pc files with list of neighbouring ions in results/ (default is to not save these but to use coordinates internally only). If -pc is not specified, this option has no effect.
+</DD>
+<DT><STRONG>-sc       </STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - savecharges </STRONG></DT>
+<DD>store pointcharge coordinates in sipf file
+</DD>
+<DT><STRONG>-s       </STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - supercell</STRONG></DT>
+<DD>creates a super-cell of size #x#x#. (e.g. -s 2x3x4).
+</DD>
+<DT><STRONG>-rp        </STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - readpcfile</STRONG></DT>
+<DD>don't regenerate point charge coordinates but reread them from 
+the saved .pc files in results/ - this option is intended so that users can 
+modify the charges in the .pc file (e.g. by the program <I CLASS="slanted">setvariable</I><A ID="4626"></A>)
+ and regenerate the CF parameters 
+from the new charges. (You don't have to specify -pc with this option).
+</DD>
+<DT><STRONG>-nm</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - nonmagnetic</STRONG></DT>
+<DD>set nonmagnetic ion overrideing default, e.g. -nm Cu
+   
+</DD>
+<DT><STRONG>-m</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - magnetic</STRONG></DT>
+<DD>set magnetic ion overrideing default, e.g. -m Cu
+
+<P>
+</DD>
+<DT><STRONG>-so       </STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - so1ion</STRONG></DT>
+<DD>force all ions to use so1ion
+</DD>
+<DT><STRONG>-ic        </STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - ic1ion</STRONG></DT>
+<DD>force all ions to use ic1ion
+</DD>
+<DT><STRONG>-ph        </STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - phonon</STRONG></DT>
+<DD>force all ions to use phonon
+</DD>
+<DT><STRONG>-sf </STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - screenfile</STRONG></DT>
+<DD>apply screening function to charges for calculation of crystal field parameters,
+                           e.g. <I CLASS="slanted">-sf sf.r</I> reads file <I CLASS="slanted">sf.r</I>, with column 1 r(Å),
+ column 2  screeningfactor for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.39ex; vertical-align: -0.69ex; " SRC="img1058.svg"
+ ALT="$B_2^m$"></SPAN>, column 3 screeningfactor for<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.39ex; vertical-align: -0.69ex; " SRC="img1059.svg"
+ ALT="$B_4^m$"></SPAN>, and column 4
+screeningfactor for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.39ex; vertical-align: -0.69ex; " SRC="img1060.svg"
+ ALT="$B_6^m$"></SPAN>.
+</DD>
+</DL><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">Default is to create sipf files with so1ion module for f-electrons and ic1ion module for d-electrons
+and phonon module for nonmagnetic ions.
+ The <I CLASS="slanted">-so</I> and <I CLASS="slanted">-ic</I> options have no effect unless either <I CLASS="slanted">-pc</I>
+ or <I CLASS="slanted">-rp</I> is specified.
+<I CLASS="slanted">-so</I> takes precedent over <I CLASS="slanted">-ic</I> (e.g. 
+when typing <I CLASS="slanted">cif2mcphas -rp -so -ic file.cif</I> the program will ignore the
+<I CLASS="slanted">-ic</I> and force all ions to use so1ion).
+</I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">Some examples of the syntax are:
+</I></I></I></I><PRE>
+cif2mcphas -pc 3.5 ermno3.cif
+cif2mcphas -pc 3.5 -sp ermno3.cif
+cif2mcphas -rp ermno3.cif
+cif2mcphas -pc 3.5 -so ermno3.cif
+cif2mcphas -rp -ic ermno3.cif
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">cpsingleion 10 100 1 file.levels.cef [options]: </STRONG></DT>
+<DD> 
+By runnning <I CLASS="slanted">singleion</I> some file.levels.cef is created in folder results.
+The <I CLASS="slanted">cpsingleion</I> program may then be used. It
+calculates the specific heat in the temperature 
+interval 10-100 K with a step width
+of 1 K. Alternatively a comparison to experimental data can be made by <I CLASS="slanted">cpsingleion 1 2 
+cpexp.dat file.levels.cef</I>,
+where the temperatures are given in column 1 and the experimental specific heat in column
+2 of file cpexp.dat. The calculated specific heat is compared to the experimental data and
+a standard deviation <EM>sta</EM> is calculated and output is written to stdout.
+Other quantities can be calculated using the options: -s  (calculate entropy  (J/molK) instead of cp),
+-f (calculate free energy (J/mol) instead of cp),-u  (calculate magnetic energy (J/mol) instead of cp),
+-z (calculate partition sum instead of cp)
+</I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">cpso1ion 10 100 1 [options]: </STRONG></DT>
+<DD>same as <I CLASS="slanted">cpsingleion</I> but for output of program
+so1ion (no file.levels.cef required, takes values from so1ion.out) .
+</DD>
+<DT><STRONG><I CLASS="slanted">cpic1ion 10 100 1 [options]:</I></STRONG></DT>
+<DD>same as <I CLASS="slanted">cpsingleion</I> but for output of program
+ic1ion (no file.levels.cef required, takes values from ic1ion.out) .
+</DD>
+<DT><STRONG><I CLASS="slanted">cpicf1ion 10 100 1 [options]:</I></STRONG></DT>
+<DD>same as <I CLASS="slanted">cpsingleion</I> but for output of program
+icf1ion (no file.levels.cef required, takes values from icf1ion.out) .
+</I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">epsdebye<A ID="4654"></A> Tmax dT Tdebye scale [d1 d2 datafile]:</STRONG></DT>
+<DD>	        
+		    calculates the phonon induced strain <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img92.svg"
+ ALT="$\epsilon$"></SPAN> using the debye model
+		    according to the following formula:
+		    <!-- MATH
+ $\epsilon=S*T*D(\Theta_{D}/T)$
+ -->
 <SPAN CLASS="MATH"><IMG
- WIDTH="16" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
- SRC="img218.png"
- ALT="$\Theta$"></SPAN>=90<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
- SRC="img1209.png"
- ALT="$^o$"></SPAN> and <SPAN CLASS="MATH"><IMG
- WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img1210.png"
- ALT="$\Phi$"></SPAN>=90<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
- SRC="img1209.png"
- ALT="$^o$"></SPAN>.
-
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1061.svg"
+ ALT="$\epsilon=S*T*D(\Theta_{D}/T) $"></SPAN>
+				    with    
+		    <!-- MATH
+ $D(z)=\frac{3}{z^3}\int_0^z \frac{x^3 dx}{e^x-1}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.58ex; vertical-align: -1.11ex; " SRC="img1062.svg"
+ ALT="$D(z)=\frac{3}{z^3}\int_0^z \frac{x^3 dx}{e^x-1}$"></SPAN>
+                 Range is from zero to Tmax in stepwidths dT
+		 unless a datafile is given. 
+                 If a  datafile is given, with data column d1 and d2,the strain
+                 is calculated for T-values of data column d1 and epsilon
+		  is compared to data in column d2 - a standard 
+                 deviation sta is calculated as a sum of squared deviations.
+                 As output the datafile is given, an additional is column added 
+		 containing the calculated strain epsilon. The datafile has to
+		 be sorted according to descending T values !!!
+                 output is written to stdout.
+</DD>
+<DT><STRONG><I CLASS="slanted">extendunitcell<A ID="4664"></A> n1 n2 n3</STRONG></DT>
+<DD>program to extend crystallographic unit cell n 
+                times in r1 (or r2,r3) direction, meaning take mcphas.j, mcphas.tst 
+                and mcdiff<A ID="4665"></A>.in and generate an extended description of the unit cell 
+                n1xr1,n2xr2,n3xr3 put result into extend.j, extend.tst and extend.in
+</I></I></I></I></I></I></I></I>
 <P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">fermicol<A ID="4666"></A> col T filename</STRONG></DT>
+<DD> calculates the Fermifunction from energy in column col.
+</I></I></I></I></I></I></I></I></I><DL>
+<DT><STRONG>col</STRONG></DT>
+<DD>column containing energy values (eV) relative to EF
+ 
+</DD>
+<DT><STRONG>T</STRONG></DT>
+<DD>temperature (K)
+ 
+</DD>
+<DT><STRONG>filename</STRONG></DT>
+<DD>file name
+</DD>
+</DL><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">fitfermi<A ID="4672"></A> T EF fwhm min max filename</I></STRONG></DT>
+<DD>fits a (Gaussian convoluted) Fermi function to data in file
+</I></I></I></I></I></I></I></I></I><DL>
+<DT><STRONG>T</STRONG></DT>
+<DD>Temperature (K)
+</DD>
+<DT><STRONG>EF</STRONG></DT>
+<DD>initial value of Fermi Energy (eV)
+</DD>
+<DT><STRONG>fwhm</STRONG></DT>
+<DD>initial vlaue for resolution (eV) (if less than zero the fwhm is not fitted and set to |fwhm|)
+</DD>
+<DT><STRONG>min max</STRONG></DT>
+<DD>energy range of fit (may be less than range of experimental data points)
+</DD>
+<DT><STRONG>filename</STRONG></DT>
+<DD>filename (col 1 is energy in eV and col 2 intensity)
+</DD>
+</DL><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+The fermifunction is defined as
+      <!-- MATH
+ $f(E)=b+l(E-EF)+[d+k(E-EF)]/(\exp((E-EF)/kT)+1)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1063.svg"
+ ALT="$f(E)=b+l(E-EF)+[d+k(E-EF)]/(\exp((E-EF)/kT)+1)$"></SPAN>, the function
+      <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1064.svg"
+ ALT="$f(E)$"></SPAN> is convoluted with a Gaussian function of given fwhm
+            and the  result is compared to experimental data.
+</I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">output:  files can be found in directory results, filename.fit is created with fitted function and parameter values
+</DD>
+<DT><STRONG><I CLASS="slanted">formfactor<A ID="4675"></A> *.sipf</I></STRONG></DT>
+<DD> program to calculate the neutron magnetic formfactor
+from the formfactor coefficients in the single ion parameter file *.sipf. If a radial wave function is given in *.sipf
+then the formfactorand the expectation values of the spherical Bessel functions  are evaluated by integration
+with this radial wave function (see appendix <A HREF="node148.html#ffacts">J</A>).
+</I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">icsdread <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1056.svg"
+ ALT="$\langle$"></SPAN>ICSD_ID<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1057.svg"
+ ALT="$\rangle$"></SPAN> <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.57ex; vertical-align: -0.21ex; " SRC="img130.svg"
+ ALT="$&gt;$"></SPAN> INPUT.CIF</I></STRONG></DT>
+<DD>
+Program to create a CIF (Crystallographic Information File) from the contents of a webpage on the (free)
+Korean Inorganic Crystal Structures Database (ICSD) mirror (http://icsd.kisti.re.kr/) which is automatically 
+downloaded when the corresponding ICSD ID is given as input. This requires an internet connection. If the 
+webpage corresponding to this ICSD entry was previously downloaded, the filename can be given as input instead
+and the program will read from this file. Output is sent to the console so should be redirected into a file
+using the <I CLASS="slanted"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.57ex; vertical-align: -0.21ex; " SRC="img130.svg"
+ ALT="$&gt;$"></SPAN></I> operator for futher use, for example to set up McPhase input files using <I CLASS="slanted">cif2mcphas</I>
+</I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">jjj2j:</STRONG></DT>
+<DD>transforms file of <I CLASS="slanted">mcphas.jjj</I> format to <I CLASS="slanted">mcphas.j<A ID="4686"></A></I> format
+- output is written to stdout
+</I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">makenn 23.3[options]:</I></STRONG></DT>
+<DD> Program to calculate neighbors of atoms given a crystal structure.
+Note that in order to use <I CLASS="slanted">makenn<A ID="4691"></A></I> you have to set up a 
+working <I CLASS="slanted">mcphas.j<A ID="4692"></A></I> file with the crystal structure. 
+The program <I CLASS="slanted">makenn<A ID="4693"></A></I> takes <I CLASS="slanted">mcphas.j<A ID="4694"></A></I> and
+creates all neighbours within a sphere of distance 23.3Å, for every neighbour the classical
+dipole interaction <!-- MATH
+ $J_{\alpha\beta}(\vec R)=\frac{\mu_0}{4\pi} (g_J \mu_B)^2 \frac{3R_{\alpha}R_{\beta}-\delta_{\alpha\beta}R^2}{R^5}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.66ex; vertical-align: -0.92ex; " SRC="img1065.svg"
+ ALT="$J_{\alpha\beta}(\vec R)=\frac{\mu_0}{4\pi} (g_J \mu_B)^2 \frac{3R_{\alpha}R_{\beta}-\delta_{\alpha\beta}R^2}{R^5}$"></SPAN>
+ is calculated and is stored in file <I CLASS="slanted">makenn.j</I>. If the exchange parameters 
+(and neighbour positions) are not known for your system, you can use this module 
+to generate a list of nearest neighbours and exchange parameters. Currently implemented 
+ are not only dipolar interactions, but also exchange interactions via the Bethe-Slater 
+curve or the RKKY model. 
+</I></I></I></I></I></I></I></I></I></I><DL>
+<DT><STRONG>option <I CLASS="slanted">-rkky A(meV) kf(1/A)</I></STRONG></DT>
+<DD>calculates the rkky interaction according to <!-- MATH
+ $J(R)=A %%@
+cos(2 k_f R)/(2 k_f R)^3$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -0.78ex; " SRC="img1066.svg"
+ ALT="$J(R)=A %%@
+cos(2 k_f R)/(2 k_f R)^3$"></SPAN>
+</DD>
+<DT><STRONG>option <I CLASS="slanted">-rkky3d A(meV) ka(1/A) kb(1/A) kc(1/A)</I></STRONG></DT>
+<DD>calculates the rkky interaction according to <!-- MATH
+ $J(R)=A cos(2 \kappa)/(2 \kappa)^3$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.70ex; " SRC="img1067.svg"
+ ALT="$J(R)=A cos(2 \kappa)/(2 \kappa)^3$"></SPAN> with <!-- MATH
+ $\kappa^2=k_a^2 R_a^2 + k_b^2 R_b^2 + %%@
+k_c^2 R_c^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.77ex; " SRC="img1068.svg"
+ ALT="$\kappa^2=k_a^2 R_a^2 + k_b^2 R_b^2 + %%@
+k_c^2 R_c^2$"></SPAN>
+</DD>
+<DT><STRONG>option <I CLASS="slanted">-rkkz A(meV) kf(1/A)</I></STRONG></DT>
+<DD>calculates the rkky interaction according to <!-- MATH
+ $J(R)=A %%@
+(sin(2 k_f R)- 2 k_f R cos(2 k_f R))/(2 k_f R)^4$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -0.78ex; " SRC="img1069.svg"
+ ALT="$J(R)=A %%@
+(sin(2 k_f R)- 2 k_f R cos(2 k_f R))/(2 k_f R)^4$"></SPAN>
+</DD>
+<DT><STRONG>option <I CLASS="slanted">-rkkz3d A(meV) ka(1/A) kb(1/A) kc(1/A)</I></STRONG></DT>
+<DD>calculates the rkky interaction according to <!-- MATH
+ $J(R)=A (sin(2 \kappa)- 2 \kappa cos(2 \kappa))/(2 \kappa)^4$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.70ex; " SRC="img1070.svg"
+ ALT="$J(R)=A (sin(2 \kappa)- 2 \kappa cos(2 \kappa))/(2 \kappa)^4$"></SPAN> with <!-- MATH
+ $\kappa^2=k_a^2 %%@
+R_a^2 + k_b^2 R_b^2 + k_c^2 R_c^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.77ex; " SRC="img1071.svg"
+ ALT="$\kappa^2=k_a^2 %%@
+R_a^2 + k_b^2 R_b^2 + k_c^2 R_c^2$"></SPAN>
+</DD>
+<DT><STRONG>option <I CLASS="slanted">-kaneyoshi A(meV) D(A) alpha</I></STRONG></DT>
+<DD>calculates the Kaneyoshi parametrisation for the Bethe-Slater
+                               curve: <!-- MATH
+ $J(R)= A [-(R/D)^2+(R/D)^4]exp[-\alpha (R/D)^2]$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.70ex; " SRC="img1072.svg"
+ ALT="$J(R)= A [-(R/D)^2+(R/D)^4]exp[-\alpha (R/D)^2]$"></SPAN> with <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1073.svg"
+ ALT="$D$"></SPAN> corresponding
+                               to the orbital radius
+</DD>
+<DT><STRONG>option <I CLASS="slanted">-kaneyoshi3d A(meV) Da(A) Db(A) Dc(A) alpha</I></STRONG></DT>
+<DD>calculates the Kaneyoshi parametrisation for the Bethe-Slater
+                               curve: <!-- MATH
+ $J(R)= A [-\rho^2+\rho^4]exp[-\alpha \rho^2]$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.70ex; " SRC="img1074.svg"
+ ALT="$J(R)= A [-\rho^2+\rho^4]exp[-\alpha \rho^2]$"></SPAN> with <!-- MATH
+ $\rho^2=R_a^2/D_a^2+R_b^2/D_b^2+R_c^2/D_c^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.77ex; " SRC="img1075.svg"
+ ALT="$\rho^2=R_a^2/D_a^2+R_b^2/D_b^2+R_c^2/D_c^2$"></SPAN>
+</DD>
+<DT><STRONG>option <I CLASS="slanted">option -bvk filename</I></STRONG></DT>
+<DD>for phonon take Born van Karman model with longitudinal and
+              transversal spring constants from file - file format:
+             <PRE>#  atom_i_sipf atom_j_sipf bondlength(A) long(N/m) trans(N/m) 
+Ce1.sipf  Ce1.sipf  +4.0 200.9 100.0
+Ce1.sipf  Ce1.sipf  +4.7 70.9 0.0
+</PRE>
+              mind: into MODPAR2-6 in <I CLASS="slanted">*.sipf</I> the Einstein-oscillator parameters
+              are written, too.
+              Longitudinal/Transversal springs are described by <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img579.svg"
+ ALT="$c_L$"></SPAN>/<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img580.svg"
+ ALT="$c_T$"></SPAN>, respectively and
+              the energy is given by
 <BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+<DIV CLASS="displaymath">
 
 <!-- MATH
- \begin{equation}
-\stackrel{=}{\mathbf S}_2(\pi/2,\pi/2) = \left(
-\begin{array}{ccccc}
- 0 &    0 &    0 &  1/2 &    0 \\
--2 &    0 &    0 &    0 &    0 \\
- 0 &    0 & -1/2 &    0 & -1/2 \\
- 0 &    1 &    0 &    0 &    0 \\
- 0 &    0 &  3/2 &    0 & -1/2 \\
-\end{array} \right)
-\end{equation}
+ \begin{eqnarray}
+H &=& \sum_{ij} \frac{c_L(ij)-c_T(ij)}{2|\mathbf \mathbf R_{ij}|^2} (\mathbf P_i . \mathbf R_{ij}- \mathbf P_j . \mathbf R_{ij})^2
+       + \frac{c_T(ij)}{2} (\mathbf P_i - \mathbf P_j )^2 
+\end{eqnarray}
  -->
-<A NAME="eq:S2"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:S2"></A><IMG
- WIDTH="342" HEIGHT="132" BORDER="0"
- SRC="img1211.png"
- ALT="\begin{displaymath}
-\stackrel{=}{\mathbf S}_2(\pi/2,\pi/2) = \left(
-\begin{arra...
-... 0 &amp; 0 &amp; 0 \\
-0 &amp; 0 &amp; 3/2 &amp; 0 &amp; -1/2 \\
-\end{array} \right)
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">178</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1076.svg"
+ ALT="$\displaystyle H$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.81ex; vertical-align: -3.40ex; " SRC="img1077.svg"
+ ALT="$\displaystyle \sum_{ij} \frac{c_L(ij)-c_T(ij)}{2\vert\mathbf \mathbf R_{ij}\ver...
+...thbf P_j . \mathbf R_{ij})^2
++ \frac{c_T(ij)}{2} (\mathbf P_i - \mathbf P_j )^2$"></TD><TD class="rfill">(<SPAN CLASS="arabic">137</SPAN>)</TD></TR>
+</TABLE></DIV>
+Fig.&nbsp;<A HREF="node60.html#figbvk">18</A> shows the Born-van-Karman
+model definition of longitudinal springs <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img579.svg"
+ ALT="$c_L$"></SPAN> and transversal
+springs <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img580.svg"
+ ALT="$c_T$"></SPAN>.
+               Omit filename to create a sample file with
+              longitudinal springs calculated according to <!-- MATH
+ $C_L(ij)=25 \exp(-0.1*r^2_{ij}/\AA^2)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.17ex; vertical-align: -1.04ex; " SRC="img1078.svg"
+ ALT="$C_L(ij)=25 \exp(-0.1*r^2_{ij}/\AA^2)$"></SPAN>&nbsp;N/m.
+	      Output: file <I CLASS="slanted">makenn.Cel</I> is created containing just the elastic constants.
 
 <P>
+</DD>
+<DT><STRONG>option <I CLASS="slanted">option -cfph [screeningfile.r] [-r]</I></STRONG></DT>
+<DD>calculate crystal field phonon interaction: <I CLASS="slanted">mcphas.j</I> lists 
+              magnetic and non magnetic atoms with charges defined in the 
+              sipf files by <I CLASS="slanted">CHARGE= variable</I>. For magnetic atoms the sipf 
+              file the variable <I CLASS="slanted">MAGNETIC=1</I> has to be set and information 
+              about the ion has to be present (<I CLASS="slanted">IONTYPE</I> etc.). 
+              For each magnetic ion a new site is created resembling the magnetic 
+	      electron charge cloud and this new site is shifted
+              0.1 Å along <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img5.svg"
+ ALT="$c$"></SPAN> in order to not overlap with the original site.
+              For option [-r] the original site sipf file is replaced automatically
+	      to use an sipf file with the <I CLASS="slanted">MODULE=phonon</I> similar to all the other
+              non magnetic sites (which should have a <I CLASS="slanted">MODULE=phonon</I>). 
+              For the new magnetic site the program
+              <I CLASS="slanted">pointc</I> is used by <I CLASS="slanted">makenn</I> with option -d to calculate derivatives
+              <!-- MATH
+ $\partial B_{lm}/\partial u$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1079.svg"
+ ALT="$\partial B_{lm}/\partial u$"></SPAN> which are inserted as interaction 
+              parameters between <I CLASS="slanted">MODULE=phonon</I> and <I CLASS="slanted">MODULE=so1ion</I> sites.
+              In order to use the resulting file <I CLASS="slanted">resultsmakenn.j</I> a phonon
+              model has to be set up,  
+              and the phonon model has to be added to <I CLASS="slanted">makenn.j</I>,  e.g. by
+              program <I CLASS="slanted">addj</I>. Moreover, magnetic sites sipf files are required, 
+              which are created in <I CLASS="slanted">results/makenn.a*.sipf</I>. 
+              Note: A screening file can be used to define distance dependent 
+              screening of charges for the pointcharge model calculation
+              format: col1 distance r (Å), col 2 screening factor 
+              for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.39ex; vertical-align: -0.69ex; " SRC="img1058.svg"
+ ALT="$B_2^m$"></SPAN>, col 3 for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.39ex; vertical-align: -0.69ex; " SRC="img1059.svg"
+ ALT="$B_4^m$"></SPAN> and col 4 for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.39ex; vertical-align: -0.69ex; " SRC="img1060.svg"
+ ALT="$B_6^m$"></SPAN>
+</DD>
+<DT><STRONG>option <I CLASS="slanted">option -f [filename]</I></STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>option <I CLASS="slanted">option -dm [filename]</I></STRONG></DT>
+<DD>read interaction constants from table in file. 
+              Use -f for isotropic interactions between momentum <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.46ex; " SRC="img1080.svg"
+ ALT="$\mathbf J_i$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img1081.svg"
+ ALT="$\mathbf J_j$"></SPAN>
+              at positions <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.76ex; vertical-align: -0.12ex; " SRC="img367.svg"
+ ALT="$i$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.21ex; vertical-align: -0.57ex; " SRC="img692.svg"
+ ALT="$j$"></SPAN>
 <BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+<DIV CLASS="displaymath">
 
 <!-- MATH
- \begin{equation}
-\stackrel{=}{\mathbf S}_4(\pi/2,\pi/2) = \left(
-\begin{array}{ccccccccc}
- 0 &    0 &    0 &    0 &    0 &    0 &    0 & -1/8 &    0 \\
- 1 &    0 & -7/2 &    0 &    0 &  7/8 &    0 &    0 &    0 \\
- 0 &    0 &    0 &    0 &    0 &    0 &    0 & -1/4 &    0 \\
- 1 &    0 &  1/2 &    0 &    0 & -1/4 &    0 &    0 &    0 \\
- 0 &    0 &    0 &    0 &  3/8 &    0 &  1/8 &    0 &  1/8 \\
- 0 & -2/5 &    0 & -3/4 &    0 &    0 &    0 &    0 &    0 \\
- 0 &    0 &    0 &    0 & -5/2 &    0 & -1/2 &    0 &  1/2 \\
- 0 & -3/4 &    0 &  7/4 &    0 &    0 &    0 &    0 &    0 \\
- 0 &    0 &    0 &    0 & 35/8 &    0 & -7/8 &    0 &  1/8 \\
-\end{array} \right)
-\end{equation}
+ \begin{eqnarray}
+\mathcal J \mathbf J_i . \mathbf J_j &  = & \mathbf J_i.
+\left( \begin{array}{ccc}
+ \mathcal J &  0 & 0\\
+0 &   \mathcal J & 0 \\
+0 &  0 &  \mathcal J \\
+\end{array}
+\right) .\mathbf J_j
+\end{eqnarray}
  -->
-<A NAME="eq:S4"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:S4"></A><IMG
- WIDTH="566" HEIGHT="230" BORDER="0"
- SRC="img1212.png"
- ALT="\begin{displaymath}
-\stackrel{=}{\mathbf S}_4(\pi/2,\pi/2) = \left(
-\begin{arra...
-... 0 &amp; 0 &amp; 0 &amp; 35/8 &amp; 0 &amp; -7/8 &amp; 0 &amp; 1/8 \\
-\end{array} \right)
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">179</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-
-<P>
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img1082.svg"
+ ALT="$\displaystyle \mathcal J \mathbf J_i . \mathbf J_j$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 8.56ex; vertical-align: -3.72ex; " SRC="img1083.svg"
+ ALT="$\displaystyle \mathbf J_i.
+\left( \begin{array}{ccc}
+\mathcal J &amp; 0 &amp; 0\\
+0 &amp; \mathcal J &amp; 0 \\
+0 &amp; 0 &amp; \mathcal J \\
+\end{array}\right) .\mathbf J_j$"></TD><TD class="rfill">(<SPAN CLASS="arabic">138</SPAN>)</TD></TR>
+</TABLE></DIV>
+and -dm for Dzyaloshinski Moriya interactions:
 <BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+<DIV CLASS="displaymath">
 
 <!-- MATH
- \begin{equation}
-\stackrel{=}{\mathbf S}_6(\pi/2,\pi/2) = \left(
-\begin{array}{ccccccccccccc}
-   0 &    0 &    0 &      0 &     0 &      0 &      0 &     0 &      0 & -11/32 &     0 & %
-1/32 &      0 \\
--3/8 &    0 & 11/4 &      0 & -33/8 &      0 &      0 & 33/32 &      0 &      0 &     0 &    %
-0 &      0 \\
-   0 &    0 &    0 &      0 &     0 &      0 &      0 &     0 &      0 &   -3/8 &     0 &  %
-1/8 &      0 \\
--5/8 &    0 &  5/4 &      0 &   9/8 &      0 &      0 &  -3/8 &      0 &      0 &     0 &    %
-0 &      0 \\
-   0 &    0 &    0 &      0 &     0 &      0 &      0 &     0 &      0 &   9/32 &     0 & %
-5/32 &      0 \\
--3/4 &    0 & -1/2 &      0 &  -1/4 &      0 &      0 &  5/32 &      0 &      0 &     0 &    %
-0 &      0 \\
-   0 &    0 &    0 &      0 &     0 &      0 &  -5/16 &     0 &  -1/16 &      0 & -1/16 &    %
-0 &  -1/16 \\
-   0 &  1/8 &    0 &    3/8 &     0 &    5/8 &      0 &     0 &      0 &      0 &     0 &    %
-0 &      0 \\
-   0 &    0 &    0 &      0 &     0 &      0 & 105/32 &     0 &  17/32 &      0 &  5/32 &    %
-0 & -15/32 \\
-   0 & 5/16 &    0 &   1/16 &     0 & -15/16 &      0 &     0 &      0 &      0 &     0 &    %
-0 &      0 \\
-   0 &    0 &    0 &      0 &     0 &      0 & -63/16 &     0 &  -3/16 &      0 & 13/16 &    %
-0 &  -3/16 \\
-   0 & 5/16 &    0 & -33/16 &     0 &  33/16 &      0 &     0 &      0 &      0 &     0 &    %
-0 &      0 \\
-   0 &    0 &    0 &      0 &     0 &      0 & 231/32 &     0 & -33/32 &      0 & 11/32 &    %
-0 &  -1/32 \\
-\end{array} \right)
-\end{equation}
+ \begin{eqnarray}
+\mathcal D (\mathbf J_i \times \mathbf J_j )&  = & \mathbf J_i.
+\left( \begin{array}{ccc}
+ 0 &  \mathcal D_z & -\mathcal D_y\\
+-\mathcal D_z &   0 &\mathcal D_x \\
+\mathcal D_y &  -\mathcal D_x &  0 \\
+\end{array}
+\right) .\mathbf J_j
+\end{eqnarray}
  -->
-<A NAME="eq:S6"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:S6"></A><IMG
- WIDTH="922" HEIGHT="329" BORDER="0"
- SRC="img1213.png"
- ALT="\begin{displaymath}
-\stackrel{=}{\mathbf S}_6(\pi/2,\pi/2) = \left(
-\begin{arra...
-...&amp; 0 &amp; -33/32 &amp; 0 &amp; 11/32 &amp; %
-0 &amp; -1/32 \\
-\end{array} \right)
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">180</SPAN>)</TD></TR>
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img1084.svg"
+ ALT="$\displaystyle \mathcal D (\mathbf J_i \times \mathbf J_j )$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 8.56ex; vertical-align: -3.72ex; " SRC="img1085.svg"
+ ALT="$\displaystyle \mathbf J_i.
+\left( \begin{array}{ccc}
+0 &amp; \mathcal D_z &amp; -\mathc...
+...al D_x \\
+\mathcal D_y &amp; -\mathcal D_x &amp; 0 \\
+\end{array}\right) .\mathbf J_j$"></TD><TD class="rfill">(<SPAN CLASS="arabic">139</SPAN>)</TD></TR>
+</TABLE></DIV>
+To get an sample file use option -f or -dm without a filename.      
+</DD>
+<DT><STRONG>option <I CLASS="slanted">-d</I></STRONG></DT>
+<DD>puts to the last column the distance of the neighbours (A)
+</DD>
+</DL><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">The neigbours of each atom are also stored in seperate files
+<I CLASS="slanted">results/makenn.a*.pc</I>, which can be used with the program <I CLASS="slanted">pointc</I> to evaluate
+the pointcharge model and calculate crystal field paramaters.
+</DD>
+<DT><STRONG><I CLASS="slanted">mcphas2jvx mcphas.j</STRONG></DT>
+<DD>Creates a JavaView input file (by default <I CLASS="slanted">results/mcphas.jvx</I>) which shows the atomic positions 
+and exchange interactions in 3D graphics. It requires a <I CLASS="slanted">mcphas.j</I> type file as input. JavaView can
+then be used to view the output in 3D using: <I CLASS="slanted">javaview results/mcphas.jvx</I>. A specific output file 
+may be given using the <I CLASS="slanted">-o</I> (<I CLASS="slanted">&ndash;output</I>) switch, and for the cluster module the switch <I CLASS="slanted">-i</I> 
+(<I CLASS="slanted">&ndash;individual</I>) can be used to plot individual atoms within a cluster and the intra-cluster exchange 
+interactions. For example, to create the a non-default file with atomic positions of a cluster calculation 
+for viewing with JavaView, <I CLASS="slanted">mcphas2jvx mcphas.j -i -o results/cluster.jvx &amp;&amp; javaview results/cluster.jvx</I> 
+where the double ampersand means to execute the second (<I CLASS="slanted">javaview</I>) command if the first is successful.
+</I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I></I></I></I></I></I>
+<DIV class="CENTER"><A ID="mcphas2jvx"></A><A ID="4772"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 31:</STRONG>
+Example of output of mcphas2jvx+JavaView for a normal setup (left, Bi<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>Fe<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img23.svg"
+ ALT="$_4$"></SPAN>O<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img24.svg"
+ ALT="$_9$"></SPAN> with Fe-Fe exchange interactions shown as
+lines) and for a cluster setup (right, trimers in LuMnO<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img25.svg"
+ ALT="$_3$"></SPAN> shown as triangles with blue square block indicating trimer centre; intra-trimer
+exchange shown as purple lines, inter-cluster exchange as black lines). Linewidths are proportional to the strength of the exchange 
+interactions between the linked atoms or clusters.</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+
+<IMG
+ STYLE="height: 38.54ex; vertical-align: -0.12ex; " SRC="img1086.svg"
+ ALT="\includegraphics[angle=0, width=0.4\textwidth]{figsrc/mcphas_jvx.eps}">
+<IMG
+ STYLE="height: 38.54ex; vertical-align: -0.12ex; " SRC="img1087.svg"
+ ALT="\includegraphics[angle=0, width=0.4\textwidth]{figsrc/trimer_jvx.eps}">
+
+</DIV></TD></TR>
 </TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
+</DIV>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">pointc<A ID="4775"></A>[options] ionname<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
+ ALT="$\vert$"></SPAN>sipffile charge_and_position<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
+ ALT="$\vert$"></SPAN>file.pos:</STRONG></DT>
+<DD>
+Program to calculate Crystal field Parameters from Point Charges 
+</I></I></I></I></I></I></I></I></I></I></I></I><DL>
+<DT><STRONG>example 1: pointc  Ce3+ 0.2 4 1 5.3</STRONG></DT>
+<DD>... calculate Blm (Stevens Parameters) and Llm (Wybourne Parameters) for one point 
+    charge of +0.2<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img764.svg"
+ ALT="$\vert e\vert$"></SPAN> in distance
+                 x=4 Åy=1 Åz=5.3 Åfrom a Ce<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img3.svg"
+ ALT="$^{3+}$"></SPAN> ion. See equation&nbsp;(<A HREF="node69.html#pcmodel">3</A>) and
+appendix&nbsp;<A HREF="node141.html#cfparconventions">E</A> for formulas.
+</DD>
+<DT><STRONG>example 2: pointc Ce3+ file.pos</STRONG></DT>
+<DD>... read several charges+coordinates from file.pos,file format:
+      column 1=charge, column 2-4 = x y z coordinate. (note,program <I CLASS="slanted">makenn</I>
+      creates useful files for this option from the crystal structure).
+</DD>
+<DT><STRONG>example 3: pointc Ce3+ C2.pos 5 6</STRONG></DT>
+<DD>... same as example 2 but reduced charge model,i.e. B2m calculated, with
+     charges in col 1 of C2.pos,B4m and B6m with charges in col 5 and 6, respectively.
+Note: if an ion is not implemented, it's parameters can be 
+                      entered in a single ion property file and <I CLASS="slanted">pointc<A ID="4786"></A></I> is
+                      started as 
+</DD>
+<DT><STRONG>example 4: pointc file.sipf 0.2 4 1 5.3 0.1 0.3</STRONG></DT>
+<DD>... will use <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1088.svg"
+ ALT="$0.2\vert e\vert$"></SPAN> for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.39ex; vertical-align: -0.69ex; " SRC="img1058.svg"
+ ALT="$B_2^m$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1089.svg"
+ ALT="$0.1\vert e\vert$"></SPAN> for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.39ex; vertical-align: -0.69ex; " SRC="img1059.svg"
+ ALT="$B_4^m$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1090.svg"
+ ALT="$0.3\vert e\vert$"></SPAN> for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.39ex; vertical-align: -0.69ex; " SRC="img1060.svg"
+ ALT="$B_6^m$"></SPAN>.
+ ... the first line of the single ion property file.sipf must be
+<PRE>
+ #!MODULE=so1ion
+</PRE>
+The single ion property file must then contain the following
+                      information (# denotes comments):
+<PRE>
+ # file.sipf should contain the following information (# denotes comments):
+ # the name of the ion
+ IONTYPE=Ce3+
+ #Stevens parameters (optional, necessary for output of Blm)
+ ALPHA=-0.0571429 BETA=0.00634921 GAMMA=0
+ # the radial matrix elements RN=&lt;r^N&gt; in units of a0^N (a0=0.5292 A)
+ R2=1.309 R4=3.964 R6=23.31
+ #optional radial wave function parameters, for transition metal ions the the values
+ #are tabulated in Clementi &amp; Roetti Atomic data and nuclear data tables 14 
+ #(1974) 177-478, the radial wave function is expanded as
+ # R(r)=sum_p Cp r^(Np-1) exp(-XIp r)(2 XIp)^(Np+0.5)/sqrt(2Np!)
+ #rare earth:Freeman&amp;Watson PR127(1962)2058,Sovers J.Phys.Chem.Sol.28(1966)1073
+ #e.g. Co2+ is isoelectronic to Fe+, looking at page 422
+ #of Clemente &amp; Roetti the parameters are 
+ N1=3 XI1=4.95296 C1=0.36301 
+ N2=3 XI2=12.2963 C2=0.02707 
+ N3=3 XI3=7.03565 C3=0.14777
+</PRE>
+</DD>
+</DL><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">OUTPUT:
+</I></I></I></I></I></I></I></I></I></I></I></I>
+<UL>
+<LI><I CLASS="slanted">stdout</I> ... sipf file with CEF pars,radial matrix elements,Stevens factors,
+                pointcharges and positions (omit with option -o)
+</LI>
+<LI><I CLASS="slanted">results\pointc.out</I> ...contains results of convergence when summing up
+                 contributions of different neighbours one by one...
+</LI>
+<LI><I CLASS="slanted">results\pointc.Blm</I> ... Crystal field parameters <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img41.svg"
+ ALT="$B_l^m$"></SPAN> in Stevens Notation
+</LI>
+<LI><I CLASS="slanted">results\pointc.Llm</I> ... Crystal field parameters <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img109.svg"
+ ALT="$L_l^m$"></SPAN> in Wybourne Notation
+</LI>
+<LI><I CLASS="slanted">results\pointc.dBlm</I> .. for option -d derivatives <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.62ex; vertical-align: -0.77ex; " SRC="img1091.svg"
+ ALT="$dB_l^m/du$"></SPAN>
+</LI>
+<LI><I CLASS="slanted">results\pointc.dLlm</I> .. for option -d  derivatives <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.62ex; vertical-align: -0.77ex; " SRC="img1092.svg"
+ ALT="$dL_l^m/du$"></SPAN>,
+                  derivatives are with respect to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img1093.svg"
+ ALT="$u=$"></SPAN>neighborposition<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.83ex; vertical-align: -0.70ex; " SRC="img1094.svg"
+ ALT="$(\AA)/a_0$"></SPAN> 
+</LI>
+</UL><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">powdercell2j<A ID="4800"></A> file:</STRONG></DT>
+<DD>     used to create mcphas.j type file from output of powdercell,output is written to mcphas.j.  Example of input file:
+</I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+  No   name       crystal coordinates          cartesian coordinates
+                 x        y        z           x        y        z
+  ------------------------------------------------------------------
+  1     Sr1    0.3644   0.0000   0.2500     1.0962  -4.1497  -2.7991
+  ...
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">radwavfunc<A ID="4806"></A> file.sipf:</I></STRONG></DT>
+<DD> program to evaluate the radial wave function
+given by th parametrisation in file.sipf.
+</DD>
+<DT><STRONG><I CLASS="slanted">reduce_unitcell<A ID="4810"></A> mcphas.j:</I></STRONG></DT>
+<DD>
+                This program checks every atom in the unit cell in file mcphas.j and removes
+                any atom, which is connected to another by a lattice vector. Useful for
+                going from a description in an extended unit cell to the primitive unit cell.
+</I></I></I></I></I></I></I></I></I></I></I></I></I><DL>
+<DT><STRONG>Option: -nofcomponents 23</STRONG></DT>
+<DD>fixes the nofcomponents to 23 by 
+                         reducing (removing entries) or increasing (by filling with zeroes) 
+                         the exchange parameter tables
+</DD>
+<DT><STRONG>Option:  -ni </STRONG></DT>
+<DD>forces output without indexchange 
+</DD>
+<DT><STRONG>Option: -delatoms 1,2,5,7 </STRONG></DT>
+<DD>instead of removing atoms connected by a lattice vector 
+ 			remove atoms number 1,2,5 and 7 from the list and also all interactions with those 
+</DD>
+<DT><STRONG>Option: -delatoms 1:3+-0.75:4+-0.25,2,5,7</STRONG></DT>
+<DD>removes atoms number 1,2,5,7 for atom 1 the interactions
+ 			 are transferred to 75% to atom 3 and 25% to atom 4 and interactions to atoms 3 and 4 are
+ 			 removed, for 2 5 7 all the interactions with other atoms are removed
+</DD>
+<DT><STRONG>Option: -v </STRONG></DT>
+<DD>verbose mode
+</DD>
+</DL><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">rotateBlm<A ID="4816"></A></STRONG></DT>
+<DD>
+  </I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+    Rotates a set of  crystal field  parameters for  Stevens equivalent
+    operators by an azimuthal angle fi about the original z axis and
+    a polar angle theta about the new y axis. A right hand axis system is assumed
+    and a positive rotation is one which advances a right-hand screw in a
+    positive direction along the axis.
+
+    The calculations are  done by means of matrix  multiplication based on
+    the method of Buckmaster (phys. stat. sol. a, vol 13,  pp 9, 1972) and
+    Rudowicz (J. Phys: Solid State Phys., vol 18, pp 1415, 1985).   
+
+    usage: $0 [-h] [--help] 
+              [-i input_file] [--input input_file]
+	      [-o output_file] [--output output_file]
+              [-v] [--verbose] [-th theta] [-fi fi] [CF parameters]
+
+          
+     -h          : this (help) message
+     -i in_file  : input CF parameters file in cfield or mcphase formats
+     -o out_file : output CF parameters file in mcphase format
+     -v          : verbose mode. Will print out input parameters as read.
+     -th	 : polar angle theta in degrees
+     -fi         : azimuthal angle fi in degrees
+
+    if -i is omitted, the program will  assume the input CF parameters are
+          given on the command line in the format: Bkq=x.xx,Bkq=x.xx, etc.
+          e.g. $0 B20=0.21,B40=0.0005,B60=0.051,B66=0.626
+    negative q parameters such as B_2^{-2},  are specified as:  B22S, with 
+          an 'S' at the end, as per the McPhase convention.
+    you may also  specify the ion type by a dding another  parameter after
+          the CF parameters: e.g. $0 B20=0.21,B40=0.5 Pr3+
+    if -o is omitted, the program prints the parameters to standard output.
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">setup_jqfit<A ID="4822"></A>[-h] [&ndash;help] h k l:</I></STRONG></DT>
+<DD> program to setup a fit of exchange parameters in order to reproduce an experimental propagation vector.
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+     -h          : print help message
+      hkl        : Miller indices of propagation vector
+
+    required input files:
+
+    mcphas.j (+ single ion paramter files)
+                 :  structural information including all magnetic atoms
+
+    output files:
+
+    mcdisp.par   :  contains propagation vector and list of other hkl to
+                    be probed
+    mcdisp.mf    :  required input file for mcdisp
+    calcsta      :  required input file for simannfit and searchspace
+    calcsta.pl.forfit: file with fitparameters for Bethe slater, RKKY fits
+    fit.bat      :  batch to start the fit
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">After running this program you can start immediately a fit of exchange
+    parameters. Edit <I CLASS="slanted">calcsta.pl.forfit</I> and <I CLASS="slanted">fit.bat</I> to fine tune the fit 
+    according to your needs.
+    During fitting a value of sta <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.21ex; " SRC="img1095.svg"
+ ALT="$&lt; 1$"></SPAN>&nbsp; indicates, that the maximum of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1096.svg"
+ ALT="$J(Q)$"></SPAN> is
+    at the propagation vector tau. How much it is below one depends on the
+    magnitude of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1096.svg"
+ ALT="$J(Q)$"></SPAN> for the competing wavevectors in the list in<I CLASS="slanted">mcdisp.par</I>.
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">setup_mcdiff_in<A ID="4833"></A>  T Ha Hb Hc:</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG><I CLASS="slanted">setup_mcdiff_in<A ID="4837"></A>  x y:</STRONG></DT>
+<DD>program
+ to setup <I CLASS="slanted">mcdiff.in</I> with information on spinconfiguration
+                    to be used by program <I CLASS="slanted">mcdiff<A ID="4839"></A></I>. Note, you must
+                    have done a <I CLASS="slanted">mcphas<A ID="4840"></A></I> calculation to stabilise
+                    a magnetic structure at the desired Temperature/Field.
+                   <I CLASS="slanted">setup_mcdiff_in</I> reads the results of this calculation
+                    from <I CLASS="slanted">results/mcphas.mf</I> and generates an input file
+                    <I CLASS="slanted">mcdiff.in</I>
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+     -h          : help  message
+      T          : Temperature (K)
+      Ha,Hb,Hc   : Magnetic Field (T)
+     x,y         : x,y values in phasediagram
+
+    required input files:
+
+    results/mcphas.sps
+                 :  result of a mcphas calculation
+
+    optional input files:
+
+    mcdiff.in
+                 :  if present experimental parameters (section 1)
+                    and nonmagnetic atoms (section 2) are taken from
+                    this file
+
+    output files:
+
+    mcdiff.in    :  required input file for mcdiff
+
+    - after running this program you can start mcdiff to do the calculation
+      magnetic diffraction pattern
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">setup_mcdisp_mf <A ID="4846"></A> T Ha Hb Hc:</STRONG></DT>
+<DD> 
+</DD>
+<DT><STRONG><I CLASS="slanted">setup_mcdisp_mf <A ID="4850"></A> x y:</STRONG></DT>
+<DD></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">program to setup<I CLASS="slanted">mcdisp.mf</I> with information on meanfields
+                    to be used by program <I CLASS="slanted">mcdisp<A ID="4852"></A></I>. Note, you must
+                    have done a <I CLASS="slanted">mcphas<A ID="4853"></A></I> calculation to stabilise
+                    a magnetic structure at the desired Temperature/Field.
+                    <I CLASS="slanted">setup_mcdisp_mf</I> reads the results of this calculation
+                    from <I CLASS="slanted">results/mcphas.mf</I> and puts the meanfields into
+                    <I CLASS="slanted">mcdisp.mf</I>.
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+     -h          : this (help) message
+      T          : Temperature (K)
+      Ha,Hb,Hc   : Magnetic Field (T)
+      x,y        : x,y values in phasediagram
+
+    required input files:
+
+    results/mcphas.mf
+                 :  result of a mcphas calculation
+
+    output files:
+
+    mcdisp.mf    :  required input file for mcdisp
+
+    - after running this program you can start mcdisp to do the calculation
+      of dispersion of excitations or diffuse scattering
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">setup_mcphasjforfit<A ID="4859"></A>  [-h]:</I></STRONG></DT>
+<DD> program to setup a fit of exchange parameters by   creating mcphas.j.forfit from mcphas.j
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+     -h          : print help message
+
+    required input files:
+
+    mcphas.j (+ single ion parameter files)
+                 :  structural information including all magnetic atoms
+
+    output files:
+
+    mcphas.j.forfit  : all interaction parameters are substituted
+                       with parJxxx[0.0,-1e0,1e0,0,1e-6]
+
+    - after running this program you must setup a file calcsta 
+      to calculate the standard deviation and then you can start
+      a fit by simannfit or searchspace
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><A ID="4866"></A><A ID="4867"></A>
+</DD>
+<DT><STRONG><I CLASS="slanted">singleion<A ID="4868"></A> [options] T[K] Hexta[T] Hextb[T] Hextc[T] Hxc1 Hxc2 Hxc3 ... Hxcnofcomponents</STRONG></DT>
+<DD>
+ single ion  - calculate single ion expectations values <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img1097.svg"
+ ALT="$&lt;Ia&gt;, &lt;Ib&gt; $"></SPAN>... and transition energies.
+ Options may be used to trigger calculation of magnetic Moment and other Quantities.
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE> 
+           T    ..... temperature in Kelvin
+           Hext ..... external field in Tesla 
+           Hxc... exchange (molecular) field in meV
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+<I CLASS="slanted">singleion</I> reads <I CLASS="slanted">mcphas.j</I> and the singleion parameter files quoted therein
+and calculates energies, eigenstates, expectation values <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.90ex; vertical-align: -0.21ex; " SRC="img1098.svg"
+ ALT="$&lt;I&gt;$"></SPAN> for the given
+temperature, external magnetic field Hext and exchange field Hxc (the
+interaction constants given in mcphas.j are ignored).
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">for each single ion property file the following files are generated:
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+   results/file.sipf.levels.cef .. energy levels and eigenstates and &lt;I&gt;
+   results/file.sipf.trs ......... transition energies,matrix elements
+                                   and (powder) neutron intensities
+   results/_file.sipf    ......... input parameter files as read and used by singleion 
+
+options: -nt ......... by default only 5 transition energies are output,
+                       if you want more, start e.g. with 
+                       option -nt 7 to output 7 transition energies
+         -pinit 0.1 .. consider only transitions with population of initial state &gt; 0.1
+         -ninit 3  ... consider only transitions from the 3 lowest eigenstates
+         -maxE 30  ... consider only transitions with energy lower than 30 meV
+         -r ion.sipf . do not read mcphas-j but only the single ion
+                       parameter file ion.sipf
+         -M  ......... calculate expectation values and transition matrix
+                       elements for magnetic moment M instead of I
+         -MQ 0 0 1 ... instead of &lt;I&gt; calculate expectation values, transition matrix elements
+                       for M(Q=(0 0 1)/A), the Fourier Transform  of magnetic moment density M(r)
+         -S  ......... calculate expectation values and transition matrix
+                       elements for spin S
+         -L  ......... calculate expectation values and transition matrix
+                       elements for orbital momentum L
+         -v       .... verbose, output more information on ongoing calculation
+         -Tsteps 10 27 in addition to initial temperature calculate 10 further temperatures
+                       until 27K has been reached
+         -Hsteps 20 0 0 10 in addition to initial field calculate 20 further external fields
+                       until (0 0 10) Tesla has been reached
+         -opmat 2 .... output operator matrix number n=2 to results/op.mat
+                Operators in output results/op.mat for different values of n:
+                n=0                    Hamiltonian
+                n=1,...,nofcomponents  operator Matrix In in standard basis
+                n=-1,..,-nofomponents  operator Matrix In for Hamiltonian eigenstates basis
+                n&gt;nofomponents: all operator Matrices (n=0 to n=nofcomponents) in standard basis
+                n&lt;-nofomponents: all operator Matrices (n=0 to n=-nofcomponents) in Hamiltonian eigenstates basis
+
+note: for calculating T or H dependencies you can put single ion in a loop
+       and pipe the result into a file
+
+  .... linux:   for B in $(seq 0 0.1 14); do singleion 2 $B 0 0 0 0 0; done &gt; results/fielddep.dat
+
+  .... windows command line: for /L %B in (0,1,14)  do singleion 2 %B 0 0 0 0 0 &gt;&gt; results\fielddep.dat
+
+  .... windows batch file (needed for noninteger numbers):
+          @echo off &amp;&amp; setlocal ENABLEDELAYEDEXPANSION
+          for /L %%I in (0,2,140) do ( set /A W=%%I/10 &amp;&amp; set /A "f = %%I %% 10"
+          set B=!w!.!f!
+          @echo on &amp;&amp; singleion 2 0 0 !B! 0 0 0 &amp;&amp; @echo off )
+          endlocal &amp;&amp; @echo on 
+...  LOOP linux using perl:
+perl -e 'for($T=1;$T&lt;90;$T+=2){system("singleion ".$T." 1 0 0   0 0 0");}' &gt; results/sus1Tesla.clc
+ ... LOOP for windows using perl:
+perl -e "for($T=1;$T&lt;90;$T+=2){system('singleion '.$T.' 1 0 0   0 0 0');}" &gt; results\sus1Tesla.clc'
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">      
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">symhmltn:</STRONG></DT>
+<DD> Calculates via group theory, the allowed two-ion multipolar exchange terms
+between two ions whose center has some particular point symmetry. Syntax is: 
+"<I CLASS="slanted">symhmltn <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1056.svg"
+ ALT="$\langle$"></SPAN>PTGP<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1057.svg"
+ ALT="$\rangle$"></SPAN> <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1056.svg"
+ ALT="$\langle$"></SPAN>l<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1057.svg"
+ ALT="$\rangle$"></SPAN></I>" where <I CLASS="slanted"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1056.svg"
+ ALT="$\langle$"></SPAN>PTGP<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1057.svg"
+ ALT="$\rangle$"></SPAN></I> is 
+the name of the point group (both Hermman-Maguin and Schoenflies notation are understood), and 
+<I CLASS="slanted"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1056.svg"
+ ALT="$\langle$"></SPAN>l<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1057.svg"
+ ALT="$\rangle$"></SPAN></I> is the integer multipolar order (l=1 for dipolar exchange, l=2 for 
+quadrupolar, etc.).
+E.g. "<I CLASS="slanted">symhmltn Oh 1</I>" gives the familiar Heisenberg exchange terms. 
+See also: <I CLASS="slanted">cfsplit</I> which calculates the multiplicities of the crystal field split levels of a
+particular point group.
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+</DL></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I> 
 
 <P>
-<BR><HR>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node135.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node133.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html1036"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html1038"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node135.html">Programs for Manipulation of</A>
+<B> Up:</B> <A
+ HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A
+ HREF="node133.html">Crystal Field Example: Fitting</A>
+ &nbsp; <B>  <A ID="tex2html1037"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1039"
+  HREF="node164.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

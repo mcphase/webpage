@@ -1,240 +1,161 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>External module function mqcalc - used by mcdiff </TITLE>
-<META NAME="description" CONTENT="External module function mqcalc - used by mcdiff ">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>External module function estates - used by mcdisp, mcdiff and singleion</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node88.html">
 <LINK REL="previous" HREF="node86.html">
-<LINK REL="up" HREF="node80.html">
 <LINK REL="next" HREF="node88.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1627"
-  HREF="node88.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1621"
-  HREF="node80.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1615"
-  HREF="node86.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1623"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1625"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node88.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node82.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node86.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html807"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html809"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1628"
-  HREF="node88.html">External module functions dmq1</A>
-<B> Up:</B> <A NAME="tex2html1622"
-  HREF="node80.html">Module Functions for Observables</A>
-<B> Previous:</B> <A NAME="tex2html1616"
-  HREF="node86.html">External module function dS1</A>
- &nbsp; <B>  <A NAME="tex2html1624"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1626"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node88.html">Module Functions for Observables</A>
+<B> Up:</B> <A
+ HREF="node82.html">Basic Module Functions</A>
+<B> Previous:</B> <A
+ HREF="node86.html">External module function du1calc</A>
+ &nbsp; <B>  <A ID="tex2html808"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html810"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION000172700000000000000"></A><A NAME="7100"></A>
+<H3><A ID="SECTION000171500000000000000"></A><A ID="3384"></A><A ID="3385"></A><A ID="3386"></A>
 <BR>
-External module function <I CLASS="slanted">mqcalc</I> - used by <I CLASS="slanted">mcdiff</I>  
+External module function <I CLASS="slanted">estates</I> - used by <I CLASS="slanted">mcdisp</I>,
+ <I CLASS="slanted">mcdiff</I> and <I CLASS="slanted">singleion</I>
 </H3>
 
 <P>
-&rdquo;going beyond&rdquo;  dipolar approximation is a desirable feature of an accurate
- calculation of magnetic neutron scattering intensity and can be performed using
- mcphase. The internal module <I CLASS="slanted">so1ion</I><A NAME="7102"></A> does this in an excellent
- way for the ground state multiplet of rare earth atoms (see section <A HREF="node43.html#mcdiff_gobeyond">8.5</A>)
- using equations (<A HREF="node43.html#scattoperator">49</A>) for the scattering operator <!-- MATH
- $\hat \mathcal Q$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="17" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img770.png"
- ALT="$\hat \mathcal Q$"></SPAN>.
- A more general formula for this scattering operator operator relates this operator
- to the Fourier transform of the magnetisation density <!-- MATH
- $\mathbf M(\mathbf r)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="41" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img771.png"
- ALT="$\mathbf M(\mathbf r)$"></SPAN>of the unfilled shell of a specific
- ion&nbsp;[<A
- HREF="node151.html#lovesey84-1">29</A>]:
+This routine is optional, i.e. may be programed but is not absolutely necessary. It provides the designer of a single ion module
+with the possiblity to store information, usually the eigenvalues and eigenstates of a problem. This can be very useful to accelerate computations. 
+For example, the module <I CLASS="slanted">mcdisp</I> provides to the single ion module functions
+ <I CLASS="slanted">du1calc</I> and <I CLASS="slanted">dMQ1</I> and similar
+at every call the matrix <I CLASS="slanted">estates</I> which has been set initially for every atom
+by a call to <I CLASS="slanted">estates</I>.
 
 <P>
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+At the start of the programs <I CLASS="slanted">mcdisp</I> <I CLASS="slanted">singleion</I> the function <I CLASS="slanted">estates</I>
+is called (if present in the module) and it should initialize the Complex Matrix by a command such as
 
-<!-- MATH
- \begin{equation}
-\mathbf Q \times (\hat \mathcal Q \times  \mathbf Q) = \frac{-1}{2\mu_B}
-   \mathbf Q \times (\hat \mathbf M(\mathbf Q) \times \mathbf Q) =\frac{-1}{2\mu_B} \int d\mathbf r
-e^{i\mathbf Q \mathbf r} \left [ 
-     \mathbf Q \times (\hat \mathbf M(\mathbf r) \times \mathbf Q) \right ]
+<P>
+<I CLASS="slanted">(*ests)=ComplexMatrix(0,nofrows,1,nofcols);</I> 
+
+<P>
+and fill this matrix with sensible numerical values for the effective field, temperature given.
+Parameters <I CLASS="slanted">MODPAR</I> and Lande Factor <I CLASS="slanted">gJ</I> may be used for this purpose. 
+
+<P>
+The routine should look similar to
+<SPAN CLASS="FOOTNOTESIZE">
+</SPAN><PRE>
+#include "vector.h"          // MatPack vector class must be included
+
+#ifdef __linux__
+extern "C" void estates(
+#else
+extern "C" __declspec(dllexport) void estates(
+#endif
+// on output
+                     ComplexMatrix * ests,    // eigenstate matrix      
+                                              // it must also contain population 
+                                              // numbers p_i of the states (imaginary part of row 0)
+                                              // and eigenvalues (real part of row 0)
+// on input
+                      Hxc ,                 //   vector of exchange field [meV] (can be n-dimensional, for a set of n operators)
+                      Hext  ,                     // external magnetic field [T]
+                      double *g_J,        // Input Lande g-factor
+                      double &amp;T,          // Input temperature (K)
+                      Vector &amp;MODPAR,     // Input vector of parameters from 
+					                      //single ion property file
+                      char **sipffilename)// Single ion properties filename                      
+{ // ... some code to compute eigenvectors and eigenvalues
+
+ dj=21;  // dimension matrix according to the  dimension of your eigenvalue problem
+   (*ests) = ComplexMatrix(0,dj,1,dj);
+   Vector En(1,dj),pn(1,dj);Matrix zr(1,dj,1,dj);Matrix zi(1,dj,1,dj);
+   setup_and_solve_Hamiltonian(Hxc,Hext,En,zr,zi,sort); // call some function to solve your Hamiltonian
+   
+   for(i=1;i&lt;=dj;++i)for(j=1;j&lt;=dj;++j)(*ests)(i,j)=complex &lt;double&gt; (zr(i,j),zi(i,j));   // fill matrix with eigenstates
  
-\end{equation}
- -->
-<A NAME="scattop"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="scattop"></A><IMG
- WIDTH="499" HEIGHT="55" BORDER="0"
- SRC="img772.png"
- ALT="\begin{displaymath}
-\mathbf Q \times (\hat \mathcal Q \times \mathbf Q) = \fr...
-...\times (\hat \mathbf M(\mathbf r) \times \mathbf Q) \right ]
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">105</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
+    //calculate partition sum and Boltzmann probabilities pn
+    double zz;calculate_Z_pn(En,T,zz,pn);
 
-<P>
-Note that the magnetisation density consists of two contributions 
-<!-- MATH
- $\hat \mathbf M(\mathbf r)=\hat \mathbf M_S(\mathbf r)+\hat \mathbf M_L(\mathbf r)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="175" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img773.png"
- ALT="$\hat \mathbf M(\mathbf r)=\hat \mathbf M_S(\mathbf r)+\hat \mathbf M_L(\mathbf r)$"></SPAN>, the
- spin and orbital contribution. The orbital contribution is not uniquely defined due to a gauge
- freedom (<!-- MATH
- $\nabla \times \hat \mathbf M_L (\mathbf r)=\hat \mathbf j(\mathbf r)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="130" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img774.png"
- ALT="$\nabla \times \hat \mathbf M_L (\mathbf r)=\hat \mathbf j(\mathbf r)$"></SPAN>, the curl of the 
-magnetisation must give the current density, so any 
-gradient of a potential may be added
-to <!-- MATH
- $\hat \mathbf M(\mathbf r)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="41" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img775.png"
- ALT="$\hat \mathbf M(\mathbf r)$"></SPAN> without changing the result). However, this does not matter, because adding a gradient of a 
-potential
-to <!-- MATH
- $\hat \mathbf M(\mathbf r)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="41" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img775.png"
- ALT="$\hat \mathbf M(\mathbf r)$"></SPAN> will just give a contribution <!-- MATH
- $\mathbf Q \times \mathbf Q \times \mathbf Q=0$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="113" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img776.png"
- ALT="$\mathbf Q \times \mathbf Q \times \mathbf Q=0$"></SPAN> to the equation 
-(<A HREF="#scattop">110</A>),
-thus the neutron scattering cross section is not sensitive to the chosen gauge, which is an important feature of 
-the theory.
+     // put Energies and Boltzmann population into row 0 of eigenstates...
+     for(j=1;j&lt;=dj;++j){(*eigenstates)(0,j)=complex&lt;double&gt;(En(j),pn(j));}
 
-<P>
-Technically,  &rdquo;going beyond&rdquo;  dipolar approximation in the program <I CLASS="slanted">mcdiff<A NAME="7115"></A></I>
-can be done with  module functions <I CLASS="slanted">mq</I> and <I CLASS="slanted">estates</I>. 
-The output of <I CLASS="slanted">mq</I> is the Fourier transform of the magnetization
-density in units of <SPAN CLASS="MATH"><IMG
- WIDTH="24" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img761.png"
- ALT="$\mu_B$"></SPAN>, which is equivalent to two times the scattering operator 
- <!-- MATH
- $\langle \hat \mathcal Q^{d \dag }_{\alpha} \rangle_{T,H}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="67" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img777.png"
- ALT="$\langle \hat \mathcal Q^{d \dag }_{\alpha} \rangle_{T,H}$"></SPAN> for
- a given orientation of the scattering vector. <I CLASS="slanted">mq</I> is called many times, for
- every scattering vector. In order to
- do an efficient calculation the eigenstates should be calculated only
- once, this is the task of function <I CLASS="slanted">estates</I>.
-
-<P>
-The format to be used is:
-<SMALL CLASS="FOOTNOTESIZE">
-</SMALL><PRE>
-extern "C" void mqcalc(ComplexVector &amp; mq,double &amp; th,double &amp; ph,double J0,
-double &amp; J2, double &amp; J4, double &amp; J6,ComplexMatrix &amp; est)
-</PRE>
-<P>
-<SMALL CLASS="FOOTNOTESIZE">The meaning of the symbols is as follows:
-</SMALL>
-<P>
-<PRE>
-on input
-   th     polar angle theta of the scattering vector Q (angle with the axb axis=c axis) in rad
-   ph     polar angle phi of the scattering vector Q (angle with bx(axb)=a in the 
-          projection into the  bx(axb),b plane = angle with a in the projection into the 
-		  ab plane) in rad
-   J0,J2,J4,J6     form factor functions &lt;jn(Q)&gt;   
-   est             eigenstate matrix (as calculated by estates),
-                   it should also contain population numbers of the states
-on output
-   mq(1..3)        Kartesian components of the scattering operator mq=&lt;M(Q)&gt;/muB=-2&lt;Q&gt;_TH
-                    Note that: 
-                               mq(1)=&lt;Mbx(axb)(Q)&gt;/muB
-                               mq(2)=&lt;Mb(Q)&gt;/muB
-                               mq(3)=&lt;Maxb(Q)&gt;/muB
-                    according to Lovesey Neutron Scattering equation 6.87b the 
-                    scattering operator is given in  spherical coordinates 
-					Q-1,Q0,Q+1 (introduced as described above on input of th and ph)
-					these are related to cartesion coordinates by 11.123
-				    thus at Q=0  &lt;M(Q)&gt;=2&lt;S&gt;+&lt;L&gt;
-</PRE>
+}
+</PRE><SPAN CLASS="FOOTNOTESIZE">
+Note: if <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.90ex; vertical-align: -0.21ex; " SRC="img830.svg"
+ ALT="$T&lt;0$"></SPAN> all quantities should be evaluated assuming that all Boltzmann probabilities <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img139.svg"
+ ALT="$p_i$"></SPAN>
+ are zero except for the state number <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img831.svg"
+ ALT="$n=(-T)$"></SPAN>, for which the probability <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img832.svg"
+ ALT="$p_n=1$"></SPAN>.
+</SPAN>
 
 <P>
 
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html1627"
-  HREF="node88.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1621"
-  HREF="node80.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1615"
-  HREF="node86.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1623"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1625"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node88.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node82.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node86.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html807"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html809"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1628"
-  HREF="node88.html">External module functions dmq1</A>
-<B> Up:</B> <A NAME="tex2html1622"
-  HREF="node80.html">Module Functions for Observables</A>
-<B> Previous:</B> <A NAME="tex2html1616"
-  HREF="node86.html">External module function dS1</A>
- &nbsp; <B>  <A NAME="tex2html1624"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1626"
-  HREF="node152.html">Index</A></B> </DIV>
+<B> Next:</B> <A
+ HREF="node88.html">Module Functions for Observables</A>
+<B> Up:</B> <A
+ HREF="node82.html">Basic Module Functions</A>
+<B> Previous:</B> <A
+ HREF="node86.html">External module function du1calc</A>
+ &nbsp; <B>  <A ID="tex2html808"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html810"
+  HREF="node164.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

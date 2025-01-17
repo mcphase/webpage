@@ -1,75 +1,168 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Single Ion Property Input Files</TITLE>
-<META NAME="description" CONTENT="Single Ion Property Input Files">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Example single ion property file for a simple antiferromagnet</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node30.html">
 <LINK REL="previous" HREF="node28.html">
-<LINK REL="up" HREF="node23.html">
 <LINK REL="next" HREF="node30.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html761"
-  HREF="node30.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html755"
-  HREF="node23.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html749"
-  HREF="node28.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html757"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html759"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node30.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node22.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node28.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html500"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html502"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html762"
-  HREF="node30.html">Example single ion property</A>
-<B> Up:</B> <A NAME="tex2html756"
-  HREF="node23.html">Input Files</A>
-<B> Previous:</B> <A NAME="tex2html750"
-  HREF="node28.html">Example mcphas.j file for</A>
- &nbsp; <B>  <A NAME="tex2html758"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html760"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node30.html">mcphas.tst - input file</A>
+<B> Up:</B> <A
+ HREF="node22.html">Input Files</A>
+<B> Previous:</B> <A
+ HREF="node28.html">Single Ion Property Input</A>
+ &nbsp; <B>  <A ID="tex2html501"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html503"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION000101600000000000000"></A><A NAME="sifile"></A>
-<BR>
-Single Ion Property Input Files
+<H3><A ID="SECTION000101700000000000000">
+Example single ion property file  for a simple antiferromagnet</A>
 </H3>
 
 <P>
-In order to speed up calculations or treat special problems a large 
-variety of single ion modules is available. This includes the
-option to load a user written single ion module. Details are 
-given in chapter&nbsp;<A HREF="node67.html#simod">13</A>.
+Here is an example file <I CLASS="slanted">mcphas.cf1</I> describing the anisotropy of a 
+simple antiferromagnet with Ce atoms having basal plane anisotropy. Note the
+axis convention xyz<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img220.svg"
+ ALT="$\vert\vert$"></SPAN>abc, in case of non-orthogonal axes the convention 
+is <SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img169.svg"
+ ALT="$y\vert\vert\vec b$"></SPAN>, <!-- MATH
+ $z||(\vec a \times \vec b)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img170.svg"
+ ALT="$z\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img4.svg"
+ ALT="$x$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img171.svg"
+ ALT="$y$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img158.svg"
+ ALT="$z$"></SPAN>.
 
 <P>
-The first time user of <I CLASS="slanted">McPhase</I> should use the module <I CLASS="slanted">so1ion</I><A NAME="2011"></A> and 
-create an appropriate single ion property input file as described in
-section <A HREF="node19.html#cf1ion">6.3</A>. A good starting point are several examples
-given in directory <I CLASS="slanted">examples</I>.
+<SPAN CLASS="SMALL"></SPAN><PRE>
+#!MODULE=so1ion
+#&lt;!--mcphase.sipf--&gt;
+#***************************************************************
+# Single Ion Parameter File for Module Cfield for  
+# mcphas version 3.0
+# - program to calculate static magnetic properties
+# reference: M. Rotter JMMM 272-276 (2004) 481
+# mcdisp version 3.0
+# - program to calculate the dispersion of magnetic excitations
+# reference: M. Rotter et al. J. Appl. Phys. A74 (2002) 5751
+# mcdiff version 3.0
+# - program to calculate neutron and magnetic xray diffraction
+# reference: M. Rotter and A. Boothroyd PRB 79 (2009) 140405R
+#***************************************************************
+#
+#
+# crystal field paramerized in Stevens formalism
+#
+#-----------
+IONTYPE=Ce3+
+#-----------
 
+#--------------------------------------------------------------------------
+# Crystal Field parameters in Stevens Notation (coordinate system xyz||abc)
+#--------------------------------------------------------------------------
+units=meV
+B20=0.02
+
+
+#----------------
+# Stevens Factors
+#----------------
+ALPHA=-0.0571429
+BETA=0.00634921
+GAMMA=0
+
+#---------------------------------------------------------
+# Radial Matrix Elements (e.g. Abragam Bleaney 1971 p 399)
+#---------------------------------------------------------
+#&lt;r^2&gt; in units of a0^2 a0=0.5292 Angstroem
+R2=1.309
+#&lt;r^4&gt; in units of a0^4 a0=0.5292 Angstroem
+R4=3.964
+#&lt;r^6&gt; in units of a0^6 a0=0.5292 Angstroem
+R6=23.31
+
+#----------------
+# Lande factor gJ
+#----------------
+GJ=0.857143
+
+#-------------------------------------------------------
+# Neutron Scattering Length (10^-12 cm) (can be complex)
+#-------------------------------------------------------
+SCATTERINGLENGTHREAL=0.484
+SCATTERINGLENGTHIMAG=0
+#  ... note: - if an occupancy other than 1.0 is needed, just reduce 
+#              the scattering length linear accordingly
+
+#-------------------------------------------------------
+# Debye-Waller Factor: sqr(Intensity)~|sf|~EXP(-2 * DWF *s*s)=EXP (-W)
+#                      with s=sin(theta)/lambda=Q/4pi
+# relation to other notations: 2*DWF=Biso=8 pi^2 &lt;u^2&gt;
+# unit of DWF is [A^2]
+#-------------------------------------------------------
+DWF=0
+#--------------------------------------------------------------------------------------
+# Neutron Magnetic Form Factor coefficients - thanks to J Brown
+#   d = 2*pi/Q      
+#   s = 1/2/d = Q/4/pi   
+#   sin(theta) = lambda * s
+#   r= s*s = Q*Q/16/pi/pi
+#
+#   &lt;j0(Qr)&gt;=   FFj0A*EXP(-FFj0a*r) + FFj0B*EXP(-FFj0b*r) + FFj0C*EXP(-FFj0c*r) + FFj0D
+#   &lt;j2(Qr)&gt;=r*(FFj2A*EXP(-FFj2a*r) + FFj2B*EXP(-FFj2b*r) + FFj2C*EXP(-FFj2c*r) + FFj2D
+#   &lt;j4(Qr)&gt;=r*(FFj4A*EXP(-FFj4a*r) + FFj4B*EXP(-FFj4b*r) + FFj4C*EXP(-FFj4c*r) + FFj4D
+#   &lt;j6(Qr)&gt;=r*(FFj6A*EXP(-FFj6a*r) + FFj6B*EXP(-FFj6b*r) + FFj6C*EXP(-FFj6c*r) + FFj6D
+#
+#   Dipole Approximation for Neutron Magnetic Formfactor:
+#        -Spin Form Factor       FS(Q)=&lt;j0(Q)&gt;
+#        -Angular Form Factor    FL(Q)=&lt;j0(Q)&gt;+&lt;j2(Q)&gt;
+#        -Rare Earth Form Factor F(Q) =&lt;j0(Q)&gt;+&lt;j2(Q)&gt;*(2/gJ-1)
+
+#--------------------------------------------------------------------------------------
+FFj0A=+0.2953 FFj0a=+17.6846 FFj0B=+0.2923 FFj0b=+6.7329 FFj0C=+0.4313 FFj0c=+5.3827 FFj0D=-0.0194
+FFj2A=+0.9809 FFj2a=+18.0630 FFj2B=+1.8413 FFj2b=+7.7688 FFj2C=+0.9905 FFj2c=+2.8452 FFj2D=+0.0120
+</PRE><SPAN CLASS="SMALL"></SPAN>
 <P>
 <BR><HR>
 

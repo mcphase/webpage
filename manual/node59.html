@@ -1,571 +1,242 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Including Phonons and Crystal-Field Phonon interactions</TITLE>
-<META NAME="description" CONTENT="Including Phonons and Crystal-Field Phonon interactions">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Using Single Ion Module phonon</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node61.html">
-<LINK REL="previous" HREF="node55.html">
-<LINK REL="up" HREF="manual.html">
+<LINK REL="previous" HREF="node58.html">
 <LINK REL="next" HREF="node60.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1187"
-  HREF="node60.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1181"
-  HREF="manual.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1175"
-  HREF="node58.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1183"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1185"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node60.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node58.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node58.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html643"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html645"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1188"
-  HREF="node60.html">Using Single Ion Module</A>
-<B> Up:</B> <A NAME="tex2html1182"
-  HREF="manual.html">McPhase USERS MANUAL</A>
-<B> Previous:</B> <A NAME="tex2html1176"
-  HREF="node58.html">Running McPhase and McDisp</A>
- &nbsp; <B>  <A NAME="tex2html1184"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1186"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node60.html">Crystal Field Phonon Interaction</A>
+<B> Up:</B> <A
+ HREF="node58.html">Including Phonons and Crystal-Field</A>
+<B> Previous:</B> <A
+ HREF="node58.html">Including Phonons and Crystal-Field</A>
+ &nbsp; <B>  <A ID="tex2html644"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html646"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION000140000000000000000"></A><A NAME="phonons"></A>
-<BR>
-Including Phonons and Crystal-Field Phonon interactions
-</H1>
+<H2><A ID="SECTION000141000000000000000">
+Using Single Ion Module <I CLASS="slanted">phonon</I></A>
+</H2>
 
 <P>
-In this section we discuss, how lattice dynamics may be considered in the framework of
-the Hamiltonian (<A HREF="node139.html#fullhamiltonian">213</A>). We will see that this corresponds 
-to a system of coupled Einstein oscillators. One such oscillator can be modelled 
-by setting up a <I CLASS="slanted">sipf</I> file with the module <I CLASS="slanted">phonon</I>. Coupling has
-to be done in <I CLASS="slanted">mcdisp.j</I>. Rephrasing lattice dynamics in this way allows 
-to couple phonons to the crystal field.
+The module <I CLASS="slanted">phonon</I> allows to consider the phononic degrees of freedom in <I CLASS="slanted">McPhase</I>.
+The single ion input file for an oscillating atom (with amplitude 
+up to a maximum displacement <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img566.svg"
+ ALT="$u_{max}$"></SPAN>, which is relevant for the function <I CLASS="slanted">Icalc</I> of the
+module) has to have the following format:
 
 <P>
-A three dimensional Einstein oscillator (for atom <SPAN CLASS="MATH"><IMG
- WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img46.png"
- ALT="$n$"></SPAN>) in a solid can be described by 
-the following Hamiltonian
+<PRE>
+#!MODULE=phonon
+#&lt;!--mcphase.sipf--&gt;
+#
+# phonon
+# MODPAR1=mass of atom in units of m0 (atomic mass unit=1.660539e-27 kg)
+#
+#-----------
+MODPAR1=57  # mass in(m0)
+MODPAR2=-1.2   # Kxx
+MODPAR3=-1.2   # Kyy
+MODPAR4=-1.2   # Kzz
+MODPAR5=0   # Kxy  in (meV)
+MODPAR6=0   # Kxz
+MODPAR7=0   # Kyz
+MODPAR8=1   # umax          maximum (cutoff) for displacement [a0=0.5219 A]
+MODPAR9=4   # 0       umax restriction in all directions
+            #                1,2,3   umax restriction in x y z direction only
+            #                4       umax restriction in x and y direction
+            #                5       umax restriction in x and z direction
+            #                6       umax restriction in y and z direction
+
+#-------------------------------------------------------
+# Neutron Scattering Length (10^-12 cm) (can be complex)
+#-------------------------------------------------------
+SCATTERINGLENGTHREAL=0.769
+SCATTERINGLENGTHIMAG=0
+#  ... note: - if an occupancy other than 1.0 is needed, just reduce 
+#              the scattering length linear accordingly
+
+SCATTERINGLENGTHREAL=0.945
+SCATTERINGLENGTHIMAG=0
+</PRE>
 
 <P>
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
-
-<!-- MATH
- \begin{equation}
-\hat H_E(n)=\frac{a_0^2{\hat \mathbf p_n}^2}{2m_n} - \frac{1}{2} {\hat \mathbf u}^T_n \overline{K}(nn) {\hat \mathbf u}_n
-\end{equation}
+Note, that <I CLASS="slanted">MODPAR8</I> and <I CLASS="slanted">MODPAR9</I> impose a restriction to the <I CLASS="slanted">Icalc</I> function
+of the module <I CLASS="slanted">phonon</I>. This means, if used with program <I CLASS="slanted">mcphas</I> the
+module will not return displacements <!-- MATH
+ $\langle \mathbf u \rangle$
  -->
-<A NAME="einstein"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="einstein"></A><IMG
- WIDTH="214" HEIGHT="52" BORDER="0"
- SRC="img485.png"
- ALT="\begin{displaymath}
-\hat H_E(n)=\frac{a_0^2{\hat \mathbf p_n}^2}{2m_n} - \frac{1}{2} {\hat \mathbf u}^T_n \overline{K}(nn) {\hat \mathbf u}_n
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">65</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img567.svg"
+ ALT="$\langle \mathbf u \rangle$"></SPAN> larger than umax.
+Technically this is done by applying the operation <!-- MATH
+ $u \leftarrow u_{max} * tanh (u/u_{max})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img568.svg"
+ ALT="$u \leftarrow u_{max} * tanh (u/u_{max})$"></SPAN>
+at the end of the function <I CLASS="slanted">Icalc</I>. 
 
 <P>
-Here <!-- MATH
- $\hat \mathbf u$
+<B>Coordinate System:</B> the Euclidean coordinate system of phonon displacements <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.26ex; vertical-align: -0.12ex; " SRC="img569.svg"
+ ALT="$\mathbf u$"></SPAN> with
+components <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.89ex; vertical-align: -0.78ex; " SRC="img570.svg"
+ ALT="$u_x,u_y,u_z$"></SPAN> is oriented with respect to the crystal axes <!-- MATH
+ $\mathbf a,\mathbf b, \mathbf c$
  -->
 <SPAN CLASS="MATH"><IMG
- WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img486.png"
- ALT="$\hat \mathbf u$"></SPAN> is the dimensionless displacement vector 
-(<!-- MATH
- $\hat \mathbf u_n={\hat \mathbf P}_n/a_0=\Delta {\hat \mathbf r}_n/a_0$
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img173.svg"
+ ALT="$\mathbf a,\mathbf b,\mathbf c$"></SPAN>
+such that <!-- MATH
+ $\mathbf y || \mathbf b$
  -->
 <SPAN CLASS="MATH"><IMG
- WIDTH="163" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img487.png"
- ALT="$\hat \mathbf u_n={\hat \mathbf P}_n/a_0=\Delta {\hat \mathbf r}_n/a_0$"></SPAN>, 
-with the Bohr radius <SPAN CLASS="MATH"><IMG
- WIDTH="85" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img488.png"
- ALT="$a_0=0.5219$"></SPAN>&nbsp;&#197;), <SPAN CLASS="MATH"><IMG
- WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img489.png"
- ALT="$m_n$"></SPAN> the
-mass of the atom <SPAN CLASS="MATH"><IMG
- WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img46.png"
- ALT="$n$"></SPAN>, <!-- MATH
- $\hat \mathbf p_n=d\hat \mathbf u_n/dt$
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img571.svg"
+ ALT="$\mathbf y \vert\vert \mathbf b$"></SPAN>, <!-- MATH
+ $\mathbf z || \mathbf a \times \mathbf b$
  -->
 <SPAN CLASS="MATH"><IMG
- WIDTH="93" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img490.png"
- ALT="$\hat \mathbf p_n=d\hat \mathbf u_n/dt$"></SPAN> the conjugate momentum to <!-- MATH
- $\hat \mathbf u_n$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img491.png"
- ALT="$\hat \mathbf u_n$"></SPAN> and
-<!-- MATH
- $\overline{K}(nn)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="50" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
- SRC="img492.png"
- ALT="$\overline{K}(nn)$"></SPAN> the Matrix describing the restoring force.
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img572.svg"
+ ALT="$\mathbf z \vert\vert \mathbf a \times \mathbf b $"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.26ex; vertical-align: -0.12ex; " SRC="img291.svg"
+ ALT="$\mathbf x$"></SPAN> perpendicular
+to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.71ex; vertical-align: -0.57ex; " SRC="img293.svg"
+ ALT="$\mathbf y$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.26ex; vertical-align: -0.12ex; " SRC="img573.svg"
+ ALT="$\mathbf z$"></SPAN>.
 
 <P>
-Coupling such oscillators leads to the Hamiltonian
+The single ion property file contains the matrix <!-- MATH
+ $\overline{K}(ii)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.85ex; vertical-align: -0.70ex; " SRC="img532.svg"
+ ALT="$\overline{K}(ii)$"></SPAN>, the matrix <!-- MATH
+ $\overline{K}(ii')$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.85ex; vertical-align: -0.70ex; " SRC="img574.svg"
+ ALT="$\overline{K}(ii')$"></SPAN> decribing the
+forces between
+different ions <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.76ex; vertical-align: -0.12ex; " SRC="img367.svg"
+ ALT="$i$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.97ex; vertical-align: -0.12ex; " SRC="img575.svg"
+ ALT="$i'$"></SPAN> have to be given in the file <I CLASS="slanted">mcphas.j</I>, which could
+look like:
 
 <P>
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
-
-<!-- MATH
- \begin{equation}
-\hat H_{phon}=\sum_n \hat H_E(n) -\frac{1}{2} \sum_{n\neq n'} {\hat \mathbf u}_n^T \overline{K}(nn')  {\hat \mathbf u}_{n'}
-\end{equation}
- -->
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="293" HEIGHT="51" BORDER="0"
- SRC="img493.png"
- ALT="\begin{displaymath}
-\hat H_{phon}=\sum_n \hat H_E(n) -\frac{1}{2} \sum_{n\neq n'} {\hat \mathbf u}_n^T \overline{K}(nn') {\hat \mathbf u}_{n'}
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">66</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-
-<P>
-Note that our coupling constants <!-- MATH
- $K_{\alpha\beta}(nn')=-A_{\alpha\beta}(nn')$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="168" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img494.png"
- ALT="$K_{\alpha\beta}(nn')=-A_{\alpha\beta}(nn')$"></SPAN>, where
- <!-- MATH
- $A_{\alpha\beta}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img495.png"
- ALT="$A_{\alpha\beta}$"></SPAN> are the second-order derivatives of the potenatial energy
-as defined e.g. in [<A
- HREF="node151.html#lovesey84-1">29</A>, page 99].
+<PRE>
+# 
+#&lt;!--mcphase.mcphas.j--&gt;
+*************************************************************
+# Lattice Constants (A)
+#! a=4.047 b=4.047 c=9.612 alpha=  90 beta=  90 gamma=  90
+#! r1a=   1 r2a=   0 r3a= 0.5
+#! r1b=   0 r2b=   1 r3b= 0.5   primitive lattice vectors [a][b][c]
+#! r1c=   0 r2c=   0 r3c= 0.5
+# Nonzero Elastic constants in meV per primitive crystal unit cell 
+# in Voigt notation only first index&lt;=second index has to be given
+# because the constants are symmetric Celij=Celji
+# Elastic constants refer to the Euclidean coordinate system ijk defined
+# with respect to abc as j||b, k||(a x b) and i normal to k and j
+#!  Cel11=+129702.248 Cel12=+63972.0533 Cel13=+34346.9127
+#!  Cel22=+129702.248 Cel23=+34346.9127
+#!  Cel33=+60842.4597
+#!  Cel44=+137509.379
+#!  Cel55=+137509.379
+#!  Cel66=+256056.495
+#! nofatoms=1  nofcomponents=3  number of atoms in primitive unit cell/number of components of each spin
+#*********************************************************************
+#! da=   0 [a] db=   0 [b] dc=   0 [c] nofneighbours=2 diagonalexchange=1 sipffilename=phonon.sipf
+# it follows the Born von Karman model according to  springs read from file 
+# the mixing terms Gmix in meV/a0  with a0=0.5292e-10 m
+#! Gindices= 1,1 1,2 1,3 2,1 2,2 2,3 3,1 3,2 3,3 4,1 4,2 4,3 5,1 5,2 5,3 6,1 6,2 6,3
+#! G= +1 13 0  0 0 0  0 0 0   0 0 0   0 0 0  0 0 0
+#da[a]   db[b]     dc[c]       Jaa[meV]  Jbb[meV]  Jcc[meV]  Jab[meV]  Jba[meV]  Jac[meV]  Jca[meV]  Jbc[meV]  Jcb[meV]
+0 0 1 1.1 1.1 1.1
+0 0 -1 1.1 1.1 1.1 
+#*********************************************************************
+</PRE>
 
 <P>
-In a mean field type of theory 
-the phonon single ion module has thus to solve the Hamiltonian
+Note that this file may optionally contain elastic constants and mixing
+term parameters, which are needed for the calculation
+of magnetoelastic properties (see section <A HREF="node60.html#JT">12</A>).
+It is planned that these files should be created automatically from the 
+output of DFT programs. [to be done]. Currently it is possible to create 
+the input parameters from Born v Karman longitudinal and transversal springs
+by the program <I CLASS="slanted">makenn</I> with option <I CLASS="slanted">-bvk</I>.
+For an example of phonons in tungsten see <I CLASS="slanted">examples/tungsten_phonons </I>
 
 <P>
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
-
-<!-- MATH
- \begin{equation}
-\hat H_E=\frac{a_0^2{\hat \mathbf p}^2}{2m} - \frac{1}{2} {\hat \mathbf u}^T \overline{K} {\hat \mathbf u} - {\mathbf F}^T {\hat \mathbf u}
-\end{equation}
- -->
-<A NAME="phonsiham"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="phonsiham"></A><IMG
- WIDTH="202" HEIGHT="51" BORDER="0"
- SRC="img496.png"
- ALT="\begin{displaymath}
-\hat H_E=\frac{a_0^2{\hat \mathbf p}^2}{2m} - \frac{1}{2} ...
-...overline{K} {\hat \mathbf u} - {\mathbf F}^T {\hat \mathbf u}
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">67</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-
-<P>
-Here the force <SPAN CLASS="MATH"><IMG
- WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img497.png"
- ALT="$\mathbf F$"></SPAN> corresponds to the exchange field <!-- MATH
- $\mathbf H_{xc}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="32" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img498.png"
- ALT="$\mathbf H_{xc}$"></SPAN> and <!-- MATH
- $\hat \mathbf u$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img486.png"
- ALT="$\hat \mathbf u$"></SPAN> to
- the general operator <!-- MATH
- $\hat \mathbf I$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img405.png"
- ALT="$\hat \mathbf I$"></SPAN> and <!-- MATH
- $\overline{K}(nn')$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="54" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
- SRC="img499.png"
- ALT="$\overline{K}(nn')$"></SPAN> to <!-- MATH
- $\mathcal J(nn')$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="53" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img500.png"
- ALT="$\mathcal J(nn')$"></SPAN> of equation (<A HREF="node139.html#fullhamiltonian">213</A>),
-respectively. The single ion Hamiltonian (<A HREF="#phonsiham">70</A>) can be solved by transforming
-it to normal coordinates (main axis of the Einstein oscillator) using the transformation
-matrix <SPAN CLASS="MATH"><IMG
- WIDTH="14" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img501.png"
- ALT="$\overline{S}$"></SPAN>, which diagonalises <!-- MATH
- $\overline{K}=\overline{S}^T\overline{\Omega}\overline{S}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="82" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
- SRC="img502.png"
- ALT="$\overline{K}=\overline{S}^T\overline{\Omega}\overline{S}$"></SPAN>:
-
-<P>
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
-
-<!-- MATH
- \begin{equation}
-\hat \mathbf u'=\overline{S} \hat \mathbf u +\overline{\Omega}^{-1} \overline{S} \mathbf F
-\end{equation}
- -->
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="127" HEIGHT="26" BORDER="0"
- SRC="img503.png"
- ALT="\begin{displaymath}
-\hat \mathbf u'=\overline{S} \hat \mathbf u +\overline{\Omega}^{-1} \overline{S} \mathbf F
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">68</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-
-<P>
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
-
-<!-- MATH
- \begin{equation}
-\hat H_E=\frac{a_0^2{\hat \mathbf p}^{'2}}{2m}-\frac{1}{2} {\hat \mathbf u}^{'T} \overline{\Omega} {\hat \mathbf u'}
--\frac{1}{2}\mathbf F^T  \mathbf u_0
-\end{equation}
- -->
-<A NAME="phonsihamdiag"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="phonsihamdiag"></A><IMG
- WIDTH="228" HEIGHT="53" BORDER="0"
- SRC="img504.png"
- ALT="\begin{displaymath}
-\hat H_E=\frac{a_0^2{\hat \mathbf p}^{'2}}{2m}-\frac{1}{2}...
-...mega} {\hat \mathbf u'}
--\frac{1}{2}\mathbf F^T \mathbf u_0
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">69</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-
-<P>
-Due to the action of the force <SPAN CLASS="MATH"><IMG
- WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img497.png"
- ALT="$\mathbf F$"></SPAN> the equilibrium position of the oscillator
-is <!-- MATH
- $\mathbf u_0=-\overline{S}^T\overline{\Omega}^{-1}\overline{S}\mathbf F$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="126" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
- SRC="img505.png"
- ALT="$\mathbf u_0=-\overline{S}^T\overline{\Omega}^{-1}\overline{S}\mathbf F$"></SPAN> (it is the task of the function
-<I CLASS="slanted">Icalc</I> to return this equilibrium position), the energies correspond to the three elements
-of the diagonal matrix <!-- MATH
- $\overline{\Omega}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="15" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
- SRC="img506.png"
- ALT="$\overline{\Omega}$"></SPAN>, i.e. <!-- MATH
- $\Omega_{11}=-m a_0^2 (\Delta_1 /\hbar)^2$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="148" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
- SRC="img507.png"
- ALT="$\Omega_{11}=-m a_0^2 (\Delta_1 /\hbar)^2$"></SPAN>,
-<!-- MATH
- $\Omega_{22}=-m a_0^2 (\Delta_2 /\hbar)^2$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="148" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
- SRC="img508.png"
- ALT="$\Omega_{22}=-m a_0^2 (\Delta_2 /\hbar)^2$"></SPAN>,
-<!-- MATH
- $\Omega_{33}=-m a_0^2 (\Delta_3 /\hbar)^2$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="148" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
- SRC="img509.png"
- ALT="$\Omega_{33}=-m a_0^2 (\Delta_3 /\hbar)^2$"></SPAN>. In order to run <I CLASS="slanted">mcdisp</I> we
-have to calculate the transition matrix elements:
-
-<P>
-The single ion susceptibility for such a transition, e.g. <SPAN CLASS="MATH"><IMG
- WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img510.png"
- ALT="$\Delta_1$"></SPAN> - corresponds to
-
-<P>
-<BR>
-<DIV ALIGN="CENTER">
-
-<!-- MATH
- \begin{eqnarray}
-\overline{\chi}^0&=&\sum_{\nu\mu}\frac{\langle \nu|\hat \mathbf u|\mu\rangle\langle \mu |\hat \mathbf u^T|\nu \rangle}{\Delta_1 -\hbar \omega}
-(p_{\nu} -p_{\mu}) \\
-&=&\sum_{\nu\mu}\frac{\langle \nu|\overline{S}^T \hat \mathbf u'|\mu\rangle\langle \mu |\hat \mathbf u'^T \overline{S}|\nu \rangle}{\Delta_1 -\hbar \omega}
-(p_{\nu} -p_{\mu}) 
-\end{eqnarray}
- -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
- WIDTH="21" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
- SRC="img511.png"
- ALT="$\displaystyle \overline{\chi}^0$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img68.png"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="207" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
- SRC="img512.png"
- ALT="$\displaystyle \sum_{\nu\mu}\frac{\langle \nu\vert\hat \mathbf u\vert\mu\rangle\...
-...ert\hat \mathbf u^T\vert\nu \rangle}{\Delta_1 -\hbar \omega}
-(p_{\nu} -p_{\mu})$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">70</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img68.png"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="247" HEIGHT="68" ALIGN="MIDDLE" BORDER="0"
- SRC="img513.png"
- ALT="$\displaystyle \sum_{\nu\mu}\frac{\langle \nu\vert\overline{S}^T \hat \mathbf u'...
-...f u'^T \overline{S}\vert\nu \rangle}{\Delta_1 -\hbar \omega}
-(p_{\nu} -p_{\mu})$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">71</SPAN>)</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
-Because the different components of <SPAN CLASS="MATH"><IMG
- WIDTH="18" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
- SRC="img514.png"
- ALT="$\mathbf u'$"></SPAN> commute and the Hamiltonian (<A HREF="#phonsihamdiag">72</A>)
-is separable, for the transition <SPAN CLASS="MATH"><IMG
- WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img510.png"
- ALT="$\Delta_1$"></SPAN> only the terms with <SPAN CLASS="MATH"><IMG
- WIDTH="20" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img515.png"
- ALT="$u_1'$"></SPAN> in the nominator
-contribute:
-
-<P>
-<BR>
-<DIV ALIGN="CENTER">
-
-<!-- MATH
- \begin{eqnarray}
-\chi^0_{\alpha\beta}&=&S^T_{\alpha1}\sum_{\nu\mu}\frac{\langle \nu|\hat u_1'|\mu\rangle\langle \mu |\hat  u_1'|\nu \rangle}{\Delta_1 -\hbar \omega}
-(p_{\nu} -p_{\mu}) S_{1\beta}\\
-&=& S^T_{\alpha1}S_{1\beta}\frac{\hbar^2}{2ma_0^2\Delta_1}\left(\frac{1}{\Delta_1-\hbar\omega}+\frac{1}{\Delta_1+\hbar\omega}\right )
-\end{eqnarray}
- -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
- WIDTH="31" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
- SRC="img516.png"
- ALT="$\displaystyle \chi^0_{\alpha\beta}$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img68.png"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="262" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
- SRC="img517.png"
- ALT="$\displaystyle S^T_{\alpha1}\sum_{\nu\mu}\frac{\langle \nu\vert\hat u_1'\vert\mu...
-...hat u_1'\vert\nu \rangle}{\Delta_1 -\hbar \omega}
-(p_{\nu} -p_{\mu}) S_{1\beta}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">72</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img68.png"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="286" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
- SRC="img518.png"
- ALT="$\displaystyle S^T_{\alpha1}S_{1\beta}\frac{\hbar^2}{2ma_0^2\Delta_1}\left(\frac{1}{\Delta_1-\hbar\omega}+\frac{1}{\Delta_1+\hbar\omega}\right )$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">73</SPAN>)</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
-
-<P>
-In order to derive the last result we had to express <SPAN CLASS="MATH"><IMG
- WIDTH="20" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img519.png"
- ALT="$\hat u_1'$"></SPAN> in terms of ladder  operators
-<!-- MATH
- $\hat u_1'=a_0^{-1} \hbar/\sqrt{2m\Delta_1}(\hat a+\hat a^{\dagger})$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="194" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
- SRC="img520.png"
- ALT="$\hat u_1'=a_0^{-1} \hbar/\sqrt{2m\Delta_1}(\hat a+\hat a^{\dagger})$"></SPAN> and  apply <!-- MATH
- $\hat a^{\dagger}|\nu\rangle=\sqrt{\nu+1}|\nu+1\rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="156" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
- SRC="img521.png"
- ALT="$\hat a^{\dagger}\vert\nu\rangle=\sqrt{\nu+1}\vert\nu+1\rangle$"></SPAN>,
-<!-- MATH
- $\hat a|\nu\rangle=\sqrt{\nu}|\nu-1\rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="122" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
- SRC="img522.png"
- ALT="$\hat a\vert\nu\rangle=\sqrt{\nu}\vert\nu-1\rangle$"></SPAN> and <!-- MATH
- $\sum_{\nu=0}^{\infty}(p_{\nu}-p_{\nu+1})(\nu+1)=1$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="202" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
- SRC="img523.png"
- ALT="$\sum_{\nu=0}^{\infty}(p_{\nu}-p_{\nu+1})(\nu+1)=1$"></SPAN>,
-<!-- MATH
- $p_{\nu}=exp(-\nu\Delta_1/kT)(1-exp(-\Delta_1/kT))$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="285" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img524.png"
- ALT="$p_{\nu}=exp(-\nu\Delta_1/kT)(1-exp(-\Delta_1/kT))$"></SPAN>. This shows that the single ion susceptibility
-of our atom can be written as a sum of three effective transitions (with temperature independent
-susceptibility)
-
-<P>
-<BR>
-<DIV ALIGN="CENTER">
-
-<!-- MATH
- \begin{eqnarray}
-\chi^0_{\alpha\beta}
-&=& \sum_{i=1,2,3} S^T_{\alpha i}S_{i\beta}\frac{\hbar^2}{2ma_0^2\Delta_i}
-\left(\frac{1}{\Delta_i-\hbar\omega}+\frac{1}{\Delta_i+\hbar\omega}\right )
-\end{eqnarray}
- -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
- WIDTH="31" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
- SRC="img516.png"
- ALT="$\displaystyle \chi^0_{\alpha\beta}$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img68.png"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="321" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
- SRC="img525.png"
- ALT="$\displaystyle \sum_{i=1,2,3} S^T_{\alpha i}S_{i\beta}\frac{\hbar^2}{2ma_0^2\Delta_i}
-\left(\frac{1}{\Delta_i-\hbar\omega}+\frac{1}{\Delta_i+\hbar\omega}\right )$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">74</SPAN>)</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
-
-<P>
-Thus the module <I CLASS="slanted">phonon</I> has to provide in it's function <I CLASS="slanted">du1calc</I> these three
-transitions (=number of transitions).
-
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html1189"
-  HREF="node60.html">Using Single Ion Module <I CLASS="slanted">phonon</I></A>
-</UL>
-<!--End of Table of Child-Links-->
 
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html1187"
-  HREF="node60.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1181"
-  HREF="manual.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1175"
-  HREF="node58.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1183"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1185"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node60.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node58.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node58.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html643"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html645"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1188"
-  HREF="node60.html">Using Single Ion Module</A>
-<B> Up:</B> <A NAME="tex2html1182"
-  HREF="manual.html">McPhase USERS MANUAL</A>
-<B> Previous:</B> <A NAME="tex2html1176"
-  HREF="node58.html">Running McPhase and McDisp</A>
- &nbsp; <B>  <A NAME="tex2html1184"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1186"
-  HREF="node152.html">Index</A></B> </DIV>
+<B> Next:</B> <A
+ HREF="node60.html">Crystal Field Phonon Interaction</A>
+<B> Up:</B> <A
+ HREF="node58.html">Including Phonons and Crystal-Field</A>
+<B> Previous:</B> <A
+ HREF="node58.html">Including Phonons and Crystal-Field</A>
+ &nbsp; <B>  <A ID="tex2html644"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html646"
+  HREF="node164.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

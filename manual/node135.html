@@ -1,218 +1,711 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Reverse Rotation Matrices</TITLE>
-<META NAME="description" CONTENT="Reverse Rotation Matrices">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Programs for Manipulation of Columns and Lines in Data Files</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node136.html">
 <LINK REL="previous" HREF="node134.html">
-<LINK REL="up" HREF="node133.html">
 <LINK REL="next" HREF="node136.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2310"
-  HREF="node136.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2304"
-  HREF="node133.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2300"
-  HREF="node134.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2306"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html2308"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node136.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node134.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html1040"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html1042"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html2311"
-  HREF="node136.html">Magnetic Form factors for</A>
-<B> Up:</B> <A NAME="tex2html2305"
-  HREF="node133.html">Transforming Crystal Field Parameters</A>
-<B> Previous:</B> <A NAME="tex2html2301"
-  HREF="node134.html">Forward Rotation Matrices</A>
- &nbsp; <B>  <A NAME="tex2html2307"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html2309"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node136.html">Programs of General Interest</A>
+<B> Up:</B> <A
+ HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A
+ HREF="node134.html">Programs for Specific Tasks</A>
+ &nbsp; <B>  <A ID="tex2html1041"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1043"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION000330200000000000000"></A> <A NAME="ap-mcph2cfMat"></A>
-<BR>
-Reverse Rotation Matrices
-</H3>
+<H1><A ID="SECTION000230000000000000000">
+Programs for Manipulation of Columns and Lines in Data Files</A>
+</H1>
 
 <P>
-These matrices rotate a set of crystal field parameters (or Stevens operators) by 
+Datafiles usually contain columns of numbers, for example:
+
+<P>
+<PRE>
+# T(K) mu0H(T)  M(mb/T)  [comment lines start with '#' ]
+1      1      0.9
+2      1      0.6
+3      1      0.4
+4      1      0.3
+5      1      0.25
+</PRE>
+
+<P>
+The following programs manipulate such data files, for example
+the program <I CLASS="slanted">delcol</I> deletes a column from a data file,
+some general features are:
+
+<UL>
+<LI>data files are overwritten 
+</LI>
+<LI>multiple files may be handled by one command, e.g. <I CLASS="slanted">delcol 4 *.dat</I> deletes column 4
+in all 
+files ending with .dat
+</LI>
+<LI>arguments may contain mathematical expressions, e.g. 
+<DL>
+<DT></DT>
+<DD><I CLASS="slanted">shifttcol 3x2+27 2xx4 data.dat</I> ...adds to each number in column 33 in file data.dat the number <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img1099.svg"
+ ALT="$2^4=8$"></SPAN>. 
+</DD>
+<DT></DT>
+<DD><I CLASS="slanted">factcol 2 sin(3.1415/2) data.dat</I> ...multiplies column 2 in file data.dat with   sin(3.1415/2)
+,i.e. with 0.999999989
+</DD>
+</DL>
+</LI>
+</UL>
+
+<P>
+<DL>
+<DT><STRONG><I CLASS="slanted">acoscol<A ID="4905"></A> col[ecolerr] file:</STRONG></DT>
+<DD> calculates arccosine of a column arccos(col) 
+</DD>
+<DT><STRONG><I CLASS="slanted">add<A ID="4910"></A> colx1 coly1[ecoly1err] file1 colx2 coly2[ecoly1err] file2:</STRONG></DT>
+<DD>
+   program to add functions y1(x1) with (optional) y1err and y2(x2) with (optional y2err)
+       taken from data file1 and data file2
+</I></I>
+<P>
+<I CLASS="slanted"></I><DL>
+<DT><STRONG>input:</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG> file1, file2</STRONG></DT>
+<DD>filennames
+ 
+</DD>
+<DT><STRONG>colx, coly, colyerr</STRONG></DT>
+<DD>columns containing x and y=f(x) and yerror values
+</DD>
+<DT><STRONG>  output:</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>  file1</STRONG></DT>
+<DD>contains in coly1=coly1+f2(colx1)
+                   and in   coly1err=sqrt[coly1err<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img1043.svg"
+ ALT="$^2$"></SPAN>+f2err(colx1)<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img1043.svg"
+ ALT="$^2$"></SPAN>]
+                   f2(colx1) is calculated by linear
+                   interpolation
+                   f2(colx1)=
+                   (colx1-colx2(n)*(coly2(n+1)-coly2(n))/(colx2(n+1)-colx2(n))
+                   f2err(colx1)=
+                   (colx1-colx2(n)*(coly2err(n+1)-coly2err(n))/(colx2(n+1)-colx2(n))
+</DD>
+</DL><I CLASS="slanted"><I CLASS="slanted">
+  note:            colx2 has to be sorted in file2
+</DD>
+<DT><STRONG><I CLASS="slanted">addcol<A ID="4918"></A>  colx[ecolxerr] coly[ecolyerr] file:</STRONG></DT>
+<DD> adds column x and column y of file, result is stored in col y
+Optional - error is added using the error columns colxerr and colyerr
+by colyerr=sqrt(colxerr*colxerr+colyerr*colyerr)
+</DD>
+<DT><STRONG><I CLASS="slanted">asincol<A ID="4924"></A> col const file:</STRONG></DT>
+<DD> calculates arcsine of a column arcsine(col) 
+</DD>
+<DT><STRONG><I CLASS="slanted">atancol<A ID="4928"></A> col const file:</STRONG></DT>
+<DD> calculates arctangens of a column arctan(col) 
+</DD>
+<DT><STRONG><I CLASS="slanted">average<A ID="4932"></A> [option] n file:</STRONG></DT>
+<DD> program average  used  to 
+ reduce the amount of data in a datafile by deleting close data points.
+ The program takes sets of n lines in file and  outputs one line instead
+of the n lines. By default the the data line in the middle of the n line
+block is output. 
+</I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I><DL>
+<DT><STRONG>options:</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>-h, -help</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>-middle</STRONG></DT>
+<DD>middle point is taken (default)
+  
+</DD>
+<DT><STRONG>-first</STRONG></DT>
+<DD>first point is taken 
+   
+</DD>
+<DT><STRONG>-last</STRONG></DT>
+<DD>last point is taken 
+   
+</DD>
+<DT><STRONG>-av</STRONG></DT>
+<DD>points are averaged
+   
+</DD>
+<DT><STRONG>-sum</STRONG></DT>
+<DD>points are added
+    
+</DD>
+<DT><STRONG>-sumcol=12,13,14</STRONG></DT>
+<DD>for column 12,13,14 datapoints are added up and the sum is output
+    
+</DD>
+<DT><STRONG>-median</STRONG></DT>
+<DD>median of points is calculated and output
+     
+</DD>
+<DT><STRONG>-dmin=0.4</STRONG></DT>
+<DD>takes instead of n lines a variable number
+                         of lines determined by the condition that
+                         data in column n is closer than dmin 
+</DD>
+</DL><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">       
+</I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">chi2<A ID="4939"></A> col1 col2 col3 *.*</STRONG></DT>
+<DD> is used to calculate the 
+ chi-squared from 3 columns in a file: if col1, col2 and col3 are calculation, 
+ experiment and experimental error, respectively, then
+  chisquared is defined as <!-- MATH
+ $\chi^2=\frac{1}{n}\sum_{i=1}^n \frac{({\rm col2}_i-{\rm %%@
+col1}_i)^2}{{\rm col3_i}^2}$
+ -->
 <SPAN CLASS="MATH"><IMG
- WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img1214.png"
- ALT="$\Theta_1$"></SPAN>=90<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
- SRC="img1209.png"
- ALT="$^o$"></SPAN> and <SPAN CLASS="MATH"><IMG
- WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img1215.png"
- ALT="$\Phi_1$"></SPAN>=90<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
- SRC="img1209.png"
- ALT="$^o$"></SPAN> and again by <SPAN CLASS="MATH"><IMG
- WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img1216.png"
- ALT="$\Theta_2$"></SPAN>=90<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
- SRC="img1209.png"
- ALT="$^o$"></SPAN> and <SPAN CLASS="MATH"><IMG
- WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img1217.png"
- ALT="$\Phi_2$"></SPAN>=90<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
- SRC="img1209.png"
- ALT="$^o$"></SPAN>.
-
+ STYLE="height: 3.89ex; vertical-align: -1.21ex; " SRC="img1100.svg"
+ ALT="$\chi^2=\frac{1}{n}\sum_{i=1}^n \frac{({\rm col2}_i-{\rm %%@
+col1}_i)^2}{{\rm col3_i}^2}$"></SPAN>. For each datapoint the program outputs a line
+<EM>sta=</EM> deviation<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img1043.svg"
+ ALT="$^2$"></SPAN> (experimental error)<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img1043.svg"
+ ALT="$^2$"></SPAN> to stdout. This may be 
+used directly for generating useful input for fitting in <I CLASS="slanted">simannfit</I><A ID="4951"></A>.
+</DD>
+<DT><STRONG><I CLASS="slanted">comment l1 l2 file:</STRONG></DT>
+<DD> comments all lines from l1 and l2  (with #) in a file
+</DD>
+<DT><STRONG><I CLASS="slanted">compare file1 file2:</STRONG></DT>
+<DD> used to compare data file1 and data file2
+                all columns and rows are compared and a standard deviation
+                is calculated according to sum_i (file1_i - file2_i)2&#x302;
+                this standard deviation is output to stdout, e.g. as sta=143.3
+</DD>
+<DT><STRONG><I CLASS="slanted">convolute<A ID="4958"></A> c1 c2 file cx cy convfuncfile [d1 d2 datafile]:</STRONG></DT>
+<DD> convolutes data given as column c1 vs column
+                       c2 in file (data pairs <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img1101.svg"
+ ALT="$x_i,y_i$"></SPAN>) with the convolution function given in column cx vs cy
+		        of convfuncfile (function <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1102.svg"
+ ALT="$c(x)$"></SPAN>)
+		       Range and step width of output file is determined from range and step 
+		        of convfuncfile  unless a datafile is given.  Values out of range of convfile are assumed to be zero,
+			convfile has to be sorted according to ascending x.
+			Formula: <!-- MATH
+ $f(x)=\sum_i y_i c(x-x_i)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.66ex; vertical-align: -0.81ex; " SRC="img1103.svg"
+ ALT="$f(x)=\sum_i y_i c(x-x_i)$"></SPAN> , 
+		       output is written to stdout. 
+</I></I></I></I></I></I></I></I></I></I>
 <P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">If a datafile is given, 
+		     with data column d1 and d2, the result of the convolution is
+		     calculated for x-values of data column d1 and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1104.svg"
+ ALT="$f(x)$"></SPAN> is compared to
+		     data in column d2 - a standard deviation sta is calculated as
+		     sum of squared deviations. As output the datafile is given, however with a scaled column
+                 d2 and 2 additional columns are added containing the calculated
+                 results of the convolution and the original unscaled data.
+                 standard deviation, area of curves etc are output to
+                 stdout and to environment variables MCPHASE_STA etc.
+</I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">convolute2d<A ID="4963"></A> c1 c2 c3 file cx cy cz convfuncfile minx maxx Nx miny maxy Ny:</STRONG></DT>
+<DD> 
+convolutes a 2 dimensional function data given as column c3(c1,c2) in file (data tripls <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img1105.svg"
+ ALT="$x_i,y_i, z_i$"></SPAN>) with the convolution function given in column cx vs cy vs cz
+		        of convfuncfile (function <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1106.svg"
+ ALT="$c(x,y)$"></SPAN>)
+		       Range and number of points of output file is determined from minx maxx Nx and 
+                        miny, maxy Ny.
+			Formula: <!-- MATH
+ $f(x,y)=\sum_i z_i c(x-x_i,y-y_i)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.66ex; vertical-align: -0.81ex; " SRC="img1107.svg"
+ ALT="$f(x,y)=\sum_i z_i c(x-x_i,y-y_i)$"></SPAN> . In the program the contribution to
+                        the sum is evaluated for a discrete triplet cx cy cz of the convolution function, the 
+                        resulting x,y will not correspond to a point on the grid defined by minx, max Nx, miny,maxy Ny -
+                        therefore the contribution is distributed (according to distance) onto the neighbouring grid
+                       points.
+		       output is written to stdout. 
+</DD>
+<DT><STRONG><I CLASS="slanted">coscol<A ID="4967"></A> col const file:</STRONG></DT>
+<DD> calculates cosinus of a column cos(col) 
+</DD>
+<DT><STRONG><I CLASS="slanted">delcol<A ID="4971"></A> col file:</STRONG></DT>
+<DD> deletes column col in file
+</DD>
+<DT><STRONG><I CLASS="slanted">delcols<A ID="4975"></A> col n file:</STRONG></DT>
+<DD> deletes column col several (n) times in file
+</DD>
+<DT><STRONG><I CLASS="slanted">delcomments *.*</STRONG></DT>
+<DD> removes every comment line (starting with #) from a file and prints the removed lines to screen
+</DD>
+<DT><STRONG><I CLASS="slanted">delline<A ID="4982"></A> l1 l2 file:</STRONG></DT>
+<DD> deletes lines l1 to l2  in file
+</DD>
+<DT><STRONG><I CLASS="slanted">delnthline n file</STRONG></DT>
+<DD>  remove every nth line (n<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.57ex; vertical-align: -0.21ex; " SRC="img130.svg"
+ ALT="$&gt;$"></SPAN>2) in file
+</DD>
+<DT><STRONG><I CLASS="slanted">dif<A ID="4989"></A> colx coly n *.*:</STRONG></DT>
+<DD> used to calculate d(coly)/d(colx) with differentiation averaging n points
+</DD>
+<DT><STRONG><I CLASS="slanted">display<A ID="4993"></A> 5[e7] 6[e8]  ./results/mcdisp.qei [colx coly file2]</STRONG></DT>
+<DD> displays a graphic on screen as xy graph
+with column 5 as x axis and columns 6 as y axis. By default graphic is a line graph.
+However, if error columns (in the example x error column is 7 and y error column is 8)
+are given, then symbols with x and y error bars are shown. Several files
+can be plotted in the same graph by extending the commandline. If the contents of a file
+changes, the plot is automatically updated.
+</DD>
+<DT><STRONG><I CLASS="slanted">displaybubbles<A ID="5000"></A>  5 6 8 ./results/mcdisp.qei</STRONG></DT>
+<DD> works similar as display, however
+a third column is given and the radius of the symbols varied according to the data in 
+this column.
+</DD>
+<DT><STRONG><I CLASS="slanted">displaycontour<A ID="5004"></A> 5 6 8 ./results/mcdisp.dsigma.tot</STRONG></DT>
+<DD> produces a graphical
+display<A ID="5008"></A> of a 3 dimensional dataset as a colour and/or contour plot. Here '5 6 8' 
+denote the x,y and z column in file <I CLASS="slanted">./results/mcdisp.dsigma.tot</I>, which should
+be plotted. Figure&nbsp;<A HREF="node46.html#ho2ti2o7diffuse">12</A> shows an sample output of this program.
+</DD>
+<DT><STRONG><I CLASS="slanted">displaytext<A ID="5011"></A> ./results/mcphas.hkl</STRONG></DT>
+<DD> monitors the file mcphas.hkl in a text window on screen.
+</DD>
+<DT><STRONG><I CLASS="slanted">displayhtml<A ID="5015"></A> calc.bat.html</STRONG></DT>
+<DD> monitors the file calc.bat.html in 
+a text window on screen.
+</DD>
+<DT><STRONG><I CLASS="slanted">expcol<A ID="5019"></A> col const file:</STRONG></DT>
+<DD> calculates exponent of a column exp(col) 
+</DD>
+<DT><STRONG><I CLASS="slanted">factcol<A ID="5023"></A> col[ecolerr] const file:</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG><I CLASS="slanted">expcol<A ID="5025"></A> col const file:</STRONG></DT>
+<DD>
+ multiplies col with a constant in file,
+a error colmn may be given and is also multiplied by the absvalue of the constant.
+</DD>
+<DT><STRONG><I CLASS="slanted">fform<A ID="5029"></A> col1 col2 format file:</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG><I CLASS="slanted">expcol<A ID="5030"></A> col const file:</STRONG></DT>
+<DD>
+ reformats numbers in col1 to col2 in file with
+             a number format given by format. Format is a number format string according
+             to c conventions, for example 8.4f or 4.4g  ...             
+</DD>
+<DT><STRONG><I CLASS="slanted">fillcol  col expression *.*<A ID="5034"></A></STRONG></DT>
+<DD> used to fill column with numbers in data file
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+ col       ....   column
+ expression ...   e.g. 'tan(c1x7.52)+c2'
+                  here c1,c2,.. refer to column 1,2,...
+                  operations are multiplication (x), division(/)
+                  addition (+), subtraction(-), power (xx)
+                  trigonometric functions tan,cos,sin, asin,atan,acos
+                  exp,(natural) log
+ *.*       ....   filenname
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">fitcol coldata prog col parprog1 parprog2 ... [] in filename:</STRONG></DT>
+<DD>
+simple fitting program for data in coldata.
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+               []=[and prog col parprog1 parprog2 ... [and ...]]
+
+          coldata ...... column number of data column to be fitted
+          prog    ...... program name, e.g. shiftcol
+          col     ...... column to which prog should be applied
+          parprog1 ..... parameter of the program prog, which should be fitted
+          filename... filename
+
+    in order to fit data in column coldata, prog is run many times on
+    the column col with varying parameter set parprog1 ..., the result
+    is scaled to fit best the experimental data. If several programs
+    are combined with option 'and' then the best linear combination of the
+    results is calculated by linear regression to fit coldata.
+
+    Starting values for the parameters parprog are taken from the
+    commandline. initial Stepwidths are chosen 10percent of parameter value, or may
+    be given by adding them to the parameter with an 's', e.g. 100.3s0.1
+    If a parameter should not be fitted and kept fix, add an 'f', e.g. 100.3f
+
+    output: - files can be found in directory results
+            - filename.fit is created with fitted function and parameter values
+
+    examples:
+    1) to fit a gaussian to column 2 in datafile expdat (with xvalues in column 1)
+    with starting values 132.3, 0.5 and 10 for position, fwhm and area, respectively:
+
+    fitcol 2 gausscol 1 132.3 0.5 10 in exp.dat
+
+
+    2) to do the same fit but with a background create a column 3, fill it
+       with constant values and use echo as a fake column manipulation program
+      doing nothing.
+
+   newcol 3 -c 1.0 exp.dat
+   fitcol 2 gausscol 1 132.3 0.5 10 and rem 3 in exp.dat
+
+   3) to do the same with a linear background, put into a column 4 the x values
+
+   newcol 4 -c 4.0 exp.dat
+   fitcol 2 gausscol 1 132.3 0.5 10 and rem 3 and rem 4 in exp.dat
+
+   4) to fit two gaussians with fixed fwhm and stepping in position initially
+    only with 0.1
+
+   fitcol 2 gausscol 1 132.3s0.1 0.5f 10 and  gausscol 1 100.3s0.1 0.5f 10 and rem 3 and rem 4 in exp.dat
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">gausscol<A ID="5046"></A> col position fwhm area *.*:</I></STRONG></DT>
+<DD> calculate a
+gaussian from the x values given in column col.
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">The formula for a gaussian is:
+<!-- MATH
+ $\sigma={\rm fwhm}/\sqrt{8*log(2)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.10ex; vertical-align: -0.82ex; " SRC="img1108.svg"
+ ALT="$\sigma={\rm fwhm}/\sqrt{8*log(2)}$"></SPAN>,
+<!-- MATH
+ ${\rm gauss}(x)=\frac{{\rm area} exp(-(x-{\rm position})^2/2 \sigma^2)}{\sqrt{2*\pi}\sigma}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 4.06ex; vertical-align: -1.38ex; " SRC="img1109.svg"
+ ALT="${\rm gauss}(x)=\frac{{\rm area} exp(-(x-{\rm position})^2/2 \sigma^2)}{\sqrt{2*\pi}\sigma}$"></SPAN>
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">getvalue<A ID="5056"></A> colx coly xvalue dx filename</I></STRONG></DT>
+<DD>
+program to get the y-value of a function by averaging
+ over an interval xvalue+-dx,
+ note: colx has to be sorted
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+ output: the y-value is written to stdout and environment variable MCPHASE_YVALUE
+         1/y-value is written to stdout MCPHASE_YVALUE_INVERSE
+         standarddeviation to stdaout and MCPHASE_STA
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">getvariable<A ID="5062"></A> variablename filename</I></STRONG></DT>
+<DD>
+ program to get the value of a variable from a file 
+  (e.g. somewhere in a file there is 
+   a statement T=4.3 and you want to get out this 4.3)
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+ output: the variable value is written to stdout and environment variable 
+         MCPHASE_GETVARIABLE_VALUE, the name is stored in 
+         MCPHASE_GETVARIABLE_NAME
+        mind lines starting with # are ignored (unless these start with #!)
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">histcol<A ID="5068"></A> col [stepwidth|-n steps] *.*:</I></STRONG></DT>
+<DD> generates a histogram of
+a column in a data file and stores it in histcol.out. stepwidth is the 
+stepwidth of the histogram points. Alternatively the number of
+steps in the histogram may be given by e.g. <I CLASS="slanted">-n 100</I>.
+</DD>
+<DT><STRONG><I CLASS="slanted">int<A ID="5074"></A> [-m] colx coly *.*:</I></STRONG></DT>
+<DD>
+ program  to integrate columnx vs columny=f(x), integration is done 
+point by point, the result goes to the data file, the total integral 
+INT=<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.80ex; vertical-align: -0.83ex; " SRC="img1110.svg"
+ ALT="$\int f(x)dx$"></SPAN> is printed to stdout and set to the 
+ environment variable MCPHASE_INT.
+ option -m: n-th moments<A ID="5079"></A> are calculated according to <!-- MATH
+ $\mu_1=\int x f(x)dx$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.80ex; vertical-align: -0.83ex; " SRC="img1111.svg"
+ ALT="$\mu_1=\int x f(x)dx$"></SPAN>/INT, <!-- MATH
+ $\mu_n=\int (x-\mu_1)^n f(x)dx$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.80ex; vertical-align: -0.83ex; " SRC="img1112.svg"
+ ALT="$\mu_n=\int (x-\mu_1)^n f(x)dx$"></SPAN>/INT.
+The results go to stdout and environment variables MCPHASE_INT_MU_1,
+  MCPHASE_INT_MU_2,MCPHASE_INT_MU_3 ... are set.
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">linreg<A ID="5080"></A> col n file:</STRONG></DT>
+<DD> calculates linear regression of n columns in file
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+          col     ...... column containing y_k values followed by
+          n       ...... n columns containing x_ik (i=1 to n)
+	  filename... filename
+
+    the program calculates the linear regression, i.e. the best values
+    of coefficients ai such that y_k~sum_i a_i*x_ik for every data line k
+    in the file. The n linear regression equations solved to determin a_i
+    are (i,j=1 ...n):
+
+     sum_k x_jk y_k = sum_i a_i (sum_k x_ik * x_jk)
+
+   Output: - sdtoud: best coefficients a_i  and standard deviation
+             sta=sum_k (y_k-sum_i a_i*x_ik)^2
+           - file: new column col+n+1 contining sum_i a_i*x_ik
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">lorentzcol<A ID="5086"></A> col position fwhm area:</STRONG></DT>
+<DD>calculate a lorentzian from
+a column with x values, the formula for a Lorentz curve is: 
+<!-- MATH
+ ${\rm lorentz}(x)=\frac{1.0}{\pi{\rm fwhm}(1.0+(x-{\rm position})^2/fwhm^2)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.39ex; vertical-align: -1.32ex; " SRC="img1113.svg"
+ ALT="${\rm lorentz}(x)=\frac{1.0}{\pi{\rm fwhm}(1.0+(x-{\rm position})^2/fwhm^2)}$"></SPAN>
+</DD>
+<DT><STRONG><I CLASS="slanted">multcol<A ID="5094"></A>  colx coly file:</STRONG></DT>
+<DD> multiplies column x and column y of file, result is stored in col y
+</DD>
+<DT><STRONG><I CLASS="slanted">newcol<A ID="5098"></A> col [options] file:</STRONG></DT>
+<DD> creates a new column col in file containing the line numbe. option: -c 12.3  ... instead of line number put constant 12.3 into the new column
+</DD>
+<DT><STRONG><I CLASS="slanted">newcols<A ID="5103"></A> col n [options] file:</STRONG></DT>
+<DD> creates n new columns from column col
+ in file. New columns are inserted after column col and contain the same data as column col.
+ options: -c 12.3 ...  put constant 12.3 into the new columns, -n ... put line number into the new column.
+</DD>
+<DT><STRONG><I CLASS="slanted">newline<A ID="5108"></A> n text file:</STRONG></DT>
+<DD> creates a new line number n  in file containing the text 
+</DD>
+<DT><STRONG><I CLASS="slanted">potcol<A ID="5112"></A> col const file:</STRONG></DT>
+<DD>  col=col<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.07ex; vertical-align: -0.12ex; " SRC="img1114.svg"
+ ALT="$^{\rm const}$"></SPAN> in file
+</DD>
+<DT><STRONG><I CLASS="slanted">range<A ID="5117"></A> col min max file:</STRONG></DT>
+<DD> deletes (comments out) all data points outside min max in column  col of
+                       file file (remember to store your full data set in some other
+		       file before using this command), # is used to comment lines
+</DD>
+<DT><STRONG><I CLASS="slanted">rotate<A ID="5121"></A> xcol ycol angle file:</I></STRONG></DT>
+<DD>
+program rotate  used to rotate coordinate axes,
+ xcol,yxol=columns containing x and y , 
+ angle=angle <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img82.svg"
+ ALT="$\alpha$"></SPAN> of rotation around z.
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">The rotation is done using the following formula:
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
 <BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{eqnarray}
+x'&= &\cos(\alpha)*x+\sin(\alpha)*y \nonumber \\
+ y'&=&-\sin(\alpha)*x+\cos(\alpha)*y
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.09ex; vertical-align: -0.12ex; " SRC="img1115.svg"
+ ALT="$\displaystyle x'$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1116.svg"
+ ALT="$\displaystyle \cos(\alpha)*x+\sin(\alpha)*y$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.54ex; vertical-align: -0.57ex; " SRC="img1117.svg"
+ ALT="$\displaystyle y'$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1118.svg"
+ ALT="$\displaystyle -\sin(\alpha)*x+\cos(\alpha)*y$"></TD><TD class="rfill">(<SPAN CLASS="arabic">140</SPAN>)</TD></TR>
+</TABLE></DIV><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">rpvalue<A ID="5127"></A> colx coly  *.*:</STRONG></DT>
+<DD>  program rpvalue<A ID="5131"></A>  used to calculate 
+                       the <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img1119.svg"
+ ALT="$R_p$"></SPAN>-value from columns number colx and coly 
+		       in a file *.*. The <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img1119.svg"
+ ALT="$R_p$"></SPAN>-value is defined as
+		       </I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<DIV CLASS="displaymath">
 
 <!-- MATH
  \begin{equation}
-\stackrel{=}{\mathbf S^{-1}}_2(\pi/2,\pi/2) = \left(
-\begin{array}{ccccc}
- 0 & -1/2 &    0 &    0 &    0 \\
- 0 &    0 &    0 &    1 &    0 \\
- 0 &    0 & -1/2 &    0 &  1/2 \\
- 2 &    0 &    0 &    0 &    0 \\
- 0 &    0 & -3/2 &    0 & -1/2 \\
-\end{array} \right)
+R_p= 100*\frac{\sum_{i=1}^{N} |(x(i)-y(i)|}{\sum_{i=1}^{N}|x(i)|}
 \end{equation}
  -->
-<A NAME="eq:R2"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:R2"></A><IMG
- WIDTH="357" HEIGHT="132" BORDER="0"
- SRC="img1218.png"
- ALT="\begin{displaymath}
-\stackrel{=}{\mathbf S^{-1}}_2(\pi/2,\pi/2) = \left(
-\begin...
-...0 &amp; 0 &amp; 0 \\
-0 &amp; 0 &amp; -3/2 &amp; 0 &amp; -1/2 \\
-\end{array} \right)
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">181</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-
+ &nbsp;  <IMG
+ STYLE="height: 6.81ex; vertical-align: -2.84ex; " SRC="img1120.svg"
+ ALT="$\displaystyle R_p= 100*\frac{\sum_{i=1}^{N} \vert(x(i)-y(i)\vert}{\sum_{i=1}^{N}\vert x(i)\vert}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">141</SPAN>)</SPAN>
+</DIV><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+                       <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img296.svg"
+ ALT="$N$"></SPAN> denotes the number of data points in the file.
+</DD>
+<DT><STRONG><I CLASS="slanted">setvalue<A ID="5138"></A> row column text files:</STRONG></DT>
+<DD> sets the numerical value in a specified position of a data file.
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
 <P>
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+     row         : row number
+     column    : column number
+     number   : text to be placed in file at this position
+     files         : one or more filenames
+
+    example: $0 4 5 3.142 data.dat
+             replaces the number in row 4 and column 5 by 3.142 in file data.dat
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">shiftcol<A ID="5144"></A> col const *.*:</STRONG></DT>
+<DD> used to add a constant (const) to a column (number col) in file(s) *.*
+</DD>
+<DT><STRONG><I CLASS="slanted">sincol<A ID="5148"></A> col const file:</STRONG></DT>
+<DD> calculates sinus of a column sin(col) 
+</DD>
+<DT><STRONG><I CLASS="slanted">sumcol<A ID="5152"></A> col *.*</STRONG></DT>
+<DD> prints to stdout number of lines, sum of squares, sum of absolute values of column col in file *.*
+</DD>
+<DT><STRONG><I CLASS="slanted">swapcol<A ID="5156"></A> colx coly file:</STRONG></DT>
+<DD> swaps column x and column y of file
+</DD>
+<DT><STRONG><I CLASS="slanted">tancol<A ID="5160"></A> col file:</STRONG></DT>
+<DD> calculates tangens of a column tan(col)
+</DD>
+<DT><STRONG><I CLASS="slanted">tanhcol<A ID="5164"></A> col file:</STRONG></DT>
+<DD> calculates tangens-hyperbolicus of a column tanh(col)
+</DD>
+<DT><STRONG><I CLASS="slanted">uvw2fwhm<A ID="5168"></A> u v w col *.*:</STRONG></DT>
+<DD> used to calculate the full
+                   width half maximum from
+                   2theta in degree according to fullprofs u,v,w parameters ...
+                  The column col in file *.* must contain 2theta scattering angle
+                 values and is overwritten with the fwhm as calculated by
+                  </I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<DIV CLASS="displaymath">
 
 <!-- MATH
  \begin{equation}
-\stackrel{=}{\mathbf S^{-1}}_4(\pi/2,\pi/2) = \left(
-\begin{array}{ccccccccc}
- 0 &  1/8 &    0 &  7/8 &    0 &    0 &    0 &    0 &    0 \\
- 0 &    0 &    0 &    0 &    0 & -7/4 &    0 & -3/4 &    0 \\
- 0 & -1/4 &    0 &  1/4 &    0 &    0 &    0 &    0 &    0 \\
- 0 &    0 &    0 &    0 &    0 & -3/4 &    0 &  1/4 &    0 \\
- 0 &    0 &    0 &    0 &  3/8 &    0 & -1/8 &    0 &  1/8 \\
- 1 &    0 & -1/2 &    0 &    0 &    0 &    0 &    0 &    0 \\
- 0 &    0 &    0 &    0 &  5/2 &    0 & -1/2 &    0 & -1/2 \\
--1 &    0 & -7/2 &    0 &    0 &    0 &    0 &    0 &    0 \\
- 0 &    0 &    0 &    0 & 35/8 &    0 &  7/8 &    0 &  1/8 \\
-\end{array} \right)
+{\rm fwhm }= \sqrt {u \tan^2(\theta) + v \tan(\theta) + w}
 \end{equation}
  -->
-<A NAME="eq:R4"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:R4"></A><IMG
- WIDTH="590" HEIGHT="230" BORDER="0"
- SRC="img1219.png"
- ALT="\begin{displaymath}
-\stackrel{=}{\mathbf S^{-1}}_4(\pi/2,\pi/2) = \left(
-\begin...
-...&amp; 0 &amp; 0 &amp; 0 &amp; 35/8 &amp; 0 &amp; 7/8 &amp; 0 &amp; 1/8 \\
-\end{array} \right)
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">182</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
+ &nbsp;  <IMG
+ STYLE="height: 4.49ex; vertical-align: -1.33ex; " SRC="img1121.svg"
+ ALT="$\displaystyle {\rm fwhm }= \sqrt {u \tan^2(\theta) + v \tan(\theta) + w}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">142</SPAN>)</SPAN>
+</DIV><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">zshift<A ID="5176"></A> constx colx coly *.*:</STRONG></DT>
+<DD> shifts colx by a constant such that it is zero at a specified value constx of colx. 
+</DD>
+</DL></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
 
 <P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node136.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node134.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html1040"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html1042"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
-
-<!-- MATH
- \begin{equation}
-\stackrel{=}{\mathbf S^{-1}}_6(\pi/2,\pi/2) = \left(
-\begin{array}{ccccccccccccc}
-   0 &  -1/32 &      0 & -11/32 &      0 & -33/32 &      0 &      0 &      0 &      0 &      %
-0 &      0 &      0 \\
-   0 &      0 &      0 &      0 &      0 &      0 &      0 &  33/16 &      0 &  33/16 &      %
-0 &   5/16 &      0 \\
-   0 &    1/8 &      0 &    3/8 &      0 &   -3/8 &      0 &      0 &      0 &      0 &      %
-0 &      0 &      0 \\
-   0 &      0 &      0 &      0 &      0 &      0 &      0 &  15/16 &      0 &  -1/16 &      %
-0 &  -5/16 &      0 \\
-   0 &  -5/32 &      0 &   9/32 &      0 &  -5/32 &      0 &      0 &      0 &      0 &      %
-0 &      0 &      0 \\
-   0 &      0 &      0 &      0 &      0 &      0 &      0 &    5/8 &      0 &   -3/8 &      %
-0 &    1/8 &      0 \\
-   0 &      0 &      0 &      0 &      0 &      0 &  -5/16 &      0 &   1/16 &      0 &  %
--1/16 &      0 &   1/16 \\
- 3/4 &      0 &   -1/2 &      0 &    1/4 &      0 &      0 &      0 &      0 &      0 &      %
-0 &      0 &      0 \\
-   0 &      0 &      0 &      0 &      0 &      0 &-105/32 &      0 &  17/32 &      0 &  %
--5/32 &      0 & -15/32 \\
--5/8 &      0 &   -5/4 &      0 &    9/8 &      0 &      0 &      0 &      0 &      0 &      %
-0 &      0 &      0 \\
-   0 &      0 &      0 &      0 &      0 &      0 & -63/16 &      0 &   3/16 &      0 &  %
-13/16 &      0 &   3/16 \\
- 3/8 &      0 &   11/4 &      0 &   33/8 &      0 &      0 &      0 &      0 &      0 &      %
-0 &      0 &      0 \\
-   0 &      0 &      0 &      0 &      0 &      0 &-231/32 &      0 & -33/32 &      0 & %
--11/32 &      0 &  -1/32 \\
-\end{array} \right)
-\end{equation}
- -->
-<A NAME="eq:R6"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:R6"></A><IMG
- WIDTH="958" HEIGHT="329" BORDER="0"
- SRC="img1220.png"
- ALT="\begin{displaymath}
-\stackrel{=}{\mathbf S^{-1}}_6(\pi/2,\pi/2) = \left(
-\begin...
-... 0 &amp; -33/32 &amp; 0 &amp; %
--11/32 &amp; 0 &amp; -1/32 \\
-\end{array} \right)
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">183</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-
-<P>
-
-<P>
-
-<BR><HR>
+<B> Next:</B> <A
+ HREF="node136.html">Programs of General Interest</A>
+<B> Up:</B> <A
+ HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A
+ HREF="node134.html">Programs for Specific Tasks</A>
+ &nbsp; <B>  <A ID="tex2html1041"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1043"
+  HREF="node164.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

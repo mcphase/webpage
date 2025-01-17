@@ -1,91 +1,258 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>External module function dS1 - used by mcdisp</TITLE>
-<META NAME="description" CONTENT="External module function dS1 - used by mcdisp">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>External module function du1calc - used by mcdisp,singleion</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node87.html">
 <LINK REL="previous" HREF="node85.html">
-<LINK REL="up" HREF="node80.html">
 <LINK REL="next" HREF="node87.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1613"
-  HREF="node87.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1607"
-  HREF="node80.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1601"
-  HREF="node85.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1609"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1611"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node87.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node82.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node85.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html803"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html805"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1614"
-  HREF="node87.html">External module function mqcalc</A>
-<B> Up:</B> <A NAME="tex2html1608"
-  HREF="node80.html">Module Functions for Observables</A>
-<B> Previous:</B> <A NAME="tex2html1602"
-  HREF="node85.html">External module function Scalc</A>
- &nbsp; <B>  <A NAME="tex2html1610"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1612"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node87.html">External module function estates</A>
+<B> Up:</B> <A
+ HREF="node82.html">Basic Module Functions</A>
+<B> Previous:</B> <A
+ HREF="node85.html">External module function Icalc_parameter_storage_matrix_init</A>
+ &nbsp; <B>  <A ID="tex2html804"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html806"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION000172600000000000000"></A><A NAME="7089"></A>
+<H3><A ID="SECTION000171400000000000000"></A><A ID="3349"></A><A ID="3350"></A>
 <BR>
-External module function <I CLASS="slanted">dS1</I> - used by <I CLASS="slanted">mcdisp</I>
+External module function <I CLASS="slanted">du1calc</I> - used by <I CLASS="slanted">mcdisp</I>,<I CLASS="slanted">singleion</I>
 </H3>
 
 <P>
-In order to visualize spin fluctuations and to calculate neutron intensities
-in dipole approximation the external single ion module has to provide the transition
-matrix elements of the spin by the
-vector <SPAN CLASS="MATH"><IMG
- WIDTH="22" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
- SRC="img768.png"
- ALT="$S1$"></SPAN>, which is given by:
- <!-- MATH
- ${\rm S1}^s_{\alpha}=\sqrt{(p_- -p_+)}\langle -|\hat S^s_{\alpha}-\langle \hat S^s_{\alpha}\rangle_{\mathbf H,T}|+\rangle$
+The external single ion module has to provide the components nofcomponentsxnofcomponents
+matrix <!-- MATH
+ $M^s_{\alpha\beta}$
  -->
 <SPAN CLASS="MATH"><IMG
- WIDTH="276" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img769.png"
- ALT="${\rm S1}^s_{\alpha}=\sqrt{(p_--p_+)}\langle -\vert\hat S^s_{\alpha}-\langle \hat S^s_{\alpha}\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>. 
+ STYLE="height: 2.78ex; vertical-align: -1.09ex; " SRC="img834.svg"
+ ALT="$M^s_{\alpha\beta}$"></SPAN> (see equation (<A HREF="node152.html#mmatrix">240</A>)) for every transition
+<!-- MATH
+ $|-\rangle \rightarrow |+\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img835.svg"
+ ALT="$\vert-\rangle \rightarrow \vert+\rangle$"></SPAN>which is to be taken into consideration 
+in the calculation. Note, in general<!-- MATH
+ $M^s_{\alpha\beta}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -1.09ex; " SRC="img834.svg"
+ ALT="$M^s_{\alpha\beta}$"></SPAN> it is a quadratic matrix with the same
+dimension as the vectors <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img826.svg"
+ ALT="$\mathbf I$"></SPAN> and Hxc. 
+Actually it is not necessary to compute the whole  Matrix <!-- MATH
+ $M^s_{\alpha\beta}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -1.09ex; " SRC="img834.svg"
+ ALT="$M^s_{\alpha\beta}$"></SPAN>, because
+only the first eigenvector is needed in the computations.
+Thus, in order to make calculations easier and provide a unique phase of the eigenvectors, the 
+external single ion module must return not the Matrix <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img836.svg"
+ ALT="$M$"></SPAN> but the unnormalized
+eigenvector <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img837.svg"
+ ALT="$u1$"></SPAN>, which is given by equation (<A HREF="node152.html#ufirstrow">242</A>):
+ <!-- MATH
+ ${\mathbf u^s_{\alpha1}}=\sqrt{(p_- -p_+)}\langle -|I^s_{\alpha}-\langle I^s_{\alpha}\rangle_{\mathbf H,T}|+\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.10ex; vertical-align: -0.82ex; " SRC="img838.svg"
+ ALT="${\mathbf u^s_{\alpha1}}=\sqrt{(p_--p_+)}\langle -\vert I^s_{\alpha}-\langle I^s_{\alpha}\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>. 
+Note that in contrast to <!-- MATH
+ ${\mathcal U^s_{\alpha1}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.39ex; vertical-align: -0.69ex; " SRC="img839.svg"
+ ALT="${\mathcal U^s_{\alpha1}}$"></SPAN> the eigenvector
+<!-- MATH
+ ${\mathbf u^s_{\alpha1}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.34ex; vertical-align: -0.69ex; " SRC="img840.svg"
+ ALT="${\mathbf u^s_{\alpha1}}$"></SPAN> is not normalised (no <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img411.svg"
+ ALT="$\gamma$"></SPAN>!)
+and thus the matrix  <!-- MATH
+ $M^s_{\alpha\beta}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -1.09ex; " SRC="img834.svg"
+ ALT="$M^s_{\alpha\beta}$"></SPAN> may be recovered from it.
 
 <P>
 The format to be used is:
-<SMALL CLASS="FOOTNOTESIZE">
-</SMALL><PRE>
-extern "C" int dS1(int &amp; tn,double &amp; T,Vector &amp; Hxc,Vector &amp; Hext,double * g_J,Vector &amp; MODPAR,
-char ** sipffilename,ComplexVector &amp; S1,float &amp; maxE, ComplexMatrix &amp; est)
-</PRE>
-The meaning of the symbols follows exactly that of function 
-<I CLASS="slanted">dm1</I> and therefore not explained here.
+<SPAN CLASS="FOOTNOTESIZE">
+</SPAN><PRE>
+extern "C" int du1calc(int &amp; tn,double &amp; T,Vector &amp; Hxc,Vector &amp; Hext,double * g_J,Vector &amp; MODPAR,
+char ** sipffilename,ComplexVector &amp; u1,float &amp; delta, int &amp; n, int &amp; nd, ComplexMatrix &amp; est)
+</PRE><SPAN CLASS="FOOTNOTESIZE">
+</SPAN>
+<P>
+<SPAN CLASS="FOOTNOTESIZE">The meaning of the symbols is as follows:
+</SPAN>
+<P>
+<SPAN CLASS="FOOTNOTESIZE"></SPAN><PRE>
+on input
+   |tn|            transition-number  
+   sign(tn)        &gt;0 standard, &lt;0 routine should do some printout to stdout for user information
+   MODPAR          Vector with Parameters  read in single ion property file
+   sipffilename    file name of the single ion parameter file
+   g_J             Lande factor
+   T               Temperature[K]
+   Hxc             vector of exchange field [meV] (can be n-dimensional, for a set of n operators)
+   Hext            external magnetic field [T]
+   est             eigenstate matrix (initialized by estates)
+                   it should/may also contain population numbers of the states
+				   (imaginary part of row 0)
+                   and eigenvalues (real part of row 0) with values set by the most recent call
+				   for this ion (use of this matrix is optional)
+   u1(1)           ninit + i pinit (from mcdisp options  -ninit and -pinit)
+   delta           upper boundary for transition energy (meV) to be considered
+                   (from mcdisp option -maxE)
+on output
+   int             total number of transitions
+   delta           transition energy [meV]
+   n,nd            initial and final level
+   u1             vector u1=&lt;-|Ialpha-&lt;Ialpha&gt;|+&gt;sqrt((p- - p+))                          
+                note that as in Icalc the single ion momentum vector &lt;-|I|+&gt; 
+				(n- dimensional with n&gt;=1)
+                may be an arbitrary set of operators
+</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+The module function must perform the following tasks:
+
+<OL>
+<LI>check if the dimensions of vectors I,Hxc (taken by <I CLASS="slanted">mcphas</I> from the number of 
+interaction constant columns in <I CLASS="slanted">mcphas.j<A ID="3370"></A></I>)
+ and MODPAR (taken by <I CLASS="slanted">mcphas</I> from the number of params in the single ion property
+file) agree with the module specifications. Note a module may be designed to 
+take different dimensions depending on the input files, however the dimensions
+of vectors I and Hxc has to agree and must be within the range of dimensions which
+can be treated by the module. If the check fails the module function should exit the
+program with an appropriate error message
+</LI>
+<LI>the module function should do a numbering of all possible single ion transitions and return
+the total number of transitions as an integer. Input file parameters params are supplied as a vector MODPAR and
+Lande factor as g_J and  can be used for this purpose. The numbering will depend on
+the parameters ninit, pinit and maxE which are provided as input. These parameters
+have to be considered. <EM>IMPORTANT: the numbering scheme of transitions has to
+be the same for du1calc and all the corresponding d...1 functions for observables !</EM>
+</LI>
+<LI>it should calculate from meanfields at a given temperature the 
+transition energy of transition number <I CLASS="slanted">tn</I>. The result should be returned as <I CLASS="slanted">delta</I>
+</LI>
+<LI>for the transition number tn the vector u1 is to
+ be filled with 
+<!-- MATH
+ ${\mathbf u^s_{\alpha1}}=\sqrt{(p_- -p_+)}\langle -|\hat I^s_{\alpha}-\langle \hat I^s_{\alpha}\rangle_{\mathbf H,T}|+\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.13ex; vertical-align: -0.82ex; " SRC="img841.svg"
+ ALT="${\mathbf u^s_{\alpha1}}=\sqrt{(p_--p_+)}\langle -\vert\hat I^s_{\alpha}-\langle \hat I^s_{\alpha}\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>.
+</LI>
+<LI>If the energy of this transition
+is zero, i.e. <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img842.svg"
+ ALT="$\Delta(tn)=0$"></SPAN> (diffuse scattering), 
+the expression (<A HREF="node152.html#mmatrix">240</A>) would be zero because <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img843.svg"
+ ALT="$(p_--p_+)$"></SPAN> vanishes.
+In this case the single ion module should calculate <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img844.svg"
+ ALT="$(p_+/kT)$"></SPAN> instead of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img843.svg"
+ ALT="$(p_--p_+)$"></SPAN>.
+</LI>
+<LI>if transition is from a level to itself, then a negative 
+value of <!-- MATH
+ $\Delta=-10^{-10}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.31ex; vertical-align: -0.31ex; " SRC="img845.svg"
+ ALT="$\Delta=-10^{-10}$"></SPAN> should be returned.
+</LI>
+<LI>if <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.90ex; vertical-align: -0.21ex; " SRC="img830.svg"
+ ALT="$T&lt;0$"></SPAN> all quantities should be evaluated assuming that all Boltzmann probabilities <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img139.svg"
+ ALT="$p_i$"></SPAN>
+ are zero except for the state number <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img831.svg"
+ ALT="$n=(-T)$"></SPAN>, for which the probability <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img832.svg"
+ ALT="$p_n=1$"></SPAN>.
+</LI>
+</OL>
 
 <P>
-<BR><HR>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node87.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node82.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node85.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html803"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html805"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node87.html">External module function estates</A>
+<B> Up:</B> <A
+ HREF="node82.html">Basic Module Functions</A>
+<B> Previous:</B> <A
+ HREF="node85.html">External module function Icalc_parameter_storage_matrix_init</A>
+ &nbsp; <B>  <A ID="tex2html804"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html806"
+  HREF="node164.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

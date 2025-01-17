@@ -1,572 +1,112 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Setting up mcphas.j and other input files</TITLE>
-<META NAME="description" CONTENT="Setting up mcphas.j and other input files">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Option indexexchange in order to shorten notation in mcphas.j</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node57.html">
 <LINK REL="previous" HREF="node55.html">
-<LINK REL="up" HREF="node55.html">
 <LINK REL="next" HREF="node57.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1147"
-  HREF="node57.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1141"
-  HREF="node55.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1135"
-  HREF="node55.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1143"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1145"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node57.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node54.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node55.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html630"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html632"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1148"
-  HREF="node57.html">Option indexexchange in order</A>
-<B> Up:</B> <A NAME="tex2html1142"
-  HREF="node55.html">Including Quadrupolar and Higher</A>
-<B> Previous:</B> <A NAME="tex2html1136"
-  HREF="node55.html">Including Quadrupolar and Higher</A>
- &nbsp; <B>  <A NAME="tex2html1144"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1146"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node57.html">Running McPhase and McDisp</A>
+<B> Up:</B> <A
+ HREF="node54.html">Including Quadrupolar and Higher</A>
+<B> Previous:</B> <A
+ HREF="node55.html">Setting up mcphas.j and</A>
+ &nbsp; <B>  <A ID="tex2html631"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html633"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION000131000000000000000"></A><A NAME="4587"></A>
-<BR>
-Setting up <I CLASS="slanted">mcphas.j</I> and other input files
+<H2><A ID="SECTION000132000000000000000">
+Option <I CLASS="slanted">indexexchange</I> in order to shorten notation in <I CLASS="slanted">mcphas.j</I></A>
 </H2>
+The <I CLASS="slanted">indexexchange</I> parameter discussed in section&nbsp;<A HREF="node26.html#mcphasj">7.1.4</A> may be useful in keeping the input
+of the exchange components short. For example the <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img502.svg"
+ ALT="$\zeta$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img503.svg"
+ ALT="$\eta$"></SPAN> strain modes on the quasi-cubic sites
+of a double hexagonal close packed structure involves the coupling of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img504.svg"
+ ALT="$\hat P_{zx}$"></SPAN> (<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img499.svg"
+ ALT="$\hat I_g$"></SPAN>) and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img505.svg"
+ ALT="$\hat P_{xy}$"></SPAN> (<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img490.svg"
+ ALT="$\hat I_d$"></SPAN>) 
+as well as <SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img506.svg"
+ ALT="$\hat P_{yz}$"></SPAN> (<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img493.svg"
+ ALT="$\hat I_e$"></SPAN>) and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.69ex; " SRC="img507.svg"
+ ALT="$\hat O_2^2$"></SPAN> <SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img508.svg"
+ ALT="$(\hat I_h)$"></SPAN> quadrupoles, so the <I CLASS="slanted">diagonalexchange=1</I> option 
+cannot be used. Thus 64 components need to be specified to describe the <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.92ex; vertical-align: -0.31ex; " SRC="img509.svg"
+ ALT="$8\times 8$"></SPAN> exchange tensor. 
+However, we can simplify this with the <I CLASS="slanted">indexexchange</I> parameter by setting <I CLASS="slanted">diagonalexchange=2</I>, 
+as follows for UPd<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img25.svg"
+ ALT="$_3$"></SPAN>:
 
 <P>
-In order to include the higher order interactions, the number of columns in the input file
-<I CLASS="slanted">mcphas.j<A NAME="4588"></A></I> has to be increased. The additional columns then
- contain the higher order exchange constants.
-
-<P>
-Using the module <I CLASS="slanted">so1ion</I>, the input file <I CLASS="slanted">mcphas.j<A NAME="4590"></A></I> may look as given for the 
-example GdRu<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN>Si<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN> in <I CLASS="slanted">examples/gdru2si2</I>:
-
-<P>
-<SMALL CLASS="FOOTNOTESIZE">
-</SMALL><PRE>
-# GdRu2Si2 anisotropic bilinear and biquadratic exchange 
+<SPAN CLASS="FOOTNOTESIZE"></SPAN><PRE>
+# UPd3 
 #&lt;!--mcphase.mcphas.j--&gt;
-#***************************************************************
-# Lattice and Exchange Parameter file for
-# mcphas version 3.0
-# - program to calculate static magnetic properties
-# reference: M. Rotter JMMM 272-276 (2004) 481
-# mcdisp version 3.0
-# - program to calculate the dispersion of magnetic excitations
-# reference: M. Rotter et al. J. Appl. Phys. A74 (2002) 5751
-#***************************************************************
-#
-# Lattice Constants (A)
-#! a=4.165 b=4.165 c=9.654 alpha=  90 beta=  90 gamma=  90
-#! r1a= 0.5 r2a=   0 r3a=   0
-#! r1b= 0.5 r2b=   1 r3b=   0   primitive lattice vectors [a][b][c]
-#! r1c= 0.5 r2c=   0 r3c=   1
-#! nofatoms=1  nofcomponents=8  number of atoms in primitive unit cell/number of components of each spin
-#****************************************************************************}
-#! da=   0 [a] db=   0 [b] dc=   0 [c] nofneighbours=38 diagonalexchange=1 gJ=   2 sipffilename=Gd3p.sipf
-# da[a]    db[b]      dc[c]       J11[meV]  J22[meV]  J33[meV]  J44[meV]  J55[meV]  J66[meV]  J77[meV]  Jbc[meV]  %%@
-J88[meV]} 
--1.0 0.0 0.0 0.08390 0.08390 0.21890 -0.0024 -0.0096 -0.0008 -0.0096 -0.0024 
-1.0 0.0 0.0 0.08390 0.08390 0.21890 -0.0024 -0.0096 -0.0008 -0.0096 -0.0024 
-0.0 -1.0 0.0 0.08390 0.08390 0.21890 -0.0024 -0.0096 -0.0008 -0.0096 -0.0024 
-0.0 1.0 0.0 0.08390 0.08390 0.21890 -0.0024 -0.0096 -0.0008 -0.0096 -0.0024 
--0.5 -0.5 -0.5 0.00380 0.00380 0.01000 0.0 0.0 0.0 0.0 0.0 
--0.5 -0.5 0.5 0.00380 0.00380 0.01000 0.0 0.0 0.0 0.0 0.0 
--0.5 0.5 -0.5 0.00380 0.00380 0.01000 0.0 0.0 0.0 0.0 0.0 
--0.5 0.5 0.5 0.00380 0.00380 0.01000 0.0 0.0 0.0 0.0 0.0 
-0.5 -0.5 -0.5 0.00380 0.00380 0.01000 0.0 0.0 0.0 0.0 0.0 
-0.5 -0.5 0.5 0.00380 0.00380 0.01000 0.0 0.0 0.0 0.0 0.0 
-0.5 0.5 -0.5 0.00380 0.00380 0.01000 0.0 0.0 0.0 0.0 0.0 
-0.5 0.5 0.5 0.00380 0.00380 0.01000 0.0 0.0 0.0 0.0 0.0 
--1.0 -1.0 0.0 -0.03630 -0.03630 -0.09445 0.0 0.0 0.0 0.0 0.0 
--1.0 1.0 0.0 -0.03630 -0.03630 -0.09445 0.0 0.0 0.0 0.0 0.0 
-1.0 -1.0 0.0 -0.03630 -0.03630 -0.09445 0.0 0.0 0.0 0.0 0.0 
-1.0 1.0 0.0 -0.03630 -0.03630 -0.09445 0.0 0.0 0.0 0.0 0.0 
-1.5 -0.5 0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
--1.5 -0.5 0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
-1.5 -0.5 -0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
-0.5 -1.5 0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
-0.5 1.5 0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
-0.5 1.5 -0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
--0.5 1.5 0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
--1.5 -0.5 -0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
-1.5 0.5 0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
--1.5 0.5 -0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
--0.5 -1.5 -0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
--0.5 -1.5 0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
-1.5 0.5 -0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
--0.5 1.5 -0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
--1.5 0.5 0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
-0.5 -1.5 -0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
--2.0 0.0 0.0 -0.01754 -0.01754 -0.04567 0.0 0.0 0.0 0.0 0.0 
-2.0 0.0 0.0 -0.01754 -0.01754 -0.04567 0.0 0.0 0.0 0.0 0.0 
-0.0 -2.0 0.0 -0.01754 -0.01754 -0.04567 0.0 0.0 0.0 0.0 0.0 
-0.0 2.0 0.0 -0.01754 -0.01754 -0.04567 0.0 0.0 0.0 0.0 0.0 
-0.0 0.0 1.0 0.24850 0.24850 0.13560 0.0 0.0 0.0 0.0 0.0 
-0.0 0.0 -1.0 0.24850 0.24850 0.13560 0.0 0.0 0.0 0.0 0.0
-</PRE>
-here the meaning of the J11, J22, J33, J44, J55 ...is the 
-exchange constant <!-- MATH
- $J_{\alpha\alpha}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="30" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img400.png"
- ALT="$J_{\alpha\alpha}$"></SPAN> between the operators <!-- MATH
- $\hat I_1 \cdot \hat I_1$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="43" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img401.png"
- ALT="$\hat I_1 \cdot \hat I_1$"></SPAN>, <!-- MATH
- $\hat I_2 \cdot \hat I_2$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="43" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img402.png"
- ALT="$\hat I_2 \cdot \hat I_2$"></SPAN>,
-<!-- MATH
- $\hat I_3 \cdot \hat I_3$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="43" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img403.png"
- ALT="$\hat I_3 \cdot \hat I_3$"></SPAN>, <!-- MATH
- $\hat I_4 \cdot \hat I_4$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="43" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img404.png"
- ALT="$\hat I_4 \cdot \hat I_4$"></SPAN>, ... etc. in equation (<A HREF="node55.html#multipolehamiltonrepeated">67</A>).
-Note that in our notation the indices of the interaction operators <!-- MATH
- $\hat \mathbf I$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img405.png"
- ALT="$\hat \mathbf I$"></SPAN> are sometimes
-denoted by numbers, sometimes by characters: <!-- MATH
- $\hat I_1,\hat I_2,\hat I_3, \hat I_4, \dots \equiv \hat I_a,\hat I_b,\hat I_c, \hat I_d, \dots$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="231" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img406.png"
- ALT="$\hat I_1,\hat I_2,\hat I_3, \hat I_4, \dots \equiv \hat I_a,\hat I_b,\hat I_c, \hat I_d, \dots$"></SPAN>.
+#! a=9.92465 b=5.73 c=9.65  alpha=  90 beta=  90 gamma=  90
+#! r1x= 1 r2x=   0 r3x=   0
+#! r1y= 0 r2y=   1 r3y=   0
+#! r1z= 0 r2z=   0 r3z=   1
+#! nofatoms=1 nofcomponents=8
+#*************************************************************************
+#! x=   0 [a] y=   0 [b] z=   0 nofneighbours=6 diagonalexchange=2 gJ=0.8 sipffilename=mcphas.cf1
+#! x[a]  y[b]    z[c]   Ja[meV]  Jb[meV]  Jc[meV]  Jd[meV]  Je[meV]  Jf[meV]  Jg[meV]  Jh[meV]
+#! symmetricexchange=1 indexexchange= JaJa JbJb JcJc JdJd JeJe JfJf JgJg JhJh JgJd JhJe
+ 0    0    0.5 -0.022 -0.022 -0.022  0.0035198 -0.18643  -0.00053332 -0.18643   0.00087996  0.013      0.0064378
+ 0    0   -0.5 -0.022 -0.022 -0.022  0.0035198 -0.18643  -0.00053332 -0.18643   0.00087996  0.013      0.0064378
+ 0.5  0.5  0   -0.022 -0.022 -0.022 -0.0034195 -0.019714 -0.00034044 -0.019714 -0.00085486 -0.0065221 -0.0050197
+-0.5 -0.5  0   -0.022 -0.022 -0.022 -0.0034195 -0.019714 -0.00034044 -0.019714 -0.00085486 -0.0065221 -0.0050197
+ 0.5 -0.5  0   -0.022 -0.022 -0.022 -0.0034195 -0.019714 -0.00034044 -0.019714 -0.00085486 -0.0065221 -0.0050197
+-0.5  0.5  0   -0.022 -0.022 -0.022 -0.0034195 -0.019714 -0.00034044 -0.019714 -0.00085486 -0.0065221 -0.0050197
+</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
 
 <P>
-By default in module <I CLASS="slanted">so1ion</I> the operator sequence is <!-- MATH
- $\hat I_1,\hat I_2,\hat I_3, \hat I_4, \dots =$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="124" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img407.png"
- ALT="$\hat I_1,\hat I_2,\hat I_3, \hat I_4, \dots =$"></SPAN>
-<SPAN CLASS="MATH"><IMG
- WIDTH="29" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img408.png"
- ALT="$\hat O_{11}$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="29" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img409.png"
- ALT="$\hat O_{11}^s$"></SPAN>, <SPAN CLASS="MATH"><IMG
- WIDTH="29" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img410.png"
- ALT="$\hat O_{10}$"></SPAN>, <SPAN CLASS="MATH"><IMG
- WIDTH="29" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img411.png"
- ALT="$\hat O_{22}^s$"></SPAN>, <SPAN CLASS="MATH"><IMG
- WIDTH="29" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img412.png"
- ALT="$\hat O_{21}^s$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="29" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img413.png"
- ALT="$\hat O_{20}$"></SPAN>,
-<SPAN CLASS="MATH"><IMG
- WIDTH="29" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img414.png"
- ALT="$\hat O_{21}$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="29" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img415.png"
- ALT="$\hat O_{22}$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="29" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img416.png"
- ALT="$\hat O_{33}^s$"></SPAN>, ...,<SPAN CLASS="MATH"><IMG
- WIDTH="29" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img417.png"
- ALT="$\hat O_{66}$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="21" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img418.png"
- ALT="$\hat J_x^2$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="21" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img419.png"
- ALT="$\hat J_y^2$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="21" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img420.png"
- ALT="$\hat J_z^2$"></SPAN>,
-<SPAN CLASS="MATH"><IMG
- WIDTH="21" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img421.png"
- ALT="$\hat J_x^4$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="21" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img422.png"
- ALT="$\hat J_y^4$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="21" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img423.png"
- ALT="$\hat J_z^4$"></SPAN>.
-according to equation (<A HREF="node55.html#multipolehamiltonrepeated">67</A>) and table&nbsp;<A HREF="#olms">2</A>.
- The exchange constants for the
-products of these Stevens operators have to be 
-given according to the following scheme:
-
-<P>
-<PRE>
-   11 22 33 12 21 13 31 23 32 (3x3 matrix)
-   11 22 33 44 12 21 13 31 14 41 23 32 24 42 34 43 (4x4 matrix)
-   11 22 33 44 55 12 21 13 31 14 41 15 51 23 32 24 42 25 52 34 43 35 53 45 54 (5x5 matrix)
-   etc ...
-</PRE>
-
-<P>
-The other input and output files have the same format as usual, but with the modification, that
-there are now <SPAN CLASS="MATH"><IMG
- WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img46.png"
- ALT="$n$"></SPAN> components of the 'spins' in <I CLASS="slanted">mcphas.sps</I> instead of 3 (<SPAN CLASS="MATH"><IMG
- WIDTH="54" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img424.png"
- ALT="$&lt;\hat J_a&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="53" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img425.png"
- ALT="$&lt;\hat J_b&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="53" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img426.png"
- ALT="$&lt;\hat J_c&gt;$"></SPAN>).
-The expectation values of the operators
- <SPAN CLASS="MATH"><IMG
- WIDTH="52" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img427.png"
- ALT="$&lt;\hat I_a&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="51" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img428.png"
- ALT="$&lt;\hat I_b&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="51" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img429.png"
- ALT="$&lt;\hat I_c&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="52" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img430.png"
- ALT="$&lt;\hat I_d&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="51" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img431.png"
- ALT="$&lt;\hat I_e&gt;$"></SPAN>, etc. correspond to the
-interaction operator sequence of the single ion module, which for <I CLASS="slanted">so1ion</I> is 
-by default <SPAN CLASS="MATH"><IMG
- WIDTH="54" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img424.png"
- ALT="$&lt;\hat J_a&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="53" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img425.png"
- ALT="$&lt;\hat J_b&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="53" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img426.png"
- ALT="$&lt;\hat J_c&gt;$"></SPAN>,
- <!-- MATH
- $<\hat O_{22}^s>$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="63" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img432.png"
- ALT="$&lt;\hat O_{22}^s&gt;$"></SPAN>, <!-- MATH
- $<\hat O_{21}^s>$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="63" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img433.png"
- ALT="$&lt;\hat O_{21}^s&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="63" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img434.png"
- ALT="$&lt;\hat O_{20}&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="63" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img435.png"
- ALT="$&lt;\hat O_{21}&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="63" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img436.png"
- ALT="$&lt;\hat O_{22}&gt;$"></SPAN>,<!-- MATH
- $<\hat O_{33}^s>$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="63" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img437.png"
- ALT="$&lt;\hat O_{33}^s&gt;$"></SPAN>, ...
- respectively.
- Table&nbsp;<A HREF="#olms">2</A> contains a list of first and second order Stevens parameters.
-For a full list please refer to appendix&nbsp;<A HREF="node131.html#stevens">G</A>.
-
-<P>
-Note that the <!-- MATH
- $\hat I_{\alpha}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="20" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img438.png"
- ALT="$\hat I_{\alpha}$"></SPAN> may be completely redefined
- by perl parsing the single ion property file - see section <A HREF="node67.html#simod">13</A> for details.
-This may be useful to shorten notation, if by symmetry the coupling (<A HREF="node55.html#multipolehamiltonrepeated">67</A>) 
-may be rewritten in products of linear combinations of operators such as needed
-for pseudo spin models of multipolar order&nbsp;[<A
- HREF="node151.html#shiina97-1741">31</A>],
- e.g 
-<!-- MATH
- $(5\hat  O_{44}(\hat \mathbf J^n)+\hat  O_{40}(\hat \mathbf J^n)) \cdot (5 \hat O_{44}(\hat \mathbf J^{n'})+\hat  O_{40}(\hat \mathbf J^{n'}))$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="328" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img439.png"
- ALT="$(5\hat O_{44}(\hat \mathbf J^n)+\hat O_{40}(\hat \mathbf J^n)) \cdot (5 \hat O_{44}(\hat \mathbf J^{n'})+\hat O_{40}(\hat \mathbf J^{n'}))$"></SPAN>
-
-<P>
-<BR>
-<DIV ALIGN="CENTER">
-   
-<A NAME="olms"></A>   
-<A NAME="4742"></A>
-<TABLE CELLPADDING=3 BORDER="1" ALIGN="CENTER">
-<CAPTION><STRONG>Table 2:</STRONG>
-Stevens operator equivalents <SPAN CLASS="MATH"><IMG
- WIDTH="52" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
- SRC="img9.png"
- ALT="$T=10$"></SPAN> and 
-corresponding notation used in modules <I CLASS="slanted">cfield<A NAME="4634"></A></I> and 
-<I CLASS="slanted">so1ion<A NAME="4635"></A></I> 
-(<!-- MATH
- $\hat J_{\pm}=\hat J_x\pm i\hat J_y)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img10.png"
- ALT="$a$"></SPAN>. For a full list please refer to appendix&nbsp;<A HREF="node131.html#stevens">G</A>.</CAPTION>
-<TR><TD ALIGN="LEFT">Stevens Operator</TD>
-<TD ALIGN="RIGHT">Notation used in module <I CLASS="slanted">so1ion<A NAME="4641"></A></I></TD>
-<TD ALIGN="RIGHT"><I CLASS="slanted">cfield<A NAME="4642"></A></I></TD>
-</TR>
-<TR><TD ALIGN="LEFT"><SPAN CLASS="MATH"><IMG
- WIDTH="59" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img440.png"
- ALT="$\hat O_{00}=1$"></SPAN> (<!-- MATH
- $O_{00}({\rm so1ion})=0$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="114" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img441.png"
- ALT="$O_{00}({\rm so1ion})=0$"></SPAN>)</TD>
-<TD ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="RIGHT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT"><!-- MATH
- $\hat O_{11}=\frac{1}{2}[\hat J_++\hat J_-]=\hat J_x$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="166" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img442.png"
- ALT="$\hat O_{11}=\frac{1}{2}[\hat J_++\hat J_-]=\hat J_x$"></SPAN></TD>
-<TD ALIGN="RIGHT"><SPAN CLASS="MATH"><IMG
- WIDTH="18" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img443.png"
- ALT="$\hat I_a$"></SPAN></TD>
-<TD ALIGN="RIGHT"><SPAN CLASS="MATH"><IMG
- WIDTH="17" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img444.png"
- ALT="$\hat I_c$"></SPAN></TD>
-</TR>
-<TR><TD ALIGN="LEFT"><!-- MATH
- $\hat O_{11}(s)=\frac{-i}{2}[\hat J_+-\hat J_-]=\hat J_y$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="194" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img445.png"
- ALT="$\hat O_{11}(s)=\frac{-i}{2}[\hat J_+-\hat J_-]=\hat J_y$"></SPAN></TD>
-<TD ALIGN="RIGHT"><SPAN CLASS="MATH"><IMG
- WIDTH="17" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img446.png"
- ALT="$\hat I_b$"></SPAN></TD>
-<TD ALIGN="RIGHT"><SPAN CLASS="MATH"><IMG
- WIDTH="18" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img443.png"
- ALT="$\hat I_a$"></SPAN></TD>
-</TR>
-<TR><TD ALIGN="LEFT"><!-- MATH
- $\hat O_{10}=\hat J_z$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="67" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img447.png"
- ALT="$\hat O_{10}=\hat J_z$"></SPAN></TD>
-<TD ALIGN="RIGHT"><SPAN CLASS="MATH"><IMG
- WIDTH="17" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img444.png"
- ALT="$\hat I_c$"></SPAN></TD>
-<TD ALIGN="RIGHT"><SPAN CLASS="MATH"><IMG
- WIDTH="17" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img446.png"
- ALT="$\hat I_b$"></SPAN></TD>
-</TR>
-<TR><TD ALIGN="LEFT"><!-- MATH
- $\hat O_{22}(s)=\frac{-i}{2}[\hat J_+^2-\hat J_-^2]=\hat J_x\hat J_y+\hat J_y\hat J_x$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="263" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img448.png"
- ALT="$\hat O_{22}(s)=\frac{-i}{2}[\hat J_+^2-\hat J_-^2]=\hat J_x\hat J_y+\hat J_y\hat J_x$"></SPAN>(<SPAN CLASS="MATH"><IMG
- WIDTH="54" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img449.png"
- ALT="$=2\hat P_{xy}$"></SPAN>)</TD>
-<TD ALIGN="RIGHT"><SPAN CLASS="MATH"><IMG
- WIDTH="18" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img450.png"
- ALT="$\hat I_d$"></SPAN></TD>
-<TD ALIGN="RIGHT"><SPAN CLASS="MATH"><IMG
- WIDTH="18" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img450.png"
- ALT="$\hat I_d$"></SPAN></TD>
-</TR>
-<TR><TD ALIGN="LEFT"><!-- MATH
- $\hat O_{21}(s)=\frac{-i}{4}[(\hat J_+-\hat J_-)\hat J_z+\hat J_z(\hat J_+-\hat J_-)]=\frac{1}{2}[\hat J_y\hat J_z+\hat J_z\hat J_y]$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="416" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img451.png"
- ALT="$\hat O_{21}(s)=\frac{-i}{4}[(\hat J_+-\hat J_-)\hat J_z+\hat J_z(\hat J_+-\hat J_-)]=\frac{1}{2}[\hat J_y\hat J_z+\hat J_z\hat J_y]$"></SPAN>(<SPAN CLASS="MATH"><IMG
- WIDTH="45" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img452.png"
- ALT="$=\hat P_{yz}$"></SPAN>)</TD>
-<TD ALIGN="RIGHT"><SPAN CLASS="MATH"><IMG
- WIDTH="18" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img453.png"
- ALT="$\hat I_e$"></SPAN></TD>
-<TD ALIGN="RIGHT"><SPAN CLASS="MATH"><IMG
- WIDTH="18" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img453.png"
- ALT="$\hat I_e$"></SPAN></TD>
-</TR>
-<TR><TD ALIGN="LEFT"><!-- MATH
- $\hat O_{20}=[3\hat J_z^2-J(J+1)]$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="165" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img454.png"
- ALT="$\hat O_{20}=[3\hat J_z^2-J(J+1)]$"></SPAN> (<SPAN CLASS="MATH"><IMG
- WIDTH="72" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
- SRC="img455.png"
- ALT="$O_2^0(s)=0$"></SPAN>)</TD>
-<TD ALIGN="RIGHT"><SPAN CLASS="MATH"><IMG
- WIDTH="19" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img456.png"
- ALT="$\hat I_f$"></SPAN></TD>
-<TD ALIGN="RIGHT"><SPAN CLASS="MATH"><IMG
- WIDTH="19" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img456.png"
- ALT="$\hat I_f$"></SPAN></TD>
-</TR>
-<TR><TD ALIGN="LEFT"><!-- MATH
- $\hat O_{21}=\frac{1}{4}[(\hat J_++\hat J_-)\hat J_z+\hat J_z(\hat J_++\hat J_-)]=\frac{1}{2}[\hat J_x\hat J_z+\hat J_z\hat J_x]$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="389" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img457.png"
- ALT="$\hat O_{21}=\frac{1}{4}[(\hat J_++\hat J_-)\hat J_z+\hat J_z(\hat J_++\hat J_-)]=\frac{1}{2}[\hat J_x\hat J_z+\hat J_z\hat J_x]$"></SPAN>(<SPAN CLASS="MATH"><IMG
- WIDTH="45" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img458.png"
- ALT="$=\hat P_{xz}$"></SPAN>)</TD>
-<TD ALIGN="RIGHT"><SPAN CLASS="MATH"><IMG
- WIDTH="18" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img459.png"
- ALT="$\hat I_g$"></SPAN></TD>
-<TD ALIGN="RIGHT"><SPAN CLASS="MATH"><IMG
- WIDTH="18" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img459.png"
- ALT="$\hat I_g$"></SPAN></TD>
-</TR>
-<TR><TD ALIGN="LEFT"><!-- MATH
- $\hat O_{22}=\frac{1}{2}[\hat J_+^2+\hat J_-^2]=[\hat J_x^2-\hat J_y^2]$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="212" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img460.png"
- ALT="$\hat O_{22}=\frac{1}{2}[\hat J_+^2+\hat J_-^2]=[\hat J_x^2-\hat J_y^2]$"></SPAN></TD>
-<TD ALIGN="RIGHT"><SPAN CLASS="MATH"><IMG
- WIDTH="19" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img461.png"
- ALT="$\hat I_h$"></SPAN></TD>
-<TD ALIGN="RIGHT"><SPAN CLASS="MATH"><IMG
- WIDTH="19" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img461.png"
- ALT="$\hat I_h$"></SPAN></TD>
-</TR>
-</TABLE>
-</DIV>
-<BR>
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html1147"
-  HREF="node57.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1141"
-  HREF="node55.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1135"
-  HREF="node55.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1143"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1145"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A NAME="tex2html1148"
-  HREF="node57.html">Option indexexchange in order</A>
-<B> Up:</B> <A NAME="tex2html1142"
-  HREF="node55.html">Including Quadrupolar and Higher</A>
-<B> Previous:</B> <A NAME="tex2html1136"
-  HREF="node55.html">Including Quadrupolar and Higher</A>
- &nbsp; <B>  <A NAME="tex2html1144"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1146"
-  HREF="node152.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 
 </BODY>
 </HTML>

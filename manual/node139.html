@@ -1,1122 +1,344 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Dynamical Susceptibility and Excitations - Formalism for mcdisp</TITLE>
-<META NAME="description" CONTENT="Dynamical Susceptibility and Excitations - Formalism for mcdisp">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>DyNiBC - single ion module</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node147.html">
+<LINK REL="next" HREF="node140.html">
 <LINK REL="previous" HREF="node138.html">
-<LINK REL="up" HREF="manual.html">
 <LINK REL="next" HREF="node140.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2366"
-  HREF="node140.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2360"
-  HREF="manual.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2354"
-  HREF="node138.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2362"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html2364"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node140.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node138.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html1056"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html1058"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html2367"
-  HREF="node140.html">DMD - formalism</A>
-<B> Up:</B> <A NAME="tex2html2361"
-  HREF="manual.html">McPhase USERS MANUAL</A>
-<B> Previous:</B> <A NAME="tex2html2355"
-  HREF="node138.html">Derivation of the Chargedensity</A>
- &nbsp; <B>  <A NAME="tex2html2363"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html2365"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node140.html">ErNiBC - single ion</A>
+<B> Up:</B> <A
+ HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A
+ HREF="node138.html">Module brillouin - an</A>
+ &nbsp; <B>  <A ID="tex2html1057"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1059"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION000370000000000000000"></A>
-<A NAME="formalism"></A>
+<H1><A ID="SECTION000270000000000000000"></A><A ID="dyni2b2c"></A>
 <BR>
-Dynamical Susceptibility and Excitations - Formalism for <I CLASS="slanted">mcdisp</I>
+DyNi<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>B<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>C - single ion module
 </H1>
 
 <P>
-This section is describes the formalism used in the calculation of the magnetic excitations. Because the
-procedure is not standard, we list the most important formulas.
+The crystal field ground state of the <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1176.svg"
+ ALT="$J=15/2$"></SPAN> Dy<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img3.svg"
+ ALT="$^{3+}$"></SPAN> ion in DyNi<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>B<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>C 
+can be   described by a quasi-quartet consisting of two doublets separated
+by a energy interval <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1177.svg"
+ ALT="$\Delta$"></SPAN>.
 
 <P>
-We assume a quantum mechanical system that can be described by the Hamiltonian
- <BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
-
-<!-- MATH
- \begin{equation}
-\hat \mathcal H=\sum_{n=1}^N \hat \mathcal H(n) -\frac{1}{2} \sum_{n,n',\alpha,\beta}
- {\mathcal J}_{\alpha\beta}(\mathbf R_{n'} - \mathbf R_n) \hat \mathcal I_{\alpha}^n \hat \mathcal I_{\beta}^{n'}.
-\end{equation}
- -->
-<A NAME="fullhamiltonian"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="fullhamiltonian"></A><IMG
- WIDTH="368" HEIGHT="53" BORDER="0"
- SRC="img44.png"
- ALT="\begin{displaymath}
-\hat \mathcal H=\sum_{n=1}^N \hat \mathcal H(n) -\frac{1}...
-..._n) \hat \mathcal I_{\alpha}^n \hat \mathcal I_{\beta}^{n'}.
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">200</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-The first term <!-- MATH
- $\hat \mathcal H(n)$
+In order to calculate efficiently the single ion property (for small effective
+magnetic fields in comparison to the total CF splitting) the 
+Hamiltonian <!-- MATH
+ $H=H_{cf}- g_J \mu_b {\mathbf H}{\mathbf J}$
  -->
 <SPAN CLASS="MATH"><IMG
- WIDTH="39" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img45.png"
- ALT="$\hat \mathcal H(n)$"></SPAN> denotes the Hamiltonian of
- a subsystem <SPAN CLASS="MATH"><IMG
- WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img46.png"
- ALT="$n$"></SPAN>
-(e.g.&nbsp;an ion, or cluster of ions). The second term describes a bilinear interaction 
-between different subsystems
-through the operators <!-- MATH
- $\hat \mathcal I_{\alpha}^n$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="22" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img47.png"
- ALT="$\hat \mathcal I_{\alpha}^n$"></SPAN>, with <!-- MATH
- $\alpha = 1,2,...,m$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="100" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img48.png"
- ALT="$\alpha = 1,2,...,m$"></SPAN>. The operators <!-- MATH
- $\hat \mathcal H(n)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="39" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img45.png"
- ALT="$\hat \mathcal H(n)$"></SPAN> and <!-- MATH
- $\hat \mathcal I_{\alpha}^n$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="22" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img47.png"
- ALT="$\hat \mathcal I_{\alpha}^n$"></SPAN> act in the subspace <SPAN CLASS="MATH"><IMG
- WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img46.png"
- ALT="$n$"></SPAN> of the Hilbert space, i.e. <!-- MATH
- $[\hat \mathcal I_{\alpha}^n,\hat \mathcal I_{\alpha}^{n'}]=0$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="90" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img49.png"
- ALT="$[\hat \mathcal I_{\alpha}^n,\hat \mathcal I_{\alpha}^{n'}]=0$"></SPAN>,
-<!-- MATH
- $[\hat \mathcal H(n),\hat \mathcal I_{\alpha}^{n'}]=0$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="107" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img50.png"
- ALT="$[\hat \mathcal H(n),\hat \mathcal I_{\alpha}^{n'}]=0$"></SPAN> and <!-- MATH
- $[\hat \mathcal H(n),\hat \mathcal H(n')]=0$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="124" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img51.png"
- ALT="$[\hat \mathcal H(n),\hat \mathcal H(n')]=0$"></SPAN>
-for <SPAN CLASS="MATH"><IMG
- WIDTH="49" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img52.png"
- ALT="$n \neq n'$"></SPAN><A NAME="tex2html58"
-  HREF="footnode.html#foot16192"><SUP><SPAN CLASS="arabic">27</SPAN></SUP></A>.
-For example, in the case of a Heisenberg
- exchange between magnetic ions we would identify the set of operators with
- <SPAN CLASS="MATH"><IMG
- WIDTH="73" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img53.png"
- ALT="$\alpha=1,2,3$"></SPAN> with the three components of the  spin: <!-- MATH
- $\hat \mathcal I_1 \leftrightarrow \hat S_x, \hat \mathcal I_2 %
-\leftrightarrow \hat S_y, \hat \mathcal I_3 \leftrightarrow \hat S_z$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="192" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img54.png"
- ALT="$\hat \mathcal I_1 \leftrightarrow \hat S_x, \hat \mathcal I_2 %
-\leftrightarrow \hat S_y, \hat \mathcal I_3 \leftrightarrow \hat S_z$"></SPAN>.
-The beauty of the analysis which follows is that it can be applied to
-almost any Hamiltonian of the form (<A HREF="#fullhamiltonian">213</A>). The analysis
-of complex magnetic systems can thus be attempted by starting from a simple
-form such as the Heisenberg model and by introducing, step-by-step, more
-complexity into the model. For example, anisotropy and interactions with extended range can be introduced by modifying <!-- MATH
- ${\mathcal J}_{\alpha\beta}(\mathbf R_n - \mathbf R_{n'})$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="112" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img55.png"
- ALT="${\mathcal J}_{\alpha\beta}(\mathbf R_n - \mathbf R_{n'})$"></SPAN>, higher order operators can be 
-introduced  by extending the index range for <SPAN CLASS="MATH"><IMG
- WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img56.png"
- ALT="$\alpha$"></SPAN>, and a complex single-ion term <!-- MATH
- $\hat \mathcal H(n)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="39" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img45.png"
- ALT="$\hat \mathcal H(n)$"></SPAN> may be added. 
-Another example for a Hamiltonian (<A HREF="#fullhamiltonian">213</A>)  is the problem of lattice dynamics, which can
- be treated in the framework of this
-formalism by identifying the operators <!-- MATH
- $\hat \mathcal I^n_{\alpha}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="22" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img57.png"
- ALT="$\hat \mathcal I^n_{\alpha}$"></SPAN>
- with the atomic displacements <SPAN CLASS="MATH"><IMG
- WIDTH="22" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img58.png"
- ALT="$u^{n}$"></SPAN>. Here the index <SPAN CLASS="MATH"><IMG
- WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img56.png"
- ALT="$\alpha$"></SPAN> is not necessary and
-<SPAN CLASS="MATH"><IMG
- WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img46.png"
- ALT="$n$"></SPAN> refers to both, the atomic position index and the spatial coordinate of the displacement,
-  <!-- MATH
- $n=(1,x),(1,y),(1,z),(2,x),(2,y),(2,z), ...$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="306" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img59.png"
- ALT="$n=(1,x),(1,y),(1,z),(2,x),(2,y),(2,z), ...$"></SPAN>. Note that this can be done, because the three spatial components of the 
-displacement operators commute with each other (in contrast to the components of the spin) and each displacement
-component acts in its own subspace of the Hilbert space. The kinetic energy
-will be part of the single ion term <!-- MATH
- $\hat \mathcal H(n)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="39" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img45.png"
- ALT="$\hat \mathcal H(n)$"></SPAN>. Allowing more complexity to the system,
-both the spin and lattice degrees of freedom can be introduced and spin-phonon interactions can be
-handled by the theory.
-
-<P>
-The main limitation of the approach is that it neglects fluctuations associated with phase 
-transitions and quantum disorder. We are primarily concerned, therefore, with excitations 
-associated with a  well-ordered ground state.
-
-<P>
-The translational symmetry of the system is 
-represented by a Bravais lattice (which, in general,
-will be a superlattice of a crystal lattice). 
-The position of subsystem <SPAN CLASS="MATH"><IMG
- WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img46.png"
- ALT="$n$"></SPAN> can be specified by a lattice 
-vector <!-- MATH
- $\ensuremath{\boldsymbol\ell}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img1255.png"
- ALT="$\ensuremath{\boldsymbol\ell}$"></SPAN> and a basis vector <SPAN CLASS="MATH"><IMG
- WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img1256.png"
- ALT="$\mathbf b_s$"></SPAN>. The latter is 
-the position of <SPAN CLASS="MATH"><IMG
- WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img46.png"
- ALT="$n$"></SPAN> relative to <!-- MATH
- $\ensuremath{\boldsymbol\ell}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img1255.png"
- ALT="$\ensuremath{\boldsymbol\ell}$"></SPAN>. 
-The index <SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img101.png"
- ALT="$s$"></SPAN> (<SPAN CLASS="MATH"><IMG
- WIDTH="102" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img1257.png"
- ALT="$s=1,2,...,N_b$"></SPAN>) labels the subsystems 
-within the unit cell.
-
-<P>
-The calculation of the excited states of the
- system starts from a mean-field model for the ground-state order. 
-We define a mean field acting on each subsystem by
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
-
-<!-- MATH
- \begin{equation}
-H_{\alpha}^s=\sum_{\ensuremath{\boldsymbol\ell}'s'\beta}
- {\mathcal J}_{\alpha\beta}(\ensuremath{\boldsymbol\ell}'+\mathbf b_{s'}-\ensuremath{\boldsymbol\ell}-\mathbf b_s) \langle \hat \mathcal
-I^{s'}_{\beta}\rangle,
-\end{equation}
- -->
-<A NAME="meanfieldformula"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="meanfieldformula"></A><IMG
- WIDTH="268" HEIGHT="48" BORDER="0"
- SRC="img1258.png"
- ALT="\begin{displaymath}
-H_{\alpha}^s=\sum_{\ensuremath{\boldsymbol\ell}'s'\beta}
-{\...
-...ell}-\mathbf b_s) \langle \hat \mathcal
-I^{s'}_{\beta}\rangle,
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">201</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-where <!-- MATH
- $\langle \hat \mathcal I^{s'}_{\beta}\rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="37" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img1259.png"
- ALT="$\langle \hat \mathcal I^{s'}_{\beta}\rangle$"></SPAN> represents the thermal expectation value at a temperature <SPAN CLASS="MATH"><IMG
- WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img41.png"
- ALT="$T$"></SPAN> in the mean 
-field acting on subsystem <SPAN CLASS="MATH"><IMG
- WIDTH="16" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
- SRC="img1260.png"
- ALT="$s'$"></SPAN>. Note that the mean field 
-is periodic in the lattice, so does not depend on <!-- MATH
- $\ensuremath{\boldsymbol\ell}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img1255.png"
- ALT="$\ensuremath{\boldsymbol\ell}$"></SPAN>. 
-The mean-field Hamiltonian for subsystem <SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img101.png"
- ALT="$s$"></SPAN> is then given by
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
-
-<!-- MATH
- \begin{equation}
-\hat \mathcal H^{\rm MF}(s) =\hat  \mathcal H(s)
- - \sum_{\alpha=1}^m H_{\alpha}^s \hat \mathcal I^s_{\alpha}
-\end{equation}
- -->
-<A NAME="mfhamiltonian"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="mfhamiltonian"></A><IMG
- WIDTH="194" HEIGHT="54" BORDER="0"
- SRC="img1261.png"
- ALT="\begin{displaymath}
-\hat \mathcal H^{\rm MF}(s) =\hat \mathcal H(s)
-- \sum_{\alpha=1}^m H_{\alpha}^s \hat \mathcal I^s_{\alpha}
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">202</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-The mean-field ground state is obtained from the self-consistent solution of (<A HREF="#meanfieldformula">214</A>) and (<A HREF="#mfhamiltonian">215</A>). This iterative procedure is illustrated in fig.&nbsp;<A HREF="#figmfproc">26</A>. The mean field Hamiltonian (<A HREF="#mfhamiltonian">215</A>)
- for the subsystem <SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img101.png"
- ALT="$s$"></SPAN>
-is used to calculate the thermal 
-expectation values 
-<!-- MATH
- $\langle\hat \mathcal I^{s'}_{\beta}\rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="37" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img1259.png"
- ALT="$\langle \hat \mathcal I^{s'}_{\beta}\rangle$"></SPAN> 
-for the initial mean field acting 
-on all subsystems <SPAN CLASS="MATH"><IMG
- WIDTH="101" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img1262.png"
- ALT="$s'=1,2, ...,m$"></SPAN>. 
-Equation&nbsp;(<A HREF="#meanfieldformula">214</A>) is then used to calculate 
-a new set of mean fields. These are again 
-used in (<A HREF="#mfhamiltonian">215</A>), and the procedure 
-repeated until convergence is reached to within
- some specified precision. The free energy of 
-the mean field ground state is evaluated and 
-compared to that of other solutions obtained
- at the same temperature (computed from other
-initial states and superlattices). The solution with 
-the lowest free energy corresponds to the stable ground state.
-
-<P>
-We now turn to the excited states. From linear response theory it can 
-be shown&nbsp;[<A
- HREF="node151.html#jensen91-1">1</A>, page 143]
-that the excited states are poles of the dynamical susceptibility, 
-which is defined by
-
-<P>
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
-
-<!-- MATH
- \begin{equation}
-\chi_{BA}^{}(\omega)=\lim_{\varepsilon\to0^+}\Bigg[\sum_{aa'}^{E_a\ne E_{a'}}
-\frac{\langle a|\hat{B}|a'\rangle\langle a'|\hat{A}|a\rangle}
-{E_{a'}-E_a-\hbar(\omega+i\varepsilon)}(n_a^{}-n_{a'}^{})
-+\frac{i\varepsilon}{\omega+i\varepsilon}\chi_{BA}'(el)\Bigg]
-\end{equation}
- -->
-<A NAME="generalsuszeptibility"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="generalsuszeptibility"></A><IMG
- WIDTH="519" HEIGHT="58" BORDER="0"
- SRC="img1263.png"
- ALT="\begin{displaymath}
-\chi_{BA}^{}(\omega)=\lim_{\varepsilon\to0^+}\Bigg[\sum_{aa'...
-...
-+\frac{i\varepsilon}{\omega+i\varepsilon}\chi_{BA}'(el)\Bigg]
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">203</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-where
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
-
-<!-- MATH
- \begin{equation}
-\chi_{BA}'(el)=\frac{1}{kT}
-\sum_{aa'}^{E_a= E_{a'}}\langle a|\hat{B}-\langle \hat{B}\rangle|a'\rangle \langle
-a'|\hat{A}-\langle \hat{A}\rangle|a\rangle\,n_a^{}
-\end{equation}
- -->
-<A NAME="e5"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="e5"></A><IMG
- WIDTH="367" HEIGHT="58" BORDER="0"
- SRC="img1264.png"
- ALT="\begin{displaymath}
-\chi_{BA}'(el)=\frac{1}{kT}
-\sum_{aa'}^{E_a= E_{a'}}\langle ...
-...le
-a'\vert\hat{A}-\langle \hat{A}\rangle\vert a\rangle\,n_a^{}
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">204</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-and
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
-
-<!-- MATH
- \begin{equation}
-n_a^{}=\frac{\exp(-E_a^{}/kT)}{\sum_{a'}\exp(-E_{a'}/kT)};\qquad
-\langle \hat{A}\rangle=\sum_a\langle a|\hat{A}|a\rangle\,n_a^{}
-\end{equation}
- -->
-<A NAME="e6"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="e6"></A><IMG
- WIDTH="351" HEIGHT="49" BORDER="0"
- SRC="img1265.png"
- ALT="\begin{displaymath}
-n_a^{}=\frac{\exp(-E_a^{}/kT)}{\sum_{a'}\exp(-E_{a'}/kT)};\q...
-...t{A}\rangle=\sum_a\langle a\vert\hat{A}\vert a\rangle\,n_a^{}
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">205</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-
-<P>
-Here the energy levels and eigenstates
- of the Hamiltonian (<A HREF="#fullhamiltonian">213</A>) are denoted by <SPAN CLASS="MATH"><IMG
- WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img1266.png"
- ALT="$E_{{a}}$"></SPAN> and
-<SPAN CLASS="MATH"><IMG
- WIDTH="23" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img1267.png"
- ALT="$\vert{a} \rangle$"></SPAN>, respectively.
-<SPAN CLASS="MATH"><IMG
- WIDTH="21" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1268.png"
- ALT="$n_{{a}}$"></SPAN> is the corresponding 
-Boltzmann occupation probability. 
-<SPAN CLASS="MATH"><IMG
- WIDTH="16" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1269.png"
- ALT="$\hat A$"></SPAN> and <SPAN CLASS="MATH"><IMG
- WIDTH="17" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1270.png"
- ALT="$\hat B$"></SPAN> are
-quantum mechanical operators describing the perturbation 
-to the Hamiltonian and the response of the system
-according to the general concept of linear response theory&nbsp;[<A
- HREF="node151.html#jensen91-1">1</A>].
-The expression (<A HREF="#generalsuszeptibility">216</A>) is based on a system with well defined
-energy levels implying that the poles of
-<!-- MATH
- $\chi_{BA}^{}(z=\omega+i\varepsilon)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="119" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img1271.png"
- ALT="$\chi_{BA}^{}(z=\omega+i\varepsilon)$"></SPAN> are all lying on the real axis,
-or that the absorptive part of the response function
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
-
-<!-- MATH
- \begin{equation}
-\chi_{BA}''(\omega)\equiv\lim_{\varepsilon\to0^+}\frac{1}{2i}
-\left[\chi_{BA}^{}(z)-\chi_{AB}^{}(-z^\ast)\right]
-\end{equation}
- -->
-<A NAME="e7"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="e7"></A><IMG
- WIDTH="280" HEIGHT="40" BORDER="0"
- SRC="img1272.png"
- ALT="\begin{displaymath}
-\chi_{BA}''(\omega)\equiv\lim_{\varepsilon\to0^+}\frac{1}{2i}
-\left[\chi_{BA}^{}(z)-\chi_{AB}^{}(-z^\ast)\right]
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">206</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-becomes a sum of <SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img1273.png"
- ALT="$\delta$"></SPAN>-functions, which are only non-zero when
-<SPAN CLASS="MATH"><IMG
- WIDTH="23" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img1274.png"
- ALT="$\hbar\omega$"></SPAN> is equal to the excitation energies <SPAN CLASS="MATH"><IMG
- WIDTH="66" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img1275.png"
- ALT="$E_{a'}-E_a$"></SPAN>. If
-the susceptibility contains an elastic contribution, then the
-function <!-- MATH
- $\chi_{BA}''(\omega)/\omega=\pi\chi_{BA}'(el)\delta(\omega)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="192" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img1276.png"
- ALT="$\chi_{BA}''(\omega)/\omega=\pi\chi_{BA}'(el)\delta(\omega)$"></SPAN>
-in the zero frequency limit. In any realistic, interacting system the
-energy levels are no longer discrete states and fluctuations will
-cause spontaneous transitions between the different levels. Nonzero
-probabilities for such transitions may be accounted for in a
-phenomenological way by replacing <SPAN CLASS="MATH"><IMG
- WIDTH="66" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img1275.png"
- ALT="$E_{a'}-E_a$"></SPAN> in equation (<A HREF="#generalsuszeptibility">216</A>)
-by <!-- MATH
- $E_{a'}-E_a-i\Upsilon_{a'a}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="123" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img1277.png"
- ALT="$E_{a'}-E_a-i\Upsilon_{a'a}$"></SPAN>, where <!-- MATH
- $\Upsilon_{a'a}\ge0$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="64" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img1278.png"
- ALT="$\Upsilon_{a'a}\ge0$"></SPAN>. In this
-approximation the response becomes a sum of Lorentzians
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
-
-<!-- MATH
- \begin{equation}
-\chi_{BA}''(\omega)\simeq \sum_{aa'}
-\frac{\langle a|\hat{B}|a'\rangle\langle a'|\hat{A}|a\rangle\,\Upsilon_{a'a}^{}}
-{(E_{a'}-E_a-\hbar\omega)^2+\Upsilon_{a'a}^2}(n_a^{}-n_{a'}^{})
-+\frac{\hbar\omega\,\Upsilon_0^{}}{(\hbar\omega)^2+\Upsilon_0^2}\chi_{BA}'(el)
-\end{equation}
- -->
-<A NAME="e8"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="e8"></A><IMG
- WIDTH="501" HEIGHT="54" BORDER="0"
- SRC="img1279.png"
- ALT="\begin{displaymath}
-\chi_{BA}''(\omega)\simeq \sum_{aa'}
-\frac{\langle a\vert\ha...
-...ga\,\Upsilon_0^{}}{(\hbar\omega)^2+\Upsilon_0^2}\chi_{BA}'(el)
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">207</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-The same result is obtained if <SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img1280.png"
- ALT="$\varepsilon$"></SPAN> is kept as a nonzero
-positive quantity in (<A HREF="#generalsuszeptibility">216</A>) instead of taking the limit
-<!-- MATH
- $\varepsilon\to0^+$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="54" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1281.png"
- ALT="$\varepsilon\to0^+$"></SPAN>, i.e. if assuming
-<!-- MATH
- $\varepsilon=\Upsilon_{a'a}/\hbar$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="80" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img1282.png"
- ALT="$\varepsilon=\Upsilon_{a'a}/\hbar$"></SPAN> in the different terms in the sum
-and <!-- MATH
- $\varepsilon=\Upsilon_0/\hbar$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="68" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img1283.png"
- ALT="$\varepsilon=\Upsilon_0/\hbar$"></SPAN> in the elastic term.
-
-<P>
-Because of the periodicity of our system we define generalized 
-susceptibilities <!-- MATH
- $\chi_{\alpha\beta}^{ss'}({\mathbf Q},\omega)\equiv\chi_{BA}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="126" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
- SRC="img1284.png"
- ALT="$\chi_{\alpha\beta}^{ss'}({\mathbf Q},\omega)\equiv\chi_{BA}$"></SPAN> by choosing the Fourier transform operators
-<BR>
-<DIV ALIGN="CENTER">
-
-<!-- MATH
- \begin{eqnarray}
-\hat A&=&\frac{1}{\sqrt{N}}\exp({\rm i}{\mathbf Q} \cdot \mathbf b_{s'})\sum_{\ensuremath{\boldsymbol\ell}'}\exp({\rm i}\mathbf Q  \cdot \ensuremath{\boldsymbol\ell}')\hat \mathcal I^{(\ensuremath{\boldsymbol\ell}' s')}_{\beta} \\
-\hat B&=&\frac{1}{\sqrt{N}}\exp({\rm i}{\mathbf Q}  \cdot \mathbf b_{s})\sum_{\ensuremath{\boldsymbol\ell}}\exp({\rm i}\mathbf Q  \cdot \ensuremath{\boldsymbol\ell})\hat \mathcal I^{(\ensuremath{\boldsymbol\ell}s)}_{\alpha},
-\end{eqnarray}
- -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
- WIDTH="16" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img1285.png"
- ALT="$\displaystyle \hat A$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img68.png"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="273" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
- SRC="img1286.png"
- ALT="$\displaystyle \frac{1}{\sqrt{N}}\exp({\rm i}{\mathbf Q} \cdot \mathbf b_{s'})\s...
-...{\boldsymbol\ell}')\hat \mathcal I^{(\ensuremath{\boldsymbol\ell}' s')}_{\beta}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">208</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
- WIDTH="17" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img1287.png"
- ALT="$\displaystyle \hat B$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img68.png"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="260" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
- SRC="img1288.png"
- ALT="$\displaystyle \frac{1}{\sqrt{N}}\exp({\rm i}{\mathbf Q} \cdot \mathbf b_{s})\su...
-...th{\boldsymbol\ell})\hat \mathcal I^{(\ensuremath{\boldsymbol\ell}s)}_{\alpha},$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">209</SPAN>)</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
-where <SPAN CLASS="MATH"><IMG
- WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img260.png"
- ALT="$N$"></SPAN> is the number of unit cells.  It will also be convenient to introduce the Fourier transform of the two-body interaction
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
-
-<!-- MATH
- \begin{equation}
-{\mathcal J}_{\alpha\beta}^{ss'}({\mathbf Q})=\sum_{\ensuremath{\boldsymbol\ell}'} {\mathcal J}_{\alpha\beta}(\ensuremath{\boldsymbol\ell}'+\mathbf b_{s'}-\mathbf b_s) \exp\{{\rm i}\mathbf Q  \cdot (\ensuremath{\boldsymbol\ell}'+\mathbf b_{s'}-\mathbf b_s)\}
-\end{equation}
- -->
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="406" HEIGHT="45" BORDER="0"
- SRC="img1289.png"
- ALT="\begin{displaymath}
-{\mathcal J}_{\alpha\beta}^{ss'}({\mathbf Q})=\sum_{\ensurem...
-...t (\ensuremath{\boldsymbol\ell}'+\mathbf b_{s'}-\mathbf b_s)\}
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">210</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-We have arbitrarily chosen 
-<!-- MATH
- ${\ensuremath{\boldsymbol\ell}} = 0$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="40" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img1290.png"
- ALT="${\ensuremath{\boldsymbol\ell}} = 0$"></SPAN> since <!-- MATH
- ${\mathcal J}({\mathbf Q})$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="44" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img356.png"
- ALT="${\mathcal J}({\mathbf Q})$"></SPAN> 
-is the same for all <!-- MATH
- $\ensuremath{\boldsymbol\ell}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img1255.png"
- ALT="$\ensuremath{\boldsymbol\ell}$"></SPAN> due to the translational symmetry.
+ STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img1138.svg"
+ ALT="$H=H_{cf}- g_J \mu_b {\mathbf H}{\mathbf J}$"></SPAN> is projected to the quasi quartet
+and may be written as
 
 <P>
 
-<DIV ALIGN="CENTER"><A NAME="figmfproc"></A><A NAME="16034"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM"><STRONG>Figure 26:</STRONG>
-Illustration of the iterative flow used for solving the mean-field
-Hamiltonian eq.&nbsp;(<A HREF="#mfhamiltonian">215</A>)</CAPTION>
-<TR><TD><IMG
- WIDTH="419" HEIGHT="518" BORDER="0"
- SRC="img1291.png"
- ALT="\begin{figure}
-% latex2html id marker 14972\setlength{\unitlength}{0.14in} %
-\...
-...nd \\ compare to other solutions \end{tabular} }}
-\end{picture} %
-%
-\end{figure}"></TD></TR>
-</TABLE>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+H=\left (
+\begin{array}{cccc}
+-\Delta/2 & 0 & 0 & 0 \\
+0 & -\Delta/2 & 0 & 0 \\
+0 & 0 & \Delta/2  & 0 \\
+0 & 0 & 0 & \Delta/2
+\end{array}
+\right)
+ -g_J \mu_B (H_a J_a + H_b J_b + H_c J_b)
+\end{equation}
+ -->
+ &nbsp;  <A ID="ham"></A><IMG
+ STYLE="height: 11.34ex; vertical-align: -5.11ex; " SRC="img1178.svg"
+ ALT="$\displaystyle
+H=\left (
+\begin{array}{cccc}
+-\Delta/2 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; -\Del...
+...0 &amp; 0 &amp; \Delta/2
+\end{array}\right)
+-g_J \mu_B (H_a J_a + H_b J_b + H_c J_b)
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">164</SPAN>)</SPAN>
 </DIV>
 
 <P>
-The calculation of the dynamical 
-susceptibility<A NAME="tex2html60"
-  HREF="footnode.html#foot16035"><SUP><SPAN CLASS="arabic">28</SPAN></SUP></A>  <!-- MATH
- $\overline{\chi}({\mathbf Q},\omega)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="57" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img1295.png"
- ALT="$\overline{\chi}({\mathbf Q},\omega)$"></SPAN>
-from the Hamiltonian (<A HREF="node13.html#hamiltonian">5</A>) is carried out 
-within the
-mean field - random phase approximation 
-(MF-RPA)&nbsp;[<A
- HREF="node151.html#jensen91-1">1</A>,<A
- HREF="node151.html#tjablikov67-1">66</A>]. 
-This approximation neglects correlations 
-in the differences 
-<!-- MATH
- $\hat \mathcal I^n(t) - \langle  \hat \mathcal I^n (t) \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="109" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img1296.png"
- ALT="$ \hat \mathcal I^n(t) - \langle \hat \mathcal I^n (t) \rangle $"></SPAN> of 
-different subsystems <SPAN CLASS="MATH"><IMG
- WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img46.png"
- ALT="$n$"></SPAN>.
- In this approach the dynamical  
-susceptibility <!-- MATH
- $\overline{\chi}({\mathbf Q},\omega)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="57" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img1295.png"
- ALT="$\overline{\chi}({\mathbf Q},\omega)$"></SPAN> 
-for a primitive lattice (<SPAN CLASS="MATH"><IMG
- WIDTH="74" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
- SRC="img1297.png"
- ALT="$s=s'=0$"></SPAN>)
-can be calculated from the solution to
+with the angular momentum operators given by the  4x4 matrices
 
-<P>
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+<DIV CLASS="displaymath">
 
 <!-- MATH
  \begin{equation}
-1=\left [ \overline{\chi}^0(\omega)^{-1}-\overline{\mathcal J}({\mathbf Q}) \right]\overline{\chi}({\mathbf Q},\omega),
+J_a=
+\left (
+\begin{array}{cccc}
+0 & b & 0 & c \\
+b & 0 & c & 0 \\
+0 & c & 0 & e \\
+c & 0 & e & 0
+\end{array}
+\right )
 \end{equation}
  -->
-<A NAME="mfrpasimple"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="mfrpasimple"></A><IMG
- WIDTH="218" HEIGHT="30" BORDER="0"
- SRC="img1298.png"
- ALT="\begin{displaymath}
-1=\left [ \overline{\chi}^0(\omega)^{-1}-\overline{\mathcal J}({\mathbf Q}) \right]\overline{\chi}({\mathbf Q},\omega),
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">211</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
+ &nbsp;  <IMG
+ STYLE="height: 11.34ex; vertical-align: -5.11ex; " SRC="img1179.svg"
+ ALT="$\displaystyle J_a=
+\left (
+\begin{array}{cccc}
+0 &amp; b &amp; 0 &amp; c \\
+b &amp; 0 &amp; c &amp; 0 \\
+0 &amp; c &amp; 0 &amp; e \\
+c &amp; 0 &amp; e &amp; 0
+\end{array}\right )
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">165</SPAN>)</SPAN>
+</DIV>
 
 <P>
-where <!-- MATH
- $\overline{\chi}^0(\omega)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="44" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
- SRC="img1299.png"
- ALT="$\overline{\chi}^0(\omega)$"></SPAN> is the usual single ion magnetic
-susceptibility tensor.
-This equation can be written for the more general case of several
- subsystems (<!-- MATH
- $s=1,2,3,4,...,N_B$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="137" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img1300.png"
- ALT="$s=1,2,3,4,...,N_B$"></SPAN>) as
 
-<P>
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+<DIV CLASS="displaymath">
 
 <!-- MATH
  \begin{equation}
-\delta_{ss'}=
-\sum_{s''=1}^{N_B}\left[
-\delta_{ss''}[\overline{\chi}^{s}(\omega)]^{-1}
--\overline{{\mathcal J}}^{ss''}({\mathbf Q})
-\right]
-\overline{\chi}^{s''s'}({\mathbf Q},\omega),
+J_b=
+\left (
+\begin{array}{cccc}
+0 & -ib & 0 & ic \\
++ib & 0 & -ic & 0 \\
+0 & +ic & 0 & -ie \\
+-ic & 0 & +ie & 0
+\end{array}
+\right )
 \end{equation}
  -->
-<A NAME="mfrpass"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="mfrpass"></A><IMG
- WIDTH="351" HEIGHT="57" BORDER="0"
- SRC="img1301.png"
- ALT="\begin{displaymath}
-\delta_{ss'}=
-\sum_{s''=1}^{N_B}\left[
-\delta_{ss''}[\overli...
-...athbf Q})
-\right]
-\overline{\chi}^{s''s'}({\mathbf Q},\omega),
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">212</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
+ &nbsp;  <IMG
+ STYLE="height: 11.34ex; vertical-align: -5.11ex; " SRC="img1180.svg"
+ ALT="$\displaystyle J_b=
+\left (
+\begin{array}{cccc}
+0 &amp; -ib &amp; 0 &amp; ic \\
++ib &amp; 0 &amp; -ic &amp; 0 \\
+0 &amp; +ic &amp; 0 &amp; -ie \\
+-ic &amp; 0 &amp; +ie &amp; 0
+\end{array}\right )
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">166</SPAN>)</SPAN>
+</DIV>
 
 <P>
-or, in index notation, to
 
-<P>
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+<DIV CLASS="displaymath">
 
 <!-- MATH
  \begin{equation}
-\delta_{ss'}\delta_{\alpha\beta}=
-\sum_{s''=1}^{N_B}\sum_{\delta=1}^m\left[
-\delta_{ss''}[\chi^{s}(\omega)]^{-1}_{\alpha\delta}
--{\mathcal J}_{\alpha\delta}^{ss''}({\mathbf Q})
-\right]
-\chi_{\delta\beta}^{s''s'}({\mathbf Q},\omega),
+J_c=
+\left (
+\begin{array}{cccc}
++a& 0 & 0 & 0 \\
+0 &-a & 0 & 0 \\
+0 & 0 &-d & 0 \\
+0 & 0 & 0 &+d
+\end{array}
+\right )
 \end{equation}
  -->
-<A NAME="meanfieldrpa"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="meanfieldrpa"></A><IMG
- WIDTH="401" HEIGHT="57" BORDER="0"
- SRC="img1302.png"
- ALT="\begin{displaymath}
-\delta_{ss'}\delta_{\alpha\beta}=
-\sum_{s''=1}^{N_B}\sum_{\d...
-...bf Q})
-\right]
-\chi_{\delta\beta}^{s''s'}({\mathbf Q},\omega),
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">213</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-where <!-- MATH
- $\chi^{s}_{\alpha\beta}(\omega)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="53" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img1303.png"
- ALT="$\chi^{s}_{\alpha\beta}(\omega)$"></SPAN> is the
- subsystem susceptibility (the same for all <!-- MATH
- $\ensuremath{\boldsymbol\ell}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img1255.png"
- ALT="$\ensuremath{\boldsymbol\ell}$"></SPAN>), given by
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+ &nbsp;  <IMG
+ STYLE="height: 11.34ex; vertical-align: -5.11ex; " SRC="img1181.svg"
+ ALT="$\displaystyle J_c=
+\left (
+\begin{array}{cccc}
++a&amp; 0 &amp; 0 &amp; 0 \\
+0 &amp;-a &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp;-d &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp;+d
+\end{array}\right )
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">167</SPAN>)</SPAN>
+</DIV>
+
+<P>
+The constants <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img13.svg"
+ ALT="$a$"></SPAN>-<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img103.svg"
+ ALT="$e$"></SPAN> can be computed from the crystal field parameters, if
+these are known. On the other hand, they are connected to the saturation
+magnetic moments <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img1182.svg"
+ ALT="$\mathbf M$"></SPAN> by the following equations (<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1183.svg"
+ ALT="$\max(...)$"></SPAN> denotes the
+maximum of the argument values)
+
+<P>
+
+<DIV CLASS="displaymath">
 
 <!-- MATH
  \begin{equation}
-\chi^{s}_{\alpha\beta}(\omega)=
-\sum_{jj'} \frac{\langle j|\hat \mathcal I_{\alpha}-\langle\hat \mathcal I_{\alpha}\rangle|j'\rangle\langle j'|\hat \mathcal
-I_{\beta}-\langle\hat \mathcal I_{\beta}\rangle|j\rangle}{\epsilon_{j'}-\epsilon_j-\hbar \omega}
-(p_j-p_{j'}).
+M_{001}=g_J \mu_B \max(|a|,|d|)
 \end{equation}
  -->
-<A NAME="singleionsusceptibility"></A>
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="singleionsusceptibility"></A><IMG
- WIDTH="384" HEIGHT="55" BORDER="0"
- SRC="img1304.png"
- ALT="\begin{displaymath}
-\chi^{s}_{\alpha\beta}(\omega)=
-\sum_{jj'} \frac{\langle j\v...
-...j\rangle}{\epsilon_{j'}-\epsilon_j-\hbar \omega}
-(p_j-p_{j'}).
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">214</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-where for the sake of simplicity we omit the <SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img101.png"
- ALT="$s$"></SPAN> index 
-on all quantities on the right-hand side. 
-Here <SPAN CLASS="MATH"><IMG
- WIDTH="17" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1305.png"
- ALT="$\epsilon_j$"></SPAN> and <SPAN CLASS="MATH"><IMG
- WIDTH="21" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1306.png"
- ALT="$\epsilon_{j'}$"></SPAN> are 
-energy levels of the subsystem <SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img101.png"
- ALT="$s$"></SPAN> as calculated 
-self-consistently within the mean-field theory
-using the Hamiltonian (<A HREF="#mfhamiltonian">215</A>), 
-<SPAN CLASS="MATH"><IMG
- WIDTH="22" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img1307.png"
- ALT="$\vert j\rangle$"></SPAN> and <SPAN CLASS="MATH"><IMG
- WIDTH="26" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img1308.png"
- ALT="$\vert j'\rangle$"></SPAN> denote the corresponding 
-eigenstates and <SPAN CLASS="MATH"><IMG
- WIDTH="18" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1309.png"
- ALT="$p_j$"></SPAN> the corresponding population numbers:
+ &nbsp;  <IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1184.svg"
+ ALT="$\displaystyle M_{001}=g_J \mu_B \max(\vert a\vert,\vert d\vert)
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">168</SPAN>)</SPAN>
+</DIV>
+
+<P>
 <BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+<DIV CLASS="displaymath">
 
 <!-- MATH
- \begin{equation}
-p_{j} = \frac{\exp(-\epsilon_{j}/{k}T)}{\sum_{j'}\exp(-\epsilon_{j'}/{k}T)}.
-\end{equation}
+ \begin{eqnarray}
+M_{100}&=&g_J \mu_B \lambda\\
+2\lambda^2&=&e^2+2c^2+b^2 + \sqrt{(e^2+2c^2+b^2)^2-4(be{\mathbf -}c^2)}
+\end{eqnarray}
  -->
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="169" HEIGHT="47" BORDER="0"
- SRC="img1310.png"
- ALT="\begin{displaymath}
-p_{j} = \frac{\exp(-\epsilon_{j}/{k}T)}{\sum_{j'}\exp(-\epsilon_{j'}/{k}T)}.
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">215</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1185.svg"
+ ALT="$\displaystyle M_{100}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img1186.svg"
+ ALT="$\displaystyle g_J \mu_B \lambda$"></TD><TD class="rfill">(<SPAN CLASS="arabic">169</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.23ex; vertical-align: -0.12ex; " SRC="img1187.svg"
+ ALT="$\displaystyle 2\lambda^2$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 3.10ex; vertical-align: -0.71ex; " SRC="img1188.svg"
+ ALT="$\displaystyle e^2+2c^2+b^2 + \sqrt{(e^2+2c^2+b^2)^2-4(be{\mathbf -}c^2)}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">170</SPAN>)</TD></TR>
+</TABLE></DIV>
 
 <P>
-The writing of (<A HREF="#singleionsusceptibility">227</A>) has been simplified in two ways. The obvious
-one is that <SPAN CLASS="MATH"><IMG
- WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img350.png"
- ALT="$\omega$"></SPAN> should read <!-- MATH
- $\omega+i \varepsilon$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="47" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img1311.png"
- ALT="$\omega+i \varepsilon$"></SPAN> where
-<!-- MATH
- $\varepsilon\to0^+$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="54" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1281.png"
- ALT="$\varepsilon\to0^+$"></SPAN>. Secondly, the elastic contribution is included
-in (<A HREF="#singleionsusceptibility">227</A>) by assuming the use of the following convention:
-<SPAN CLASS="MATH"><IMG
- WIDTH="21" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1306.png"
- ALT="$\epsilon_{j'}$"></SPAN> is being replaced by <!-- MATH
- $\epsilon_{j'}+d$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="49" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img1312.png"
- ALT="$\epsilon_{j'}+d$"></SPAN> in all terms
-where <!-- MATH
- $\epsilon_{j'}=\epsilon_j$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="56" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1313.png"
- ALT="$\epsilon_{j'}=\epsilon_j$"></SPAN>. The shift in energy introduced is
-<SPAN CLASS="MATH"><IMG
- WIDTH="67" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img1314.png"
- ALT="$\vert d\vert\ll k^{}T$"></SPAN> and hence
-<!-- MATH
- $p_j-p_{j'}=p_j\,d/k^{}T$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="133" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img1315.png"
- ALT="$p_j-p_{j'}=p_j\,d/k^{}T$"></SPAN> to leading order. Notice that
-the matrix elements of the thermal expectation values in (<A HREF="#singleionsusceptibility">227</A>) are
-only nonzero in the special cases of <SPAN CLASS="MATH"><IMG
- WIDTH="44" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img1316.png"
- ALT="$j=j'$"></SPAN>. Using the two
-conventions equation (<A HREF="#singleionsusceptibility">227</A>) becomes 
-equivalent to (<A HREF="#generalsuszeptibility">216</A>) in the limit of
-<SPAN CLASS="MATH"><IMG
- WIDTH="45" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img1317.png"
- ALT="$d\to0$"></SPAN> (after taking the limit <!-- MATH
- $\varepsilon\to0^+$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="54" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1281.png"
- ALT="$\varepsilon\to0^+$"></SPAN>).
-Since the expectation values are only needed
-in (<A HREF="#singleionsusceptibility">227</A>) when considering the elastic contribution, we may use this
-fact to signal that the second convention has to be applied whenever
-the expectation values are subtracted from the operators.
-
-<P>
-In order to evaluate
- equations
-(<A HREF="#mfrpasimple">224</A>)-(<A HREF="#singleionsusceptibility">227</A>) without producing a numerical divergence 
-it is necessary to add to <SPAN CLASS="MATH"><IMG
- WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img350.png"
- ALT="$\omega$"></SPAN> a small imaginary constant <!-- MATH
- $\omega \rightarrow \omega+i\epsilon$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="81" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img1318.png"
- ALT="$\omega \rightarrow \omega+i\epsilon$"></SPAN>
-and insert this into equation (<A HREF="#singleionsusceptibility">227</A>). 
-If the option <I CLASS="slanted">-r <SPAN CLASS="MATH"><IMG
- WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img66.png"
- ALT="$\epsilon$"></SPAN></I> is used,
-the program <I CLASS="slanted">McDisp</I> calculates the above expression for every energy
-and stores the result in <I CLASS="slanted">./results/mcdisp.dsigma</I>. 
-
-<P>
-If the option <I CLASS="slanted">-r</I> is not used, the
- program <I CLASS="slanted">mcdisp<A NAME="15121"></A></I> uses only the extremely fast DMD (Dynamical Matrix Diagonalisation) 
-algorithm[<A
- HREF="node151.html#rotter06-400">67</A>] to calculate excitation energies and intensities and store the result in <I CLASS="slanted">mcdisp.qom, 
-mcdisp.qei, etc.</I>. The flowing chart of such a calculation is shown in fig.&nbsp;<A HREF="node140.html#figdmdproc">27</A>
-and the formalism is outlined hereafter:
-
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html2368"
-  HREF="node140.html">DMD - formalism</A>
-<LI><A NAME="tex2html2369"
-  HREF="node141.html">Calculation of the Correlation Function of Physical Observables</A>
-<LI><A NAME="tex2html2370"
-  HREF="node142.html">Evaluating results - Graphical Visualisation of Spin and Charge Oscillations of 
-Excitations</A>
-<LI><A NAME="tex2html2371"
-  HREF="node143.html">Application to Neutron scattering</A>
-<UL>
-<LI><A NAME="tex2html2372"
-  HREF="node144.html">Coherent Nuclear Inelastic Scattering - 1 Phonon processes</A>
-<LI><A NAME="tex2html2373"
-  HREF="node145.html">Magnetic inelastic Scattering</A>
-</UL>
 <BR>
-<LI><A NAME="tex2html2374"
-  HREF="node146.html">Dipole Approximation</A>
-</UL>
-<!--End of Table of Child-Links-->
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{eqnarray}
+M_{110}&=&g_J \mu_B  \lambda\\
+2\lambda^2&=&e^2+2c^2+b^2 + \sqrt{(e^2+2c^2+b^2)^2-4(be{\mathbf +}c^2)}
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1189.svg"
+ ALT="$\displaystyle M_{110}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img1186.svg"
+ ALT="$\displaystyle g_J \mu_B \lambda$"></TD><TD class="rfill">(<SPAN CLASS="arabic">171</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.23ex; vertical-align: -0.12ex; " SRC="img1187.svg"
+ ALT="$\displaystyle 2\lambda^2$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 3.10ex; vertical-align: -0.71ex; " SRC="img1190.svg"
+ ALT="$\displaystyle e^2+2c^2+b^2 + \sqrt{(e^2+2c^2+b^2)^2-4(be{\mathbf +}c^2)}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">172</SPAN>)</TD></TR>
+</TABLE></DIV>
+
+<P>
+The module given in <I CLASS="slanted">/examples/dyni2b2c/1ion_mod/quartett.c</I> diagonalises
+the Hamiltonian (<A HREF="#ham">176</A>) and calculates the thermal expectation 
+value <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.83ex; vertical-align: -0.46ex; " SRC="img1155.svg"
+ ALT="$&lt;&gt;_T$"></SPAN> of the vector <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img1156.svg"
+ ALT="$\mathbf J$"></SPAN>,which
+is returned to the <I CLASS="slanted">McPhas</I> program.
 
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html2366"
-  HREF="node140.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2360"
-  HREF="manual.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2354"
-  HREF="node138.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2362"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html2364"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node140.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node138.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html1056"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html1058"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html2367"
-  HREF="node140.html">DMD - formalism</A>
-<B> Up:</B> <A NAME="tex2html2361"
-  HREF="manual.html">McPhase USERS MANUAL</A>
-<B> Previous:</B> <A NAME="tex2html2355"
-  HREF="node138.html">Derivation of the Chargedensity</A>
- &nbsp; <B>  <A NAME="tex2html2363"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html2365"
-  HREF="node152.html">Index</A></B> </DIV>
+<B> Next:</B> <A
+ HREF="node140.html">ErNiBC - single ion</A>
+<B> Up:</B> <A
+ HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A
+ HREF="node138.html">Module brillouin - an</A>
+ &nbsp; <B>  <A ID="tex2html1057"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1059"
+  HREF="node164.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

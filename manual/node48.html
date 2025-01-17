@@ -1,100 +1,122 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Diffuse Scattering</TITLE>
-<META NAME="description" CONTENT="Diffuse Scattering">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Powder Neutron Cross Section</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node49.html">
+<LINK REL="next" HREF="node52.html">
 <LINK REL="previous" HREF="node47.html">
-<LINK REL="up" HREF="node44.html">
 <LINK REL="next" HREF="node49.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1034"
-  HREF="node49.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1028"
-  HREF="node44.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1022"
-  HREF="node47.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1030"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1032"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node49.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node43.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node47.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html591"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html593"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1035"
-  HREF="node49.html">Powder Neutron Cross Section</A>
-<B> Up:</B> <A NAME="tex2html1029"
-  HREF="node44.html">mcdisp - the Calculation</A>
-<B> Previous:</B> <A NAME="tex2html1023"
-  HREF="node47.html">Viewing the results of</A>
- &nbsp; <B>  <A NAME="tex2html1031"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1033"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node49.html">Creation of the q-vector</A>
+<B> Up:</B> <A
+ HREF="node43.html">mcdisp - the Calculation</A>
+<B> Previous:</B> <A
+ HREF="node47.html">Diffuse Scattering</A>
+ &nbsp; <B>  <A ID="tex2html592"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html594"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION000122000000000000000">
-Diffuse Scattering</A>
+<H2><A ID="SECTION000123000000000000000">
+Powder Neutron Cross Section</A>
 </H2>
 
 <P>
-The program <I CLASS="slanted">McDisp</I> may be used straightforward to calculate quasi elastic intensity
- by
+
+<DIV class="CENTER"><A ID="prni2b2c_2K"></A><A ID="8255"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 13:</STRONG>
+Magnetic Neutron powder spectrum of PrNi<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>B<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>C for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img10.svg"
+ ALT="$T=2$"></SPAN>&nbsp;K as calculated using module <I CLASS="slanted">powdermagnons</I> in combination with <I CLASS="slanted">mcdisp</I>.</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+
+<IMG
+ STYLE="height: 43.63ex; vertical-align: -0.12ex; " SRC="img413.svg"
+ ALT="\includegraphics[angle=0, width=0.5\textwidth]{figsrc/contour2K_070504.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
 
 <P>
 
-<UL>
-<LI>specification of an energy
-range [emin,emax] in file <I CLASS="slanted">mcdisp.par<A NAME="3882"></A></I> which corresponds to the interval of energies (around zero
-energy transfer) sensed by the detector of the diffuse scattering experiment. 
-</LI>
-<LI>quasi elastic intensity is expected only in the paramagnetic state - thus in <I CLASS="slanted">mcdisp.mf<A NAME="3883"></A></I> a
- a temperature above the magnetic ordering temperature should be selected.
-</LI>
-<LI>start <I CLASS="slanted">mcdisp</I> in the usual way, using the DMD method.
-</LI>
-</UL> 
+<DIV class="CENTER"><A ID="prni2b2c_10K"></A><A ID="8256"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 14:</STRONG>
+Magnetic Neutron powder spectrum of PrNi<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>B<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>C for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img9.svg"
+ ALT="$T=10$"></SPAN>&nbsp;K  as calculated using module <I CLASS="slanted">powdermagnons</I> in combination with <I CLASS="slanted">mcdisp</I>.</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+
+<IMG
+ STYLE="height: 43.63ex; vertical-align: -0.12ex; " SRC="img414.svg"
+ ALT="\includegraphics[angle=0, width=0.5\textwidth]{figsrc/contour10K_070504.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
 
 <P>
-The file <I CLASS="slanted">mcdisp.dsigma.tot</I> produced by the calculation contains the calculated diffuse scattering cross section.
-Figure&nbsp;<A HREF="node47.html#ho2ti2o7diffuse">12</A> shows an output of such a calculation for the diffuse scattering
-on Ho<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN>Ti<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN>O<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img8.png"
- ALT="$_7$"></SPAN>.
+<I CLASS="slanted">Mcdisp</I> in combination with module <I CLASS="slanted">powdermagnon</I> can be used to calculate
+powder neutron pattern. In order to do this, a 3-step procedure is required:
 
 <P>
-For comparison it is also possible to do a calculation using the option <I CLASS="slanted">-r</I> forcing
- the program <I CLASS="slanted">mcdisp<A NAME="3889"></A></I> to calculate the cross section
- using the full MF-RPA algorithm (output stored in <I CLASS="slanted">mcdisp.dsigma</I>)
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-<P>
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html595"
+  HREF="node49.html">Creation of the q-vector list</A>
+<LI><A ID="tex2html596"
+  HREF="node50.html">Calculation of the Dispersion using <I CLASS="slanted">mcdisp</I></A>
+<LI><A ID="tex2html597"
+  HREF="node51.html">Powder-averaging the spectra</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 
 </BODY>

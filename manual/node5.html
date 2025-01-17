@@ -1,90 +1,76 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>...in version 5.3 ...</TITLE>
-<META NAME="description" CONTENT="...in version 5.3 ...">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>...in version 5.4 ...</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node6.html">
 <LINK REL="previous" HREF="node4.html">
-<LINK REL="up" HREF="node2.html">
 <LINK REL="next" HREF="node6.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html300"
-  HREF="node6.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html294"
-  HREF="node2.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html288"
-  HREF="node4.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html296"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html298"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node2.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html262"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html264"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html301"
-  HREF="node6.html">...in version 5.2 ...</A>
-<B> Up:</B> <A NAME="tex2html295"
-  HREF="node2.html">What is New ?</A>
-<B> Previous:</B> <A NAME="tex2html289"
-  HREF="node4.html">...in version 5.4 ...</A>
- &nbsp; <B>  <A NAME="tex2html297"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html299"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node6.html">...in version 5.3 ...</A>
+<B> Up:</B> <A
+ HREF="node2.html">What is New ?</A>
+<B> Previous:</B> <A
+ HREF="node4.html">...in version 5.5 ...</A>
+ &nbsp; <B>  <A ID="tex2html263"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html265"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00023000000000000000">
- ...in version 5.3 ...</A>
+<H2><A ID="SECTION00023000000000000000">
+ ...in version 5.4 ...</A>
 </H2>
 
 <UL>
-<LI>Ce3p.sipf database: formfactor for Ce3+ ion coefficients FF improved 
+<LI><I CLASS="slanted">bcfph</I> and a DMD method for Crystal Field - Phonon interaction
 </LI>
-<LI><I CLASS="slanted">singleion</I> extended to ouput optional M(Q)
+<LI><I CLASS="slanted">makenn</I> option for Dzyalosinsky Moriya interaction created
 </LI>
-<LI><I CLASS="slanted">setup_mcdiff_in</I>  options were blocking negative x y, therefore modified code
-           thus it can accept negative x y in phasediagram
+<LI>.trs file format changed to include number of initial and final level
 </LI>
-<LI><I CLASS="slanted">mcdisp.jq </I> contains now hklblocknumber= lines 
- moreover mcdisp calculates scaled interation parameters to enable better fitting keeping TN constant
-if in mcdisp.par after the hkl of the first q vector a number is given, then
-scaled interaction parameters are computed such that their highest eigenvalue
-agrees with this number. Scaled parameters are saved in results/mcdisp_scaled.j
-and here follow standard deviations computed with the scaled parameters
- sta_scaled sta4_scaled
+<LI><I CLASS="slanted">powdermagnon</I> sampling q dependence improved
 </LI>
-<LI><I CLASS="slanted">makenn</I> comments in output file removed to smooth iterative usage
+<LI>option -read introduced to <I CLASS="slanted">mcphas</I>
 </LI>
-<LI><I CLASS="slanted">splitfile</I> option -c introduced to split at columns value changes
+<LI>program <I CLASS="slanted">substitute</I> option -f introduced
 </LI>
-<LI><I CLASS="slanted">ic1ion bug for quasielastic beyond dipolar scattering fixed (spin exp value was not
-          subtracted from matrix elements)</I>
+<LI>Slatec removed from PDL routines to make installation easier
 </LI>
-<LI><I CLASS="slanted">rotateBLm</I> bug reading Blm with sign  fixed
+<LI><I CLASS="slanted">cpso1ion</I> bug (for more than 10 levels) found and removed
 </LI>
-<LI><I CLASS="slanted">mcphas2jvx</I> bug for nonortho primitive lattices fixed
-</LI>
-<LI><I CLASS="slanted">getvalue</I> linux bug fixed
+<LI>bug in <I CLASS="slanted">makenn</I> options ignore_neihgbours_behind=1 and bvk found and removed
 </LI>
 </UL>
 

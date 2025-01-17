@@ -1,80 +1,100 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>...in version 5.4 ...</TITLE>
-<META NAME="description" CONTENT="...in version 5.4 ...">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>...in version 5.5 ...</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node5.html">
 <LINK REL="previous" HREF="node3.html">
-<LINK REL="up" HREF="node2.html">
 <LINK REL="next" HREF="node5.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html286"
-  HREF="node5.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html280"
-  HREF="node2.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html274"
-  HREF="node3.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html282"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html284"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node5.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node2.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node3.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html258"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html260"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html287"
-  HREF="node5.html">...in version 5.3 ...</A>
-<B> Up:</B> <A NAME="tex2html281"
-  HREF="node2.html">What is New ?</A>
-<B> Previous:</B> <A NAME="tex2html275"
-  HREF="node3.html">...in version 5.5 ...</A>
- &nbsp; <B>  <A NAME="tex2html283"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html285"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node5.html">...in version 5.4 ...</A>
+<B> Up:</B> <A
+ HREF="node2.html">What is New ?</A>
+<B> Previous:</B> <A
+ HREF="node3.html">... in version 5.6</A>
+ &nbsp; <B>  <A ID="tex2html259"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html261"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00022000000000000000">
- ...in version 5.4 ...</A>
+<H2><A ID="SECTION00022000000000000000">
+ ...in version 5.5 ...</A>
 </H2>
 
 <UL>
-<LI><I CLASS="slanted">bcfph</I> and a DMD method for Crystal Field - Phonon interaction, see example CeCu2Ge2 
+<LI><I CLASS="slanted">ic1ion &amp; icf1ion &amp; mcdiff.in file format for</I> <!-- MATH
+ $\langle \mathbf S \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img61.svg"
+ ALT="$\langle \mathbf S \rangle$"></SPAN>
+and  <!-- MATH
+ $\langle \mathbf L \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img62.svg"
+ ALT="$\langle \mathbf L \rangle$"></SPAN> - !!  Operator sequence changed to Sa Sb Sc La Lb Lc !! 
+(was Sa La Sb Lb Sc Lc)
 </LI>
-<LI><I CLASS="slanted">makenn</I> option for Dzyalosinsky Moriya interaction created
+<LI>mcphas got an option -doeps for magnetostrictive strain calculation using parameters
+calculated e.g. by makenn -cfph 
 </LI>
-<LI>.trs file format changed to include number of initial and final level
+<LI>there are more examples using cf-phonon interaction
 </LI>
-<LI><I CLASS="slanted">powdermagnon</I> sampling q dependence improved
+<LI>module phonon: umax restrictino in module phonon done by 
+u= umax * tanh (u/umax) ... this avoids uniform shifts of the crystal 
 </LI>
-<LI>option -read introduced to <I CLASS="slanted">mcphas</I>
+<LI><I CLASS="slanted">makenn</I> option -bvk extended to generate a sample bvk constants table 
 </LI>
-<LI>program <I CLASS="slanted">substitute</I> option -f introduced
+<LI>anisotropy <!-- MATH
+ $H=D_{x4} S_x^4 +D_{y4} S_y^4 +D_{z4} S_x^4$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -1.01ex; " SRC="img63.svg"
+ ALT="$H=D_{x4} S_x^4 +D_{y4} S_y^4 +D_{z4} S_x^4$"></SPAN> introduced in module <I CLASS="slanted">so1ion</I>
 </LI>
-<LI>Slatec removed from PDL routines to make installation easier
+<LI>made <I CLASS="slanted">mcphaseexplorer</I> compatible with java 1.8.0 and java 17 at the 
+           same time (see batch mpe for linux for options) 
 </LI>
-<LI><I CLASS="slanted">cpso1ion</I> bug (for more than 10 levels) found and removed
+<LI><I CLASS="slanted">cif2mcphas</I> changed to put phonon module for sipf files which are nonmagnetic
 </LI>
-<LI>bug in <I CLASS="slanted">makenn</I> options ignore_neihgbours_behind=1 and bvk found and removed
+<LI>mcphas.xyt outputs periodicity of supercell
+</LI>
+<LI><I CLASS="slanted">spins</I> changed to produce for option -f spins_prim.jvx graphics output
+</LI>
+<LI><I CLASS="slanted">spinsfromq</I> phases correctly introduced for double and triple q structure
 </LI>
 </UL>
 

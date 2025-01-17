@@ -1,245 +1,111 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>External module function Icalc - used by mcphas, singleion </TITLE>
-<META NAME="description" CONTENT="External module function Icalc - used by mcphas, singleion ">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Magnetic Formfactor Coefficients</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node77.html">
 <LINK REL="previous" HREF="node75.html">
-<LINK REL="up" HREF="node75.html">
 <LINK REL="next" HREF="node77.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1459"
-  HREF="node77.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1453"
-  HREF="node75.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1447"
-  HREF="node75.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1455"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1457"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node77.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node74.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node75.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html730"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html732"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1460"
-  HREF="node77.html">External module function Icalc_parameter_storage_matrix_init</A>
-<B> Up:</B> <A NAME="tex2html1454"
-  HREF="node75.html">Basic Module Functions</A>
-<B> Previous:</B> <A NAME="tex2html1448"
-  HREF="node75.html">Basic Module Functions</A>
- &nbsp; <B>  <A NAME="tex2html1456"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1458"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node77.html">Debye Waller Factor</A>
+<B> Up:</B> <A
+ HREF="node74.html">Single Ion Modules</A>
+<B> Previous:</B> <A
+ HREF="node75.html">Landé Factor</A>
+ &nbsp; <B>  <A ID="tex2html731"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html733"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION000171100000000000000"></A><A NAME="6915"></A>
-<BR>
-External module function <I CLASS="slanted">Icalc</I> - used by <I CLASS="slanted">mcphas</I>,
-<I CLASS="slanted">singleion</I> 
-</H3>
+<H2><A ID="SECTION000162000000000000000">
+Magnetic Formfactor Coefficients</A>
+</H2>
 
 <P>
-In order to run <I CLASS="slanted">mcphas</I>,<I CLASS="slanted">singleion<A NAME="6917"></A></I>
- the following function has to be present in the module file <I CLASS="slanted">*.so</I>:
+For the more accurate calculation of neutron intensities it is
+necessary to give the magnetic form factor (see the table in appendix&nbsp;<A HREF="node148.html#ffacts">J</A>)
+in the single ion property input file. This can
+easily be don by adding some additional lines to a single ion property file:
 
 <P>
-<PRE>
-extern "C" void Icalc(Vector &amp; I,double * T, Vector &amp; Hxc, Vector &amp; Hext,
-                      double * gJ, Vector &amp; MODPAR,
-                      char ** sipffilename, double * lnZ,double * U,
-                      ComplexMatrix &amp; Icalc_parstorage);
-</PRE>
+<SPAN CLASS="FOOTNOTESIZE">
+</SPAN><PRE>
+#--------------------------------------------------------------------------------------
+# Neutron Magnetic Form Factor coefficients - thanks to J Brown
+#   d = 2*pi/Q      
+#   s = 1/2/d = Q/4/pi   
+#   sin(theta) = lambda * s
+#   r= s*s = Q*Q/16/pi/pi
+#
+#   &lt;j0(Qr)&gt;=   FFj0A*EXP(-FFj0a*r) + FFj0B*EXP(-FFj0b*r) + FFj0C*EXP(-FFj0c*r) + FFj0D
+#   &lt;j2(Qr)&gt;=r*(FFj2A*EXP(-FFj2a*r) + FFj2B*EXP(-FFj2b*r) + FFj2C*EXP(-FFj2c*r) + FFj2D
+#   &lt;j4(Qr)&gt;=r*(FFj4A*EXP(-FFj4a*r) + FFj4B*EXP(-FFj4b*r) + FFj4C*EXP(-FFj4c*r) + FFj4D
+#   &lt;j6(Qr)&gt;=r*(FFj6A*EXP(-FFj6a*r) + FFj6B*EXP(-FFj6b*r) + FFj6C*EXP(-FFj6c*r) + FFj6D
+#
+#   Dipole Approximation for Neutron Magnetic Formfactor:
+#        -Spin Form Factor       FS(Q)=&lt;j0(Q)&gt;
+#        -Angular Form Factor    FL(Q)=&lt;j0(Q)&gt;+&lt;j2(Q)&gt;
+#        -Rare Earth Form Factor F(Q) =&lt;j0(Q)&gt;+&lt;j2(Q)&gt;*(2/gJ-1)
+
+#--------------------------------------------------------------------------------------
+FFj0A=0.0540 FFj0a=25.0293 FFj0B=0.3101 FFj0b=12.1020 FFj0C=0.6575 FFj0c=4.7223 FFj0D=-0.0216
+FFj2A=0.6751 FFj2a=18.3421 FFj2B=1.6272 FFj2b=7.2600 FFj2C=0.9644 FFj2c=2.6016 FFj2D=0.0150
+FFj4A=-0.4053 FFj4a=+14.0141 FFj4B=+0.0329 FFj4b=+7.0046 FFj4C=+0.3759 FFj4c=+1.7074 FFj4D=+0.0209
+FFj6A=-0.0416 FFj6a=+8.0136 FFj6B=-0.1261 FFj6b=+4.0399 FFj6C=+0.1400 FFj6c=+1.0873 FFj6D=+0.0102
+</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+In order to go beyond the dipolar approximation for the magnetic formfactor in case
+of rare earth ions and using module <I CLASS="slanted">so1ion</I> the coefficients <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img797.svg"
+ ALT="$Z(K')$"></SPAN> have to
+be given (see appendix&nbsp;<A HREF="node149.html#zk">K</A> for values):
+<SPAN CLASS="FOOTNOTESIZE">
+</SPAN><PRE>
+#----------------------------------------------------------------------
+# coefficients of Z(K') according to Lovesey (Neutron Scattering) vol.2
+# chapter 11.6.1 page 233
+#  ... these coefficients are needed to go beyond dipolar approx.
+#      for the neutron magnetic formfactor in rare earth ions
+#----------------------------------------------------------------------
+Z1c0=+1.63636364  Z1c2=+2.95041322
+		  Z3c2=-0.20896503  Z3c4=-0.25329095
+				    Z5c4=+0.03820789  Z5c6=+0.14258681
+						      Z7c6=-0.00614959
+</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
 
 <P>
-Note for windows users with MINGW the declaration should be <I CLASS="slanted">extern "C" __declspec(dllexport) void 
-Icalc(...)</I>.
-
-<P>
-The meaning of the symbols is as follows:
-<SMALL CLASS="FOOTNOTESIZE">
-</SMALL><PRE>
-  on input
-    T           temperature[K]
-    Hxc         vector of exchange field [meV] (n-dimensional, for a set of n operators I)
-    Hext        external magnetic field [T] (3 components)
-    gJ          Lande factor as read from sipf file
-    MODPAR      Vector with Parameters  read from single ion property file
-    sipffilename    file name of the single ion parameter file
-    Icalc_parstorage parameter matrix (initialized by Icalc_parameter_storage_matrix_init)
-                   it should/may contain any information, e.g. population numbers of the
-                   states (imaginary part of row 0)
-                   and eigenvalues (real part of row 0) with values set by the most recent call
-                   for this ion (use of this matrix is optional, it is provided to save time by
-                   storing here information instead of recalculating it for every call of Icalc)
-  on output    
-    I           thermal expectation value of operator &lt;I&gt; (n- dimensional with n&gt;=1,
-                may be an arbitrary set of operators,
-    lnZ         natural logarithm of single ion partition function
-    U           single ion magnetic energy [meV]
-    Icalc_parstorage     parameter matrix matrix (optional)
-                   it should/may contain any information for the next call of Icalc, e.g.
-                   population numbers of the states (imaginary part of row 0)
-                   and eigenvalues (real part of row 0) ...
-</PRE>
-The module function must perform the following tasks:
-
-<OL>
-<LI>check if the dimensions of vectors <!-- MATH
- ${\hat \mathbf I}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img738.png"
- ALT="${\hat \mathbf I}$"></SPAN> and <SPAN CLASS="MATH"><IMG
- WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img153.png"
- ALT="${\mathbf H}$"></SPAN>xc 
-(taken by <I CLASS="slanted">mcphas</I> from the number of 
-interaction constant columns in <I CLASS="slanted">mcphas.j<A NAME="6928"></A></I>)
- and MODPAR (taken by <I CLASS="slanted">mcphas</I> from the number of params in the single ion property
-file) agree with the module specifications. Note a module may be designed to 
-take different dimensions depending on the input files, however the dimensions
-of vectors  <!-- MATH
- ${\hat \mathbf I}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img738.png"
- ALT="${\hat \mathbf I}$"></SPAN> and <SPAN CLASS="MATH"><IMG
- WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img153.png"
- ALT="${\mathbf H}$"></SPAN>xc  has to agree and must be within the 
-range of dimensions which
-can be treated by the module. If the check fails the module function should exit the
-program with an appropriate error message
-</LI>
-<LI>the module should calculate from external field <!-- MATH
- $\mathbf H_{ext}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="37" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img739.png"
- ALT="$\mathbf H_{ext}$"></SPAN> at a given temperature the 
-thermal expectation values of the operators <!-- MATH
- $\langle\hat I_a\rangle, \langle\hat  I_b\rangle,\langle\hat  I_c\rangle etc$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="117" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img740.png"
- ALT="$\langle\hat I_a\rangle, \langle\hat I_b\rangle,\langle\hat I_c\rangle etc$"></SPAN> 
-and return them as
-a vector <SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img741.png"
- ALT="$\mathbf I$"></SPAN>. Input file parameters params are supplied as a vector MODPAR and
-Lande factor as gJ and  can be used for this purpose. The Hamiltonian
-is usually assumed to be of the general form
- <!-- MATH
- $\hat H=\hat H_0- \hat \mathbf M \mathbf H_{ext} - \hat I_a {\rm Hxc}(1) - \hat I_b {\rm Hxc}(2) -\hat I_c {\rm Hxc}(3)
--\hat I_d {\rm Hxc}(4) ...$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="468" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img742.png"
- ALT="$\hat H=\hat H_0- \hat \mathbf M \mathbf H_{ext} - \hat I_a {\rm Hxc}(1) - \hat I_b {\rm Hxc}(2) -\hat I_c {\rm Hxc}(3)
--\hat I_d {\rm Hxc}(4) ...$"></SPAN>.
-</LI>
-<LI>the natural logarithm of the partition sum Z should be calculated and returned as lnZ,
-<!-- MATH
- $Z=\sum_i e^{-\epsilon_i/kT}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="113" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
- SRC="img743.png"
- ALT="$Z=\sum_i e^{-\epsilon_i/kT}$"></SPAN>
-</LI>
-<LI>the magnetic energy U should be calculated and returned as U, <!-- MATH
- $U=\sum_i p_i=\sum_i \epsilon_i e^{-\epsilon_i/kT}/Z$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="204" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
- SRC="img744.png"
- ALT="$U=\sum_i p_i=\sum_i \epsilon_i e^{-\epsilon_i/kT}/Z$"></SPAN>
-</LI>
-<LI>if <SPAN CLASS="MATH"><IMG
- WIDTH="44" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img745.png"
- ALT="$T&lt;0$"></SPAN> all quantities should be evaluated assuming that all Boltzmann probabilities <SPAN CLASS="MATH"><IMG
- WIDTH="17" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img105.png"
- ALT="$p_i$"></SPAN>
- are zero except for the state number <SPAN CLASS="MATH"><IMG
- WIDTH="71" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img746.png"
- ALT="$n=(-T)$"></SPAN>, for which the probability <SPAN CLASS="MATH"><IMG
- WIDTH="50" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img747.png"
- ALT="$p_n=1$"></SPAN>.
-</LI>
-</OL>
-
-<P>
-... as an example the anisotropic doublet function is given as a
-loadable module in the file <I CLASS="slanted">./examples/cecu2a/1ion_mod/kramer.c</I>, in the same
-directory a Makefile is given in order to show how this loadable
-module is compiled (for details see appendix&nbsp;<A HREF="node125.html#kramers">A</A>).
-
-<P>
-Another more complicated example, the calculation of the magnetisation
-in a tetragonal quasi-quartet system is given in Appendix&nbsp;<A HREF="node127.html#dyni2b2c">C</A>.
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html1459"
-  HREF="node77.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1453"
-  HREF="node75.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1447"
-  HREF="node75.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1455"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1457"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A NAME="tex2html1460"
-  HREF="node77.html">External module function Icalc_parameter_storage_matrix_init</A>
-<B> Up:</B> <A NAME="tex2html1454"
-  HREF="node75.html">Basic Module Functions</A>
-<B> Previous:</B> <A NAME="tex2html1448"
-  HREF="node75.html">Basic Module Functions</A>
- &nbsp; <B>  <A NAME="tex2html1456"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1458"
-  HREF="node152.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 
 </BODY>
 </HTML>

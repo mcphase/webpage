@@ -1,86 +1,216 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Radial Wavefunction</TITLE>
-<META NAME="description" CONTENT="Radial Wavefunction">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>TmCu - magnetoelastic effects and Neutron Spectra calculated with CF-phonon interaction</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node73.html">
 <LINK REL="previous" HREF="node71.html">
-<LINK REL="up" HREF="node67.html">
 <LINK REL="next" HREF="node73.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1377"
-  HREF="node73.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1371"
-  HREF="node67.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1365"
-  HREF="node71.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1373"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1375"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node73.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node60.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node71.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html708"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html710"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1378"
-  HREF="node73.html">Radial Matrix Elements</A>
-<B> Up:</B> <A NAME="tex2html1372"
-  HREF="node67.html">Single Ion Modules</A>
-<B> Previous:</B> <A NAME="tex2html1366"
-  HREF="node71.html">Nuclear Neutron Scattering Length</A>
- &nbsp; <B>  <A NAME="tex2html1374"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1376"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node73.html">Project - Extending McPhase</A>
+<B> Up:</B> <A
+ HREF="node60.html">Crystal Field Phonon Interaction</A>
+<B> Previous:</B> <A
+ HREF="node71.html">Magnetoelastic Options to mcphas</A>
+ &nbsp; <B>  <A ID="tex2html709"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html711"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION000165000000000000000">
-Radial Wavefunction</A>
+<H2><A ID="SECTION0001512000000000000000">
+TmCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN> - magnetoelastic effects and Neutron Spectra calculated with CF-phonon interaction</A>
 </H2>
 
 <P>
-In order to calculate the charge density correctly (programs <I CLASS="slanted">charges, chrgplt</I>) and
-to evaluate the pointcharge model (program <I CLASS="slanted">pointc</I>) the radial wave function has to be entered in the 
-parametrization of Clementi and Roetti:
-<SMALL CLASS="FOOTNOTESIZE">
-</SMALL><PRE>
-#------------------------------------------------------------------------------------------------------
-# radial wave function parameters R_Np,XIp(r)= r^(Np-1) . exp(-xi r) . (2 XIp)^(Np+0.5) / sqrt(2Np!)  
-# values tabulated in clementi &amp; roetti Atomic data and nuclear data tables 14 (1974) 177-478
-# Co2+ is isoelectronic to Fe+, looking at page  422 of Clemente &amp; Roetti 
-# the 3D radial wave function is expanded as R(r)=sum_p C_p R_Np,XIp(r)
-#------------------------------------------------------------------------------------------------------
-N1=3 XI1=4.95296 C1=0.36301 
-N2=3 XI2=12.2963 C2=0.02707 
-N3=3 XI3=7.03565 C3=0.14777
-N4=3 XI4=2.74850 C4=0.49771 
-N5=3 XI5=1.69027 C5=0.11388
-</PRE>
+As an example for static and dynamic calculations including the crystal-field phonon interaction
+we present a &rdquo;simple&rdquo; calculation on TmCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>, all input files (<I CLASS="slanted">calc.bat</I>
+and logbook <I CLASS="slanted">calc.pdf</I> with all commands can be found in <I CLASS="slanted">examples/tmcu2_cf_phonon</I>.
+&rdquo;Simple&rdquo; in this context means, that the input parameters are quite basic and not fine
+tuned to match the experiment. As input we used for this orthorhombic system the
+crystal structure (see <I CLASS="slanted">TmCu2.cif</I>), point charges <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img783.svg"
+ ALT="$C_{Tm}=0.8\vert e\vert$"></SPAN> <!-- MATH
+ $C_{Cu}=-0.4|e|$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img784.svg"
+ ALT="$C_{Cu}=-0.4\vert e\vert$"></SPAN>
+with a cutoff radius of 15&nbsp;Å and
+a  distance dependent Born von Karman longitudinal spring model as output by default
+from <I CLASS="slanted">makenn -bvk</I>.
 
 <P>
-The radial wavefunction may be calculated numerically using the program <I CLASS="slanted">radwavfunc</I><A NAME="6842"></A>.
+
+<DIV class="CENTER"><A ID="tmcu2thecfclc"></A><A ID="3028"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 21:</STRONG>
+Crystal field striction, i.e. the crystal field influence on the thermal expansion
+in TmCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>.  - calculation results</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+
+<IMG
+  WIDTH="248" HEIGHT="134" STYLE=""
+ SRC="./thecf.jpg"
+ ALT="Image thecf">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
 
 <P>
-<BR><HR>
+
+<DIV class="CENTER"><A ID="tmcu2thecfexp"></A><A ID="8366"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 22:</STRONG>
+Crystal field striction, i.e. the crystal field influence on the thermal expansion
+in TmCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>. - experimental results&nbsp;[<A
+ HREF="node163.html#gratz93-7955">40</A>]</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+
+<IMG
+  WIDTH="248" HEIGHT="253" STYLE=""
+ SRC="./thecf_tmcu2_exp.jpg"
+ ALT="Image thecf_tmcu2_exp">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+With <I CLASS="slanted">mcphas -doeps</I> the static thermodynamic properties have been calculated, in particular
+the strain tensor. The computed crystal field contribution to the thermal expansion (fig.&nbsp;<A HREF="#tmcu2thecfclc">21</A>) is 
+in good agreement with the experimental data from powder X-ray diffraction (fig.&nbsp;<A HREF="#tmcu2thecfexp">22</A>).
+
+<P>
+
+<DIV class="CENTER"><A ID="tmcu2mag20k"></A><A ID="3045"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 23:</STRONG>
+Dispersive modes in TmCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN> along (11L) at <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img19.svg"
+ ALT="$T=20$"></SPAN>&nbsp;K, symbol size corresponds to the 
+magnetic scattering cross section, red: calculation without crystal field phonon interaction, blue:
+calculation with crystal field phonon interaction.</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+
+<IMG
+  WIDTH="372" HEIGHT="617" STYLE=""
+ SRC="./mag20K.jpg"
+ ALT="Image mag20K">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+By using <I CLASS="slanted">mcdisp</I> at the temperature of 20&nbsp;K the magnetic and nuclear inelastic neutron
+scattering cross section can be calculated. We show in fig.&nbsp;<A HREF="#tmcu2mag20k">23</A> the magnetic scattering along
+the (11L) direction. Including the crystal field phonon interaction clearly leads to a dynamic
+Jahn-Teller effect: the flat modes  split, shift and get
+dispersive and there is considerable magnetic intensity transfer to phonons.
+Thus the double peak feature in unpublished experimental data on powder can possibly
+be interpreted, see fig.&nbsp;<A HREF="#tmcu2mag20kexp">24</A>
+
+<P>
+
+<DIV class="CENTER"><A ID="tmcu2mag20kexp"></A><A ID="3055"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 24:</STRONG>
+TmCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN> neutron powder spectrum at <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img19.svg"
+ ALT="$T=20$"></SPAN>&nbsp;K as measured on IN6 (Institute Laue Langevin) and
+SV22 (FZ-Juelich), M. Loewenhaupt, private communication.</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+
+<IMG
+  WIDTH="372" HEIGHT="264" STYLE=""
+ SRC="./TmCu2 20K.jpg"
+ ALT="Image TmCu2 20K">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node73.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node60.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node71.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html708"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html710"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node73.html">Project - Extending McPhase</A>
+<B> Up:</B> <A
+ HREF="node60.html">Crystal Field Phonon Interaction</A>
+<B> Previous:</B> <A
+ HREF="node71.html">Magnetoelastic Options to mcphas</A>
+ &nbsp; <B>  <A ID="tex2html709"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html711"
+  HREF="node164.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

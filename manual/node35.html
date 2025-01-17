@@ -1,184 +1,119 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Starting a simulation</TITLE>
-<META NAME="description" CONTENT="Starting a simulation">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Options for a running simulation</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node36.html">
-<LINK REL="previous" HREF="node23.html">
-<LINK REL="up" HREF="node22.html">
+<LINK REL="previous" HREF="node34.html">
 <LINK REL="next" HREF="node36.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html843"
-  HREF="node36.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html837"
-  HREF="node22.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html831"
-  HREF="node34.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html839"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html841"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node36.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node21.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node34.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html524"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html526"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html844"
-  HREF="node36.html">Options for a running</A>
-<B> Up:</B> <A NAME="tex2html838"
-  HREF="node22.html">mcphas - calculation of</A>
-<B> Previous:</B> <A NAME="tex2html832"
-  HREF="node34.html">subdirectory ./fit - experimental</A>
- &nbsp; <B>  <A NAME="tex2html840"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html842"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node36.html">Output Files - mcphas.qvc,phs,sps,mf,fum,j1...,xyt,hkl</A>
+<B> Up:</B> <A
+ HREF="node21.html">mcphas - calculation of</A>
+<B> Previous:</B> <A
+ HREF="node34.html">Starting a simulation</A>
+ &nbsp; <B>  <A ID="tex2html525"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html527"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION000102000000000000000"></A>
-<A NAME="start"></A>
-<BR>
-Starting a simulation
+<H2><A ID="SECTION000103000000000000000">
+Options for a running simulation</A>
 </H2>
+... when the program is running, the options in the main window
+can be changed. Pressing &rdquo;displayall&rdquo; displays the current spin-configuration
+at each iteration step. Pressing &rdquo;log fe vs Q&rdquo; appends free energy vs Q
+data to <I CLASS="slanted">mcphas.log</I> for every (<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.01ex; vertical-align: -0.31ex; " SRC="img235.svg"
+ ALT="$T-H$"></SPAN>) point.
 
 <P>
-To start the simulation goto the directory containing the
-input files <I CLASS="slanted">mcphas.ini, mcphas.j, etc. </I> and type
+The file <I CLASS="slanted">./results/.spins.eps</I> is used to show the information about the currently calculated
+spin structure on the screen using the postscript file viewer ghostview.
 
 <P>
-<DL>
-<DT><STRONG><I CLASS="slanted">mcphas</I></STRONG></DT>
-<DD>to run the program generating stepwise <SPAN CLASS="MATH"><IMG
- WIDTH="49" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img197.png"
- ALT="$H-T$"></SPAN> values 
-              in a loop given by <I CLASS="slanted">mcphas.ini<A NAME="2315"></A></I> (you can also press the
-              symbol in the <I CLASS="slanted">McPhase - Explorer</I> window).
-</DD>
-<DT><STRONG><I CLASS="slanted">mcphas<A NAME="2317"></A> [file]</I></STRONG></DT>
-<DD>to run the program with an input file -   
-             <I CLASS="slanted">file</I> contains T ha hb hc values to be calculated 
-             if [file] is not given, xmin xmax xstep (xT xHa xHb xHc)
-             ymin ymax ystep (yT yHa yHb yHc) is read from file <I CLASS="slanted">mcphas.ini<A NAME="2319"></A></I>
-	     and phase diagram is calculated
-</DD>
-<DT><STRONG><I CLASS="slanted">mcphas<A NAME="2320"></A> -h</I></STRONG></DT>
-<DD>to  print help and version of <I CLASS="slanted">McPhas</I>.
-</DD>
-<DT><STRONG><I CLASS="slanted">mcphas<A NAME="2322"></A> -stamax 14</I></STRONG></DT>
-<DD>end mcphas<A NAME="2323"></A> if standard deviation exceeds 14.
-</DD>
-<DT><STRONG><I CLASS="slanted">mcphas<A NAME="2324"></A> -a</I></STRONG></DT>
-<DD>avoid overwriting output files in results, append new results to existing files
-</DD>
-<DT><STRONG><I CLASS="slanted">mcphas<A NAME="2325"></A> -doeps</I></STRONG></DT>
-<DD>refine strain epsilon using elastic and magnetoelastic constants 
-see section <A HREF="node59.html#phonons">11</A> for how to enter these constants into <I CLASS="slanted">mcphas.j</I>
-</DD>
-<DT><STRONG><I CLASS="slanted">mcphas<A NAME="2328"></A> -v</I></STRONG></DT>
-<DD>to  enable verbose mode with lots of messages of <I CLASS="slanted">McPhas</I>. Specifically
-the verbose mode enables the following features:
-
-<UL>
-<LI>more information is printed out, 
-</LI>
-<LI>the q-vectors file <I CLASS="slanted">./results/mcphas.qvc</I> will contain 
-				    the explicit spin configurations
-</LI>
-<LI>the display<A NAME="2332"></A> on screen (ghostview window using 
-				     <I CLASS="slanted">./results/.sps.eps</I>) will be updated not only 
-				    when a H-T point has been finished but always 
-				    when a structure with smaller free energy 
-				    has been stabilised
-  
-</LI>
-</UL>
- 
-</DD>
-<DT><STRONG><I CLASS="slanted">mcphas<A NAME="2335"></A>  -prefix 001  </I></STRONG></DT>
-<DD>try to read files starting with 001, e.g.
- 		    001mcphas.ini, if these exist, otherwise take
- 		    standard input files, check if in mcphas.ini there are
-                   parameters such as 001xmin and use those. Output goes to files
- 		    results/001mcphas*.* (option for parallel processes)
- 
-</DD>
-<DT><STRONG><I CLASS="slanted">mcphas<A NAME="2336"></A>         -read  001 </I></STRONG></DT>
-<DD>try to read output files of previous calculation starting
- 		     with 001, e.g. results/001mcphas.fum, if these exist, and if 
- 		    the x-y-T-Ha-Hb-Hc point is found and the calculation was stable 
-                   (i.e. free energy in results/001mcphas.fum not zero do not 
-                   recalculate it but take results from this previous calculation
- 		     and store those. Option to recalculate nonstable points only.
-</DD>
-<DT><STRONG><I CLASS="slanted">mcphasit<A NAME="2337"></A></I></STRONG></DT>
-<DD>to start mcphase in commandline mode without opening any window
-</DD>
-</DL>
+The file <I CLASS="slanted">./results/.mcphas.fum</I> contains the information of the magnetisation curve
+which is currently calculated. This information is automatically displayed on the screen.
 
 <P>
-<BR>
-<BR>
-<BR>
-<EM>Exercises:</EM>
-
-<UL>
-<LI>Look at the input files for <I CLASS="slanted">McPhase</I> given in the directory
-<I CLASS="slanted">examples/ndcu2b_new</I>.  How many atoms are contained in the crystallographic basis ?
-</LI>
-<LI>Start the simulation by typing the command <I CLASS="slanted">mcphas</I>.
-</LI>
-</UL>
+The program <I CLASS="slanted">display</I> (see section <A HREF="node119.html#display">17.1</A>) can be used 
+for the online display<A ID="937"></A> of any other
+curve(s).
 
 <P>
 
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html843"
-  HREF="node36.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html837"
-  HREF="node22.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html831"
-  HREF="node34.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html839"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html841"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A NAME="tex2html844"
-  HREF="node36.html">Options for a running</A>
-<B> Up:</B> <A NAME="tex2html838"
-  HREF="node22.html">mcphas - calculation of</A>
-<B> Previous:</B> <A NAME="tex2html832"
-  HREF="node34.html">subdirectory ./fit - experimental</A>
- &nbsp; <B>  <A NAME="tex2html840"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html842"
-  HREF="node152.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<DIV class="CENTER"><A ID="magnetization"></A><A ID="942"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 9:</STRONG>
+Calculated magnetisation of NdCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN> for field parallel to the orthorhombic <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img2.svg"
+ ALT="$b$"></SPAN>-direction.</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+
+<IMG
+ STYLE="height: 31.83ex; vertical-align: -0.12ex; " SRC="img236.svg"
+ ALT="\includegraphics[angle=0, width=0.3\textwidth]{figsrc/magnetization_ndcu2.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV class="CENTER"><A ID="magnetostrictiongraphic"></A><A ID="949"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 10:</STRONG>
+Calculated spontaneous magnetostriction of NdCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>.</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+
+<IMG
+ STYLE="height: 60.38ex; vertical-align: -0.12ex; " SRC="img237.svg"
+ ALT="\includegraphics[angle=0, width=0.8\textwidth]{figsrc/magnetostriction_ndcu2.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<BR><HR>
 
 </BODY>
 </HTML>

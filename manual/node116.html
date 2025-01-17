@@ -1,222 +1,156 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Telling the fitting program, how to calculate the standard deviation sta which should be minimised</TITLE>
-<META NAME="description" CONTENT="Telling the fitting program, how to calculate the standard deviation sta which should be minimised">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Formalism for going beyond the dipolar approximation</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node117.html">
 <LINK REL="previous" HREF="node115.html">
-<LINK REL="up" HREF="node114.html">
 <LINK REL="next" HREF="node117.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2046"
-  HREF="node117.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2040"
-  HREF="node114.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2034"
-  HREF="node115.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2042"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html2044"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node117.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node110.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node115.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html950"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html952"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html2047"
-  HREF="node117.html">Starting a parameter space</A>
-<B> Up:</B> <A NAME="tex2html2041"
-  HREF="node114.html">Searchspace and Simannfit -</A>
-<B> Previous:</B> <A NAME="tex2html2035"
-  HREF="node115.html">Setting up parameter files</A>
- &nbsp; <B>  <A NAME="tex2html2043"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html2045"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node117.html">bfk - Inelastic neutron-scattering</A>
+<B> Up:</B> <A
+ HREF="node110.html">ic1ion - a module</A>
+<B> Previous:</B> <A
+ HREF="node115.html">Formalism</A>
+ &nbsp; <B>  <A ID="tex2html951"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html953"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION000212000000000000000">
-Telling the fitting program, how to calculate the standard deviation <I CLASS="slanted">sta</I> which should be minimised</A>
+<H2><A ID="SECTION000186000000000000000"></A><A ID="ic1ionmq"></A>
+<BR>
+Formalism for going beyond the dipolar approximation
 </H2>
 
 <P>
-The user must provide a program <I CLASS="slanted">calcsta</I>  (under windows 
-it is <I CLASS="slanted">calcsta.bat</I>), which calculates the standard deviation
-of some experimental data from model calculated data. This program can
-be a bash script such as <I CLASS="slanted">/mcphas/examples/cecu2a/fit/calcsta</I> or just a
-very short program such as:
+<I CLASS="slanted">ic1ion</I> is prepared to do calculations of the neutron cross section going beyond the dipole approximation for 
+the scattering cross section. The formulation of the scattering operator
+ implemented in the functions <I CLASS="slanted">mq</I> and <I CLASS="slanted">dncalc</I> have been given by Lovesey and Balcar&nbsp;[<A
+ HREF="node163.html#lovesey84-1">30</A>], 6.87b:
 
 <P>
-<PRE>
-#!/usr/bin/perl
-# do a mcphase simulation. The measured magnetisation data must
-# be in directory ./fit/mcphas.fum column 11 12 13.
-# the program mcphas\index{mcphas} will compare measured data with calculated
-# data and generate an output such as sta=14.3112, which
-# contains the standard deviation
-system ("mcphas");
-</PRE>
-
-<P>
-... in general the output of this batch (to stdout) must contain a line
-such as <EM>sta = 4122.32</EM>, which contains the calculated standard
-deviation which will be minimized by the fitting procedure.
-
-<P>
-Important notes:
-
-<OL>
-<LI>Before starting a fit it is necessary to test the program <I CLASS="slanted">calcsta</I> by typing
-<I CLASS="slanted">./calcsta</I>. The calculation should run and there must appear an output
-the line <I CLASS="slanted">sta= ...</I> on the screen. If this works, a fit may be started.
-</LI>
-<LI>the programs <I CLASS="slanted">McPhas</I> and <I CLASS="slanted">McDisp</I> always try to
-calculate a standard deviation and write such <EM>sta = ...</EM> statement
-to stdout.  So it is possible to use these programs to create the desired output.
-</LI>
-<LI>Alternatively (or in addition)
-any other program can be called in <I CLASS="slanted">calcsta</I> and calculate the 
-standard deviation <I CLASS="slanted">sta</I>. Useful  programs are <I CLASS="slanted">chi2</I><A NAME="10697"></A>,
-<I CLASS="slanted">rpvalue</I><A NAME="10699"></A>.
-</LI>
-<LI>Several (<SPAN CLASS="MATH"><IMG
- WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img260.png"
- ALT="$N$"></SPAN>) occurrencies of <EM>sta = </EM> <SPAN CLASS="MATH"><IMG
- WIDTH="19" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
- SRC="img951.png"
- ALT="$\delta_i^2$"></SPAN> contribute additively to
-the variance <!-- MATH
- $s^2=1/N\sum_i \delta_i^2$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="111" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
- SRC="img952.png"
- ALT="$s^2=1/N\sum_i \delta_i^2$"></SPAN>, which is minimized in the process.
-</LI>
-<LI>if <EM>sta=</EM> is followed by two numbers <SPAN CLASS="MATH"><IMG
- WIDTH="19" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
- SRC="img951.png"
- ALT="$\delta_i^2$"></SPAN> and <SPAN CLASS="MATH"><IMG
- WIDTH="30" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img953.png"
- ALT="${\rm err}^2$"></SPAN>, the first is interpreted as the 
- <SPAN CLASS="MATH"><IMG
- WIDTH="35" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
- SRC="img954.png"
- ALT="$\delta_i^2=$"></SPAN> deviation<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img955.png"
- ALT="$^2$"></SPAN> from an experimental data point (which is to be fitted).
-The second number <SPAN CLASS="MATH"><IMG
- WIDTH="30" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img953.png"
- ALT="${\rm err}^2$"></SPAN> is interpreted as the squared errorbar of this 
-datapoint. If <SPAN CLASS="MATH"><IMG
- WIDTH="30" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img953.png"
- ALT="${\rm err}^2$"></SPAN> is not given, the program minimizes the variance
-<EM>sta</EM><!-- MATH
- $=s^2=1/N\sum_i \delta_i^2$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="128" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
- SRC="img956.png"
- ALT="$=s^2=1/N\sum_i \delta_i^2$"></SPAN>.
-If <SPAN CLASS="MATH"><IMG
- WIDTH="30" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img953.png"
- ALT="${\rm err}^2$"></SPAN> is given, the program minimizes <!-- MATH
- $\chi^2=1/N\sum_i \delta_i^2/{\rm err}^2$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="148" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
- SRC="img957.png"
- ALT="$\chi^2=1/N\sum_i \delta_i^2/{\rm err}^2$"></SPAN>.
-The error is used at the end of the fitting to calculate
-a covariance matrix, which can be used to estimate correlations
-and errors of the fitting parameters: <!-- MATH
- $F_{ij}=\partial \delta_i / {\rm err}_i\partial {\rm par}_j$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="140" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img958.png"
- ALT="$F_{ij}=\partial \delta_i / {\rm err}_i\partial {\rm par}_j$"></SPAN>,
-the covariance matrix is then <!-- MATH
- ${\rm cov}=\chi^2(F^TF)^{-1}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="130" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
- SRC="img959.png"
- ALT="${\rm cov}=\chi^2(F^TF)^{-1}$"></SPAN>, it's diagonal elements correspond
-to the squared error of the fitting parameters par<SPAN CLASS="MATH"><IMG
- WIDTH="10" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img960.png"
- ALT="$_j$"></SPAN> and the off diagonal elements to
-the correlation among these fitting parameters.  Useful to generate
-the required <EM>sta= ...</EM> statements is the program <I CLASS="slanted">chi2</I><A NAME="10715"></A>.
-</LI>
-<LI>note, that the program <I CLASS="slanted">simannfit<A NAME="10716"></A></I> calls the user written program
-<I CLASS="slanted">calcsta</I> with a number as argument, e.g. as <I CLASS="slanted">calcsta 21.3</I>. This number
-(i.e. 21.3 in our example) denotes a maximum value of the standard deviation. The
-user written program may use this number and stop, when in the summation process
-to obtain standard deviation <I CLASS="slanted">sta</I> reaches a value larger than this maximum
-number. Using this option is advisable in complex fitting problems in order to
-optimise the time of the fitting procedure. Note, that the module <I CLASS="slanted">mcphas</I>
-can be used with the option <I CLASS="slanted">-stamax 21.3</I>, which leads to a stop when the value of 
-the standard deviation 21.3 is reached. 
-</LI>
-</OL>
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html2046"
-  HREF="node117.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2040"
-  HREF="node114.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2034"
-  HREF="node115.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2042"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html2044"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html2047"
-  HREF="node117.html">Starting a parameter space</A>
-<B> Up:</B> <A NAME="tex2html2041"
-  HREF="node114.html">Searchspace and Simannfit -</A>
-<B> Previous:</B> <A NAME="tex2html2035"
-  HREF="node115.html">Setting up parameter files</A>
- &nbsp; <B>  <A NAME="tex2html2043"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html2045"
-  HREF="node152.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{eqnarray}
+\langle  l^\nu v S L J M| \hat \mathcal Q_q | l^\nu v' S' L' J' M' \rangle &=& \sqrt{4\pi}\sum_{K',Q,Q'} \left [ %%@
+Y_{K'-1}^{Q}(\hat \mathbf Q) \left (\frac{2K'+1}{K'+1}\right ) \right. \\
+&& \times \{ A(K'-1,K')+B(K'-1,K')(K'-1 Q K' Q'|1q)\}\\
+&& \left . + Y_{K'}^{Q}(\hat \mathbf Q) B(K',K') (K' Q K' Q'|1q) \right ] (K' Q' J' M'|JM)
+ 
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img981.svg"
+ ALT="$\displaystyle \langle l^\nu v S L J M\vert \hat \mathcal Q_q \vert l^\nu v' S' L' J' M' \rangle$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.90ex; vertical-align: -3.44ex; " SRC="img982.svg"
+ ALT="$\displaystyle \sqrt{4\pi}\sum_{K',Q,Q'} \left [ %%@
+Y_{K'-1}^{Q}(\hat \mathbf Q) \left (\frac{2K'+1}{K'+1}\right ) \right.$"></TD><TD class="rfill">(<SPAN CLASS="arabic">131</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.67ex; vertical-align: -0.70ex; " SRC="img983.svg"
+ ALT="$\displaystyle \times \{ A(K'-1,K')+B(K'-1,K')(K'-1 Q K' Q'\vert 1q)\}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">132</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.40ex; vertical-align: -1.63ex; " SRC="img984.svg"
+ ALT="$\displaystyle \left . + Y_{K'}^{Q}(\hat \mathbf Q) B(K',K') (K' Q K' Q'\vert 1q) \right ] (K' Q' J' M'\vert JM)$"></TD><TD class="rfill">(<SPAN CLASS="arabic">133</SPAN>)</TD></TR>
+</TABLE></DIV>
+
+<P>
+... these are the spherical components with <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img985.svg"
+ ALT="$q=-1,0,1$"></SPAN>, which are related to the cartesian components by
+
+<P>
+<BR>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{eqnarray}
+\hat \mathcal Q_x &=& +\frac{1}{\sqrt{2}}(\hat \mathcal Q_{+1} +\hat \mathcal Q_{-1})\\
+\hat \mathcal Q_y &=& -\frac{i}{\sqrt{2}}(\hat \mathcal Q_{+1} -\hat \mathcal Q_{-1}) \\
+\hat \mathcal Q_z &=& \hat \mathcal Q_0  \\
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img986.svg"
+ ALT="$\displaystyle \hat \mathcal Q_x$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.44ex; vertical-align: -2.28ex; " SRC="img987.svg"
+ ALT="$\displaystyle +\frac{1}{\sqrt{2}}(\hat \mathcal Q_{+1} +\hat \mathcal Q_{-1})$"></TD><TD class="rfill">(<SPAN CLASS="arabic">134</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img988.svg"
+ ALT="$\displaystyle \hat \mathcal Q_y$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.48ex; vertical-align: -2.28ex; " SRC="img989.svg"
+ ALT="$\displaystyle -\frac{i}{\sqrt{2}}(\hat \mathcal Q_{+1} -\hat \mathcal Q_{-1})$"></TD><TD class="rfill">(<SPAN CLASS="arabic">135</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img990.svg"
+ ALT="$\displaystyle \hat \mathcal Q_z$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img991.svg"
+ ALT="$\displaystyle \hat \mathcal Q_0$"></TD><TD class="rfill">(<SPAN CLASS="arabic">136</SPAN>)</TD></TR>
+</TABLE></DIV>
+
+<P>
+The coefficients <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img992.svg"
+ ALT="$A(K,K')$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img993.svg"
+ ALT="$B(K,K')$"></SPAN> are complex to obtain, formulas will not be given here, we refer the reader to&nbsp;[<A
+ HREF="node163.html#lovesey84-1">30</A>] and just mention, that the computation involves
+of 3j, 6j and 9j symbols and some fractional parentage coefficients. 
+<P>
+<BR><HR>
 
 </BODY>
 </HTML>

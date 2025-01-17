@@ -1,137 +1,178 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>subdirectory ./fit - experimental data for fit (optional) </TITLE>
-<META NAME="description" CONTENT="subdirectory ./fit - experimental data for fit (optional) ">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Starting a simulation</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="previous" HREF="node33.html">
-<LINK REL="up" HREF="node23.html">
+<LINK REL="next" HREF="node35.html">
+<LINK REL="previous" HREF="node22.html">
 <LINK REL="next" HREF="node35.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html829"
-  HREF="node35.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html823"
-  HREF="node23.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html819"
-  HREF="node33.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html825"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html827"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node35.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node21.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node33.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html520"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html522"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html830"
-  HREF="node35.html">Starting a simulation</A>
-<B> Up:</B> <A NAME="tex2html824"
-  HREF="node23.html">Input Files</A>
-<B> Previous:</B> <A NAME="tex2html820"
-  HREF="node33.html">subdirectory ./results - directory</A>
- &nbsp; <B>  <A NAME="tex2html826"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html828"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node35.html">Options for a running</A>
+<B> Up:</B> <A
+ HREF="node21.html">mcphas - calculation of</A>
+<B> Previous:</B> <A
+ HREF="node33.html">subdirectory ./fit - experimental</A>
+ &nbsp; <B>  <A ID="tex2html521"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html523"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION0001011100000000000000">
-subdirectory <I CLASS="slanted">./fit</I> - experimental data for fit (optional) </A>
-</H3> 
+<H2><A ID="SECTION000102000000000000000"></A>
+<A ID="start"></A>
+<BR>
+Starting a simulation
+</H2>
 
 <P>
-In order that <I CLASS="slanted">McPhase</I> can calculate the standard deviation between
- experimental data and the results of the simulation, some experimental data
- can be given in the subdirectory <I CLASS="slanted">./fit</I>. The filenames and the data-format
- are the same as the output files of <I CLASS="slanted">McPhas</I>, e.g. <I CLASS="slanted">mcphas.fum</I>, <I CLASS="slanted">mcphas.hkl</I>
- etc. <I CLASS="slanted">McPhase</I> looks into the directory <I CLASS="slanted">./fit</I> and if it finds any
- of these files, the standard deviation is increased correspondingly. 
-
-<P>
-What measurement data can be used to calculate a standard deviation ?
+To start the simulation goto the directory containing the
+input files <I CLASS="slanted">mcphas.ini, mcphas.j, etc. </I> and type
 
 <P>
 <DL>
-<DT><STRONG><I CLASS="slanted">mcphas.fum</I></STRONG></DT>
-<DD>if given in column 11, 12, 13 in <I CLASS="slanted">./fit/mcphas.fum</I> the
-            magnetisation in the <SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img10.png"
- ALT="$a$"></SPAN>, <SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img2.png"
- ALT="$b$"></SPAN> and <SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img5.png"
- ALT="$c$"></SPAN> direction is used for calculation
-	    of the standard deviation sta. The standard deviation is calculated
-	    as <!-- MATH
- ${\rm sta}=\sum_{\rm data points i} ({\mathbf m}_i^{calc}-{\mathbf m}_i^{meas})^2$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="249" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img196.png"
- ALT="${\rm sta}=\sum_{\rm data points i} ({\mathbf m}_i^{calc}-{\mathbf m}_i^{meas})^2$"></SPAN>.
-	    All three components of the magnetic moment have to be given and are used.
-
-<P>
+<DT><STRONG><I CLASS="slanted">mcphas</I></STRONG></DT>
+<DD>to run the program generating stepwise <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.01ex; vertical-align: -0.31ex; " SRC="img234.svg"
+ ALT="$H-T$"></SPAN> values 
+              in a loop given by <I CLASS="slanted">mcphas.ini<A ID="900"></A></I> (you can also press the
+              symbol in the <I CLASS="slanted">McPhase - Explorer</I> window).
+</DD>
+<DT><STRONG><I CLASS="slanted">mcphas<A ID="902"></A> [file]</I></STRONG></DT>
+<DD>to run the program with an input file &ndash;   
+             <I CLASS="slanted">file</I> contains T ha hb hc values to be calculated 
+             if [file] is not given, xmin xmax xstep (xT xHa xHb xHc)
+             ymin ymax ystep (yT yHa yHb yHc) is read from file <I CLASS="slanted">mcphas.ini<A ID="904"></A></I>
+	     and phase diagram is calculated
+</DD>
+<DT><STRONG><I CLASS="slanted">mcphas<A ID="905"></A> -h</I></STRONG></DT>
+<DD>to  print help and version of <I CLASS="slanted">McPhas</I>.
+</DD>
+<DT><STRONG><I CLASS="slanted">mcphas<A ID="907"></A> -stamax 14</I></STRONG></DT>
+<DD>end mcphas<A ID="908"></A> if standard deviation exceeds 14.
+</DD>
+<DT><STRONG><I CLASS="slanted">mcphas<A ID="909"></A> -a</I></STRONG></DT>
+<DD>avoid overwriting output files in results, append new results to existing files
+</DD>
+<DT><STRONG><I CLASS="slanted">mcphas<A ID="910"></A> -doeps</I></STRONG></DT>
+<DD>refine strain epsilon using elastic and magnetoelastic constants 
+see section <A HREF="node58.html#phonons">11</A> for how to enter these constants into <I CLASS="slanted">mcphas.j</I>
+</DD>
+<DT><STRONG><I CLASS="slanted">mcphas<A ID="913"></A> -v</I></STRONG></DT>
+<DD>to  enable verbose mode with lots of messages of <I CLASS="slanted">McPhas</I>. Specifically
+the verbose mode enables the following features:
+  
+<UL>
+<LI>more information is printed out, 
+</LI>
+<LI>the q-vectors file <I CLASS="slanted">./results/mcphas.qvc</I> will contain 
+				    the explicit spin configurations
+</LI>
+<LI>the display<A ID="917"></A> on screen (ghostview window using 
+				     <I CLASS="slanted">./results/.sps.eps</I>) will be updated not only 
+				    when a H-T point has been finished but always 
+				    when a structure with smaller free energy 
+				    has been stabilised
+  
+</LI>
+</UL>
+ 
+</DD>
+<DT><STRONG><I CLASS="slanted">mcphas<A ID="920"></A>  -prefix 001  </I></STRONG></DT>
+<DD>try to read files starting with 001, e.g.
+ 		    001mcphas.ini, if these exist, otherwise take
+ 		    standard input files, check if in mcphas.ini there are
+                   parameters such as 001xmin and use those. Output goes to files
+ 		    results/001mcphas*.* (option for parallel processes)
+ 
+</DD>
+<DT><STRONG><I CLASS="slanted">mcphas<A ID="921"></A>         -read  001 </I></STRONG></DT>
+<DD>try to read output files of previous calculation starting
+ 		     with 001, e.g. results/001mcphas.fum, if these exist, and if 
+ 		    the x-y-T-Ha-Hb-Hc point is found and the calculation was stable 
+                   (i.e. free energy in results/001mcphas.fum not zero do not 
+                   recalculate it but take results from this previous calculation
+ 		     and store those. Option to recalculate nonstable points only.
+</DD>
+<DT><STRONG><I CLASS="slanted">mcphasit<A ID="922"></A></I></STRONG></DT>
+<DD>to start mcphase in commandline mode without opening any window
 </DD>
 </DL>
 
 <P>
-Note that the measured data has to be given in those (H-T) points which are 
-calculated by mcphas<A NAME="2309"></A> in order to be used by the program to increase <I CLASS="slanted">sta</I>.
-It is usually most effective to fit only few data points, because a large set
-of data points will not improve the quality of the fit and only require a large
-amount of calculation time.
+<BR>
+<BR>
+<BR>
+<EM>Exercises:</EM>
+
+<UL>
+<LI>Look at the input files for <I CLASS="slanted">McPhase</I> given in the directory
+<I CLASS="slanted">examples/ndcu2b_new</I>.  How many atoms are contained in the crystallographic basis ?
+</LI>
+<LI>Start the simulation by typing the command <I CLASS="slanted">mcphas</I>.
+</LI>
+</UL>
 
 <P>
 
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html829"
-  HREF="node35.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html823"
-  HREF="node23.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html819"
-  HREF="node33.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html825"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html827"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node35.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node21.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node33.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html520"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html522"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html830"
-  HREF="node35.html">Starting a simulation</A>
-<B> Up:</B> <A NAME="tex2html824"
-  HREF="node23.html">Input Files</A>
-<B> Previous:</B> <A NAME="tex2html820"
-  HREF="node33.html">subdirectory ./results - directory</A>
- &nbsp; <B>  <A NAME="tex2html826"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html828"
-  HREF="node152.html">Index</A></B> </DIV>
+<B> Next:</B> <A
+ HREF="node35.html">Options for a running</A>
+<B> Up:</B> <A
+ HREF="node21.html">mcphas - calculation of</A>
+<B> Previous:</B> <A
+ HREF="node33.html">subdirectory ./fit - experimental</A>
+ &nbsp; <B>  <A ID="tex2html521"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html523"
+  HREF="node164.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

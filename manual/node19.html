@@ -1,83 +1,165 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Using the so1ion module in McPhase and McDisp</TITLE>
-<META NAME="description" CONTENT="Using the so1ion module in McPhase and McDisp">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Module Tasks:</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node20.html">
 <LINK REL="previous" HREF="node18.html">
-<LINK REL="up" HREF="node16.html">
 <LINK REL="next" HREF="node20.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html595"
-  HREF="node20.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html589"
-  HREF="node16.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html585"
-  HREF="node18.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html591"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html593"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node20.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node18.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node18.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html434"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html436"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html596"
-  HREF="node20.html">Module Tasks:</A>
-<B> Up:</B> <A NAME="tex2html590"
-  HREF="node16.html">singleion - a Crystal</A>
-<B> Previous:</B> <A NAME="tex2html586"
-  HREF="node18.html">Example - how to</A>
- &nbsp; <B>  <A NAME="tex2html592"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html594"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node20.html">Module Usage:</A>
+<B> Up:</B> <A
+ HREF="node18.html">Using the so1ion module</A>
+<B> Previous:</B> <A
+ HREF="node18.html">Using the so1ion module</A>
+ &nbsp; <B>  <A ID="tex2html435"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html437"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00093000000000000000"></A><A NAME="1123"></A>
-<A NAME="cf1ion"></A>
+<H3><A ID="SECTION00093100000000000000">
+Module Tasks:</A>
+</H3>
+
+<P>
+The single ion module <I CLASS="slanted">so1ion<A ID="619"></A></I> provides to <I CLASS="slanted">mcphas</I> the magnetic properties
+of a single rare earth ion subject to the crystal field. Its main duty is
+to calculate the magnetic moment given an external magnetic field <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img66.svg"
+ ALT="$\mathbf H$"></SPAN> and an exchange field <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img150.svg"
+ ALT="$\mathbf H^s$"></SPAN>. 
+To be more explicit - given the external magnetic  and the exchange field  by <I CLASS="slanted">mcphas</I>
+ the module <I CLASS="slanted">so1ion<A ID="622"></A></I>
+ diagonalises the crystal field and Zeeman Hamiltonian (<A HREF="#cfze">10</A>):
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+{\hat \mathcal H}=  B_l^m \hat O_{lm}({\hat \mathbf J})
+	     -  g_{J} \mu_B {\hat \mathbf J} \cdot {\mathbf H} - {\hat \mathbf J} \cdot { \mathbf H^s}
+\end{equation}
+ -->
+ &nbsp;  <A ID="cfze"></A><IMG
+ STYLE="height: 0.23ex; vertical-align: -0.12ex; " SRC="img151.svg"
+ ALT="$\displaystyle
+{\hat \mathcal H}= B_l^m \hat O_{lm}({\hat \mathbf J})
+- g_...
+..._B {\hat \mathbf J} \cdot {\mathbf H} - {\hat \mathbf J} \cdot { \mathbf H^s}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">10</SPAN>)</SPAN>
+</DIV>
+
+<P>
+and calculates the expectation value of the angular momentum
+ <!-- MATH
+ $\langle \hat \mathbf J \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img152.svg"
+ ALT="$\langle \hat \mathbf J \rangle$"></SPAN>
+according to
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\langle \hat \mathbf J \rangle =
+\sum_{i=1}^{2J+1} p_{i} \langle i |\hat \mathbf J | i \rangle
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 7.42ex; vertical-align: -3.09ex; " SRC="img153.svg"
+ ALT="$\displaystyle \langle \hat \mathbf J \rangle =
+\sum_{i=1}^{2J+1} p_{i} \langle i \vert\hat \mathbf J \vert i \rangle
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">11</SPAN>)</SPAN>
+</DIV>
+
+<P>
+with 
+
+<P>
 <BR>
-Using the <I CLASS="slanted">so1ion</I>  module in <I CLASS="slanted">McPhase</I> and <I CLASS="slanted">McDisp</I>
-</H2>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{eqnarray}
+p_{i}&=&\frac{\exp(-E_{i}/kT)}{z}\\
+z&=&\sum_{i=1}^{2J+1} \exp(-E_{i}/kT)
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img154.svg"
+ ALT="$\displaystyle p_{i}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.12ex; vertical-align: -1.71ex; " SRC="img155.svg"
+ ALT="$\displaystyle \frac{\exp(-E_{i}/kT)}{z}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">12</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img156.svg"
+ ALT="$\displaystyle z$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 7.42ex; vertical-align: -3.09ex; " SRC="img157.svg"
+ ALT="$\displaystyle \sum_{i=1}^{2J+1} \exp(-E_{i}/kT)$"></TD><TD class="rfill">(<SPAN CLASS="arabic">13</SPAN>)</TD></TR>
+</TABLE></DIV>
 
 <P>
-The use 
- of the <I CLASS="slanted">so1ion<A NAME="1127"></A></I> module in <I CLASS="slanted">mcphas</I> is necessary in order to 
- go beyond the capabilities of <I CLASS="slanted">singleion<A NAME="1129"></A></I> (for instance the calculation
- of magnetisation or specific heat or if the exchange interaction
- given in equations&nbsp;(<A HREF="node13.html#hamilton">1</A>) and (<A HREF="node14.html#multipolehamilton">3</A>)
-  shall be taken into account).  
+Here <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img158.svg"
+ ALT="$z$"></SPAN> is the partition sum, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img143.svg"
+ ALT="$\vert i\rangle$"></SPAN> the eigenstate corresponding to
+the eigenvalue <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img159.svg"
+ ALT="$E_{i}$"></SPAN> of the Hamiltonian (<A HREF="#cfze">10</A>). 
+<A ID="tex2html16"
+  HREF="footnode.html#foot8145"><SUP><SPAN CLASS="arabic">8</SPAN></SUP></A>
 
 <P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html597"
-  HREF="node20.html">Module Tasks:</A>
-<LI><A NAME="tex2html598"
-  HREF="node21.html">Module Usage:</A>
-</UL>
-<!--End of Table of Child-Links-->
 <BR><HR>
 
 </BODY>

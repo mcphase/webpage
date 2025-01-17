@@ -1,81 +1,185 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Nuclear Neutron Scattering Length</TITLE>
-<META NAME="description" CONTENT="Nuclear Neutron Scattering Length">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Magnetoelastic Options to mcphas</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node72.html">
 <LINK REL="previous" HREF="node70.html">
-<LINK REL="up" HREF="node67.html">
 <LINK REL="next" HREF="node72.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1363"
-  HREF="node72.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1357"
-  HREF="node67.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1351"
-  HREF="node70.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1359"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1361"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node72.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node60.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node70.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html704"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html706"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1364"
-  HREF="node72.html">Radial Wavefunction</A>
-<B> Up:</B> <A NAME="tex2html1358"
-  HREF="node67.html">Single Ion Modules</A>
-<B> Previous:</B> <A NAME="tex2html1352"
-  HREF="node70.html">Debye Waller Factor</A>
- &nbsp; <B>  <A NAME="tex2html1360"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1362"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node72.html">TmCu - magnetoelastic effects</A>
+<B> Up:</B> <A
+ HREF="node60.html">Crystal Field Phonon Interaction</A>
+<B> Previous:</B> <A
+ HREF="node70.html">Calculation of the Exchange</A>
+ &nbsp; <B>  <A ID="tex2html705"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html707"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION000164000000000000000">
-Nuclear Neutron Scattering Length</A>
+<H2><A ID="SECTION0001511000000000000000"></A><A ID="magelastmcphasoptions"></A>
+<BR>
+Magnetoelastic Options to <I CLASS="slanted">mcphas</I>
 </H2>
 
 <P>
-In order to calculate nuclear neutron intensities properly, <I CLASS="slanted">mcdiff</I> has to
-be provided with the neutron scattering length in units of <SPAN CLASS="MATH"><IMG
- WIDTH="43" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img713.png"
- ALT="$10^{-14}$"></SPAN>&nbsp;m.
-<SMALL CLASS="FOOTNOTESIZE">
-</SMALL><PRE>
-#-------------------------------------------------------
-# Neutron Scattering Length (10^-12 cm) (can be complex)
-#-------------------------------------------------------
-SCATTERINGLENGTHREAL=0.769
-SCATTERINGLENGTHIMAG=0
-#  ... note: - if an occupancy other than 1.0 is needed, just reduce 
-#              the scattering length linear accordingly
-</PRE>
+<table width="90%"><tr><td align="right" valign="top"><I CLASS="slanted">-doeps</I></td><td valign="top">&nbsp;If the program <EM>mcphas</EM> is started with option <I CLASS="slanted">-doeps</I>
+and it finds elastic constants in the input file <EM>mcphas.j</EM> (note, that the elastic constants
+in the input file are normalised to the primitive crystallographic unit cell, units are 
+meV / primitive crystallographic unit cell), it
+ will use these and determine selfconsistently the strain <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img92.svg"
+ ALT="$\epsilon$"></SPAN> by solving equations
+(<A HREF="node64.html#zeroeps">112</A>) and (<A HREF="node64.html#Htot">110</A>). Elastic energy and strain tensor are stored in <EM>results/mcphas.fum</EM>.
+ In this way it is be possible to model Jahn Teller transitions,
+phase diagrams, magnetostriction, thermal expansion (magnetic part) and dynamics consistently based
+only on point charges and Born von Karman springs. 
+If <I CLASS="slanted">mcphas</I> is used with option <I CLASS="slanted">-doeps</I> and it finds files <I CLASS="slanted">mcphas.djdx</I>, <I CLASS="slanted">mcphas.djdy</I>, <I CLASS="slanted">mcphas.djdz</I> with
+derivatives of the two ion interaction parameters with respect to
+spatial coordinates <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img778.svg"
+ ALT="$x,y,z$"></SPAN> respectively, it performs a calculation of
+the corresponding correlation functions and computes the strain  using
+equation (<A HREF="node65.html#zeroepsex">116</A>) at each iteration. Subsequently, making use of the Taylor expansion
+of the interaction constants (<A HREF="node65.html#jjtaylor">114</A>) the computed strain is used 
+in the next iteration for the the mean field Hamiltonian 
+(mean field theory is used by <EM>McPhase</EM>
+to solve the Hamiltonian (<A HREF="node65.html#Hwithexstric">113</A>) and (<A HREF="node64.html#Htot">110</A>)). 
+At the end of the iteration loop mean fields, moments <!-- MATH
+ $\langle I \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img779.svg"
+ ALT="$\langle I \rangle$"></SPAN> and 
+a selfconsistent strain tensor <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img92.svg"
+ ALT="$\epsilon$"></SPAN> is obtained.
+
+<P></td></tr>
+<tr><td align="right" valign="top"><I CLASS="slanted">-linepscf</I></td><td valign="top">&nbsp;The option <I CLASS="slanted">-linepscf</I> together with <I CLASS="slanted">-doeps</I> will trigger 
+a calculation where equation (<A HREF="node64.html#zeroeps">112</A>) (and in case
+of exchange striction terms (<A HREF="node65.html#zeroepsex">116</A>))
+is used to calculate the strain <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img92.svg"
+ ALT="$\epsilon$"></SPAN>, however the last two terms in
+(<A HREF="node64.html#Htot">110</A>) are always evaluated
+for zero strain, i.e. the crystal field striction is not calculated
+selfconsistently, but only in the linear approximation assuming that the 
+strain leads only to a negligible perturbation of the crystal field
+Hamiltonian. 
+
+<P></td></tr>
+<tr><td align="right" valign="top"><I CLASS="slanted">-linepsjj</I></td><td valign="top">&nbsp;The option <I CLASS="slanted">-linepsjj</I> together with <I CLASS="slanted">-doeps</I> will trigger 
+a calculation where equation (<A HREF="node65.html#zeroepsex">116</A>)
+is used to calculate the strain <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img92.svg"
+ ALT="$\epsilon$"></SPAN>, yet the modification of
+the two ion interaction by the strain is assumed to be small
+and two ion interaction parameters (<A HREF="node65.html#jjtaylor">114</A>) are used
+in the mean field loop always for zero strain, i.e. the exchange striction is not calculated
+selfconsistently, but only in the linear approximation assuming that the 
+strain leads only to a negligible perturbation of the two ion interaction
+Hamiltonian.
 
 <P>
-<BR><HR>
+</td></tr></table>
+
+<P>
+The length change <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img780.svg"
+ ALT="$\Delta L/L$"></SPAN> of a sample in a dilatometer experiment
+can be calculated from the strain tensor components
+ using&nbsp;<A ID="tex2html36"
+  HREF="footnode.html#foot3007"><SUP><SPAN CLASS="arabic">13</SPAN></SUP></A>
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\frac{\Delta L}{L}=\sum_{\alpha\beta} \epsilon_{\alpha\beta} \hat L_{\alpha} \hat L_{\beta}
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 6.71ex; vertical-align: -3.46ex; " SRC="img781.svg"
+ ALT="$\displaystyle \frac{\Delta L}{L}=\sum_{\alpha\beta} \epsilon_{\alpha\beta} \hat L_{\alpha} \hat L_{\beta}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">111</SPAN>)</SPAN>
+</DIV>
+
+<P>
+where <!-- MATH
+ $\hat \mathbf L$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.43ex; vertical-align: -0.12ex; " SRC="img782.svg"
+ ALT="$\hat \mathbf L$"></SPAN> denotes the unit vector in the direction of
+measurement.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node72.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node60.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node70.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html704"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html706"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node72.html">TmCu - magnetoelastic effects</A>
+<B> Up:</B> <A
+ HREF="node60.html">Crystal Field Phonon Interaction</A>
+<B> Previous:</B> <A
+ HREF="node70.html">Calculation of the Exchange</A>
+ &nbsp; <B>  <A ID="tex2html705"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html707"
+  HREF="node164.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

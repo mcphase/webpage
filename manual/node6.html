@@ -1,84 +1,89 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>...in version 5.2 ...</TITLE>
-<META NAME="description" CONTENT="...in version 5.2 ...">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>...in version 5.3 ...</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node7.html">
 <LINK REL="previous" HREF="node5.html">
-<LINK REL="up" HREF="node2.html">
 <LINK REL="next" HREF="node7.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html314"
+<A
+ HREF="node7.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node2.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node5.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html266"
   HREF="node7.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html308"
-  HREF="node2.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html302"
-  HREF="node5.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html310"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html312"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html268"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html315"
-  HREF="node7.html">... in version 5.1</A>
-<B> Up:</B> <A NAME="tex2html309"
-  HREF="node2.html">What is New ?</A>
-<B> Previous:</B> <A NAME="tex2html303"
-  HREF="node5.html">...in version 5.3 ...</A>
- &nbsp; <B>  <A NAME="tex2html311"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html313"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node7.html">Contents</A>
+<B> Up:</B> <A
+ HREF="node2.html">What is New ?</A>
+<B> Previous:</B> <A
+ HREF="node5.html">...in version 5.4 ...</A>
+ &nbsp; <B>  <A ID="tex2html267"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html269"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00024000000000000000">
- ...in version 5.2 ...</A>
+<H2><A ID="SECTION00024000000000000000">
+ ...in version 5.3 ...</A>
 </H2>
 
 <UL>
-<LI>recommended program for single ion properties is now <I CLASS="slanted">singleion</I><A NAME="163"></A> (works for all modules)
+<LI>Ce3p.sipf database: formfactor for Ce3+ ion coefficients FF improved 
 </LI>
-<LI><I CLASS="slanted">spinsfromq</I><A NAME="165"></A> new: triple q option, piping to mcphas.tst, scale moments 
+<LI><I CLASS="slanted">singleion</I> extended to ouput optional M(Q)
 </LI>
-<LI><I CLASS="slanted">spins</I><A NAME="167"></A>: -f option enabled to read mcphas.tst, always output spins.out 
-                 ready to be used for <I CLASS="slanted">mcdiff</I><A NAME="169"></A>
+<LI><I CLASS="slanted">setup_mcdiff_in</I>  options were blocking negative x y, therefore modified code
+           thus it can accept negative x y in phasediagram
 </LI>
-<LI><I CLASS="slanted">pointc</I><A NAME="171"></A> output creates automaticalle files results/pointc.Blm and results/pointc.Lllm with just the CF parameters
+<LI><I CLASS="slanted">mcdisp.jq </I> contains now hklblocknumber= lines 
+ moreover mcdisp calculates scaled interation parameters to enable better fitting keeping TN constant
+if in mcdisp.par after the hkl of the first q vector a number is given, then
+scaled interaction parameters are computed such that their highest eigenvalue
+agrees with this number. Scaled parameters are saved in results/mcdisp_scaled.j
+and here follow standard deviations computed with the scaled parameters
+ sta_scaled sta4_scaled
 </LI>
-<LI><I CLASS="slanted">mcdisp</I><A NAME="173"></A> option -ignore_non_hermitian_matrix_error introduced , eigensolvers updated, option -jqe introduced to output all eigenvalues of J(q) to file mcdisp.jq
+<LI><I CLASS="slanted">makenn</I> comments in output file removed to smooth iterative usage
 </LI>
-<LI><I CLASS="slanted">simannfit</I><A NAME="175"></A> options -n, -p  introduced, for storage of parametersets and probing parspace during fitting.
+<LI><I CLASS="slanted">splitfile</I> option -c introduced to split at columns value changes
 </LI>
-<LI><I CLASS="slanted">cif2mcphas</I><A NAME="177"></A> program to create mcphase input files from crystallographic information in cif files
+<LI><I CLASS="slanted">ic1ion bug for quasielastic beyond dipolar scattering fixed (spin exp value was not
+          subtracted from matrix elements)</I>
 </LI>
-<LI>mcdisp.jq has now a col 4 with qincr for plotting purposes
+<LI><I CLASS="slanted">rotateBLm</I> bug reading Blm with sign  fixed
 </LI>
-<LI>bugs fixed in <I CLASS="slanted">convolute2d, rhoso1ion, module brillouin, so1ion</I> Blm input for m odd, getvalue
+<LI><I CLASS="slanted">mcphas2jvx</I> bug for nonortho primitive lattices fixed
+</LI>
+<LI><I CLASS="slanted">getvalue</I> linux bug fixed
 </LI>
 </UL>
 
+<P>
 <P>
 <BR><HR>
 

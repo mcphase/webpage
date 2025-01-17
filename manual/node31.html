@@ -1,95 +1,111 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>mcphas.tst - input file of test spin-configurations (optional)</TITLE>
-<META NAME="description" CONTENT="mcphas.tst - input file of test spin-configurations (optional)">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Example mcphas.tst file for a simple antiferromagnet</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node32.html">
 <LINK REL="previous" HREF="node30.html">
-<LINK REL="up" HREF="node23.html">
 <LINK REL="next" HREF="node32.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html789"
-  HREF="node32.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html783"
-  HREF="node23.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html777"
-  HREF="node30.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html785"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html787"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node32.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node22.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node30.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html508"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html510"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html790"
-  HREF="node32.html">Example mcphas.tst file for</A>
-<B> Up:</B> <A NAME="tex2html784"
-  HREF="node23.html">Input Files</A>
-<B> Previous:</B> <A NAME="tex2html778"
-  HREF="node30.html">Example single ion property</A>
- &nbsp; <B>  <A NAME="tex2html786"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html788"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node32.html">subdirectory ./results - directory</A>
+<B> Up:</B> <A
+ HREF="node22.html">Input Files</A>
+<B> Previous:</B> <A
+ HREF="node30.html">mcphas.tst - input file</A>
+ &nbsp; <B>  <A ID="tex2html509"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html511"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION000101800000000000000"></A><A NAME="2246"></A>
+<H3><A ID="SECTION000101900000000000000"></A><A ID="861"></A>
 <BR>
-<I CLASS="slanted">mcphas.tst</I> - input file of test spin-configurations (optional)
+Example <I CLASS="slanted">mcphas.tst</I> file  for a simple antiferromagnet
 </H3>
-This file is optional and contains
-some test momentum configurations to be used for the calculation
-             of the free energy. Mind that
-
-<UL>
-<LI>in the file header the number of atoms in the primitive
-       crystallographic unit cell and the number of components
-       of the spin vector have to be given.
-</LI>
-<LI>at the end of the
- file there must be no empty lines !
-</LI>
-</UL>
 
 <P>
-The momentum - configurations tables always refer to spins sitting on
-the primitive lattice <SPAN CLASS="MATH"><IMG
- WIDTH="17" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img187.png"
- ALT="${\mathbf r}_i$"></SPAN>. If more than one atom is in
-the primitive basis, the momentum gets <SPAN CLASS="MATH"><IMG
- WIDTH="21" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img188.png"
- ALT="$3n$"></SPAN> components (<SPAN CLASS="MATH"><IMG
- WIDTH="30" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img189.png"
- ALT="$n=$"></SPAN> number
-of atoms in the crystallographic basis). See <I CLASS="slanted">./examples/ndcu2b_new/</I> for
-examples of a two atom basis. Units of these tables are that of total 
-angular momentum <SPAN CLASS="MATH"><IMG
- WIDTH="48" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img190.png"
- ALT="$&lt;J&gt;$"></SPAN>.
+Here is the file <I CLASS="slanted">mcphas.tst<A ID="862"></A></I> for the simple antiferromagnet example
+describing some spin configurations
+to be used as starting values for the mean field process:
+
+<P>
+<SPAN CLASS="SMALL"></SPAN><PRE> 
+# Test spin configurations for meanfield calculation - module mcphas version 3.0
+#&lt;!--mcphase.mcphas.tst--&gt;
+#*********************************************************
+# mcphas - program to calculate static magnetic properties
+# reference: M. Rotter JMMM 272-276 (2004) 481
+#**********************************************************
+#! nofatoms=1
+#!nofcomponents=3
+# File Format: blocks of 3xnofatoms lines consisting of
+# ma[1] ma[2] ma[3] .... ma[n]
+# mb[1] mb[2] mb[3] .... mb[n]
+# mc[1] mc[2] mc[3] .... mc[n]
+#   a configuration moments along c
+0
+1
+0
+
+0
+-1
+0
+# end of configuration
+# new configuration
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+1 1 -1 1 1.1 -1 1 1 -1 1 1 -1.1 1 1 1 1
+1 1 -1 1 1 -1 1 1 -1 1 1 -1 1 1.1 1 1.1
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+1 1 -1 1 1 -1 1 1 -1 1 1 -1 1 1 1 1.1
+1 1 -1 1 1 -1 1 1 -1 1 1 -1 1 1 1 1
+# end of configuration
+</PRE><SPAN CLASS="SMALL"></SPAN>
+Note, in case of non-orthogonal axes the convention 
+is <SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img225.svg"
+ ALT="$mb\vert\vert\vec b$"></SPAN>, <!-- MATH
+ $mc||(\vec a \times \vec b)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img226.svg"
+ ALT="$mc\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img227.svg"
+ ALT="$ma$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img228.svg"
+ ALT="$mb$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img229.svg"
+ ALT="$mc$"></SPAN>.
 
 <P>
 <BR><HR>

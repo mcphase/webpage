@@ -1,0 +1,316 @@
+<!DOCTYPE HTML>
+
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
+<HEAD>
+<TITLE>Application to Neutron scattering</TITLE>
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node158.html">
+<LINK REL="previous" HREF="node154.html">
+<LINK REL="next" HREF="node156.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A
+ HREF="node156.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node151.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node154.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html1129"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html1131"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node156.html">Coherent Nuclear Inelastic Scattering</A>
+<B> Up:</B> <A
+ HREF="node151.html">Dynamical Susceptibility and Excitations</A>
+<B> Previous:</B> <A
+ HREF="node154.html">Evaluating results - Graphical</A>
+ &nbsp; <B>  <A ID="tex2html1130"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1132"
+  HREF="node164.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A ID="SECTION000374000000000000000"></A>
+<A ID="neutronformalism"></A>
+<BR>
+Application to Neutron scattering
+</H2>
+
+<P>
+We now apply the theory outlined above to the inelastic scattering of neutrons 
+in a crystalline solid. The observables measured here are the atomic displacement (for phonons) and the
+Fourier transform of the magnetisation (=magnetic moment density) operator of a magnetic ion (<!-- MATH
+ $\hat \mathbf M(\mathbf Q)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img1539.svg"
+ ALT="$\hat \mathbf M(\mathbf Q)$"></SPAN>).
+The magnetisation operator consists of a spin and an orbital contribution and thus
+its Fourier transform may be written as a sum <!-- MATH
+ $\hat \mathbf M(\mathbf Q)=\hat \mathbf M_S(\mathbf Q)+\hat \mathbf M_L(\mathbf Q)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.70ex; " SRC="img1540.svg"
+ ALT="$\hat \mathbf M(\mathbf Q)=\hat \mathbf M_S(\mathbf Q)+\hat \mathbf M_L(\mathbf Q)$"></SPAN>.
+For consistency with ref.[<A
+ HREF="node163.html#lovesey84-1">30</A>] please note that we write the following formulas 
+in terms of the magnetisation operator instead of the scattering operator
+<!-- MATH
+ $\hat \mathcal Q_{\alpha} \equiv -\hat M_{\alpha}(\mathbf Q)/(2\mu_B)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 7.01ex; vertical-align: -0.70ex; " SRC="img1541.svg"
+ ALT="$\hat \mathcal Q_{\alpha} \equiv -\hat M_{\alpha}(\mathbf Q)/(2\mu_B)$"></SPAN> (where <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.57ex; " SRC="img1542.svg"
+ ALT="$\alpha=x,y,z$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img847.svg"
+ ALT="$\mu_B$"></SPAN> is the
+Bohr magneton).
+
+<P>
+The double differential neutron scattering cross section is usually being evaluated base on the master equation (see e.g. [<A
+ HREF="node163.html#lovesey84-1">30</A>])
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\frac{d^2\sigma}{d\Omega dE'}=\frac{k'}{k}\left( \frac{m_n}{2\pi \hbar^2}  \right)^2
+\sum_{if,s_n} P_{s_n} P_i \left | \langle s_n|\langle i|H_{int}(\mathbf Q)|f\rangle|s_n'\rangle \right |^2 \delta(\hbar \omega+E_i-E_f)
+\end{equation}
+ -->
+ &nbsp;  <A ID="masterequ"></A><IMG
+ STYLE="height: 2.55ex; vertical-align: -3.46ex; " SRC="img1543.svg"
+ ALT="$\displaystyle
+\frac{d^2\sigma}{d\Omega dE'}=\frac{k'}{k}\left( \frac{m_n}{2\pi ...
+... Q)\vert f\rangle\vert s_n'\rangle \right \vert^2 \delta(\hbar \omega+E_i-E_f)
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">252</SPAN>)</SPAN>
+</DIV>
+
+<P>
+Here <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.46ex; " SRC="img1544.svg"
+ ALT="$m_n$"></SPAN> is the neutron mass, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img266.svg"
+ ALT="$\mathbf k$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.97ex; vertical-align: -0.12ex; " SRC="img267.svg"
+ ALT="$\mathbf k'$"></SPAN> the incoming and scattered neutron wave vector, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.39ex; vertical-align: -0.70ex; " SRC="img1545.svg"
+ ALT="$\vert s_n\rangle$"></SPAN> and 
+ <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1546.svg"
+ ALT="$\vert s_n'\rangle$"></SPAN> the spin state of the incoming and scattered neutron, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1547.svg"
+ ALT="$P_{s_n}$"></SPAN> the polarisation of the incoming neutron
+beam (i.e. the probability for the neutron spin state <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.70ex; " SRC="img1548.svg"
+ ALT="$\vert s_n&gt;$"></SPAN> in the incoming neutron beam). <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img143.svg"
+ ALT="$\vert i\rangle$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.48ex; vertical-align: -0.70ex; " SRC="img1549.svg"
+ ALT="$\vert f\rangle$"></SPAN> denote
+the initial and final states of the target, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1550.svg"
+ ALT="$E_i$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.78ex; " SRC="img1551.svg"
+ ALT="$E_f$"></SPAN> the corresponding energies, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.03ex; vertical-align: -0.46ex; " SRC="img1552.svg"
+ ALT="$P_i$"></SPAN> the population number
+of the target state <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img143.svg"
+ ALT="$\vert i\rangle$"></SPAN>. Finally <!-- MATH
+ $H_{int}(\mathbf Q)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.90ex; vertical-align: -0.70ex; " SRC="img1553.svg"
+ ALT="$H_{int}(\mathbf Q)$"></SPAN> is the interaction operator which consists of neutron spin dependent
+and spin independent parts
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+H_{int}(\mathbf Q)=\hat \beta (\mathbf Q) + \hat {\mathbf s}_n \cdot \hat {\boldsymbol \alpha } (\mathbf Q)
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 1.87ex; vertical-align: -0.70ex; " SRC="img1554.svg"
+ ALT="$\displaystyle H_{int}(\mathbf Q)=\hat \beta (\mathbf Q) + \hat {\mathbf s}_n \cdot \hat {\boldsymbol \alpha } (\mathbf Q)
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">253</SPAN>)</SPAN>
+</DIV>
+
+<P>
+Here <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.90ex; vertical-align: -0.57ex; " SRC="img1555.svg"
+ ALT="$\hat \beta$"></SPAN> contains the nuclear spin independent scattering and <!-- MATH
+ $\hat {\boldsymbol \alpha }$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.20ex; vertical-align: -0.12ex; " SRC="img1556.svg"
+ ALT="$\hat {\boldsymbol \alpha }$"></SPAN> the nuclear spin dependent
+and the electronic magnetic scattering operators.
+The accurate evaluation of (<A HREF="#masterequ">268</A>) involves the computation of terms <!-- MATH
+ $\hat \beta^{\dagger} \dots \hat \beta$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.65ex; vertical-align: -0.57ex; " SRC="img1557.svg"
+ ALT="$\hat \beta^{\dagger} \dots \hat \beta$"></SPAN> (nuclear scattering, phonons),
+<!-- MATH
+ $\hat \alpha^{\dagger} \dots \hat \alpha$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 5.12ex; vertical-align: -0.12ex; " SRC="img1558.svg"
+ ALT="$\hat \alpha^{\dagger} \dots \hat \alpha$"></SPAN> (electronic magnetic scattering and nuclear magnetic scattering) 
+and mixed terms <!-- MATH
+ $\alpha^{\dagger} \dots \beta$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.57ex; " SRC="img1559.svg"
+ ALT="$\alpha^{\dagger} \dots \beta$"></SPAN> (interference terms, not included in mcdisp currently, maybe nonzero only for
+polarized beams).  We do not take into account any preferred occupancy of nuclear spin states in the sample, either.
+Then the neutron intensity may be separated into nuclear (phonon) and magnetic intensity.
+The corresponding expression for the double differential scattering cross section 
+for unpolarised neutrons has been given frequently in literature (see e.g. [<A
+ HREF="node163.html#lovesey84-1">30</A>]):
+
+<P>
+<BR>
+<DIV CLASS="displaymath"><A ID="dsdoderepeated"></A><A ID="snuc"></A><A ID="smag"></A>
+<!-- MATH
+ \begin{eqnarray}
+\frac{d^2\sigma}{d\Omega dE'}&=&
+N\frac{k'}{k}S_{\rm nuc}(\mathbf Q,\omega) +
+N\frac{k'}{k}
+Tr\{S_{\rm mag\perp}(\mathbf Q,\omega)\} \nonumber \\
+S_{\rm nuc}&=&S_{\rm nuc}^{\rm el}+S_{\rm nuc}^{\rm inel}\\
+S_{\rm mag}&=&S_{\rm mag}^{\rm el}+S_{\rm mag}^{\rm inel}
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 5.27ex; vertical-align: -1.71ex; " SRC="img126.svg"
+ ALT="$\displaystyle \frac{d^2\sigma}{d\Omega dE'}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.48ex; vertical-align: -1.71ex; " SRC="img1560.svg"
+ ALT="$\displaystyle N\frac{k'}{k}S_{\rm nuc}(\mathbf Q,\omega) +
+N\frac{k'}{k}
+Tr\{S_{\rm mag\perp}(\mathbf Q,\omega)\}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img302.svg"
+ ALT="$\displaystyle S_{\rm nuc}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.88ex; vertical-align: -0.69ex; " SRC="img303.svg"
+ ALT="$\displaystyle S_{\rm nuc}^{\rm el}+S_{\rm nuc}^{\rm inel}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">254</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img304.svg"
+ ALT="$\displaystyle S_{\rm mag}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 3.20ex; vertical-align: -1.01ex; " SRC="img305.svg"
+ ALT="$\displaystyle S_{\rm mag}^{\rm el}+S_{\rm mag}^{\rm inel}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">255</SPAN>)</TD></TR>
+</TABLE></DIV>
+
+<P>
+In (<A HREF="#dsdoderepeated">270</A>) <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img296.svg"
+ ALT="$N$"></SPAN> denotes the number of magnetic atoms in the sample, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img266.svg"
+ ALT="$\mathbf k$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.97ex; vertical-align: -0.12ex; " SRC="img267.svg"
+ ALT="$\mathbf k'$"></SPAN> the wave vector of the incoming and scattered neutron, respectively.
+<!-- MATH
+ $\hbar \omega=E-E'$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.31ex; " SRC="img1561.svg"
+ ALT="$\hbar \omega=E-E'$"></SPAN> and
+<!-- MATH
+ $\mathbf Q =\mathbf k-\mathbf k'$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.42ex; vertical-align: -0.57ex; " SRC="img270.svg"
+ ALT="$\mathbf Q=\mathbf k-\mathbf k'$"></SPAN> denote the energy and momentum transfer.
+The van Hove scattering functions <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.89ex; vertical-align: -0.78ex; " SRC="img1562.svg"
+ ALT="$S_{\rm mag}$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 6.81ex; vertical-align: -0.46ex; " SRC="img1563.svg"
+ ALT="$S_{\rm nuc}$"></SPAN> may be split into an elastic and an inelastic part. We will discuss here only the inelastic scattering. 
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html1133"
+  HREF="node156.html">Coherent Nuclear Inelastic Scattering - 1 Phonon processes</A>
+<LI><A ID="tex2html1134"
+  HREF="node157.html">Magnetic inelastic Scattering</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node156.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node151.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node154.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html1129"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html1131"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node156.html">Coherent Nuclear Inelastic Scattering</A>
+<B> Up:</B> <A
+ HREF="node151.html">Dynamical Susceptibility and Excitations</A>
+<B> Previous:</B> <A
+ HREF="node154.html">Evaluating results - Graphical</A>
+ &nbsp; <B>  <A ID="tex2html1130"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1132"
+  HREF="node164.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

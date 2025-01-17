@@ -1,173 +1,81 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>External module function estates - used by mcdisp, mcdiff and singleion</TITLE>
-<META NAME="description" CONTENT="External module function estates - used by mcdisp, mcdiff and singleion">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Radial Wavefunction</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node80.html">
 <LINK REL="previous" HREF="node78.html">
-<LINK REL="up" HREF="node75.html">
 <LINK REL="next" HREF="node80.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1499"
-  HREF="node80.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1493"
-  HREF="node75.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1489"
-  HREF="node78.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1495"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1497"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node80.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node74.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node78.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html742"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html744"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1500"
-  HREF="node80.html">Module Functions for Observables</A>
-<B> Up:</B> <A NAME="tex2html1494"
-  HREF="node75.html">Basic Module Functions</A>
-<B> Previous:</B> <A NAME="tex2html1490"
-  HREF="node78.html">External module function du1calc</A>
- &nbsp; <B>  <A NAME="tex2html1496"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1498"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node80.html">Radial Matrix Elements</A>
+<B> Up:</B> <A
+ HREF="node74.html">Single Ion Modules</A>
+<B> Previous:</B> <A
+ HREF="node78.html">Nuclear Neutron Scattering Length</A>
+ &nbsp; <B>  <A ID="tex2html743"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html745"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION000171400000000000000"></A><A NAME="6999"></A><A NAME="7000"></A><A NAME="7001"></A>
-<BR>
-External module function <I CLASS="slanted">estates</I> - used by <I CLASS="slanted">mcdisp</I>,
- <I CLASS="slanted">
-mcdiff</I> and <I CLASS="slanted">singleion</I>
-</H3>
+<H2><A ID="SECTION000165000000000000000">
+Radial Wavefunction</A>
+</H2>
 
 <P>
-This routine is optional, i.e. may be programed but is not absolutely necessary. It provides the designer of a 
-single ion module
-with the possiblity to store information, usually the eigenvalues and eigenstates of a problem. This can be very 
-useful to accelerate computations. 
-For example, the module <I CLASS="slanted">mcdisp</I> provides to the single ion module functions
- <I CLASS="slanted">du1calc</I> and <I CLASS="slanted">dMQ1</I> and similar
-at every call the matrix <I CLASS="slanted">estates</I> which has been set initially for every atom
-by a call to <I CLASS="slanted">estates</I>.
+In order to calculate the charge density correctly (programs <I CLASS="slanted">charges, chrgplt</I>) and
+to evaluate the pointcharge model (program <I CLASS="slanted">pointc</I>) the radial wave function has to be entered in the parametrization of Clementi and Roetti:
+<SPAN CLASS="FOOTNOTESIZE">
+</SPAN><PRE>
+#------------------------------------------------------------------------------------------------------
+# radial wave function parameters R_Np,XIp(r)= r^(Np-1) . exp(-xi r) . (2 XIp)^(Np+0.5) / sqrt(2Np!)  
+# values tabulated in clementi &amp; roetti Atomic data and nuclear data tables 14 (1974) 177-478
+# Co2+ is isoelectronic to Fe+, looking at page  422 of Clemente &amp; Roetti 
+# the 3D radial wave function is expanded as R(r)=sum_p C_p R_Np,XIp(r)
+#------------------------------------------------------------------------------------------------------
+N1=3 XI1=4.95296 C1=0.36301 
+N2=3 XI2=12.2963 C2=0.02707 
+N3=3 XI3=7.03565 C3=0.14777
+N4=3 XI4=2.74850 C4=0.49771 
+N5=3 XI5=1.69027 C5=0.11388
+</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
 
 <P>
-At the start of the programs <I CLASS="slanted">mcdisp</I> <I CLASS="slanted">singleion</I> the function <I CLASS="slanted">estates</I>
-is called (if present in the module) and it should initialize the Complex Matrix by a command such as
+The radial wavefunction may be calculated numerically using the program <I CLASS="slanted">radwavfunc</I><A ID="3206"></A>.
 
 <P>
-<I CLASS="slanted">(*ests)=ComplexMatrix(0,nofrows,1,nofcols);</I> 
-
-<P>
-and fill this matrix with sensible numerical values for the effective field, temperature given.
-Parameters <I CLASS="slanted">MODPAR</I> and Lande Factor <I CLASS="slanted">gJ</I> may be used for this purpose. 
-
-<P>
-The routine should look similar to
-<SMALL CLASS="FOOTNOTESIZE">
-</SMALL><PRE>
-#include "vector.h"          // MatPack vector class must be included
-
-#ifdef __linux__
-extern "C" void estates(
-#else
-extern "C" __declspec(dllexport) void estates(
-#endif
-// on output
-                     ComplexMatrix * ests,    // eigenstate matrix      
-                                              // it must also contain population 
-                                              // numbers p_i of the states (imaginary part of row 0)
-                                              // and eigenvalues (real part of row 0)
-// on input
-                      Hxc ,                 //   vector of exchange field [meV] (can be n-dimensional, for a set of n operators)
-                      Hext  ,                     // external magnetic field [T]
-                      double *g_J,        // Input Lande g-factor
-                      double &amp;T,          // Input temperature (K)
-                      Vector &amp;MODPAR,     // Input vector of parameters from 
-					                      //single ion property file
-                      char **sipffilename)// Single ion properties filename                      
-{ // ... some code to compute eigenvectors and eigenvalues
-
- dj=21;  // dimension matrix according to the  dimension of your eigenvalue problem
-   (*ests) = ComplexMatrix(0,dj,1,dj);
-   Vector En(1,dj),pn(1,dj);Matrix zr(1,dj,1,dj);Matrix zi(1,dj,1,dj);
-   setup_and_solve_Hamiltonian(Hxc,Hext,En,zr,zi,sort); // call some function to solve your Hamiltonian
-   
-   for(i=1;i&lt;=dj;++i)for(j=1;j&lt;=dj;++j)(*ests)(i,j)=complex &lt;double&gt; (zr(i,j),zi(i,j));   // fill matrix with eigenstates
- 
-    //calculate partition sum and Boltzmann probabilities pn
-    double zz;calculate_Z_pn(En,T,zz,pn);
-
-     // put Energies and Boltzmann population into row 0 of eigenstates...
-     for(j=1;j&lt;=dj;++j){(*eigenstates)(0,j)=complex&lt;double&gt;(En(j),pn(j));}
-
-}
-</PRE><SMALL CLASS="FOOTNOTESIZE">
-Note: if <SPAN CLASS="MATH"><IMG
- WIDTH="44" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img745.png"
- ALT="$T&lt;0$"></SPAN> all quantities should be evaluated assuming that all Boltzmann probabilities <SPAN CLASS="MATH"><IMG
- WIDTH="17" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img105.png"
- ALT="$p_i$"></SPAN>
- are zero except for the state number <SPAN CLASS="MATH"><IMG
- WIDTH="71" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img746.png"
- ALT="$n=(-T)$"></SPAN>, for which the probability <SPAN CLASS="MATH"><IMG
- WIDTH="50" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img747.png"
- ALT="$p_n=1$"></SPAN>.
-</SMALL>
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html1499"
-  HREF="node80.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1493"
-  HREF="node75.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1489"
-  HREF="node78.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1495"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1497"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A NAME="tex2html1500"
-  HREF="node80.html">Module Functions for Observables</A>
-<B> Up:</B> <A NAME="tex2html1494"
-  HREF="node75.html">Basic Module Functions</A>
-<B> Previous:</B> <A NAME="tex2html1490"
-  HREF="node78.html">External module function du1calc</A>
- &nbsp; <B>  <A NAME="tex2html1496"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1498"
-  HREF="node152.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 
 </BODY>
 </HTML>

@@ -1,84 +1,71 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Basic Module Functions</TITLE>
-<META NAME="description" CONTENT="Basic Module Functions">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Landé Factor</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node80.html">
+<LINK REL="next" HREF="node76.html">
 <LINK REL="previous" HREF="node74.html">
-<LINK REL="up" HREF="node74.html">
 <LINK REL="next" HREF="node76.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1441"
-  HREF="node76.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1435"
-  HREF="node74.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1429"
-  HREF="node74.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1437"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1439"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node76.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node74.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node74.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html726"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html728"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1442"
-  HREF="node76.html">External module function Icalc</A>
-<B> Up:</B> <A NAME="tex2html1436"
-  HREF="node74.html">All about Programming External</A>
-<B> Previous:</B> <A NAME="tex2html1430"
-  HREF="node74.html">All about Programming External</A>
- &nbsp; <B>  <A NAME="tex2html1438"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1440"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node76.html">Magnetic Formfactor Coefficients</A>
+<B> Up:</B> <A
+ HREF="node74.html">Single Ion Modules</A>
+<B> Previous:</B> <A
+ HREF="node74.html">Single Ion Modules</A>
+ &nbsp; <B>  <A ID="tex2html727"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html729"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION000171000000000000000">
-Basic Module Functions</A>
+<H2><A ID="SECTION000161000000000000000">
+Landé Factor</A>
 </H2>
 
 <P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+In order to calculate the magnetisation and Zeeman term, the Landé factor
+has to be entered in the single ion property file. For a rare earth ion this
+factor gives the ratio of negative angular momentum / magnetic moment.
+Note, for intermediate coupling schemes this factor has no meaning (should be set to zero).
 
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html1443"
-  HREF="node76.html">External module function <I CLASS="slanted">Icalc</I> - used by <I CLASS="slanted">mcphas</I>,
-<I CLASS="slanted">singleion</I> </A>
-<LI><A NAME="tex2html1444"
-  HREF="node77.html">External module function <I CLASS="slanted">Icalc_parameter_storage_matrix_init</I> - used by <I CLASS="slanted">
-mcphas</I>,<I CLASS="slanted">singleion</I>,<I CLASS="slanted">spins</I> and <I CLASS="slanted">
-densplt</I>,<I CLASS="slanted">mcdiff</I>  </A>
-<LI><A NAME="tex2html1445"
-  HREF="node78.html">External module function <I CLASS="slanted">du1calc</I> - used by <I CLASS="slanted">mcdisp</I>,<I CLASS="slanted">
-singleion</I></A>
-<LI><A NAME="tex2html1446"
-  HREF="node79.html">External module function <I CLASS="slanted">estates</I> - used by <I CLASS="slanted">mcdisp</I>,
- <I CLASS="slanted">
-mcdiff</I> and <I CLASS="slanted">singleion</I></A>
-</UL>
-<!--End of Table of Child-Links-->
+<P>
+<PRE>
+#Lande Factor
+GJ=0.85714
+</PRE>
+
+<P>
 <BR><HR>
 
 </BODY>

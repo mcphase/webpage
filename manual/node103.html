@@ -1,89 +1,110 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>icf1ion - Intermediate Crystal Field module</TITLE>
-<META NAME="description" CONTENT="icf1ion - Intermediate Crystal Field module">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>External module function chargedensity_coeff - used by densplt, spins, display_density,display_densities</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node104.html">
 <LINK REL="previous" HREF="node102.html">
-<LINK REL="up" HREF="node99.html">
 <LINK REL="next" HREF="node104.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1855"
-  HREF="node104.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1849"
-  HREF="node99.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1843"
-  HREF="node102.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1851"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1853"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node104.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node88.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node102.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html892"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html894"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1856"
-  HREF="node104.html">Formalism</A>
-<B> Up:</B> <A NAME="tex2html1850"
-  HREF="node99.html">ic1ion - a module</A>
-<B> Previous:</B> <A NAME="tex2html1844"
-  HREF="node102.html">using ic1ion as a</A>
- &nbsp; <B>  <A NAME="tex2html1852"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1854"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node104.html">External module function dchargedensity_coeff1</A>
+<B> Up:</B> <A
+ HREF="node88.html">Module Functions for Observables</A>
+<B> Previous:</B> <A
+ HREF="node102.html">External module function dP1</A>
+ &nbsp; <B>  <A ID="tex2html893"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html895"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION000184000000000000000">
-<I CLASS="slanted">icf1ion</I> - Intermediate Crystal Field module</A>
-</H2>
+<H3><A ID="SECTION0001721500000000000000"></A><A ID="3662"></A><A ID="3663"></A><A ID="3664"></A><A ID="3665"></A>
+<BR>
+External module function <I CLASS="slanted">chargedensity_coeff</I> -
+used by <I CLASS="slanted">densplt</I>,
+<I CLASS="slanted">spins</I>,
+<I CLASS="slanted">display_density</I>,<I CLASS="slanted">display_densities</I>
+</H3>
 
 <P>
-In addition to the full <I CLASS="slanted">ic1ion</I> module, there is a derived module, <I CLASS="slanted">icf1ion</I>, in which only the lowest
-energy term of constant <SPAN CLASS="MATH"><IMG
- WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img26.png"
- ALT="$L$"></SPAN> and <SPAN CLASS="MATH"><IMG
- WIDTH="14" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
- SRC="img265.png"
- ALT="$S$"></SPAN> is considered. Thus, the Coulomb interaction (see next section) is supposed
-to have such high energy that the low temperature physical properties may be accounted for just by the spin-orbit,
-crystal field, and exchange interactions. As a smaller energy matrix is required in this module, calculations will
-be faster. In the cases of a single outer shell electron or hole (e.g. Ce<SPAN CLASS="MATH"><IMG
- WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img3.png"
- ALT="$^{3+}$"></SPAN> or Yb<SPAN CLASS="MATH"><IMG
- WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img3.png"
- ALT="$^{3+}$"></SPAN>), the two modules are 
-identical. <I CLASS="slanted">icf1ion</I> accepts the same inputs as <I CLASS="slanted">ic1ion</I>, except that the Slater integrals <SPAN CLASS="MATH"><IMG
- WIDTH="24" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
- SRC="img813.png"
- ALT="$F^k$"></SPAN> are 
-ignored. 
+In order to calculate the chargedensity, the expansion coefficients
+have to be evaluated and
+ the following function has to be present in the module file <I CLASS="slanted">*.so</I>:
 
 <P>
-Currently (version 4.0), the beyond dipole part of <I CLASS="slanted">mcdisp</I> is not yet implemented, as are the calculations
-of the spin and orbital moment densities. All other packages may use <I CLASS="slanted">icf1ion</I>.
+<PRE>
+extern "C" void chargedensity_coeff(Vector &amp; cd,double * T, Vector &amp; Hxc, Vector &amp; Hext,
+                      double * gJ, Vector &amp; MODPAR,
+                      char ** sipffilename, ComplexMatrix &amp; Icalc_parstorage);
+</PRE>
+
+<P>
+it works exactly as <I CLASS="slanted">mcalc</I> with the only modification
+that the vector cd has 28 components, therefore we do not give more details here.
+
+<P>
+The module function must perform the following task:
+
+<OL>
+<LI>calculate the coefficients of <!-- MATH
+ $-|e|Z_l^m R^2(r)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.77ex; " SRC="img882.svg"
+ ALT="$-\vert e\vert Z_l^m R^2(r)$"></SPAN> in the expansion of
+      the charge density in equation (<A HREF="node150.html#chargedensity2">220</A>).
+      The output Vector cd(1,...,28) should contain  coefficients 
+     (i.e. <!-- MATH
+ $\langle\sum_i Z_l^m (\Omega_i)\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.66ex; vertical-align: -0.81ex; " SRC="img813.svg"
+ ALT="$\langle\sum_i Z_l^m(\Omega_i)\rangle$"></SPAN>)
+      in the following order (lm):  00, 2-2, 2-1,20,21,22, 4-4, 4-3,..,44,6-6,6-5 ...,65,66
+</LI>
+<LI>if <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.90ex; vertical-align: -0.21ex; " SRC="img830.svg"
+ ALT="$T&lt;0$"></SPAN> all quantities should be evaluated assuming that all Boltzmann probabilities <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img139.svg"
+ ALT="$p_i$"></SPAN>
+ are zero except for the state number <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img831.svg"
+ ALT="$n=(-T)$"></SPAN>, for which the probability <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img832.svg"
+ ALT="$p_n=1$"></SPAN>.
+</LI>
+</OL>
 
 <P>
 <BR><HR>

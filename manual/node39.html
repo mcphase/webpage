@@ -1,154 +1,161 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>How to generate and view a powder diffraction profile</TITLE>
-<META NAME="description" CONTENT="How to generate and view a powder diffraction profile">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>How to calculate only specific reflections, azimuth dependence and fitting of neutron intensities</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node40.html">
 <LINK REL="previous" HREF="node38.html">
-<LINK REL="up" HREF="node38.html">
 <LINK REL="next" HREF="node40.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html902"
-  HREF="node40.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html896"
-  HREF="node38.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html890"
-  HREF="node38.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html898"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html900"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node40.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node37.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node38.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html545"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html547"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html903"
-  HREF="node40.html">How to calculate only</A>
-<B> Up:</B> <A NAME="tex2html897"
-  HREF="node38.html">mcdiff - calculate and</A>
-<B> Previous:</B> <A NAME="tex2html891"
-  HREF="node38.html">mcdiff - calculate and</A>
- &nbsp; <B>  <A NAME="tex2html899"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html901"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node40.html">Formalism I - Resonant</A>
+<B> Up:</B> <A
+ HREF="node37.html">mcdiff - calculate and</A>
+<B> Previous:</B> <A
+ HREF="node38.html">How to generate and</A>
+ &nbsp; <B>  <A ID="tex2html546"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html548"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION000111000000000000000">
-How to generate and view a powder diffraction profile</A>
+<H2><A ID="SECTION000112000000000000000">
+How to calculate only specific reflections, azimuth dependence and fitting of neutron intensities</A>
 </H2>
 
 <P>
-.. such a reflection list can be easily transformed into a diffraction pattern
-by convolution with the resolution function of a neutron diffractometer.
+For the fit of experimental intensities it is often desirable to save computation
+time by calculating the intensity only for a specified set of reflections and 
+compare it to experimental data. Such list should have the following format
 
 <P>
-
-<UL>
-<LI>Simple resolution functions can be easily generated with the help of the programs
-<I CLASS="slanted">gauss<A NAME="2854"></A></I> and <I CLASS="slanted">lorentz<A NAME="2855"></A></I>. Any other numerical
-resolution function, e.g. from a measurement or simulation can be used.
-</LI>
-<LI>Use program  <I CLASS="slanted">convolute<A NAME="2856"></A></I> for doing the convolution. 
-Here is an example command: 
-<I CLASS="slanted">convolute<A NAME="2857"></A> 6 8  results/mcdiff<A NAME="2858"></A>.out
-1 2 resultshb/resolution.dat</I>
-... this gives magnetic pattern such as shown in fig.&nbsp;<A HREF="#elnpattern">11</A>
-</LI>
-<LI>Usually the convolution needs to be done to compare to experimental
-data and needs only to be evaluated at the experimental data points, for
-example the measured scattering angle values <SPAN CLASS="MATH"><IMG
- WIDTH="24" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
- SRC="img219.png"
- ALT="$2\Theta$"></SPAN>. This can be 
-done by adding a data file to the command,
-<I CLASS="slanted">convolute<A NAME="2860"></A> 6 8  results/mcdiff<A NAME="2861"></A>.out
-1 2 resultshb/resolution.dat 1 2 datafile.dat</I>. In our example the
-data file contains the experimental data in columns 1 (angle) and columns 2 (Intensity).
-</LI>
-<LI>If needed the resolution function can be stretched using stretching
-values given in a separate column of the data file - the command is then
-<I CLASS="slanted">convolute<A NAME="2862"></A> 6 8  results/mcdiff<A NAME="2863"></A>.out
-1 2 resultshb/resolution.dat 1 2 datafile.dat 13</I> (in this example the stretching
-factor is taken from column 13 of the datafile.
-</LI>
-<LI>Generating of the stretching factor: the stretching factor
-may be generated by program <I CLASS="slanted">uvw2fwhm<A NAME="2864"></A></I> from
-the scattering angle values and the parameters U,V and W (as in <I CLASS="slanted">FullProf<A NAME="2865"></A></I>.
+<PRE>
+#{h     k     l }
+0.500 0.500 0.500 
+0.500 0.500 1.500 
+0.500 0.500 2.500
+</PRE>
 
 <P>
-</LI>
-</UL>
+Lets assume such a list is stored  as file <I CLASS="slanted">hkllist.dat</I>.
+Then <I CLASS="slanted">mcdiff<A ID="1054"></A></I> can be started as: <I CLASS="slanted">mcdiff<A ID="1055"></A> hkllist.dat</I>.
+The output file will then contain the azimuth dependence of the magnetic intensity.
 
 <P>
+Alternatively, experimental intensities can be entered in the list, for example as
 
-<DIV ALIGN="CENTER"><A NAME="elnpattern"></A><A NAME="3233"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM"><STRONG>Figure 11:</STRONG>
+<P>
+<PRE>
+#{h  k   l       Iexp err}
+0.500 0.500 0.500 115 4
+0.500 0.500 1.500 84  3
+0.500 0.500 2.500 50  1
+0.500 0.500 3.500 29  1
+0.500 0.500 4.500 22  2
+0.500 0.500 5.500 15  1
+0.500 0.500 6.500 12  1
+#
+1.500 1.500 0.500 -1
+1.500 -1.50 0.500 -1
+-1.50 1.500 0.500 77  8
+1.500 1.500 1.500 65  7
+1.500 1.500 2.500 59  5
+1.500 1.500 3.500 51  5
+</PRE>
 
-Calculated magnetic neutron powder diffraction pattern
-of NdCu<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN>&nbsp;[<A
- HREF="node151.html#gratz91-9297">24</A>] at T=2&nbsp;K.
-[plot created by program <I CLASS="slanted">mcdiff<A NAME="2871"></A>+convolute<A NAME="2872"></A>+display</I>]</CAPTION>
-<TR><TD><IMG
- WIDTH="610" HEIGHT="273" ALIGN="BOTTOM" BORDER="0"
- SRC="img220.png"
- ALT="\includegraphics[angle=0,width=1.1\textwidth]{figsrc/patternAF1.eps}"></TD></TR>
-</TABLE>
-</DIV>
+<P>
+In this case the calculated neutron intensities are compared to
+the experimental intensities and the Rp value <!-- MATH
+ $R_{\rm p}=100
+\frac{\sum_{hkl} |I_{calc}(hkl)-I_{exp}(hkl)|}{\sum_{hkl}|I_{\rm 
+exp}(hkl)|}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 4.00ex; vertical-align: -1.44ex; " SRC="img257.svg"
+ ALT="$R_{\rm p}=100
+\frac{\sum_{hkl} \vert I_{calc}(hkl)-I_{exp}(hkl)\vert}{\sum_{hkl}\vert I_{\rm
+exp}(hkl)\vert}$"></SPAN>. and <!-- MATH
+ $\chi^2=\sum_{hkl}\frac{ (I_{calc}(hkl)-I_{exp}(hkl))^2}{n(\Delta I_{\rm
+experror}(hkl))^2}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 4.10ex; vertical-align: -1.38ex; " SRC="img258.svg"
+ ALT="$\chi^2=\sum_{hkl}\frac{ (I_{calc}(hkl)-I_{exp}(hkl))^2}{n(\Delta I_{\rm
+experror}(hkl))^2}$"></SPAN>
+is calculated (here <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
+ ALT="$n$"></SPAN> denotes the number of experimental reflections). 
+
+<P>
+Note, a negative experimental intensity in this
+list means, that the intensity of that reflection has to
+be added to the intensity of the next reflection in the list 
+and the sum should be compared to an experimental intensity.
+In this way domains or overlapping reflections can be treated. 
+The program will always calculate the intensity for each reflection
+seperately, if you wish to calculate the sum of intensities, which
+are compared to the experimental intensity, use program <I CLASS="slanted">sum_mcdiff_out</I><A ID="1069"></A>.
 
 <P>
 
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html902"
-  HREF="node40.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html896"
-  HREF="node38.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html890"
-  HREF="node38.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html898"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html900"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node40.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node37.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node38.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html545"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html547"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html903"
-  HREF="node40.html">How to calculate only</A>
-<B> Up:</B> <A NAME="tex2html897"
-  HREF="node38.html">mcdiff - calculate and</A>
-<B> Previous:</B> <A NAME="tex2html891"
-  HREF="node38.html">mcdiff - calculate and</A>
- &nbsp; <B>  <A NAME="tex2html899"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html901"
-  HREF="node152.html">Index</A></B> </DIV>
+<B> Next:</B> <A
+ HREF="node40.html">Formalism I - Resonant</A>
+<B> Up:</B> <A
+ HREF="node37.html">mcdiff - calculate and</A>
+<B> Previous:</B> <A
+ HREF="node38.html">How to generate and</A>
+ &nbsp; <B>  <A ID="tex2html546"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html548"
+  HREF="node164.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

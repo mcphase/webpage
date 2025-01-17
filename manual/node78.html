@@ -1,284 +1,76 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>External module function du1calc - used by mcdisp,singleion</TITLE>
-<META NAME="description" CONTENT="External module function du1calc - used by mcdisp,singleion">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Nuclear Neutron Scattering Length</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node79.html">
 <LINK REL="previous" HREF="node77.html">
-<LINK REL="up" HREF="node75.html">
 <LINK REL="next" HREF="node79.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1487"
-  HREF="node79.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1481"
-  HREF="node75.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1475"
-  HREF="node77.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1483"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1485"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node79.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node74.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node77.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html738"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html740"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1488"
-  HREF="node79.html">External module function estates</A>
-<B> Up:</B> <A NAME="tex2html1482"
-  HREF="node75.html">Basic Module Functions</A>
-<B> Previous:</B> <A NAME="tex2html1476"
-  HREF="node77.html">External module function Icalc_parameter_storage_matrix_init</A>
- &nbsp; <B>  <A NAME="tex2html1484"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1486"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node79.html">Radial Wavefunction</A>
+<B> Up:</B> <A
+ HREF="node74.html">Single Ion Modules</A>
+<B> Previous:</B> <A
+ HREF="node77.html">Debye Waller Factor</A>
+ &nbsp; <B>  <A ID="tex2html739"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html741"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION000171300000000000000"></A><A NAME="6964"></A><A NAME="6965"></A>
-<BR>
-External module function <I CLASS="slanted">du1calc</I> - used by <I CLASS="slanted">mcdisp</I>,<I CLASS="slanted">
-singleion</I>
-</H3>
+<H2><A ID="SECTION000164000000000000000">
+Nuclear Neutron Scattering Length</A>
+</H2>
 
 <P>
-The external single ion module has to provide the components nofcomponentsxnofcomponents
-matrix <!-- MATH
- $M^s_{\alpha\beta}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="36" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img748.png"
- ALT="$M^s_{\alpha\beta}$"></SPAN> (see equation (<A HREF="node140.html#mmatrix">230</A>)) for every transition
-<!-- MATH
- $|-\rangle \rightarrow |+\rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="74" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img749.png"
- ALT="$\vert-\rangle \rightarrow \vert+\rangle$"></SPAN>which is to be taken into consideration 
-in the calculation. Note, in general<!-- MATH
- $M^s_{\alpha\beta}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="36" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img748.png"
- ALT="$M^s_{\alpha\beta}$"></SPAN> it is a quadratic matrix with the same
-dimension as the vectors <SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img741.png"
- ALT="$\mathbf I$"></SPAN> and Hxc. 
-Actually it is not necessary to compute the whole  Matrix <!-- MATH
- $M^s_{\alpha\beta}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="36" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img748.png"
- ALT="$M^s_{\alpha\beta}$"></SPAN>, because
-only the first eigenvector is needed in the computations.
-Thus, in order to make calculations easier and provide a unique phase of the eigenvectors, the 
-external single ion module must return not the Matrix <SPAN CLASS="MATH"><IMG
- WIDTH="21" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img750.png"
- ALT="$M$"></SPAN> but the unnormalized
-eigenvector <SPAN CLASS="MATH"><IMG
- WIDTH="21" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img751.png"
- ALT="$u1$"></SPAN>, which is given by equation (<A HREF="node140.html#ufirstrow">232</A>):
- <!-- MATH
- ${\mathbf u^s_{\alpha1}}=\sqrt{(p_- -p_+)}\langle -|I^s_{\alpha}-\langle I^s_{\alpha}\rangle_{\mathbf H,T}|+\rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="270" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img752.png"
- ALT="${\mathbf u^s_{\alpha1}}=\sqrt{(p_--p_+)}\langle -\vert I^s_{\alpha}-\langle I^s_{\alpha}\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>. 
-Note that in contrast to <!-- MATH
- ${\mathcal U^s_{\alpha1}}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="29" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img753.png"
- ALT="${\mathcal U^s_{\alpha1}}$"></SPAN> the eigenvector
-<!-- MATH
- ${\mathbf u^s_{\alpha1}}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="29" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img754.png"
- ALT="${\mathbf u^s_{\alpha1}}$"></SPAN> is not normalised (no <SPAN CLASS="MATH"><IMG
- WIDTH="13" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img375.png"
- ALT="$\gamma$"></SPAN>!)
-and thus the matrix  <!-- MATH
- $M^s_{\alpha\beta}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="36" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img748.png"
- ALT="$M^s_{\alpha\beta}$"></SPAN> may be recovered from it.
+In order to calculate nuclear neutron intensities properly, <I CLASS="slanted">mcdiff</I> has to
+be provided with the neutron scattering length in units of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img798.svg"
+ ALT="$10^{-14}$"></SPAN>&nbsp;m.
+<SPAN CLASS="FOOTNOTESIZE">
+</SPAN><PRE>
+#-------------------------------------------------------
+# Neutron Scattering Length (10^-12 cm) (can be complex)
+#-------------------------------------------------------
+SCATTERINGLENGTHREAL=0.769
+SCATTERINGLENGTHIMAG=0
+#  ... note: - if an occupancy other than 1.0 is needed, just reduce 
+#              the scattering length linear accordingly
+</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
 
 <P>
-The format to be used is:
-<SMALL CLASS="FOOTNOTESIZE">
-</SMALL><PRE>
-extern "C" int du1calc(int &amp; tn,double &amp; T,Vector &amp; Hxc,Vector &amp; Hext,double * g_J,Vector &amp; MODPAR,
-char ** sipffilename,ComplexVector &amp; u1,float &amp; delta, int &amp; n, int &amp; nd, ComplexMatrix &amp; est)
-</PRE>
-<P>
-<SMALL CLASS="FOOTNOTESIZE">The meaning of the symbols is as follows:
-</SMALL>
-<P>
-<PRE>
-on input
-   |tn|            transition-number  
-   sign(tn)        &gt;0 standard, &lt;0 routine should do some printout to stdout for user information
-   MODPAR          Vector with Parameters  read in single ion property file
-   sipffilename    file name of the single ion parameter file
-   g_J             Lande factor
-   T               Temperature[K]
-   Hxc             vector of exchange field [meV] (can be n-dimensional, for a set of n operators)
-   Hext            external magnetic field [T]
-   est             eigenstate matrix (initialized by estates)
-                   it should/may also contain population numbers of the states
-				   (imaginary part of row 0)
-                   and eigenvalues (real part of row 0) with values set by the most recent call
-				   for this ion (use of this matrix is optional)
-   u1(1)           ninit + i pinit (from mcdisp options  -ninit and -pinit)
-   delta           upper boundary for transition energy (meV) to be considered
-                   (from mcdisp option -maxE)
-on output
-   int             total number of transitions
-   delta           transition energy [meV]
-   n,nd            initial and final level
-   u1             vector u1=&lt;-|Ialpha-&lt;Ialpha&gt;|+&gt;sqrt((p- - p+))                          
-                note that as in Icalc the single ion momentum vector &lt;-|I|+&gt; 
-				(n- dimensional with n&gt;=1)
-                may be an arbitrary set of operators
-</PRE>
-The module function must perform the following tasks:
-
-<OL>
-<LI>check if the dimensions of vectors I,Hxc (taken by <I CLASS="slanted">mcphas</I> from the number of 
-interaction constant columns in <I CLASS="slanted">mcphas.j<A NAME="6985"></A></I>)
- and MODPAR (taken by <I CLASS="slanted">mcphas</I> from the number of params in the single ion property
-file) agree with the module specifications. Note a module may be designed to 
-take different dimensions depending on the input files, however the dimensions
-of vectors I and Hxc has to agree and must be within the range of dimensions which
-can be treated by the module. If the check fails the module function should exit the
-program with an appropriate error message
-</LI>
-<LI>the module function should do a numbering of all possible single ion transitions and return
-the total number of transitions as an integer. Input file parameters params are supplied as a vector MODPAR and
-Lande factor as g_J and  can be used for this purpose. The numbering will depend on
-the parameters ninit, pinit and maxE which are provided as input. These parameters
-have to be considered. <EM>IMPORTANT: the numbering scheme of transitions has to
-be the same for du1calc and all the corresponding d...1 functions for observables !</EM>
-</LI>
-<LI>it should calculate from meanfields at a given temperature the 
-transition energy of transition number <I CLASS="slanted">tn</I>. The result should be returned as <I CLASS="slanted">delta</I>
-</LI>
-<LI>for the transition number tn the vector u1 is to
- be filled with 
-<!-- MATH
- ${\mathbf u^s_{\alpha1}}=\sqrt{(p_- -p_+)}\langle -|\hat I^s_{\alpha}-\langle \hat I^s_{\alpha}\rangle_{\mathbf H,T}|+\rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="270" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img755.png"
- ALT="${\mathbf u^s_{\alpha1}}=\sqrt{(p_--p_+)}\langle -\vert\hat I^s_{\alpha}-\langle \hat I^s_{\alpha}\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>.
-</LI>
-<LI>If the energy of this transition
-is zero, i.e. <SPAN CLASS="MATH"><IMG
- WIDTH="74" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img756.png"
- ALT="$\Delta(tn)=0$"></SPAN> (diffuse scattering), 
-the expression (<A HREF="node140.html#mmatrix">230</A>) would be zero because <SPAN CLASS="MATH"><IMG
- WIDTH="73" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img757.png"
- ALT="$(p_--p_+)$"></SPAN> vanishes.
-In this case the single ion module should calculate <SPAN CLASS="MATH"><IMG
- WIDTH="63" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img758.png"
- ALT="$(p_+/kT)$"></SPAN> instead of <SPAN CLASS="MATH"><IMG
- WIDTH="73" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img757.png"
- ALT="$(p_--p_+)$"></SPAN>.
-</LI>
-<LI>if transition is from a level to itself, then a negative 
-value of <!-- MATH
- $\Delta=-10^{-10}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="90" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
- SRC="img759.png"
- ALT="$\Delta=-10^{-10}$"></SPAN> should be returned.
-</LI>
-<LI>if <SPAN CLASS="MATH"><IMG
- WIDTH="44" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img745.png"
- ALT="$T&lt;0$"></SPAN> all quantities should be evaluated assuming that all Boltzmann probabilities <SPAN CLASS="MATH"><IMG
- WIDTH="17" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img105.png"
- ALT="$p_i$"></SPAN>
- are zero except for the state number <SPAN CLASS="MATH"><IMG
- WIDTH="71" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img746.png"
- ALT="$n=(-T)$"></SPAN>, for which the probability <SPAN CLASS="MATH"><IMG
- WIDTH="50" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img747.png"
- ALT="$p_n=1$"></SPAN>.
-</LI>
-</OL>
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html1487"
-  HREF="node79.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1481"
-  HREF="node75.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1475"
-  HREF="node77.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1483"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1485"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A NAME="tex2html1488"
-  HREF="node79.html">External module function estates</A>
-<B> Up:</B> <A NAME="tex2html1482"
-  HREF="node75.html">Basic Module Functions</A>
-<B> Previous:</B> <A NAME="tex2html1476"
-  HREF="node77.html">External module function Icalc_parameter_storage_matrix_init</A>
- &nbsp; <B>  <A NAME="tex2html1484"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1486"
-  HREF="node152.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 
 </BODY>
 </HTML>

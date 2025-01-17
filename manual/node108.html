@@ -1,164 +1,90 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Programs display, displaybubbles, displaycontour, displaytext and show - graphical display of any xy data such as magnetisation etc.</TITLE>
-<META NAME="description" CONTENT="Programs display, displaybubbles, displaycontour, displaytext and show - graphical display of any xy data such as magnetisation etc.">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>External module function dorbmomdensity_coeff1 - used by mcdisp</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node109.html">
 <LINK REL="previous" HREF="node107.html">
-<LINK REL="up" HREF="node107.html">
 <LINK REL="next" HREF="node109.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1929"
-  HREF="node109.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1923"
-  HREF="node107.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1917"
-  HREF="node107.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1925"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1927"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node109.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node88.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node107.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html912"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html914"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1930"
-  HREF="node109.html">Programs display_density - display</A>
-<B> Up:</B> <A NAME="tex2html1924"
-  HREF="node107.html">Programs for Graphical display</A>
-<B> Previous:</B> <A NAME="tex2html1918"
-  HREF="node107.html">Programs for Graphical display</A>
- &nbsp; <B>  <A NAME="tex2html1926"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1928"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node109.html">External module function ro_calc</A>
+<B> Up:</B> <A
+ HREF="node88.html">Module Functions for Observables</A>
+<B> Previous:</B> <A
+ HREF="node107.html">External module function orbmomdensity_coeff</A>
+ &nbsp; <B>  <A ID="tex2html913"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html915"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION000201000000000000000"></A><A NAME="10045"></A><A NAME="10046"></A><A NAME="10047"></A><A NAME="10049"></A>
-<A NAME="display"></A>
+<H3><A ID="SECTION0001722000000000000000"></A><A ID="3744"></A>
 <BR>
-Programs <I CLASS="slanted">display</I>, <I CLASS="slanted">displaybubbles</I>, <I CLASS="slanted">
-displaycontour</I>, <I CLASS="slanted">displaytext</I> and <I CLASS="slanted">show</I> - graphical 
-display of any xy data such as magnetisation etc.
-</H2>
+External module function <I CLASS="slanted">dorbmomdensity_coeff1</I> - used by <I CLASS="slanted">mcdisp</I>
+</H3>
 
 <P>
-<DL>
-<DT><STRONG>display<A NAME="10052"></A> 1 11 ./results/mcphas.fum</STRONG></DT>
-<DD>produces a graphical display<A NAME="10053"></A> of the data 
-file
-mcphas.fum on screen. The display<A NAME="10054"></A> contains an xy plot of column 1 versus column 11
-(<I CLASS="slanted">java</I> has to be installed to use this program). 
-More files may be displayed by commands such as
+In order to visualize orbital moment density  fluctuations 
+ the external single ion module has to provide the transition
+matrix elements of the spindensity coefficient operator <!-- MATH
+ $a^{x,y,z}_{L,lm}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.05ex; vertical-align: -1.13ex; " SRC="img893.svg"
+ ALT="$a^{x,y,z}_{L,lm}$"></SPAN> by a
+vector <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img889.svg"
+ ALT="$aSlm1$"></SPAN>, which is given by:
+ <!-- MATH
+ ${\rm aL1}^s_{\alpha=lm}=\sqrt{(p_- -p_+)}\langle -|a^{x,y,z}_{L,lm}-\langle a^{x,y,z}_{L,lm}\rangle_{\mathbf H,T}|+\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.41ex; vertical-align: -1.13ex; " SRC="img897.svg"
+ ALT="${\rm aL1}^s_{\alpha=lm}=\sqrt{(p_--p_+)}\langle -\vert a^{x,y,z}_{L,lm}-\langle a^{x,y,z}_{L,lm}\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>. 
 
 <P>
-<B>display<A NAME="10056"></A> 1 2 data1.dat 3 5 data2.dat</B>.
+The format to be used is:
+<SPAN CLASS="FOOTNOTESIZE">
+</SPAN><PRE>
+extern "C" int dspindensity_ceoff1(int &amp; tn,double &amp; T,Vector &amp; Hxc,Vector &amp; Hext,double * g_J,Vector &amp; MODPAR,
+char ** sipffilename,ComplexVector &amp; aLlm1,int &amp; xyz,float &amp; maxE, ComplexMatrix &amp; est)
+</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+The meaning of the symbols follows exactly that of function 
+<I CLASS="slanted">dm1</I> and therefore not explained here.
 
 <P>
-Note that viewing of 
-data which is generated by programs may be viewed online. The program updates the plot
-every 500 milliseconds. In this way it is possible to watch online, how programs
-calculate data. The output of display<A NAME="10057"></A> may contain lines to tune the display<A NAME="10058"></A> output, 
-such as
-<PRE>
-	most general usage: 
-
- display [-options] xcol[excolerr] ycol[eycolerr][bcolbubble] file [xcol1[] ycol1[] file1 ...]
-
-
-xcol,ycol ... column to be taken as x-, y- axis  in a lineplot
-when using option -o file.jpg the application creates a jpg file on exiting
-when using option -xmin 23.3 the application sets the minimum of the display xaxis to 23.3
-similar are options -xmax -ymin -ymax -title ....
-when using option -c file.jpg the application only creates a jpg file and exits immediatly
-if optional errorcolumns are added then instead of lines symbols and errorbars are shown
-if optional bubblecolumns are added then instead of lines bubbles with area corresponding to
-bubblecolumn are shown (toggle bubblesize with 's' and 'b')
-(toggle lines also with '-' key))
-filename ..... filename of datafile
-Data files may contain lines to tune the display output, such as
-#! displaytitle=My new Graph
-#! displayytext=intensity
-#! displayxtext=meV
-</PRE> 
-
-<P>
-</DD>
-<DT><STRONG>displaybubbles<A NAME="10061"></A>  5 6 8 ./results/mcdisp.qei</STRONG></DT>
-<DD>works similar as display, however
-a third column is given and the radius of the symbols varied according to the data in 
-this column.
-
-<P>
-</DD>
-<DT><STRONG>displaycontour<A NAME="10062"></A> 5 6 8 ./results/mcdisp.dsigma.tot</STRONG></DT>
-<DD>produces a graphical
-display<A NAME="10063"></A> of a 3 dimensional dataset as a colour and/or contour plot. Here '5 6 8' 
-denote the x,y and z column in file <I CLASS="slanted">./results/mcdisp.dsigma.tot</I>, which should
-be plotted. Figure&nbsp;<A HREF="node47.html#ho2ti2o7diffuse">12</A> shows an sample output of this program. The axes labels may be changed
-in Tree View <SPAN CLASS="MATH"><IMG
- WIDTH="20" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img937.png"
- ALT="$\rightarrow$"></SPAN> xaxis title, etc.
-
-<P>
-</DD>
-<DT><STRONG>displaytext<A NAME="10066"></A> ./results/mcphas.hkl</STRONG></DT>
-<DD>monitors the file mcphas.hkl in a text window
-on screen.
-</DD>
-</DL> 
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html1929"
-  HREF="node109.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1923"
-  HREF="node107.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1917"
-  HREF="node107.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1925"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1927"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A NAME="tex2html1930"
-  HREF="node109.html">Programs display_density - display</A>
-<B> Up:</B> <A NAME="tex2html1924"
-  HREF="node107.html">Programs for Graphical display</A>
-<B> Previous:</B> <A NAME="tex2html1918"
-  HREF="node107.html">Programs for Graphical display</A>
- &nbsp; <B>  <A NAME="tex2html1926"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1928"
-  HREF="node152.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 
 </BODY>
 </HTML>

@@ -1,311 +1,696 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Shortlist of important Commands and Input Files</TITLE>
-<META NAME="description" CONTENT="Shortlist of important Commands and Input Files">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Calculation of the Correlation Function of Physical Observables</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node154.html">
 <LINK REL="previous" HREF="node152.html">
-<LINK REL="up" HREF="manual.html">
 <LINK REL="next" HREF="node154.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2565"
-  HREF="node154.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2559"
-  HREF="manual.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2553"
-  HREF="node152.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2561"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html2563"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node154.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node151.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node152.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html1121"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html1123"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html2566"
-  HREF="node154.html">About this document ...</A>
-<B> Up:</B> <A NAME="tex2html2560"
-  HREF="manual.html">McPhase USERS MANUAL</A>
-<B> Previous:</B> <A NAME="tex2html2554"
-  HREF="node152.html">Index</A>
- &nbsp; <B>  <A NAME="tex2html2562"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html2564"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node154.html">Evaluating results - Graphical</A>
+<B> Up:</B> <A
+ HREF="node151.html">Dynamical Susceptibility and Excitations</A>
+<B> Previous:</B> <A
+ HREF="node152.html">DMD - formalism</A>
+ &nbsp; <B>  <A ID="tex2html1122"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1124"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION000440000000000000000"></A><A NAME="shortlist"></A>
+<H2><A ID="SECTION000372000000000000000"></A>
+<A ID="chiobservable"></A>
 <BR>
-Shortlist of important Commands and Input Files
-</H1>
+Calculation of the Correlation Function of Physical Observables
+</H2>
 
 <P>
-<BR><P></P>
-<DIV ALIGN="CENTER">
-<A NAME="tab:shortlist"></A><TABLE CELLPADDING=3 BORDER="1">
-<TR><TD ALIGN="LEFT">Program</TD>
-<TD ALIGN="LEFT">Input File</TD>
-<TD ALIGN="LEFT">Input File Created by</TD>
-</TR>
-<TR><TD ALIGN="LEFT">anisotropy</TD>
-<TD ALIGN="LEFT">[mcphas.j]</TD>
-<TD ALIGN="LEFT">cif2mcphas and makenn</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">*.sipf</TD>
-<TD ALIGN="LEFT">copy from existing example and edit with mcphaseexplorer mpe</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">cif2mcphas and edit with mpe</TD>
-</TR>
-<TR><TD ALIGN="LEFT">bfk</TD>
-<TD ALIGN="LEFT">*.cef</TD>
-<TD ALIGN="LEFT">singleion</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">*.par</TD>
-<TD ALIGN="LEFT">editor, copy from example and edit</TD>
-</TR>
-<TR><TD ALIGN="LEFT">bcfph</TD>
-<TD ALIGN="LEFT">results/op.mat</TD>
-<TD ALIGN="LEFT">singleion wit option  -opmat</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">phonon.int</TD>
-<TD ALIGN="LEFT">parlinsky program for phonons *.d51</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">g_alpha.s</TD>
-<TD ALIGN="LEFT">adapt makegalphas.pl from examples cecu2ge2_cf_phonon_int</TD>
-</TR>
-<TR><TD ALIGN="LEFT">cpsingleion</TD>
-<TD ALIGN="LEFT">results/*.sipf.levels</TD>
-<TD ALIGN="LEFT">singleion</TD>
-</TR>
-<TR><TD ALIGN="LEFT">display_densities</TD>
-<TD ALIGN="LEFT">results/mcphas.mf</TD>
-<TD ALIGN="LEFT">mcphas</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">mcphas.j</TD>
-<TD ALIGN="LEFT">cif2mcphas and makenn</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">*.sipf</TD>
-<TD ALIGN="LEFT">copy from existing example and edit with mcphaseexplorer mpe</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">cif2mcphas and edit with mpe</TD>
-</TR>
-<TR><TD ALIGN="LEFT">display_density</TD>
-<TD ALIGN="LEFT">*.sipf</TD>
-<TD ALIGN="LEFT">copy from existing example and edit with mcphaseexplorer mpe</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">cif2mcphas and edit with mpe</TD>
-</TR>
-<TR><TD ALIGN="LEFT">formfactor</TD>
-<TD ALIGN="LEFT">*.sipf</TD>
-<TD ALIGN="LEFT">copy from existing example and edit with mcphaseexplorer mpe</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">cif2mcphas and edit with mpe</TD>
-</TR>
-<TR><TD ALIGN="LEFT">ic1ion</TD>
-<TD ALIGN="LEFT">*.sipf</TD>
-<TD ALIGN="LEFT">copy from existing example and edit with mcphaseexplorer mpe</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">cif2mcphas and edit with mpe</TD>
-</TR>
-<TR><TD ALIGN="LEFT">makenn</TD>
-<TD ALIGN="LEFT">mcphas.j</TD>
-<TD ALIGN="LEFT">cif2mcphas</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">*.sipf</TD>
-<TD ALIGN="LEFT">copy from existing example and edit with mcphaseexplorer mpe</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">cif2mcphas and edit with mpe</TD>
-</TR>
-<TR><TD ALIGN="LEFT">mcdiff</TD>
-<TD ALIGN="LEFT">mcdiff.in</TD>
-<TD ALIGN="LEFT">mcphas and setup_mcdiff_in</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">cif2mcphas</TD>
-</TR>
-<TR><TD ALIGN="LEFT">mcdisp</TD>
-<TD ALIGN="LEFT">mcdisp.par</TD>
-<TD ALIGN="LEFT">Editor, copy from existing example</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">mcdisp.mf</TD>
-<TD ALIGN="LEFT">mcphas and setup_mcdisp_mf</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">mcphas.j</TD>
-<TD ALIGN="LEFT">cif2mcphas</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">*.sipf</TD>
-<TD ALIGN="LEFT">copy from existing example and edit with mcphaseexplorer mpe</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">cif2mcphas and edit with mpe</TD>
-</TR>
-<TR><TD ALIGN="LEFT">mcphas</TD>
-<TD ALIGN="LEFT">mcphas.ini</TD>
-<TD ALIGN="LEFT">copy from existing example and edit</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">mcphas.j</TD>
-<TD ALIGN="LEFT">cif2mcphas and makenn</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">[mcphas.tst]</TD>
-<TD ALIGN="LEFT">copy from existing example and edit inserting</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">spinconfigurations from results/mcphas.sps</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">*.sipf</TD>
-<TD ALIGN="LEFT">copy from existing example and edit with mcphaseexplorer mpe</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">cif2mcphas and edit with mpe</TD>
-</TR>
-<TR><TD ALIGN="LEFT">powdermagnon</TD>
-<TD ALIGN="LEFT">mcphas.j</TD>
-<TD ALIGN="LEFT">cif2mcphas</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">*.sipf</TD>
-<TD ALIGN="LEFT">copy from existing example and edit with mcphaseexplorer mpe</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">cif2mcphas and edit with mpe</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">results/mcdisp.qei (option -r)</TD>
-<TD ALIGN="LEFT">mcdisp</TD>
-</TR>
-<TR><TD ALIGN="LEFT">searchspace</TD>
-<TD ALIGN="LEFT">*.forfit</TD>
-<TD ALIGN="LEFT">editor, copy of file * with fitting parameter starting value range</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">calcsta</TD>
-<TD ALIGN="LEFT">editor, batch file for calculation of sta</TD>
-</TR>
-<TR><TD ALIGN="LEFT">setup_mcdiff_in</TD>
-<TD ALIGN="LEFT">results/mcphas.mf</TD>
-<TD ALIGN="LEFT">mcphas</TD>
-</TR>
-<TR><TD ALIGN="LEFT">setup_mcdisp_mf</TD>
-<TD ALIGN="LEFT">results/mcphas.mf</TD>
-<TD ALIGN="LEFT">mcphas</TD>
-</TR>
-<TR><TD ALIGN="LEFT">setup_mcphasjforfit</TD>
-<TD ALIGN="LEFT">mcphas.j</TD>
-<TD ALIGN="LEFT">cif2mcphas</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">*.sipf</TD>
-<TD ALIGN="LEFT">copy from existing example and edit with mcphaseexplorer mpe</TD>
-</TR>
-<TR><TD ALIGN="LEFT">setup_jqfit</TD>
-<TD ALIGN="LEFT">mcphas.j</TD>
-<TD ALIGN="LEFT">cif2mcphas</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">*.sipf</TD>
-<TD ALIGN="LEFT">copy from existing example and edit with mcphaseexplorer mpe</TD>
-</TR>
-<TR><TD ALIGN="LEFT">singleion</TD>
-<TD ALIGN="LEFT">*.sipf</TD>
-<TD ALIGN="LEFT">copy from existing example and edit with mcphaseexplorer mpe</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">cif2mcphas and edit with mpe</TD>
-</TR>
-<TR><TD ALIGN="LEFT">simannfit</TD>
-<TD ALIGN="LEFT">*.forfit</TD>
-<TD ALIGN="LEFT">editor, copy of file * with fitting parameter starting value range</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">calcsta (linux)</TD>
-<TD ALIGN="LEFT">editor, batch file for calculation of sta</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">calcsta.bat (windows)</TD>
-<TD ALIGN="LEFT">editor, batch file for calculation of sta</TD>
-</TR>
-</TABLE>
+Physical observables are related to operators such as the magnetic moment components or the scattering operators. We now
+introduce a series
+of observables <!-- MATH
+ $\hat \mathcal O_{\alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img419.svg"
+ ALT="$\hat \mathcal O_{\alpha}$"></SPAN> (<!-- MATH
+ $\alpha=1,...,m'$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.85ex; vertical-align: -0.57ex; " SRC="img1462.svg"
+ ALT="$\alpha=1,...,m'$"></SPAN>)
+for each subsystem <!-- MATH
+ $n=(\ensuremath{\boldsymbol\ell}s)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.42ex; vertical-align: -0.70ex; " SRC="img1463.svg"
+ ALT="$n=(\ensuremath{\boldsymbol\ell}s)$"></SPAN>
+and define a corresponding correlation function and
+dynamical susceptibility. The correlation function we denote as
+<!-- MATH
+ $\underline{\overline{\Sigma}}({\mathbf Q},\omega)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 6.90ex; vertical-align: -0.70ex; " SRC="img1464.svg"
+ ALT="$\underline{\overline{\Sigma}}({\mathbf Q},\omega)$"></SPAN>
+
+<P>
+<BR>
+<DIV CLASS="displaymath"><A ID="sigmass"></A>
+<!-- MATH
+ \begin{eqnarray}
+{\Sigma^{ss'}_{\alpha\beta}}({\mathbf Q},\omega)&=&\int_{-\infty}^{+\infty}dt e^{i\omega t}e^{-i\mathbf Q \cdot(\mathbf b_s-\mathbf %%@
+b_{s'})}
+\frac{1}{N_g}\sum_{\ensuremath{\boldsymbol\ell}\ensuremath{\boldsymbol\ell}'}e^{-i\mathbf Q \cdot(\ensuremath{\boldsymbol\ell}-\ensuremath{\boldsymbol\ell}')} \times \nonumber \\
+&& \times(\langle \hat \mathcal O^{\ensuremath{\boldsymbol\ell}s \dag }_{\alpha}(t) \hat \mathcal O^{\ensuremath{\boldsymbol\ell}' s'}_{\beta}(0) \rangle_{T,H}
+- \langle \hat \mathcal O^{\ensuremath{\boldsymbol\ell}s \dag }_{\alpha}\rangle_{T,H} \langle \hat \mathcal O^{\ensuremath{\boldsymbol\ell}' s'}_{\beta} %%@
+\rangle_{T,H})
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 3.42ex; vertical-align: -1.01ex; " SRC="img1465.svg"
+ ALT="$\displaystyle {\Sigma^{ss'}_{\alpha\beta}}({\mathbf Q},\omega)$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 3.00ex; vertical-align: -3.21ex; " SRC="img1466.svg"
+ ALT="$\displaystyle \int_{-\infty}^{+\infty}dt e^{i\omega t}e^{-i\mathbf Q \cdot(\mat...
+...hbf Q \cdot(\ensuremath{\boldsymbol\ell}-\ensuremath{\boldsymbol\ell}')} \times$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 1.81ex; vertical-align: -1.01ex; " SRC="img1467.svg"
+ ALT="$\displaystyle \times(\langle \hat \mathcal O^{\ensuremath{\boldsymbol\ell}s \da...
+...e \hat \mathcal O^{\ensuremath{\boldsymbol\ell}' s'}_{\beta} %%@
+\rangle_{T,H})$"></TD><TD class="rfill">(<SPAN CLASS="arabic">232</SPAN>)</TD></TR>
+</TABLE></DIV>
+
+<P>
+Note that the observables <!-- MATH
+ $\hat \mathcal O_{\alpha}^{\ensuremath{\boldsymbol\ell}s}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.69ex; " SRC="img1468.svg"
+ ALT="$\hat \mathcal O_{\alpha}^{\ensuremath{\boldsymbol\ell}s}$"></SPAN> may have some <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.27ex; vertical-align: -0.57ex; " SRC="img289.svg"
+ ALT="$\mathbf Q$"></SPAN> dependence (for example if we
+consider the Fourier transform of a magnetisation density of
+ a magnetic ion in a crystal&nbsp;[<A
+ HREF="node163.html#balcar89-1">54</A>]). We
+omit this <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.27ex; vertical-align: -0.57ex; " SRC="img289.svg"
+ ALT="$\mathbf Q$"></SPAN> dependence to make notation easier but will come back to it when considering
+the calculation of the neutron scattering cross section.
+
+<P>
+Using the fluctuation-dissipation theorem
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 5.21ex; vertical-align: -0.12ex; " SRC="img1469.svg"
+ ALT="$\Sigma$"></SPAN> can be related to a dynamical susceptibility <SPAN CLASS="MATH"><IMG
+ STYLE="height: 4.88ex; vertical-align: -0.12ex; " SRC="img1470.svg"
+ ALT="$X$"></SPAN>:
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+{\underline{\overline{\Sigma}}}({\mathbf Q},\omega) =
+\frac{2 \hbar}{1-e^{-\hbar\omega/kT}}\left ( {\underline{\overline{X}}} \right )''({\mathbf Q},\omega)
+\end{equation}
+ -->
+ &nbsp;  <A ID="fluctdissbeyond"></A><IMG
+ STYLE="height: 2.60ex; vertical-align: -1.94ex; " SRC="img1471.svg"
+ ALT="$\displaystyle
+{\underline{\overline{\Sigma}}}({\mathbf Q},\omega) =
+\frac{2 \hb...
+...ar\omega/kT}}\left ( {\underline{\overline{X}}} \right )''({\mathbf Q},\omega)
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">233</SPAN>)</SPAN>
 </DIV>
-<BR><SMALL CLASS="SMALL">
-</SMALL>
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\left (X_{\alpha\beta}^{ss'}\right )''({\mathbf Q},\omega)\equiv
+\frac{1}{2i}\left[
+X_{\alpha\beta}^{ss'}({\mathbf Q},\omega)-
+{\left ( X_{\alpha\beta}^{ss'}({\mathbf Q},\omega) \right )^{\ast}}
+\right]
+\end{equation}
+ -->
+ &nbsp;  <A ID="chiabs"></A><IMG
+ STYLE="height: 2.77ex; vertical-align: -1.71ex; " SRC="img1472.svg"
+ ALT="$\displaystyle
+\left (X_{\alpha\beta}^{ss'}\right )''({\mathbf Q},\omega)\equiv
+...
+...)-
+{\left ( X_{\alpha\beta}^{ss'}({\mathbf Q},\omega) \right )^{\ast}}
+\right]
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">234</SPAN>)</SPAN>
+</DIV>
+
+<P>
+However, in contrast to the dynamical susceptibility
+<!-- MATH
+ $\underline{\overline{\chi}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.74ex; vertical-align: -1.03ex; " SRC="img1473.svg"
+ ALT="$\underline{\overline{\chi}}$"></SPAN>, based
+on the operators <!-- MATH
+ $\hat \mathcal I_{\alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.85ex; vertical-align: -0.46ex; " SRC="img1474.svg"
+ ALT="$\hat \mathcal I_{\alpha}$"></SPAN>,
+ the susceptibility <!-- MATH
+ $\underline{\overline{X}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.58ex; " SRC="img1475.svg"
+ ALT="$\underline{\overline{X}}$"></SPAN> 
+cannot be obtained from solving the MF&ndash;RPA equation (<A HREF="node151.html#meanfieldrpa">236</A>).
+The reason is that the derivation of (<A HREF="node151.html#meanfieldrpa">236</A>)
+makes use of the dynamical evolution of the operators <!-- MATH
+ $\hat \mathcal I_{\alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.85ex; vertical-align: -0.46ex; " SRC="img1474.svg"
+ ALT="$\hat \mathcal I_{\alpha}$"></SPAN>
+and not of the observables <!-- MATH
+ $\hat \mathcal O_{\alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img419.svg"
+ ALT="$\hat \mathcal O_{\alpha}$"></SPAN>.
+
+<P>
+Nonetheless, general properties of dynamical susceptibilities may be used
+to get a relation between
+<!-- MATH
+ $\overline{\underline{X}}({\mathbf Q},\omega)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img1476.svg"
+ ALT="$\overline{\underline{X}}({\mathbf Q},\omega)$"></SPAN> and
+<!-- MATH
+ $\overline{\underline{\chi}}({\mathbf Q},\omega)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 5.75ex; vertical-align: -1.03ex; " SRC="img1428.svg"
+ ALT="$\overline{\underline{\chi}}({\mathbf Q},\omega)$"></SPAN>.
+In general a dynamical susceptibility <!-- MATH
+ $\chi_{BA}(\omega)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.70ex; " SRC="img1477.svg"
+ ALT="$\chi_{BA}(\omega)$"></SPAN> describes the response of
+ a physical observable <!-- MATH
+ $\langle\hat B(t)\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.38ex; vertical-align: -0.70ex; " SRC="img1478.svg"
+ ALT="$\langle\hat B(t)\rangle$"></SPAN> to a perturbation of the system described by
+an operator <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.42ex; vertical-align: -0.12ex; " SRC="img1366.svg"
+ ALT="$\hat A$"></SPAN>.
+In the case of the dynamical susceptibility corresponding to the observables <!-- MATH
+ $\mathcal O_{\alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 6.37ex; vertical-align: -0.46ex; " SRC="img1479.svg"
+ ALT="$\mathcal O_{\alpha}$"></SPAN> we therefore have to set <!-- MATH
+ $X_{\alpha\beta}^{ss'}({\mathbf Q},\omega)\equiv\chi_{DC}(\omega)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 6.30ex; vertical-align: -1.09ex; " SRC="img1480.svg"
+ ALT="$X_{\alpha\beta}^{ss'}({\mathbf Q},\omega)\equiv\chi_{DC}(\omega)$"></SPAN> with the definitions
+
+<P>
+<BR>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{eqnarray}
+\hat C=\frac{1}{\sqrt{N_g}}e^{i\mathbf Q  \cdot\mathbf b_{s'}}\sum_{\ensuremath{\boldsymbol\ell}'}e^{i\mathbf Q \cdot\ensuremath{\boldsymbol\ell}'}\hat \mathcal O^{\mathbf %%@
+l's'}_{\beta} \\
+\hat D=\frac{1}{\sqrt{N_g}}e^{i\mathbf Q  \cdot\mathbf b_{s}}\sum_{\ensuremath{\boldsymbol\ell}}e^{i\mathbf Q \cdot\ensuremath{\boldsymbol\ell}}\hat \mathcal O^{\mathbf %%@
+ls}_{\alpha}
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.55ex; vertical-align: -3.21ex; " SRC="img1481.svg"
+ ALT="$\displaystyle \hat C=\frac{1}{\sqrt{N_g}}e^{i\mathbf Q \cdot\mathbf b_{s'}}\sum...
+...Q \cdot\ensuremath{\boldsymbol\ell}'}\hat \mathcal O^{\mathbf %%@
+l's'}_{\beta}$"></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD><TD class="rfill">(<SPAN CLASS="arabic">235</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 3.39ex; vertical-align: -3.14ex; " SRC="img1482.svg"
+ ALT="$\displaystyle \hat D=\frac{1}{\sqrt{N_g}}e^{i\mathbf Q \cdot\mathbf b_{s}}\sum_...
+...f Q \cdot\ensuremath{\boldsymbol\ell}}\hat \mathcal O^{\mathbf %%@
+ls}_{\alpha}$"></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD><TD class="rfill">(<SPAN CLASS="arabic">236</SPAN>)</TD></TR>
+</TABLE></DIV>
+
+<P>
+From linear response theory it can be shown&nbsp;[<A
+ HREF="node163.html#jensen91-1">1</A>, page 143], that the dynamical
+susceptibilities have poles at the excitation energies of the system: In equation&nbsp;(<A HREF="node151.html#generalsuszeptibility">226</A>)
+the denominator, the eigenstates and the difference in thermal population are the same for any susceptibility.
+The energy eigenstates <!-- MATH
+ $|\alpha \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.39ex; vertical-align: -0.70ex; " SRC="img1483.svg"
+ ALT="$\vert\alpha \rangle$"></SPAN> of the system will be a linear combination of
+direct products involving
+single ion states.
+Therefore, the numerator in equation (<A HREF="node151.html#generalsuszeptibility">226</A>) will
+be a (usually not known) linear combination of products of the form
+<!-- MATH
+ $\langle -|\hat \mathcal I_{\alpha}^s|+\rangle \langle +'|\hat \mathcal I_{\beta}^{s'}|-'\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.38ex; vertical-align: -1.09ex; " SRC="img1484.svg"
+ ALT="$\langle -\vert\hat \mathcal I_{\alpha}^s\vert+\rangle \langle +'\vert\hat \mathcal I_{\beta}^{s'}\vert-'\rangle$"></SPAN>
+and
+<!-- MATH
+ $\langle -|\hat \mathcal O_{\alpha}^s|+\rangle \langle +'|\hat \mathcal O_{\beta}^{s'}|-'\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.31ex; vertical-align: -1.09ex; " SRC="img1485.svg"
+ ALT="$\langle -\vert\hat \mathcal O_{\alpha}^s\vert+\rangle \langle +'\vert\hat \mathcal O_{\beta}^{s'}\vert-'\rangle$"></SPAN> for
+ <!-- MATH
+ $\chi_{\alpha\beta}^{ss'}({\mathbf Q},\omega)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.88ex; vertical-align: -1.09ex; " SRC="img1427.svg"
+ ALT="$\chi_{\alpha\beta}^{ss'}({\mathbf Q},\omega)$"></SPAN> and
+   <!-- MATH
+ $X_{\alpha\beta}^{ss'}({\mathbf Q},\omega)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.20ex; vertical-align: -1.09ex; " SRC="img1486.svg"
+ ALT="$X_{\alpha\beta}^{ss'}({\mathbf Q},\omega)$"></SPAN>, respectively.
+
+<P>
+These terms can be related by a similar procedure to that
+outlined in equations (<A HREF="node152.html#mmatrix">240</A>) ff. We define the matrices,
+
+<P>
+
+<BR>
+<DIV CLASS="displaymath"><A ID="mumatrix"></A><A ID="numatrix"></A>
+<!-- MATH
+ \begin{eqnarray}
+\mu^s_{\alpha\beta}=\langle-|\hat \mathcal I^{s}_{\alpha}-\langle \hat \mathcal I^{s}_{\alpha}\rangle|+\rangle\langle+|\hat \mathcal I^s_{\beta}-\langle \hat \mathcal I^s_{\beta}\rangle|-\rangle \\
+\nu^s_{\alpha\beta}=\langle-|\mathcal O^{s \dag }_{\alpha}-\langle \mathcal O^{s \dag }_{\alpha}\rangle|+\rangle\langle+|\mathcal O^s_{\beta}-\langle \mathcal O^s_{\beta}\rangle|-\rangle
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.83ex; vertical-align: -1.01ex; " SRC="img1487.svg"
+ ALT="$\displaystyle \mu^s_{\alpha\beta}=\langle-\vert\hat \mathcal I^{s}_{\alpha}-\la...
+...\hat \mathcal I^s_{\beta}-\langle \hat \mathcal I^s_{\beta}\rangle\vert-\rangle$"></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD><TD class="rfill">(<SPAN CLASS="arabic">237</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.40ex; vertical-align: -1.01ex; " SRC="img1488.svg"
+ ALT="$\displaystyle \nu^s_{\alpha\beta}=\langle-\vert\mathcal O^{s \dag }_{\alpha}-\l...
+...ngle+\vert\mathcal O^s_{\beta}-\langle \mathcal O^s_{\beta}\rangle\vert-\rangle$"></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD><TD class="rfill">(<SPAN CLASS="arabic">238</SPAN>)</TD></TR>
+</TABLE></DIV>
+
+<P>
+similar to the <!-- MATH
+ $\overline{M}^s$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.22ex; vertical-align: -0.12ex; " SRC="img1433.svg"
+ ALT="$\overline{M}^s$"></SPAN> of equation&nbsp;(<A HREF="node152.html#mmatrix">240</A>), however, omitting the 
+thermal population factors and expectation values. These matrices
+can be diagonalised using the
+unitary transformations <!-- MATH
+ $\overline{\mathcal  U}^s$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.17ex; vertical-align: -0.12ex; " SRC="img1439.svg"
+ ALT="$\overline{\mathcal U}^s$"></SPAN> (<!-- MATH
+ $\overline{\mathcal  U}^{s\dag }\overline{\mathcal  U}^s=\overline{1}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.83ex; vertical-align: -0.12ex; " SRC="img1489.svg"
+ ALT="$\overline{\mathcal U}^{s\dag }\overline{\mathcal U}^s=\overline{1}$"></SPAN>) 
+and
+<!-- MATH
+ $\overline{\mathcal  V}^s$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.12ex; " SRC="img1490.svg"
+ ALT="$\overline{\mathcal V}^s$"></SPAN> (<!-- MATH
+ $\overline{\mathcal  V}^{s\dag }\overline{\mathcal  V}^s=\overline{1}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.12ex; " SRC="img1491.svg"
+ ALT="$\overline{\mathcal V}^{s\dag }\overline{\mathcal V}^s=\overline{1}$"></SPAN>), respectively.
+
+<P>
+Again, all eigenvalues are zero except for 
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.64ex; vertical-align: -0.57ex; " SRC="img1492.svg"
+ ALT="$\phi^s$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.64ex; vertical-align: -0.57ex; " SRC="img1493.svg"
+ ALT="$\xi^s$"></SPAN>, respectively.
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\phi^s \equiv \gamma ^s/(p_- -p_+)={\rm Trace \{\overline{\mu^s} \} }
+\end{equation}
+ -->
+ &nbsp;  <A ID="phieig"></A><IMG
+ STYLE="height: 6.28ex; vertical-align: -0.70ex; " SRC="img1494.svg"
+ ALT="$\displaystyle
+\phi^s \equiv \gamma ^s/(p_--p_+)={\rm Trace \{\overline{\mu^s} \} }
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">239</SPAN>)</SPAN>
+</DIV>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\xi^s \equiv \Gamma^s /(p_- -p_+) ={\rm Trace \{\overline{\nu^s} \} }
+\end{equation}
+ -->
+ &nbsp;  <A ID="xieig"></A><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img1495.svg"
+ ALT="$\displaystyle
+\xi^s \equiv \Gamma^s /(p_--p_+) ={\rm Trace \{\overline{\nu^s} \} }
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">240</SPAN>)</SPAN>
+</DIV>
+
+<P>
+In&nbsp;[<A
+ HREF="node163.html#rotter12-213201">37</A>] these transformations
+are used to derive the following expression for the
+dynamical susceptibility 
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+X^{ss'}_{\alpha\beta}=(\sqrt{\Gamma^s})^\ast
+ \sum_r
+\mathcal V^s_{\alpha1} {\mathcal T^{sr}
+\frac{\hbar \omega^r}{\hbar \omega^r %%@
+- \hbar \omega} \mathcal T^{rs'\dag }} \mathcal V^{s'\dag }_{1\beta} \sqrt{\Gamma^{s'}}
+\end{equation}
+ -->
+ &nbsp;  <A ID="Xcalc"></A><IMG
+ STYLE="height: 2.02ex; vertical-align: -3.02ex; " SRC="img1496.svg"
+ ALT="$\displaystyle
+X^{ss'}_{\alpha\beta}=(\sqrt{\Gamma^s})^\ast
+\sum_r
+\mathcal V^s...
+...omega} \mathcal T^{rs'\dag }} \mathcal V^{s'\dag }_{1\beta} \sqrt{\Gamma^{s'}}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">241</SPAN>)</SPAN>
+</DIV>
+
+<P>
+Equation (<A HREF="#Xcalc">257</A>) shows how knowledge of the dynamical susceptibility calculated
+on the basis of the interaction operators between subsystems (<!-- MATH
+ $\hat \mathcal I_{\alpha}^s$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.07ex; vertical-align: -0.69ex; " SRC="img1497.svg"
+ ALT="$\hat \mathcal I_{\alpha}^s$"></SPAN>)
+may be used to obtain the dynamical susceptibility for any set of observables <!-- MATH
+ $\hat \mathcal O_{\alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img419.svg"
+ ALT="$\hat \mathcal O_{\alpha}$"></SPAN> of
+the system. 
+
+<P>
+The standard procedure to avoid divergences is to substitute <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.83ex; vertical-align: -0.12ex; " SRC="img1371.svg"
+ ALT="$\hbar\omega$"></SPAN> with <!-- MATH
+ $\hbar \omega + i \hbar \varepsilon$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 5.14ex; vertical-align: -0.31ex; " SRC="img1498.svg"
+ ALT="$\hbar \omega + i \hbar \varepsilon$"></SPAN> and
+take the limit for <!-- MATH
+ $\varepsilon \rightarrow 0^+$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 6.11ex; vertical-align: -0.12ex; " SRC="img1499.svg"
+ ALT="$\varepsilon \rightarrow 0^+$"></SPAN>. Using Dirac's formula 
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\lim_{ \varepsilon \rightarrow 0^+}
+\frac{1}{\hbar {\omega^r}-\hbar \omega -i\hbar \varepsilon}=
+\mathcal P \frac{1}{\hbar{\omega^r} - \hbar \omega} +
+ i \pi \delta(\hbar {\omega^r} -\hbar \omega)
+\end{equation}
+ -->
+ &nbsp;  <A ID="dirac"></A><IMG
+ STYLE="height: 2.74ex; vertical-align: -1.97ex; " SRC="img1500.svg"
+ ALT="$\displaystyle
+\lim_{ \varepsilon \rightarrow 0^+}
+\frac{1}{\hbar {\omega^r}-\h...
+...hbar{\omega^r} - \hbar \omega} +
+i \pi \delta(\hbar {\omega^r} -\hbar \omega)
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">242</SPAN>)</SPAN>
+</DIV>
+
+<P>
+the absorptive part of the dynamical susceptibility (<A HREF="#chiabs">250</A>) becomes
+
+<P>
+
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\left (X^{ss'}_{\alpha\beta}\right )''=\pi(\sqrt{\Gamma^s})^\ast
+ \sum_r \mathcal V^s_{\alpha 1} \mathcal T^{sr} \hbar \omega^r
+\delta(\hbar \omega^r
+- \hbar \omega) \mathcal T^{rs'\dag }(\mathbf Q) 
+\mathcal V^{s'\dag }_{1\beta} \sqrt{\Gamma^{s'}}
+\end{equation}
+ -->
+ &nbsp;  <A ID="Xabscalc"></A><IMG
+ STYLE="height: 6.93ex; vertical-align: -3.02ex; " SRC="img1501.svg"
+ ALT="$\displaystyle
+\left (X^{ss'}_{\alpha\beta}\right )''=\pi(\sqrt{\Gamma^s})^\ast
+...
+...hcal T^{rs'\dag }(\mathbf Q)
+\mathcal V^{s'\dag }_{1\beta} \sqrt{\Gamma^{s'}}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">243</SPAN>)</SPAN>
+</DIV>
+
+<P>
+and the correlation function <!-- MATH
+ $\underline{\overline{\Sigma}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.58ex; " SRC="img1502.svg"
+ ALT="$\underline{\overline{\Sigma}}$"></SPAN> can be evaluated by applying the 
+fluctuation dissipation theorem (<A HREF="#fluctdissbeyond">249</A>):
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+{\Sigma^{ss'}_{\alpha\beta}({\mathbf Q},\omega)=
+\frac{2 \pi \hbar(\sqrt{\Gamma^s})^\ast\sqrt{\Gamma^{s'}}}
+{1-e^{-\hbar\omega/kT}}
+\sum_r
+\mathcal V^s_{\alpha1} \mathcal T^{sr} \hbar \omega^r 
+\delta(\hbar \omega^r
+- \hbar \omega) \mathcal T^{rs'\dag } \mathcal V^{s'\dag }_{1\beta}}
+\end{equation}
+ -->
+ &nbsp;  <A ID="corrfunct"></A><IMG
+ STYLE="height: 1.81ex; vertical-align: -3.02ex; " SRC="img1503.svg"
+ ALT="$\displaystyle
+{\Sigma^{ss'}_{\alpha\beta}({\mathbf Q},\omega)=
+\frac{2 \pi \hb...
+... \omega^r
+- \hbar \omega) \mathcal T^{rs'\dag } \mathcal V^{s'\dag }_{1\beta}}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">244</SPAN>)</SPAN>
+</DIV>
+
+<P>
+To keep notation simple, the <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.27ex; vertical-align: -0.57ex; " SRC="img289.svg"
+ ALT="$\mathbf Q$"></SPAN> dependence of the eigenvectors
+<!-- MATH
+ $\underline{\mathcal T}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 6.43ex; vertical-align: -0.58ex; " SRC="img1453.svg"
+ ALT="$\underline{\mathcal T}$"></SPAN> and the energies <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.85ex; vertical-align: -0.12ex; " SRC="img1459.svg"
+ ALT="$\omega^r$"></SPAN> has been omitted.
+If the observable  <!-- MATH
+ $\hat \mathcal O_{\alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img419.svg"
+ ALT="$\hat \mathcal O_{\alpha}$"></SPAN> depends explicitly on <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.27ex; vertical-align: -0.57ex; " SRC="img289.svg"
+ ALT="$\mathbf Q$"></SPAN>, then also 
+<!-- MATH
+ $\overline{\nu}^s$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.28ex; vertical-align: -0.12ex; " SRC="img1504.svg"
+ ALT="$\overline{\nu}^s$"></SPAN> and thus <!-- MATH
+ $\overline{\mathcal  V}^s$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.12ex; " SRC="img1490.svg"
+ ALT="$\overline{\mathcal V}^s$"></SPAN> will depend on <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.27ex; vertical-align: -0.57ex; " SRC="img289.svg"
+ ALT="$\mathbf Q$"></SPAN>.
+This very fundamental result will be applied to the neutron scattering cross section
+in section&nbsp;<A HREF="node151.html#formalism">M</A>.
+
+<P>
+The elastic contribution to equations (<A HREF="#Xabscalc">259</A>) and
+(<A HREF="#corrfunct">260</A>) has to be evaluated taking into account
+a small but finite value for the energy shift <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img33.svg"
+ ALT="$d$"></SPAN> introduced
+in the discussion of equation (<A HREF="node151.html#singleionsusceptibility">237</A>). It turns
+out, that <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.57ex; " SRC="img1434.svg"
+ ALT="$\gamma^s$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.94ex; vertical-align: -0.12ex; " SRC="img1505.svg"
+ ALT="$\Gamma^s$"></SPAN> and thus also
+the dynamical matrix <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.58ex; " SRC="img1506.svg"
+ ALT="$\underline{A}$"></SPAN> and its eigenvalues
+are proportional to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img33.svg"
+ ALT="$d$"></SPAN>. Making use of the normalisation 
+for the eigenvectors
+<!-- MATH
+ $\underline{\mathcal T}^\dag\underline{A}(\mathbf Q)\underline{\mathcal T}=\underline{1}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 5.99ex; vertical-align: -0.70ex; " SRC="img1507.svg"
+ ALT="$\underline{\mathcal T}^\dag\underline{A}(\mathbf Q)\underline{\mathcal T}=\underline{1}$"></SPAN>
+we find that the dynamical susceptibility (<A HREF="#Xabscalc">259</A>)
+is proportional to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img33.svg"
+ ALT="$d$"></SPAN> and thus zero in the limit of
+<!-- MATH
+ $d \rightarrow 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.42ex; vertical-align: -0.12ex; " SRC="img1508.svg"
+ ALT="$d \rightarrow 0$"></SPAN>. However, in the  correlation function
+(<A HREF="#corrfunct">260</A>) the denominator is proportional to
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img33.svg"
+ ALT="$d$"></SPAN> leading to a finite result for the quasielastic response.
+
+
+<P>
+
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html2565"
-  HREF="node154.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2559"
-  HREF="manual.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2553"
-  HREF="node152.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2561"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html2563"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node154.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node151.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node152.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html1121"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html1123"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html2566"
-  HREF="node154.html">About this document ...</A>
-<B> Up:</B> <A NAME="tex2html2560"
-  HREF="manual.html">McPhase USERS MANUAL</A>
-<B> Previous:</B> <A NAME="tex2html2554"
-  HREF="node152.html">Index</A>
- &nbsp; <B>  <A NAME="tex2html2562"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html2564"
-  HREF="node152.html">Index</A></B> </DIV>
+<B> Next:</B> <A
+ HREF="node154.html">Evaluating results - Graphical</A>
+<B> Up:</B> <A
+ HREF="node151.html">Dynamical Susceptibility and Excitations</A>
+<B> Previous:</B> <A
+ HREF="node152.html">DMD - formalism</A>
+ &nbsp; <B>  <A ID="tex2html1122"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1124"
+  HREF="node164.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

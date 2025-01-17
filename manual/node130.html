@@ -1,214 +1,229 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Tesseral Harmonics</TITLE>
-<META NAME="description" CONTENT="Tesseral Harmonics">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Starting a fit</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node131.html">
 <LINK REL="previous" HREF="node129.html">
-<LINK REL="up" HREF="manual.html">
 <LINK REL="next" HREF="node131.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2240"
-  HREF="node131.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2234"
-  HREF="manual.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2228"
-  HREF="node129.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2236"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html2238"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node131.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node125.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node129.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html1020"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html1022"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html2241"
-  HREF="node131.html">Stevens Operators</A>
-<B> Up:</B> <A NAME="tex2html2235"
-  HREF="manual.html">McPhase USERS MANUAL</A>
-<B> Previous:</B> <A NAME="tex2html2229"
-  HREF="node129.html">Crystal Field and Parameter</A>
- &nbsp; <B>  <A NAME="tex2html2237"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html2239"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node131.html">Stopping a fit/parameter space</A>
+<B> Up:</B> <A
+ HREF="node125.html">Searchspace and Simannfit -</A>
+<B> Previous:</B> <A
+ HREF="node129.html">analysing the results of</A>
+ &nbsp; <B>  <A ID="tex2html1021"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1023"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION000300000000000000000"></A><A NAME="tesseral"></A>
-<BR>
-Tesseral Harmonics
-</H1>
+<H2><A ID="SECTION000215000000000000000">
+Starting a fit</A>
+</H2>
 
 <P>
-Tesseral Harmonics as defined in terms of spherical harmonics by
+If the program <I CLASS="slanted">calcsta</I> has been set up, the fitting is started
+by the command (in the example you should go to the directory <I CLASS="slanted">/mcphas/examples/cecu2a/fit</I>) 
+:
 
 <P>
-<BR>
-<DIV ALIGN="CENTER">
+<BLOCKQUOTE>
+<I CLASS="slanted">simannfit 10 [-t 1000][-s 100000] [-n 200] mcphas.jjj [and possible other input parameter files]</I>.
 
-<!-- MATH
- \begin{eqnarray}
-Z_{n0}&=&Y_n^0 \\
-Z_{n\alpha}\equiv Z_{n,\alpha}^c&=&\frac{1}{\sqrt{2}}[Y_n^{-\alpha}+(-1)^{\alpha}Y_n^{\alpha}] \dots \alpha>0 \\
-Z_{n\alpha}\equiv Z_{n,|\alpha|}^s&=&\frac{i}{\sqrt{2}}[Y_n^{\alpha}-(-1)^{\alpha}Y_n^{-\alpha}] \dots \alpha<0 \\
-\end{eqnarray}
+</BLOCKQUOTE>
+
+<P>
+
+<UL>
+<LI>The &rdquo;10&rdquo; in the command means that the initial statistical
+&rdquo;temperature&rdquo; of the algorithm
+is set to 10.  
+</LI>
+</UL>
+
+<P>
+OPTIONS for ...
+
+<UL>
+<LI>STEPWIDTHS
+<DL>
+<DT><STRONG>-w 1.4</STRONG></DT>
+<DD>before starting simannfit, multiply all stepwidths by factor 1.4 
+</DD>
+<DT><STRONG>-r 0.2</STRONG></DT>
+<DD>before starting simannfit, set all stepwidths to parameter 
+            range=max-min times 0.2, 
+</DD>
+<DT><STRONG>-f 0.2</STRONG></DT>
+<DD>before starting simannfit, set all stepwidths to parameter value 
+            times 0.2, however never smaller than parameterrange/1000 
+</DD>
+<DT><STRONG>-p 20</STRONG></DT>
+<DD>probing parameter space: stepwidths are not decreased during
+	    fitting, new set of pars <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img1049.svg"
+ ALT="$parn$"></SPAN> are generated and for all sets par in 
+	    <I CLASS="slanted">results/simannfit.p</I> and <I CLASS="slanted">results/simannfit.n</I> are scanned and
+	    distance <!-- MATH
+ $d=\sum_i^N (par_i-parn_i)^2/stepwidth_i^2$
  -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
- WIDTH="30" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img1155.png"
- ALT="$\displaystyle Z_{n0}$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img68.png"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="24" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
- SRC="img1156.png"
- ALT="$\displaystyle Y_n^0$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">175</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
- WIDTH="84" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img1157.png"
- ALT="$\displaystyle Z_{n\alpha}\equiv Z_{n,\alpha}^c$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img68.png"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="216" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
- SRC="img1158.png"
- ALT="$\displaystyle \frac{1}{\sqrt{2}}[Y_n^{-\alpha}+(-1)^{\alpha}Y_n^{\alpha}] \dots \alpha&gt;0$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">176</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
- WIDTH="92" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img1159.png"
- ALT="$\displaystyle Z_{n\alpha}\equiv Z_{n,\vert\alpha\vert}^s$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img68.png"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="216" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
- SRC="img1160.png"
- ALT="$\displaystyle \frac{i}{\sqrt{2}}[Y_n^{\alpha}-(-1)^{\alpha}Y_n^{-\alpha}] \dots \alpha&lt;0$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">177</SPAN>)</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.20ex; vertical-align: -0.81ex; " SRC="img1050.svg"
+ ALT="$d=\sum_i^N (par_i-parn_i)^2/stepwidth_i^2$"></SPAN> is calculated. If
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.93ex; vertical-align: -0.21ex; " SRC="img1051.svg"
+ ALT="$d&gt;N $"></SPAN>(=number of parameters)
+	    for all sets par, then <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.66ex; vertical-align: -0.12ex; " SRC="img1052.svg"
+ ALT="$sta$"></SPAN> is calculated. if  <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.75ex; vertical-align: -0.21ex; " SRC="img1053.svg"
+ ALT="$sta&lt;=sta$"></SPAN> of initial parameters
+	    then <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img1049.svg"
+ ALT="$parn$"></SPAN> is appended to the list in <I CLASS="slanted">results/simannfit.p</I>
+	    up to 20 parameters are appended to this list, after that the program stops.
+	    the program also stops if step ratio reaches a value <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.21ex; " SRC="img1054.svg"
+ ALT="$&gt; 11$"></SPAN> (step ratio 
+	    is a factor applied to all (maximum) stepwidths before generating a step in the random walk
+	    It is decreased each successful step in the random walk and increased to find an
+	    acceptable step (distance criteria) to try
+	    thus, to probe a large region of parameter space do not set statistical
+	    temperature too low to enable efficient stepping. On the other hand to
+	    probe only the vicinity of a optimum in every direction of parameter
+	    space a small statistical inital temperature is necessary
+	    - in this way a series of equally good solutions can be explored.
+</DD>
+</DL>
+</LI>
+<LI>PARALLEL PROCESSING
+<DL>
+<DT><STRONG>-s0 filename</STRONG></DT>
+<DD>instead of results/simannfit.n use filename to store/read 
+</DD>
+<DT><STRONG>-s1 filename</STRONG></DT>
+<DD>instead of results/simannfit.p use filename to store/read 
+</DD>
+<DT><STRONG>-i 23</STRONG></DT>
+<DD>for storing in results/simannfit.* use index .23 instead of .0 as suffix 
+</DD>
+</DL>
+</LI>
+<LI>LOGGING 
+<DL>
+<DT><STRONG>-n 50</STRONG></DT>
+<DD>allows to store every 50 steps the parametersets in a table in  <I CLASS="slanted">results/simannfit.n</I>
+ (appending existing file).
+</DD>
+<DT><STRONG>-jpglog 3.5e-1 file.jpg</STRONG></DT>
+<DD>if sta is less then 3.5e-1, then the image file.jpg 
+            (which should be created by calcsta) is copied to results/parsetnr.jpg
+            a html tag is added to results/simannfit.n or results/simannfit.p if 
+	    stored
+</DD>
+<DT><STRONG>-log 1.3 batchfile.bat</STRONG></DT>
+<DD>if sta is less then 3.5e-1, then execute the file 
+             batchfile, with sta as argument, which can be adressed in the batch
+	     file with $1 (linux) or  %1 (windows)
+</DD>
+<DT><STRONG>-h</STRONG></DT>
+<DD>Histograms are store in results/par*.hst for review of the variation 
+             of parameters during the run of simannfit. 
+</DD>
+<DT><STRONG>-d </STRONG></DT>
+<DD>store percentage of different contributions to sta in file results/simannfit.dst 
+</DD>
+</DL>
+</LI>
+<LI>TERMINATION 
+<DL>
+<DT><STRONG>-l 0.2</STRONG></DT>
+<DD>sets limit - program will end if <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.21ex; " SRC="img1055.svg"
+ ALT="$sta&lt;0.2$"></SPAN>
+</DD>
+<DT><STRONG>-t 100</STRONG></DT>
+<DD>sets time limit until program end to 100 seconds
+</DD>
+<DT><STRONG>-s 132</STRONG></DT>
+<DD>gives maximal number of iteration steps 132 to be done
+</DD>
+<DT><STRONG>-c</STRONG></DT>
+<DD>continue at end of program - do not ask for pressing enter 
+</DD>
+</DL>
+</LI>
+</UL>
+Note that the user written program <I CLASS="slanted">calcsta</I> has to be in the
+directory where <I CLASS="slanted">simannfit<A ID="4544"></A></I> is started from.
 
 <P>
-A similar table has been given in&nbsp;[<A
- HREF="node151.html#goerrler96-121">62</A>] on p. 238 (mind, there are errors in <SPAN CLASS="MATH"><IMG
- WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img1161.png"
- ALT="$Z^c_{41}$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img1162.png"
- ALT="$Z^c_{43}$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img1163.png"
- ALT="$Z^c_{52}$"></SPAN> 
-... in this reference)
-
-<P>
-<P></P>
-<DIV ALIGN="CENTER" CLASS="mathdisplay">
-<!-- MATH
- \begin{eqnarray*}
-Z_{00}&=&\frac{1}{\sqrt{4\pi}}\\
-\hline
-Z^s_{11}&=&\sqrt{\frac{3}{4\pi}}[y/r] \\
-Z_{10}&=&\sqrt{\frac{3}{4\pi}}[z/r] \\
-Z^c_{11}&=&\sqrt{\frac{3}{4\pi}}[x/r] \\
-\hline
-Z^s_{22}&=&\frac{1}{4}\sqrt{\frac{15}{\pi}}[2xy/r^2] \\
-Z^s_{21}&=&\frac{1}{2}\sqrt{\frac{15}{\pi}}[yz/r^2] \\
-Z_{20}&=&\frac{1}{4}\sqrt{\frac{5}{\pi}}[(3z^2-r^2)/r^2] \\
-Z^c_{21}&=&\frac{1}{2}\sqrt{\frac{15}{\pi}}[xz/r^2] \\
-Z^c_{22}&=&\frac{1}{4}\sqrt{\frac{15}{\pi}}[(x^2-y^2)/r^2] \\
-\hline
-Z^s_{33}&=&\sqrt{\frac{35}{32\pi}}[(3x^2y-y^3)/r^3] \\
-Z^s_{32}&=&\sqrt{\frac{105}{16\pi}}[2xyz/r^3] \\
-Z^s_{31}&=&\sqrt{\frac{21}{32\pi}}[y(5z^2-r^2)/r^3] \\
-Z_{30}&=&\sqrt{\frac{7}{16\pi}}[z(5z^2-3r^2)/r^3] \\
-Z^c_{31}&=&\sqrt{\frac{21}{32\pi}}[x(5z^2-r^2)/r^3] \\
-Z^c_{32}&=&\sqrt{\frac{105}{16\pi}}[(x^2-y^2)z/r^3] \\
-Z^c_{33}&=&\sqrt{\frac{35}{32\pi}}[(x^3-3xy^2)/r^3] \\
-\hline
-Z^s_{44}&=&\frac{3}{16}\sqrt{\frac{35}{\pi}}[4(x^3y-xy^3)/r^4] \\
-Z^s_{43}&=&\frac{3}{8}\sqrt{\frac{70}{\pi}}[(3x^2y-y^3)z/r^4] \\
-Z^s_{42}&=&\frac{3}{8}\sqrt{\frac{5}{\pi}}[2xy(7z^2-r^2)/r^4] \\
-Z^s_{41}&=&\frac{3}{4}\sqrt{\frac{5}{2\pi}}[yz(7z^2-3r^2)/r^4] \\
-Z_{40}&=&\frac{3}{16}\frac{1}{\sqrt{\pi}}[35z^4-30z^2r^2+3r^4)/r^4] \\
-Z^c_{41}&=&\frac{3}{4}\sqrt{\frac{5}{2\pi}}[xz(7z^2-3r^2)/r^4] \\
-Z^c_{42}&=&\frac{3}{8}\sqrt{\frac{5}{\pi}}[(x^2-y^2)(7z^2-r^2)/r^4] \\
-Z^c_{43}&=&\frac{3}{8}\sqrt{\frac{70}{\pi}}[(x^3-3xy^2)z/r^4] \\
-Z^c_{44}&=&\frac{3}{16}\sqrt{\frac{35}{\pi}}[(x^4-6x^2y^2+y^4)/r^4] \\
-\hline
-Z^s_{55}&=&\sqrt{\frac{693}{512\pi}}[(5x^4y-10x^2y^3+y^5)/r^5] \\
-Z^s_{54}&=&\sqrt{\frac{3465}{256\pi}}[4(x^3y-xy^3)z/r^5] \\
-Z^s_{53}&=&\sqrt{\frac{385}{512\pi}}[(3x^2y-y^3)(9z^2-r^2)/r^5] \\
-Z^s_{52}&=&\sqrt{\frac{1155}{64\pi}}[2xy(3z^3-zr^2)/r^5] \\
-Z^s_{51}&=&\sqrt{\frac{165}{256\pi}}[y(21z^4-14z^2r^2+r^4)/r^5] \\
-Z_{50}&=&\sqrt{\frac{11}{256\pi}}[(63z^5-70z^3r^2+15zr^4)/r^5] \\
-Z^c_{51}&=&\sqrt{\frac{165}{256\pi}}[x(21z^4-14z^2r^2+r^4)/r^5] \\
-Z^c_{52}&=&\sqrt{\frac{1155}{64\pi}}[(x^2-y^2)(3z^3-zr^2)/r^5] \\
-Z^c_{53}&=&\sqrt{\frac{385}{512\pi}}[(x^3-3xy^2)(9z^2-r^2)/r^5] \\
-Z^c_{54}&=&\sqrt{\frac{3465}{256\pi}}[(x^4-6x^2y^2+y^4)z/r^5] \\
-Z^c_{55}&=&\sqrt{\frac{693}{512\pi}}[(x^5-10x^3y^2+5xy^4)/r^5] \\
-\hline
-Z^s_{66}&=&\frac{231}{64}\sqrt{\frac{26}{231\pi}}[(6x^5y-20x^3y^3+6xy^5)/r^6] \\
-Z^s_{65}&=&\sqrt{\frac{9009}{512\pi}}[(5x^4y-10x^2y^3+y^5)z/r^6] \\
-Z^s_{64}&=&\frac{21}{32}\sqrt{\frac{13}{7\pi}}[4(x^3y-xy^3)(11z^2-r^2)/r^6] \\
-Z^s_{63}&=&\frac{1}{32}\sqrt{\frac{2730}{\pi}}[(3x^2y-y^3)(11z^3-3zr^2)/r^6] \\
-Z^s_{62}&=&\frac{1}{64}\sqrt{\frac{2730}{\pi}}[2xy(33z^4-18z^2r^2+r^4)/r^6] \\
-Z^s_{61}&=&\frac{1}{8}\sqrt{\frac{273}{4\pi}}[yz(33z^4-30z^2r^2+5r^4)/r^6] \\
-Z_{60}&=&\frac{1}{32}\sqrt{\frac{13}{\pi}}[(231z^6-315z^4r^2+105z^2r^4-5r^6)/r^6] \\
-Z^c_{61}&=&\frac{1}{8}\sqrt{\frac{273}{4\pi}}[xz(33z^4-30z^2r^2+5r^4)/r^6] \\
-Z^c_{62}&=&\frac{1}{64}\sqrt{\frac{2730}{\pi}}[(x^2-y^2)(33z^4-18z^2r^2+r^4)/r^6] \\
-Z^c_{63}&=&\frac{1}{32}\sqrt{\frac{2730}{\pi}}[(x^3-3xy^2)(11z^3-3zr^2)/r^6] \\
-Z^c_{64}&=&\frac{21}{32}\sqrt{\frac{13}{7\pi}}[(x^4-6x^2y^2+y^4)(11z^2-r^2)/r^6] \\
-Z^c_{65}&=&\sqrt{\frac{9009}{512\pi}}[(x^5-10x^3y^2+5xy^4)z/r^6] \\
-Z^c_{66}&=&\frac{231}{64}\sqrt{\frac{26}{231\pi}}[(x^6-15x^4y^2+15x^2y^4-y^6)/r^6]
-\end{eqnarray*}
- -->
-<IMG
- WIDTH="560" HEIGHT="2201" BORDER="0"
- SRC="img1164.png"
- ALT="\begin{eqnarray*}
-Z_{00}&amp;=&amp;\frac{1}{\sqrt{4\pi}}\\
-\hline
-Z^s_{11}&amp;=&amp;\sqrt{\fra...
-...1}{64}\sqrt{\frac{26}{231\pi}}[(x^6-15x^4y^2+15x^2y^4-y^6)/r^6]
-\end{eqnarray*}"></DIV>
-<BR CLEAR="ALL"><P></P>
-<BR CLEAR="ALL"><P></P>
+The program generates for each parameter a histogram file showing the number of occurrences
+of a certain parameter value in solutions, where sta decreased.
 
 <P>
 
-<BR><HR>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node131.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node125.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node129.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html1020"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html1022"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node131.html">Stopping a fit/parameter space</A>
+<B> Up:</B> <A
+ HREF="node125.html">Searchspace and Simannfit -</A>
+<B> Previous:</B> <A
+ HREF="node129.html">analysing the results of</A>
+ &nbsp; <B>  <A ID="tex2html1021"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1023"
+  HREF="node164.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

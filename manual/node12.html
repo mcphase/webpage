@@ -1,513 +1,253 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Getting Started ... List of Examples</TITLE>
-<META NAME="description" CONTENT="Getting Started ... List of Examples">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>The Hamiltonian</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node13.html">
+<LINK REL="next" HREF="node15.html">
 <LINK REL="previous" HREF="node11.html">
-<LINK REL="up" HREF="manual.html">
 <LINK REL="next" HREF="node13.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html494"
-  HREF="node13.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html488"
-  HREF="manual.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html482"
-  HREF="node11.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html490"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html492"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node13.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node11.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html397"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html399"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html495"
-  HREF="node13.html">The Hamiltonian</A>
-<B> Up:</B> <A NAME="tex2html489"
-  HREF="manual.html">McPhase USERS MANUAL</A>
-<B> Previous:</B> <A NAME="tex2html483"
-  HREF="node11.html">Introduction</A>
- &nbsp; <B>  <A NAME="tex2html491"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html493"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node13.html">Rare Earth Ions</A>
+<B> Up:</B> <A
+ HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A
+ HREF="node11.html">Getting Started ... List</A>
+ &nbsp; <B>  <A ID="tex2html398"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html400"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00070000000000000000">
-Getting Started ... List of Examples</A>
-</H1>  
-
-<P>
-First some important notes .... this manual does neither give an introduction into the theory of 
-magnetism nor a description of the experimental techniques. In order
-to use the program successfully, some basic knowledge of crystal field theory and the mean field
-approximation is required, see for instance&nbsp;[<A
- HREF="node151.html#jensen91-1">1</A>].
-In order to compare the output of the calculation with experimental
-data, it is recommended to be familiar with  experimental techniques used
-in the investigation of magnetic properties
-such as magnetisation, susceptibility, specific heat, magnetostriction
-measurements and neutron scattering.
-
-<P>
-Using <I CLASS="slanted">McPhase</I> for the first time, the reader should
-
-<UL>
-<LI>rush into the program and test that it functions correctly on his system
-by starting the demos ( type <I CLASS="slanted">cd demo</I> and then run <I CLASS="slanted">01_demo_crystal_fields.bat</I>,<I CLASS="slanted">
-02_demo_mcphas_I_NdCu2.bat</I>, etc.).  
-</LI>
-<LI>learn about some special features and basic functions of the program package by
-doing the tutorial in directory <I CLASS="slanted">tutorial</I>
-</LI>
-<LI>look at the example calculations in directory <I CLASS="slanted">examples</I>. These examples cover a large variety
-of problems, which the program package may be applied to (see table&nbsp;<A HREF="#examples">1</A>). In addition, this directory
-contains a large number of single ion property files which will be useful for setting
-up numerical calculations for a specific system.
-</LI>
-<LI>with the help of this manual, which contains also some exercises the user is advised 
-to learn about all details required to do a successful simulation of atomic magnetic properties
-and set up calculations, which hopefully will be useful to interpret a large variety of 
-experimental data. 
-</LI>
-</UL>
-
-<P>
+<H1><A ID="SECTION00080000000000000000"></A>
+<A ID="hamiltonian"></A>
 <BR>
-<DIV ALIGN="CENTER">
-   
-<A NAME="examples"></A>   
-<A NAME="569"></A>
-<TABLE CELLPADDING=3 BORDER="1" ALIGN="CENTER">
-<CAPTION><STRONG>Table 1:</STRONG>
-Description of the example calculations, which come along with the program package <I CLASS="slanted">McPhase</I> in directory <I CLASS="slanted">
-examples</I>:</CAPTION>
-<TR><TD ALIGN="LEFT">name /</TD>
-<TD ALIGN="LEFT">problem</TD>
-<TD ALIGN="LEFT">single ion</TD>
-<TD ALIGN="LEFT">references</TD>
-</TR>
-<TR><TD ALIGN="LEFT">compound</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">module</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT"><I CLASS="slanted">bfk </I></TD>
-<TD ALIGN="LEFT">Becker Fulde Keller Theorie for</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">so1ion </I><A NAME="351"></A></TD>
-<TD ALIGN="LEFT">[<A
- HREF="node151.html#becker77-9">4</A>],</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">CF-conduction electron interaction</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">App.&nbsp;<A HREF="node147.html#bfktheory">N</A></TD>
-</TR>
-<TR><TD ALIGN="LEFT">Ce3p_chain_cfphonon</TD>
-<TD ALIGN="LEFT">Crystal Field Phonon int. on linear chain,</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">phonon </I></TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">CF striction, theory paper</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">so1ion </I></TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">Ce3p_tetragonal_prim</TD>
-<TD ALIGN="LEFT">Crystal Field Phonon interaction</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">phonon</I></TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">on primitive lattice, CF magnetostriction</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">so1ion </I></TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">CeAl2_cfphonon_cfstr</TD>
-<TD ALIGN="LEFT">CeAl<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN> - Crystal Field phonon int.,</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">phonon</I>,</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">CEF magnetostriction</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">so1ion </I></TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">CeCu<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN></TD>
-<TD ALIGN="LEFT">mag phase diagram, fit of dispersive</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">kramer</I><A NAME="361"></A></TD>
-<TD ALIGN="LEFT">[<A
- HREF="node151.html#loewenhaupt06-775">5</A>,<A
- HREF="node151.html#schedler03-1313">6</A>]</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">mag. excitations to neutron data</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">CeCu<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN>Ge<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN></TD>
-<TD ALIGN="LEFT">crystal field - phonon int., Becker &amp; DMD method</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">phonon, bcfph </I></TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">CePd<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN>Si<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN></TD>
-<TD ALIGN="LEFT">neutron diffraction going beyond</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">
-so1ion</I></TD>
-<TD ALIGN="LEFT">[<A
- HREF="node151.html#rotter09-140405">7</A>]</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">dipolar approx for mag. formfactor</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">CoO</TD>
-<TD ALIGN="LEFT">magnetic formfactor - flipping ratios,</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">ic1ion</I></TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">highly inelastic neutron scattering</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">DyCu<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN></TD>
-<TD ALIGN="LEFT">quadrupolar order and phase diagram</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">cfield</I><A NAME="368"></A></TD>
-<TD ALIGN="LEFT">[<A
- HREF="node151.html#yoshida98-1421">8</A>]</TD>
-</TR>
-<TR><TD ALIGN="LEFT">DyNi<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN>B<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN>C</TD>
-<TD ALIGN="LEFT">magnetic phase diagram, special single</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">
-quartett.so</I><A NAME="371"></A></TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">ion module (quasiquartet)</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">ErNi<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN>B<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN>C</TD>
-<TD ALIGN="LEFT">magnetostriction and phase diagram</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">cfield</I></TD>
-<TD ALIGN="LEFT">[<A
- HREF="node151.html#doerr02-5609">9</A>]</TD>
-</TR>
-<TR><TD ALIGN="LEFT">Gd<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img19.png"
- ALT="$_3$"></SPAN>GaO<SPAN CLASS="MATH"><IMG
- WIDTH="41" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img12.png"
- ALT="$H_{mix}$"></SPAN></TD>
-<TD ALIGN="LEFT">pointcharge model for crystal field parameters</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">pointc</I></TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">GdNi<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN>B<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN>C</TD>
-<TD ALIGN="LEFT">double-q magnetic structure, spin only (L=0)</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">brillouin</I><A NAME="376"></A></TD>
-<TD ALIGN="LEFT">[<A
- HREF="node151.html#doerr02-5609">9</A>,<A
- HREF="node151.html#jensen08-134408">10</A>]</TD>
-</TR>
-<TR><TD ALIGN="LEFT">GdRu<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN>Si<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN></TD>
-<TD ALIGN="LEFT">biquadratic interactions - magnetisation, mag. structure</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">cfield</I></TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">helix_spinwave</TD>
-<TD ALIGN="LEFT">spinwave calculation for a helical magnetic structure</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">so1ion</I></TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">Ho<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN>Ti<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN>O<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img8.png"
- ALT="$_7$"></SPAN></TD>
-<TD ALIGN="LEFT">diffuse magnetic scattering</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">so1ion</I></TD>
-<TD ALIGN="LEFT">[<A
- HREF="node151.html#bramwell01-1495">11</A>]</TD>
-</TR>
-<TR><TD ALIGN="LEFT">LaCoO<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img19.png"
- ALT="$_3$"></SPAN></TD>
-<TD ALIGN="LEFT">spin polarons quasielastic scattering</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">cluster</I><A NAME="383"></A></TD>
-<TD ALIGN="LEFT">[<A
- HREF="node151.html#podlesnyak11-134430">12</A>,<A
- HREF="node151.html#podlesnyak08-247603">13</A>]</TD>
-</TR>
-<TR><TD ALIGN="LEFT">La<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN>CoO<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img17.png"
- ALT="$_4$"></SPAN></TD>
-<TD ALIGN="LEFT">dispersive magnetic excitations / spinwaves</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">ic1ion</I></TD>
-<TD ALIGN="LEFT">[<A
- HREF="node151.html#lewtas10-184420">14</A>]</TD>
-</TR>
-<TR><TD ALIGN="LEFT">LuMnO<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img19.png"
- ALT="$_3$"></SPAN></TD>
-<TD ALIGN="LEFT">magnetic structure and dispersion of excitations</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">so1ion</I></TD>
-<TD ALIGN="LEFT">[<A
- HREF="node151.html#lewtas10-184420">14</A>]</TD>
-</TR>
-<TR><TD ALIGN="LEFT">NdBa<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN>Cu<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img19.png"
- ALT="$_3$"></SPAN>O<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img8.png"
- ALT="$_7$"></SPAN></TD>
-<TD ALIGN="LEFT">fit of magnetic neutron diffraction</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">cfield</I><A NAME="390"></A></TD>
-<TD ALIGN="LEFT">[<A
- HREF="node151.html#rotter09-140405">7</A>]</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">data going beyond dipapprox</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">NdCu<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN></TD>
-<TD ALIGN="LEFT">crystal field, magnetic structure,</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">cfield</I></TD>
-<TD ALIGN="LEFT">
-[<A
- HREF="node151.html#loewenhaupt95-491">15</A>,<A
- HREF="node151.html#loewenhaupt96-499">16</A>,<A
- HREF="node151.html#rotter00-29">2</A>,<A
- HREF="node151.html#rotter02-751">17</A>,<A
- HREF="node151.html#rotter02-8885">18</A>]</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">phase diagrams, excitations</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">NiO</TD>
-<TD ALIGN="LEFT">INS and RIXS on NiO</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">so1ion</I><A NAME="395"></A></TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">PrNi<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN>B<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN>C</TD>
-<TD ALIGN="LEFT">crystal field - fit to neutrons,cp, susc</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">cfield</I></TD>
-<TD ALIGN="LEFT">[<A
- HREF="node151.html#mazumdar08-144422">19</A>]</TD>
-</TR>
-<TR><TD ALIGN="LEFT">PrNi<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN>Si<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN></TD>
-<TD ALIGN="LEFT">excitons in an amplitude modulated mag structure</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">so1ion</I><A NAME="399"></A></TD>
-<TD ALIGN="LEFT">[<A
- HREF="node151.html#blanco13-104411">20</A>]</TD>
-</TR>
-<TR><TD ALIGN="LEFT">Pr<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img19.png"
- ALT="$_3$"></SPAN>Pd<SPAN CLASS="MATH"><IMG
- WIDTH="32" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img15.png"
- ALT="$T=$"></SPAN>Si<SPAN CLASS="MATH"><IMG
- WIDTH="41" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img12.png"
- ALT="$H_{mix}$"></SPAN></TD>
-<TD ALIGN="LEFT">hyperfine interactions</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">cluster</I><A NAME="403"></A></TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">PuPd<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img19.png"
- ALT="$_3$"></SPAN></TD>
-<TD ALIGN="LEFT">susceptibility, heat capacity</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">ic1ion</I><A NAME="405"></A></TD>
-<TD ALIGN="LEFT">[<A
- HREF="node151.html#le10-155136">21</A>]</TD>
-</TR>
-<TR><TD ALIGN="LEFT">Ru3p_create_sipf</TD>
-<TD ALIGN="LEFT">how to create paramters for a sipf file from</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">simannfit,cowan</I></TD>
-<TD ALIGN="LEFT">[<A
- HREF="node151.html#cowan81-1">22</A>]</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD>
-<TD ALIGN="LEFT">a Hartree Fock Calculation</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">RCN36K,RCN2K</I></TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">TbCu<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN></TD>
-<TD ALIGN="LEFT">magnetic phases with field parallel <SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img10.png"
- ALT="$a$"></SPAN></TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">cfield</I></TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">test_cluster</TD>
-<TD ALIGN="LEFT">test of a binary cluster of two spins</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">cluster</I></TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">testic1ion</TD>
-<TD ALIGN="LEFT">Pr<SPAN CLASS="MATH"><IMG
- WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img3.png"
- ALT="$^{3+}$"></SPAN> chargedensity in IC and LS coupling</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">ic1ion,cfield</I></TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">tungsten</TD>
-<TD ALIGN="LEFT">phonons in tungsten</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">phonon</I></TD>
-<TD ALIGN="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">UPd<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img19.png"
- ALT="$_3$"></SPAN></TD>
-<TD ALIGN="LEFT">dispersive CEF excitations, quadrupolar interactions</TD>
-<TD ALIGN="LEFT"><I CLASS="slanted">so1ion</I><A NAME="416"></A></TD>
-<TD ALIGN="LEFT">[<A
- HREF="node151.html#le12-036002">23</A>]</TD>
-</TR>
-</TABLE>
+The Hamiltonian
+</H1>
+
+<P>
+We assume a quantum mechanical system that can be described by the Hamiltonian
+ 
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\hat \mathcal H=\sum_{n=1}^N \hat \mathcal H(n) -\frac{1}{2} \sum_{n,n',\alpha,\beta}
+ {\mathcal J}_{\alpha\beta}(\mathbf R_{n'} - \mathbf R_n) \hat \mathcal I_{\alpha}^n \hat \mathcal I_{\beta}^{n'}.
+ 
+\end{equation}
+ -->
+ &nbsp;  <A ID="hamilton"></A><IMG
+ STYLE="height: 3.51ex; vertical-align: -1.13ex; " SRC="img70.svg"
+ ALT="$\displaystyle
+\hat \mathcal H=\sum_{n=1}^N \hat \mathcal H(n) -\frac{1}{2} \...
+...{n'} - \mathbf R_n) \hat \mathcal I_{\alpha}^n \hat \mathcal I_{\beta}^{n'}.
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">1</SPAN>)</SPAN>
 </DIV>
-<BR>
+The first term <!-- MATH
+ $\hat \mathcal H(n)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img71.svg"
+ ALT="$\hat \mathcal H(n)$"></SPAN> denotes the Hamiltonian of
+ a subsystem <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
+ ALT="$n$"></SPAN>
+(e.g.&nbsp;an ion, or cluster of ions). The second term describes a bilinear interaction 
+between different subsystems
+through the operators <!-- MATH
+ $\hat \mathcal I_{\alpha}^n$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.69ex; " SRC="img73.svg"
+ ALT="$\hat \mathcal I_{\alpha}^n$"></SPAN>, with <!-- MATH
+ $\alpha = 1,2,...,m$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img74.svg"
+ ALT="$\alpha = 1,2,...,m$"></SPAN>. The operators <!-- MATH
+ $\hat \mathcal H(n)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img71.svg"
+ ALT="$\hat \mathcal H(n)$"></SPAN> and <!-- MATH
+ $\hat \mathcal I_{\alpha}^n$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.69ex; " SRC="img73.svg"
+ ALT="$\hat \mathcal I_{\alpha}^n$"></SPAN> act in the subspace <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
+ ALT="$n$"></SPAN> of the Hilbert space, i.e. <!-- MATH
+ $[\hat \mathcal I_{\alpha}^n,\hat \mathcal I_{\alpha}^{n'}]=0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img75.svg"
+ ALT="$[\hat \mathcal I_{\alpha}^n,\hat \mathcal I_{\alpha}^{n'}]=0$"></SPAN>,
+<!-- MATH
+ $[\hat \mathcal H(n),\hat \mathcal I_{\alpha}^{n'}]=0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img76.svg"
+ ALT="$[\hat \mathcal H(n),\hat \mathcal I_{\alpha}^{n'}]=0$"></SPAN> and <!-- MATH
+ $[\hat \mathcal H(n),\hat \mathcal H(n')]=0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img77.svg"
+ ALT="$[\hat \mathcal H(n),\hat \mathcal H(n')]=0$"></SPAN>
+for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.42ex; vertical-align: -0.57ex; " SRC="img78.svg"
+ ALT="$n \neq n'$"></SPAN><A ID="tex2html10"
+  HREF="footnode.html#foot284"><SUP><SPAN CLASS="arabic">7</SPAN></SUP></A>.
+For example, in the case of a Heisenberg
+ exchange between magnetic ions we would identify the set of operators with
+ <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img79.svg"
+ ALT="$\alpha=1,2,3$"></SPAN> with the three components of the  spin: <!-- MATH
+ $\hat \mathcal I_1 \leftrightarrow \hat S_x, \hat \mathcal I_2 %%@
+\leftrightarrow \hat S_y, \hat \mathcal I_3 \leftrightarrow \hat S_z$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img80.svg"
+ ALT="$\hat \mathcal I_1 \leftrightarrow \hat S_x, \hat \mathcal I_2 %%@
+\leftrightarrow \hat S_y, \hat \mathcal I_3 \leftrightarrow \hat S_z$"></SPAN>.
+The beauty of the analysis which follows is that it can be applied to
+almost any Hamiltonian of the form (<A HREF="#hamilton">1</A>). The analysis
+of complex magnetic systems can thus be attempted by starting from a simple
+form such as the Heisenberg model and by introducing, step-by-step, more
+complexity into the model. For example, anisotropy and interactions with extended range can be introduced by modifying <!-- MATH
+ ${\mathcal J}_{\alpha\beta}(\mathbf R_n - \mathbf R_{n'})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img81.svg"
+ ALT="${\mathcal J}_{\alpha\beta}(\mathbf R_n - \mathbf R_{n'})$"></SPAN>, higher order operators can be 
+introduced  by extending the index range for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img82.svg"
+ ALT="$\alpha$"></SPAN>, and a complex single-ion term <!-- MATH
+ $\hat \mathcal H(n)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img71.svg"
+ ALT="$\hat \mathcal H(n)$"></SPAN> may be added. 
+Another example for a Hamiltonian (<A HREF="#hamilton">1</A>)  is the problem of lattice dynamics, which can
+ be treated in the framework of this
+formalism by identifying the operators <!-- MATH
+ $\hat \mathcal I^n_{\alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.69ex; " SRC="img83.svg"
+ ALT="$\hat \mathcal I^n_{\alpha}$"></SPAN>
+ with the atomic displacements <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.12ex; " SRC="img84.svg"
+ ALT="$u^{n}$"></SPAN>. Here the index <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img82.svg"
+ ALT="$\alpha$"></SPAN> is not necessary and
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
+ ALT="$n$"></SPAN> refers to both, the atomic position index and the spatial coordinate of the displacement,
+  <!-- MATH
+ $n=(1,x),(1,y),(1,z),(2,x),(2,y),(2,z), ...$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img85.svg"
+ ALT="$n=(1,x),(1,y),(1,z),(2,x),(2,y),(2,z), ...$"></SPAN>. Note that this can be done, because the three spatial components of the 
+displacement operators commute with each other (in contrast to the components of the spin) and each displacement
+component acts in its own subspace of the Hilbert space. The kinetic energy
+will be part of the single ion term <!-- MATH
+ $\hat \mathcal H(n)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img71.svg"
+ ALT="$\hat \mathcal H(n)$"></SPAN>. Allowing more complexity to the system,
+both the spin and lattice degrees of freedom can be introduced and spin-phonon interactions can be
+handled by the theory.
 
 <P>
+The main limitation of the approach is that it neglects fluctuations associated with phase 
+transitions and quantum disorder. We are primarily concerned, therefore, with excitations 
+associated with a  well-ordered ground state.
+
+<P>
+Two special forms of the Hamiltonian (<A HREF="#hamilton">1</A>), which have been implemented
+are given in the following. Some other forms are also available, by programming
+a single ion module the user may treat any type single ion Hamiltonian <!-- MATH
+ $\hat \mathcal H(n)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img71.svg"
+ ALT="$\hat \mathcal H(n)$"></SPAN>.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html401"
+  HREF="node13.html">Rare Earth Ions</A>
+<LI><A ID="tex2html402"
+  HREF="node14.html">Intermediate Coupling</A>
+</UL>
+<!--End of Table of Child-Links-->
 
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html494"
-  HREF="node13.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html488"
-  HREF="manual.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html482"
-  HREF="node11.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html490"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html492"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node13.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node11.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html397"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html399"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html495"
-  HREF="node13.html">The Hamiltonian</A>
-<B> Up:</B> <A NAME="tex2html489"
-  HREF="manual.html">McPhase USERS MANUAL</A>
-<B> Previous:</B> <A NAME="tex2html483"
-  HREF="node11.html">Introduction</A>
- &nbsp; <B>  <A NAME="tex2html491"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html493"
-  HREF="node152.html">Index</A></B> </DIV>
+<B> Next:</B> <A
+ HREF="node13.html">Rare Earth Ions</A>
+<B> Up:</B> <A
+ HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A
+ HREF="node11.html">Getting Started ... List</A>
+ &nbsp; <B>  <A ID="tex2html398"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html400"
+  HREF="node164.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

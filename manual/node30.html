@@ -1,178 +1,87 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Example single ion property file for a simple antiferromagnet</TITLE>
-<META NAME="description" CONTENT="Example single ion property file for a simple antiferromagnet">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>mcphas.tst - input file of test spin-configurations (optional)</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node31.html">
 <LINK REL="previous" HREF="node29.html">
-<LINK REL="up" HREF="node23.html">
 <LINK REL="next" HREF="node31.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html775"
-  HREF="node31.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html769"
-  HREF="node23.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html763"
-  HREF="node29.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html771"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html773"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node31.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node22.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node29.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html504"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html506"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html776"
-  HREF="node31.html">mcphas.tst - input file</A>
-<B> Up:</B> <A NAME="tex2html770"
-  HREF="node23.html">Input Files</A>
-<B> Previous:</B> <A NAME="tex2html764"
-  HREF="node29.html">Single Ion Property Input</A>
- &nbsp; <B>  <A NAME="tex2html772"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html774"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node31.html">Example mcphas.tst file for</A>
+<B> Up:</B> <A
+ HREF="node22.html">Input Files</A>
+<B> Previous:</B> <A
+ HREF="node29.html">Example single ion property</A>
+ &nbsp; <B>  <A ID="tex2html505"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html507"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION000101700000000000000">
-Example single ion property file  for a simple antiferromagnet</A>
+<H3><A ID="SECTION000101800000000000000"></A><A ID="856"></A>
+<BR>
+<I CLASS="slanted">mcphas.tst</I> - input file of test spin-configurations (optional)
 </H3>
+This file is optional and contains
+some test momentum configurations to be used for the calculation
+             of the free energy. Mind that
+
+<UL>
+<LI>in the file header the number of atoms in the primitive
+       crystallographic unit cell and the number of components
+       of the spin vector have to be given.
+</LI>
+<LI>at the end of the
+ file there must be no empty lines !
+</LI>
+</UL>
 
 <P>
-Here is an example file <I CLASS="slanted">mcphas.cf1</I> describing the anisotropy of a 
-simple antiferromagnet with Ce atoms having basal plane anisotropy. Note the
-axis convention xyz<SPAN CLASS="MATH"><IMG
- WIDTH="13" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img186.png"
- ALT="$\vert\vert$"></SPAN>abc, in case of non-orthogonal axes the convention 
-is <SPAN CLASS="MATH"><IMG
- WIDTH="28" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
- SRC="img135.png"
- ALT="$y\vert\vert\vec b$"></SPAN>, <!-- MATH
- $z||(\vec a \times \vec b)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="68" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
- SRC="img136.png"
- ALT="$z\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
- WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img4.png"
- ALT="$x$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img137.png"
- ALT="$y$"></SPAN> and <SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img124.png"
- ALT="$z$"></SPAN>.
-
-<P>
-<PRE>
-#!MODULE=so1ion
-#&lt;!--mcphase.sipf--&gt;
-#***************************************************************
-# Single Ion Parameter File for Module Cfield for  
-# mcphas version 3.0
-# - program to calculate static magnetic properties
-# reference: M. Rotter JMMM 272-276 (2004) 481
-# mcdisp version 3.0
-# - program to calculate the dispersion of magnetic excitations
-# reference: M. Rotter et al. J. Appl. Phys. A74 (2002) 5751
-# mcdiff version 3.0
-# - program to calculate neutron and magnetic xray diffraction
-# reference: M. Rotter and A. Boothroyd PRB 79 (2009) 140405R
-#***************************************************************
-#
-#
-# crystal field paramerized in Stevens formalism
-#
-#-----------
-IONTYPE=Ce3+
-#-----------
-
-#--------------------------------------------------------------------------
-# Crystal Field parameters in Stevens Notation (coordinate system xyz||abc)
-#--------------------------------------------------------------------------
-units=meV
-B20=0.02
-
-
-#----------------
-# Stevens Factors
-#----------------
-ALPHA=-0.0571429
-BETA=0.00634921
-GAMMA=0
-
-#---------------------------------------------------------
-# Radial Matrix Elements (e.g. Abragam Bleaney 1971 p 399)
-#---------------------------------------------------------
-#&lt;r^2&gt; in units of a0^2 a0=0.5292 Angstroem
-R2=1.309
-#&lt;r^4&gt; in units of a0^4 a0=0.5292 Angstroem
-R4=3.964
-#&lt;r^6&gt; in units of a0^6 a0=0.5292 Angstroem
-R6=23.31
-
-#----------------
-# Lande factor gJ
-#----------------
-GJ=0.857143
-
-#-------------------------------------------------------
-# Neutron Scattering Length (10^-12 cm) (can be complex)
-#-------------------------------------------------------
-SCATTERINGLENGTHREAL=0.484
-SCATTERINGLENGTHIMAG=0
-#  ... note: - if an occupancy other than 1.0 is needed, just reduce 
-#              the scattering length linear accordingly
-
-#-------------------------------------------------------
-# Debye-Waller Factor: sqr(Intensity)~|sf|~EXP(-2 * DWF *s*s)=EXP (-W)
-#                      with s=sin(theta)/lambda=Q/4pi
-# relation to other notations: 2*DWF=Biso=8 pi^2 &lt;u^2&gt;
-# unit of DWF is [A^2]
-#-------------------------------------------------------
-DWF=0
-#--------------------------------------------------------------------------------------
-# Neutron Magnetic Form Factor coefficients - thanks to J Brown
-#   d = 2*pi/Q      
-#   s = 1/2/d = Q/4/pi   
-#   sin(theta) = lambda * s
-#   r= s*s = Q*Q/16/pi/pi
-#
-#   &lt;j0(Qr)&gt;=   FFj0A*EXP(-FFj0a*r) + FFj0B*EXP(-FFj0b*r) + FFj0C*EXP(-FFj0c*r) + FFj0D
-#   &lt;j2(Qr)&gt;=r*(FFj2A*EXP(-FFj2a*r) + FFj2B*EXP(-FFj2b*r) + FFj2C*EXP(-FFj2c*r) + FFj2D
-#   &lt;j4(Qr)&gt;=r*(FFj4A*EXP(-FFj4a*r) + FFj4B*EXP(-FFj4b*r) + FFj4C*EXP(-FFj4c*r) + FFj4D
-#   &lt;j6(Qr)&gt;=r*(FFj6A*EXP(-FFj6a*r) + FFj6B*EXP(-FFj6b*r) + FFj6C*EXP(-FFj6c*r) + FFj6D
-#
-#   Dipole Approximation for Neutron Magnetic Formfactor:
-#        -Spin Form Factor       FS(Q)=&lt;j0(Q)&gt;
-#        -Angular Form Factor    FL(Q)=&lt;j0(Q)&gt;+&lt;j2(Q)&gt;
-#        -Rare Earth Form Factor F(Q) =&lt;j0(Q)&gt;+&lt;j2(Q)&gt;*(2/gJ-1)
-
-#--------------------------------------------------------------------------------------
-FFj0A=+0.2953 FFj0a=+17.6846 FFj0B=+0.2923 FFj0b=+6.7329 FFj0C=+0.4313 FFj0c=+5.3827 FFj0D=-0.0194
-FFj2A=+0.9809 FFj2a=+18.0630 FFj2B=+1.8413 FFj2b=+7.7688 FFj2C=+0.9905 FFj2c=+2.8452 FFj2D=+0.0120
-</PRE>
+The momentum - configurations tables always refer to spins sitting on
+the primitive lattice <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.61ex; vertical-align: -0.46ex; " SRC="img221.svg"
+ ALT="${\mathbf r}_i$"></SPAN>. If more than one atom is in
+the primitive basis, the momentum gets <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img222.svg"
+ ALT="$3n$"></SPAN> components (<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img223.svg"
+ ALT="$n=$"></SPAN> number
+of atoms in the crystallographic basis). See <I CLASS="slanted">./examples/ndcu2b_new/</I> for
+examples of a two atom basis. Units of these tables are that of total 
+angular momentum <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.90ex; vertical-align: -0.21ex; " SRC="img224.svg"
+ ALT="$&lt;J&gt;$"></SPAN>.
 
 <P>
 <BR><HR>

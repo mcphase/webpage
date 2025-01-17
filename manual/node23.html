@@ -1,126 +1,66 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Input Files</TITLE>
-<META NAME="description" CONTENT="Input Files">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Example - a simple antiferromagnet</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node35.html">
+<LINK REL="next" HREF="node24.html">
 <LINK REL="previous" HREF="node22.html">
-<LINK REL="up" HREF="node22.html">
 <LINK REL="next" HREF="node24.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html666"
-  HREF="node24.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html660"
-  HREF="node22.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html654"
-  HREF="node22.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html662"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html664"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node24.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node22.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node22.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html476"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html478"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html667"
-  HREF="node24.html">Example - a simple</A>
-<B> Up:</B> <A NAME="tex2html661"
-  HREF="node22.html">mcphas - calculation of</A>
-<B> Previous:</B> <A NAME="tex2html655"
-  HREF="node22.html">mcphas - calculation of</A>
- &nbsp; <B>  <A NAME="tex2html663"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html665"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node24.html">mcphas.ini - controlling the</A>
+<B> Up:</B> <A
+ HREF="node22.html">Input Files</A>
+<B> Previous:</B> <A
+ HREF="node22.html">Input Files</A>
+ &nbsp; <B>  <A ID="tex2html477"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html479"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION000101000000000000000">
-Input Files</A>
-</H2>
-The program <I CLASS="slanted">McPhase</I> needs the following input files (all in the same directory)
- in order to run:
+<H3><A ID="SECTION000101100000000000000">
+Example - a simple antiferromagnet</A>
+</H3>
 
 <P>
-
-<OL>
-<LI><I CLASS="slanted">mcphas.ini<A NAME="1657"></A></I>
- - controlling the algorithm
-</LI>
-<LI><I CLASS="slanted">mcphas.j<A NAME="1658"></A></I>
-  - lattice and exchange parameters
-</LI>
-<LI><I CLASS="slanted">mcphas.tst<A NAME="1659"></A>(optional)</I>  - test spin configurations
-</LI>
-<LI><I CLASS="slanted">single-ion property files</I>
-</LI>
-<LI><I CLASS="slanted">directory ./results/</I>
- - directory where calculated data is stored
-</LI>
-<LI><I CLASS="slanted">directory ./fit</I> - experimental data for fit (optional)
-</LI>
-</OL>
+In the following description of the input files we will always refer
+to a simple example: a simple antiferromagnet
+on a primitive orthorhombic lattice. The first time user
+will thus have a simple example to follow, all corresponding
+files are given in the directory <I CLASS="slanted">tutorial/03magnetic_phases_mcphas/simpleAF</I>.
 
 <P>
-All
- of these input files have to be in one directory and the program
-has to be started in this directory. The results of the simulation
-are then stored in the  subdirectory ./results/, which must exist before starting
-the program 
-... see directory ./examples/ for some examples.
- In order to prepare these files
-for a new calculation it is best to take them from an example, copy the files
-to a new directory and make the
-modifications  to adapt them to the new problem.
-
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html668"
-  HREF="node24.html">Example - a simple antiferromagnet</A>
-<LI><A NAME="tex2html669"
-  HREF="node25.html"><I CLASS="slanted">mcphas.ini</I> - controlling the algorithm</A>
-<LI><A NAME="tex2html670"
-  HREF="node26.html">Example <I CLASS="slanted">mcphas.ini</I> file for a simple antiferromagnet</A>
-<LI><A NAME="tex2html671"
-  HREF="node27.html"><I CLASS="slanted">mcphas.j</I> - lattice and exchange parameters</A>
-<LI><A NAME="tex2html672"
-  HREF="node28.html">Example <I CLASS="slanted">mcphas.j</I> file for a simple antiferromagnet</A>
-<LI><A NAME="tex2html673"
-  HREF="node29.html">Single Ion Property Input Files</A>
-<LI><A NAME="tex2html674"
-  HREF="node30.html">Example single ion property file  for a simple antiferromagnet</A>
-<LI><A NAME="tex2html675"
-  HREF="node31.html"><I CLASS="slanted">mcphas.tst</I> - input file of test spin-configurations (optional)</A>
-<LI><A NAME="tex2html676"
-  HREF="node32.html">Example <I CLASS="slanted">mcphas.tst</I> file  for a simple antiferromagnet</A>
-<LI><A NAME="tex2html677"
-  HREF="node33.html">subdirectory <I CLASS="slanted">./results</I> - directory where calculated data is stored</A>
-<LI><A NAME="tex2html678"
-  HREF="node34.html">subdirectory <I CLASS="slanted">./fit</I> - experimental data for fit (optional) </A>
-</UL>
-<!--End of Table of Child-Links-->
 <BR><HR>
 
 </BODY>

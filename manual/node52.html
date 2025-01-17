@@ -1,92 +1,265 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Powder-averaging the spectra</TITLE>
-<META NAME="description" CONTENT="Powder-averaging the spectra">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Resonant Inelastic X-ray Scattering(RIXS)</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="previous" HREF="node51.html">
-<LINK REL="up" HREF="node49.html">
+<LINK REL="previous" HREF="node48.html">
 <LINK REL="next" HREF="node53.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1091"
-  HREF="node53.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1085"
-  HREF="node49.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1081"
-  HREF="node51.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1087"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1089"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node53.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node43.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node51.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html610"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html612"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1092"
-  HREF="node53.html">Resonant Inelastic X-ray Scattering(RIXS)</A>
-<B> Up:</B> <A NAME="tex2html1086"
-  HREF="node49.html">Powder Neutron Cross Section</A>
-<B> Previous:</B> <A NAME="tex2html1082"
-  HREF="node51.html">Calculation of the Dispersion</A>
- &nbsp; <B>  <A NAME="tex2html1088"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1090"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node53.html">Scattering geometry</A>
+<B> Up:</B> <A
+ HREF="node43.html">mcdisp - the Calculation</A>
+<B> Previous:</B> <A
+ HREF="node51.html">Powder-averaging the spectra</A>
+ &nbsp; <B>  <A ID="tex2html611"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html613"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION000123300000000000000">
-Powder-averaging the spectra</A>
-</H3>
-The third and last step in the calculation of the powder pattern is the averaging
-of the spectra with the same value of <SPAN CLASS="MATH"><IMG
- WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img93.png"
- ALT="$Q$"></SPAN>. This is done by restarting module
-<I CLASS="slanted">powdermagnon</I> by: 
+<H2><A ID="SECTION000124000000000000000"></A><A ID="1567"></A>
+<BR>
+Resonant Inelastic X-ray Scattering(RIXS)
+</H2>
 
 <P>
-powdermagnon -r results
-<BR>
-mcdisp.qei 0.5 30 0.2 
+Using the option <I CLASS="slanted">-x</I> and <I CLASS="slanted">-xa</I>  the RIXS cross section can be calculated
+by <I CLASS="slanted">mcdisp</I><A ID="1571"></A>. 
+Option <I CLASS="slanted">-x</I> calculates resonant inelastic x-ray intensities 
+maximized with respect to azimuth.
+ Option <I CLASS="slanted">-xa</I>  calculates resonant inelastic x-ray 
+intensities with complete azimuth dependence for each reflection.
 
 <P>
-meaning take  results from file <I CLASS="slanted">results
-<BR>
-mcdisp.qei</I> and average the
-spectra. Output is printed to the console (STDOUT) and can be piped to a file in
-order to print it with <I CLASS="slanted">displaycontour<A NAME="3923"></A></I>. An example is given in fig.&nbsp;
-<A HREF="node49.html#prni2b2c_2K">13</A> and <A HREF="node49.html#prni2b2c_10K">14</A>.
-Parameters in the above command  are:
+The formalism is based on [<A
+ HREF="node163.html#haverkort10-167404">31</A>, equ.8 ff],
+e.g. the observables <!-- MATH
+ $\hat \mathcal O_{\alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img419.svg"
+ ALT="$\hat \mathcal O_{\alpha}$"></SPAN> are the 9 components (<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img82.svg"
+ ALT="$\alpha$"></SPAN>
+=xx xy xz yx yy yz zx zy zz)
+of the tensor <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img420.svg"
+ ALT="$\mathbf R$"></SPAN>, which is related to the operator
+<!-- MATH
+ $R_{\omega,j}^{\epsilon_i\epsilon_o}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.92ex; vertical-align: -1.08ex; " SRC="img421.svg"
+ ALT="$R_{\omega,j}^{\epsilon_i\epsilon_o}$"></SPAN> in [<A
+ HREF="node163.html#haverkort10-167404">31</A>] by
 
-<UL>
-<LI>0.5 ....Emin   [meV] minimal energy
-</LI>
-<LI>30 ....Emax   [meV] maximal energy
-</LI>
-<LI>0.2....deltaE [meV] energy step width
-</LI>
-</UL>
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+R_{\omega,j}^{\epsilon_i\epsilon_o}=\mathbf \epsilon _o^{\star} \cdot \mathbf R \cdot \mathbf \epsilon _i
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 2.92ex; vertical-align: -1.08ex; " SRC="img422.svg"
+ ALT="$\displaystyle R_{\omega,j}^{\epsilon_i\epsilon_o}=\mathbf \epsilon _o^{\star} \cdot \mathbf R \cdot \mathbf \epsilon _i
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">62</SPAN>)</SPAN>
+</DIV>
+
+<P>
+Here the vector <!-- MATH
+ $\mathbf \epsilon$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img423.svg"
+ ALT="$\mathbf \epsilon $"></SPAN> describes the polarisation of the incoming / outgoing
+photon beam (linear (real) or circular polarized (complex) light).
+Vector components (e.g. <!-- MATH
+ $\hat \mathbf S$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.43ex; vertical-align: -0.12ex; " SRC="img424.svg"
+ ALT="$\hat \mathbf S$"></SPAN> to the xyz coordinate system, where
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img390.svg"
+ ALT="$y\vert\vert b$"></SPAN>,<!-- MATH
+ $z||(a \times b)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img391.svg"
+ ALT="$z\vert\vert(a \times b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img4.svg"
+ ALT="$x$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img171.svg"
+ ALT="$y$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img158.svg"
+ ALT="$z$"></SPAN>.
+
+<P>
+For the isotropic ion the scattering operator <!-- MATH
+ $R_{\omega,j}^{\epsilon_i\epsilon_o}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.92ex; vertical-align: -1.08ex; " SRC="img421.svg"
+ ALT="$R_{\omega,j}^{\epsilon_i\epsilon_o}$"></SPAN>
+is given by
+
+<P>
+<BR>
+<DIV CLASS="displaymath"><A ID="rixsop"></A>
+<!-- MATH
+ \begin{eqnarray}
+R_{\omega,j}^{\epsilon_i\epsilon_o}&=&\mathbf \epsilon _o^{\star} \cdot \mathbf R \cdot \mathbf \epsilon _i \\
+&=& \sigma^{(0)} \mathbf \epsilon _i \cdot \mathbf \epsilon _o^{\star} + \frac{\sigma^{(1)}}{s}
+\mathbf \epsilon _o^{\star} \times \mathbf \epsilon _i \hat \mathbf S_j \nonumber \\
+&& \frac{\sigma^{(2)}}{s(2s-1)} \left ( 
+\mathbf \epsilon _i \cdot \hat \mathbf S_j \mathbf \epsilon _o^{\star} \cdot \hat \mathbf S_j 
++ \mathbf \epsilon _o^{\star} \cdot \hat \mathbf S_j \mathbf \epsilon _i \cdot \hat \mathbf S_j  
+- \frac{2}{3} \mathbf \epsilon _i \cdot \mathbf \epsilon _o^{\star} \hat \mathbf S_j^2
+\right )
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.92ex; vertical-align: -1.08ex; " SRC="img425.svg"
+ ALT="$\displaystyle R_{\omega,j}^{\epsilon_i\epsilon_o}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.51ex; vertical-align: -0.69ex; " SRC="img426.svg"
+ ALT="$\displaystyle \mathbf \epsilon _o^{\star} \cdot \mathbf R \cdot \mathbf \epsilon _i$"></TD><TD class="rfill">(<SPAN CLASS="arabic">63</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.44ex; vertical-align: -1.71ex; " SRC="img427.svg"
+ ALT="$\displaystyle \sigma^{(0)} \mathbf \epsilon _i \cdot \mathbf \epsilon _o^{\star...
+...1)}}{s}
+\mathbf \epsilon _o^{\star} \times \mathbf \epsilon _i \hat \mathbf S_j$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.05ex; vertical-align: -2.32ex; " SRC="img428.svg"
+ ALT="$\displaystyle \frac{\sigma^{(2)}}{s(2s-1)} \left (
+\mathbf \epsilon _i \cdot \h...
+...athbf \epsilon _i \cdot \mathbf \epsilon _o^{\star} \hat \mathbf S_j^2
+\right )$"></TD><TD class="rfill">(<SPAN CLASS="arabic">64</SPAN>)</TD></TR>
+</TABLE></DIV>
+
+<P>
+In order to use this expression,  the conductivities <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img429.svg"
+ ALT="$\sigma$"></SPAN> have
+to be entered in the <I CLASS="slanted">sipf</I> file, e.g.
+
+<P>
+<PRE>
+SIGMA0r=1.32
+SIGMA1r=1.32
+SIGMA2r=1.32
+SIGMA0i=1.32
+SIGMA1i=1.32
+SIGMA2i=1.32
+</PRE>
+('r' and 'i' stand for real and imaginary part, respectively).
+
+<P>
+Note: in module <I CLASS="slanted">so1ion</I><A ID="1608"></A> the scattering operator
+is given in terms of the total angular momentum <!-- MATH
+ $\hat \mathbf J$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.43ex; vertical-align: -0.12ex; " SRC="img430.svg"
+ ALT="$\hat \mathbf J$"></SPAN> instead
+of <!-- MATH
+ $\hat \mathbf S$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.43ex; vertical-align: -0.12ex; " SRC="img424.svg"
+ ALT="$\hat \mathbf S$"></SPAN>.
+
+<P>
+If a more complex tensor <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img420.svg"
+ ALT="$\mathbf R$"></SPAN> is required, it's components
+can be defined in the sipf file using the perlparse option.
 
 <P>
 <BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html614"
+  HREF="node53.html">Scattering geometry</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node53.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node43.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node51.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html610"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html612"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node53.html">Scattering geometry</A>
+<B> Up:</B> <A
+ HREF="node43.html">mcdisp - the Calculation</A>
+<B> Previous:</B> <A
+ HREF="node51.html">Powder-averaging the spectra</A>
+ &nbsp; <B>  <A ID="tex2html611"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html613"
+  HREF="node164.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

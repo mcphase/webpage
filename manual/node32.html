@@ -1,120 +1,61 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Example mcphas.tst file for a simple antiferromagnet</TITLE>
-<META NAME="description" CONTENT="Example mcphas.tst file for a simple antiferromagnet">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>subdirectory ./results - directory where calculated data is stored</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node33.html">
 <LINK REL="previous" HREF="node31.html">
-<LINK REL="up" HREF="node23.html">
 <LINK REL="next" HREF="node33.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html803"
-  HREF="node33.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html797"
-  HREF="node23.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html791"
-  HREF="node31.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html799"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html801"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node33.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node22.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node31.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html512"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html514"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html804"
-  HREF="node33.html">subdirectory ./results - directory</A>
-<B> Up:</B> <A NAME="tex2html798"
-  HREF="node23.html">Input Files</A>
-<B> Previous:</B> <A NAME="tex2html792"
-  HREF="node31.html">mcphas.tst - input file</A>
- &nbsp; <B>  <A NAME="tex2html800"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html802"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node33.html">subdirectory ./fit - experimental</A>
+<B> Up:</B> <A
+ HREF="node22.html">Input Files</A>
+<B> Previous:</B> <A
+ HREF="node31.html">Example mcphas.tst file for</A>
+ &nbsp; <B>  <A ID="tex2html513"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html515"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION000101900000000000000"></A><A NAME="2251"></A>
-<BR>
-Example <I CLASS="slanted">mcphas.tst</I> file  for a simple antiferromagnet
+<H3><A ID="SECTION0001011000000000000000">
+subdirectory <I CLASS="slanted">./results</I> - directory where calculated data is stored</A>
 </H3>
 
 <P>
-Here is the file <I CLASS="slanted">mcphas.tst<A NAME="2252"></A></I> for the simple antiferromagnet example
-describing some spin configurations
-to be used as starting values for the mean field process:
-
-<P>
-<PRE> 
-# Test spin configurations for meanfield calculation - module mcphas version 3.0
-#&lt;!--mcphase.mcphas.tst--&gt;
-#*********************************************************
-# mcphas - program to calculate static magnetic properties
-# reference: M. Rotter JMMM 272-276 (2004) 481
-#**********************************************************
-#! nofatoms=1
-#!nofcomponents=3
-# File Format: blocks of 3xnofatoms lines consisting of
-# ma[1] ma[2] ma[3] .... ma[n]
-# mb[1] mb[2] mb[3] .... mb[n]
-# mc[1] mc[2] mc[3] .... mc[n]
-#   a configuration moments along c
-0
-1
-0
-
-0
--1
-0
-# end of configuration
-# new configuration
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-1 1 -1 1 1.1 -1 1 1 -1 1 1 -1.1 1 1 1 1
-1 1 -1 1 1 -1 1 1 -1 1 1 -1 1 1.1 1 1.1
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-1 1 -1 1 1 -1 1 1 -1 1 1 -1 1 1 1 1.1
-1 1 -1 1 1 -1 1 1 -1 1 1 -1 1 1 1 1
-# end of configuration
-</PRE>
-Note, in case of non-orthogonal axes the convention 
-is <SPAN CLASS="MATH"><IMG
- WIDTH="40" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
- SRC="img191.png"
- ALT="$mb\vert\vert\vec b$"></SPAN>, <!-- MATH
- $mc||(\vec a \times \vec b)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="81" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
- SRC="img192.png"
- ALT="$mc\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
- WIDTH="26" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img193.png"
- ALT="$ma$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
- WIDTH="25" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
- SRC="img194.png"
- ALT="$mb$"></SPAN> and <SPAN CLASS="MATH"><IMG
- WIDTH="25" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img195.png"
- ALT="$mc$"></SPAN>.
+In order to be able to save the results of a calculation the directory <I CLASS="slanted">./results</I> has to
+exist. Mind that all files in this directory will be overwritten without warning. 
 
 <P>
 <BR><HR>

@@ -1,244 +1,127 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>External module functions dmq1 - used by mcdisp </TITLE>
-<META NAME="description" CONTENT="External module functions dmq1 - used by mcdisp ">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Module Functions for Observables</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node89.html">
-<LINK REL="previous" HREF="node87.html">
-<LINK REL="up" HREF="node80.html">
+<LINK REL="previous" HREF="node82.html">
 <LINK REL="next" HREF="node89.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1641"
-  HREF="node89.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1635"
-  HREF="node80.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1629"
-  HREF="node87.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1637"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1639"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node89.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node81.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node87.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html811"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html813"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1642"
-  HREF="node89.html">External module functions drixs1</A>
-<B> Up:</B> <A NAME="tex2html1636"
-  HREF="node80.html">Module Functions for Observables</A>
-<B> Previous:</B> <A NAME="tex2html1630"
-  HREF="node87.html">External module function mqcalc</A>
- &nbsp; <B>  <A NAME="tex2html1638"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1640"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node89.html">External module function mcalc</A>
+<B> Up:</B> <A
+ HREF="node81.html">All about Programming External</A>
+<B> Previous:</B> <A
+ HREF="node87.html">External module function estates</A>
+ &nbsp; <B>  <A ID="tex2html812"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html814"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION000172800000000000000"></A><A NAME="7129"></A>
-<BR>
-External module functions <I CLASS="slanted">dmq1</I> - used by <I CLASS="slanted">mcdisp</I>  
-</H3>
+<H2><A ID="SECTION000172000000000000000">
+Module Functions for Observables</A>
+</H2>
 
 <P>
-Similarly  &rdquo;going beyond&rdquo;  dipolar approximation in the program <I CLASS="slanted">mcdisp<A NAME="7130"></A></I>
-can be done with  module functions <I CLASS="slanted">dmq1</I> and <I CLASS="slanted">estates</I>. 
-The input of <I CLASS="slanted">dmq1</I> 
-has similar arguments as
-<I CLASS="slanted">du1calc</I>, but as additional argument an orientation
-of the scattering vector,
-output should be a corresponding vector
- <!-- MATH
- ${\mathbf m^s_{\alpha1}}(\mathbf Q)=\sqrt{(p_- -p_+)}
-\langle -|\hat \mathbf M_{\alpha}^{\dag }(\mathbf Q)-\langle \hat \mathbf M_{\alpha}^{\dag }(\mathbf Q)\rangle|+\rangle/\mu_B$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="378" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img778.png"
- ALT="${\mathbf m^s_{\alpha1}}(\mathbf Q)=\sqrt{(p_--p_+)}
-\langle -\vert\hat \mathbf...
-...Q)-\langle \hat \mathbf M_{\alpha}^{\dag }(\mathbf Q)\rangle\vert+\rangle/\mu_B$"></SPAN>.
-Here <!-- MATH
- $\hat \mathcal Q_{\alpha}=\frac{\hat  \mathbf M_{\alpha}(\mathbf Q)}{-2 \mu_B}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="93" HEIGHT="45" ALIGN="MIDDLE" BORDER="0"
- SRC="img779.png"
- ALT="$\hat \mathcal Q_{\alpha}=\frac{\hat \mathbf M_{\alpha}(\mathbf Q)}{-2 \mu_B}$"></SPAN>
- are the cartesian components of the scattering operator.
- <I CLASS="slanted">dmq1</I> is called many times, for
- every scattering vector. In order to
- do an efficient calculation the eigenstates should be calculated only
- once, this is the task of function <I CLASS="slanted">estates</I> (see above).
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-<P>
-The format to be used is:
-<SMALL CLASS="FOOTNOTESIZE">
-</SMALL><PRE>
-extern "C" int dmq1(int &amp; tn,double &amp; th,double &amp; ph,double J0,
-double &amp; J2, double &amp; J4, double &amp; J6,ComplexMatrix &amp; est,double &amp; T,
-ComplexVector &amp; mq1, float &amp; maxE)
-</PRE>
-<P>
-<SMALL CLASS="FOOTNOTESIZE">The meaning of the symbols is as follows:
-</SMALL>
-<P>
-<PRE>
-on input
-   |tn|            transition-number  
-   sign(tn)        &gt;0 standard with printouts for user information, 
-                   &lt;0 routine should omit any printout
-   th              polar angle theta of the scattering vector Q 
-                   (angle with the axb axis=c axis) in rad
-   ph              polar angle phi of the scattering vector Q 
-                   (angle with bx(axb)=a in the projection into
-                   the  bx(axb),b plane = angle with a in the projection into 
-				   the ab plane) in rad
-   J0,J2,J4,J6     form factor functions &lt;jn(Q)&gt;   
-   est             eigenstate matrix (as calculated by estates),
-                   it should also contain population numbers of the states (row 0)
-   T               Temperature[K]
-   mq1(1)           ninit + i pinit (from mcdisp options  -ninit and -pinit)
-   maxE            maximum transition energy (from mcdisp option maxE)
-on output
-   int             total number of transitions
-   mq1             vector mq(alpha)=&lt;-|-2Qalpha|+&gt;sqrt(p- - p+)
-                   
-     Note on Qalpha
-        Cartesian components of the scattering operator Qalpha, alpha=1,2,3=a,b,c
-        according to Lovesey Neutron Scattering equation 6.87b 
-        scattering operator is given in  spherical coordinates Q-1,Q0,Q+1 (introduced
-        as described above on input of th and ph) these are related to euclidean 
-		components by 11.123
-        Q1=Qbx(axb)
-        Q2=Qb                         
-        Q3=Qaxb    
-                   
-        the orbital and spin contributions can be given as separate 
-		components  according to Lovesey Neutron Scattering 
-		equations 11.55 and 11.71 (the spin part 11.71 has to be
-        divided by 2), i.e.
-        &lt;-|QSa,b,c|+&gt;=
-          =&lt;-|sum_i exp(i k ri) s_(a,b,c)|+&gt; /2                   as defined by 11.71 / 2
-				   
-        &lt;-|QLa,b,c|+&gt;=
-          =&lt;-|sum_i exp(i k ri) (-(k x grad_i)_(a,b,c)/|k|)|+&gt;     as defined by 11.54 /(-|k|)
-	     thus for k=0 &lt;QS&gt;=&lt;S&gt;/2 and &lt;QL&gt;=&lt;L&gt;/2 
-        Q=2QS+QL, M(Q)=Q/(-2muB)=mq1/muB
-</PRE>
-
-<P>
-The module function must perform the following tasks:
-
-<OL>
-<LI>for the transition number tn the vector mq1  is to be filled with the 3-components 
-of <!-- MATH
- ${\mathbf m^s_{\alpha1}}(\mathbf Q)=\sqrt{(p_- -p_+)}
-\langle -|\hat \mathbf M_{\alpha}^{\dag }(\mathbf Q)-\langle \hat \mathbf M_{\alpha}^{\dag }(\mathbf Q)\rangle|+\rangle/\mu_B$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="378" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img778.png"
- ALT="${\mathbf m^s_{\alpha1}}(\mathbf Q)=\sqrt{(p_--p_+)}
-\langle -\vert\hat \mathbf...
-...Q)-\langle \hat \mathbf M_{\alpha}^{\dag }(\mathbf Q)\rangle\vert+\rangle/\mu_B$"></SPAN>.
-, i.e. for <SPAN CLASS="MATH"><IMG
- WIDTH="67" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img780.png"
- ALT="$\alpha=1,..3$"></SPAN> 
-<EM>IMPORTANT: the numbering scheme of transitions has to
-be the same for du1calc and all the corresponding d...1 functions for observables !</EM>
-</LI>
-<LI>If the energy of this transition
-is zero, i.e. <SPAN CLASS="MATH"><IMG
- WIDTH="74" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img756.png"
- ALT="$\Delta(tn)=0$"></SPAN> (diffuse scattering), 
-the <!-- MATH
- ${\mathbf m^s_{\alpha1}}(\mathbf Q)$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="61" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img781.png"
- ALT="${\mathbf m^s_{\alpha1}}(\mathbf Q)$"></SPAN> 
- would be zero because <SPAN CLASS="MATH"><IMG
- WIDTH="73" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img757.png"
- ALT="$(p_--p_+)$"></SPAN> vanishes (compare expression (<A HREF="node140.html#mmatrix">230</A>)).
-In this case the single ion module should calculate <SPAN CLASS="MATH"><IMG
- WIDTH="63" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img758.png"
- ALT="$(p_+/kT)$"></SPAN> instead of <SPAN CLASS="MATH"><IMG
- WIDTH="73" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img757.png"
- ALT="$(p_--p_+)$"></SPAN>.
-</LI>
-<LI>if <SPAN CLASS="MATH"><IMG
- WIDTH="44" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img745.png"
- ALT="$T&lt;0$"></SPAN> all quantities should be evaluated assuming that all Boltzmann probabilities <SPAN CLASS="MATH"><IMG
- WIDTH="17" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img105.png"
- ALT="$p_i$"></SPAN>
- are zero except for the state number <SPAN CLASS="MATH"><IMG
- WIDTH="71" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img746.png"
- ALT="$n=(-T)$"></SPAN>, for which the probability <SPAN CLASS="MATH"><IMG
- WIDTH="50" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img747.png"
- ALT="$p_n=1$"></SPAN>.
-</LI>
-</OL>
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html1641"
-  HREF="node89.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1635"
-  HREF="node80.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1629"
-  HREF="node87.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1637"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1639"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A NAME="tex2html1642"
-  HREF="node89.html">External module functions drixs1</A>
-<B> Up:</B> <A NAME="tex2html1636"
-  HREF="node80.html">Module Functions for Observables</A>
-<B> Previous:</B> <A NAME="tex2html1630"
-  HREF="node87.html">External module function mqcalc</A>
- &nbsp; <B>  <A NAME="tex2html1638"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1640"
-  HREF="node152.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html815"
+  HREF="node89.html">External module function <I CLASS="slanted">mcalc</I> - used by <I CLASS="slanted">mcdiff</I>
+and <I CLASS="slanted">mcphas</I>  </A>
+<LI><A ID="tex2html816"
+  HREF="node90.html">External module function <I CLASS="slanted">mMcalc</I> - used by 
+<I CLASS="slanted">singleion</I> </A>
+<LI><A ID="tex2html817"
+  HREF="node91.html">External module function <I CLASS="slanted">dm1</I> - used by <I CLASS="slanted">mcdisp</I></A>
+<LI><A ID="tex2html818"
+  HREF="node92.html">External module function <I CLASS="slanted">Lcalc</I> - used by <I CLASS="slanted">mcdiff</I>
+and <I CLASS="slanted">mcphas</I>  </A>
+<LI><A ID="tex2html819"
+  HREF="node93.html">External module function <I CLASS="slanted">LMcalc</I> - used by 
+<I CLASS="slanted">singleion</I> </A>
+<LI><A ID="tex2html820"
+  HREF="node94.html">External module function <I CLASS="slanted">dL1</I> - used by <I CLASS="slanted">mcdisp</I></A>
+<LI><A ID="tex2html821"
+  HREF="node95.html">External module function <I CLASS="slanted">Scalc</I> - used by <I CLASS="slanted">mcdiff</I>
+and <I CLASS="slanted">mcphas</I>  </A>
+<LI><A ID="tex2html822"
+  HREF="node96.html">External module function <I CLASS="slanted">SMcalc</I> - used by 
+<I CLASS="slanted">singleion</I> </A>
+<LI><A ID="tex2html823"
+  HREF="node97.html">External module function <I CLASS="slanted">dS1</I> - used by <I CLASS="slanted">mcdisp</I></A>
+<LI><A ID="tex2html824"
+  HREF="node98.html">External module function <I CLASS="slanted">mqcalc</I> - used by <I CLASS="slanted">mcdiff</I>  </A>
+<LI><A ID="tex2html825"
+  HREF="node99.html">External module functions <I CLASS="slanted">dmq1</I> - used by <I CLASS="slanted">mcdisp</I>  </A>
+<LI><A ID="tex2html826"
+  HREF="node100.html">External module functions <I CLASS="slanted">drixs1</I> - used by <I CLASS="slanted">mcdisp</I>  </A>
+<LI><A ID="tex2html827"
+  HREF="node101.html">External module function <I CLASS="slanted">pcalc</I> - used by <I CLASS="slanted">mcdiff</I>
+and <I CLASS="slanted">mcphas</I>  </A>
+<LI><A ID="tex2html828"
+  HREF="node102.html">External module function <I CLASS="slanted">dP1</I> - used by <I CLASS="slanted">mcdisp</I></A>
+<LI><A ID="tex2html829"
+  HREF="node103.html">External module function <I CLASS="slanted">chargedensity_coeff</I> -
+used by <I CLASS="slanted">densplt</I>,
+<I CLASS="slanted">spins</I>,
+<I CLASS="slanted">display_density</I>,<I CLASS="slanted">display_densities</I></A>
+<LI><A ID="tex2html830"
+  HREF="node104.html">External module function <I CLASS="slanted">dchargedensity_coeff1</I> - used by <I CLASS="slanted">mcdisp</I></A>
+<LI><A ID="tex2html831"
+  HREF="node105.html">External module function <I CLASS="slanted">spindensity_coeff</I> -
+used by <I CLASS="slanted">densplt</I>,
+<I CLASS="slanted">spins</I>,
+<I CLASS="slanted">display_density</I>,<I CLASS="slanted">display_densities</I></A>
+<LI><A ID="tex2html832"
+  HREF="node106.html">External module function <I CLASS="slanted">dspindensity_coeff1</I> - used by <I CLASS="slanted">mcdisp</I></A>
+<LI><A ID="tex2html833"
+  HREF="node107.html">External module function <I CLASS="slanted">orbmomdensity_coeff</I> -
+used by <I CLASS="slanted">densplt</I>,
+<I CLASS="slanted">spins</I>,
+<I CLASS="slanted">display_density</I>,<I CLASS="slanted">display_densities</I></A>
+<LI><A ID="tex2html834"
+  HREF="node108.html">External module function <I CLASS="slanted">dorbmomdensity_coeff1</I> - used by <I CLASS="slanted">mcdisp</I></A>
+<LI><A ID="tex2html835"
+  HREF="node109.html">External module function <I CLASS="slanted">ro_calc</I> -
+used by <I CLASS="slanted">chrgplt</I>,
+<I CLASS="slanted">charges</I>
+</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 
 </BODY>
 </HTML>

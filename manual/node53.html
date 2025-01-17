@@ -1,303 +1,139 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Resonant Inelastic X-ray Scattering(RIXS)</TITLE>
-<META NAME="description" CONTENT="Resonant Inelastic X-ray Scattering(RIXS)">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Scattering geometry</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="previous" HREF="node49.html">
-<LINK REL="up" HREF="node44.html">
+<LINK REL="previous" HREF="node52.html">
 <LINK REL="next" HREF="node54.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1103"
-  HREF="node54.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1097"
-  HREF="node44.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1093"
-  HREF="node52.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1099"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1101"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node54.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node52.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node52.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html615"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html617"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1104"
-  HREF="node54.html">Scattering geometry</A>
-<B> Up:</B> <A NAME="tex2html1098"
-  HREF="node44.html">mcdisp - the Calculation</A>
-<B> Previous:</B> <A NAME="tex2html1094"
-  HREF="node52.html">Powder-averaging the spectra</A>
- &nbsp; <B>  <A NAME="tex2html1100"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1102"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node54.html">Including Quadrupolar and Higher</A>
+<B> Up:</B> <A
+ HREF="node52.html">Resonant Inelastic X-ray Scattering(RIXS)</A>
+<B> Previous:</B> <A
+ HREF="node52.html">Resonant Inelastic X-ray Scattering(RIXS)</A>
+ &nbsp; <B>  <A ID="tex2html616"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html618"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION000124000000000000000"></A><A NAME="3928"></A>
-<BR>
-Resonant Inelastic X-ray Scattering(RIXS)
-</H2>
+<H3><A ID="SECTION000124100000000000000">
+Scattering geometry</A>
+</H3>
 
 <P>
-Using the option <I CLASS="slanted">-x</I> and <I CLASS="slanted">-xa</I>  the RIXS cross section can be calculated
-by <I CLASS="slanted">mcdisp</I><A NAME="3932"></A>. 
-Option <I CLASS="slanted">-x</I> calculates resonant inelastic x-ray intensities 
-maximized with respect to azimuth.
- Option <I CLASS="slanted">-xa</I>  calculates resonant inelastic x-ray 
-intensities with complete azimuth dependence for each reflection.
-
-<P>
-The formalism is based on [<A
- HREF="node151.html#haverkort10-167404">30</A>, equ.8 ff],
-e.g. the observables <!-- MATH
- $\hat \mathcal O_{\alpha}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="25" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img383.png"
- ALT="$\hat \mathcal O_{\alpha}$"></SPAN> are the 9 components (<SPAN CLASS="MATH"><IMG
- WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img56.png"
- ALT="$\alpha$"></SPAN>
-=xx xy xz yx yy yz zx zy zz)
-of the tensor <SPAN CLASS="MATH"><IMG
- WIDTH="17" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
- SRC="img384.png"
- ALT="$\mathbf R$"></SPAN>, which is related to the operator
+<BLOCKQUOTE>
+[Coordinate system, see[<A
+ HREF="node163.html#longfield02-054417">29</A>]:] Euclidean (orthonormal) system 
 <!-- MATH
- $R_{\omega,j}^{\epsilon_i\epsilon_o}$
+ $[\mathbf u_1,\mathbf u_2,\mathbf u_3]$
  -->
 <SPAN CLASS="MATH"><IMG
- WIDTH="39" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img385.png"
- ALT="$R_{\omega,j}^{\epsilon_i\epsilon_o}$"></SPAN> in [<A
- HREF="node151.html#haverkort10-167404">30</A>] by
-
-<P>
-<BR>
-<DIV ALIGN="RIGHT" CLASS="mathdisplay">
-
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img265.svg"
+ ALT="$[\mathbf u_1,\mathbf u_2,\mathbf u_3]$"></SPAN>. The scattering plane, defined by the
+direction of the incident and final wave vectors  
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img266.svg"
+ ALT="$\mathbf k$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.97ex; vertical-align: -0.12ex; " SRC="img267.svg"
+ ALT="$\mathbf k'$"></SPAN>, contains <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.61ex; vertical-align: -0.46ex; " SRC="img268.svg"
+ ALT="$\mathbf u_1$"></SPAN> lying
+perpendicular and in the sense of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img266.svg"
+ ALT="$\mathbf k$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.61ex; vertical-align: -0.46ex; " SRC="img269.svg"
+ ALT="$\mathbf u_3$"></SPAN> parallel to the scattering
+vector <!-- MATH
+ $\mathbf Q=\mathbf k-\mathbf k'$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.42ex; vertical-align: -0.57ex; " SRC="img270.svg"
+ ALT="$\mathbf Q=\mathbf k-\mathbf k'$"></SPAN>. 
+[Polarisation of the Photon beam:] <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img429.svg"
+ ALT="$\sigma$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img431.svg"
+ ALT="$\pi$"></SPAN> refer to the polarisation
+of the beam parallel and perpendicular to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img432.svg"
+ ALT="$\mathbf u2$"></SPAN>, respectively.
+[Angles for azimuth <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img290.svg"
+ ALT="$\Psi=0$"></SPAN>:] <!-- MATH
+ $\alpha_i=\angle(\mathbf a_i \cdot \mathbf u_3)_{\Psi=0}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img433.svg"
+ ALT="$\alpha_i=\angle(\mathbf a_i \cdot \mathbf u_3)_{\Psi=0}$"></SPAN>,
 <!-- MATH
- \begin{equation}
-R_{\omega,j}^{\epsilon_i\epsilon_o}=\mathbf \epsilon _o^{\star} \cdot \mathbf R \cdot \mathbf \epsilon _i
-\end{equation}
- -->
-<TABLE WIDTH="100%" ALIGN="CENTER">
-<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="117" HEIGHT="31" BORDER="0"
- SRC="img386.png"
- ALT="\begin{displaymath}
-R_{\omega,j}^{\epsilon_i\epsilon_o}=\mathbf \epsilon _o^{\star} \cdot \mathbf R \cdot \mathbf \epsilon _i
-\end{displaymath}"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">61</SPAN>)</TD></TR>
-</TABLE>
-<BR CLEAR="ALL"></DIV><P></P>
-
-<P>
-Here the vector <!-- MATH
- $\mathbf \epsilon$
+ $\delta_i=\angle(\mathbf a_i^{\perp}\cdot \mathbf u_1)_{\Psi=0}$
  -->
 <SPAN CLASS="MATH"><IMG
- WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img387.png"
- ALT="$\mathbf \epsilon $"></SPAN> describes the polarisation of the incoming / outgoing
-photon beam (linear (real) or circular polarized (complex) light).
-Vector components (e.g. <!-- MATH
- $\hat \mathbf S$
+ STYLE="height: 2.80ex; vertical-align: -0.72ex; " SRC="img434.svg"
+ ALT="$\delta_i=\angle(\mathbf a_i^{\perp}\cdot \mathbf u_1)_{\Psi=0}$"></SPAN>,
+where <!-- MATH
+ $\mathbf a_{1,2,3}=\mathbf a,\mathbf b,\mathbf c$
  -->
 <SPAN CLASS="MATH"><IMG
- WIDTH="14" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
- SRC="img388.png"
- ALT="$\hat \mathbf S$"></SPAN> to the xyz coordinate system, where
-<SPAN CLASS="MATH"><IMG
- WIDTH="28" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img354.png"
- ALT="$y\vert\vert b$"></SPAN>,<!-- MATH
- $z||(a \times b)$
+ STYLE="height: 2.50ex; vertical-align: -0.78ex; " SRC="img435.svg"
+ ALT="$\mathbf a_{1,2,3}=\mathbf a,\mathbf b,\mathbf c$"></SPAN> and <!-- MATH
+ $\mathbf a_i^{\perp}$
  -->
 <SPAN CLASS="MATH"><IMG
- WIDTH="68" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img355.png"
- ALT="$z\vert\vert(a \times b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
- WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img4.png"
- ALT="$x$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img137.png"
- ALT="$y$"></SPAN> and <SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img124.png"
- ALT="$z$"></SPAN>.
-
-<P>
-For the isotropic ion the scattering operator <!-- MATH
- $R_{\omega,j}^{\epsilon_i\epsilon_o}$
+ STYLE="height: 2.80ex; vertical-align: -0.72ex; " SRC="img436.svg"
+ ALT="$\mathbf a_i^{\perp}$"></SPAN> is the projection of
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.61ex; vertical-align: -0.46ex; " SRC="img437.svg"
+ ALT="$\mathbf a_i$"></SPAN> onto the plane perpendicular to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.27ex; vertical-align: -0.57ex; " SRC="img289.svg"
+ ALT="$\mathbf Q$"></SPAN>.
+ In the chosen experimental geometry
+azimuth <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img290.svg"
+ ALT="$\Psi=0$"></SPAN>, when <!-- MATH
+ $\mathbf a_1 = \mathbf a$
  -->
 <SPAN CLASS="MATH"><IMG
- WIDTH="39" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img385.png"
- ALT="$R_{\omega,j}^{\epsilon_i\epsilon_o}$"></SPAN>
-is given by
+ STYLE="height: 1.61ex; vertical-align: -0.46ex; " SRC="img438.svg"
+ ALT="$\mathbf a_1 = \mathbf a$"></SPAN> points to the x-ray source.
+
+</BLOCKQUOTE>
 
 <P>
-<BR>
-<DIV ALIGN="CENTER"><A NAME="rixsop"></A>
-<!-- MATH
- \begin{eqnarray}
-R_{\omega,j}^{\epsilon_i\epsilon_o}&=&\mathbf \epsilon _o^{\star} \cdot \mathbf R \cdot \mathbf \epsilon _i \\
-&=& \sigma^{(0)} \mathbf \epsilon _i \cdot \mathbf \epsilon _o^{\star} + \frac{\sigma^{(1)}}{s}
-\mathbf \epsilon _o^{\star} \times \mathbf \epsilon _i \hat \mathbf S_j \nonumber \\
-&& \frac{\sigma^{(2)}}{s(2s-1)} \left ( 
-\mathbf \epsilon _i \cdot \hat \mathbf S_j \mathbf \epsilon _o^{\star} \cdot \hat \mathbf S_j 
-+ \mathbf \epsilon _o^{\star} \cdot \hat \mathbf S_j \mathbf \epsilon _i \cdot \hat \mathbf S_j  
-- \frac{2}{3} \mathbf \epsilon _i \cdot \mathbf \epsilon _o^{\star} \hat \mathbf S_j^2
-\right )
-\end{eqnarray}
- -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
- WIDTH="39" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img389.png"
- ALT="$\displaystyle R_{\omega,j}^{\epsilon_i\epsilon_o}$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img68.png"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="66" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img390.png"
- ALT="$\displaystyle \mathbf \epsilon _o^{\star} \cdot \mathbf R \cdot \mathbf \epsilon _i$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">62</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG
- WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img68.png"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="179" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
- SRC="img391.png"
- ALT="$\displaystyle \sigma^{(0)} \mathbf \epsilon _i \cdot \mathbf \epsilon _o^{\star...
-...1)}}{s}
-\mathbf \epsilon _o^{\star} \times \mathbf \epsilon _i \hat \mathbf S_j$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-&nbsp;</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD ALIGN="LEFT" WIDTH="50%" NOWRAP><IMG
- WIDTH="366" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
- SRC="img392.png"
- ALT="$\displaystyle \frac{\sigma^{(2)}}{s(2s-1)} \left (
-\mathbf \epsilon _i \cdot \h...
-...athbf \epsilon _i \cdot \mathbf \epsilon _o^{\star} \hat \mathbf S_j^2
-\right )$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">63</SPAN>)</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
-
-<P>
-In order to use this expression,  the conductivities <SPAN CLASS="MATH"><IMG
- WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img393.png"
- ALT="$\sigma$"></SPAN> have
-to be entered in the <I CLASS="slanted">sipf</I> file, e.g.
-
-<P>
-<PRE>
-SIGMA0r=1.32
-SIGMA1r=1.32
-SIGMA2r=1.32
-SIGMA0i=1.32
-SIGMA1i=1.32
-SIGMA2i=1.32
-</PRE>
-('r' and 'i' stand for real and imaginary part, respectively).
-
-<P>
-Note: in module <I CLASS="slanted">so1ion</I><A NAME="3969"></A> the scattering operator
-is given in terms of the total angular momentum <!-- MATH
- $\hat \mathbf J$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="13" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
- SRC="img394.png"
- ALT="$\hat \mathbf J$"></SPAN> instead
-of <!-- MATH
- $\hat \mathbf S$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="14" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
- SRC="img388.png"
- ALT="$\hat \mathbf S$"></SPAN>.
-
-<P>
-If a more complex tensor <SPAN CLASS="MATH"><IMG
- WIDTH="17" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
- SRC="img384.png"
- ALT="$\mathbf R$"></SPAN> is required, it's components
-can be defined in the sipf file using the perlparse option.
-
 <P>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html1105"
-  HREF="node54.html">Scattering geometry</A>
-</UL>
-<!--End of Table of Child-Links-->
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html1103"
-  HREF="node54.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1097"
-  HREF="node44.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1093"
-  HREF="node52.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1099"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1101"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A NAME="tex2html1104"
-  HREF="node54.html">Scattering geometry</A>
-<B> Up:</B> <A NAME="tex2html1098"
-  HREF="node44.html">mcdisp - the Calculation</A>
-<B> Previous:</B> <A NAME="tex2html1094"
-  HREF="node52.html">Powder-averaging the spectra</A>
- &nbsp; <B>  <A NAME="tex2html1100"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1102"
-  HREF="node152.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

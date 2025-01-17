@@ -1,248 +1,482 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2017.2 (Released Jan 23, 2017) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<HTML lang="en">
 <HEAD>
-<TITLE>Running McPhase and McDisp</TITLE>
-<META NAME="description" CONTENT="Running McPhase and McDisp">
-<META NAME="keywords" CONTENT="manual">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
+<TITLE>Including Phonons and Crystal-Field Phonon interactions</TITLE>
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2017.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="previous" HREF="node57.html">
-<LINK REL="up" HREF="node55.html">
+<LINK REL="next" HREF="node60.html">
+<LINK REL="previous" HREF="node54.html">
 <LINK REL="next" HREF="node59.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1173"
-  HREF="node59.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1167"
-  HREF="node55.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1163"
-  HREF="node57.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1169"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1171"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node59.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node57.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html638"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html640"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1174"
-  HREF="node59.html">Including Phonons and Crystal-Field</A>
-<B> Up:</B> <A NAME="tex2html1168"
-  HREF="node55.html">Including Quadrupolar and Higher</A>
-<B> Previous:</B> <A NAME="tex2html1164"
-  HREF="node57.html">Option indexexchange in order</A>
- &nbsp; <B>  <A NAME="tex2html1170"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1172"
-  HREF="node152.html">Index</A></B> 
+<B> Next:</B> <A
+ HREF="node59.html">Using Single Ion Module</A>
+<B> Up:</B> <A
+ HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A
+ HREF="node57.html">Running McPhase and McDisp</A>
+ &nbsp; <B>  <A ID="tex2html639"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html641"
+  HREF="node164.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION000133000000000000000">
-Running <I CLASS="slanted">McPhase</I> and <I CLASS="slanted">McDisp</I></A>
-</H2>
+<H1><A ID="SECTION000140000000000000000"></A><A ID="phonons"></A>
+<BR>
+Including Phonons and Crystal-Field Phonon interactions
+</H1>
 
 <P>
-The programs <I CLASS="slanted">mcphas</I> and <I CLASS="slanted">mcdisp<A NAME="4691"></A></I> are run completely the same way as usual, only
-the output files contain also information about the (thermal) expectation values of <SPAN CLASS="MATH"><IMG
- WIDTH="62" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img470.png"
- ALT="$&lt;O_l^m&gt;$"></SPAN>
-dependent on temperature and magnetic field. 
-Using the module so1ion the notation <SPAN CLASS="MATH"><IMG
- WIDTH="54" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img424.png"
- ALT="$&lt;\hat J_a&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="53" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img425.png"
- ALT="$&lt;\hat J_b&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="53" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img426.png"
- ALT="$&lt;\hat J_c&gt;$"></SPAN>,
+In this section we discuss, how lattice dynamics may be considered in the framework of
+the Hamiltonian (<A HREF="node151.html#fullhamiltonian">223</A>). We will see that this corresponds 
+to a system of coupled Einstein oscillators. One such oscillator can be modelled 
+by setting up a <I CLASS="slanted">sipf</I> file with the module <I CLASS="slanted">phonon</I>. Coupling has
+to be done in <I CLASS="slanted">mcdisp.j</I>. Rephrasing lattice dynamics in this way allows 
+to couple phonons to the crystal field.
+
+<P>
+A three dimensional Einstein oscillator (for atom <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.76ex; vertical-align: -0.12ex; " SRC="img367.svg"
+ ALT="$i$"></SPAN>) in a solid can be described by 
+the following Hamiltonian
+
+<P>
+
+<FONT COLOR="#0000ff">
+</FONT>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\hat H_E(i)=\frac{a_0^2{\hat \mathbf w_i}^2}{2m_i} - \frac{1}{2} {\hat \mathbf u}^T_i \overline{K}(ii) {\hat \mathbf u}_i
+\end{equation}
+ -->
+ &nbsp;  <A ID="einstein"></A><IMG
+ STYLE="height: 3.89ex; vertical-align: -1.15ex; " SRC="img525.svg"
+ ALT="$\displaystyle
+\hat H_E(i)=\frac{a_0^2{\hat \mathbf w_i}^2}{2m_i} - \frac{1}{2} {\hat \mathbf u}^T_i \overline{K}(ii) {\hat \mathbf u}_i
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">66</SPAN>)</SPAN>
+</DIV>
+
+<P>
+Here <!-- MATH
+ $\hat \mathbf u$
+ -->
 <SPAN CLASS="MATH"><IMG
- WIDTH="54" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img471.png"
- ALT="$&lt;\hat J_d&gt;$"></SPAN>, <SPAN CLASS="MATH"><IMG
- WIDTH="53" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img472.png"
- ALT="$&lt;\hat J_e&gt;$"></SPAN>, etc. correspond to <SPAN CLASS="MATH"><IMG
- WIDTH="54" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img473.png"
- ALT="$&lt;J_a&gt;$"></SPAN>, <SPAN CLASS="MATH"><IMG
- WIDTH="53" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img474.png"
- ALT="$&lt;J_b&gt;$"></SPAN>,
+ STYLE="height: 1.87ex; vertical-align: -0.12ex; " SRC="img526.svg"
+ ALT="$\hat \mathbf u$"></SPAN> is the dimensionless displacement vector 
+(<!-- MATH
+ $\hat \mathbf u_i={\hat \mathbf P}_i/a_0=\Delta {\hat \mathbf r}_i/a_0$
+ -->
 <SPAN CLASS="MATH"><IMG
- WIDTH="53" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img475.png"
- ALT="$&lt;J_c&gt;$"></SPAN>, <SPAN CLASS="MATH"><IMG
- WIDTH="83" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img476.png"
- ALT="$&lt;O_{22}(s)&gt;$"></SPAN>, <SPAN CLASS="MATH"><IMG
- WIDTH="83" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img477.png"
- ALT="$&lt;O_{21}(s)&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="63" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img478.png"
- ALT="$&lt;O_{20}&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="63" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img479.png"
- ALT="$&lt;O_{21}&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="63" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
- SRC="img480.png"
- ALT="$&lt;O_{22}&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
- WIDTH="83" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
- SRC="img481.png"
- ALT="$&lt;O_{33}(s)&gt;$"></SPAN>, ...
- respectively.
-Note that by the higher order interactions not only the static properties are changed, but also the
-dispersion of the magnetic excitations is influenced.
+ STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img527.svg"
+ ALT="$\hat \mathbf u_i={\hat \mathbf P}_i/a_0=\Delta {\hat \mathbf r}_i/a_0$"></SPAN>, 
+with the Bohr radius <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.07ex; vertical-align: -0.46ex; " SRC="img528.svg"
+ ALT="$a_0=0.5219$"></SPAN>&nbsp;Å), <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img529.svg"
+ ALT="$m_i$"></SPAN> the
+mass of the atom <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.76ex; vertical-align: -0.12ex; " SRC="img367.svg"
+ ALT="$i$"></SPAN>, <!-- MATH
+ $\hat \mathbf w_i=d\hat \mathbf u_i/dt= \mathbf p_i/a_0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img530.svg"
+ ALT="$\hat \mathbf w_i=d\hat \mathbf u_i/dt= \mathbf p_i/a_0$"></SPAN> the conjugate momentum to <!-- MATH
+ $\hat \mathbf u_i$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.22ex; vertical-align: -0.46ex; " SRC="img531.svg"
+ ALT="$\hat \mathbf u_i$"></SPAN> and
+<!-- MATH
+ $\overline{K}(ii)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.85ex; vertical-align: -0.70ex; " SRC="img532.svg"
+ ALT="$\overline{K}(ii)$"></SPAN> the Matrix describing the restoring force.
 
 <P>
-The directory <I CLASS="slanted">examples/gdru2si2</I> contains an example of a simulation of biquadratic (i.e. isotropic 
-quadrupolar) interactions leading to an improved description of magnetic susceptibility.
-
-<P>
-For DyCu<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN> the conversion
-of the magnetic axis due to quadrupolar exchange has been calculated according to the model 
-[<A
- HREF="node151.html#yoshida98-1421">8</A>]. The calculated quadrupolar phase diagram is shown in figure&nbsp;<A HREF="#qphased">15</A>.
+Coupling such oscillators leads to the Hamiltonian
 
 <P>
 
-<DIV ALIGN="CENTER"><A NAME="qphased"></A><A NAME="4738"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM"><STRONG>Figure 15:</STRONG>
-DyCu<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN>: calculated quadrupolar phased diagram. When applying a large magnetic field
-parallel to the <SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img5.png"
- ALT="$c$"></SPAN> axis of the orthorhombic crystal, the system undergoes a structural transformation
-associated with a reorientation of the structural unit cell. This effect can be modelled by a large
-quadrupolar interaction.[plot created with program <I CLASS="slanted">phased</I>]</CAPTION>
-<TR><TD>
-<DIV ALIGN="CENTER">
+<DIV CLASS="displaymath">
 
-<IMG
- WIDTH="181" HEIGHT="2" ALIGN="BOTTOM" BORDER="0"
- SRC="img482.png"
- ALT="\includegraphics[angle=-90, width=0.5\textwidth]{figsrc/dyphased.eps}">
-
-</DIV></TD></TR>
-</TABLE>
+<!-- MATH
+ \begin{equation}
+\hat H_{phon}=\sum_i \hat H_E(i) -\frac{1}{2} \sum_{i\neq i'} {\hat \mathbf u}_i^T \overline{K}(ii')  {\hat \mathbf u}_{i'}
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 6.62ex; vertical-align: -3.46ex; " SRC="img533.svg"
+ ALT="$\displaystyle \hat H_{phon}=\sum_i \hat H_E(i) -\frac{1}{2} \sum_{i\neq i'} {\hat \mathbf u}_i^T \overline{K}(ii') {\hat \mathbf u}_{i'}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">67</SPAN>)</SPAN>
 </DIV>
 
 <P>
-When large  quadrupolar interactions are present, the excitation spectrum is changed and
-quadrupolar modes (orbitons) with a finite dispersion are expected. 
-These modes correspond to an cooperative oscillation of the quadrupolar moments such as shown
-in figure&nbsp;<A HREF="#qmodes">16</A>.
-The program <I CLASS="slanted">mcdisp<A NAME="4709"></A></I>
-is able to calculate this dispersion and the corresponding neutron scattering cross section as shown
-in figure&nbsp;<A HREF="#qintensity">17</A> for the case of PrCu<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN>. 
+Note that our coupling constants <!-- MATH
+ $K_{\alpha\beta}(ii')=-A_{\alpha\beta}(ii')$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img534.svg"
+ ALT="$K_{\alpha\beta}(ii')=-A_{\alpha\beta}(ii')$"></SPAN>, where
+ <!-- MATH
+ $A_{\alpha\beta}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img535.svg"
+ ALT="$A_{\alpha\beta}$"></SPAN> are the second-order derivatives of the potential energy
+as defined e.g. in [<A
+ HREF="node163.html#lovesey84-1">30</A>, page 99].
+
+<P>
+In a mean field type of theory 
+the phonon single ion module has thus to solve the Hamiltonian
 
 <P>
 
-<DIV ALIGN="CENTER"><A NAME="qmodes"></A><A NAME="4715"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM"><STRONG>Figure 16:</STRONG>
-Orbital excitations viewed  as correlated changes in 4f-charge densities.</CAPTION>
-<TR><TD>
-<DIV ALIGN="CENTER">
+<DIV CLASS="displaymath">
 
-<IMG
- WIDTH="333" HEIGHT="184" ALIGN="BOTTOM" BORDER="0"
- SRC="img483.png"
- ALT="\includegraphics[angle=0, width=0.6\textwidth]{figsrc/orbiton.eps}">
+<!-- MATH
+ \begin{equation}
+\hat H_E=\frac{a_0^2{\hat \mathbf w}^2}{2m} - \frac{1}{2} {\hat \mathbf u}^T \overline{K} {\hat \mathbf u} - {\mathbf F}^T {\hat \mathbf u}
+\end{equation}
+ -->
+ &nbsp;  <A ID="phonsiham"></A><IMG
+ STYLE="height: 3.65ex; vertical-align: -0.92ex; " SRC="img536.svg"
+ ALT="$\displaystyle
+\hat H_E=\frac{a_0^2{\hat \mathbf w}^2}{2m} - \frac{1}{2} {\hat \mathbf u}^T \overline{K} {\hat \mathbf u} - {\mathbf F}^T {\hat \mathbf u}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">68</SPAN>)</SPAN>
+</DIV>
 
-</DIV></TD></TR>
-</TABLE>
+<P>
+Here the force <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img537.svg"
+ ALT="$\mathbf F$"></SPAN> corresponds to the exchange field <!-- MATH
+ $\mathbf H_{xc}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.46ex; " SRC="img538.svg"
+ ALT="$\mathbf H_{xc}$"></SPAN> and <!-- MATH
+ $\hat \mathbf u$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.87ex; vertical-align: -0.12ex; " SRC="img526.svg"
+ ALT="$\hat \mathbf u$"></SPAN> to
+ the general operator <!-- MATH
+ $\hat \mathbf I$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.43ex; vertical-align: -0.12ex; " SRC="img445.svg"
+ ALT="$\hat \mathbf I$"></SPAN> and <!-- MATH
+ $\overline{K}(nn')$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.85ex; vertical-align: -0.70ex; " SRC="img539.svg"
+ ALT="$\overline{K}(nn')$"></SPAN> to <!-- MATH
+ $\mathcal J(nn')$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img540.svg"
+ ALT="$\mathcal J(nn')$"></SPAN> of equation (<A HREF="node151.html#fullhamiltonian">223</A>),
+respectively. The single ion Hamiltonian (<A HREF="#phonsiham">71</A>) can be solved by transforming
+it to normal coordinates (main axis of the Einstein oscillator) using the transformation
+matrix <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.28ex; vertical-align: -0.12ex; " SRC="img541.svg"
+ ALT="$\overline{S}$"></SPAN>, which diagonalises <!-- MATH
+ $\overline{K}=\overline{S}^T\overline{\Omega}\overline{S}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.81ex; vertical-align: -0.12ex; " SRC="img542.svg"
+ ALT="$\overline{K}=\overline{S}^T\overline{\Omega}\overline{S}$"></SPAN>:
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\hat \mathbf u'=\overline{S} \hat \mathbf u +\overline{\Omega}^{-1} \overline{S} \mathbf F
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 2.94ex; vertical-align: -0.31ex; " SRC="img543.svg"
+ ALT="$\displaystyle \hat \mathbf u'=\overline{S} \hat \mathbf u +\overline{\Omega}^{-1} \overline{S} \mathbf F
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">69</SPAN>)</SPAN>
 </DIV>
 
 <P>
 
-<DIV ALIGN="CENTER"><A NAME="qintensity"></A><A NAME="4743"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM"><STRONG>Figure 17:</STRONG>
-PrCu<SPAN CLASS="MATH"><IMG
- WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
- SRC="img1.png"
- ALT="$_2$"></SPAN>: calculated dispersion of quadrupolar excitations in a field of 5 Tesla parallel to the <SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
- SRC="img10.png"
- ALT="$a$"></SPAN> axis 
-of this orthorhombic system.
-[plot created with program <I CLASS="slanted">displaycontour<A NAME="4722"></A></I>]</CAPTION>
-<TR><TD>
-<DIV ALIGN="CENTER">
+<DIV CLASS="displaymath">
 
-<IMG
- WIDTH="350" HEIGHT="230" ALIGN="BOTTOM" BORDER="0"
- SRC="img484.png"
- ALT="\includegraphics[angle=0, width=0.5\textwidth]{figsrc/prcu2_0k0_5T.eps}">
-
-</DIV></TD></TR>
-</TABLE>
+<!-- MATH
+ \begin{equation}
+\hat H_E=\frac{a_0^2{\hat \mathbf w}^{'2}}{2m}-\frac{1}{2} {\hat \mathbf u}^{'T} \overline{\Omega} {\hat \mathbf u'}
+-\frac{1}{2}\mathbf F^T  \mathbf u_0
+\end{equation}
+ -->
+ &nbsp;  <A ID="phonsihamdiag"></A><IMG
+ STYLE="height: 4.02ex; vertical-align: -0.92ex; " SRC="img544.svg"
+ ALT="$\displaystyle
+\hat H_E=\frac{a_0^2{\hat \mathbf w}^{'2}}{2m}-\frac{1}{2} {\ha...
+...'T} \overline{\Omega} {\hat \mathbf u'}
+-\frac{1}{2}\mathbf F^T \mathbf u_0
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">70</SPAN>)</SPAN>
 </DIV>
 
 <P>
-
+Due to the action of the force <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img537.svg"
+ ALT="$\mathbf F$"></SPAN> the equilibrium position of the oscillator
+is <!-- MATH
+ $\mathbf u_0=-\overline{S}^T\overline{\Omega}^{-1}\overline{S}\mathbf F$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.16ex; vertical-align: -0.46ex; " SRC="img545.svg"
+ ALT="$\mathbf u_0=-\overline{S}^T\overline{\Omega}^{-1}\overline{S}\mathbf F$"></SPAN> (it is the task of the function
+<I CLASS="slanted">Icalc</I> to return this equilibrium position), the energies correspond to the three elements
+of the diagonal matrix <!-- MATH
+ $\overline{\Omega}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.28ex; vertical-align: -0.12ex; " SRC="img546.svg"
+ ALT="$\overline{\Omega}$"></SPAN>, i.e. <!-- MATH
+ $\Omega_{11}=-m a_0^2 (\Delta_1 /\hbar)^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.70ex; " SRC="img547.svg"
+ ALT="$\Omega_{11}=-m a_0^2 (\Delta_1 /\hbar)^2$"></SPAN>,
+<!-- MATH
+ $\Omega_{22}=-m a_0^2 (\Delta_2 /\hbar)^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.70ex; " SRC="img548.svg"
+ ALT="$\Omega_{22}=-m a_0^2 (\Delta_2 /\hbar)^2$"></SPAN>,
+<!-- MATH
+ $\Omega_{33}=-m a_0^2 (\Delta_3 /\hbar)^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.70ex; " SRC="img549.svg"
+ ALT="$\Omega_{33}=-m a_0^2 (\Delta_3 /\hbar)^2$"></SPAN>. In order to run <I CLASS="slanted">mcdisp</I> we
+have to calculate the transition matrix elements:
 
 <P>
+The single ion susceptibility for such a transition, e.g. <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img550.svg"
+ ALT="$\Delta_1$"></SPAN> - corresponds to
 
 <P>
+<BR>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{eqnarray}
+\overline{\chi}^0&=&\sum_{\nu\mu}\frac{\langle \nu|\hat \mathbf u|\mu\rangle\langle \mu |\hat \mathbf u^T|\nu \rangle}{\Delta_1 -\hbar \omega}
+(p_{\nu} -p_{\mu}) \\
+&=&\sum_{\nu\mu}\frac{\langle \nu|\overline{S}^T \hat \mathbf u'|\mu\rangle\langle \mu |\hat \mathbf u'^T \overline{S}|\nu \rangle}{\Delta_1 -\hbar \omega}
+(p_{\nu} -p_{\mu}) 
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.68ex; vertical-align: -0.57ex; " SRC="img551.svg"
+ ALT="$\displaystyle \overline{\chi}^0$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.95ex; vertical-align: -3.34ex; " SRC="img552.svg"
+ ALT="$\displaystyle \sum_{\nu\mu}\frac{\langle \nu\vert\hat \mathbf u\vert\mu\rangle\...
+...ert\hat \mathbf u^T\vert\nu \rangle}{\Delta_1 -\hbar \omega}
+(p_{\nu} -p_{\mu})$"></TD><TD class="rfill">(<SPAN CLASS="arabic">71</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 7.58ex; vertical-align: -3.34ex; " SRC="img553.svg"
+ ALT="$\displaystyle \sum_{\nu\mu}\frac{\langle \nu\vert\overline{S}^T \hat \mathbf u'...
+...f u'^T \overline{S}\vert\nu \rangle}{\Delta_1 -\hbar \omega}
+(p_{\nu} -p_{\mu})$"></TD><TD class="rfill">(<SPAN CLASS="arabic">72</SPAN>)</TD></TR>
+</TABLE></DIV>
+Because the different components of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.97ex; vertical-align: -0.12ex; " SRC="img554.svg"
+ ALT="$\mathbf u'$"></SPAN> commute and the Hamiltonian (<A HREF="#phonsihamdiag">73</A>)
+is separable, for the transition <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img550.svg"
+ ALT="$\Delta_1$"></SPAN> only the terms with <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.69ex; " SRC="img555.svg"
+ ALT="$u_1'$"></SPAN> in the nominator
+contribute:
+
+<P>
+<BR>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{eqnarray}
+\chi^0_{\alpha\beta}&=&S^T_{\alpha1}\sum_{\nu\mu}\frac{\langle \nu|\hat u_1'|\mu\rangle\langle \mu |\hat  u_1'|\nu \rangle}{\Delta_1 -\hbar \omega}
+(p_{\nu} -p_{\mu}) S_{1\beta}\\
+&=& S^T_{\alpha1}S_{1\beta}\frac{\hbar^2}{2ma_0^2\Delta_1}\left(\frac{1}{\Delta_1-\hbar\omega}+\frac{1}{\Delta_1+\hbar\omega}\right )
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 3.12ex; vertical-align: -1.01ex; " SRC="img556.svg"
+ ALT="$\displaystyle \chi^0_{\alpha\beta}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.74ex; vertical-align: -3.34ex; " SRC="img557.svg"
+ ALT="$\displaystyle S^T_{\alpha1}\sum_{\nu\mu}\frac{\langle \nu\vert\hat u_1'\vert\mu...
+...hat u_1'\vert\nu \rangle}{\Delta_1 -\hbar \omega}
+(p_{\nu} -p_{\mu}) S_{1\beta}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">73</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.89ex; vertical-align: -2.33ex; " SRC="img558.svg"
+ ALT="$\displaystyle S^T_{\alpha1}S_{1\beta}\frac{\hbar^2}{2ma_0^2\Delta_1}\left(\frac{1}{\Delta_1-\hbar\omega}+\frac{1}{\Delta_1+\hbar\omega}\right )$"></TD><TD class="rfill">(<SPAN CLASS="arabic">74</SPAN>)</TD></TR>
+</TABLE></DIV>
+
+<P>
+In order to derive the last result we had to express <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.69ex; " SRC="img559.svg"
+ ALT="$\hat u_1'$"></SPAN> in terms of ladder  operators
+<!-- MATH
+ $\hat u_1'=a_0^{-1} \hbar/\sqrt{2m\Delta_1}(\hat a+\hat a^{\dagger})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.88ex; vertical-align: -0.74ex; " SRC="img560.svg"
+ ALT="$\hat u_1'=a_0^{-1} \hbar/\sqrt{2m\Delta_1}(\hat a+\hat a^{\dagger})$"></SPAN> and  apply <!-- MATH
+ $\hat a^{\dagger}|\nu\rangle=\sqrt{\nu+1}|\nu+1\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.81ex; vertical-align: -0.70ex; " SRC="img561.svg"
+ ALT="$\hat a^{\dagger}\vert\nu\rangle=\sqrt{\nu+1}\vert\nu+1\rangle$"></SPAN>,
+<!-- MATH
+ $\hat a|\nu\rangle=\sqrt{\nu}|\nu-1\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.66ex; vertical-align: -0.70ex; " SRC="img562.svg"
+ ALT="$\hat a\vert\nu\rangle=\sqrt{\nu}\vert\nu-1\rangle$"></SPAN> and <!-- MATH
+ $\sum_{\nu=0}^{\infty}(p_{\nu}-p_{\nu+1})(\nu+1)=1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.79ex; vertical-align: -0.81ex; " SRC="img563.svg"
+ ALT="$\sum_{\nu=0}^{\infty}(p_{\nu}-p_{\nu+1})(\nu+1)=1$"></SPAN>,
+<!-- MATH
+ $p_{\nu}=exp(-\nu\Delta_1/kT)(1-exp(-\Delta_1/kT))$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img564.svg"
+ ALT="$p_{\nu}=exp(-\nu\Delta_1/kT)(1-exp(-\Delta_1/kT))$"></SPAN>. This shows that the single ion susceptibility
+of our atom can be written as a sum of three effective transitions (with temperature independent
+susceptibility)
+
+<P>
+<BR>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{eqnarray}
+\chi^0_{\alpha\beta}
+&=& \sum_{n=1,2,3} S^T_{\alpha n}S_{n\beta}\frac{\hbar^2}{2ma_0^2\Delta_n}
+\left(\frac{1}{\Delta_n-\hbar\omega}+\frac{1}{\Delta_n+\hbar\omega}\right )
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 3.12ex; vertical-align: -1.01ex; " SRC="img556.svg"
+ ALT="$\displaystyle \chi^0_{\alpha\beta}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.93ex; vertical-align: -3.38ex; " SRC="img565.svg"
+ ALT="$\displaystyle \sum_{n=1,2,3} S^T_{\alpha n}S_{n\beta}\frac{\hbar^2}{2ma_0^2\Delta_n}
+\left(\frac{1}{\Delta_n-\hbar\omega}+\frac{1}{\Delta_n+\hbar\omega}\right )$"></TD><TD class="rfill">(<SPAN CLASS="arabic">75</SPAN>)</TD></TR>
+</TABLE></DIV>
+
+<P>
+Thus the module <I CLASS="slanted">phonon</I> has to provide in it's function <I CLASS="slanted">du1calc</I> these three
+transitions (=number of transitions).
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html642"
+  HREF="node59.html">Using Single Ion Module <I CLASS="slanted">phonon</I></A>
+</UL>
+<!--End of Table of Child-Links-->
 
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html1173"
-  HREF="node59.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1167"
-  HREF="node55.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1163"
-  HREF="node57.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1169"
-  HREF="node8.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
-<A NAME="tex2html1171"
-  HREF="node152.html">
-<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<A
+ HREF="node59.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node57.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html638"
+  HREF="node7.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html640"
+  HREF="node164.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<B> Next:</B> <A NAME="tex2html1174"
-  HREF="node59.html">Including Phonons and Crystal-Field</A>
-<B> Up:</B> <A NAME="tex2html1168"
-  HREF="node55.html">Including Quadrupolar and Higher</A>
-<B> Previous:</B> <A NAME="tex2html1164"
-  HREF="node57.html">Option indexexchange in order</A>
- &nbsp; <B>  <A NAME="tex2html1170"
-  HREF="node8.html">Contents</A></B> 
- &nbsp; <B>  <A NAME="tex2html1172"
-  HREF="node152.html">Index</A></B> </DIV>
+<B> Next:</B> <A
+ HREF="node59.html">Using Single Ion Module</A>
+<B> Up:</B> <A
+ HREF="manual.html">McPhase USERS MANUAL</A>
+<B> Previous:</B> <A
+ HREF="node57.html">Running McPhase and McDisp</A>
+ &nbsp; <B>  <A ID="tex2html639"
+  HREF="node7.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html641"
+  HREF="node164.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>
