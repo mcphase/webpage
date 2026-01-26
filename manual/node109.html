@@ -1,16 +1,17 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>External module function ro_calc - used by chrgplt, charges </TITLE>
+<TITLE>External module function Scalc - used by mcdiff and mcphas </TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node110.html">
 <LINK REL="previous" HREF="node108.html">
 <LINK REL="next" HREF="node110.html">
 </HEAD>
@@ -22,79 +23,59 @@
  HREF="node110.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node88.html">
+ HREF="node102.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node108.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html916"
-  HREF="node7.html">
+<A ID="tex2html974"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html918"
-  HREF="node164.html">
+<A ID="tex2html976"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node110.html">ic1ion - a module</A>
+ HREF="node110.html">External module function SMcalc</A>
 <B> Up:</B> <A
- HREF="node88.html">Module Functions for Observables</A>
+ HREF="node102.html">Module Functions for Observables</A>
 <B> Previous:</B> <A
- HREF="node108.html">External module function dorbmomdensity_coeff1</A>
- &nbsp; <B>  <A ID="tex2html917"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html919"
-  HREF="node164.html">Index</A></B> 
+ HREF="node108.html">External module function dL1</A>
+ &nbsp; <B>  <A ID="tex2html975"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html977"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION0001722100000000000000"></A><A ID="3759"></A><A ID="3760"></A>
+<H3><A ID="SECTION000162700000000000000"></A><A ID="4146"></A><A ID="4148"></A>
 <BR>
-External module function <I CLASS="slanted">ro_calc</I> -
-used by <I CLASS="slanted">chrgplt</I>,
-<I CLASS="slanted">charges</I>
-
-</H3>
-
+External module function <I CLASS="slanted">Scalc</I> - used by <I CLASS="slanted">mcdiff</I>
+and <I CLASS="slanted">mcphas</I>  
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-In order to calculate more complex charge densities, the optional function
-<I CLASS="slanted">rocalc</I> may be present in the module file <I CLASS="slanted">*.so</I>. If present,
-it will be used by programs <I CLASS="slanted">chrgplt<A ID="3763"></A></I>,
-<I CLASS="slanted">charges<A ID="3764"></A></I>:
-
+<SPAN CLASS="SMALL">In order to calculate the total spin <!-- MATH
+ $\langle \hat \mathbf S \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img921.svg"
+ ALT="$\langle \hat\mathbf S\rangle$"></SPAN>
+ the following function has to be present in the module file <I CLASS="slanted">*.so</I>:
+</SPAN>
 <P>
-<PRE>
-extern "C" double ro_calc(double &amp; teta,double &amp; fi,double &amp;R,Vector &amp;aLlm,  double *gJ,Vector &amp;MODPAR,char **sipffilename);
-</PRE>
-
+<SPAN CLASS="SMALL"></SPAN><PRE>
+extern "C" void Scalc(Vector &amp; S,double * T, Vector &amp; Hxc, Vector &amp; Hext,
+                      double * gJ, Vector &amp; MODPAR,
+                      char ** sipffilename, ComplexMatrix &amp; Icalc_parstorage);
+</PRE><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-Note for windows users with MINGW the declaration should be <I CLASS="slanted">extern "C" __declspec(dllexport) double ro_calc(...)</I>.
-
+<SPAN CLASS="SMALL">it works exactly as <I CLASS="slanted">mcalc</I>, therefore we do not give more details here.
+</SPAN>
 <P>
-The meaning of the symbols is as follows:
-<SPAN CLASS="FOOTNOTESIZE">
-</SPAN><PRE>
-  on input
-    teta, fi, R(Angsgtroem) .... spatial position in spherical coordinates
-    gJ          Lande factor
-    MODPAR      Vector with Parameters  read in single ion property file
-    sipffilename    file name of the single ion parameter file
-    aLlm          single ion moments =expectation values of
-                coefficients of Zlm F(r) at a given temperature T and
-                effective field H
-on output
-  double ro_rocalc ... the charge density
-</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
-
-<P>
-The module function must perform the following tasks:
-
-<OL>
-<LI>calculate the charge density for plotting
-</LI>
-</OL>
-
-<P>
+<SPAN CLASS="SMALL"></SPAN>
 <BR><HR>
 
 </BODY>

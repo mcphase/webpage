@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>DMD - formalism</TITLE>
+<TITLE>Programs of General Interest</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,659 +23,195 @@
  HREF="node153.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node151.html">
+ HREF="manual.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node151.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1117"
-  HREF="node7.html">
+<A ID="tex2html1166"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1119"
-  HREF="node164.html">
+<A ID="tex2html1168"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node153.html">Calculation of the Correlation</A>
+ HREF="node153.html">Module kramer - a</A>
 <B> Up:</B> <A
- HREF="node151.html">Dynamical Susceptibility and Excitations</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node151.html">Dynamical Susceptibility and Excitations</A>
- &nbsp; <B>  <A ID="tex2html1118"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1120"
-  HREF="node164.html">Index</A></B> 
+ HREF="node151.html">Programs for Manipulation of</A>
+ &nbsp; <B>  <A ID="tex2html1167"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1169"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000371000000000000000"></A><A ID="DMDform"></A>
-<BR>
-DMD - formalism
-</H2>
-
-<P>
-The central problem in applying the MF&ndash;RPA is the calculation of the
-dynamical susceptibility 
-<!-- MATH
- $\chi_{\delta\beta}^{s''s'}({\mathbf Q},\omega)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.27ex; vertical-align: -1.09ex; " SRC="img1416.svg"
- ALT="$\chi_{\delta\beta}^{s''s'}({\mathbf Q},\omega)$"></SPAN> 
-from equation&nbsp;(<A HREF="node151.html#meanfieldrpa">236</A>).
-The standard procedure is to substitute equation&nbsp;(<A HREF="node151.html#singleionsusceptibility">237</A>) 
-into&nbsp;(<A HREF="node151.html#meanfieldrpa">236</A>), which is 
-then solved for each desired value of <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img386.svg"
- ALT="$\omega$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.02ex; vertical-align: -0.57ex; " SRC="img1417.svg"
- ALT="${\bf Q}$"></SPAN> by a matrix
-inversion. In order to avoid a numerical divergence,
-it is necessary to add to <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.83ex; vertical-align: -0.12ex; " SRC="img1371.svg"
- ALT="$\hbar\omega$"></SPAN> a small imaginary
-constant <!-- MATH
- $\hbar\omega\to\hbar\omega +i\Upsilon$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.31ex; " SRC="img1418.svg"
- ALT="$\hbar\omega\to\hbar\omega +i\Upsilon$"></SPAN> and insert this into
-equation (<A HREF="node151.html#singleionsusceptibility">237</A>) leading to a susceptibility which is equivalent to 
-equation (<A HREF="node151.html#e8">230</A>). 
-This method is inefficient and time demanding, however , because a <!-- MATH
- $3N_b\times 3N_b$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.46ex; " SRC="img1419.svg"
- ALT="$3N_b\times 3N_b$"></SPAN> matrix has to
-be inverted for each <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.77ex; vertical-align: -0.70ex; " SRC="img1420.svg"
- ALT="$(Q,\omega)$"></SPAN> in the calculation.
-
-<P>
-In order to minimise the computational
-effort an algorithm was developed [<A
- HREF="node163.html#rotter06-400">72</A>], which requires only the solution
-of a single generalised eigenvalue problem at each scattering vector <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.27ex; vertical-align: -0.57ex; " SRC="img289.svg"
- ALT="$\mathbf Q$"></SPAN>.
-This dynamical matrix diagonalisation (DMD) resembles the standard approach
-to lattice dynamics. This approach is very fast and will allow for more complex 
-systems to be investigated<A ID="tex2html66"
-  HREF="footnode.html#foot6818"><SUP><SPAN CLASS="arabic">27</SPAN></SUP></A>.
-
-<P>
-In the following we describe the DMD
- for a single excitation  <!-- MATH
- $\epsilon_- \rightarrow \epsilon_+$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.77ex; vertical-align: -0.66ex; " SRC="img1421.svg"
- ALT="$\epsilon_- \rightarrow \epsilon_+$"></SPAN> 
-of each 
-subsystem <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img135.svg"
- ALT="$s$"></SPAN>, i.e.
-we assume that each subsystem is a two level system
-with a single transition only. 
-Other transitions 
-(terms in equation (<A HREF="node151.html#singleionsusceptibility">237</A>))
-can be considered in the DMD formalism
- by assigning
-to each of these transitions an additional value
- of the index <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img135.svg"
- ALT="$s$"></SPAN> and increasing the total number 
-of subsystems (<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img179.svg"
- ALT="$N_b$"></SPAN>) correspondingly. This
-procedure is different from adding other terms 
-(which are present in equation&nbsp;(<A HREF="node151.html#singleionsusceptibility">237</A>))
-to the right hand side of equation (<A HREF="#sisusc">239</A>). 
-However, both procedures lead to the same results, 
-this is shown in&nbsp;[<A
- HREF="node163.html#rotter12-213201">37</A>].
-
-<P>
-For readability it is convenient to adopt the following
-matrix notation: a <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.27ex; vertical-align: -0.31ex; " SRC="img1422.svg"
- ALT="$m \times m$"></SPAN> matrix is indicated by 
-a bar on top of the symbol, e.g. <!-- MATH
- $\overline{\chi}^s$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.74ex; vertical-align: -0.57ex; " SRC="img1423.svg"
- ALT="$\overline{\chi}^s$"></SPAN>
-refers to the matrix <!-- MATH
- $\chi_{\alpha\beta}^s$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.29ex; vertical-align: -1.09ex; " SRC="img1424.svg"
- ALT="$\chi_{\alpha\beta}^s$"></SPAN> with 
-<!-- MATH
- $\alpha,\beta=1,\dots,m$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.57ex; " SRC="img1425.svg"
- ALT="$\alpha,\beta=1,\dots,m$"></SPAN>. A <!-- MATH
- $N_b \times N_b$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.38ex; vertical-align: -0.46ex; " SRC="img1426.svg"
- ALT="$N_b \times N_b$"></SPAN> matrix is 
-denoted by a bar below the symbol. 
-Making use of these two conventions
-the dynamical susceptibility 
-<!-- MATH
- $\chi_{\alpha\beta}^{ss'}({\mathbf Q},\omega)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.88ex; vertical-align: -1.09ex; " SRC="img1427.svg"
- ALT="$\chi_{\alpha\beta}^{ss'}({\mathbf Q},\omega)$"></SPAN> can be
-written as <!-- MATH
- $\overline{\underline{\chi}}({\mathbf Q},\omega)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 5.75ex; vertical-align: -1.03ex; " SRC="img1428.svg"
- ALT="$\overline{\underline{\chi}}({\mathbf Q},\omega)$"></SPAN>.
-
-
-<P>
-Considering only a single 
-excitation <!-- MATH
- $\epsilon_- \rightarrow \epsilon_+$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.77ex; vertical-align: -0.66ex; " SRC="img1421.svg"
- ALT="$\epsilon_- \rightarrow \epsilon_+$"></SPAN> in 
-the subsystem susceptibility, equation&nbsp;(<A HREF="node151.html#singleionsusceptibility">237</A>) 
-can be rewritten as
-
-<P>
-
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-\overline{\chi}^{s}(\omega)=
-\frac{\overline{M}^s}{\Delta^s-\hbar \omega}
-\end{equation}
- -->
- &nbsp;  <A ID="sisusc"></A><IMG
- STYLE="height: 2.58ex; vertical-align: -1.90ex; " SRC="img1429.svg"
- ALT="$\displaystyle
-\overline{\chi}^{s}(\omega)=
-\frac{\overline{M}^s}{\Delta^s-\hbar \omega}
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">223</SPAN>)</SPAN>
-</DIV>
-
-<P>
-with <!-- MATH
- $\Delta^s\equiv\epsilon^s_+-\epsilon^s_-$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.31ex; vertical-align: -0.88ex; " SRC="img1430.svg"
- ALT="$\Delta^s\equiv\epsilon^s_+-\epsilon^s_-$"></SPAN> and
- the transition element matrix
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-M^s_{\alpha\beta}=\langle-|\hat \mathcal I^s_{\alpha}-\langle\hat \mathcal I^s_{\alpha}\rangle|+\rangle\langle+|\hat \mathcal %%@
-I^s_{\beta}-\langle\hat \mathcal I^s_{\beta}\rangle|-\rangle
-(p_- -p_+)
-\end{equation}
- -->
- &nbsp;  <A ID="mmatrix"></A><IMG
- STYLE="height: 1.81ex; vertical-align: -1.01ex; " SRC="img1431.svg"
- ALT="$\displaystyle
-M^s_{\alpha\beta}=\langle-\vert\hat \mathcal I^s_{\alpha}-\langle...
-...%%@
-I^s_{\beta}-\langle\hat \mathcal I^s_{\beta}\rangle\vert-\rangle
-(p_--p_+)
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">224</SPAN>)</SPAN>
-</DIV>
-
-<P>
-<SPAN CLASS="TINY">Note for experts on programming single ion modules: that any external single ion module has to provide the 
-matrix <!-- MATH
- $M^s_{\alpha\beta}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.78ex; vertical-align: -1.09ex; " SRC="img834.svg"
- ALT="$M^s_{\alpha\beta}$"></SPAN> for every transition
-<!-- MATH
- $|-\rangle \rightarrow |+\rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img835.svg"
- ALT="$\vert-\rangle \rightarrow \vert+\rangle$"></SPAN>which is to be taken into consideration in the calculation. If the energy of this transition
-is zero, i.e. <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.40ex; vertical-align: -0.12ex; " SRC="img1432.svg"
- ALT="$\Delta^s=0$"></SPAN> (diffuse scattering), the expression (<A HREF="#mmatrix">240</A>) would be zero because <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img843.svg"
- ALT="$(p_--p_+)$"></SPAN> 
-vanishes.
-In this case the single ion module should calculate <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img844.svg"
- ALT="$(p_+/kT)$"></SPAN> instead of <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img843.svg"
- ALT="$(p_--p_+)$"></SPAN>.
+<H1><A ID="SECTION000230000000000000000">
+Programs of General Interest</A>
+</H1><SPAN CLASS="SMALL">
 </SPAN>
-
 <P>
-The <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.27ex; vertical-align: -0.31ex; " SRC="img1422.svg"
- ALT="$m \times m$"></SPAN> matrices  <!-- MATH
- $\overline{M}^s$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.22ex; vertical-align: -0.12ex; " SRC="img1433.svg"
- ALT="$\overline{M}^s$"></SPAN> may be diagonalised giving eigenvalues which are all zero
-except for one
-real eigenvalue <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.57ex; " SRC="img1434.svg"
- ALT="$\gamma^s$"></SPAN> 
-(which has the same sign as <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.98ex; vertical-align: -0.12ex; " SRC="img1435.svg"
- ALT="$\Delta^s$"></SPAN>):
-
-<P>
-
-
-<DIV CLASS="displaymath">
-
+<SPAN CLASS="SMALL"></SPAN><DL>
+<DT><STRONG><I CLASS="slanted">beep<A ID="6226"></A>:</STRONG></DT>
+<DD> just make a beep<A ID="6230"></A> to signal attention 
+</DD>
+<DT><STRONG><I CLASS="slanted">export<A ID="6231"></A> A=23.5-7/2.6e-23*%B%</STRONG></DT>
+<DD> program for windows to allow for
+simple math operations. Linux users can use some linux syntax such as 
+</I></I><PRE>export A= $(echo 23.5-7/2.6e-23*$B | bc -l )
+</PRE><I CLASS="slanted"><I CLASS="slanted">.
+</DD>
+<DT><STRONG><I CLASS="slanted">gauss<A ID="6237"></A><A ID="gauss"></A> fwhm stp min max:</STRONG></DT>
+<DD> calculate a gaussian, output goes to console (stdout), the formula for a gaussian is:
 <!-- MATH
- \begin{equation}
-\gamma^s=\rm Tr \{ \overline{M}^s \}
-\end{equation}
- -->
- &nbsp;  <IMG
- STYLE="height: 2.40ex; vertical-align: -0.70ex; " SRC="img1436.svg"
- ALT="$\displaystyle \gamma^s=\rm Tr \{ \overline{M}^s \}
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">225</SPAN>)</SPAN>
-</DIV>
-
-<P>
-Now, the MF&ndash;RPA  problem (<A HREF="node151.html#mfrpass">235</A>) may be simplified by using
-the unitary transformation
- <!-- MATH
- ${\overline{\mathcal U}^s}$
+ $\sigma={\rm fwhm}/\sqrt{8*log(2)}$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.83ex; vertical-align: -0.12ex; " SRC="img1437.svg"
- ALT="${\overline{\mathcal U}^s}$"></SPAN> (<!-- MATH
- ${\overline{\mathcal U}^{s\dag }\overline{\mathcal U}^s}=\overline{1}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.40ex; vertical-align: -0.12ex; " SRC="img1438.svg"
- ALT="${\overline{\mathcal U}^{s\dag }\overline{\mathcal U}^s}=\overline{1}$"></SPAN>),
- which diagonalises <!-- MATH
- $\overline{M}^s$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.22ex; vertical-align: -0.12ex; " SRC="img1433.svg"
- ALT="$\overline{M}^s$"></SPAN>.
- Note that the first column of this matrix 
- <!-- MATH
- $\overline{\mathcal U}^s$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.17ex; vertical-align: -0.12ex; " SRC="img1439.svg"
- ALT="$\overline{\mathcal U}^s$"></SPAN>  (the eigenvector with the 
-eigenvalue <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.57ex; " SRC="img1434.svg"
- ALT="$\gamma^s$"></SPAN>) is simply
-
-<P>
-
-<DIV CLASS="displaymath">
-
+ STYLE="height: 3.10ex; vertical-align: -0.82ex; " SRC="img1306.svg"
+ ALT="$\sigma={\rm fwhm}/\sqrt{8*log(2)}$"></SPAN>,
 <!-- MATH
- \begin{equation}
-{\mathcal U^s_{\alpha1}}=\sqrt{(p_- -p_+)/\gamma^s}\langle-|\hat \mathcal I^s_{\alpha}-\langle\hat \mathcal I^s_{\alpha}\rangle_{\mathbf %%@
-H,T}|+\rangle
-\end{equation}
- -->
- &nbsp;  <A ID="ufirstrow"></A><IMG
- STYLE="height: 3.38ex; vertical-align: -0.78ex; " SRC="img1440.svg"
- ALT="$\displaystyle
-{\mathcal U^s_{\alpha1}}=\sqrt{(p_--p_+)/\gamma^s}\langle-\vert\h...
-...alpha}-\langle\hat \mathcal I^s_{\alpha}\rangle_{\mathbf %%@
-H,T}\vert+\rangle
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">226</SPAN>)</SPAN>
-</DIV>
-
-<P>
-This property is useful as most of the equations below require 
-only knowledge of this first column. Following the 
-procedure outlined in&nbsp;[<A
- HREF="node163.html#rotter06-400">72</A>] one may transform
- the subsystem interaction <!-- MATH
- ${\mathcal J}_{\alpha\beta}^{ss'}({\mathbf Q})$
+ ${\rm gauss}(x)=\frac{exp(-x^2/2 \sigma^2)}{\sqrt{2*\pi}\sigma}$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.62ex; vertical-align: -1.09ex; " SRC="img1441.svg"
- ALT="${\mathcal J}_{\alpha\beta}^{ss'}({\mathbf Q})$"></SPAN>
-
-
-<DIV CLASS="displaymath">
-
+ STYLE="height: 4.06ex; vertical-align: -1.38ex; " SRC="img1325.svg"
+ ALT="${\rm gauss}(x)=\frac{exp(-x^2/2 \sigma^2)}{\sqrt{2*\pi}\sigma}$"></SPAN>
+</DD>
+<DT><STRONG><I CLASS="slanted">gauss2d<A ID="6247"></A><A ID="gauss2d"></A> fwhm1 fwhm2 theta  stpx minx maxx stpy miny maxy:</STRONG></DT>
+<DD> calculate a 2 dimensional gaussian, output goes to console (stdout), the formula for a two dimensional gaussian is:
 <!-- MATH
- \begin{equation}
-\overline{\mathcal L}^{ss'}(\mathbf Q) \equiv
-\overline{\mathcal U}^{s\dag }
-\overline{\mathcal J}^{ss'}({\mathbf Q}) \overline{\mathcal U}^{s'}
-\end{equation}
- -->
- &nbsp;  <A ID="jqtransform"></A><IMG
- STYLE="height: 4.58ex; vertical-align: -0.70ex; " SRC="img1442.svg"
- ALT="$\displaystyle
-\overline{\mathcal L}^{ss'}(\mathbf Q) \equiv
-\overline{\mathcal U}^{s\dag }
-\overline{\mathcal J}^{ss'}({\mathbf Q}) \overline{\mathcal U}^{s'}
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">227</SPAN>)</SPAN>
-</DIV>
-
-<P>
-Now the <!-- MATH
- $N_b \times N_b$
+ $\sigma={\rm fwhm}/\sqrt{8*log(2)}$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.38ex; vertical-align: -0.46ex; " SRC="img1426.svg"
- ALT="$N_b \times N_b$"></SPAN>
-Hermitian dynamical matrix may be defined as
-
-<P>
-
-
-<DIV CLASS="displaymath">
-
+ STYLE="height: 3.10ex; vertical-align: -0.82ex; " SRC="img1306.svg"
+ ALT="$\sigma={\rm fwhm}/\sqrt{8*log(2)}$"></SPAN>,
 <!-- MATH
- \begin{equation}
-A^{ss'}({\mathbf Q})=\Lambda^{ss'}\Delta^s-\sqrt{\gamma^s} \mathcal L^{ss'}({\mathbf Q}) \left (\sqrt{\gamma^{s'}} \right )^\ast
-\end{equation}
+ ${\rm gauss}(x,y)=\frac{exp(-u_1^2/2 \sigma_1^2)}{\sqrt{2*\pi}\sigma_1}\frac{exp(-u_2^2/2 \sigma_2^2)}{\sqrt{2*\pi}\sigma_2}$
  -->
- &nbsp;  <IMG
- STYLE="height: 2.55ex; vertical-align: -1.63ex; " SRC="img1443.svg"
- ALT="$\displaystyle A^{ss'}({\mathbf Q})=\Lambda^{ss'}\Delta^s-\sqrt{\gamma^s} \mathcal L^{ss'}({\mathbf Q}) \left (\sqrt{\gamma^{s'}} \right )^\ast
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">228</SPAN>)</SPAN>
-</DIV>
-
-<P>
-
-<DIV class="CENTER"><A ID="figdmdproc"></A><A ID="8818"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 33:</STRONG>
-Illustration of the DMD procedure (see sections <A HREF="#DMDform">M.1</A> and <A HREF="node153.html#chiobservable">M.2</A> of text).</CAPTION>
-<TR><TD><IMG
- STYLE="" SRC="img1444.svg"
- ALT="\begin{figure}
-% latex2html id marker 6903\setlength{\unitlength}{0.14in} % se...
-...\end{picture} % title of the Figure
-% label to refer figure in text
-\end{figure}"></TD></TR>
-</TABLE>
-</DIV>
-
-<P>
-The energies of the system may be calculated by solving the following
-generalised eigenvalue problem:
-
-<P>
-
-
-<DIV CLASS="displaymath">
-
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 4.15ex; vertical-align: -1.41ex; " SRC="img1326.svg"
+ ALT="${\rm gauss}(x,y)=\frac{exp(-u_1^2/2 \sigma_1^2)}{\sqrt{2*\pi}\sigma_1}\frac{exp(-u_2^2/2 \sigma_2^2)}{\sqrt{2*\pi}\sigma_2}$"></SPAN> with <!-- MATH
+ $u_1=x cos(\theta)-ysin(\theta)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1327.svg"
+ ALT="$u_1=x cos(\theta)-ysin(\theta)$"></SPAN> and <!-- MATH
+ $u_2=y cos(\theta)+xsin(\theta)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1328.svg"
+ ALT="$u_2=y cos(\theta)+xsin(\theta)$"></SPAN>,
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1329.svg"
+ ALT="$\theta$"></SPAN> is the rotation angle in degree.
+</DD>
+<DT><STRONG><I CLASS="slanted">lorentz<A ID="6259"></A><A ID="lorentz"></A> fwhm stp min max:</STRONG></DT>
+<DD> calculate a lorentzian, output goes to console (stdout)the formula for a Lorentz curve is: 
 <!-- MATH
- \begin{equation}
-\underline{A}({\mathbf Q})\mathbf t=\hbar\omega \underline{\Lambda} \mathbf t
-\end{equation}
+ ${\rm lorentz}(x)=\frac{1.0}{\pi{\rm fwhm}(1.0+x^2/fwhm^2)}$
  -->
- &nbsp;  <A ID="evproblem"></A><IMG
- STYLE="height: 3.11ex; vertical-align: -0.70ex; " SRC="img1445.svg"
- ALT="$\displaystyle
-\underline{A}({\mathbf Q})\mathbf t=\hbar\omega \underline{\Lambda} \mathbf t
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">229</SPAN>)</SPAN>
-</DIV>
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.39ex; vertical-align: -1.32ex; " SRC="img1330.svg"
+ ALT="${\rm lorentz}(x)=\frac{1.0}{\pi{\rm fwhm}(1.0+x^2/fwhm^2)}$"></SPAN>
+</DD>
+<DT><STRONG><I CLASS="slanted">mctest<A ID="6267"></A><A ID="mctest"></A> batchfile:</STRONG></DT>
+<DD> is a program to test a script. It
+ will execute the script test.bat line by line and stop with an error message
+if an error occurs. For testing  goto directory demo and look out for testing batch files
+named test*.bat, use such a file to test mcphase, e.g.:
+<I CLASS="slanted">mctest test_ndcu2_mcphasit.bat</I>. The batch may contain linux and windows-shell specific
+commands (e.g. copy or cp) and accepts both. 
+</DD>
+<DT><STRONG><I CLASS="slanted">plotbook *.ps:</STRONG></DT>
+<DD> program plotbook to arrange many (single side) ps-images to one booklet (needs: latex, pstops,ghostscript, perl)
+</DD>
+<DT><STRONG><I CLASS="slanted">script2html<A ID="6276"></A><A ID="script2html"></A> [-latex][options]  calc1.bat calc2.bat ...</STRONG></DT>
+<DD> 
+This program creates a html file from scripts containing 
+just the text
+ in the scripts.
+</I></I></I></I></I></I></I></I><PRE>
+ input: calc1.bat, calc2.bat ...    scripts (bat files)
+                                   (must be located in the current directory)
+ output: stdout      ...........   html file created from the scripts
+                                   (use "&gt;" to pipe into file)
 
+In order to create a latex output use script2html -latex.
+
+ options: -fromline 3 ..........  only part of the file is html coded starting at line 3
+          -toline   10 .........  only part of the file is html coded (until line 10)
+
+ Many html commands such as &lt;h1&gt; HEADER &lt;/h1&gt; can be used in
+ script commments to structure the text. Latex formulas are accepted by enclosing it 
+ in brackets  \( \) for inline or \[ \] for equations  , e.g.  \(e^{ipi}+1=0\) 
+ Some abbreviations are acceptable: 
+  \( ... \)      --&gt; € ... €
+  &lt;ol&gt;&lt;li&gt;         --&gt; /§
+  &lt;/li&gt;&lt;li&gt;        --&gt; §
+  &lt;li&gt;&lt;/ol&gt;        --&gt; §/
+
+ Other useful html commands are:
+ REM &lt;h1&gt; A Header &lt;/h1&gt;
+ REM &lt;h2&gt; A smaller header &lt;/2&gt;
+ REM &lt;img src="figure.jpg"&gt;
+ REM &lt;figure&gt; &lt;figcaption&gt; This graph shows ... 
+ REM &lt;/figcaption&gt; &lt;img src="figure.jpg"&gt; &lt;/figure&gt;
+
+  example:
+
+ script2html calc.bat notes.txt &gt; calc.bat.html
+
+ [creates the html file calc.bat.html from files calc.bat and notes.txt]
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">setvariable<A ID="6283"></A><A ID="setvariable"></A> varname value *.*:</STRONG></DT>
+<DD>
+sets a variable in a file, e.g. <I CLASS="slanted">setvariable T 20 Co.sipf</I> replaces
+T=15 by T=20 in file <I CLASS="slanted">Co.sipf</I>.
+</DD>
+<DT><STRONG><I CLASS="slanted">substitute<A ID="6290"></A> [option] oldtext newtext *.*:</STRONG></DT>
+<DD> replaces every instance of oldtext with newtext in file(s) *.*. Option <I CLASS="slanted">-f</I> substitutes only the first occurence, 
+<I CLASS="slanted">-n 13</I> substitutes only the 13th occurence of the oldtext.
+</DD>
+</DL></I></I></I></I></I></I></I></I></I></I><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-where the matrix <!-- MATH
- $\underline{\Lambda}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.01ex; vertical-align: -0.58ex; " SRC="img1446.svg"
- ALT="$\underline{\Lambda}$"></SPAN> is defined as
-
+<SPAN CLASS="SMALL"></SPAN>
 <P>
-
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-\Lambda^{ss'}=\delta_{ss'}{\rm sgn}(\Delta^s)
-\end{equation}
- -->
- &nbsp;  <A ID="lambdass"></A><IMG
- STYLE="height: 1.83ex; vertical-align: -0.70ex; " SRC="img1447.svg"
- ALT="$\displaystyle
-\Lambda^{ss'}=\delta_{ss'}{\rm sgn}(\Delta^s)
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">230</SPAN>)</SPAN>
-</DIV>
-
+<SPAN CLASS="SMALL"></SPAN>
 <P>
-The solution of the generalised eigenvalue problem (<A HREF="#evproblem">245</A>) yields
-the eigenvectors <!-- MATH
- $\underline{\mathcal T}=\left( \mathbf t^1, \mathbf t^2, \dots,\mathbf t^r,\dots\right)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.76ex; vertical-align: -0.93ex; " SRC="img1448.svg"
- ALT="$\underline{\mathcal T}=\left( \mathbf t^1, \mathbf t^2, \dots,\mathbf t^r,\dots\right)$"></SPAN> and eigenvalues <!-- MATH
- $\hbar \omega^r$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.12ex; " SRC="img1449.svg"
- ALT="$\hbar \omega^r$"></SPAN>.
-These may be written as the eigenvalue matrix 
-<!-- MATH
- $\Omega^{rr'}=\delta_{rr'}\hbar \omega^r$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.28ex; vertical-align: -0.46ex; " SRC="img1450.svg"
- ALT="$\Omega^{rr'}=\delta_{rr'}\hbar \omega^r$"></SPAN>, and correspond to the excitation energies of the system at the wavevector
- <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.02ex; vertical-align: -0.57ex; " SRC="img1417.svg"
- ALT="${\bf Q}$"></SPAN> for which <!-- MATH
- $\underline{A}({\mathbf Q})$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.28ex; vertical-align: -0.70ex; " SRC="img1451.svg"
- ALT="$\underline{A}({\mathbf Q})$"></SPAN> was calculated.
-The solution of the eigenvalue problem (<A HREF="#evproblem">245</A>) corresponds to the diagonalisation of the dynamical matrix in the case of phonons and therefore this method for calculating magnetic excitations is called dynamical matrix diagonalisation (DMD).
- Note, that the matrix <!-- MATH
- $\underline{A}({\mathbf Q})$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.28ex; vertical-align: -0.70ex; " SRC="img1451.svg"
- ALT="$\underline{A}({\mathbf Q})$"></SPAN> does not change
-when the number of dimensions <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img26.svg"
- ALT="$m$"></SPAN> of the subsystem susceptibility is increased (for example to include quadrupolar degrees of freedom), unless there is an interaction coupling these degrees of freedom between different ions (this can be seen by the definition (<A HREF="#jqtransform">243</A>) of the matrix 
-<!-- MATH
- $\underline{\mathcal L}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.83ex; vertical-align: -0.58ex; " SRC="img1452.svg"
- ALT="$\underline{\mathcal L}$"></SPAN> having in mind the first column of the transformation
-matrices <!-- MATH
- $\overline{\mathcal U}^s$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.17ex; vertical-align: -0.12ex; " SRC="img1439.svg"
- ALT="$\overline{\mathcal U}^s$"></SPAN>, see equation (<A HREF="#ufirstrow">242</A>)).
-
-<P>
-The eigenvector matrix <!-- MATH
- $\underline{\mathcal T}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 6.43ex; vertical-align: -0.58ex; " SRC="img1453.svg"
- ALT="$\underline{\mathcal T}$"></SPAN> provides a 
-unitary transformation, which may be used to obtain the
- dynamical susceptibility. 
-If the eigenvectors are normalised as
-<!-- MATH
- $\underline{\mathcal T}^\dag\underline{A}\underline{\mathcal T}=\underline{1}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.00ex; vertical-align: -0.58ex; " SRC="img1454.svg"
- ALT="$\underline{\mathcal T}^\dag\underline{A}\underline{\mathcal T}=\underline{1}$"></SPAN>, then
-equation (<A HREF="node151.html#meanfieldrpa">236</A>) may be transformed using <!-- MATH
- $\overline{\mathcal U}^s$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.17ex; vertical-align: -0.12ex; " SRC="img1439.svg"
- ALT="$\overline{\mathcal U}^s$"></SPAN>
- and <!-- MATH
- $\underline{\mathcal T}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 6.43ex; vertical-align: -0.58ex; " SRC="img1453.svg"
- ALT="$\underline{\mathcal T}$"></SPAN>(see&nbsp;[<A
- HREF="node163.html#rotter12-213201">37</A>]):
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-\chi^{ss'}_{\alpha\beta}(\mathbf Q,\omega)=\left (\sqrt{\gamma^{s}} \right )^\ast \sum_r
-\mathcal U^s_{\alpha1} {\mathcal T^{sr}(\mathbf Q) \frac{\hbar \omega^r(\mathbf Q)}{\hbar \omega^r(\mathbf Q) %%@
-- \hbar \omega} \mathcal T^{rs'\dag }(\mathbf Q)} \mathcal U^{s'\dag }_{1\beta}\sqrt{\gamma^{s'}}
-\end{equation}
- -->
- &nbsp;  <A ID="dmdfinal"></A><IMG
- STYLE="height: 2.17ex; vertical-align: -3.02ex; " SRC="img1455.svg"
- ALT="$\displaystyle
-\chi^{ss'}_{\alpha\beta}(\mathbf Q,\omega)=\left (\sqrt{\gamma^{s...
-...thcal T^{rs'\dag }(\mathbf Q)} \mathcal U^{s'\dag }_{1\beta}\sqrt{\gamma^{s'}}
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">231</SPAN>)</SPAN>
-</DIV>
-
-<P>
-By its definition the generalised susceptibility gives information about the correlated
-movement of the operators <!-- MATH
- $\langle \hat \mathcal I_{\alpha}^s \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.77ex; vertical-align: -0.70ex; " SRC="img1456.svg"
- ALT="$\langle \hat \mathcal I_{\alpha}^s \rangle $"></SPAN>
-for a specific excitation and contains the relative phases and amplitudes of the
-different operators.
-The procedure for the calculation of excitation energies <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.12ex; " SRC="img1449.svg"
- ALT="$\hbar \omega^r$"></SPAN> and physical
- observables (such as correlation functions and spectra) outlined above is very fast, because it
-involves only a single diagonalisation (determination of the
- matrix <!-- MATH
- $\underline{\mathcal T}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 6.43ex; vertical-align: -0.58ex; " SRC="img1453.svg"
- ALT="$\underline{\mathcal T}$"></SPAN>) for every scattering
-vector of interest. The
-dynamical susceptibility does not need to be calculated for each
- energy transfer by inverting equation
-(<A HREF="node151.html#mfrpass">235</A>) saving much
-computation time. Therefore the module <I CLASS="slanted">McDisp</I> of the <I CLASS="slanted">McPhase</I> package
-uses this method by default. We want to emphasize, that the procedure outlined in this section is general
-and allows to treat any number and combination of multipolar interactions just by
-letting the index <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img82.svg"
- ALT="$\alpha$"></SPAN> in <!-- MATH
- $\hat \mathcal I_{\alpha}^n$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.00ex; vertical-align: -0.69ex; " SRC="img73.svg"
- ALT="$\hat \mathcal I_{\alpha}^n$"></SPAN> take values between 1  and the number
-of multipolar operators considered (<!-- MATH
- $\alpha=1,\dots,m$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.77ex; vertical-align: -0.57ex; " SRC="img1457.svg"
- ALT="$\alpha=1,\dots,m$"></SPAN>).
-
-<P>
-Figure&nbsp;<A HREF="#figdmdproc">33</A> illustrates the DMD algorithm. We have described the first three parts
-shown in the figure, obtaining the eigenvectors <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.88ex; vertical-align: -0.12ex; " SRC="img1458.svg"
- ALT="$\mathbf t^{r}$"></SPAN>
- and eigenvalues <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.85ex; vertical-align: -0.12ex; " SRC="img1459.svg"
- ALT="$\omega^r$"></SPAN>. The following
-parts are described in the next section where the 
-dynamical susceptibility <!-- MATH
- $\overline{\underline{\chi}}(\mathbf Q,\omega)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.42ex; vertical-align: -1.03ex; " SRC="img1460.svg"
- ALT="$\overline{\underline{\chi}}(\mathbf Q,\omega)$"></SPAN>
-is used to calculate a general susceptibility
- <!-- MATH
- $\overline{\underline{X}}(\mathbf Q,\omega)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1461.svg"
- ALT="$\overline{\underline{X}}(\mathbf Q,\omega)$"></SPAN> corresponding
-to an arbitrary observable, from which physical properties may be calculated.
-
-<P>
-
+<SPAN CLASS="SMALL">
+</SPAN>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
 <A
  HREF="node153.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node151.html">
+ HREF="manual.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node151.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1117"
-  HREF="node7.html">
+<A ID="tex2html1166"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1119"
-  HREF="node164.html">
+<A ID="tex2html1168"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node153.html">Calculation of the Correlation</A>
+ HREF="node153.html">Module kramer - a</A>
 <B> Up:</B> <A
- HREF="node151.html">Dynamical Susceptibility and Excitations</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node151.html">Dynamical Susceptibility and Excitations</A>
- &nbsp; <B>  <A ID="tex2html1118"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1120"
-  HREF="node164.html">Index</A></B> </DIV>
+ HREF="node151.html">Programs for Manipulation of</A>
+ &nbsp; <B>  <A ID="tex2html1167"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1169"
+  HREF="node180.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

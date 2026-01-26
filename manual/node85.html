@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>External module function Icalc_parameter_storage_matrix_init - used by mcphas,singleion,spins and densplt,mcdiff </TITLE>
+<TITLE>Calculation of the Exchange Striction Parameters using makenn</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,126 +23,77 @@
  HREF="node86.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node82.html">
+ HREF="node74.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node84.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html799"
-  HREF="node7.html">
+<A ID="tex2html814"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html801"
-  HREF="node164.html">
+<A ID="tex2html816"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node86.html">External module function du1calc</A>
+ HREF="node86.html">Magnetoelastic Options to mcphas</A>
 <B> Up:</B> <A
- HREF="node82.html">Basic Module Functions</A>
+ HREF="node74.html">Crystal Field Phonon Interaction</A>
 <B> Previous:</B> <A
- HREF="node84.html">External module function IMcalc</A>
- &nbsp; <B>  <A ID="tex2html800"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html802"
-  HREF="node164.html">Index</A></B> 
+ HREF="node84.html">Setting up a Point</A>
+ &nbsp; <B>  <A ID="tex2html815"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html817"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION000171300000000000000"></A><A ID="3330"></A><A ID="3331"></A><A ID="3332"></A><A ID="3333"></A><A ID="3334"></A>
+<H2><A ID="SECTION0001411000000000000000"></A><A ID="determineExstricpar"></A>
 <BR>
-External module function <I CLASS="slanted">Icalc_parameter_storage_matrix_init</I> - used by <I CLASS="slanted">mcphas</I>,<I CLASS="slanted">singleion</I>,<I CLASS="slanted">spins</I> and <I CLASS="slanted">densplt</I>,<I CLASS="slanted">mcdiff</I>  
-</H3>
-
+Calculation of the Exchange Striction Parameters using <I CLASS="slanted">makenn</I>
+</H2><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-This routine is optional, i.e. it may be programmed, but is not absolutely necessary.
-Before any call to Icalc this function will be called. subsequent calls to Icalc will provide this matrix to Icalc, Icalc may set values to this matrix to be read in the next call
-of Icalc.
-
+<SPAN CLASS="SMALL">The positional derivatives of the two ion interactions in equation&nbsp;(<A HREF="node80.html#Hwexstric">139</A>)
+has to be evaluated in order to calculate the exchange striction. Within the McPhase 
+package the program <I CLASS="slanted">makenn</I>  may perform this task and it will use analytical formulas.
+Here comes a typical code example:
+</SPAN>
 <P>
-This feature provides the designer of a single ion module  with the possiblity to store information for subsquent calls of Icalc,
- usually the eigenvalues and eigenstates of a problem. This can be very useful to accelerate computations. For example, in <I CLASS="slanted">mcphas</I> meanfield iterations require
-to solve a similar eigenvalue problem in each iteration step. Therefore the <I CLASS="slanted">mcphas</I> module provides
-to the single ion module on every call to the function <I CLASS="slanted">Icalc</I> the parmeter matrix 
-which the module stored in its last call for a specfic ion in the magnetic unit cell.
+<SPAN CLASS="SMALL"></SPAN><PRE>
+REM create exchange interaction
+call makenn 7 -rkky -3 1.2
+call copy results/makenn.j mcphas.j
+REM ... and its position derivatives using the -djd... option of makenn
+call makenn 7 -rkky -3 1.2 -djdx
+call makenn 7 -rkky -3 1.2 -djdy
+call makenn 7 -rkky -3 1.2 -djdz
+call copy results/makenn.djdx mcphas.djdx
+call copy results/makenn.djdy mcphas.djdy
+call copy results/makenn.djdz mcphas.djdz
+REM ... and optional add also some explicit strain dependencies 
+REM     (in case of RKKY coming from the strain dependence of the Fermi Wave Vector kf)
+call makenn 7 -rkky -3 1.2 -djdeps1
+call makenn 7 -rkky -3 1.2 -djdeps2
+call makenn 7 -rkky -3 1.2 -djdeps3
+call makenn 7 -rkky -3 1.2 -djdeps4
+call makenn 7 -rkky -3 1.2 -djdeps5
+call makenn 7 -rkky -3 1.2 -djdeps6
+call copy results/makenn.djdx mcphas.djdeps1
+call copy results/makenn.djdy mcphas.djdeps2
+call copy results/makenn.djdz mcphas.djdeps3
+call copy results/makenn.djdx mcphas.djdeps4
+call copy results/makenn.djdy mcphas.djdeps5
+call copy results/makenn.djdz mcphas.djdeps6
 
+REM start mcphase with option -doeps to calculate strain
+call mcphasit -doeps
+</PRE><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-At the start of the programs <I CLASS="slanted">mcphas</I> <I CLASS="slanted">mcdiff</I> <I CLASS="slanted">singleion</I> the function <I CLASS="slanted">Icalc_parameter_storage_matrix_init</I>
-is called (if present in the module) and it should initialize a Complex Matrix by a command such as
-
-<P>
-<I CLASS="slanted">(*parstorage)=ComplexMatrix(0,nofrows,1,nofcols);</I>
-
-<P>
-and fill this matrix with sensible numerical values, in particular for the effective field, temperature given at the input of this function.
-Parameters <I CLASS="slanted">MODPAR</I> and Lande Factor <I CLASS="slanted">gJ</I> may be used for this purpose.
-
-<P>
-The routine should look similar to
-<SPAN CLASS="FOOTNOTESIZE">
-</SPAN><PRE>
-#include "vector.h"          // MatPack vector class must be included
-
-#ifdef __linux__
-extern "C" void Icalc_parameter_storage_matrix_init(
-#else
-extern "C" __declspec(dllexport) void Icalc_parameter_storage_matrix_init(
-#endif
-// on output
-                     ComplexMatrix * parstorage,    // storage matrix
-// on input
-                       Hxc ,                 //   vector of exchange field [meV] (can be n-dimensional, for a set of n operators)
-                       Hext,                 // external magnetic field [T]
-                      double *g_J,           // Input Lande g-factor
-                      double &amp;T,             // Input temperature (K)
-                      Vector &amp;MODPAR,     // Input vector of parameters 
-                                          //from single ion property file
-                      char **sipffilename)// Single ion properties filename
-{ // ... some code to compute eigenvectors and eigenvalues
-
-// dimension matrix
-(*parstorage)=ComplexMatrix(0,nofrows,1,nofcols);
-
-// fill matrix with values
-int l,m;
-          for(l=1;l&lt;=nofrows;++l)for(m=1;m&lt;=nofcols;++m)
-          {(*parstorage)(l,m)=complex &lt;double&gt; ( 4 , 2);}
-                 // instead of 4 and 2 put the real 
-                 //and imaginary parts to be stored
-}
-</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node86.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node82.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node84.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html799"
-  HREF="node7.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html801"
-  HREF="node164.html">
-<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A
- HREF="node86.html">External module function du1calc</A>
-<B> Up:</B> <A
- HREF="node82.html">Basic Module Functions</A>
-<B> Previous:</B> <A
- HREF="node84.html">External module function IMcalc</A>
- &nbsp; <B>  <A ID="tex2html800"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html802"
-  HREF="node164.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<SPAN CLASS="SMALL"></SPAN>
+<BR><HR>
 
 </BODY>
 </HTML>

@@ -1,0 +1,291 @@
+<!DOCTYPE HTML>
+
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
+<HTML lang="en">
+<HEAD>
+<TITLE>Unit Conventions in McPhase</TITLE>
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node178.html">
+<LINK REL="previous" HREF="node176.html">
+<LINK REL="next" HREF="node178.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A
+ HREF="node178.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node176.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html1277"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html1279"
+  HREF="node180.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node178.html">Installation of the program</A>
+<B> Up:</B> <A
+ HREF="manual.html">USERS MANUAL Workshops available</A>
+<B> Previous:</B> <A
+ HREF="node176.html">Solution of the exercises</A>
+ &nbsp; <B>  <A ID="tex2html1278"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1280"
+  HREF="node180.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A ID="SECTION000390000000000000000">
+Unit Conventions in McPhase</A>
+</H1><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">In most cases units of input parameters and output properties in <I CLASS="slanted">McPhase</I> cannot be modified and 
+are fixed in the program code. In output files usually the unit is given in the column header.
+In table (<A HREF="#units">9</A>) the unit conventions are listed.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV class="CENTER">
+
+<A ID="10202"></A>
+<TABLE class="PAD  BORDER" style="">
+<CAPTION><STRONG>Table 9:</STRONG>
+Units in the program package 
+<I CLASS="slanted">McPhase</I>:</CAPTION>
+<TR><TD CLASS="LEFT">Physical Quantity</TD>
+<TD CLASS="LEFT">symbol</TD>
+<TD CLASS="LEFT">unit</TD>
+<TD CLASS="LEFT">typical file(s)/programs</TD>
+</TR>
+<TR><TD CLASS="LEFT">Born van Karman spring</TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img2158.svg"
+ ALT="$c_L(ij)$"></SPAN></TD>
+<TD CLASS="LEFT">N/m</TD>
+<TD CLASS="LEFT">bvk_parameter.table</TD>
+</TR>
+<TR><TD CLASS="LEFT">Charge</TD>
+<TD CLASS="LEFT">CHARGE</TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img878.svg"
+ ALT="$\vert e\vert$"></SPAN></TD>
+<TD CLASS="LEFT">*.sipf</TD>
+</TR>
+<TR><TD CLASS="LEFT">Coupling constants</TD>
+<TD CLASS="LEFT"><!-- MATH
+ $K_{\alpha\beta}(ij)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img1235.svg"
+ ALT="$K_{\alpha\beta}(ij)$"></SPAN></TD>
+<TD CLASS="LEFT">meV</TD>
+<TD CLASS="LEFT">mcphas.j</TD>
+</TR>
+<TR><TD CLASS="LEFT">Crystal field parameters</TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img2159.svg"
+ ALT="$B_l^m, L_l^m$"></SPAN></TD>
+<TD CLASS="LEFT">meV</TD>
+<TD CLASS="LEFT">*.sipf</TD>
+</TR>
+<TR><TD CLASS="LEFT">Debye Waller Factor</TD>
+<TD CLASS="LEFT">DWF, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img2160.svg"
+ ALT="$B_{iso}/2$"></SPAN></TD>
+<TD CLASS="LEFT">Å<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img1163.svg"
+ ALT="$^2$"></SPAN></TD>
+<TD CLASS="LEFT">*.sipf, mcdiff.in</TD>
+</TR>
+<TR><TD CLASS="LEFT">Phonon-Displacement</TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img2161.svg"
+ ALT="$\mathbf P$"></SPAN></TD>
+<TD CLASS="LEFT">Å</TD>
+<TD CLASS="LEFT">singleion, spins</TD>
+</TR>
+<TR><TD CLASS="LEFT">Phonon-Displacement</TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.26ex; vertical-align: -0.12ex; " SRC="img673.svg"
+ ALT="$\mathbf u$"></SPAN></TD>
+<TD CLASS="LEFT">1</TD>
+<TD CLASS="LEFT">singleion</TD>
+</TR>
+<TR><TD CLASS="LEFT">Electric Field</TD>
+<TD CLASS="LEFT"><!-- MATH
+ $\mathbf E_{\rm el}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.46ex; " SRC="img680.svg"
+ ALT="$\mathbf E_{\rm el}$"></SPAN></TD>
+<TD CLASS="LEFT">kV/mm</TD>
+<TD CLASS="LEFT">mcphas.ini, mcphas.fum</TD>
+</TR>
+<TR><TD CLASS="LEFT">Electric Polarisation</TD>
+<TD CLASS="LEFT"><!-- MATH
+ $\mathbf P_{\rm el}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.46ex; " SRC="img682.svg"
+ ALT="$\mathbf P_{\rm el}$"></SPAN></TD>
+<TD CLASS="LEFT">|e|/Å<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img1163.svg"
+ ALT="$^2$"></SPAN></TD>
+<TD CLASS="LEFT">mcphas.fum</TD>
+</TR>
+<TR><TD CLASS="LEFT">Elastic constants</TD>
+<TD CLASS="LEFT"><!-- MATH
+ $c^{\alpha\beta}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.20ex; vertical-align: -0.12ex; " SRC="img756.svg"
+ ALT="$c^{\alpha\beta}$"></SPAN></TD>
+<TD CLASS="LEFT">meV/primitve unit cell</TD>
+<TD CLASS="LEFT">mcphas.j</TD>
+</TR>
+<TR><TD CLASS="LEFT">Elastic Energy</TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img2162.svg"
+ ALT="$E_{elastic}$"></SPAN></TD>
+<TD CLASS="LEFT">meV/ion</TD>
+<TD CLASS="LEFT">mcphas.fum</TD>
+</TR>
+<TR><TD CLASS="LEFT">Energy</TD>
+<TD CLASS="LEFT">cf-parameters Blm Llm, free energy u</TD>
+<TD CLASS="LEFT">meV</TD>
+<TD CLASS="LEFT">*.sipf, mcphas.fum ...</TD>
+</TR>
+<TR><TD CLASS="LEFT">Lattice Constant</TD>
+<TD CLASS="LEFT">a,b,c</TD>
+<TD CLASS="LEFT">Å</TD>
+<TD CLASS="LEFT">mcdiff.in, mcphas.j</TD>
+</TR>
+<TR><TD CLASS="LEFT">Magnetic Field</TD>
+<TD CLASS="LEFT">H, Ha, Hb, Hc</TD>
+<TD CLASS="LEFT">Tesla</TD>
+<TD CLASS="LEFT">mcphas.ini, mcdisp.mf ...</TD>
+</TR>
+<TR><TD CLASS="LEFT">Magnetic Moment</TD>
+<TD CLASS="LEFT">mu, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img2163.svg"
+ ALT="$\mu$"></SPAN></TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img916.svg"
+ ALT="$\mu_B$"></SPAN></TD>
+<TD CLASS="LEFT">mcphas.fum</TD>
+</TR>
+<TR><TD CLASS="LEFT">Neutron Cross Section</TD>
+<TD CLASS="LEFT">sigma ,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img534.svg"
+ ALT="$\sigma$"></SPAN></TD>
+<TD CLASS="LEFT">barn</TD>
+<TD CLASS="LEFT">mcdisp.qei</TD>
+</TR>
+<TR><TD CLASS="LEFT">Neutron Scattering Length</TD>
+<TD CLASS="LEFT">SCATTERINGLENGTHREAL</TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img2164.svg"
+ ALT="$10^{-12}$"></SPAN>&nbsp;cm</TD>
+<TD CLASS="LEFT">*.sipf, mcdiff.in</TD>
+</TR>
+<TR><TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">SCATTERINGLENGTHIMAG</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">Radial Integrals</TD>
+<TD CLASS="LEFT">R2,R4,R6 , <!-- MATH
+ $\langle r^l \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -0.70ex; " SRC="img873.svg"
+ ALT="$\langle r^l \rangle$"></SPAN></TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img2165.svg"
+ ALT="$a_0^2$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img2166.svg"
+ ALT="$a0=0.5292$"></SPAN>&nbsp;Å</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">Stress tensor</TD>
+<TD CLASS="LEFT"><!-- MATH
+ $\sigma^{\alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.12ex; " SRC="img2167.svg"
+ ALT="$\sigma^{\alpha}$"></SPAN></TD>
+<TD CLASS="LEFT">GPa</TD>
+<TD CLASS="LEFT">mcphas.fum, mcphas.ini</TD>
+</TR>
+<TR><TD CLASS="LEFT">Temperature</TD>
+<TD CLASS="LEFT">T</TD>
+<TD CLASS="LEFT">Kelvin</TD>
+<TD CLASS="LEFT">mcphas.ini, mcdisp.mf ...</TD>
+</TR>
+<TR><TD CLASS="LEFT">Wave length</TD>
+<TD CLASS="LEFT">lambda, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img2168.svg"
+ ALT="$\lambda$"></SPAN></TD>
+<TD CLASS="LEFT">Å</TD>
+<TD CLASS="LEFT">mcdiff.in</TD>
+</TR>
+<TR><TD CLASS="LEFT">Wave vector</TD>
+<TD CLASS="LEFT">k, ki, kf, Q, Qx, Qy, Qz</TD>
+<TD CLASS="LEFT">1/Å</TD>
+<TD CLASS="LEFT">mcdisp.par</TD>
+</TR>
+</TABLE>
+</DIV>
+<BR><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">
+</SPAN>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node178.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node176.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html1277"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html1279"
+  HREF="node180.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node178.html">Installation of the program</A>
+<B> Up:</B> <A
+ HREF="manual.html">USERS MANUAL Workshops available</A>
+<B> Previous:</B> <A
+ HREF="node176.html">Solution of the exercises</A>
+ &nbsp; <B>  <A ID="tex2html1278"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1280"
+  HREF="node180.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

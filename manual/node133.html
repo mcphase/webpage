@@ -1,17 +1,18 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Crystal Field Example: Fitting Point Charges to Inverse Susceptibility Data</TITLE>
+<TITLE>bfk - Inelastic neutron-scattering from RE ions in a crystal field including damping effects due to the exchange interaction with conduction electrons</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="previous" HREF="node132.html">
+<LINK REL="next" HREF="node134.html">
+<LINK REL="previous" HREF="node126.html">
 <LINK REL="next" HREF="node134.html">
 </HEAD>
 
@@ -22,354 +23,590 @@
  HREF="node134.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node125.html">
+ HREF="manual.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node132.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1032"
-  HREF="node7.html">
+<A ID="tex2html1076"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1034"
-  HREF="node164.html">
+<A ID="tex2html1078"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node134.html">Programs for Specific Tasks</A>
+ HREF="node134.html">Programs for Graphical display</A>
 <B> Up:</B> <A
- HREF="node125.html">Searchspace and Simannfit -</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node132.html">Fitting is an art:</A>
- &nbsp; <B>  <A ID="tex2html1033"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1035"
-  HREF="node164.html">Index</A></B> 
+ HREF="node132.html">Formalism for going beyond</A>
+ &nbsp; <B>  <A ID="tex2html1077"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1079"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000218000000000000000">
-Crystal Field  Example: Fitting Point Charges to Inverse Susceptibility Data</A>
-</H2>
-
+<H1><A ID="SECTION000180000000000000000"></A><A ID="4837"></A>
+<BR>
+<I CLASS="slanted">bfk</I> - Inelastic neutron-scattering from RE ions in a crystal field
+including damping effects due to the exchange interaction with conduction
+electrons
+</H1><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-A frequent wish is to fit crystal field parameters to experimental data. This task can
-be simple in high symmetry compounds and  very complex due to large number of parameters
-and complex experimental data. Here we demonstrate on an example, how a fit can take into account
-the high temperature expansion of magnetic susceptibility in order to reduce the
-number of free parameters in an orthorhombic system. It is well known, that the 
-crystal field parameters <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img17.svg"
- ALT="$B_2^0$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img60.svg"
- ALT="$B_2^2$"></SPAN> can be determined from the high
- temperature expansion of susceptiblity. Thus there is no need to fit these parameter, this
-is simple. 
-
+<SPAN CLASS="SMALL"></SPAN>
+<P><P>
+<BR>
+<SPAN CLASS="SMALL">
+This is based on an extension  of the theory published by Klaus W. Becker, Peter Fulde and
+Joachim Keller in Z. Physik B 28,9-18, 1977 
+"Line width of crystal-field excitations in metallic rare-earth systems"
+(for details see appendix&nbsp;<A HREF="node175.html#bfktheory">N</A>).
+Here we give an  introduction to the computer program <I CLASS="slanted">bfk</I> for the calculation of  the neutron 
+scattering cross section. The computer program <I CLASS="slanted">bfk</I> is written by J. Keller,
+University of Regensburg.
+</SPAN>
 <P>
-If it is desirable to determine point charges and not the crystal field parameters, the
-number of point charges can be reduced if <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img17.svg"
- ALT="$B_2^0$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img60.svg"
- ALT="$B_2^2$"></SPAN> are fixed. For example
-in a ternary system TmNiC<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN> it is sufficient to fit the point charge on Tm. We quote here
-the correponding <I CLASS="slanted">calcsta.forfit</I>  for linux users, which can be used by a command
-such as <I CLASS="slanted">simannfit 0.1 calcsta</I>:
-
+<SPAN CLASS="SMALL"><SPAN CLASS="LARGE">Description of the program:</SPAN>
+</SPAN>
 <P>
-<PRE>
-# &lt;h1&gt; TmNiC2 &lt;/h1&gt;
-# fitting point charges using standard model with CF-coupling trying to model chi 
-
-# we do not vary charge on Ni and C - these can be obtained from the
-# B20 and B22 (PRB Roman) as determined by high temperature expansion of 
-# the single crystal susceptibility
-# we vary point charge on Tm
-export CTm=parTm [3.000000e+00,-3.000000e+00,3.000000e+00,3.086877e-04,1.901175e-01] 
-
-# a cutoff radius
-export RR=parR [3.599614e+00,3.000000e+00,6.000000e+00,2.497474e-04,4.472897e-02] 
-
-# screening factors for l=2,4,6 dependent linear on the distance 
-# e.g. SF20 is screening factor for l=2 at NN distance r=+2.5978 A
-# and SF2 is screening factor for l=2 at r=R, the cutoff radius
-export SF20=parSF20 [5.727796e-01,4.000000e-01,1.000000e+00,3.727098e-04,3.432656e-02]
-export SF2=parSF2 [1.000000e+00,0.000000e+00,1.000000e+00,3.105923e-04,7.189467e-02]
-export SF40=parSF40 [5.787451e-01,4.000000e-01,1.000000e+00,2.256921e-04,5.359141e-02]
-export SF4=parSF4 [8.647244e-01,0.000000e+00,1.000000e+00,2.185745e-04,8.422583e-02]
-export SF60=parSF60 [9.401158e-01,4.000000e-01,1.000000e+00,5.031542e-04,3.946531e-02]
-export SF6=parSF6 [9.348959e-01,0.000000e+00,1.000000e+00,7.718764e-04,8.030474e-02]
-
-setvalue 1 2 $SF20 sf.r
-setvalue 1 3 $SF40 sf.r
-setvalue 1 4 $SF60 sf.r
-setvalue 2 2 $SF2 sf.r
-setvalue 2 3 $SF4 sf.r
-setvalue 2 4 $SF6 sf.r
-setvalue 2 1 $RR sf.r
-
-# determine coefficient of pointcharge
-#  to yield correct B20 und B22
-# Hint: the CF parameters are linear in the point charges $CTm,$CC,$CNi
-# (compare CF theory slide in tutorial)
-# B20=NI20*$CNi+C20*$CC+TM20*$CTm=0.2199 meV Roman etal PRB 107, 125137 (2023) 
-# B22=NI22*$CNi+C22*$CC+TM22*$CTm=-0.328 meV
-
-cif2mcphas -pc $RR -sp -nm Ni -ch Tm=0,Ni=0,C=1 TmNiC2_400K.cif -sf sf.r
-. getvariable B20 Tm1_1.sipf
-export C20=$(echo $MCPHASE_GETVARIABLE_VALUE | sed s/not/0.0/ )
-. getvariable B22 Tm1_1.sipf
-export C22=$(echo $MCPHASE_GETVARIABLE_VALUE | sed s/not/0.0/ )
-
-
-cif2mcphas -pc $RR -sp -nm Ni -ch Tm=0,Ni=1,C=0 TmNiC2_400K.cif -sf sf.r
-. getvariable B20 Tm1_1.sipf
-export NI20=$(echo $MCPHASE_GETVARIABLE_VALUE | sed s/not/0.0/ )
-. getvariable B22 Tm1_1.sipf
-export NI22=$(echo $MCPHASE_GETVARIABLE_VALUE | sed s/not/0.0/ )
-
-cif2mcphas -pc $RR -sp -nm Ni -ch Tm=1,Ni=0,C=0 TmNiC2_400K.cif -sf sf.r
-. getvariable B20 Tm1_1.sipf
-export TM20=$(echo $MCPHASE_GETVARIABLE_VALUE | sed s/not/0.0/ )
-. getvariable B22 Tm1_1.sipf
-export TM22=$(echo $MCPHASE_GETVARIABLE_VALUE | sed s/not/0.0/ )
-
-# now we have to solve the equations for the CF paramters B20 and B22
-# B20=NI20*$CNi+C20*$CC+TM20*$CTm=0.2199 meV Roman etal PRB 107, 125137 (2023) 
-# B22=NI22*$CNi+C22*$CC+TM22*$CTm=-0.328 meV
-
-# resolve the system of 2 linear equations to get $CC and $CNi 
-# the sed command is to get rid of exponential expressions such as 3e-4
-# which the in line calculator of linux, bc does not understand 
-export A=$(echo "(0.2199-($TM20)*($CTm))/($NI20)" | sed s/e[+]*/*10^/g | bc -l)
-export B=$(echo "(-0.328-($TM22)*($CTm))/($NI22)" | sed s/e[+]*/*10^/g | bc -l)
-
-# $Cni=A-C20*$CC/NI20
-# $Cni+C22*$CC/NI22=B
-
-# A-B=C20*$CC/NI20-C22*$CC/NI22=$CC*(C20/NI20-C22/NI22)=$CC*C
-export C=$(echo "($C20)/($NI20)-($C22)/($NI22)" | sed s/e[+]*/*10^/g | bc -l)
-export CC=$(echo "(($A)-($B))/($C)" | sed s/e[+]*/*10^/g | bc -l)
-export CNi=$(echo "$A-($C20)*($CC)/($NI20)" | sed s/e[+]*/*10^/g | bc -l)
-
-# use cif2mcphas to calculate point charge model
-cif2mcphas -pc $RR -sp -nm Ni -ch Tm=$CTm,Ni=$CNi,C=$CC ../TmNiC2_400K.cif -sf sf.r
-
-# now the point charge determined crystal field parameters are in
-# Tm1_1.sipf  and this can be used to calculate chi and fit it to data ...
-
-for T in $(seq 1 30 400); do singleion -M  -r Tm1_1.sipf $T 1 0 0 0 0 0; done &gt; results/chianew.clc 2&gt;/dev/null
-for T in $(seq 1 30 400); do singleion -M  -r Tm1_1.sipf $T 0 1 0 0 0 0; done &gt; results/chibnew.clc 2&gt;/dev/null
-for T in $(seq 1 30 400); do singleion -M  -r Tm1_1.sipf $T 0 0 1 0 0 0; done &gt; results/chicnew.clc 2&gt;/dev/null
-
-delcomments -fromline 20 results/chianew.clc results/chibnew.clc results/chicnew.clc &gt;/dev/null
-fillcol 6 1/c9 results/chianew.clc
-fillcol 7 1/c10 results/chibnew.clc
-fillcol 8 1/c11 results/chicnew.clc
-factcol 1 0 results/chianew.clc results/chibnew.clc results/chicnew.clc
-# put susceptibility how it should be to column 1 in chi*new.clc
-add 2 1 results/chianew.clc 1 2 exp/chia.dat
-add 2 1 results/chibnew.clc 1 2 exp/chib.dat
-add 2 1 results/chicnew.clc 1 2 exp/chic.dat
-
-# chi2 is used to calculate sta 
-chi2 6 1 3 results/chianew.clc
-chi2 7 1 4 results/chibnew.clc
-chi2 8 1 5 results/chicnew.clc
-
-# this is just to print out what parameters have been used
-echo cif2mcphas -pc $RR -sp -nm Ni -ch Tm=$CTm,Ni=$CNi,C=$CC TmNiC2_400K.cif -sf sf.r
-</PRE>
-
+<SPAN CLASS="SMALL">The program calculates the dynamical susceptibility
+and the neutron scattering cross-section of single RE ions in the presence
+of crystal fields and Landau damping due to the exchange interaction with 
+conduction electrons.
+</SPAN>
 <P>
-For windows users the following file <I CLASS="slanted">calcsta.bat.forfit</I> will do a similar job using
-a fitting command such as <I CLASS="slanted">simannfit 0.1 calcsta.bat </I>:
-
+<SPAN CLASS="SMALL">It needs the following input-files (not all are needed for all tasks)
+</SPAN>
 <P>
-<PRE>
-REM &lt;h1&gt; TmNiC2 &lt;/h1&gt;
-REM fitting point charges using standard model with CF-coupling trying to model chi 
-
-REM we do not vary charge on Ni and C - these can be obtained from the
-REM B20 and B22 (PRB Roman) as determined by high temperature expansion of 
-REM the single crystal susceptibility
-REM we vary point charge on Tm
-call set CTm=parTm [3.000000e+00,-3.000000e+00,3.000000e+00,3.086877e-04,1.901175e-01] 
-
-REM a cutoff radius
-call set RR=parR [3.599614e+00,3.000000e+00,6.000000e+00,2.497474e-04,4.472897e-02] 
-
-REM screening factors for l=2,4,6 dependent linear on the distance 
-REM e.g. SF20 is screening factor for l=2 at NN distance r=+2.5978 A
-REM and SF2 is screening factor for l=2 at r=R, the cutoff radius
-call set SF20=parSF20 [5.727796e-01,4.000000e-01,1.000000e+00,3.727098e-04,3.432656e-02]
-call set SF2=parSF2 [1.000000e+00,0.000000e+00,1.000000e+00,3.105923e-04,7.189467e-02]
-call set SF40=parSF40 [5.787451e-01,4.000000e-01,1.000000e+00,2.256921e-04,5.359141e-02]
-call set SF4=parSF4 [8.647244e-01,0.000000e+00,1.000000e+00,2.185745e-04,8.422583e-02]
-call set SF60=parSF60 [9.401158e-01,4.000000e-01,1.000000e+00,5.031542e-04,3.946531e-02]
-call set SF6=parSF6 [9.348959e-01,0.000000e+00,1.000000e+00,7.718764e-04,8.030474e-02]
-
-call setvalue 1 2 %SF20% sf.r
-call setvalue 1 3 %SF40% sf.r
-call setvalue 1 4 %SF60% sf.r
-call setvalue 2 2 %SF2% sf.r
-call setvalue 2 3 %SF4% sf.r
-call setvalue 2 4 %SF6% sf.r
-call setvalue 2 1 %RR% sf.r
-
-REM determine coefficient of pointcharge
-REM  to yield correct B20 und B22
-REM Hint: the CF parameters are linear in the point charges $CTm,$CC,$CNi
-REM (compare CF theory slide in tutorial)
-REM B20=NI20*CNi+C20*CC+TM20*CTm=0.2199 meV Roman etal PRB 107, 125137 (2023) 
-REM B22=NI22*CNi+C22*CC+TM22*CTm=-0.328 meV
-
-call cif2mcphas -pc %RR% -sp -nm Ni -ch Tm=0,Ni=0,C=1 TmNiC2_400K.cif -sf sf.r
-call getvariable B20 Tm1_1.sipf
-call export C20=%MCPHASE_GETVARIABLE_VALUE%
-if C20=="not" set C20=0
-call getvariable B22 Tm1_1.sipf
-call export C22=%MCPHASE_GETVARIABLE_VALUE%
-if C22=="not" set C22=0
-
-
-call cif2mcphas -pc %RR% -sp -nm Ni -ch Tm=0,Ni=1,C=0 TmNiC2_400K.cif -sf sf.r
-call getvariable B20 Tm1_1.sipf
-call export NI20=%MCPHASE_GETVARIABLE_VALUE%
-if NI20=="not" set NI20=0
-call getvariable B22 Tm1_1.sipf
-call export NI22=%MCPHASE_GETVARIABLE_VALUE%
-if NI22=="not" set NI22=0
-
-call cif2mcphas -pc %RR% -sp -nm Ni -ch Tm=1,Ni=0,C=0 TmNiC2_400K.cif -sf sf.r
-call getvariable B20 Tm1_1.sipf
-call export TM20=%MCPHASE_GETVARIABLE_VALUE%
-if TM20=="not" set TM20=0
-call getvariable B22 Tm1_1.sipf
-call export TM22=%MCPHASE_GETVARIABLE_VALUE%
-if TM22=="not" set TM22=0
-
-REM now we have to solve the equations for the CF paramters B20 and B22
-REM B20=NI20*$CNi+C20*$CC+TM20*$CTm=0.2199 meV Roman etal PRB 107, 125137 (2023) 
-REM B22=NI22*$CNi+C22*$CC+TM22*$CTm=-0.328 meV
-
-REM resolve the system of 2 linear equations to get $CC and $CNi 
-call export A=(0.2199-(%TM20%)*(%CTm%))/(%NI20%)
-call export B=(-0.328-(%TM22%)*(%CTm%))/(%NI22%)
-
-REM Cni=A-C20*CC/NI20
-REM Cni+C22*CC/NI22=B
-
-REM A-B=C20*CC/NI20-C22*CC/NI22=CC*(C20/NI20-C22/NI22)=CC*C
-call export C=(%C20%)/(%NI20%)-(%C22%)/(%NI22%)
-call export CC=((%A%)-(%B%))/(%C%)
-call export CNi=%A%-(%C20%)*(%CC%)/(%NI20%)
-
-REM use cif2mcphas to calculate point charge model
-call cif2mcphas -pc %RR% -sp -nm Ni -ch Tm=%CTm%,Ni=%CNi%,C=%CC% ../TmNiC2_400K.cif -sf sf.r
-
-REM now the point charge determined crystal field parameters are in
-REM Tm1_1.sipf  and this can be used to calculate chi and fit it to data ...
-
-call perl -e "for($T=1;$T&lt;400;$T+=30){system('singleion '.$T.' 1 0 0 0 0 0');}" &gt; results\chianew.clc
-call perl -e "for($T=1;$T&lt;400;$T+=30){system('singleion '.$T.' 0 1 0 0 0 0');}" &gt; results\chibnew.clc
-call perl -e "for($T=1;$T&lt;400;$T+=30){system('singleion '.$T.' 0 0 1 0 0 0');}" &gt; results\chicnew.clc
-
-call delcomments -fromline 20 results/chianew.clc results/chibnew.clc results/chicnew.clc 
-call fillcol 6 1/c9 results/chianew.clc
-call fillcol 7 1/c10 results/chibnew.clc
-call fillcol 8 1/c11 results/chicnew.clc
-call factcol 1 0 results/chianew.clc results/chibnew.clc results/chicnew.clc
-REM put susceptibility how it should be to column 1 in chi*new.clc
-call add 2 1 results/chianew.clc 1 2 exp/chia.dat
-call add 2 1 results/chibnew.clc 1 2 exp/chib.dat
-call add 2 1 results/chicnew.clc 1 2 exp/chic.dat
-
-REM chi2 is used to calculate sta 
-call chi2 6 1 3 results/chianew.clc
-call chi2 7 1 4 results/chibnew.clc
-call chi2 8 1 5 results/chicnew.clc
-
-REM this is just to print out what parameters have been used
-echo cif2mcphas -pc %RR% -sp -nm Ni -ch Tm=%CTm%,Ni=%CNi%,C=%CC% TmNiC2_400K.cif -sf sf.r
-</PRE>
-
+<SPAN CLASS="SMALL">1. A file containing the information about the RE ion: Type of ion, number of
+CF-levels, energy eigenvalues and eigenstates. The date are extracted from
+the input-file by reading the information contained in lines starting with
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img1114.svg"
+ ALT="$\char93 !$"></SPAN> or blanks, see the attached example. 
+</SPAN>
 <P>
-The screening file <I CLASS="slanted">sf.r</I> is:
-
+<SPAN CLASS="SMALL">2. File with the formfactor data for RE ion
+</SPAN>
 <P>
-<PRE>
-# screeningfile 
-# r[A]   sf(l=2)   sf(l=4)  sf(l=6)
-+2.5978 0.56 0.53 0.48 
-3.589 0.6747 0.44 0.677
-</PRE>
+<SPAN CLASS="SMALL">3. File with a list of (<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.92ex; vertical-align: -0.57ex; " SRC="img1115.svg"
+ ALT="$\vec Q,\omega$"></SPAN>)-values, for which the calculation
+shall be performed
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">4. A parameter-file containing  the names of the files with the
+formfactor, the  table with the (<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.92ex; vertical-align: -0.57ex; " SRC="img1115.svg"
+ ALT="$\vec Q,\omega$"></SPAN>)-values, the energy range, 
+scattering direction etc., see the attached example.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">5. The value of the coupling constant <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1116.svg"
+ ALT="$g=j_{ex}N(0)$"></SPAN>, the temperature,  
+the mode of calculation, the form of the out-put, the name of the file with
+the CEF-data, the  name of the parameter file are provided by the
+commandline, which is used to start the program. 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">The program consists of a number of modules and subroutines which are
+briefly described in the following: 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">1. Modules CommonData, MatrixElements, FormfactorPreparation
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">These modules contain definitions of global variables and arrays 
+used in the program and in different  subroutines. 
+FormfactorPreparation also contains the
+subroutine FormfactorTransformation which transforms an input-file with
+formfactor data into a file with formfactor values for equidistant Q-values. 
+and the function Formfac to calculate the formfactor at
+arbitrary Q-values.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">2. Subroutine ReadData
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Subroutine to read-in data needed to calculate the dynamical susceptibility
+and the neutron scattering cross-section.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">It reads the commandline, containing the coupling <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1116.svg"
+ ALT="$g=j_{ex}N(0)$"></SPAN>,  
+the temperature  <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img65.svg"
+ ALT="$T$"></SPAN> (in Kelvin), mode of calculation (see below), form of out-put, 
+name of the
+file with RE data, name of the parameter-file (containing also the name of
+the file with the formfactor data). The information about the RE ion is
+transferred into a workfile cefworkfile.dat for inspection and use in the
+following runs. The data contained in the parameter-file are stored in the
+file bfkdata.dat. The latter two have to be given only in the first run. If
+they are left-out  in the following runs, the are assumed    to be
+unchanged.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">3. Subroutine Matrixelements
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">a) Calculates angular momentum matrices jjx, jjy, jjz for the crystal-field eigenstates
+(2-dim arrays, dimension Ns x Ns). The three directional components are also
+stored in the 3-dimensional array jjj(3,Ns,Ns). 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">b) Calculates Boltzmann-factors <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1117.svg"
+ ALT="$p(n)$"></SPAN>. A cut-off in the exponent <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1118.svg"
+ ALT="$\beta
+E(n)$"></SPAN> is introduced such that Boltzmann factors with large negative
+exponents
+are set equal to zero. 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">c) Defines  a set of transitions  <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img1053.svg"
+ ALT="$\nu$"></SPAN> between states
+n1 and n2, stored in two  1-dim
+arrays v1(<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img1053.svg"
+ ALT="$\nu$"></SPAN>), v2(<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img1053.svg"
+ ALT="$\nu$"></SPAN>). If both Boltzmann factors of the two states
+involved are zero, this transition is eliminated from the set of allowed
+transitions.  
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">d) Calculates static suscepibilities <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1119.svg"
+ ALT="$P(\mu)$"></SPAN> for the standard basis operators
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img1120.svg"
+ ALT="$K_{n,m}$"></SPAN> for the allowed transitions.  
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">e) All these reults are stored in a  file bfkmatrix.dat for examination, if
+something goes wrong.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">4. MatrixInversionSubroutine
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">adapted from Numerical Recipes, to be used for the inversion of the complex
+matrix <!-- MATH
+ $\Omega_{\nu\mu}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img1121.svg"
+ ALT="$\Omega_{\nu\mu}$"></SPAN>. Called by 5. 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">5. Subroutine Relmatrix
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Calculates the matrix relaxation function <!-- MATH
+ $\Phi_{\mu,\nu}(\omega)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img1122.svg"
+ ALT="$\Phi_{\mu,\nu}(\omega)$"></SPAN> for the set 
+of dynamical variables
+obtained from  the standard basis operators for a given energy (freqency)
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img482.svg"
+ ALT="$\omega$"></SPAN>.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">6. Subroutine Suscepcomponents 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Calculates the different components of the
+dynamical susceptibility
+</SPAN>
+<DIV CLASS="displaymath">
+<!-- MATH
+ \begin{displaymath}
+\chi^{\alpha,\beta}(\omega) = \beta\sum_{\mu \nu}(J^\alpha)_\mu)^*
+\bigl[P_\mu\delta_{\mu\nu}-\omega \Phi_{\mu\nu}(\omega)\bigr]J^\beta_\nu
+\end{displaymath}
+ -->
 
+<IMG
+ STYLE="height: 5.87ex; vertical-align: -3.34ex; " SRC="img1123.svg"
+ ALT="$\displaystyle \chi^{\alpha,\beta}(\omega) = \beta\sum_{\mu \nu}(J^\alpha)_\mu)^*
+\bigl[P_\mu\delta_{\mu\nu}-\omega \Phi_{\mu\nu}(\omega)\bigr]J^\beta_\nu
+$">
+</DIV>
+<SPAN CLASS="SMALL"> 
+and 
+</SPAN>
+<DIV CLASS="displaymath">
+<!-- MATH
+ \begin{displaymath}
+Im \chi^{\alpha\beta}(\omega)/(1-\exp(-\beta\omega))
+\end{displaymath}
+ -->
+
+<IMG
+ STYLE="height: 2.89ex; vertical-align: -0.70ex; " SRC="img1124.svg"
+ ALT="$\displaystyle Im \chi^{\alpha\beta}(\omega)/(1-\exp(-\beta\omega))
+$">
+</DIV>
+<SPAN CLASS="SMALL">
+7. Function Scatfunction(Q,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img482.svg"
+ ALT="$\omega$"></SPAN>)
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Calculates
+</SPAN>
+<DIV CLASS="displaymath">
+<!-- MATH
+ \begin{displaymath}
+S(\vec Q,\omega)= \sum_{\alpha\beta}\bigl(\delta_{\alpha\beta} - \tilde
+Q^\alpha\tilde Q^\beta\bigr) Im \chi^{\alpha\beta}/(1-\exp(-\beta\omega))
+\end{displaymath}
+ -->
+
+<IMG
+ STYLE="height: 5.99ex; vertical-align: -3.46ex; " SRC="img1125.svg"
+ ALT="$\displaystyle S(\vec Q,\omega)= \sum_{\alpha\beta}\bigl(\delta_{\alpha\beta} - ...
+...de
+Q^\alpha\tilde Q^\beta\bigr) Im \chi^{\alpha\beta}/(1-\exp(-\beta\omega))
+$">
+</DIV>
+<SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">8. Subroutine OutputResults 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Here the results for the dynamical susceptibility, the scattering function
+and the differential neutron scattering cross section for different
+scattering geometries are calculated, and the results written into files 
+bfkm.res for different scattering-modes m=0-6, which are written into the  
+subdirectory /results. Depending on the value of ms=1,2 the new results
+over-write the previews results or append.  
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Depending on the number m=0-6 (3. entry of the commandline) the following
+results are calculated. 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">mode=0: all nine components <!-- MATH
+ $\chi^{\alpha\beta}(\omega)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -0.70ex; " SRC="img1126.svg"
+ ALT="$\chi^{\alpha\beta}(\omega)$"></SPAN> of the complex 
+dynamic susceptibility are calculated for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.26ex; vertical-align: -0.57ex; " SRC="img1127.svg"
+ ALT="$Npoint$"></SPAN> equidistant energies  <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img482.svg"
+ ALT="$\omega$"></SPAN> 
+between <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.76ex; vertical-align: -0.12ex; " SRC="img1128.svg"
+ ALT="$emin$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img1129.svg"
+ ALT="$emax$"></SPAN>. 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">mode=1: the diagonal components of <!-- MATH
+ $Im \chi^{\alpha\alpha}(\omega)/\tanh{\beta\omega/2}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1130.svg"
+ ALT="$Im \chi^{\alpha\alpha}(\omega)/\tanh{\beta\omega/2}$"></SPAN>
+are calculated and the frequency integral is compared with the sum-rule 
+</SPAN>
+<DIV CLASS="displaymath">
+<!-- MATH
+ \begin{displaymath}
+\sum_\alpha {1\over\pi}\int d\omega {Im
+\chi^{\alpha\alpha}\over \tanh(\beta\omega/2)} 
+= J(J+1) 
+\end{displaymath}
+ -->
+
+<IMG
+ STYLE="height: 6.27ex; vertical-align: -3.02ex; " SRC="img1131.svg"
+ ALT="$\displaystyle \sum_\alpha {1\over\pi}\int d\omega {Im
+\chi^{\alpha\alpha}\over \tanh(\beta\omega/2)}
+= J(J+1)
+$">
+</DIV>
+<SPAN CLASS="SMALL">
+The sum-rule sometimes is not very well fulfilled, since within this
+approximation the Landau damping does not fall-off fast enough at large
+energies
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">mode=2: The scattering function 
+</SPAN>
+<DIV CLASS="displaymath">
+<!-- MATH
+ \begin{displaymath}
+S(\vec Q,\omega)=\sum_{\alpha,\beta} (\delta_{\alpha, \beta}- \tilde Q_\alpha \tilde
+Q_\beta){ \chi''_{\alpha \beta}(\omega)\over 1-\exp(-\beta\omega)}
+\end{displaymath}
+ -->
+
+<IMG
+ STYLE="height: 7.17ex; vertical-align: -3.46ex; " SRC="img1132.svg"
+ ALT="$\displaystyle S(\vec Q,\omega)=\sum_{\alpha,\beta} (\delta_{\alpha, \beta}- \ti...
+...ha \tilde
+Q_\beta){ \chi''_{\alpha \beta}(\omega)\over 1-\exp(-\beta\omega)}
+$">
+</DIV>
+<SPAN CLASS="SMALL"> 
+is calculated for a given set of values for  
+energy loss <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img482.svg"
+ ALT="$\omega$"></SPAN> and scattering vector <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.92ex; vertical-align: -0.57ex; " SRC="img1133.svg"
+ ALT="$\vec Q$"></SPAN> contained in a file
+specified in the parameterfile. 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">mode=3: The 9 different components of the scattering-function 
+</SPAN>
+<DIV CLASS="displaymath">
+<!-- MATH
+ \begin{displaymath}
+(r_0g_JF(\vec Q)/2)^2{1\over \pi} S^{\alpha\beta}(\vec Q,\omega), \quad
+S^{\alpha\beta}(\vec Q,\omega)= {Im \chi^{\alpha,\beta}(\omega)\over
+1-exp(-\beta\omega)}
+\end{displaymath}
+ -->
+
+<IMG
+ STYLE="height: 5.93ex; vertical-align: -2.29ex; " SRC="img1134.svg"
+ ALT="$\displaystyle (r_0g_JF(\vec Q)/2)^2{1\over \pi} S^{\alpha\beta}(\vec Q,\omega),...
+...a}(\vec Q,\omega)= {Im \chi^{\alpha,\beta}(\omega)\over
+1-exp(-\beta\omega)}
+$">
+</DIV>
+<SPAN CLASS="SMALL">
+are  calculated. 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">mode= 4-6: the neutron scattering cross section
+</SPAN>
+<DIV CLASS="displaymath">
+<!-- MATH
+ \begin{displaymath}
+{d^2\sigma \over d\Omega d E'} =  {k' \over
+k}S(\vec Q,\omega)
+\end{displaymath}
+ -->
+
+<IMG
+ STYLE="height: 5.27ex; vertical-align: -1.71ex; " SRC="img1135.svg"
+ ALT="$\displaystyle {d^2\sigma \over d\Omega d E'} = {k' \over
+k}S(\vec Q,\omega)
+$">
+</DIV>
+<SPAN CLASS="SMALL">
+with
+</SPAN>
+<DIV CLASS="displaymath">
+<!-- MATH
+ \begin{displaymath}
+S(\vec Q, \omega)=({r_0\over 2}g F(Q))^2{1\over \pi }
+\sum_{\alpha\beta}(\delta_{\alpha\beta} 
+- \hat Q_\alpha \hat Q_\beta)
+{Im \chi^{\alpha,\beta}(\omega)\over 1-exp(-\beta \omega)} 
+\end{displaymath}
+ -->
+
+<IMG
+ STYLE="height: 7.09ex; vertical-align: -3.46ex; " SRC="img1136.svg"
+ ALT="$\displaystyle S(\vec Q, \omega)=({r_0\over 2}g F(Q))^2{1\over \pi }
+\sum_{\alp...
+...ha \hat Q_\beta)
+{Im \chi^{\alpha,\beta}(\omega)\over 1-exp(-\beta \omega)}
+$">
+</DIV>
+<SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">is  calculated for different scattering geometries:
+In mode 4 the  
+direction of the wave vector <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.50ex; vertical-align: -0.12ex; " SRC="img1137.svg"
+ ALT="$\vec k$"></SPAN> and the energy <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.70ex; " SRC="img1138.svg"
+ ALT="$E=k^2/2m$"></SPAN> of the
+incident 
+beam is fixed. The direction of the scattering wave vector <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.92ex; vertical-align: -0.57ex; " SRC="img1133.svg"
+ ALT="$\vec Q$"></SPAN> is fixed, 
+but the 
+length of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.92ex; vertical-align: -0.57ex; " SRC="img1133.svg"
+ ALT="$\vec Q$"></SPAN> is variable. The wave vector of the scattered
+particles is  <!-- MATH
+ $\vec k'=\vec k-\vec Q$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.95ex; vertical-align: -0.57ex; " SRC="img1139.svg"
+ ALT="$\vec k'=\vec k-\vec Q$"></SPAN>, their energy is <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.70ex; " SRC="img1140.svg"
+ ALT="$E'=k'^2/2m$"></SPAN> and
+the energy loss is <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.31ex; " SRC="img1141.svg"
+ ALT="$\omega =E-E'$"></SPAN>. In mode 5 the direction  of the wave vectors 
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.50ex; vertical-align: -0.12ex; " SRC="img1137.svg"
+ ALT="$\vec k$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.50ex; vertical-align: -0.12ex; " SRC="img1142.svg"
+ ALT="$\vec k'$"></SPAN> of the incoming and scattered beam
+are fixed, while the energy <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.97ex; vertical-align: -0.12ex; " SRC="img1143.svg"
+ ALT="$E'$"></SPAN> of the scattered beam is variable. In mode
+6
+the energy <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1144.svg"
+ ALT="$E$"></SPAN> of the incident particles is variable 
+and the energy <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.70ex; " SRC="img1145.svg"
+ ALT="$E'=k^2/2m$"></SPAN> of the scattered particles  fixed.  
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">
+<SPAN CLASS="LARGE">How to run the program:</SPAN>
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<P><P>
+<BR>
+<SPAN CLASS="SMALL">
+The translated program is started with a command-line 
+like 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">bfk 0.1 10 0 1 prlevels.cef paramfile.par
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">with  the following
+structure:
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">name of the program: bfk;  coupling constant g; temperature T (in K); type of
+calculation: mode =1...6; type of output: mst=1 overwrite, mst=2 append new
+results;  name of file with RE ion data; name of parameter file.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
 <P>
 <BR>
-<BR>
-<BR>
-<EM>Exercises:</EM>
-
-<UL>
-<LI>Start the fit example given for the fitting of the magnetic 
-excitations of CeCu<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN> in <I CLASS="slanted">mcphas/examples/cecu2a/fit</I>.
-First copy the file <I CLASS="slanted">mcphas.jjj.sav</I> to <I CLASS="slanted">mcphas.jjj</I>
-Then start the fit by typing <I CLASS="slanted">simannfit 10 mcphas.jjj</I>.
-</LI>
-<LI>Stop the fit by editing <I CLASS="slanted">calcsta</I> as described above.
-</LI>
-<LI>Copy <I CLASS="slanted">mcphas.jjj.fit</I> to <I CLASS="slanted">mcphas.jjj</I>  and type
-<I CLASS="slanted">calcsta</I>. What is the standard-deviation ? 
-</LI>
-<LI>In order to fit  crystal field parameters to transition
-energies of neutron intensities write a module
-<I CLASS="slanted">calcsta</I> for CeCu<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN> which uses only the program
-cfield to calculate the transition matrix elements
-and compare them to experimental data.
-The section&nbsp;<A HREF="node134.html#addprog">19</A> contains some further programs which
-might help. 
-</LI>
-</UL>
-
+<SPAN CLASS="SMALL"></SPAN>
 <P>
+<SPAN CLASS="SMALL">The last two entries can be skipped in later runs, if they are not changed.
+</SPAN>
 <P>
-
+<SPAN CLASS="SMALL">The mode number mode = 1 ...6
+refers to the subject of calculation. The output- number 
+mst=1,2 refers to the type of output-storage.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<P>
+<BR>
+<SPAN CLASS="SMALL">
+The file with RE data should have the  form produced by sol1on (see the attached example). 
+The
+lines starting with numbers or blanks contain information, the lines
+starting with # are commentaries, the lines starting with  #! also carry
+information.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<P>
+<BR>
+<SPAN CLASS="SMALL">
+The parameterfile contains additional parameters needed to run the program:
+energy range and number of energy values. Energies of incident or scattered
+particles, direction of incident  or scattered particles. 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">mode=4: E energy of incident particles, k11,k12,k13 direction if incident
+particles (vector with arbitrary length), k21,k22,k23 direction of scattered
+particles. 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">mode=5: E energy of incident particles, k11,k12,k13 direction if incident
+particles (vector with arbitrary length), k21,k22,k23 direction of
+scattering vector <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.92ex; vertical-align: -0.57ex; " SRC="img1133.svg"
+ ALT="$\vec Q$"></SPAN>.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">mode =6: E energy of scattered  particles, k11,k12,k13 direction if incident
+particles (vector with arbitrary length), k21,k22,k23 direction of
+scattered particles. 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<P>
+<BR>
+<SPAN CLASS="SMALL">
+The parameterfile also contains the namme of a file with  a list of
+scattering vectors  <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.92ex; vertical-align: -0.57ex; " SRC="img1133.svg"
+ ALT="$\vec Q$"></SPAN> and energy loss (<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img482.svg"
+ ALT="$\omega$"></SPAN>) needed for mode
+2,3
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Finally it contains the name of a file with the formfactor of the ion.  
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<P><P>
+<BR>
+<SPAN CLASS="SMALL"></SPAN>
+<P>
+<SPAN CLASS="SMALL">J. Keller, May 2013
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
 <A
  HREF="node134.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node125.html">
+ HREF="manual.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node132.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1032"
-  HREF="node7.html">
+<A ID="tex2html1076"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1034"
-  HREF="node164.html">
+<A ID="tex2html1078"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node134.html">Programs for Specific Tasks</A>
+ HREF="node134.html">Programs for Graphical display</A>
 <B> Up:</B> <A
- HREF="node125.html">Searchspace and Simannfit -</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node132.html">Fitting is an art:</A>
- &nbsp; <B>  <A ID="tex2html1033"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1035"
-  HREF="node164.html">Index</A></B> </DIV>
+ HREF="node132.html">Formalism for going beyond</A>
+ &nbsp; <B>  <A ID="tex2html1077"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1079"
+  HREF="node180.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

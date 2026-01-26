@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Programs for Graphical display of calculated data</TITLE>
+<TITLE>External module function dpel1 - used by mcdisp</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node125.html">
+<LINK REL="next" HREF="node119.html">
 <LINK REL="previous" HREF="node117.html">
 <LINK REL="next" HREF="node119.html">
 </HEAD>
@@ -23,75 +23,60 @@
  HREF="node119.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="manual.html">
+ HREF="node102.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node117.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html958"
-  HREF="node7.html">
+<A ID="tex2html1010"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html960"
-  HREF="node164.html">
+<A ID="tex2html1012"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node119.html">Programs display, displaybubbles, displaycontour,</A>
+ HREF="node119.html">External module function chargedensity_coeff</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="node102.html">Module Functions for Observables</A>
 <B> Previous:</B> <A
- HREF="node117.html">bfk - Inelastic neutron-scattering</A>
- &nbsp; <B>  <A ID="tex2html959"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html961"
-  HREF="node164.html">Index</A></B> 
+ HREF="node117.html">External module function pelcalc</A>
+ &nbsp; <B>  <A ID="tex2html1011"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1013"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A ID="SECTION000200000000000000000"></A><A ID="4202"></A>
-<A ID="graphics"></A>
+<H3><A ID="SECTION0001621600000000000000"></A><A ID="4329"></A>
 <BR>
-Programs for Graphical display of calculated data
-</H1>
-
+External module function <I CLASS="slanted">dpel1</I> - used by <I CLASS="slanted">mcdisp</I>
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-If java is installed on the system, running McPhase will
- display<A ID="4204"></A> the calculated magnetisation
-curve immediately during the simulation updating 
-it in regular intervals<A ID="tex2html52"
-  HREF="footnode.html#foot4205"><SUP><SPAN CLASS="arabic">23</SPAN></SUP></A>
-(this can be done for any other
-curve  by using the
-program: <I CLASS="slanted">display<A ID="4206"></A> x-colnr y-colnr filename</I>). 
-Also the text in output files can be monitored by the program:
-<I CLASS="slanted">displaytext<A ID="4207"></A> filename</I>.
-During the simulation
-the results are stored in the directory <I CLASS="slanted">./results</I>, the output files can be viewed 
-using the programs described in this section. 
-
+<SPAN CLASS="SMALL">In order to calculate neutron intensities for RAMAN scattering
+the external single ion module has to provide the transition matrix elements of
+ the electric dipole moment  <!-- MATH
+ $p_{{\rm el} \alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img1001.svg"
+ ALT="$p_{{\rm el} \alpha}$"></SPAN> in units of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img878.svg"
+ ALT="$\vert e\vert$"></SPAN>pm. The 
+</SPAN>
 <P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A ID="tex2html962"
-  HREF="node119.html">Programs <I CLASS="slanted">display</I>, <I CLASS="slanted">displaybubbles</I>, <I CLASS="slanted">displaycontour</I>, <I CLASS="slanted">displaytext</I> and <I CLASS="slanted">show</I> - graphical display of any xy data such as magnetisation etc.</A>
-<LI><A ID="tex2html963"
-  HREF="node120.html">Programs <I CLASS="slanted">display_density</I> 
-- display of the charge- spin- moment- current- density of a single ion</A>
-<LI><A ID="tex2html964"
-  HREF="node121.html">Programs <I CLASS="slanted">display_densities</I>  - display of the superstructure
-and excitations</A>
-<LI><A ID="tex2html965"
-  HREF="node122.html">Program <I CLASS="slanted">hkl</I>, <I CLASS="slanted">hkl2d</I> and <I CLASS="slanted">mcdiff</I> - graphical display of magnetic diffraction intensity</A>
-<LI><A ID="tex2html966"
-  HREF="node123.html">Program <I CLASS="slanted">phased</I> - graphical display of magnetic phase diagrams</A>
-<LI><A ID="tex2html967"
-  HREF="node124.html">Program <I CLASS="slanted">felog</I> - display logged free energy for different moment configurations at a temperature/field (linux with pgplot grphic library only)</A>
-</UL>
-<!--End of Table of Child-Links-->
+<SPAN CLASS="SMALL">The format to be used is:
+<SPAN CLASS="FOOTNOTESIZE">
+</SPAN></SPAN><PRE>
+extern "C" int dpel1(int &amp; tn,double &amp; T,Vector &amp; Hxc,Vector &amp; Hext,double * g_J,Vector &amp; MODPAR,
+char ** sipffilename,ComplexVector &amp; p1,float &amp; maxE, ComplexMatrix &amp; est)
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+The requirements are equivalent to the <I CLASS="slanted">dP1</I> function, therefore all details are not repeated here.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
 <BR><HR>
 
 </BODY>

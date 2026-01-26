@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>How to calculate only specific reflections, azimuth dependence and fitting of neutron intensities</TITLE>
+<TITLE>mcphas.j - lattice and exchange parameters</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,139 +23,293 @@
  HREF="node40.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node37.html">
+ HREF="node35.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node38.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html545"
-  HREF="node7.html">
+<A ID="tex2html593"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html547"
-  HREF="node164.html">
+<A ID="tex2html595"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node40.html">Formalism I - Resonant</A>
+ HREF="node40.html">Example mcphas.j file for</A>
 <B> Up:</B> <A
- HREF="node37.html">mcdiff - calculate and</A>
+ HREF="node35.html">Input Files</A>
 <B> Previous:</B> <A
- HREF="node38.html">How to generate and</A>
- &nbsp; <B>  <A ID="tex2html546"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html548"
-  HREF="node164.html">Index</A></B> 
+ HREF="node38.html">Example mcphas.ini file for</A>
+ &nbsp; <B>  <A ID="tex2html594"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html596"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000112000000000000000">
-How to calculate only specific reflections, azimuth dependence and fitting of neutron intensities</A>
-</H2>
+<H3><A ID="SECTION00091400000000000000"></A><A ID="1336"></A><A ID="mcphasj"></A>
+<BR>
+<I CLASS="slanted">mcphas.j</I> - lattice and exchange parameters
+</H3><SPAN CLASS="SMALL">
+This file provides the information about 
+the crystallographic
+ structure and the magnetic exchange interactions.
+For every atom in the crystallographic basis there
+has to be given the coordinates, the number of neighbours to be considered, the 
+Landé factor <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img281.svg"
+ ALT="$g_J$"></SPAN>, the single ion property filename and  a set of exchange parameters.
+If the exchange parameters (and neighbour positions) are not known for your system, you 
+can use the program module <I CLASS="slanted">makenn<A ID="1338"></A></I> (see section <A HREF="node150.html#addprog">19</A>) to generate 
+a list of nearest neighbours and
+exchange parameters, currently implemented in <I CLASS="slanted">makenn<A ID="1340"></A></I> are dipolar interactions,
+exchange interactions via the Bethe-Slater curve or the RKKY model. Note that in order
+to use <I CLASS="slanted">makenn<A ID="1341"></A></I> you have to set up a working <I CLASS="slanted">mcphas.j<A ID="1342"></A></I> file, which may or
+may not contain neighbours and interactions.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Use program <I CLASS="slanted">addj<A ID="1343"></A></I> to add exchange parameter set stored in different 
+such <I CLASS="slanted">.j</I> files (see section&nbsp;<A HREF="node150.html#addprog">19</A>).
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN><DL>
+<DT><STRONG>Line 1,2:</STRONG></DT>
+<DD>Comment Lines
+</DD>
+<DT><STRONG>Line 3:</STRONG></DT>
+<DD>lattice constants a,b,c and crystal angles alpha, beta, gamma 
+</DD>
+<DT><STRONG>Line 4-6:</STRONG></DT>
+<DD>primitive lattice vectors
+</DD>
+<DT><STRONG>Line 7:</STRONG></DT>
+<DD>Number of atoms in the primitive crystallographic unit cell (<I CLASS="slanted">nofatoms</I>)
+</DD>
+<DT><STRONG>Line 8:</STRONG></DT>
+<DD>a comment line with stars
+</DD>
+<DT><STRONG>Line 9:</STRONG></DT>
+<DD>coordinates  (<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img282.svg"
+ ALT="$d_a$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img283.svg"
+ ALT="$d_b$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img284.svg"
+ ALT="$d_c$"></SPAN>) of 1<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.07ex; vertical-align: -0.12ex; " SRC="img285.svg"
+ ALT="$^{st}$"></SPAN> magnetic ion in the crystallographic unit cell  with
+respect to the lattice vectors <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.89ex; vertical-align: -0.12ex; " SRC="img286.svg"
+ ALT="$\vec a$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.50ex; vertical-align: -0.12ex; " SRC="img287.svg"
+ ALT="$\vec b$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.89ex; vertical-align: -0.12ex; " SRC="img288.svg"
+ ALT="$\vec c$"></SPAN>. The number of neighbours of this 
+ion, for which interaction constants are given in the interaction table (nofneighbours). 
+If <I CLASS="slanted">diagonalexchange</I>
+is set to 0 the 9 components of the exchange tensor are given in column 4-12. 
+If <I CLASS="slanted">diagonalexchange</I>
+ is 1, only 3 components are given (column 4-6).
+If <I CLASS="slanted">diagonalexchange</I>
+ is 2, specific components of the exchange tensor can be given in columns 4 onwards. The indices of these components
+ must be given in the following line (Line 9a below).
+The file name of the corresponding single ion
+parameter file (sipffilename).
+</DD>
+<DT><STRONG>Line 9a:</STRONG></DT>
+<DD>If <I CLASS="slanted">diagonalexchange=2</I>, then this line gives the indices of the exchange tensor corresponding to 
+ the columns 4 onwards. It must have a variable called <I CLASS="slanted">indexexchange</I> followed by a list of names of components of the interaction
+ tensor separated by space. E.g.
 
 <P>
-For the fit of experimental intensities it is often desirable to save computation
-time by calculating the intensity only for a specified set of reflections and 
-compare it to experimental data. Such list should have the following format
+<code>  #! indexexchange= JaJb JbJc  </code> 
 
 <P>
-<PRE>
-#{h     k     l }
-0.500 0.500 0.500 
-0.500 0.500 1.500 
-0.500 0.500 2.500
-</PRE>
-
-<P>
-Lets assume such a list is stored  as file <I CLASS="slanted">hkllist.dat</I>.
-Then <I CLASS="slanted">mcdiff<A ID="1054"></A></I> can be started as: <I CLASS="slanted">mcdiff<A ID="1055"></A> hkllist.dat</I>.
-The output file will then contain the azimuth dependence of the magnetic intensity.
-
-<P>
-Alternatively, experimental intensities can be entered in the list, for example as
-
-<P>
-<PRE>
-#{h  k   l       Iexp err}
-0.500 0.500 0.500 115 4
-0.500 0.500 1.500 84  3
-0.500 0.500 2.500 50  1
-0.500 0.500 3.500 29  1
-0.500 0.500 4.500 22  2
-0.500 0.500 5.500 15  1
-0.500 0.500 6.500 12  1
-#
-1.500 1.500 0.500 -1
-1.500 -1.50 0.500 -1
--1.50 1.500 0.500 77  8
-1.500 1.500 1.500 65  7
-1.500 1.500 2.500 59  5
-1.500 1.500 3.500 51  5
-</PRE>
-
-<P>
-In this case the calculated neutron intensities are compared to
-the experimental intensities and the Rp value <!-- MATH
- $R_{\rm p}=100
-\frac{\sum_{hkl} |I_{calc}(hkl)-I_{exp}(hkl)|}{\sum_{hkl}|I_{\rm 
-exp}(hkl)|}$
+means column 4 gives the the interaction constant between the
+ first angular momentum component of the current ion with the second angular momentum component of its neighbour, whilst 
+ column 5 has the interaction constant between the second angular momentum component of this ion with the third component of its
+ neighbour. Alternatively, pairs of numbers may be given, as in <code>  #! indexexchange= 1,2 2,3  </code>
+ Additionally another parameter <I CLASS="slanted">symmetricexchange</I> can be set to 1, where the value in each column is also used 
+ for the transposed tensor component. Thus <code>  #! symmetricexchange=1 indexexchange= JaJb  </code> is the same as 
+<BR>
+ <code>  #! indexexchange= JaJb JbJa  </code> where the 4th and 5th column are the same.
+</DD>
+<DT><STRONG>Line 10:</STRONG></DT>
+<DD>Comment line
+</DD>
+<DT><STRONG>Line 11-(10+nofneighbours):</STRONG></DT>
+<DD>Interaction table for ion number 1.   
+Note: the neighbour coordinates (column 1-3) are given with respect to the lattice vectors
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.89ex; vertical-align: -0.12ex; " SRC="img286.svg"
+ ALT="$\vec a$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.50ex; vertical-align: -0.12ex; " SRC="img287.svg"
+ ALT="$\vec b$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.89ex; vertical-align: -0.12ex; " SRC="img288.svg"
+ ALT="$\vec c$"></SPAN>. The program then calculates from these values the coordinates
+with respect to the primitive lattice <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.23ex; vertical-align: -0.46ex; " SRC="img289.svg"
+ ALT="$\vec r_1$"></SPAN>,&nbsp;<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.23ex; vertical-align: -0.46ex; " SRC="img290.svg"
+ ALT="$\vec r_2$"></SPAN>,&nbsp;<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.23ex; vertical-align: -0.46ex; " SRC="img291.svg"
+ ALT="$\vec r_3$"></SPAN>.
+(<!-- MATH
+ $d_a \vec a + d_b \vec b + d_c \vec c = d_1 \vec r_1 + d_2 \vec r_2 + d_3 \vec r_3$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 4.00ex; vertical-align: -1.44ex; " SRC="img257.svg"
- ALT="$R_{\rm p}=100
-\frac{\sum_{hkl} \vert I_{calc}(hkl)-I_{exp}(hkl)\vert}{\sum_{hkl}\vert I_{\rm
-exp}(hkl)\vert}$"></SPAN>. and <!-- MATH
- $\chi^2=\sum_{hkl}\frac{ (I_{calc}(hkl)-I_{exp}(hkl))^2}{n(\Delta I_{\rm
-experror}(hkl))^2}$
+ STYLE="height: 2.84ex; vertical-align: -0.46ex; " SRC="img292.svg"
+ ALT="$d_a \vec a + d_b \vec b + d_c \vec c = d_1 \vec r_1 + d_2 \vec r_2 + d_3 \vec r_3$"></SPAN>).
+Column 4,5,6 ...contain the components of the interaction tensor <!-- MATH
+ $\stackrel{=}{\mathcal J}$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 4.10ex; vertical-align: -1.38ex; " SRC="img258.svg"
- ALT="$\chi^2=\sum_{hkl}\frac{ (I_{calc}(hkl)-I_{exp}(hkl))^2}{n(\Delta I_{\rm
-experror}(hkl))^2}$"></SPAN>
-is calculated (here <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
- ALT="$n$"></SPAN> denotes the number of experimental reflections). 
-
+ STYLE="height: 3.35ex; vertical-align: -0.44ex; " SRC="img293.svg"
+ ALT="$\stackrel{=}{\mathcal J}$"></SPAN>. 
+Note that in case of non-orthogonal axes the 
+components of the moments and the interaction tensor <!-- MATH
+ $Ja, Jb, Jc, Jaa, Jbb, Jcc, Jab ...$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img294.svg"
+ ALT="$Ja, Jb, Jc, Jaa, Jbb, Jcc, Jab ...$"></SPAN> 
+refer to the orthogonal coordinate system
+defined with respect to the nonorthogonal lattice <!-- MATH
+ $\vec a,\vec b,\vec c$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.95ex; vertical-align: -0.57ex; " SRC="img295.svg"
+ ALT="$\vec a,\vec b,\vec c$"></SPAN> as
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img296.svg"
+ ALT="$Jb\vert\vert\vec b$"></SPAN>, <!-- MATH
+ $Jc||(\vec a \times \vec b)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img297.svg"
+ ALT="$Jc\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img298.svg"
+ ALT="$Ja$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img299.svg"
+ ALT="$Jb$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img300.svg"
+ ALT="$Jc$"></SPAN>.
+</DD>
+<DT><STRONG>Line (11+nofneighbours) - end:</STRONG></DT>
+<DD>for each ion in the unit cell line 8 - (10+nofneighbours)
+are repeated.
+</DD>
+</DL><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-Note, a negative experimental intensity in this
-list means, that the intensity of that reflection has to
-be added to the intensity of the next reflection in the list 
-and the sum should be compared to an experimental intensity.
-In this way domains or overlapping reflections can be treated. 
-The program will always calculate the intensity for each reflection
-seperately, if you wish to calculate the sum of intensities, which
-are compared to the experimental intensity, use program <I CLASS="slanted">sum_mcdiff_out</I><A ID="1069"></A>.
-
+<SPAN CLASS="SMALL">
+<BR>
+<BR>
+</SPAN>
 <P>
+<SPAN CLASS="SMALL"><SPAN CLASS="TINY"><B>Information for experienced users (outdated):</B>
+</SPAN></SPAN><DL>
+<DT><STRONG><I CLASS="slanted">mcphas.jjj:</I></STRONG></DT>
+<DD>format of exchange parameter file, which only needs a reduced set of exchange
+parameters in the input file. Using the program <I CLASS="slanted">jjj2j</I> the file can be transformed
+to <I CLASS="slanted">mcphas.j<A ID="1362"></A></I> by adding lines for all the equivalent neighbours. The format definition
+of <I CLASS="slanted">mcphas.jjj</I> is the same as <I CLASS="slanted">mcphas.j<A ID="1364"></A></I>, however each line denotes several
+equivalent neighbour atoms (instead of only one in <I CLASS="slanted">mcphas.j<A ID="1365"></A></I>) according to the
+ following rules:
 
+<UL>
+<LI>If a nonzero coordinate <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img282.svg"
+ ALT="$d_a$"></SPAN> (or <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img283.svg"
+ ALT="$d_b$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img284.svg"
+ ALT="$d_c$"></SPAN>) in the interaction table
+ corresponds to it's value at the nearest
+ lattice point of the primitive lattice,
+  additional interactions of the same size
+with  neighbours with coordinate <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img301.svg"
+ ALT="$-d_a$"></SPAN> (or <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img302.svg"
+ ALT="$-d_b$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img303.svg"
+ ALT="$-d_c$"></SPAN>, respectively)
+are taken into account. This
+holds for each of the three coordinates <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img282.svg"
+ ALT="$d_a$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img283.svg"
+ ALT="$d_b$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img284.svg"
+ ALT="$d_c$"></SPAN>
+ resulting in a maximum
+number of 8 equivalent neighbours per line in the interaction table.
+</LI>
+<LI>If the value of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img282.svg"
+ ALT="$d_a$"></SPAN> (or <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img283.svg"
+ ALT="$d_b$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img284.svg"
+ ALT="$d_c$"></SPAN>) is zero or differs
+from it's value at the nearest lattice point of the primitive lattice, it is 
+changed to the value at the nearest lattice point and <B>no</B> interaction 
+with  neighbours with coordinates <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img301.svg"
+ ALT="$-d_a$"></SPAN> (or <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img302.svg"
+ ALT="$-d_b$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img303.svg"
+ ALT="$-d_c$"></SPAN>) is
+ taken into account. If such
+ interaction is needed it may be given in a different line and may
+have different magnitude. In this way also crystallographic lattices
+with no mirror symmetry may be described.
+</LI>
+</UL>
+</DD>
+<DT><STRONG><I CLASS="slanted">mcphas.coq:</I></STRONG></DT>
+<DD>exchange parameters etc [ in old format]...see examples for details, use <I CLASS="slanted">coq2jjj</I> to 
+transform <I CLASS="slanted">mcphas.coq</I> to <I CLASS="slanted">mcphas.jjj</I> format
+</DD>
+</DL><SPAN CLASS="SMALL"><SPAN CLASS="TINY">
+</SPAN></SPAN>
+<P>
+<SPAN CLASS="SMALL"><SPAN CLASS="TINY"></SPAN>
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
 <A
  HREF="node40.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node37.html">
+ HREF="node35.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node38.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html545"
-  HREF="node7.html">
+<A ID="tex2html593"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html547"
-  HREF="node164.html">
+<A ID="tex2html595"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node40.html">Formalism I - Resonant</A>
+ HREF="node40.html">Example mcphas.j file for</A>
 <B> Up:</B> <A
- HREF="node37.html">mcdiff - calculate and</A>
+ HREF="node35.html">Input Files</A>
 <B> Previous:</B> <A
- HREF="node38.html">How to generate and</A>
- &nbsp; <B>  <A ID="tex2html546"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html548"
-  HREF="node164.html">Index</A></B> </DIV>
+ HREF="node38.html">Example mcphas.ini file for</A>
+ &nbsp; <B>  <A ID="tex2html594"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html596"
+  HREF="node180.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

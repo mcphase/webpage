@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Programs of General Interest</TITLE>
+<TITLE>Programs display_density - display of the charge- spin- moment- current- density of a single ion</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,160 +23,159 @@
  HREF="node137.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="manual.html">
+ HREF="node134.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node135.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1044"
-  HREF="node7.html">
+<A ID="tex2html1094"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1046"
-  HREF="node164.html">
+<A ID="tex2html1096"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node137.html">Module kramer - a</A>
+ HREF="node137.html">Programs display_densities - display</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="node134.html">Programs for Graphical display</A>
 <B> Previous:</B> <A
- HREF="node135.html">Programs for Manipulation of</A>
- &nbsp; <B>  <A ID="tex2html1045"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1047"
-  HREF="node164.html">Index</A></B> 
+ HREF="node135.html">Programs display, displaybubbles, displaycontour,</A>
+ &nbsp; <B>  <A ID="tex2html1095"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1097"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A ID="SECTION000240000000000000000">
-Programs of General Interest</A>
-</H1>
-
+<H2><A ID="SECTION000192000000000000000"></A><A ID="4908"></A><A ID="displaydensity"></A>
+<BR>
+Programs <I CLASS="slanted">display_density</I> 
+- display of the charge- spin- moment- current- density of a single ion
+</H2><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-<DL>
-<DT><STRONG><I CLASS="slanted">beep<A ID="5183"></A>:</STRONG></DT>
-<DD> just make a beep<A ID="5187"></A> to signal attention 
-</DD>
-<DT><STRONG><I CLASS="slanted">export<A ID="5188"></A> A=23.5-7/2.6e-23*%B%</STRONG></DT>
-<DD> program for windows to allow for
-simple math operations. Linux users can use some linux syntax such as 
-</I></I><PRE>export A= $(echo 23.5-7/2.6e-23*$B | bc -l )
-</PRE><I CLASS="slanted"><I CLASS="slanted">.
-</DD>
-<DT><STRONG><I CLASS="slanted">gauss<A ID="5194"></A> fwhm stp min max:</STRONG></DT>
-<DD> calculate a gaussian, output goes to console (stdout), the formula for a gaussian is:
-<!-- MATH
- $\sigma={\rm fwhm}/\sqrt{8*log(2)}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.10ex; vertical-align: -0.82ex; " SRC="img1108.svg"
- ALT="$\sigma={\rm fwhm}/\sqrt{8*log(2)}$"></SPAN>,
-<!-- MATH
- ${\rm gauss}(x)=\frac{exp(-x^2/2 \sigma^2)}{\sqrt{2*\pi}\sigma}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 4.06ex; vertical-align: -1.38ex; " SRC="img1122.svg"
- ALT="${\rm gauss}(x)=\frac{exp(-x^2/2 \sigma^2)}{\sqrt{2*\pi}\sigma}$"></SPAN>
-</DD>
-<DT><STRONG><I CLASS="slanted">gauss2d<A ID="5203"></A> fwhm1 fwhm2 theta  stpx minx maxx stpy miny maxy:</STRONG></DT>
-<DD> calculate a 2 dimensional gaussian, output goes to console (stdout), the formula for a two dimensional gaussian is:
-<!-- MATH
- $\sigma={\rm fwhm}/\sqrt{8*log(2)}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.10ex; vertical-align: -0.82ex; " SRC="img1108.svg"
- ALT="$\sigma={\rm fwhm}/\sqrt{8*log(2)}$"></SPAN>,
-<!-- MATH
- ${\rm gauss}(x,y)=\frac{exp(-u_1^2/2 \sigma_1^2)}{\sqrt{2*\pi}\sigma_1}\frac{exp(-u_2^2/2 \sigma_2^2)}{\sqrt{2*\pi}\sigma_2}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 4.15ex; vertical-align: -1.41ex; " SRC="img1123.svg"
- ALT="${\rm gauss}(x,y)=\frac{exp(-u_1^2/2 \sigma_1^2)}{\sqrt{2*\pi}\sigma_1}\frac{exp(-u_2^2/2 \sigma_2^2)}{\sqrt{2*\pi}\sigma_2}$"></SPAN> with <!-- MATH
- $u_1=x cos(\theta)-ysin(\theta)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1124.svg"
- ALT="$u_1=x cos(\theta)-ysin(\theta)$"></SPAN> and <!-- MATH
- $u_2=y cos(\theta)+xsin(\theta)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1125.svg"
- ALT="$u_2=y cos(\theta)+xsin(\theta)$"></SPAN>,
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1126.svg"
- ALT="$\theta$"></SPAN> is the rotation angle in degree.
-</DD>
-<DT><STRONG><I CLASS="slanted">lorentz<A ID="5214"></A> fwhm stp min max:</STRONG></DT>
-<DD> calculate a lorentzian, output goes to console (stdout)the formula for a Lorentz curve is: 
-<!-- MATH
- ${\rm lorentz}(x)=\frac{1.0}{\pi{\rm fwhm}(1.0+x^2/fwhm^2)}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.39ex; vertical-align: -1.32ex; " SRC="img1127.svg"
- ALT="${\rm lorentz}(x)=\frac{1.0}{\pi{\rm fwhm}(1.0+x^2/fwhm^2)}$"></SPAN>
-</DD>
-<DT><STRONG><I CLASS="slanted">plotbook *.ps:</STRONG></DT>
-<DD> program plotbook to arrange many (single side) ps-images to one booklet (needs: latex, pstops,ghostscript, perl)
-</DD>
-<DT><STRONG><I CLASS="slanted">script2html<A ID="5224"></A> calc1.bat calc2.bat ...</STRONG></DT>
-<DD> This program creates a html file from scripts containing just the text
- in the scripts.
-</I></I></I></I></I></I></I><PRE>
- input: calc1.bat, calc2.bat ...    scripts (bat files)
-                                   (must be located in the current directory)
- output: stdout      ...........   html file created from the scripts
-                                   (use "&gt;" to pipe into file)
- example:
-
- script2html calc.bat notes.txt &gt; report.html
-
- [creates the html file report.html from files calc.bat and notes.txt]
-</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
-</DD>
-<DT><STRONG><I CLASS="slanted">setvariable<A ID="5230"></A> varname value *.*:</STRONG></DT>
+<SPAN CLASS="SMALL">The program <I CLASS="slanted">display_density</I><A ID="4911"></A> is used to display a surface of constant
+charge density for an open shell ion, which is described by a single ion property file.
+In addition, also, the spin-, orbital moment, total magnetic moment and orbital current
+densities can be displayed. 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN><DL>
+<DT><STRONG>display_density<A ID="4913"></A>  c<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>s<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>o<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>m<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>j -p i j k<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-div-S<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-L<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-Mmcphas.sipf
+ T Ha Hb Hc</STRONG></DT>
 <DD>
-sets a variable in a file, e.g. <I CLASS="slanted">setvariable T 20 Co.sipf</I> replaces
-T=15 by T=20 in file <I CLASS="slanted">Co.sipf</I>.
 </DD>
-<DT><STRONG><I CLASS="slanted">substitute<A ID="5236"></A> [option] oldtext newtext *.*:</STRONG></DT>
-<DD> replaces every instance of oldtext with newtext in file(s) *.*. Option <I CLASS="slanted">-f</I> substitutes only the first occurence, 
-<I CLASS="slanted">-n 13</I> substitutes only the 13th occurence of the oldtext.
-</DD>
-</DL></I></I></I></I></I></I></I></I></I>
-
+</DL><SPAN CLASS="SMALL"> 
+</SPAN><PRE>
+                 c ... calculate chargedensity
+                 s ... calculate spindensity
+                 o ... calculate angular orbital momentum density
+                 m ... calculate magnetic moment density
+                 j ... calculate currentdensity
+        optional p i j k ... calculate projection of spin/orbital/current/magnetic 
+                             moment density along direction i j k, e.g. 0 0 1
+        optional -div    ... calculate divergence of spin/orbital/current/magnetic 
+                             moment density
+        optional -S  ... show arrow indicating spin
+        optional -L  ... show arrow indicating orbital angular momentum
+        optional -M  ... show arrow indicating magnetic moment
+                 - crystal field  parameters Blm should be read from a
+                   standard mcphas single ion property file mcphas.sipf
+                 - given is temperature T[K] and magnetic effective field H[T]
+                options: if T&lt;0 then no thermal boltzmann distribution is taken
+                the statistical probability of each CF state has to be entered
+                by hand.
+     example:
+               display_density c Pr3p.sipf 2 0 0 1
+             ...calculates the charge density using crystal field from Pr3p.sipf
+                at T=2K and H=(0,0,1) Tesla
+</PRE><SPAN CLASS="SMALL">
+</SPAN>
 <P>
+<SPAN CLASS="SMALL">Note: if T<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.57ex; vertical-align: -0.21ex; " SRC="img1147.svg"
+ ALT="$&lt;$"></SPAN>0, then no thermal Boltzmann distribution is taken - 
+		the statistical probability of each CF state has to be 
+		entered by hand.
+</SPAN>
 <P>
+<SPAN CLASS="SMALL">For the calculation of the charge density the  formula are used as given in
+appendix&nbsp;<A HREF="node166.html#chargedensityoperator">L</A>. 
+Spin-, Moment- and Currentdensities
+currently only available in combination with module <I CLASS="slanted">ic1ion<A ID="4918"></A></I>.
+Formalism based on [<A
+ HREF="node179.html#balcar75-1581">62</A>,<A
+ HREF="node179.html#balcar89-1">56</A>,<A
+ HREF="node179.html#rotter11-12005">63</A>].
+</SPAN>
 <P>
-
+<SPAN CLASS="SMALL">Technical information: the program <I CLASS="slanted">display_density</I> is actually a script which
+calls  <I CLASS="slanted">densplt<A ID="4921"></A></I> 
+ (a program with the same arguments as <I CLASS="slanted">display_density</I>
+which calculates the iso surfaces and stores
+it in format for the java based graphic program <I CLASS="slanted">javaview</I> and
+also as a grid. The way in which this is done is controlled by 
+the parameter file <I CLASS="slanted">results/graphic_parameters.set</I>
+.... in  order to display the results graphically the following java
+programs are called:
+</SPAN><PRE>
+ javaview results/densplt.jvx
+ displaycontour 2 3 4 results/densplti.grid
+ displaycontour 1 3 4 results/denspltj.grid
+ displaycontour 1 2 4 results/denspltk.grid
+</PRE><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Note on javaview: You can create also several plots (for instance for different temperatures) and store these
+in a sequence such as densplt.1.jvx, densplt.2.jvx, ... animate
+the view of 4 jvx files by typing: java javaview model=densplt.*.jvx Animation.LastKey=4 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
 <A
  HREF="node137.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="manual.html">
+ HREF="node134.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node135.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1044"
-  HREF="node7.html">
+<A ID="tex2html1094"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1046"
-  HREF="node164.html">
+<A ID="tex2html1096"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node137.html">Module kramer - a</A>
+ HREF="node137.html">Programs display_densities - display</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="node134.html">Programs for Graphical display</A>
 <B> Previous:</B> <A
- HREF="node135.html">Programs for Manipulation of</A>
- &nbsp; <B>  <A ID="tex2html1045"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1047"
-  HREF="node164.html">Index</A></B> </DIV>
+ HREF="node135.html">Programs display, displaybubbles, displaycontour,</A>
+ &nbsp; <B>  <A ID="tex2html1095"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1097"
+  HREF="node180.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

@@ -1,17 +1,16 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>External module function pcalc - used by mcdiff and mcphas </TITLE>
+<TITLE>External module function estates - used by mcdisp, mcdiff and singleion</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node102.html">
 <LINK REL="previous" HREF="node100.html">
 <LINK REL="next" HREF="node102.html">
 </HEAD>
@@ -23,61 +22,141 @@
  HREF="node102.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node88.html">
+ HREF="node96.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node100.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html884"
-  HREF="node7.html">
+<A ID="tex2html919"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html886"
-  HREF="node164.html">
+<A ID="tex2html921"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node102.html">External module function dP1</A>
+ HREF="node102.html">Module Functions for Observables</A>
 <B> Up:</B> <A
- HREF="node88.html">Module Functions for Observables</A>
+ HREF="node96.html">Basic Module Functions</A>
 <B> Previous:</B> <A
- HREF="node100.html">External module functions drixs1</A>
- &nbsp; <B>  <A ID="tex2html885"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html887"
-  HREF="node164.html">Index</A></B> 
+ HREF="node100.html">External module function du1calc</A>
+ &nbsp; <B>  <A ID="tex2html920"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html922"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION0001721300000000000000"></A><A ID="3619"></A><A ID="3621"></A>
+<H3><A ID="SECTION000161500000000000000"></A><A ID="4040"></A><A ID="4041"></A><A ID="4042"></A>
 <BR>
-External module function <I CLASS="slanted">pcalc</I> - used by <I CLASS="slanted">mcdiff</I>
-and <I CLASS="slanted">mcphas</I>  
-</H3>
-
+External module function <I CLASS="slanted">estates</I> - used by <I CLASS="slanted">mcdisp</I>,
+ <I CLASS="slanted">mcdiff</I> and <I CLASS="slanted">singleion</I>
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-In order to calculate the position  <!-- MATH
- $\langle \hat \mathbf P \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img810.svg"
- ALT="$\langle \hat \mathbf P\rangle$"></SPAN>
- the following function has to be present in the module file <I CLASS="slanted">*.so</I>:
-
+<SPAN CLASS="SMALL">This routine is optional, i.e. may be programed but is not absolutely necessary. It provides the designer of a single ion module
+with the possiblity to store information, usually the eigenvalues and eigenstates of a problem. This can be very useful to accelerate computations. 
+For example, the module <I CLASS="slanted">mcdisp</I> provides to the single ion module functions
+ <I CLASS="slanted">du1calc</I> and <I CLASS="slanted">dMQ1</I> and similar
+at every call the matrix <I CLASS="slanted">estates</I> which has been set initially for every atom
+by a call to <I CLASS="slanted">estates</I>.
+</SPAN>
 <P>
-<PRE>
-extern "C" void pcalc(Vector &amp; P,double * T, Vector &amp; Fxc, Vector &amp; Hext,
-                      double * gJ, Vector &amp; MODPAR,
-                      char ** sipffilename, ComplexMatrix &amp; Icalc_parstorage);
-</PRE>
-
+<SPAN CLASS="SMALL">At the start of the programs <I CLASS="slanted">mcdisp</I> <I CLASS="slanted">singleion</I> the function <I CLASS="slanted">estates</I>
+is called (if present in the module) and it should initialize the Complex Matrix by a command such as
+</SPAN>
 <P>
-It returns the position vector <I CLASS="slanted">P</I> of an Einstein oscillator in units of
-Å under the action of a Force <I CLASS="slanted">Fxc</I> in units of meV.
-For the rest it works exactly as <I CLASS="slanted">mcalc</I>, therefore we do not give more details here.
-
+<SPAN CLASS="SMALL"><I CLASS="slanted">(*ests)=ComplexMatrix(0,nofrows,1,nofcols);</I> 
+</SPAN>
 <P>
-<BR><HR>
+<SPAN CLASS="SMALL">and fill this matrix with sensible numerical values for the effective field, temperature given.
+Parameters <I CLASS="slanted">MODPAR</I> and Lande Factor <I CLASS="slanted">gJ</I> may be used for this purpose. 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">The routine should look similar to
+<SPAN CLASS="FOOTNOTESIZE">
+</SPAN></SPAN><PRE>
+#include "vector.h"          // MatPack vector class must be included
+
+#ifdef __linux__
+extern "C" void estates(
+#else
+extern "C" __declspec(dllexport) void estates(
+#endif
+// on output
+                     ComplexMatrix * ests,    // eigenstate matrix      
+                                              // it must also contain population 
+                                              // numbers p_i of the states (imaginary part of row 0)
+                                              // and eigenvalues (real part of row 0)
+// on input
+                      Hxc ,                 //   vector of exchange field [meV] (can be n-dimensional, for a set of n operators)
+                      Hext  ,                     // external magnetic field [T]
+                      double *g_J,        // Input Lande g-factor
+                      double &amp;T,          // Input temperature (K)
+                      Vector &amp;MODPAR,     // Input vector of parameters from 
+					                      //single ion property file
+                      char **sipffilename)// Single ion properties filename                      
+{ // ... some code to compute eigenvectors and eigenvalues
+
+ dj=21;  // dimension matrix according to the  dimension of your eigenvalue problem
+   (*ests) = ComplexMatrix(0,dj,1,dj);
+   Vector En(1,dj),pn(1,dj);Matrix zr(1,dj,1,dj);Matrix zi(1,dj,1,dj);
+   setup_and_solve_Hamiltonian(Hxc,Hext,En,zr,zi,sort); // call some function to solve your Hamiltonian
+   
+   for(i=1;i&lt;=dj;++i)for(j=1;j&lt;=dj;++j)(*ests)(i,j)=complex &lt;double&gt; (zr(i,j),zi(i,j));   // fill matrix with eigenstates
+ 
+    //calculate partition sum and Boltzmann probabilities pn
+    double zz;calculate_Z_pn(En,T,zz,pn);
+
+     // put Energies and Boltzmann population into row 0 of eigenstates...
+     for(j=1;j&lt;=dj;++j){(*eigenstates)(0,j)=complex&lt;double&gt;(En(j),pn(j));}
+
+}
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE">
+Note: if <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.90ex; vertical-align: -0.21ex; " SRC="img949.svg"
+ ALT="$T&lt;0$"></SPAN> all quantities should be evaluated assuming that all Boltzmann probabilities <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img219.svg"
+ ALT="$p_i$"></SPAN>
+ are zero except for the state number <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img950.svg"
+ ALT="$n=(-T)$"></SPAN>, for which the probability <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img951.svg"
+ ALT="$p_n=1$"></SPAN>.
+</SPAN>
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node102.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node96.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node100.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html919"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html921"
+  HREF="node180.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node102.html">Module Functions for Observables</A>
+<B> Up:</B> <A
+ HREF="node96.html">Basic Module Functions</A>
+<B> Previous:</B> <A
+ HREF="node100.html">External module function du1calc</A>
+ &nbsp; <B>  <A ID="tex2html920"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html922"
+  HREF="node180.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

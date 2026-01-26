@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Debye Waller Factor</TITLE>
+<TITLE>Mixing term </TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -28,49 +28,221 @@
 <A
  HREF="node76.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html734"
-  HREF="node7.html">
+<A ID="tex2html782"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html736"
-  HREF="node164.html">
+<A ID="tex2html784"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node78.html">Nuclear Neutron Scattering Length</A>
+ HREF="node78.html">The lattice dynamic terms</A>
 <B> Up:</B> <A
- HREF="node74.html">Single Ion Modules</A>
+ HREF="node74.html">Crystal Field Phonon Interaction</A>
 <B> Previous:</B> <A
- HREF="node76.html">Magnetic Formfactor Coefficients</A>
- &nbsp; <B>  <A ID="tex2html735"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html737"
-  HREF="node164.html">Index</A></B> 
+ HREF="node76.html">External Stress</A>
+ &nbsp; <B>  <A ID="tex2html783"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html785"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000163000000000000000">
-Debye Waller Factor</A>
-</H2>
-
+<H2><A ID="SECTION000143000000000000000">
+Mixing term <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img15.svg"
+ ALT="$H_{mix}$"></SPAN></A>
+</H2><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-For the more accurate calculation of neutron intensities it is
-necessary to give the magnetic form factor (see the table in appendix&nbsp;<A HREF="node148.html#ffacts">J</A>)
-and the Debye Waller Factor in the single ion property input file. This can
-easily be don by adding some additional lines to a single ion property file:
-<SPAN CLASS="FOOTNOTESIZE">
-</SPAN><PRE>
-#-------------------------------------------------------
-# Debye-Waller Factor: sqr(Intensity)~|sf|~EXP(-2 * DWF *s*s)=EXP (-W)
-#                      with s=sin(theta)/lambda=Q/4pi
-# relation to other notations: 2*DWF=Biso=8 pi^2 &lt;u^2&gt;
-# unit of DWF is [A^2]
-#-------------------------------------------------------
-DWF=0.4
-</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
-
+<SPAN CLASS="SMALL">The mixing term <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img15.svg"
+ ALT="$H_{mix}$"></SPAN> is 
+</SPAN>
 <P>
-<BR><HR>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath"><A ID="Hmix"></A>
+<!-- MATH
+ \begin{eqnarray}
+\hat H_{mix}&=&\frac{1}{2} \sum_{ij} \frac{c_L(ij)-c_T(ij)}{|\mathbf R_{ij}|^2}
+\mathbf R_{ij}^T\bar a \mathbf R_{ij}\mathbf R_{ij}^T \hat \mathbf P_{ij}  \nonumber \\
+      && + c_T(ij) \mathbf R_{ij}^T\bar a^T\mathbf P_{ij} \nonumber \\
+&=& \frac{1}{2}\sum_{ij} 2\frac{c_L(ij)-c_T(ij)}{|\mathbf R_{ij}|^2} 
+\mathbf R_{ij}^T\bar a \mathbf R_{ij}\mathbf R_{ij}^T \hat \mathbf P_{i}  \nonumber \\
+      && + 2 c_T(ij) \mathbf R_{ij}^T\bar a^T\hat \mathbf P_{i} \nonumber \\
+&=& \sum_{ij,\alpha\beta} \frac{c_L(ij)-c_T(ij)}{|\mathbf R_{ij}|^2} 
+R_{ij}^{\alpha} a_{\alpha\beta} R_{ij}^{\beta} R_{ij}^{\gamma}\hat   P_{i}^{\gamma}  \nonumber \\
+      && +  c_T(ij)   R_{ij}^{\beta} a_{\alpha\beta} \delta_{\alpha\gamma}\hat  P_{i}^{\gamma}  \\
+&=&-\sum_{\stackrel{i,\alpha=1,..,6}{ \gamma=1,2,3}} G_{mix}^{\alpha\gamma}(i) \epsilon_{\alpha}\hat  P_{i}^{\gamma}/a_0 +
+ \sum_{ij,\alpha\beta}  c_T(ij)   R_{ij}^{\beta} \omega_{\alpha\beta}\hat  P_{i}^{\alpha} \nonumber
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img764.svg"
+ ALT="$\displaystyle \hat H_{mix}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.81ex; vertical-align: -3.40ex; " SRC="img765.svg"
+ ALT="$\displaystyle \frac{1}{2} \sum_{ij} \frac{c_L(ij)-c_T(ij)}{\vert\mathbf R_{ij}\vert^2}
+\mathbf R_{ij}^T\bar a \mathbf R_{ij}\mathbf R_{ij}^T \hat \mathbf P_{ij}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 3.18ex; vertical-align: -1.01ex; " SRC="img766.svg"
+ ALT="$\displaystyle + c_T(ij) \mathbf R_{ij}^T\bar a^T\mathbf P_{ij}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.81ex; vertical-align: -3.40ex; " SRC="img767.svg"
+ ALT="$\displaystyle \frac{1}{2}\sum_{ij} 2\frac{c_L(ij)-c_T(ij)}{\vert\mathbf R_{ij}\vert^2}
+\mathbf R_{ij}^T\bar a \mathbf R_{ij}\mathbf R_{ij}^T \hat \mathbf P_{i}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 3.32ex; vertical-align: -1.01ex; " SRC="img768.svg"
+ ALT="$\displaystyle + 2 c_T(ij) \mathbf R_{ij}^T\bar a^T\hat \mathbf P_{i}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.86ex; vertical-align: -3.46ex; " SRC="img769.svg"
+ ALT="$\displaystyle \sum_{ij,\alpha\beta} \frac{c_L(ij)-c_T(ij)}{\vert\mathbf R_{ij}\...
+...{ij}^{\alpha} a_{\alpha\beta} R_{ij}^{\beta} R_{ij}^{\gamma}\hat P_{i}^{\gamma}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 3.43ex; vertical-align: -1.08ex; " SRC="img770.svg"
+ ALT="$\displaystyle + c_T(ij) R_{ij}^{\beta} a_{\alpha\beta} \delta_{\alpha\gamma}\hat P_{i}^{\gamma}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">113</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 7.32ex; vertical-align: -4.79ex; " SRC="img771.svg"
+ ALT="$\displaystyle -\sum_{\stackrel{i,\alpha=1,..,6}{ \gamma=1,2,3}} G_{mix}^{\alpha...
+...{ij,\alpha\beta} c_T(ij) R_{ij}^{\beta} \omega_{\alpha\beta}\hat P_{i}^{\alpha}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Note that without crystal field phonon interaction and without external stress
+ the mixing term <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img772.svg"
+ ALT="$\hat H_{mix}$"></SPAN> does not contribute to the energy, because strains <!-- MATH
+ $\epsilon_{\alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img773.svg"
+ ALT="$\epsilon_{\alpha}$"></SPAN> and
+expectation values <!-- MATH
+ $\langle \hat \mathbf P_i \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img774.svg"
+ ALT="$\langle \hat \mathbf P_i \rangle$"></SPAN> are zero in this case. The last term reflects
+the fact, that the energy is not invariant under rotations in case of transversal springs.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">In (<A HREF="#Hmix">119</A>) we made use of the phonon-strain interaction constants <!-- MATH
+ $G_{mix}^{\alpha\gamma}(i)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.76ex; " SRC="img775.svg"
+ ALT="$G_{mix}^{\alpha\gamma}(i)$"></SPAN>
+defined writing explicitly the Voigt notation <!-- MATH
+ $\alpha \leftrightarrow (\alpha\beta)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img776.svg"
+ ALT="$\alpha \leftrightarrow (\alpha\beta)$"></SPAN> by
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath"><A ID="Gmix"></A>
+<!-- MATH
+ \begin{eqnarray}
+G_{mix}^{(\alpha\beta)\gamma}(i)&=&
+-a_0\sum_{j} \frac{c_L(ij)-c_T(ij)}{|\mathbf R_{ij}|^2} 
+R_{ij}^{\alpha} R_{ij}^{\beta} R_{ij}^{\gamma} -   \nonumber \\
+      && -a_0\frac{1}{2}\sum_{j}  c_T(ij)   (R_{ij}^{\beta}  \delta_{\alpha\gamma}+
+R_{ij}^{\alpha}  \delta_{\beta\gamma}) 
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 3.29ex; vertical-align: -0.76ex; " SRC="img777.svg"
+ ALT="$\displaystyle G_{mix}^{(\alpha\beta)\gamma}(i)$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.81ex; vertical-align: -3.40ex; " SRC="img778.svg"
+ ALT="$\displaystyle -a_0\sum_{j} \frac{c_L(ij)-c_T(ij)}{\vert\mathbf R_{ij}\vert^2}
+R_{ij}^{\alpha} R_{ij}^{\beta} R_{ij}^{\gamma} -$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.57ex; vertical-align: -3.40ex; " SRC="img779.svg"
+ ALT="$\displaystyle -a_0\frac{1}{2}\sum_{j} c_T(ij) (R_{ij}^{\beta} \delta_{\alpha\gamma}+
+R_{ij}^{\alpha} \delta_{\beta\gamma})$"></TD><TD class="rfill">(<SPAN CLASS="arabic">114</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Similar to the elastic constants the Voigt notation is
+ e.g. <!-- MATH
+ $G_{mix}^{(23)\gamma}(i)=G_{mix}^{4\gamma}(i)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.29ex; vertical-align: -0.76ex; " SRC="img780.svg"
+ ALT="$G_{mix}^{(23)\gamma}(i)=G_{mix}^{4\gamma}(i)$"></SPAN>.
+Note a symmetry property: 
+ in case of inversion symmetry at the position of an ion, the 
+phonon-strain interaction constants <!-- MATH
+ $G_{mix}^{\alpha\gamma}(i)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.76ex; " SRC="img775.svg"
+ ALT="$G_{mix}^{\alpha\gamma}(i)$"></SPAN> will be zero.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node78.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node74.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node76.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html782"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html784"
+  HREF="node180.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node78.html">The lattice dynamic terms</A>
+<B> Up:</B> <A
+ HREF="node74.html">Crystal Field Phonon Interaction</A>
+<B> Previous:</B> <A
+ HREF="node76.html">External Stress</A>
+ &nbsp; <B>  <A ID="tex2html783"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html785"
+  HREF="node180.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

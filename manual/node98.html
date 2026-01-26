@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>External module function mqcalc - used by mcdiff </TITLE>
+<TITLE>External module function IMcalc - used by singleion </TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,199 +23,74 @@
  HREF="node99.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node88.html">
+ HREF="node96.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node97.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html872"
-  HREF="node7.html">
+<A ID="tex2html907"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html874"
-  HREF="node164.html">
+<A ID="tex2html909"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node99.html">External module functions dmq1</A>
+ HREF="node99.html">External module function Icalc_parameter_storage_matrix_init</A>
 <B> Up:</B> <A
- HREF="node88.html">Module Functions for Observables</A>
+ HREF="node96.html">Basic Module Functions</A>
 <B> Previous:</B> <A
- HREF="node97.html">External module function dS1</A>
- &nbsp; <B>  <A ID="tex2html873"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html875"
-  HREF="node164.html">Index</A></B> 
+ HREF="node97.html">External module function Icalc</A>
+ &nbsp; <B>  <A ID="tex2html908"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html910"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION0001721000000000000000"></A><A ID="3521"></A>
+<H3><A ID="SECTION000161200000000000000"></A><A ID="3968"></A>
 <BR>
-External module function <I CLASS="slanted">mqcalc</I> - used by <I CLASS="slanted">mcdiff</I>  
-</H3>
-
-<P>
-&rdquo;going beyond&rdquo;  dipolar approximation is a desirable feature of an accurate
- calculation of magnetic neutron scattering intensity and can be performed using
- mcphase. The internal module <I CLASS="slanted">so1ion</I><A ID="3523"></A> does this in an excellent
- way for the ground state multiplet of rare earth atoms (see section <A HREF="node42.html#mcdiff_gobeyond">8.5</A>)
- using equations (<A HREF="node42.html#scattoperator">50</A>) for the scattering operator <!-- MATH
- $\hat \mathcal Q$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.65ex; vertical-align: -0.34ex; " SRC="img858.svg"
- ALT="$\hat \mathcal Q$"></SPAN>.
- A more general formula for this scattering operator operator relates this operator
- to the Fourier transform of the magnetisation density <!-- MATH
- $\mathbf M(\mathbf r)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img859.svg"
- ALT="$\mathbf M(\mathbf r)$"></SPAN>of the unfilled shell of a specific
- ion&nbsp;[<A
- HREF="node163.html#lovesey84-1">30</A>]:
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-\mathbf Q \times (\hat \mathcal Q \times  \mathbf Q) = \frac{-1}{2\mu_B}
-   \mathbf Q \times (\hat \mathbf M(\mathbf Q) \times \mathbf Q) =\frac{-1}{2\mu_B} \int d\mathbf r
-e^{i\mathbf Q \mathbf r} \left [ 
-     \mathbf Q \times (\hat \mathbf M(\mathbf r) \times \mathbf Q) \right ]
- 
-\end{equation}
- -->
- &nbsp;  <A ID="scattop"></A><IMG
- STYLE="height: 4.40ex; vertical-align: -1.63ex; " SRC="img860.svg"
- ALT="$\displaystyle
-\mathbf Q \times (\hat \mathcal Q \times \mathbf Q) = \frac{-1...
-... [
-\mathbf Q \times (\hat \mathbf M(\mathbf r) \times \mathbf Q) \right ]
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">112</SPAN>)</SPAN>
-</DIV>
-
-<P>
-Note that the magnetisation density consists of two contributions 
-<!-- MATH
- $\hat \mathbf M(\mathbf r)=\hat \mathbf M_S(\mathbf r)+\hat \mathbf M_L(\mathbf r)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img861.svg"
- ALT="$\hat \mathbf M(\mathbf r)=\hat \mathbf M_S(\mathbf r)+\hat \mathbf M_L(\mathbf r)$"></SPAN>, the
- spin and orbital contribution. The orbital contribution is not uniquely defined due to a gauge
- freedom (<!-- MATH
- $\nabla \times \hat \mathbf M_L (\mathbf r)=\hat \mathbf j(\mathbf r)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.03ex; vertical-align: -0.70ex; " SRC="img862.svg"
- ALT="$\nabla \times \hat \mathbf M_L (\mathbf r)=\hat \mathbf j(\mathbf r)$"></SPAN>, the curl of the 
-magnetisation must give the current density, so any gradient of a potential may be added
-to <!-- MATH
- $\hat \mathbf M(\mathbf r)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img863.svg"
- ALT="$\hat \mathbf M(\mathbf r)$"></SPAN> without changing the result). However, this does not matter, because adding a gradient of a potential
-to <!-- MATH
- $\hat \mathbf M(\mathbf r)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img863.svg"
- ALT="$\hat \mathbf M(\mathbf r)$"></SPAN> will just give a contribution <!-- MATH
- $\mathbf Q \times \mathbf Q \times \mathbf Q=0$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.27ex; vertical-align: -0.57ex; " SRC="img864.svg"
- ALT="$\mathbf Q \times \mathbf Q \times \mathbf Q=0$"></SPAN> to the equation (<A HREF="#scattop">120</A>),
-thus the neutron scattering cross section is not sensitive to the chosen gauge, which is an important feature of the theory.
-
-<P>
-Technically,  &rdquo;going beyond&rdquo;  dipolar approximation in the program <I CLASS="slanted">mcdiff<A ID="3536"></A></I>
-can be done with  module functions <I CLASS="slanted">mq</I> and <I CLASS="slanted">estates</I>. 
-The output of <I CLASS="slanted">mq</I> is the Fourier transform of the magnetization
-density in units of <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img847.svg"
- ALT="$\mu_B$"></SPAN>, which is equivalent to two times the scattering operator 
- <!-- MATH
- $\langle \hat \mathcal Q^{d \dag }_{\alpha} \rangle_{T,H}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img865.svg"
- ALT="$\langle \hat \mathcal Q^{d \dag }_{\alpha} \rangle_{T,H}$"></SPAN> for
- a given orientation of the scattering vector. <I CLASS="slanted">mq</I> is called many times, for
- every scattering vector. In order to
- do an efficient calculation the eigenstates should be calculated only
- once, this is the task of function <I CLASS="slanted">estates</I>.
-
-<P>
-The format to be used is:
-<SPAN CLASS="FOOTNOTESIZE">
-</SPAN><PRE>
-extern "C" void mqcalc(ComplexVector &amp; mq,double &amp; th,double &amp; ph,double J0,
-double &amp; J2, double &amp; J4, double &amp; J6,ComplexMatrix &amp; est)
-</PRE><SPAN CLASS="FOOTNOTESIZE">
+External module function <I CLASS="slanted">IMcalc</I> - used by 
+<I CLASS="slanted">singleion</I> 
+</H3><SPAN CLASS="SMALL">
 </SPAN>
 <P>
-<SPAN CLASS="FOOTNOTESIZE">The meaning of the symbols is as follows:
+<SPAN CLASS="SMALL">This function is optional and intended to accellerate <I CLASS="slanted">singleion</I> by vectorizing the temperature and
+thus save computation resources when using the option <I CLASS="slanted">-Tsteps</I>. It has the same parameters as 
+<I CLASS="slanted">Icalc</I> with the following modifications:
 </SPAN>
 <P>
-<SPAN CLASS="FOOTNOTESIZE"></SPAN><PRE>
-on input
-   th     polar angle theta of the scattering vector Q (angle with the axb axis=c axis) in rad
-   ph     polar angle phi of the scattering vector Q (angle with bx(axb)=a in the 
-          projection into the  bx(axb),b plane = angle with a in the projection into the 
-		  ab plane) in rad
-   J0,J2,J4,J6     form factor functions &lt;jn(Q)&gt;   
-   est             eigenstate matrix (as calculated by estates),
-                   it should also contain population numbers of the states
-on output
-   mq(1..3)        Kartesian components of the scattering operator mq=&lt;M(Q)&gt;/muB=-2&lt;Q&gt;_TH
-                    Note that: 
-                               mq(1)=&lt;Mbx(axb)(Q)&gt;/muB
-                               mq(2)=&lt;Mb(Q)&gt;/muB
-                               mq(3)=&lt;Maxb(Q)&gt;/muB
-                    according to Lovesey Neutron Scattering equation 6.87b the 
-                    scattering operator is given in  spherical coordinates 
-					Q-1,Q0,Q+1 (introduced as described above on input of th and ph)
-					these are related to cartesion coordinates by 11.123
-				    thus at Q=0  &lt;M(Q)&gt;=2&lt;S&gt;+&lt;L&gt;
-</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+<SPAN CLASS="SMALL"></SPAN>
+<OL>
+<LI><I CLASS="slanted">double <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.31ex; vertical-align: -0.12ex; " SRC="img952.svg"
+ ALT="$\ast$"></SPAN> T</I> is replaced by <I CLASS="slanted">Vector &amp; T</I> containing the temperatures for which 
+the calculation is to be done.
+</LI>
+<LI><I CLASS="slanted">Vector &amp; I </I> is replaced by <I CLASS="slanted">Matrix &amp; I</I> which should be filled with column
+vectors containing the vector <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img945.svg"
+ ALT="$\mathbf I$"></SPAN>. Each column corresponds to a temperature given as input<I CLASS="slanted">Vector &amp; T</I>.
+</LI>
+<LI><I CLASS="slanted">double <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.31ex; vertical-align: -0.12ex; " SRC="img952.svg"
+ ALT="$\ast$"></SPAN> U</I> is replaced by <I CLASS="slanted">Vector &amp; U</I> which should be filled with
+ the energies corresponding
+to the temperatures in <I CLASS="slanted">Vector &amp; T</I>
+</LI>
+<LI><I CLASS="slanted">double <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.31ex; vertical-align: -0.12ex; " SRC="img952.svg"
+ ALT="$\ast$"></SPAN> lnZ</I> is replaced by <I CLASS="slanted">Vector &amp; lnZ</I> which shoul be filled with the partition sums corresponding
+to the temperatures in <I CLASS="slanted">Vector &amp; T</I>
 
 <P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node99.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node88.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node97.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html872"
-  HREF="node7.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html874"
-  HREF="node164.html">
-<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A
- HREF="node99.html">External module functions dmq1</A>
-<B> Up:</B> <A
- HREF="node88.html">Module Functions for Observables</A>
-<B> Previous:</B> <A
- HREF="node97.html">External module function dS1</A>
- &nbsp; <B>  <A ID="tex2html873"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html875"
-  HREF="node164.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+</LI>
+</OL><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR><HR>
 
 </BODY>
 </HTML>

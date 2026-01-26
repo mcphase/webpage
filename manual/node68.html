@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Calculation of the Crystal Field Phonon Interaction using a Point Charge Model</TITLE>
+<TITLE>Setting up mcphas.j and other input files</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,114 +23,467 @@
  HREF="node69.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node60.html">
+ HREF="node67.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node67.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html692"
-  HREF="node7.html">
+<A ID="tex2html731"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html694"
-  HREF="node164.html">
+<A ID="tex2html733"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node69.html">Setting up a Point</A>
+ HREF="node69.html">Option indexexchange in order</A>
 <B> Up:</B> <A
- HREF="node60.html">Crystal Field Phonon Interaction</A>
+ HREF="node67.html">Including Quadrupolar and Higher</A>
 <B> Previous:</B> <A
- HREF="node67.html">Calculation of the Elastic</A>
- &nbsp; <B>  <A ID="tex2html693"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html695"
-  HREF="node164.html">Index</A></B> 
+ HREF="node67.html">Including Quadrupolar and Higher</A>
+ &nbsp; <B>  <A ID="tex2html732"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html734"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000158000000000000000"></A><A ID="determineBlmfromPC"></A>
+<H2><A ID="SECTION000121000000000000000"></A><A ID="2247"></A>
 <BR>
-Calculation of the Crystal Field Phonon Interaction using a Point Charge Model
-</H2>
-
+Setting up <I CLASS="slanted">mcphas.j</I> and other input files
+</H2><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-If crystal field - phonon coupling is to be applied in running <I CLASS="slanted">mcphas</I> and <I CLASS="slanted">mcdisp</I>,
- magnetic ions may be added to a phonon set-up of <I CLASS="slanted">mcphas.j</I>.
-These magnetic ions should not be placed at exactly the same position as the phonon atoms - i.e. da db dc should be chosen
-(slightly) different to enable the mcphas.j loader to identify which is which.
-
+<SPAN CLASS="SMALL">In order to include the higher order interactions, the number of columns in the input file
+<I CLASS="slanted">mcphas.j<A ID="2248"></A></I> has to be increased. The additional columns then
+ contain the higher order exchange constants.
+</SPAN>
 <P>
-The coupling between phononic and crystal field degrees of freedom can be calculated from equations
-(<A HREF="node64.html#Gcfph">108</A>) and (<A HREF="node64.html#Gammacfph">109</A>).
- This can be done
-using the program  <I CLASS="slanted">makenn</I> with option <I CLASS="slanted">-cfph</I>  applying small differential changes to
-the atomic positions in the unit cell in order to evaluate the gradient of the crystal field
-parameters. <I CLASS="slanted">makenn</I> will do this calculation for every magnetic ion in the unit cell,
-i.e. for all ions which have the <I CLASS="slanted">so1ion</I> or <I CLASS="slanted">ic1ion</I> module in the <I CLASS="slanted">sipf</I> file.
-It will create for these ions a new position in makenn.j with the required
-shift and also store a designated sipf file. After running <I CLASS="slanted">makenn</I> with option <I CLASS="slanted">-cfph</I> 
-the user should only take care to change the module <I CLASS="slanted">so1ion</I>  or <I CLASS="slanted">ic1ion</I> to  or <I CLASS="slanted">phonon</I>
-in the original sipf files of the magnetic ions so that there is always one phononic and one magnetic
-sipf file for each magnetic atom in the unit cell.
-
+<SPAN CLASS="SMALL">Using the module <I CLASS="slanted">so1ion</I>, the input file <I CLASS="slanted">mcphas.j<A ID="2250"></A></I> may look as given for the 
+example GdRu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>Si<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN> in <I CLASS="slanted">examples/gdru2si2</I>:
+</SPAN>
 <P>
-For examples see  several models on crystal field phonon interaction 
-in <I CLASS="slanted">examples</I>, for starting a linear chain of Ce<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img3.svg"
- ALT="$^{3+}$"></SPAN> ions including a
-theory manuscript can be found in <I CLASS="slanted">examples/Ce3p_chain_cfphonon</I>.
-
-<P>
-Note <I CLASS="slanted">makenn</I>  makes use of the program <I CLASS="slanted">pointc</I><A ID="2835"></A> to calculate 
-crystal field parameters <!-- MATH
- $B_{\gamma}(i)=B_l^m$
+<SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE">
+</SPAN></SPAN><PRE>
+# GdRu2Si2 anisotropic bilinear and biquadratic exchange 
+#&lt;!--mcphase.mcphas.j--&gt;
+#***************************************************************
+# Lattice and Exchange Parameter file for
+# mcphas version 3.0
+# - program to calculate static magnetic properties
+# reference: M. Rotter JMMM 272-276 (2004) 481
+# mcdisp version 3.0
+# - program to calculate the dispersion of magnetic excitations
+# reference: M. Rotter et al. J. Appl. Phys. A74 (2002) 5751
+#***************************************************************
+#
+# Lattice Constants (A)
+#! a=4.165 b=4.165 c=9.654 alpha=  90 beta=  90 gamma=  90
+#! r1a= 0.5 r2a=   0 r3a=   0
+#! r1b= 0.5 r2b=   1 r3b=   0   primitive lattice vectors [a][b][c]
+#! r1c= 0.5 r2c=   0 r3c=   1
+#! nofatoms=1  nofcomponents=8  number of atoms in primitive unit cell/number of components of each spin
+#****************************************************************************}
+#! da=   0 [a] db=   0 [b] dc=   0 [c] nofneighbours=38 diagonalexchange=1 gJ=   2 sipffilename=Gd3p.sipf
+# da[a]    db[b]      dc[c]       J11[meV]  J22[meV]  J33[meV]  J44[meV]  J55[meV]  J66[meV]  J77[meV]  Jbc[meV]  %%@
+J88[meV]} 
+-1.0 0.0 0.0 0.08390 0.08390 0.21890 -0.0024 -0.0096 -0.0008 -0.0096 -0.0024 
+1.0 0.0 0.0 0.08390 0.08390 0.21890 -0.0024 -0.0096 -0.0008 -0.0096 -0.0024 
+0.0 -1.0 0.0 0.08390 0.08390 0.21890 -0.0024 -0.0096 -0.0008 -0.0096 -0.0024 
+0.0 1.0 0.0 0.08390 0.08390 0.21890 -0.0024 -0.0096 -0.0008 -0.0096 -0.0024 
+-0.5 -0.5 -0.5 0.00380 0.00380 0.01000 0.0 0.0 0.0 0.0 0.0 
+-0.5 -0.5 0.5 0.00380 0.00380 0.01000 0.0 0.0 0.0 0.0 0.0 
+-0.5 0.5 -0.5 0.00380 0.00380 0.01000 0.0 0.0 0.0 0.0 0.0 
+-0.5 0.5 0.5 0.00380 0.00380 0.01000 0.0 0.0 0.0 0.0 0.0 
+0.5 -0.5 -0.5 0.00380 0.00380 0.01000 0.0 0.0 0.0 0.0 0.0 
+0.5 -0.5 0.5 0.00380 0.00380 0.01000 0.0 0.0 0.0 0.0 0.0 
+0.5 0.5 -0.5 0.00380 0.00380 0.01000 0.0 0.0 0.0 0.0 0.0 
+0.5 0.5 0.5 0.00380 0.00380 0.01000 0.0 0.0 0.0 0.0 0.0 
+-1.0 -1.0 0.0 -0.03630 -0.03630 -0.09445 0.0 0.0 0.0 0.0 0.0 
+-1.0 1.0 0.0 -0.03630 -0.03630 -0.09445 0.0 0.0 0.0 0.0 0.0 
+1.0 -1.0 0.0 -0.03630 -0.03630 -0.09445 0.0 0.0 0.0 0.0 0.0 
+1.0 1.0 0.0 -0.03630 -0.03630 -0.09445 0.0 0.0 0.0 0.0 0.0 
+1.5 -0.5 0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
+-1.5 -0.5 0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
+1.5 -0.5 -0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
+0.5 -1.5 0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
+0.5 1.5 0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
+0.5 1.5 -0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
+-0.5 1.5 0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
+-1.5 -0.5 -0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
+1.5 0.5 0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
+-1.5 0.5 -0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
+-0.5 -1.5 -0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
+-0.5 -1.5 0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
+1.5 0.5 -0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
+-0.5 1.5 -0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
+-1.5 0.5 0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
+0.5 -1.5 -0.5 -0.00072 -0.00072 -0.00188 0.0 0.0 0.0 0.0 0.0 
+-2.0 0.0 0.0 -0.01754 -0.01754 -0.04567 0.0 0.0 0.0 0.0 0.0 
+2.0 0.0 0.0 -0.01754 -0.01754 -0.04567 0.0 0.0 0.0 0.0 0.0 
+0.0 -2.0 0.0 -0.01754 -0.01754 -0.04567 0.0 0.0 0.0 0.0 0.0 
+0.0 2.0 0.0 -0.01754 -0.01754 -0.04567 0.0 0.0 0.0 0.0 0.0 
+0.0 0.0 1.0 0.24850 0.24850 0.13560 0.0 0.0 0.0 0.0 0.0 
+0.0 0.0 -1.0 0.24850 0.24850 0.13560 0.0 0.0 0.0 0.0 0.0
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+here the meaning of the J11, J22, J33, J44, J55 ...is the 
+exchange constant <!-- MATH
+ $J_{\alpha\alpha}$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img684.svg"
- ALT="$B_{\gamma}(i)=B_l^m$"></SPAN> (<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img411.svg"
- ALT="$\gamma$"></SPAN> is a short hand
-notation for <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img685.svg"
- ALT="$lm$"></SPAN>) at site <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.76ex; vertical-align: -0.12ex; " SRC="img367.svg"
- ALT="$i$"></SPAN> with Stevens convention (or alternatively also <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img109.svg"
- ALT="$L_l^m$"></SPAN> with
-Wybourne normalisation, see appendix&nbsp;<A HREF="node141.html#cfparconventions">E</A> for details and definition of symbols) 
-using the well known expressions of the point charge model (<A HREF="node64.html#pcmodelclc">103</A>).
-
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img545.svg"
+ ALT="$J_{\alpha\alpha}$"></SPAN> between the operators <!-- MATH
+ $\hat I_1 \cdot \hat I_1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img546.svg"
+ ALT="$\hat I_1 \cdot \hat I_1$"></SPAN>, <!-- MATH
+ $\hat I_2 \cdot \hat I_2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img547.svg"
+ ALT="$\hat I_2 \cdot \hat I_2$"></SPAN>,
+<!-- MATH
+ $\hat I_3 \cdot \hat I_3$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img548.svg"
+ ALT="$\hat I_3 \cdot \hat I_3$"></SPAN>, <!-- MATH
+ $\hat I_4 \cdot \hat I_4$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img549.svg"
+ ALT="$\hat I_4 \cdot \hat I_4$"></SPAN>, ... etc. in equation (<A HREF="node67.html#multipolehamiltonrepeated">88</A>).
+Note that in our notation the indices of the interaction operators <!-- MATH
+ $\hat \mathbf I$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.43ex; vertical-align: -0.12ex; " SRC="img550.svg"
+ ALT="$\hat \mathbf I$"></SPAN> are sometimes
+denoted by numbers, sometimes by characters: <!-- MATH
+ $\hat I_1,\hat I_2,\hat I_3, \hat I_4, \dots \equiv \hat I_a,\hat I_b,\hat I_c, \hat I_d, \dots$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.87ex; vertical-align: -0.57ex; " SRC="img551.svg"
+ ALT="$\hat I_1,\hat I_2,\hat I_3, \hat I_4, \dots \equiv \hat I_a,\hat I_b,\hat I_c, \hat I_d, \dots$"></SPAN>.
+</SPAN>
 <P>
+<SPAN CLASS="SMALL">By default in module <I CLASS="slanted">so1ion</I> the operator sequence is <!-- MATH
+ $\hat I_1,\hat I_2,\hat I_3, \hat I_4, \dots =$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.87ex; vertical-align: -0.57ex; " SRC="img552.svg"
+ ALT="$\hat I_1,\hat I_2,\hat I_3, \hat I_4, \dots =$"></SPAN>
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img553.svg"
+ ALT="$\hat O_{11}$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.69ex; " SRC="img554.svg"
+ ALT="$\hat O_{11}^s$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img555.svg"
+ ALT="$\hat O_{10}$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.69ex; " SRC="img556.svg"
+ ALT="$\hat O_{22}^s$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.69ex; " SRC="img557.svg"
+ ALT="$\hat O_{21}^s$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img558.svg"
+ ALT="$\hat O_{20}$"></SPAN>,
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img559.svg"
+ ALT="$\hat O_{21}$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img560.svg"
+ ALT="$\hat O_{22}$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.69ex; " SRC="img561.svg"
+ ALT="$\hat O_{33}^s$"></SPAN>, ...,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img562.svg"
+ ALT="$\hat O_{66}$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.69ex; " SRC="img563.svg"
+ ALT="$\hat J_x^2$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.31ex; vertical-align: -1.01ex; " SRC="img564.svg"
+ ALT="$\hat J_y^2$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.69ex; " SRC="img565.svg"
+ ALT="$\hat J_z^2$"></SPAN>,
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.69ex; " SRC="img566.svg"
+ ALT="$\hat J_x^4$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.31ex; vertical-align: -1.01ex; " SRC="img567.svg"
+ ALT="$\hat J_y^4$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.69ex; " SRC="img568.svg"
+ ALT="$\hat J_z^4$"></SPAN>.
+according to equation (<A HREF="node67.html#multipolehamiltonrepeated">88</A>) and table&nbsp;<A HREF="#olms">2</A>.
+ The exchange constants for the
+products of these Stevens operators have to be 
+given according to the following scheme:
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN><PRE>
+   11 22 33 12 21 13 31 23 32 (3x3 matrix)
+   11 22 33 44 12 21 13 31 14 41 23 32 24 42 34 43 (4x4 matrix)
+   11 22 33 44 55 12 21 13 31 14 41 15 51 23 32 24 42 25 52 34 43 35 53 45 54 (5x5 matrix)
+   etc ...
+</PRE><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">The other input and output files have the same format as usual, but with the modification, that
+there are now <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
+ ALT="$n$"></SPAN> components of the 'spins' in <I CLASS="slanted">mcphas.sps</I> instead of 3 (<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img569.svg"
+ ALT="$&lt;\hat J_a&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img570.svg"
+ ALT="$&lt;\hat J_b&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img571.svg"
+ ALT="$&lt;\hat J_c&gt;$"></SPAN>).
+The expectation values of the operators
+ <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img572.svg"
+ ALT="$&lt;\hat I_a&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img573.svg"
+ ALT="$&lt;\hat I_b&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img574.svg"
+ ALT="$&lt;\hat I_c&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img575.svg"
+ ALT="$&lt;\hat I_d&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img576.svg"
+ ALT="$&lt;\hat I_e&gt;$"></SPAN>, etc. correspond to the
+interaction operator sequence of the single ion module, which for <I CLASS="slanted">so1ion</I> is 
+by default <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img569.svg"
+ ALT="$&lt;\hat J_a&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img570.svg"
+ ALT="$&lt;\hat J_b&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img571.svg"
+ ALT="$&lt;\hat J_c&gt;$"></SPAN>,
+ <!-- MATH
+ $<\hat O_{22}^s>$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.69ex; " SRC="img577.svg"
+ ALT="$&lt;\hat O_{22}^s&gt;$"></SPAN>, <!-- MATH
+ $<\hat O_{21}^s>$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.69ex; " SRC="img578.svg"
+ ALT="$&lt;\hat O_{21}^s&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img579.svg"
+ ALT="$&lt;\hat O_{20}&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img580.svg"
+ ALT="$&lt;\hat O_{21}&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img581.svg"
+ ALT="$&lt;\hat O_{22}&gt;$"></SPAN>,<!-- MATH
+ $<\hat O_{33}^s>$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.69ex; " SRC="img582.svg"
+ ALT="$&lt;\hat O_{33}^s&gt;$"></SPAN>, ...
+ respectively.
+ Table&nbsp;<A HREF="#olms">2</A> contains a list of first and second order Stevens parameters.
+For a full list please refer to appendix&nbsp;<A HREF="node159.html#stevens">G</A>.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Note that the <!-- MATH
+ $\hat I_{\alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img583.svg"
+ ALT="$\hat I_{\alpha}$"></SPAN> may be completely redefined
+ by perl parsing the single ion property file - see section <A HREF="node88.html#simod">13</A> for details.
+This may be useful to shorten notation, if by symmetry the coupling (<A HREF="node67.html#multipolehamiltonrepeated">88</A>) 
+may be rewritten in products of linear combinations of operators such as needed
+for pseudo spin models of multipolar order&nbsp;[<A
+ HREF="node179.html#shiina97-1741">34</A>],
+ e.g 
+<!-- MATH
+ $(5\hat  O_{44}(\hat \mathbf J^n)+\hat  O_{40}(\hat \mathbf J^n)) \cdot (5 \hat O_{44}(\hat \mathbf J^{n'})+\hat  O_{40}(\hat \mathbf J^{n'}))$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img584.svg"
+ ALT="$(5\hat O_{44}(\hat \mathbf J^n)+\hat O_{40}(\hat \mathbf J^n)) \cdot (5 \hat O_{44}(\hat \mathbf J^{n'})+\hat O_{40}(\hat \mathbf J^{n'}))$"></SPAN>
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV class="CENTER">
 
+<A ID="10231"></A>
+<TABLE class="PAD  BORDER" style="">
+<CAPTION><STRONG>Table:</STRONG>
+Stevens operator equivalents <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img11.svg"
+ ALT="$O_{lm}$"></SPAN> and 
+corresponding notation used in modules <I CLASS="slanted">cfield<A ID="2294"></A></I> and 
+<I CLASS="slanted">so1ion<A ID="2295"></A></I> 
+(<!-- MATH
+ $\hat J_{\pm}=\hat J_x\pm i\hat J_y)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img12.svg"
+ ALT="$\hat J_{\pm }=\hat J_x\pm i\hat J_y)$"></SPAN>. For a full list please refer to appendix&nbsp;<A HREF="node159.html#stevens">G</A>.</CAPTION>
+<TR><TD CLASS="LEFT">Stevens Operator</TD>
+<TD CLASS="RIGHT">Notation used in module <I CLASS="slanted">so1ion<A ID="2301"></A></I></TD>
+<TD CLASS="RIGHT"><I CLASS="slanted">cfield<A ID="2302"></A></I></TD>
+</TR>
+<TR><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img585.svg"
+ ALT="$\hat O_{00}=1$"></SPAN> (<!-- MATH
+ $O_{00}({\rm so1ion})=0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img586.svg"
+ ALT="$O_{00}({\rm so1ion})=0$"></SPAN>)</TD>
+<TD CLASS="RIGHT">&nbsp;</TD>
+<TD CLASS="RIGHT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT"><!-- MATH
+ $\hat O_{11}=\frac{1}{2}[\hat J_++\hat J_-]=\hat J_x$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.22ex; vertical-align: -0.92ex; " SRC="img587.svg"
+ ALT="$\hat O_{11}=\frac{1}{2}[\hat J_++\hat J_-]=\hat J_x$"></SPAN></TD>
+<TD CLASS="RIGHT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img588.svg"
+ ALT="$\hat I_a$"></SPAN></TD>
+<TD CLASS="RIGHT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img589.svg"
+ ALT="$\hat I_c$"></SPAN></TD>
+</TR>
+<TR><TD CLASS="LEFT"><!-- MATH
+ $\hat O_{11}(s)=\frac{-i}{2}[\hat J_+-\hat J_-]=\hat J_y$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.22ex; vertical-align: -0.92ex; " SRC="img590.svg"
+ ALT="$\hat O_{11}(s)=\frac{-i}{2}[\hat J_+-\hat J_-]=\hat J_y$"></SPAN></TD>
+<TD CLASS="RIGHT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img591.svg"
+ ALT="$\hat I_b$"></SPAN></TD>
+<TD CLASS="RIGHT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img588.svg"
+ ALT="$\hat I_a$"></SPAN></TD>
+</TR>
+<TR><TD CLASS="LEFT"><!-- MATH
+ $\hat O_{10}=\hat J_z$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img592.svg"
+ ALT="$\hat O_{10}=\hat J_z$"></SPAN></TD>
+<TD CLASS="RIGHT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img589.svg"
+ ALT="$\hat I_c$"></SPAN></TD>
+<TD CLASS="RIGHT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img591.svg"
+ ALT="$\hat I_b$"></SPAN></TD>
+</TR>
+<TR><TD CLASS="LEFT"><!-- MATH
+ $\hat O_{22}(s)=\frac{-i}{2}[\hat J_+^2-\hat J_-^2]=\hat J_x\hat J_y+\hat J_y\hat J_x$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.22ex; vertical-align: -0.92ex; " SRC="img593.svg"
+ ALT="$\hat O_{22}(s)=\frac{-i}{2}[\hat J_+^2-\hat J_-^2]=\hat J_x\hat J_y+\hat J_y\hat J_x$"></SPAN>(<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img594.svg"
+ ALT="$=2\hat P_{xy}$"></SPAN>)</TD>
+<TD CLASS="RIGHT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img595.svg"
+ ALT="$\hat I_d$"></SPAN></TD>
+<TD CLASS="RIGHT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img595.svg"
+ ALT="$\hat I_d$"></SPAN></TD>
+</TR>
+<TR><TD CLASS="LEFT"><!-- MATH
+ $\hat O_{21}(s)=\frac{-i}{4}[(\hat J_+-\hat J_-)\hat J_z+\hat J_z(\hat J_+-\hat J_-)]=\frac{1}{2}[\hat J_y\hat J_z+\hat J_z\hat J_y]$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.22ex; vertical-align: -0.92ex; " SRC="img596.svg"
+ ALT="$\hat O_{21}(s)=\frac{-i}{4}[(\hat J_+-\hat J_-)\hat J_z+\hat J_z(\hat J_+-\hat J_-)]=\frac{1}{2}[\hat J_y\hat J_z+\hat J_z\hat J_y]$"></SPAN>(<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img597.svg"
+ ALT="$=\hat P_{yz}$"></SPAN>)</TD>
+<TD CLASS="RIGHT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img598.svg"
+ ALT="$\hat I_e$"></SPAN></TD>
+<TD CLASS="RIGHT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img598.svg"
+ ALT="$\hat I_e$"></SPAN></TD>
+</TR>
+<TR><TD CLASS="LEFT"><!-- MATH
+ $\hat O_{20}=[3\hat J_z^2-J(J+1)]$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img599.svg"
+ ALT="$\hat O_{20}=[3\hat J_z^2-J(J+1)]$"></SPAN> (<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.70ex; " SRC="img600.svg"
+ ALT="$O_2^0(s)=0$"></SPAN>)</TD>
+<TD CLASS="RIGHT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img601.svg"
+ ALT="$\hat I_f$"></SPAN></TD>
+<TD CLASS="RIGHT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img601.svg"
+ ALT="$\hat I_f$"></SPAN></TD>
+</TR>
+<TR><TD CLASS="LEFT"><!-- MATH
+ $\hat O_{21}=\frac{1}{4}[(\hat J_++\hat J_-)\hat J_z+\hat J_z(\hat J_++\hat J_-)]=\frac{1}{2}[\hat J_x\hat J_z+\hat J_z\hat J_x]$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.22ex; vertical-align: -0.92ex; " SRC="img602.svg"
+ ALT="$\hat O_{21}=\frac{1}{4}[(\hat J_++\hat J_-)\hat J_z+\hat J_z(\hat J_++\hat J_-)]=\frac{1}{2}[\hat J_x\hat J_z+\hat J_z\hat J_x]$"></SPAN>(<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img603.svg"
+ ALT="$=\hat P_{xz}$"></SPAN>)</TD>
+<TD CLASS="RIGHT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img604.svg"
+ ALT="$\hat I_g$"></SPAN></TD>
+<TD CLASS="RIGHT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img604.svg"
+ ALT="$\hat I_g$"></SPAN></TD>
+</TR>
+<TR><TD CLASS="LEFT"><!-- MATH
+ $\hat O_{22}=\frac{1}{2}[\hat J_+^2+\hat J_-^2]=[\hat J_x^2-\hat J_y^2]$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.31ex; vertical-align: -1.01ex; " SRC="img605.svg"
+ ALT="$\hat O_{22}=\frac{1}{2}[\hat J_+^2+\hat J_-^2]=[\hat J_x^2-\hat J_y^2]$"></SPAN></TD>
+<TD CLASS="RIGHT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img606.svg"
+ ALT="$\hat I_h$"></SPAN></TD>
+<TD CLASS="RIGHT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img606.svg"
+ ALT="$\hat I_h$"></SPAN></TD>
+</TR>
+</TABLE>
+</DIV>
+<BR><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
 <A
  HREF="node69.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node60.html">
+ HREF="node67.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node67.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html692"
-  HREF="node7.html">
+<A ID="tex2html731"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html694"
-  HREF="node164.html">
+<A ID="tex2html733"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node69.html">Setting up a Point</A>
+ HREF="node69.html">Option indexexchange in order</A>
 <B> Up:</B> <A
- HREF="node60.html">Crystal Field Phonon Interaction</A>
+ HREF="node67.html">Including Quadrupolar and Higher</A>
 <B> Previous:</B> <A
- HREF="node67.html">Calculation of the Elastic</A>
- &nbsp; <B>  <A ID="tex2html693"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html695"
-  HREF="node164.html">Index</A></B> </DIV>
+ HREF="node67.html">Including Quadrupolar and Higher</A>
+ &nbsp; <B>  <A ID="tex2html732"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html734"
+  HREF="node180.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

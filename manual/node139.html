@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>DyNiBC - single ion module</TITLE>
+<TITLE>Program phased - graphical display of magnetic phase diagrams</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,323 +23,85 @@
  HREF="node140.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="manual.html">
+ HREF="node134.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node138.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1056"
-  HREF="node7.html">
+<A ID="tex2html1106"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1058"
-  HREF="node164.html">
+<A ID="tex2html1108"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node140.html">ErNiBC - single ion</A>
+ HREF="node140.html">Program felog - display</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="node134.html">Programs for Graphical display</A>
 <B> Previous:</B> <A
- HREF="node138.html">Module brillouin - an</A>
- &nbsp; <B>  <A ID="tex2html1057"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1059"
-  HREF="node164.html">Index</A></B> 
+ HREF="node138.html">Program hkl, hkl2d and</A>
+ &nbsp; <B>  <A ID="tex2html1107"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1109"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A ID="SECTION000270000000000000000"></A><A ID="dyni2b2c"></A>
+<H2><A ID="SECTION000195000000000000000"></A><A ID="5038"></A>
 <BR>
-DyNi<SPAN CLASS="MATH"><IMG
+Program <I CLASS="slanted">phased</I> - graphical display of magnetic phase diagrams
+</H2><SPAN CLASS="SMALL">
+</SPAN><DL>
+<DT><STRONG>phased    [file]</STRONG></DT>
+<DD>produces graphic of magnetic xy(<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1153.svg"
+ ALT="$HT$"></SPAN>)-phase diagram [file]. Note that
+<I CLASS="slanted">perl</I> and <I CLASS="slanted">pgplot</I> are needed in order to use this program. Thus it is more
+convenient to use <I CLASS="slanted">displaycontour</I>:
+</DD>
+<DT><STRONG>substitute "p " "  " results/mcphas.xyt</STRONG></DT>
+<DD>to substitute the p in the file with spaces
+</DD>
+<DT><STRONG>displaycontour 1 2 8 results/mcphas.xyt</STRONG></DT>
+<DD>to display the phase indices as coloured phase diagram.
+</DD>
+</DL><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Mind that the plot produced is based on the phase number given in <I CLASS="slanted">mcphas.xyt</I>, which may be
+different for the &rdquo;same&rdquo; magnetic structure as mentioned above
+(section&nbsp;<A HREF="node49.html#outputfiles">7.4</A>, <I CLASS="slanted">mcphas.phs</I>). It is recommended to check carefully, if
+some magnetic structures are physically equal, although numbered with different phase numbers by
+the program. If such a case is detected, the phase numbers in <I CLASS="slanted">mcphas.xyt</I> should
+be put to the same value in order to be able to identify the stability region in the plot.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV class="CENTER"><A ID="phasediagramgraphic"></A><A ID="5052"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 28:</STRONG>
+Calculated magnetic phase diagram of NdCu<SPAN CLASS="MATH"><IMG
  STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN>B<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN>C - single ion module
-</H1>
+ ALT="$_2$"></SPAN> for field parallel to the orthorhombic <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img2.svg"
+ ALT="$b$"></SPAN>-direction.</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
 
-<P>
-The crystal field ground state of the <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1176.svg"
- ALT="$J=15/2$"></SPAN> Dy<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img3.svg"
- ALT="$^{3+}$"></SPAN> ion in DyNi<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN>B<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN>C 
-can be   described by a quasi-quartet consisting of two doublets separated
-by a energy interval <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1177.svg"
- ALT="$\Delta$"></SPAN>.
+<IMG
+ STYLE="height: 38.82ex; vertical-align: -38.85ex; " SRC="img1154.svg"
+ ALT="\includegraphics[angle=-90, width=0.5\textwidth]{figsrc/ndcu2b/resultss/phased.eps}">
 
-<P>
-In order to calculate efficiently the single ion property (for small effective
-magnetic fields in comparison to the total CF splitting) the 
-Hamiltonian <!-- MATH
- $H=H_{cf}- g_J \mu_b {\mathbf H}{\mathbf J}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img1138.svg"
- ALT="$H=H_{cf}- g_J \mu_b {\mathbf H}{\mathbf J}$"></SPAN> is projected to the quasi quartet
-and may be written as
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-H=\left (
-\begin{array}{cccc}
--\Delta/2 & 0 & 0 & 0 \\
-0 & -\Delta/2 & 0 & 0 \\
-0 & 0 & \Delta/2  & 0 \\
-0 & 0 & 0 & \Delta/2
-\end{array}
-\right)
- -g_J \mu_B (H_a J_a + H_b J_b + H_c J_b)
-\end{equation}
- -->
- &nbsp;  <A ID="ham"></A><IMG
- STYLE="height: 11.34ex; vertical-align: -5.11ex; " SRC="img1178.svg"
- ALT="$\displaystyle
-H=\left (
-\begin{array}{cccc}
--\Delta/2 &amp; 0 &amp; 0 &amp; 0 \\
-0 &amp; -\Del...
-...0 &amp; 0 &amp; \Delta/2
-\end{array}\right)
--g_J \mu_B (H_a J_a + H_b J_b + H_c J_b)
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">164</SPAN>)</SPAN>
+</DIV></TD></TR>
+</TABLE>
 </DIV>
-
+<SPAN CLASS="SMALL">
+</SPAN>
 <P>
-with the angular momentum operators given by the  4x4 matrices
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-J_a=
-\left (
-\begin{array}{cccc}
-0 & b & 0 & c \\
-b & 0 & c & 0 \\
-0 & c & 0 & e \\
-c & 0 & e & 0
-\end{array}
-\right )
-\end{equation}
- -->
- &nbsp;  <IMG
- STYLE="height: 11.34ex; vertical-align: -5.11ex; " SRC="img1179.svg"
- ALT="$\displaystyle J_a=
-\left (
-\begin{array}{cccc}
-0 &amp; b &amp; 0 &amp; c \\
-b &amp; 0 &amp; c &amp; 0 \\
-0 &amp; c &amp; 0 &amp; e \\
-c &amp; 0 &amp; e &amp; 0
-\end{array}\right )
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">165</SPAN>)</SPAN>
-</DIV>
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-J_b=
-\left (
-\begin{array}{cccc}
-0 & -ib & 0 & ic \\
-+ib & 0 & -ic & 0 \\
-0 & +ic & 0 & -ie \\
--ic & 0 & +ie & 0
-\end{array}
-\right )
-\end{equation}
- -->
- &nbsp;  <IMG
- STYLE="height: 11.34ex; vertical-align: -5.11ex; " SRC="img1180.svg"
- ALT="$\displaystyle J_b=
-\left (
-\begin{array}{cccc}
-0 &amp; -ib &amp; 0 &amp; ic \\
-+ib &amp; 0 &amp; -ic &amp; 0 \\
-0 &amp; +ic &amp; 0 &amp; -ie \\
--ic &amp; 0 &amp; +ie &amp; 0
-\end{array}\right )
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">166</SPAN>)</SPAN>
-</DIV>
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-J_c=
-\left (
-\begin{array}{cccc}
-+a& 0 & 0 & 0 \\
-0 &-a & 0 & 0 \\
-0 & 0 &-d & 0 \\
-0 & 0 & 0 &+d
-\end{array}
-\right )
-\end{equation}
- -->
- &nbsp;  <IMG
- STYLE="height: 11.34ex; vertical-align: -5.11ex; " SRC="img1181.svg"
- ALT="$\displaystyle J_c=
-\left (
-\begin{array}{cccc}
-+a&amp; 0 &amp; 0 &amp; 0 \\
-0 &amp;-a &amp; 0 &amp; 0 \\
-0 &amp; 0 &amp;-d &amp; 0 \\
-0 &amp; 0 &amp; 0 &amp;+d
-\end{array}\right )
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">167</SPAN>)</SPAN>
-</DIV>
-
-<P>
-The constants <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img13.svg"
- ALT="$a$"></SPAN>-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img103.svg"
- ALT="$e$"></SPAN> can be computed from the crystal field parameters, if
-these are known. On the other hand, they are connected to the saturation
-magnetic moments <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img1182.svg"
- ALT="$\mathbf M$"></SPAN> by the following equations (<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1183.svg"
- ALT="$\max(...)$"></SPAN> denotes the
-maximum of the argument values)
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-M_{001}=g_J \mu_B \max(|a|,|d|)
-\end{equation}
- -->
- &nbsp;  <IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1184.svg"
- ALT="$\displaystyle M_{001}=g_J \mu_B \max(\vert a\vert,\vert d\vert)
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">168</SPAN>)</SPAN>
-</DIV>
-
-<P>
-<BR>
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{eqnarray}
-M_{100}&=&g_J \mu_B \lambda\\
-2\lambda^2&=&e^2+2c^2+b^2 + \sqrt{(e^2+2c^2+b^2)^2-4(be{\mathbf -}c^2)}
-\end{eqnarray}
- -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1185.svg"
- ALT="$\displaystyle M_{100}$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img1186.svg"
- ALT="$\displaystyle g_J \mu_B \lambda$"></TD><TD class="rfill">(<SPAN CLASS="arabic">169</SPAN>)</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 2.23ex; vertical-align: -0.12ex; " SRC="img1187.svg"
- ALT="$\displaystyle 2\lambda^2$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 3.10ex; vertical-align: -0.71ex; " SRC="img1188.svg"
- ALT="$\displaystyle e^2+2c^2+b^2 + \sqrt{(e^2+2c^2+b^2)^2-4(be{\mathbf -}c^2)}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">170</SPAN>)</TD></TR>
-</TABLE></DIV>
-
-<P>
-<BR>
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{eqnarray}
-M_{110}&=&g_J \mu_B  \lambda\\
-2\lambda^2&=&e^2+2c^2+b^2 + \sqrt{(e^2+2c^2+b^2)^2-4(be{\mathbf +}c^2)}
-\end{eqnarray}
- -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1189.svg"
- ALT="$\displaystyle M_{110}$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img1186.svg"
- ALT="$\displaystyle g_J \mu_B \lambda$"></TD><TD class="rfill">(<SPAN CLASS="arabic">171</SPAN>)</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 2.23ex; vertical-align: -0.12ex; " SRC="img1187.svg"
- ALT="$\displaystyle 2\lambda^2$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 3.10ex; vertical-align: -0.71ex; " SRC="img1190.svg"
- ALT="$\displaystyle e^2+2c^2+b^2 + \sqrt{(e^2+2c^2+b^2)^2-4(be{\mathbf +}c^2)}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">172</SPAN>)</TD></TR>
-</TABLE></DIV>
-
-<P>
-The module given in <I CLASS="slanted">/examples/dyni2b2c/1ion_mod/quartett.c</I> diagonalises
-the Hamiltonian (<A HREF="#ham">176</A>) and calculates the thermal expectation 
-value <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.83ex; vertical-align: -0.46ex; " SRC="img1155.svg"
- ALT="$&lt;&gt;_T$"></SPAN> of the vector <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img1156.svg"
- ALT="$\mathbf J$"></SPAN>,which
-is returned to the <I CLASS="slanted">McPhas</I> program.
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node140.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="manual.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node138.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1056"
-  HREF="node7.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1058"
-  HREF="node164.html">
-<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A
- HREF="node140.html">ErNiBC - single ion</A>
-<B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
-<B> Previous:</B> <A
- HREF="node138.html">Module brillouin - an</A>
- &nbsp; <B>  <A ID="tex2html1057"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1059"
-  HREF="node164.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<SPAN CLASS="SMALL"></SPAN>
+<BR><HR>
 
 </BODY>
 </HTML>

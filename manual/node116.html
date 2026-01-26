@@ -1,16 +1,17 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Formalism for going beyond the dipolar approximation</TITLE>
+<TITLE>External module function dP1 - used by mcdisp</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node117.html">
 <LINK REL="previous" HREF="node115.html">
 <LINK REL="next" HREF="node117.html">
 </HEAD>
@@ -22,135 +23,200 @@
  HREF="node117.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node110.html">
+ HREF="node102.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node115.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html950"
-  HREF="node7.html">
+<A ID="tex2html1002"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html952"
-  HREF="node164.html">
+<A ID="tex2html1004"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node117.html">bfk - Inelastic neutron-scattering</A>
+ HREF="node117.html">External module function pelcalc</A>
 <B> Up:</B> <A
- HREF="node110.html">ic1ion - a module</A>
+ HREF="node102.html">Module Functions for Observables</A>
 <B> Previous:</B> <A
- HREF="node115.html">Formalism</A>
- &nbsp; <B>  <A ID="tex2html951"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html953"
-  HREF="node164.html">Index</A></B> 
+ HREF="node115.html">External module function pcalc</A>
+ &nbsp; <B>  <A ID="tex2html1003"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1005"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000186000000000000000"></A><A ID="ic1ionmq"></A>
+<H3><A ID="SECTION0001621400000000000000"></A><A ID="4285"></A>
 <BR>
-Formalism for going beyond the dipolar approximation
-</H2>
-
+External module function <I CLASS="slanted">dP1</I> - used by <I CLASS="slanted">mcdisp</I>
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-<I CLASS="slanted">ic1ion</I> is prepared to do calculations of the neutron cross section going beyond the dipole approximation for 
-the scattering cross section. The formulation of the scattering operator
- implemented in the functions <I CLASS="slanted">mq</I> and <I CLASS="slanted">dncalc</I> have been given by Lovesey and Balcar&nbsp;[<A
- HREF="node163.html#lovesey84-1">30</A>], 6.87b:
-
-<P>
-<BR>
-<DIV CLASS="displaymath">
-
+<SPAN CLASS="SMALL">In order to calculate neutron intensities for phonon scattering
+the external single ion module has to provide the transition matrix elements of
+ the phonon displacement <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img995.svg"
+ ALT="$P_{\alpha}$"></SPAN> in units of Å, which for the transition i (=1,2,3)
+is usually given by:
 <!-- MATH
- \begin{eqnarray}
-\langle  l^\nu v S L J M| \hat \mathcal Q_q | l^\nu v' S' L' J' M' \rangle &=& \sqrt{4\pi}\sum_{K',Q,Q'} \left [ %%@
-Y_{K'-1}^{Q}(\hat \mathbf Q) \left (\frac{2K'+1}{K'+1}\right ) \right. \\
-&& \times \{ A(K'-1,K')+B(K'-1,K')(K'-1 Q K' Q'|1q)\}\\
-&& \left . + Y_{K'}^{Q}(\hat \mathbf Q) B(K',K') (K' Q K' Q'|1q) \right ] (K' Q' J' M'|JM)
- 
-\end{eqnarray}
+ $\langle-|\hat P_{\alpha}|+\rangle=S_{i\alpha}\frac{\hbar}{\sqrt{2m\Delta_i}}$
  -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img981.svg"
- ALT="$\displaystyle \langle l^\nu v S L J M\vert \hat \mathcal Q_q \vert l^\nu v' S' L' J' M' \rangle$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 6.90ex; vertical-align: -3.44ex; " SRC="img982.svg"
- ALT="$\displaystyle \sqrt{4\pi}\sum_{K',Q,Q'} \left [ %%@
-Y_{K'-1}^{Q}(\hat \mathbf Q) \left (\frac{2K'+1}{K'+1}\right ) \right.$"></TD><TD class="rfill">(<SPAN CLASS="arabic">131</SPAN>)</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 2.67ex; vertical-align: -0.70ex; " SRC="img983.svg"
- ALT="$\displaystyle \times \{ A(K'-1,K')+B(K'-1,K')(K'-1 Q K' Q'\vert 1q)\}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">132</SPAN>)</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 4.40ex; vertical-align: -1.63ex; " SRC="img984.svg"
- ALT="$\displaystyle \left . + Y_{K'}^{Q}(\hat \mathbf Q) B(K',K') (K' Q K' Q'\vert 1q) \right ] (K' Q' J' M'\vert JM)$"></TD><TD class="rfill">(<SPAN CLASS="arabic">133</SPAN>)</TD></TR>
-</TABLE></DIV>
-
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.68ex; vertical-align: -1.38ex; " SRC="img996.svg"
+ ALT="$\langle-\vert\hat P_{\alpha}\vert+\rangle=S_{i\alpha}\frac{\hbar}{\sqrt{2m\Delta_i}}$"></SPAN>,
+with <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img79.svg"
+ ALT="$\alpha=1,2,3$"></SPAN> for the different spatial directions and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img26.svg"
+ ALT="$m$"></SPAN> is the mass of the
+oscillating atom (compare section&nbsp;<A HREF="node71.html#phonons">11</A>). 
+</SPAN>
 <P>
-... these are the spherical components with <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img985.svg"
- ALT="$q=-1,0,1$"></SPAN>, which are related to the cartesian components by
-
-<P>
-<BR>
-<DIV CLASS="displaymath">
-
+<SPAN CLASS="SMALL">Note, that in this
+expression the sum over the different equally spaced phonon levels (of the harmonic oscillator)
+in the single ion susceptibility is already done. If the levels are not equally spaced, such
+as by interaction with other degrees of freedom, one has to take into account each transition
+separately by the expression
 <!-- MATH
- \begin{eqnarray}
-\hat \mathcal Q_x &=& +\frac{1}{\sqrt{2}}(\hat \mathcal Q_{+1} +\hat \mathcal Q_{-1})\\
-\hat \mathcal Q_y &=& -\frac{i}{\sqrt{2}}(\hat \mathcal Q_{+1} -\hat \mathcal Q_{-1}) \\
-\hat \mathcal Q_z &=& \hat \mathcal Q_0  \\
-\end{eqnarray}
+ ${\rm P1}^s_{\alpha}=\sqrt{(p_- -p_+)}\langle -|\hat P^s_{\alpha}-\langle\hat  P^s_{\alpha}\rangle_{\mathbf H,T}|+\rangle$
  -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img986.svg"
- ALT="$\displaystyle \hat \mathcal Q_x$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 5.44ex; vertical-align: -2.28ex; " SRC="img987.svg"
- ALT="$\displaystyle +\frac{1}{\sqrt{2}}(\hat \mathcal Q_{+1} +\hat \mathcal Q_{-1})$"></TD><TD class="rfill">(<SPAN CLASS="arabic">134</SPAN>)</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img988.svg"
- ALT="$\displaystyle \hat \mathcal Q_y$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 5.48ex; vertical-align: -2.28ex; " SRC="img989.svg"
- ALT="$\displaystyle -\frac{i}{\sqrt{2}}(\hat \mathcal Q_{+1} -\hat \mathcal Q_{-1})$"></TD><TD class="rfill">(<SPAN CLASS="arabic">135</SPAN>)</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img990.svg"
- ALT="$\displaystyle \hat \mathcal Q_z$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img991.svg"
- ALT="$\displaystyle \hat \mathcal Q_0$"></TD><TD class="rfill">(<SPAN CLASS="arabic">136</SPAN>)</TD></TR>
-</TABLE></DIV>
-
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.13ex; vertical-align: -0.82ex; " SRC="img997.svg"
+ ALT="${\rm P1}^s_{\alpha}=\sqrt{(p_--p_+)}\langle -\vert\hat P^s_{\alpha}-\langle\hat P^s_{\alpha}\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>. 
+</SPAN>
 <P>
-The coefficients <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img992.svg"
- ALT="$A(K,K')$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img993.svg"
- ALT="$B(K,K')$"></SPAN> are complex to obtain, formulas will not be given here, we refer the reader to&nbsp;[<A
- HREF="node163.html#lovesey84-1">30</A>] and just mention, that the computation involves
-of 3j, 6j and 9j symbols and some fractional parentage coefficients. 
+<SPAN CLASS="SMALL">The format to be used is:
+<SPAN CLASS="FOOTNOTESIZE">
+</SPAN></SPAN><PRE>
+extern "C" int dP1(int &amp; tn,double &amp; T,Vector &amp; Hxc,Vector &amp; Hext,double * g_J,Vector &amp; MODPAR,
+char ** sipffilename,ComplexVector &amp; p1,float &amp; maxE, ComplexMatrix &amp; est)
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE">
+</SPAN></SPAN>
 <P>
-<BR><HR>
+<SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE">The meaning of the symbols is as follows:
+</SPAN></SPAN>
+<P>
+<SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE"></SPAN></SPAN><PRE>
+on input
+   |tn|            transition-number  
+   sign(tn)        &gt;0 standard, &lt;0 routine should do some printout to stdout for user information
+   MODPAR          Vector with Parameters  read in single ion property file
+   sipffilename    file name of the single ion parameter file
+   g_J             Lande factor
+   T               Temperature[K]
+   Hxc             vector of exchange field [meV] (can be n-dimensional, for a set of n operators)
+   Hext            external magnetic field [T]
+   est             eigenstate matrix (initialized by estates)
+                   it should/may also contain population numbers of the states
+				   (imaginary part of row 0)
+                   and eigenvalues (real part of row 0) with values set by the most recent call
+				   for this ion (use of this matrix is optional)
+   u1(1)           ninit + i pinit (from mcdisp options  -ninit and -pinit)
+   maxE            upper boundary for transition energy (meV) to be considered
+                   (from mcdisp option -maxE)
+on output
+   int             total number of transitions (normally =3 for the unperturbed 
+                   atomic Einstein oscillator in three 
+                   independent spatial directions, but may be larger if
+                   coupling of phonons to other degrees of freedom such as CEF
+                   is treated on a quantum mechanical level in the module)                   
+   P1              transition matrix element vector of the phonon displacement
+                   for an Einstein oscillator p1=hbar/sqrt(2m hbar Delta), 
+                   or more general if phonon levels are not equally spaced:
+                    P1=&lt;-|P-&lt;P&gt;|+&gt;sqrt((p- - p+))
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+The module function must perform the following tasks:
+</SPAN>
+<OL>
+<LI>check if the dimensions of vector Hxc (taken by <I CLASS="slanted">mcphas</I> from the number of 
+interaction constant columns in <I CLASS="slanted">mcphas.j<A ID="4304"></A></I>)
+ and MODPAR (taken by <I CLASS="slanted">mcphas</I> from the number of params in the single ion property
+file) agree with the module specifications. If the check fails the module function should exit the
+program with an appropriate error message
+</LI>
+<LI>the module function should do a numbering of all possible single ion transitions and return
+the total number of transitions as an integer. Input file parameters params are supplied as a vector MODPAR and
+Lande factor as g_J and  can be used for this purpose. The numbering will depend on
+the parameters ninit, pinit and maxE which are provided as input. These parameters
+have to be considered. <EM>IMPORTANT: the numbering scheme of transitions has to
+be the same for du1calc and all the corresponding d...1 functions for observables !</EM>
+</LI>
+<LI>for the transition number tn the vector p1 is to
+ be filled with the displacement transition matrix elements (Å)
+<!-- MATH
+ $\langle-|\hat P_{\alpha}|+\rangle=S_{tn,\alpha}\frac{\hbar}{\sqrt{2m\Delta_{tn}}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.68ex; vertical-align: -1.38ex; " SRC="img998.svg"
+ ALT="$\langle-\vert\hat P_{\alpha}\vert+\rangle=S_{tn,\alpha}\frac{\hbar}{\sqrt{2m\Delta_{tn}}}$"></SPAN>
+or more general
+<!-- MATH
+ ${\mathbf P1^s_{\alpha}}=\sqrt{(p_- -p_+)}\langle -|\hat P^s_{\alpha}-\langle\hat  P^s_{\alpha}\rangle_{\mathbf H,T}|+\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.13ex; vertical-align: -0.82ex; " SRC="img999.svg"
+ ALT="${\mathbf P1^s_{\alpha}}=\sqrt{(p_--p_+)}\langle -\vert\hat P^s_{\alpha}-\langle\hat P^s_{\alpha}\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>.
+</LI>
+<LI>If the energy of this transition
+is zero, i.e. <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img961.svg"
+ ALT="$\Delta(tn)=0$"></SPAN> (diffuse scattering), 
+the above expression  would be zero because <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img962.svg"
+ ALT="$(p_--p_+)$"></SPAN> vanishes.
+In this case the single ion module should calculate <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img963.svg"
+ ALT="$(p_+/kT)$"></SPAN> instead of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img962.svg"
+ ALT="$(p_--p_+)$"></SPAN>.
+</LI>
+<LI>if <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.90ex; vertical-align: -0.21ex; " SRC="img949.svg"
+ ALT="$T&lt;0$"></SPAN> all quantities should be evaluated assuming that all Boltzmann probabilities <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img219.svg"
+ ALT="$p_i$"></SPAN>
+ are zero except for the state number <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img950.svg"
+ ALT="$n=(-T)$"></SPAN>, for which the probability <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img951.svg"
+ ALT="$p_n=1$"></SPAN>.
+</LI>
+</OL><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node117.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node102.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node115.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html1002"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html1004"
+  HREF="node180.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node117.html">External module function pelcalc</A>
+<B> Up:</B> <A
+ HREF="node102.html">Module Functions for Observables</A>
+<B> Previous:</B> <A
+ HREF="node115.html">External module function pcalc</A>
+ &nbsp; <B>  <A ID="tex2html1003"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1005"
+  HREF="node180.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

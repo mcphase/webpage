@@ -1,16 +1,17 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Magnetic inelastic Scattering</TITLE>
+<TITLE>Crystal Field and Parameter Conventions</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node158.html">
 <LINK REL="previous" HREF="node156.html">
 <LINK REL="next" HREF="node158.html">
 </HEAD>
@@ -22,312 +23,746 @@
  HREF="node158.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node155.html">
+ HREF="manual.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node156.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1139"
-  HREF="node7.html">
+<A ID="tex2html1186"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1141"
-  HREF="node164.html">
+<A ID="tex2html1188"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node158.html">Dipole Approximation</A>
+ HREF="node158.html">Tesseral Harmonics</A>
 <B> Up:</B> <A
- HREF="node155.html">Application to Neutron scattering</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node156.html">Coherent Nuclear Inelastic Scattering</A>
- &nbsp; <B>  <A ID="tex2html1140"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1142"
-  HREF="node164.html">Index</A></B> 
+ HREF="node156.html">ErNiBC - single ion</A>
+ &nbsp; <B>  <A ID="tex2html1187"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1189"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION000374200000000000000">
-Magnetic inelastic Scattering</A>
-</H3>
-
-<P>
-Similar, the magnetic inelastic scattering is given by
-
-<P>
+<H1><A ID="SECTION000280000000000000000"></A><A ID="cfparconventions"></A>
 <BR>
-<DIV CLASS="displaymath"><A ID="Sinelperp"></A>
-<!-- MATH
- \begin{eqnarray}
-S_{\rm mag\perp}^{\rm inel,\alpha\beta}(\mathbf Q,\omega)&=&\left( \frac{ \gamma r_0}{2 \mu_B}  \right)^2
-\frac{1}{2\pi\hbar}\int_{-\infty}^{+\infty}dt e^{i\omega t}
-\frac{1}{N}\sum_{nn'} e^{-W_n(Q)- W_{n'}(Q)}\\
-&\times&  e^{-i\mathbf Q \cdot (\mathbf R_n-\mathbf R_{n'})}   (\langle \hat M_{\perp\alpha}^{n \dag }(t,\mathbf Q)  \hat M_{\perp\beta}^{n'}(0,\mathbf Q) \rangle_{T,H}
-- \langle \hat M^{n \dag }_{\perp\alpha}(\mathbf Q)\rangle_{T,H} \langle \hat M^{n'}_{\perp\beta}(\mathbf Q) \rangle_{T,H})\nonumber
-\end{eqnarray}
- -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 3.42ex; vertical-align: -1.13ex; " SRC="img1576.svg"
- ALT="$\displaystyle S_{\rm mag\perp}^{\rm inel,\alpha\beta}(\mathbf Q,\omega)$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 4.87ex; vertical-align: -3.12ex; " SRC="img1577.svg"
- ALT="$\displaystyle \left( \frac{ \gamma r_0}{2 \mu_B} \right)^2
-\frac{1}{2\pi\hbar}\...
-...-\infty}^{+\infty}dt e^{i\omega t}
-\frac{1}{N}\sum_{nn'} e^{-W_n(Q)- W_{n'}(Q)}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">259</SPAN>)</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img128.svg"
- ALT="$\textstyle \times$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 3.01ex; vertical-align: -1.01ex; " SRC="img1578.svg"
- ALT="$\displaystyle e^{-i\mathbf Q \cdot (\mathbf R_n-\mathbf R_{n'})} (\langle \hat ...
-...thbf Q)\rangle_{T,H} \langle \hat M^{n'}_{\perp\beta}(\mathbf Q) \rangle_{T,H})$"></TD><TD class="rfill">&nbsp;</TD></TR>
-</TABLE></DIV>
-
+Crystal Field and Parameter Conventions
+</H1><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-The total magnetic cross section is <!-- MATH
- $4\pi (\gamma r_0)^2=4\pi\left(\frac{\hbar \gamma e^2}{mc^2}\right)^2
-=3.65$
- -->
+<SPAN CLASS="SMALL">For historical reasons, crystal field parameters (effectively the radial matrix elements of the crystal field
+interactions) may be expressed in two different "normalisation", which we shall call <SPAN  CLASS="textit">Stevens</SPAN> and 
+<SPAN  CLASS="textit">Wybourne</SPAN>. Stevens&nbsp;[<A
+ HREF="node179.html#stevens52-209">65</A>,<A
+ HREF="node179.html#hutchings64-227">27</A>] initially expressed the radial parts of the crystal field interaction
+in terms of angular momentum operators <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1395.svg"
+ ALT="$J_x$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img1396.svg"
+ ALT="$J_y$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1029.svg"
+ ALT="$J_z$"></SPAN>. He did this by taking the Cartesian expressions for 
+the tesseral harmonic functions (see Appendix&nbsp;<A HREF="node158.html#tesseral">F</A>), and replacing all instances of the coordinates
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.54ex; vertical-align: -1.63ex; " SRC="img1579.svg"
- ALT="$4\pi (\gamma r_0)^2=4\pi\left(\frac{\hbar \gamma e^2}{mc^2}\right)^2
-=3.65$"></SPAN>&nbsp;barn. 
-In (<A HREF="#Sinelperp">275</A>) the first term in the bracket corresponds to the total and the second term to the elastic
-scattering.
-If we split the index <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
- ALT="$n$"></SPAN> into basis and 
-lattice part <!-- MATH
- $n=(\ensuremath{\boldsymbol\ell},s)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.74ex; vertical-align: -0.70ex; " SRC="img1568.svg"
- ALT="$n=(\ensuremath{\boldsymbol\ell},s)$"></SPAN> and 
-compare equation&nbsp;(<A HREF="node153.html#sigmass">248</A>), we see that the scattering function depends on the correlation function between the magnetisation operator
-<!-- MATH
- $\hat \mathbf M_{\perp}(\mathbf Q)=\hat \mathbf M(\mathbf Q)-\mathbf Q (\hat \mathbf M_{\perp}(\mathbf Q) \cdot \mathbf Q)/Q^2$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 7.28ex; vertical-align: -0.70ex; " SRC="img1580.svg"
- ALT="$\hat \mathbf M_{\perp}(\mathbf Q)=\hat \mathbf M(\mathbf Q)-\mathbf Q (\hat \mathbf M_{\perp}(\mathbf Q) \cdot \mathbf Q)/Q^2$"></SPAN>, which is the observable in the case of magnetic neutron scattering 
-(<!-- MATH
- $\mathcal O \leftrightarrow \frac{ \gamma r_0}{2 \mu_B}  e^{-W(Q)} \hat \mathbf M_{\perp}(\mathbf Q)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 8.72ex; vertical-align: -1.23ex; " SRC="img1581.svg"
- ALT="$\mathcal O \leftrightarrow \frac{ \gamma r_0}{2 \mu_B} e^{-W(Q)} \hat \mathbf M_{\perp}(\mathbf Q)$"></SPAN>).
-
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img4.svg"
+ ALT="$x$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img251.svg"
+ ALT="$y$"></SPAN>, and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img238.svg"
+ ALT="$z$"></SPAN> with <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1395.svg"
+ ALT="$J_x$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img1396.svg"
+ ALT="$J_y$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1029.svg"
+ ALT="$J_z$"></SPAN> and allowing for the commutation relations of the angular
+momentum operators, but without considering the normalisation condition of these functions and hence are missing
+the prefactors before the square brackets in the expressions in Appendix&nbsp;<A HREF="node158.html#tesseral">F</A>. We denote these
+prefactors <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img36.svg"
+ ALT="$p_{lm}$"></SPAN>. The Stevens crystal field Hamiltonian is thus
+</SPAN>
 <P>
-
+<SPAN CLASS="SMALL"></SPAN>
 <DIV CLASS="displaymath">
-
 <!-- MATH
- \begin{equation}
-S_{\rm mag\perp}^{\rm inel,\alpha\beta}(\mathbf Q,\omega)=
-\sum_{ss'}
-  \frac{{\Sigma^{ss'}_{\alpha\beta}}({\mathbf Q},\omega)}{2\pi \hbar N_b} 
-\end{equation}
+ \begin{displaymath}
+\mathcal{H}_{\mathrm{cf}} = \sum_{l,m} A_{lm} \langle r^l \rangle \langle J || \theta_l || J \rangle \hat{O}_l^m (J)
+\end{displaymath}
  -->
- &nbsp;  <A ID="sinelmag"></A><IMG
- STYLE="height: 3.70ex; vertical-align: -3.12ex; " SRC="img1582.svg"
- ALT="$\displaystyle
-S_{\rm mag\perp}^{\rm inel,\alpha\beta}(\mathbf Q,\omega)=
-\sum_{ss'}
-\frac{{\Sigma^{ss'}_{\alpha\beta}}({\mathbf Q},\omega)}{2\pi \hbar N_b}
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">260</SPAN>)</SPAN>
+
+<IMG
+ STYLE="height: 5.99ex; vertical-align: -3.46ex; " SRC="img1397.svg"
+ ALT="$\displaystyle \mathcal{H}_{\mathrm{cf}} = \sum_{l,m} A_{lm} \langle r^l \rangle \langle J \vert\vert \theta_l \vert\vert J \rangle \hat{O}_l^m (J)
+$">
 </DIV>
-
+<SPAN CLASS="SMALL">
+</SPAN>
 <P>
+<SPAN CLASS="SMALL">where the product <!-- MATH
+ $A_{lm} \langle r^l \rangle$
+ -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.70ex; vertical-align: -0.70ex; " SRC="img1572.svg"
- ALT="$W_s(Q)$"></SPAN> is  the Debye-Waller
-factor of the atom number <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img135.svg"
- ALT="$s$"></SPAN> in the magnetic unit cell<A ID="tex2html71"
-  HREF="footnode.html#foot8897"><SUP><SPAN CLASS="arabic">28</SPAN></SUP></A>. <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img179.svg"
- ALT="$N_b$"></SPAN> denotes the number of magnetic
-atoms in the magnetic unit cell.
-Therefore, if the generalised eigenvalue problem (<A HREF="node152.html#evproblem">245</A>) for the dynamical matrix
-has been solved, the magnetic neutron scattering function can
-be  evaluated with the help of equations (<A HREF="node153.html#fluctdissbeyond">249</A>) and (<A HREF="node153.html#Xcalc">257</A>):
-
-<P>
-<BR>
-<DIV CLASS="displaymath"><A ID="sinelmagfinal"></A>
+ STYLE="height: 2.78ex; vertical-align: -0.70ex; " SRC="img1398.svg"
+ ALT="$A_{lm} \langle r^l \rangle$"></SPAN> is commonly taken in the literature as the crystal
+field parameter, because the factorisation into an intrinsic parameter <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1399.svg"
+ ALT="$A_{lm}$"></SPAN> and the expectation value of
+the radial wavefunction <!-- MATH
+ $\langle r^l \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -0.70ex; " SRC="img873.svg"
+ ALT="$\langle r^l \rangle$"></SPAN> is derived from the point charge model and is not generally
+valid. Alternatively, 
+the product <!-- MATH
+ $B_l^m = A_{lm} \langle r^l \rangle \langle J || \theta_l || J \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.85ex; vertical-align: -0.77ex; " SRC="img1400.svg"
+ ALT="$B_l^m = A_{lm} \langle r^l \rangle \langle J \vert\vert \theta_l \vert\vert J \rangle$"></SPAN> is
+also commonly used, particularly in the neutron scattering literature. 
 <!-- MATH
- \begin{eqnarray}
-S_{\rm mag\perp}^{\rm inel,\alpha\beta}(\mathbf Q,\omega)&=&
-\sum_{r,ss'}
-\frac{(\sqrt{\Gamma_{\rm mag}^s(\mathbf Q)})^\ast\sqrt{\Gamma_{\rm mag}^{s'}(\mathbf Q)} }
-{N_b(1-e^{-\hbar{\omega^r}(\mathbf Q)/kT})} \times \\\nonumber
-&& \times \mathcal V^s_{{\rm mag},\alpha1}(\mathbf Q)
-{ \mathcal T^{sr}}(\mathbf Q)\hbar {\omega^r}(\mathbf Q)
- \delta(\hbar {\omega^r}(\mathbf Q) - 
-\hbar \omega) {\mathcal T^{rs'\dag }}(\mathbf Q) 
-\mathcal V^{s'\dag }_{{\rm mag},1\beta}(\mathbf Q)
-\end{eqnarray}
+ $\theta_l= \langle J || \theta_l || J \rangle$
  -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 3.42ex; vertical-align: -1.13ex; " SRC="img1576.svg"
- ALT="$\displaystyle S_{\rm mag\perp}^{\rm inel,\alpha\beta}(\mathbf Q,\omega)$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 3.08ex; vertical-align: -3.44ex; " SRC="img1583.svg"
- ALT="$\displaystyle \sum_{r,ss'}
-\frac{(\sqrt{\Gamma_{\rm mag}^s(\mathbf Q)})^\ast\sq...
-...{\rm mag}^{s'}(\mathbf Q)} }
-{N_b(1-e^{-\hbar{\omega^r}(\mathbf Q)/kT})} \times$"></TD><TD class="rfill">(<SPAN CLASS="arabic">261</SPAN>)</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 2.29ex; vertical-align: -1.13ex; " SRC="img1584.svg"
- ALT="$\displaystyle \times \mathcal V^s_{{\rm mag},\alpha1}(\mathbf Q)
-{ \mathcal T^{...
-...cal T^{rs'\dag }}(\mathbf Q)
-\mathcal V^{s'\dag }_{{\rm mag},1\beta}(\mathbf Q)$"></TD><TD class="rfill">&nbsp;</TD></TR>
-</TABLE></DIV>
-
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1401.svg"
+ ALT="$\theta_l= \langle J \vert\vert \theta_l \vert\vert J \rangle$"></SPAN> are the Stevens 
+factors:  for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img1402.svg"
+ ALT="$l=0,2,4,6$"></SPAN> these correspond to the number of electrons 
+in the unfilled shell <!-- MATH
+ $\nu,\alpha_J,\beta_J,\gamma_J$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img1403.svg"
+ ALT="$\nu,\alpha_J,\beta_J,\gamma_J$"></SPAN>, respectively.
+</SPAN>
 <P>
-Once the eigenvectors <!-- MATH
- $\underline{\mathcal T}$
+<SPAN CLASS="SMALL">Wybourne&nbsp;[<A
+ HREF="node179.html#wybourne65">54</A>] and subsequent co-authors on the other hand chose to use the tensor operators 
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img1404.svg"
+ ALT="$\hat{C}_{lm}$"></SPAN> which transform in the same way as the functions <!-- MATH
+ $C_{lm}(\theta,\phi) = \sqrt{4\pi / (2l+1)}
+Y_{lm}(\theta,\phi)$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 6.43ex; vertical-align: -0.58ex; " SRC="img1453.svg"
- ALT="$\underline{\mathcal T}$"></SPAN> of the system have been determined, this expression can be 
- evaluated. 
-<I CLASS="slanted">mcdisp</I> evaluates for every mode the expression (<A HREF="#sinelmagfinal">277</A>) with exception
-of the <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1370.svg"
- ALT="$\delta$"></SPAN>-function and multiplies it by <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img124.svg"
- ALT="$k'/k$"></SPAN> in order to get the nuclear Intensity <SPAN CLASS="MATH"><IMG
- STYLE="height: 7.05ex; vertical-align: -0.46ex; " SRC="img1575.svg"
- ALT="$I_{\rm nuc}$"></SPAN> in
-barns/meV formula unit. In addition, the components of the magnetic scattering function
+ STYLE="height: 3.10ex; vertical-align: -0.82ex; " SRC="img1405.svg"
+ ALT="$C_{lm}(\theta,\phi) = \sqrt{4\pi / (2l+1)}
+Y_{lm}(\theta,\phi)$"></SPAN>, where <!-- MATH
+ $Y_{lm}(\theta,\phi)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1406.svg"
+ ALT="$Y_{lm}(\theta,\phi)$"></SPAN> are the spherical harmonic functions, to describe the crystal
+field. Thus the angular-dependent part of the crystal field matrix elements used by Wybourne differed from
+that of Stevens by the factor <!-- MATH
+ $\lambda_{l0} = p_{l0} \sqrt{4\pi / (2l+1)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.10ex; vertical-align: -0.82ex; " SRC="img1407.svg"
+ ALT="$\lambda_{l0} = p_{l0} \sqrt{4\pi / (2l+1)}$"></SPAN> and
+ <!-- MATH
+ $\lambda_{lm} = p_{lm} \sqrt{8\pi / (2l+1)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.10ex; vertical-align: -0.82ex; " SRC="img1408.svg"
+ ALT="$\lambda_{lm} = p_{lm} \sqrt{8\pi / (2l+1)}$"></SPAN> for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img1409.svg"
+ ALT="$l\neq 0$"></SPAN>. The crystal field Hamiltonian used by Wybourne is
+thus (in our notation)
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV CLASS="displaymath">
 <!-- MATH
- $S_{\rm mag}^{\rm inel,\alpha\beta}(\mathbf Q,\omega)$
+ \begin{displaymath}
+\mathcal{H}_{\mathrm{cf}} = \sum_{l,m} D_l^{m} \hat{C}_{lm}
+\end{displaymath}
+ -->
+
+<IMG
+ STYLE="height: 5.99ex; vertical-align: -3.46ex; " SRC="img1410.svg"
+ ALT="$\displaystyle \mathcal{H}_{\mathrm{cf}} = \sum_{l,m} D_l^{m} \hat{C}_{lm}
+$">
+</DIV>
+<SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">The disadvantage of the Wybourne approach is that one requires imaginary crystal field parameters, because the
+tensor operators <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img1404.svg"
+ ALT="$\hat{C}_{lm}$"></SPAN> are not Hermitian. In <I CLASS="slanted">McPhase</I>, we have instead chosen to use slightly
+different tensor operators <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img1411.svg"
+ ALT="$\hat{T}_{lm}$"></SPAN>, which are the Hermitian combinations of the <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img1404.svg"
+ ALT="$\hat{C}_{lm}$"></SPAN>,
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV CLASS="displaymath">
+<!-- MATH
+ \begin{displaymath}
+\hat{T}_{l0} = \hat{C}_{l0}, \qquad \hat{T}_{l,\pm|m|} = \sqrt{\pm 1} \left[ \hat{C}_{l,-|m|} \pm (-1)^{|m|} \hat{C}_{l,|m|} \right]
+\end{displaymath}
+ -->
+
+<IMG
+ STYLE="height: 4.40ex; vertical-align: -1.63ex; " SRC="img1412.svg"
+ ALT="$\displaystyle \hat{T}_{l0} = \hat{C}_{l0}, \qquad \hat{T}_{l,\pm\vert m\vert} =...
+...C}_{l,-\vert m\vert} \pm (-1)^{\vert m\vert} \hat{C}_{l,\vert m\vert} \right]
+$">
+</DIV>
+<SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">giving the Hamiltonian
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV CLASS="displaymath">
+<!-- MATH
+ \begin{displaymath}
+\mathcal{H}_{\mathrm{cf}} = \sum_{l,m} L_l^m \hat{T}_{lm}
+\end{displaymath}
+ -->
+
+<IMG
+ STYLE="height: 5.99ex; vertical-align: -3.46ex; " SRC="img1413.svg"
+ ALT="$\displaystyle \mathcal{H}_{\mathrm{cf}} = \sum_{l,m} L_l^m \hat{T}_{lm}
+$">
+</DIV>
+<SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Our <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img114.svg"
+ ALT="$L_l^m$"></SPAN> parameters therefore have the same normalisation as the Wybourne parameters but will be real.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">In summary:
+</SPAN>
+<OL>
+<LI>the various types of crystal field parameters are given in 
+table&nbsp;<A HREF="#cfpartypes">6</A>.
+</LI>
+<LI>crystal field parameters may have different units, in <I CLASS="slanted">
+McPhase</I> we use meV.
+</LI>
+<LI>crystal field coordinate systems used in literature may be 
+different from the convention used by single ion modules <I CLASS="slanted">so1ion,ic1ion,icf1ion</I>,
+which is the crystal field axes <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img6.svg"
+ ALT="$xyz$"></SPAN> are such that <!-- MATH
+ $x||a,y||b,z||c$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -1.01ex; " SRC="img1585.svg"
- ALT="$S_{\rm mag}^{\rm inel,\alpha\beta}(\mathbf Q,\omega)$"></SPAN> can be output (to be used to interpret
-polarised magnetic neutron scattering).<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.26ex; vertical-align: -0.57ex; " SRC="img1586.svg"
- ALT="$\alpha,\beta$"></SPAN> then refer to either the xyz coordinate system
-(<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img390.svg"
- ALT="$y\vert\vert b$"></SPAN>,<!-- MATH
- $z||(a \times b)$
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1414.svg"
+ ALT="$x\vert\vert a,y\vert\vert b,z\vert\vert c$"></SPAN> in case
+of orthogonal lattices and in case of non-orthogonal axes 
+the convention is <SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img249.svg"
+ ALT="$y\vert\vert\vec b$"></SPAN>, <!-- MATH
+ $z||(\vec a \times \vec b)$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img391.svg"
- ALT="$z\vert\vert(a \times b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img250.svg"
+ ALT="$z\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
  STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img4.svg"
  ALT="$x$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img171.svg"
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img251.svg"
  ALT="$y$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img158.svg"
- ALT="$z$"></SPAN>)
-or the uvw coordinate system 
-(<!-- MATH
- $\mathbf u||\mathbf Q=\mathbf k- \mathbf k'$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.26ex; vertical-align: -0.70ex; " SRC="img1587.svg"
- ALT="$\mathbf u\vert\vert\mathbf Q=\mathbf k- \mathbf k'$"></SPAN>,<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.01ex; vertical-align: -0.12ex; " SRC="img1588.svg"
- ALT="$\mathbf w$"></SPAN> perpendicular to the scattering plane (as determined by the cross product of
-subsequent vectors in the input q-vector list of <I CLASS="slanted">mcdisp</I>)
- and <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.01ex; vertical-align: -0.12ex; " SRC="img1589.svg"
- ALT="$\mathbf v$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.26ex; vertical-align: -0.12ex; " SRC="img569.svg"
- ALT="$\mathbf u$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.01ex; vertical-align: -0.12ex; " SRC="img1588.svg"
- ALT="$\mathbf w$"></SPAN>, such that uvw for a righthanded system).
-
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img238.svg"
+ ALT="$z$"></SPAN>.
+</LI>
+</OL><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-Form factor effects on the scattering intensity are
- due to the <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.27ex; vertical-align: -0.57ex; " SRC="img289.svg"
- ALT="$\mathbf Q$"></SPAN>-dependence of the magnetisation operator, which means that
-the transformation matrices <!-- MATH
- $\overline{\mathcal V}^s$
+<SPAN CLASS="SMALL"></SPAN>
+<BR><P></P>
+<DIV class="CENTER"><A ID="cfpartypes"></A><A ID="9898"></A>
+<TABLE>
+<CAPTION><STRONG>Table:</STRONG>
+Different Crystal Field Parameter Notation Schemes in Literature.
+Here half(<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img26.svg"
+ ALT="$m$"></SPAN>) = <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.98ex; vertical-align: -0.92ex; " SRC="img27.svg"
+ ALT="$\frac {1}{2}$"></SPAN> when <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img28.svg"
+ ALT="$m\neq 0$"></SPAN> and half(<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img26.svg"
+ ALT="$m$"></SPAN>)=1 when <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img29.svg"
+ ALT="$m=0$"></SPAN>.
+Note that <I CLASS="slanted">lm</I> should be replaced by numbers - e.g. an example of Alm is <I CLASS="slanted">A20</I>, and that
+the operator equivalent factor <!-- MATH
+ $\langle J || \theta_l || J \rangle$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.29ex; vertical-align: -0.12ex; " SRC="img1490.svg"
- ALT="$\overline{\mathcal V}^s$"></SPAN>
- and the eigenvalues <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.94ex; vertical-align: -0.12ex; " SRC="img1505.svg"
- ALT="$\Gamma^s$"></SPAN> are also
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.27ex; vertical-align: -0.57ex; " SRC="img289.svg"
- ALT="$\mathbf Q$"></SPAN>-dependent.  These quantities have
- to be calculated by evaluating the transition
-matrix elements<A ID="tex2html72"
-  HREF="footnode.html#foot9057"><SUP><SPAN CLASS="arabic">29</SPAN></SUP></A> 
-of <!-- MATH
- $\hat \mathbf M_{\perp}(\mathbf Q)$
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img30.svg"
+ ALT="$\langle J \vert\vert \theta _l \vert\vert J \rangle $"></SPAN>&nbsp;[<A
+ HREF="node179.html#hutchings64-227">27</A>] should be <!-- MATH
+ $\langle L || \theta_l || L
+\rangle$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1590.svg"
- ALT="$\hat \mathbf M_{\perp}(\mathbf Q)$"></SPAN> for every 
-scattering vector <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.27ex; vertical-align: -0.57ex; " SRC="img289.svg"
- ALT="$\mathbf Q$"></SPAN> 
-and diagonalising the matrix (<A HREF="node153.html#mumatrix">253</A>) 
-with <!-- MATH
- $\mathcal O \leftrightarrow \hat \mathbf M_{\perp}(\mathbf Q)$
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img31.svg"
+ ALT="$\langle L \vert\vert \theta _l \vert\vert L \rangle $"></SPAN> for an <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img32.svg"
+ ALT="$L$"></SPAN>-manifold which is the default for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img33.svg"
+ ALT="$d$"></SPAN>-electron ions&nbsp;[<A
+ HREF="node179.html#abragam70-1">57</A>]. The constants <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img34.svg"
+ ALT="$\lambda _{lm}$"></SPAN>
+are given in table&nbsp;<A HREF="#tab:wytostev">7</A>.</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<TABLE class="PAD  BORDER" style="">
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT">Literature</TD>
+<TD CLASS="RIGHT">Parameter</TD>
+<TD CLASS="LEFT">Relation to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img114.svg"
+ ALT="$L_l^m$"></SPAN></TD>
+<TD CLASS="LEFT">Normalisation</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="RIGHT">name in</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="RIGHT"><I CLASS="slanted">McPhase</I></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img1415.svg"
+ ALT="$A_l^m$"></SPAN> in Hutchings 1964&nbsp;[<A
+ HREF="node179.html#hutchings64-227">27</A>]</TD>
+<TD CLASS="RIGHT">Alm</TD>
+<TD CLASS="LEFT">=           <!-- MATH
+ $\lambda_{lm} L_l^m /\langle r^l \rangle$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img1591.svg"
- ALT="$\mathcal O \leftrightarrow \hat \mathbf M_{\perp}(\mathbf Q)$"></SPAN>.
-For small <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.26ex; vertical-align: -0.57ex; " SRC="img123.svg"
- ALT="$Q$"></SPAN> this procedure can be simplified by using the dipole approximation,
-which is described below.
+ STYLE="height: 2.85ex; vertical-align: -0.77ex; " SRC="img1416.svg"
+ ALT="$\lambda_{lm} L_l^m /\langle r^l \rangle$"></SPAN></TD>
+<TD CLASS="LEFT">Stevens</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img1415.svg"
+ ALT="$A_l^m$"></SPAN> in Kassman 1970&nbsp;[<A
+ HREF="node179.html#kassman70-4118">66</A>]</TD>
+<TD CLASS="RIGHT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img1415.svg"
+ ALT="$A_l^m$"></SPAN> in Abragam 1970&nbsp;[<A
+ HREF="node179.html#abragam70-1">57</A>]</TD>
+<TD CLASS="RIGHT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img41.svg"
+ ALT="$B_l^m$"></SPAN> in Hutchings 1964&nbsp;[<A
+ HREF="node179.html#hutchings64-227">27</A>]</TD>
+<TD CLASS="RIGHT">Blm</TD>
+<TD CLASS="LEFT">=           <!-- MATH
+ $\left \{ \begin{array}{lr}  \lambda_{lm} L_l^m \langle J || \theta_l || J \rangle & {\rm for~rare~earth} \\
+                                                                          \lambda_{lm} L_l^m \langle L || \theta_l || L \rangle & {\rm for~trans~metals}
+		                                       \end{array} \right .$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 5.79ex; vertical-align: -2.32ex; " SRC="img1417.svg"
+ ALT="$\left \{ \begin{array}{lr} \lambda_{lm} L_l^m \langle J \vert\vert \theta_l \ve...
+...t \theta_l \vert\vert L \rangle &amp; {\rm for~trans~metals}
+\end{array} \right .$"></SPAN></TD>
+<TD CLASS="LEFT">Stevens</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img41.svg"
+ ALT="$B_l^m$"></SPAN> in Jensen 1991&nbsp;[<A
+ HREF="node179.html#jensen91-1">1</A>]</TD>
+<TD CLASS="RIGHT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.69ex; " SRC="img1418.svg"
+ ALT="$B^l_m$"></SPAN> in Mulak 2000&nbsp;[<A
+ HREF="node179.html#mulak00-1">67</A>]</TD>
+<TD CLASS="RIGHT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.69ex; " SRC="img1418.svg"
+ ALT="$B^l_m$"></SPAN> in FOCUS</TD>
+<TD CLASS="RIGHT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.69ex; " SRC="img1418.svg"
+ ALT="$B^l_m$"></SPAN> in AMOS</TD>
+<TD CLASS="RIGHT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img1419.svg"
+ ALT="$V_l^m$"></SPAN> in Elliott 1953&nbsp;[<A
+ HREF="node179.html#elliott53-387">68</A>]</TD>
+<TD CLASS="RIGHT">&nbsp;</TD>
+<TD CLASS="LEFT">=           <!-- MATH
+ $\lambda_{lm} L_l^m$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.49ex; vertical-align: -0.77ex; " SRC="img1420.svg"
+ ALT="$\lambda_{lm} L_l^m $"></SPAN></TD>
+<TD CLASS="LEFT">Stevens</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="RIGHT">Wlm</TD>
+<TD CLASS="LEFT">= half(<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img26.svg"
+ ALT="$m$"></SPAN>) <!-- MATH
+ $\lambda_{lm} L_l^m /\langle r^l \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.85ex; vertical-align: -0.77ex; " SRC="img1416.svg"
+ ALT="$\lambda_{lm} L_l^m /\langle r^l \rangle$"></SPAN></TD>
+<TD CLASS="LEFT">Stevens</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="RIGHT">Vlm</TD>
+<TD CLASS="LEFT">= half(<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img26.svg"
+ ALT="$m$"></SPAN>) <!-- MATH
+ $\lambda_{lm} L_l^m \langle J || \theta_l || J \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.62ex; vertical-align: -0.77ex; " SRC="img1421.svg"
+ ALT="$\lambda_{lm} L_l^m \langle J \vert\vert \theta_l \vert\vert J \rangle$"></SPAN></TD>
+<TD CLASS="LEFT">Stevens</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="RIGHT">Llm</TD>
+<TD CLASS="LEFT">=           <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img114.svg"
+ ALT="$L_l^m$"></SPAN></TD>
+<TD CLASS="LEFT">Wybourne</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><!-- MATH
+ $\begin{array}{l}B^l_0 \\B^l_m(c) \\B^l_m(s) \end{array}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 8.62ex; vertical-align: -3.75ex; " SRC="img1422.svg"
+ ALT="$\begin{array}{l}B^l_0 \\ B^l_m(c) \\ B^l_m(s) \end{array} $"></SPAN> in SPECTRE</TD>
+<TD CLASS="RIGHT">&nbsp;</TD>
+<TD CLASS="LEFT">=           <!-- MATH
+ $\left \{ \begin{array}{l}L_l^0 \\L_l^m \\-L_l^{-m} \end{array} \right .$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 8.61ex; vertical-align: -3.74ex; " SRC="img1423.svg"
+ ALT="$\left \{ \begin{array}{l}L_l^0 \\ L_l^m \\ -L_l^{-m} \end{array} \right .$"></SPAN> with <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.21ex; " SRC="img40.svg"
+ ALT="$m&gt;0$"></SPAN></TD>
+<TD CLASS="LEFT">Wybourne</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.69ex; " SRC="img1424.svg"
+ ALT="$B_m^l$"></SPAN> in Wybourne 1965&nbsp;[<A
+ HREF="node179.html#wybourne65">54</A>]<A ID="tex2html71"
+  HREF="footnode.html#foot6653"><SUP><SPAN CLASS="arabic">35</SPAN></SUP></A></TD>
+<TD CLASS="RIGHT">Dlm</TD>
+<TD CLASS="LEFT">=          <!-- MATH
+ $\left \{ \begin{array}{lr} L_l^0 & m=0 \\
+                                                                (-1)^m(L_l^m-iL_l^{-m}) & m >0 \\
+                                                                L_l^{-m}+iL_l^{m}      &m<0    \\
+\par\end{array}  \right .$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 8.66ex; vertical-align: -3.77ex; " SRC="img1425.svg"
+ ALT="$\left \{ \begin{array}{lr} L_l^0 &amp; m=0 \\
+(-1)^m(L_l^m-iL_l^{-m}) &amp; m &gt;0 \\
+L_l^{-m}+iL_l^{m} &amp;m&lt;0 \\
+\par\end{array} \right . $"></SPAN></TD>
+<TD CLASS="LEFT">Wybourne</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.69ex; " SRC="img1424.svg"
+ ALT="$B_m^l$"></SPAN> in Kassman 1970&nbsp;[<A
+ HREF="node179.html#kassman70-4118">66</A>]</TD>
+<TD CLASS="RIGHT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1426.svg"
+ ALT="$B_{lm}$"></SPAN> in Mulak 2000&nbsp;[<A
+ HREF="node179.html#mulak00-1">67</A>]</TD>
+<TD CLASS="RIGHT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1427.svg"
+ ALT="$Ak(),CAk()$"></SPAN> in XTLS</TD>
+<TD CLASS="RIGHT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.69ex; " SRC="img1424.svg"
+ ALT="$B_m^l$"></SPAN> in Newman 2000&nbsp;[<A
+ HREF="node179.html#newman00-1">69</A>]</TD>
+<TD CLASS="RIGHT">&nbsp;</TD>
+<TD CLASS="LEFT">=           <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.62ex; vertical-align: -0.77ex; " SRC="img1428.svg"
+ ALT="$(-1)^m L_l^m$"></SPAN></TD>
+<TD CLASS="LEFT">Wybourne</TD>
+</TR>
+</TABLE> 
 
+</DIV></TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR><SPAN CLASS="SMALL">
+</SPAN>
 <P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR><P></P>
+<DIV class="CENTER"><A ID="tab:wytostev"></A><A ID="10286"></A>
+<TABLE>
+<CAPTION><STRONG>Table:</STRONG>
+<SPAN  CLASS="textit">Ratios <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img34.svg"
+ ALT="$\lambda _{lm}$"></SPAN> of the Stevens to the real valued
+ Wybourne normalised parameters</SPAN>.
+<!-- MATH
+ $\lambda_{lm} \equiv B_l^m/(\theta_lL_l^m)= A_{lm}\langle r^l \rangle / L_l^m$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.85ex; vertical-align: -0.77ex; " SRC="img35.svg"
+ ALT="$\lambda _{lm} \equiv B_l^m/(\theta _lL_l^m)= A_{lm}\langle r^l \rangle / L_l^m$"></SPAN>. 
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img34.svg"
+ ALT="$\lambda _{lm}$"></SPAN> are related to the prefactors in the 
+tesseral harmonics (see appendix&nbsp;<A HREF="node158.html#tesseral">F</A>) <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img36.svg"
+ ALT="$p_{lm}$"></SPAN> by 
+<!-- MATH
+ $\lambda_{l0} =\sqrt{\frac{4\pi}{2l+1}}|p_{l0}|$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 4.49ex; vertical-align: -1.62ex; " SRC="img37.svg"
+ ALT="$\lambda _{l0} =\sqrt {\frac {4\pi }{2l+1}}\vert p_{l0}\vert$"></SPAN> and
+<!-- MATH
+ $\lambda_{lm} =\sqrt{\frac{8\pi}{2l+1}}|p_{lm}|$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 4.49ex; vertical-align: -1.62ex; " SRC="img38.svg"
+ ALT="$\lambda _{lm} =\sqrt {\frac {8\pi }{2l+1}}\vert p_{lm}\vert$"></SPAN> for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img28.svg"
+ ALT="$m\neq 0$"></SPAN>&nbsp;[<A
+ HREF="node179.html#newman00-1">69</A>, note that Newman on p.30, equ (2.7) defines
+his real valued Wybourne 
+parameters <!-- MATH
+ $B_m^l({\rm Newman})\equiv (-1)^m L_l^m$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.85ex; vertical-align: -0.77ex; " SRC="img1452.svg"
+ ALT="$B_m^l({\rm Newman})\equiv (-1)^m L_l^m$"></SPAN>].</CAPTION>
+<TR><TD>
+  <DIV class="CENTER">
+<TABLE class="PAD  BORDER" style="">
+<TR><TD CLASS="CENTER"></TD>
+<TD CLASS="CENTER" COLSPAN=7><SPAN><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1429.svg"
+ ALT="$\vert m\vert$"></SPAN></SPAN></TD>
+</TR>
+<TR><TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1430.svg"
+ ALT="$l$"></SPAN></TD>
+<TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img1431.svg"
+ ALT="$0$"></SPAN></TD>
+<TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img1432.svg"
+ ALT="$1$"></SPAN></TD>
+<TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img1433.svg"
+ ALT="$2$"></SPAN></TD>
+<TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img1434.svg"
+ ALT="$3$"></SPAN></TD>
+<TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img1435.svg"
+ ALT="$4$"></SPAN></TD>
+<TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img1436.svg"
+ ALT="$5$"></SPAN></TD>
+<TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img1437.svg"
+ ALT="$6$"></SPAN></TD>
+</TR>
+<TR><TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img1431.svg"
+ ALT="$0$"></SPAN></TD>
+<TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img1432.svg"
+ ALT="$1$"></SPAN></TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img1433.svg"
+ ALT="$2$"></SPAN></TD>
+<TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.98ex; vertical-align: -0.92ex; " SRC="img27.svg"
+ ALT="$\frac {1}{2}$"></SPAN></TD>
+<TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.64ex; vertical-align: -0.42ex; " SRC="img1438.svg"
+ ALT="$\sqrt{6}$"></SPAN></TD>
+<TD CLASS="CENTER"><!-- MATH
+ $\frac{1}{2}\sqrt{6}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.13ex; vertical-align: -0.92ex; " SRC="img1439.svg"
+ ALT="$\frac{1}{2}\sqrt{6}$"></SPAN></TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img1435.svg"
+ ALT="$4$"></SPAN></TD>
+<TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.98ex; vertical-align: -0.92ex; " SRC="img1440.svg"
+ ALT="$\frac{1}{8}$"></SPAN></TD>
+<TD CLASS="CENTER"><!-- MATH
+ $\frac{1}{2}\sqrt{5}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.13ex; vertical-align: -0.92ex; " SRC="img1441.svg"
+ ALT="$\frac{1}{2}\sqrt{5}$"></SPAN></TD>
+<TD CLASS="CENTER"><!-- MATH
+ $\frac{1}{4}\sqrt{10}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.13ex; vertical-align: -0.92ex; " SRC="img1442.svg"
+ ALT="$\frac{1}{4}\sqrt{10}$"></SPAN></TD>
+<TD CLASS="CENTER"><!-- MATH
+ $\frac{1}{2}\sqrt{35}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.13ex; vertical-align: -0.92ex; " SRC="img1443.svg"
+ ALT="$\frac{1}{2}\sqrt{35}$"></SPAN></TD>
+<TD CLASS="CENTER"><!-- MATH
+ $\frac{1}{8}\sqrt{70}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.13ex; vertical-align: -0.92ex; " SRC="img1444.svg"
+ ALT="$\frac{1}{8}\sqrt{70}$"></SPAN></TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img1437.svg"
+ ALT="$6$"></SPAN></TD>
+<TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.98ex; vertical-align: -0.92ex; " SRC="img1445.svg"
+ ALT="$\frac{1}{16}$"></SPAN></TD>
+<TD CLASS="CENTER"><!-- MATH
+ $\frac{1}{8}\sqrt{42}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.13ex; vertical-align: -0.92ex; " SRC="img1446.svg"
+ ALT="$\frac{1}{8}\sqrt{42}$"></SPAN></TD>
+<TD CLASS="CENTER"><!-- MATH
+ $\frac{1}{16}\sqrt{105}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.13ex; vertical-align: -0.92ex; " SRC="img1447.svg"
+ ALT="$\frac{1}{16}\sqrt{105}$"></SPAN></TD>
+<TD CLASS="CENTER"><!-- MATH
+ $\frac{1}{8}\sqrt{105}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.13ex; vertical-align: -0.92ex; " SRC="img1448.svg"
+ ALT="$\frac{1}{8}\sqrt{105}$"></SPAN></TD>
+<TD CLASS="CENTER"><!-- MATH
+ $\frac{3}{16}\sqrt{14}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.13ex; vertical-align: -0.92ex; " SRC="img1449.svg"
+ ALT="$\frac{3}{16}\sqrt{14}$"></SPAN></TD>
+<TD CLASS="CENTER"><!-- MATH
+ $\frac{3}{8}\sqrt{77}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.13ex; vertical-align: -0.92ex; " SRC="img1450.svg"
+ ALT="$\frac{3}{8}\sqrt{77}$"></SPAN></TD>
+<TD CLASS="CENTER"><!-- MATH
+ $\frac{1}{16}\sqrt{231}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.13ex; vertical-align: -0.92ex; " SRC="img1451.svg"
+ ALT="$\frac{1}{16}\sqrt{231}$"></SPAN></TD>
+</TR>
+</TABLE>
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR><SPAN CLASS="SMALL">
 
+</SPAN>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
 <A
  HREF="node158.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node155.html">
+ HREF="manual.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node156.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1139"
-  HREF="node7.html">
+<A ID="tex2html1186"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1141"
-  HREF="node164.html">
+<A ID="tex2html1188"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node158.html">Dipole Approximation</A>
+ HREF="node158.html">Tesseral Harmonics</A>
 <B> Up:</B> <A
- HREF="node155.html">Application to Neutron scattering</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node156.html">Coherent Nuclear Inelastic Scattering</A>
- &nbsp; <B>  <A ID="tex2html1140"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1142"
-  HREF="node164.html">Index</A></B> </DIV>
+ HREF="node156.html">ErNiBC - single ion</A>
+ &nbsp; <B>  <A ID="tex2html1187"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1189"
+  HREF="node180.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Nuclear Neutron Scattering Length</TITLE>
+<TITLE>The lattice dynamic terms </TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -28,48 +28,211 @@
 <A
  HREF="node77.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html738"
-  HREF="node7.html">
+<A ID="tex2html786"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html740"
-  HREF="node164.html">
+<A ID="tex2html788"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node79.html">Radial Wavefunction</A>
+ HREF="node79.html">The total Crystal field</A>
 <B> Up:</B> <A
- HREF="node74.html">Single Ion Modules</A>
+ HREF="node74.html">Crystal Field Phonon Interaction</A>
 <B> Previous:</B> <A
- HREF="node77.html">Debye Waller Factor</A>
- &nbsp; <B>  <A ID="tex2html739"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html741"
-  HREF="node164.html">Index</A></B> 
+ HREF="node77.html">Mixing term</A>
+ &nbsp; <B>  <A ID="tex2html787"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html789"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000164000000000000000">
-Nuclear Neutron Scattering Length</A>
-</H2>
-
+<H2><A ID="SECTION000144000000000000000">
+The lattice dynamic terms <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img16.svg"
+ ALT="$H_{E}+H_{int}$"></SPAN></A>
+</H2><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-In order to calculate nuclear neutron intensities properly, <I CLASS="slanted">mcdiff</I> has to
-be provided with the neutron scattering length in units of <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img798.svg"
- ALT="$10^{-14}$"></SPAN>&nbsp;m.
-<SPAN CLASS="FOOTNOTESIZE">
-</SPAN><PRE>
-#-------------------------------------------------------
-# Neutron Scattering Length (10^-12 cm) (can be complex)
-#-------------------------------------------------------
-SCATTERINGLENGTHREAL=0.769
-SCATTERINGLENGTHIMAG=0
-#  ... note: - if an occupancy other than 1.0 is needed, just reduce 
-#              the scattering length linear accordingly
-</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
-
+<SPAN CLASS="SMALL">Coming back to equations (<A HREF="node74.html#Ur2">104</A>) and (<A HREF="node74.html#U2">105</A>) we rewrite 
+the terms quadratic in the phonon displacement operators 
+</SPAN>
 <P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{eqnarray}
+(\mathbf R_{ij}^T \hat \mathbf P_{ij})^2&=&\sum_{\alpha,\beta=1,2,3} R_{ij}^{\alpha}R_{ij}^{\beta}(\hat P_{j}^{\alpha}-\hat P_{i}^{\alpha})(\hat P_{j}^{\beta}-\hat P_{i}^{\beta})
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 3.32ex; vertical-align: -1.01ex; " SRC="img781.svg"
+ ALT="$\displaystyle (\mathbf R_{ij}^T \hat \mathbf P_{ij})^2$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.99ex; vertical-align: -3.46ex; " SRC="img782.svg"
+ ALT="$\displaystyle \sum_{\alpha,\beta=1,2,3} R_{ij}^{\alpha}R_{ij}^{\beta}(\hat P_{j}^{\alpha}-\hat P_{i}^{\alpha})(\hat P_{j}^{\beta}-\hat P_{i}^{\beta})$"></TD><TD class="rfill">(<SPAN CLASS="arabic">115</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{eqnarray}
+\hat \mathbf P_{ij}^T \hat \mathbf P_{ij}&=&\sum_{\alpha=1,2,3} (\hat P_{j}^{\alpha}-\hat P_{i}^{\alpha})^2 \nonumber \\
+&=& \sum_{\alpha=1,2,3} (\hat P_{j}^{\alpha})^2 +(\hat P_{i}^{\alpha})^2- 2 \hat P_{i}^{\alpha} \hat P_{j}^{\alpha}
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 3.32ex; vertical-align: -1.01ex; " SRC="img783.svg"
+ ALT="$\displaystyle \hat \mathbf P_{ij}^T \hat \mathbf P_{ij}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.91ex; vertical-align: -3.38ex; " SRC="img784.svg"
+ ALT="$\displaystyle \sum_{\alpha=1,2,3} (\hat P_{j}^{\alpha}-\hat P_{i}^{\alpha})^2$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.91ex; vertical-align: -3.38ex; " SRC="img785.svg"
+ ALT="$\displaystyle \sum_{\alpha=1,2,3} (\hat P_{j}^{\alpha})^2 +(\hat P_{i}^{\alpha})^2- 2 \hat P_{i}^{\alpha} \hat P_{j}^{\alpha}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">116</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">The single ion Hamiltonian <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img710.svg"
+ ALT="$H_{\rm E}$"></SPAN> is similar to the linear chain, in general
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{eqnarray}
+\hat H_{\rm E}&=& \sum_{i} \hat H_{\rm E}(i) \nonumber \\
+ \hat H_{\rm E}(i)&\equiv&\frac{a_0^2 \hat \mathbf w_i^2}{2 m_i} -\frac{1}{2} 
+\sum_{\alpha\beta} K_{\alpha\beta}(ii) \hat P_{i}^{\alpha}\hat P_{i}^{\beta}a_0^{-2}   
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img786.svg"
+ ALT="$\displaystyle \hat H_{\rm E}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.62ex; vertical-align: -3.09ex; " SRC="img787.svg"
+ ALT="$\displaystyle \sum_{i} \hat H_{\rm E}(i)$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img788.svg"
+ ALT="$\displaystyle \hat H_{\rm E}(i)$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.31ex; vertical-align: -0.12ex; " SRC="img789.svg"
+ ALT="$\textstyle \equiv$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 7.01ex; vertical-align: -3.46ex; " SRC="img790.svg"
+ ALT="$\displaystyle \frac{a_0^2 \hat \mathbf w_i^2}{2 m_i} -\frac{1}{2}
+\sum_{\alpha\beta} K_{\alpha\beta}(ii) \hat P_{i}^{\alpha}\hat P_{i}^{\beta}a_0^{-2}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">117</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">
+<FONT COLOR="#0000ff">
+</FONT></SPAN>
+<BR>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{eqnarray}
+K_{\alpha\beta}(ii)&\equiv& -a_0^2\sum_{j} \frac{R_{ij}^{\alpha}R_{ij}^{\beta}}{|\mathbf R_{ij}|^2}
+[c_L(ij)-c_T(ij)] + \nonumber \\
+& & +  \delta_{\alpha\beta} c_T(ij)
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img791.svg"
+ ALT="$\displaystyle K_{\alpha\beta}(ii)$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.31ex; vertical-align: -0.12ex; " SRC="img789.svg"
+ ALT="$\textstyle \equiv$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 7.61ex; vertical-align: -3.40ex; " SRC="img792.svg"
+ ALT="$\displaystyle -a_0^2\sum_{j} \frac{R_{ij}^{\alpha}R_{ij}^{\beta}}{\vert\mathbf R_{ij}\vert^2}
+[c_L(ij)-c_T(ij)] +$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img793.svg"
+ ALT="$\displaystyle + \delta_{\alpha\beta} c_T(ij)$"></TD><TD class="rfill">(<SPAN CLASS="arabic">118</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+and the interaction Hamiltonian  <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img711.svg"
+ ALT="$H_{\rm int}$"></SPAN>
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{eqnarray}
+\hat H_{\rm int}&=&-\frac{1}{2}\sum_{i\ne j,\alpha\beta} K_{\alpha\beta}(ij) \hat P_{i}^{\alpha}\hat P_{j}^{\beta}a_0^{-2}  \\
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img794.svg"
+ ALT="$\displaystyle \hat H_{\rm int}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.62ex; vertical-align: -3.46ex; " SRC="img795.svg"
+ ALT="$\displaystyle -\frac{1}{2}\sum_{i\ne j,\alpha\beta} K_{\alpha\beta}(ij) \hat P_{i}^{\alpha}\hat P_{j}^{\beta}a_0^{-2}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">119</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+
+<FONT COLOR="#0000ff">
+</FONT></SPAN>
+<BR>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{eqnarray}
+K_{\alpha\beta}(ij)&\equiv&a_0^2\frac{R_{ij}^{\alpha}R_{ij}^{\beta}}{|\mathbf R_{ij}|^2}[c_L(ij)-c_T(ij)]
++a_0^2\delta_{\alpha\beta}c_T(ij) \nonumber
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img796.svg"
+ ALT="$\displaystyle K_{\alpha\beta}(ij)$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.31ex; vertical-align: -0.12ex; " SRC="img789.svg"
+ ALT="$\textstyle \equiv$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.58ex; vertical-align: -2.37ex; " SRC="img797.svg"
+ ALT="$\displaystyle a_0^2\frac{R_{ij}^{\alpha}R_{ij}^{\beta}}{\vert\mathbf R_{ij}\vert^2}[c_L(ij)-c_T(ij)]
++a_0^2\delta_{\alpha\beta}c_T(ij)$"></TD><TD class="rfill">&nbsp;</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
 <BR><HR>
 
 </BODY>

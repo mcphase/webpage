@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Dynamical Susceptibility and Excitations - Formalism for mcdisp</TITLE>
+<TITLE>Programs for Manipulation of Columns and Lines in Data Files</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node159.html">
+<LINK REL="next" HREF="node152.html">
 <LINK REL="previous" HREF="node150.html">
 <LINK REL="next" HREF="node152.html">
 </HEAD>
@@ -28,882 +28,794 @@
 <A
  HREF="node150.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1106"
-  HREF="node7.html">
+<A ID="tex2html1162"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1108"
-  HREF="node164.html">
+<A ID="tex2html1164"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node152.html">DMD - formalism</A>
+ HREF="node152.html">Programs of General Interest</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node150.html">Derivation of the Chargedensity</A>
- &nbsp; <B>  <A ID="tex2html1107"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1109"
-  HREF="node164.html">Index</A></B> 
+ HREF="node150.html">Programs for Specific Tasks</A>
+ &nbsp; <B>  <A ID="tex2html1163"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1165"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A ID="SECTION000370000000000000000"></A>
-<A ID="formalism"></A>
-<BR>
-Dynamical Susceptibility and Excitations - Formalism for <I CLASS="slanted">mcdisp</I>
-</H1>
-
+<H1><A ID="SECTION000220000000000000000">
+Programs for Manipulation of Columns and Lines in Data Files</A>
+</H1><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-This section is describes the formalism used in the calculation of the magnetic excitations. Because the
-procedure is not standard, we list the most important formulas.
-
+<SPAN CLASS="SMALL">Datafiles usually contain columns of numbers, for example:
+</SPAN>
 <P>
-We assume a quantum mechanical system that can be described by the Hamiltonian
+<SPAN CLASS="SMALL"></SPAN><PRE>
+# T(K) mu0H(T)  M(mb/T)  [comment lines start with '#' ]
+1      1      0.9
+2      1      0.6
+3      1      0.4
+4      1      0.3
+5      1      0.25
+</PRE><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">The following programs manipulate such data files, for example
+the program <I CLASS="slanted">delcol</I> deletes a column from a data file,
+some general features are:
+</SPAN>
+<UL>
+<LI>data files are overwritten 
+</LI>
+<LI>multiple files may be handled by one command, e.g. <I CLASS="slanted">delcol 4 *.dat</I> deletes column 4
+in all 
+files ending with .dat
+</LI>
+<LI>arguments may contain mathematical expressions, e.g. 
+<DL>
+<DT></DT>
+<DD><I CLASS="slanted">shifttcol 3x2+27 2xx4 data.dat</I> ...adds to each number in column 33 in file data.dat the number <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img1286.svg"
+ ALT="$2^4=8$"></SPAN>. 
+</DD>
+<DT></DT>
+<DD><I CLASS="slanted">factcol 2 sin(3.1415/2) data.dat</I> ...multiplies column 2 in file data.dat with   sin(3.1415/2)
+,i.e. with 0.999999989
+</DD>
+</DL>
+</LI>
+</UL><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN><DL>
+<DT><STRONG><I CLASS="slanted">acoscol<A ID="5873"></A><A ID="acoscol"></A> col[ecolerr] file:</STRONG></DT>
+<DD> calculates arccosine of a column arccos(col) 
+</DD>
+<DT><STRONG><I CLASS="slanted">add<A ID="5879"></A><A ID="add"></A> colx1 coly1[ecoly1err] file1 colx2 coly2[ecoly1err] file2:</STRONG></DT>
+<DD>
+   program to add functions y1(x1) with (optional) y1err and y2(x2) with (optional y2err)
+       taken from data file1 and data file2
+</I></I>
+<P>
+<I CLASS="slanted"></I><DL>
+<DT><STRONG>input:</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG> file1, file2</STRONG></DT>
+<DD>filennames
  
-<DIV CLASS="displaymath">
+</DD>
+<DT><STRONG>colx, coly, colyerr</STRONG></DT>
+<DD>columns containing x and y=f(x) and yerror values
+</DD>
+<DT><STRONG>  output:</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>  file1</STRONG></DT>
+<DD>contains in coly1=coly1+f2(colx1)
+                   and in   coly1err=sqrt[coly1err<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img1163.svg"
+ ALT="$^2$"></SPAN>+f2err(colx1)<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img1163.svg"
+ ALT="$^2$"></SPAN>]
+                   f2(colx1) is calculated by linear
+                   interpolation
+                   f2(colx1)=
+                   (colx1-colx2(n)*(coly2(n+1)-coly2(n))/(colx2(n+1)-colx2(n))
+                   f2err(colx1)=
+                   (colx1-colx2(n)*(coly2err(n+1)-coly2err(n))/(colx2(n+1)-colx2(n))
+</DD>
+</DL><I CLASS="slanted"><I CLASS="slanted">
+  note:            colx2 has to be sorted in file2
+</DD>
+<DT><STRONG><I CLASS="slanted">addcol<A ID="5888"></A><A ID="addcol"></A>  colx[ecolxerr] coly[ecolyerr] file:</STRONG></DT>
+<DD> adds column x and column y of file, result is stored in col y
+Optional - error is added using the error columns colxerr and colyerr
+by colyerr=sqrt(colxerr*colxerr+colyerr*colyerr)
+</DD>
+<DT><STRONG><I CLASS="slanted">asincol<A ID="5895"></A><A ID="asincol"></A> col const file:</STRONG></DT>
+<DD> calculates arcsine of a column arcsine(col) 
+</DD>
+<DT><STRONG><I CLASS="slanted">atancol<A ID="5900"></A><A ID="atancol"></A> col const file:</STRONG></DT>
+<DD> calculates arctangens of a column arctan(col) 
+</DD>
+<DT><STRONG><I CLASS="slanted">average<A ID="5905"></A><A ID="average"></A> [option] n file:</STRONG></DT>
+<DD> program average  used  to 
+ reduce the amount of data in a datafile by deleting close data points.
+ The program takes sets of n lines in file and  outputs one line instead
+of the n lines. By default the the data line in the middle of the n line
+block is output. 
+</I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I><DL>
+<DT><STRONG>options:</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>-h, -help</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>-middle</STRONG></DT>
+<DD>middle point is taken (default)
+  
+</DD>
+<DT><STRONG>-first</STRONG></DT>
+<DD>first point is taken 
+   
+</DD>
+<DT><STRONG>-last</STRONG></DT>
+<DD>last point is taken 
+   
+</DD>
+<DT><STRONG>-av</STRONG></DT>
+<DD>points are averaged
+   
+</DD>
+<DT><STRONG>-sum</STRONG></DT>
+<DD>points are added
+    
+</DD>
+<DT><STRONG>-sumcol=12,13,14</STRONG></DT>
+<DD>for column 12,13,14 datapoints are added up and the sum is output
+    
+</DD>
+<DT><STRONG>-median</STRONG></DT>
+<DD>median of points is calculated and output
+     
+</DD>
+<DT><STRONG>-dmin=0.4</STRONG></DT>
+<DD>takes instead of n lines a variable number
+                         of lines determined by the condition that
+                         data in column n is closer than dmin 
+</DD>
+</DL><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">       
+</DD>
+<DT><STRONG><I CLASS="slanted">chi2<A ID="5913"></A><A ID="chi2"></A> col1 col2 col3 *.*</STRONG></DT>
+<DD> is used to calculate the 
+ chi-squared from 3 columns in a file: if col1, col2 and col3 are calculation, 
+ experiment and experimental error, respectively, then
+  chisquared is defined as <!-- MATH
+ $\chi^2=\frac{1}{n}\sum_{i=1}^n \frac{({\rm col2}_i-{\rm %%@
+col1}_i)^2}{{\rm col3_i}^2}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.89ex; vertical-align: -1.21ex; " SRC="img1287.svg"
+ ALT="$\chi^2=\frac{1}{n}\sum_{i=1}^n \frac{({\rm col2}_i-{\rm %%@
+col1}_i)^2}{{\rm col3_i}^2}$"></SPAN>. For each datapoint the program outputs a line
+<EM>sta=</EM> deviation<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img1163.svg"
+ ALT="$^2$"></SPAN> (experimental error)<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img1163.svg"
+ ALT="$^2$"></SPAN> to stdout. This may be 
+used directly for generating useful input for fitting in <I CLASS="slanted">simannfit</I><A ID="5926"></A>.
+</DD>
+<DT><STRONG><I CLASS="slanted">comment<A ID="5927"></A><A ID="comment"></A> row1 row2 *.*</STRONG></DT>
+<DD>
+ used to comment lines from row1 to row2 with #.
+</I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">alternative usage: 
+</I></I></I></I></I></I></I></I><DL>
+<DT><STRONG>comment -t string *.* </STRONG></DT>
+<DD>comment all lines containing the text string
+                
+</DD>
+<DT><STRONG>comment -n string *.*</STRONG></DT>
+<DD>comment all lines which do not contain the text string
+                
+</DD>
+<DT><STRONG>comment -cc 8  string *.*</STRONG></DT>
+<DD>insert line containing string before any change of data in column 8
+</DD>
+</DL><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">compare<A ID="5934"></A><A ID="compare"></A> file1 file2:</STRONG></DT>
+<DD> used to compare data file1 and data file2
+                all columns and rows are compared and a standard deviation
+                is calculated according to sum_i (file1_i - file2_i)2&#x302;
+                this standard deviation is output to stdout, e.g. as sta=143.3
+</DD>
+<DT><STRONG><I CLASS="slanted">convolute<A ID="5939"></A><A ID="convolute"></A> c1 c2 file cx cy convfuncfile [d1 d2 datafile]:</STRONG></DT>
+<DD> convolutes data given as column c1 vs column
+                       c2 in file (data pairs <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img1288.svg"
+ ALT="$x_i,y_i$"></SPAN>) with the convolution function given in column cx vs cy
+		        of convfuncfile (function <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1289.svg"
+ ALT="$c(x)$"></SPAN>)
+		       Range and step width of output file is determined from range and step 
+		        of convfuncfile  unless a datafile is given.  Values out of range of convfile are assumed to be zero,
+			convfile has to be sorted according to ascending x.
+			Formula: <!-- MATH
+ $f(x)=\sum_i y_i c(x-x_i)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.66ex; vertical-align: -0.81ex; " SRC="img1290.svg"
+ ALT="$f(x)=\sum_i y_i c(x-x_i)$"></SPAN> , 
+		       output is written to stdout. 
+</I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">If a datafile is given, 
+		     with data column d1 and d2, the result of the convolution is
+		     calculated for x-values of data column d1 and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1291.svg"
+ ALT="$f(x)$"></SPAN> is compared to
+		     data in column d2 - a standard deviation sta is calculated as
+		     sum of squared deviations. As output the datafile is given, however with a scaled column
+                 d2 and 2 additional columns are added containing the calculated
+                 results of the convolution and the original unscaled data.
+                 standard deviation, area of curves etc are output to
+                 stdout and to environment variables MCPHASE_STA etc.
+</I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">convolute2d<A ID="5945"></A><A ID="convolute2d"></A> c1 c2 c3 inputfile cx cy cz convfuncfile minx maxx Nx miny maxy Ny:</STRONG></DT>
+<DD> 
+</DD>
+<DT><STRONG>or <I CLASS="slanted">convolute2d<A ID="5950"></A> c1 c2 c3 inputfile cx cy cz convfuncfile -d[f] dx dy dz datafile [sx sy]:</STRONG></DT>
+<DD>convolutes a 2 dimensional function data given as column c3(c1,c2) in inputfile (data tripls <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img1292.svg"
+ ALT="$x_i,y_i, z_i$"></SPAN>) with the 
+                        convolution function given in column cx vs cy vs cz
+		        of convfuncfile (function <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1293.svg"
+ ALT="$c(x,y)$"></SPAN>)
+		       Range and number of points of output file is determined from minx maxx Nx and 
+                        miny, maxy Ny.
+			Formula: <!-- MATH
+ $f(x,y)=\sum_i z_i c(x-x_i,y-y_i)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.66ex; vertical-align: -0.81ex; " SRC="img1294.svg"
+ ALT="$f(x,y)=\sum_i z_i c(x-x_i,y-y_i)$"></SPAN> . In the program the contribution to
+                        the sum is evaluated for a discrete triplet cx cy cz of the convolution function, the 
+                        resulting x,y will not correspond to a point on the grid defined by minx, max Nx, miny,maxy Ny -
+                        therefore the contribution is distributed (according to distance) onto the neighbouring grid
+                       points.
+</I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">inputfile</I> and <I CLASS="slanted">convfuncfile</I> may be unsorted, equal steps not necessary.
+ datafile has to be a Nx times Ny points grid with equal x and y spacing
+</I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">Output goes to stdout in 3 columns with
+       column  1(2) correspond to x(y)  and range from minx(y) to maxx(y) with Nx(y) steps.
+ Column 3 contains the result of the convolution.
+       If the second syntax with a <I CLASS="slanted">datafile</I>
+ is used,  an additional column 4 is added containing the scaled dz data and
+                 standard deviation, volume of curves etc are output to
+                 stdout and to environment variables MCPHASE_STA etc.
+</I></I></I></I></I></I></I></I></I></I></I></I><DL>
+<DT><STRONG>options:</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>-df </STRONG></DT>
+<DD>instead of -d will not output convolution but only standard deviations
+  
+</DD>
+<DT><STRONG>sx sy </STRONG></DT>
+<DD>columns sx,sy of the datafile may contain 
+                       stretching factors in x,y direction for the convolution function in 
+                         order to allow for x,y dependent resolution
+</DD>
+</DL><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">Note on normalisation assuming that the input functions are normalised and equal spaced: i.e.
+                        <!-- MATH
+ $\sum_i z_i(x_i,y_i) dx dy =1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.66ex; vertical-align: -0.81ex; " SRC="img1295.svg"
+ ALT="$\sum_i z_i(x_i,y_i) dx dy =1$"></SPAN>,  
+                        <!-- MATH
+ $\sum_j c_j(r_{xi},r_{yi}) dr_x dr_y =1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.98ex; vertical-align: -1.13ex; " SRC="img1296.svg"
+ ALT="$\sum_j c_j(r_{xi},r_{yi}) dr_x dr_y =1 $"></SPAN>, where     
+  stepwidth of function and resolution function are <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1297.svg"
+ ALT="$dx$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img1298.svg"
+ ALT="$dy$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img1299.svg"
+ ALT="$dr_x$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.50ex; vertical-align: -0.78ex; " SRC="img1300.svg"
+ ALT="$dr_y$"></SPAN> respectively
+  stepwidth of output <!-- MATH
+ $df_x=({\rm maxx}-{\rm minx})/N_x$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1301.svg"
+ ALT="$df_x=({\rm maxx}-{\rm minx})/N_x$"></SPAN>,<!-- MATH
+ $df_y=({\rm maxy}-{\rm miny})/N_y$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img1302.svg"
+ ALT="$df_y=({\rm maxy}-{\rm miny})/N_y$"></SPAN>:
+                        multiply <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1303.svg"
+ ALT="$f(x,y)$"></SPAN> by <!-- MATH
+ $dx.dy.dr_x.dr_y/(df_x.df_y)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img1304.svg"
+ ALT="$dx.dy.dr_x.dr_y/(df_x.df_y)$"></SPAN> 
+     to get a normalised function obeying <!-- MATH
+ $\sum_k f(x_k,y_k) df_x df_y = 1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.66ex; vertical-align: -0.81ex; " SRC="img1305.svg"
+ ALT="$\sum_k f(x_k,y_k) df_x df_y = 1$"></SPAN>
+</I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">Example: To plot a contour of a dispersion with a gaussian resolution function of
+          fwhm=0.2 in h and fwhm=0.5meV in energy
+</I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+gauss2d 0.2 0.5 0 0.05 -0.5 0.5 0.1 -1.0 +1.0 &gt; resolution.dat
+convolute2d 5 9 10 results/mcdisp.qei 1 2 3 resolution.dat 1 2 11 0 20 40 &gt; results/mcdisp.clc
+displaycontour 1 2 3 results/mcdisp.clc
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">coscol<A ID="5966"></A><A ID="coscol"></A> col const file:</STRONG></DT>
+<DD> calculates cosinus of a column cos(col) 
+</DD>
+<DT><STRONG><I CLASS="slanted">delcol<A ID="5971"></A><A ID="delcol"></A> col file:</STRONG></DT>
+<DD> deletes column col in file
+</DD>
+<DT><STRONG><I CLASS="slanted">delcols<A ID="5976"></A><A ID="delcols"></A> col n file:</STRONG></DT>
+<DD> deletes column col several (n) times in file
+</DD>
+<DT><STRONG><I CLASS="slanted">delcomments<A ID="5981"></A><A ID="delcomments"></A> *.*</STRONG></DT>
+<DD> removes every comment line (starting with #) from a file and prints the removed lines to screen
+</DD>
+<DT><STRONG><I CLASS="slanted">delline<A ID="5986"></A><A ID="delline"></A> l1 l2 file:</STRONG></DT>
+<DD> deletes lines l1 to l2  in file
+</DD>
+<DT><STRONG><I CLASS="slanted">delnthline<A ID="5991"></A><A ID="delnthline"></A> n file</STRONG></DT>
+<DD>  remove every nth line (n<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.57ex; vertical-align: -0.21ex; " SRC="img210.svg"
+ ALT="$&gt;$"></SPAN>2) in file
+</DD>
+<DT><STRONG><I CLASS="slanted">dif<A ID="5996"></A><A ID="dif"></A> colx coly n *.*:</STRONG></DT>
+<DD> used to calculate d(coly)/d(colx) with differentiation averaging n points
+</DD>
+<DT><STRONG><I CLASS="slanted">display<A ID="6001"></A> 5[e7] 6[e8]  ./results/mcdisp.qei [colx coly file2]</STRONG></DT>
+<DD> displays a graphic on screen as xy graph
+with column 5 as x axis and columns 6 as y axis. By default graphic is a line graph.
+However, if error columns (in the example x error column is 7 and y error column is 8)
+are given, then symbols with x and y error bars are shown. Several files
+can be plotted in the same graph by extending the commandline. If the contents of a file
+changes, the plot is automatically updated. See also section <A HREF="node134.html#graphics">17</A>.
+</DD>
+<DT><STRONG><I CLASS="slanted">displaycontour<A ID="6009"></A> 5 6 8 ./results/mcdisp.dsigma.tot</STRONG></DT>
+<DD> produces a graphical
+display<A ID="6013"></A> of a 3 dimensional dataset as a colour and/or contour plot. Here '5 6 8' 
+denote the x,y and z column in file <I CLASS="slanted">./results/mcdisp.dsigma.tot</I>, which should
+be plotted. Figure&nbsp;<A HREF="node59.html#ho2ti2o7diffuse">12</A> shows an sample output of this program. See also section <A HREF="node134.html#graphics">17</A>.
+</DD>
+<DT><STRONG><I CLASS="slanted">displaytext<A ID="6017"></A><A ID="displaytext"></A> ./results/mcphas.hkl</STRONG></DT>
+<DD> monitors the file mcphas.hkl in a text window on screen. See also section <A HREF="node134.html#graphics">17</A>.
+</DD>
+<DT><STRONG><I CLASS="slanted">displayhtml<A ID="6023"></A><A ID="displayhtml"></A> calc.bat.html</STRONG></DT>
+<DD> monitors the file calc.bat.html in 
+a text window on screen.
+</DD>
+<DT><STRONG><I CLASS="slanted">expcol<A ID="6028"></A><A ID="expcol"></A> col const file:</STRONG></DT>
+<DD> calculates exponent of a column exp(col) 
+</DD>
+<DT><STRONG><I CLASS="slanted">factcol<A ID="6033"></A><A ID="factcol"></A> col[ecolerr] const file:</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG><I CLASS="slanted">expcol<A ID="6036"></A> col const file:</STRONG></DT>
+<DD>
+ multiplies col with a constant in file,
+a error colmn may be given and is also multiplied by the absvalue of the constant.
+</DD>
+<DT><STRONG><I CLASS="slanted">fform<A ID="6040"></A><A ID="fform"></A> col1 col2 format file:</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG><I CLASS="slanted">expcol<A ID="6042"></A> col const file:</STRONG></DT>
+<DD>
+ reformats numbers in col1 to col2 in file with
+             a number format given by format. Format is a number format string according
+             to c conventions, for example 8.4f or 4.4g  ...             
+</DD>
+<DT><STRONG><I CLASS="slanted">fillcol  col expression *.*<A ID="6046"></A><A ID="fillcol"></A></STRONG></DT>
+<DD> used to fill column with numbers in data file
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+ col       ....   column
+ expression ...   e.g. 'tan(c1x7.52)+c2'
+                  here c1,c2,.. refer to column 1,2,...
+                  operations are multiplication (x), division(/)
+                  addition (+), subtraction(-), power (xx)
+                  trigonometric functions tan,cos,sin, asin,atan,acos
+                  exp,(natural) log
+ *.*       ....   filenname
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">fitcol coldata prog col parprog1 parprog2 ... [] in filename:<A ID="6054"></A><A ID="fitcol"></A></STRONG></DT>
+<DD>
+simple fitting program for data in coldata.
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+               []=[and prog col parprog1 parprog2 ... [and ...]]
 
+          coldata ...... column number of data column to be fitted
+          prog    ...... program name, e.g. shiftcol
+          col     ...... column to which prog should be applied
+          parprog1 ..... parameter of the program prog, which should be fitted
+          filename... filename
+
+    in order to fit data in column coldata, prog is run many times on
+    the column col with varying parameter set parprog1 ..., the result
+    is scaled to fit best the experimental data. If several programs
+    are combined with option 'and' then the best linear combination of the
+    results is calculated by linear regression to fit coldata.
+
+    Starting values for the parameters parprog are taken from the
+    commandline. initial Stepwidths are chosen 10percent of parameter value, or may
+    be given by adding them to the parameter with an 's', e.g. 100.3s0.1
+    If a parameter should not be fitted and kept fix, add an 'f', e.g. 100.3f
+
+    output: - files can be found in directory results
+            - filename.fit is created with fitted function and parameter values
+
+    examples:
+    1) to fit a gaussian to column 2 in datafile expdat (with xvalues in column 1)
+    with starting values 132.3, 0.5 and 10 for position, fwhm and area, respectively:
+
+    fitcol 2 gausscol 1 132.3 0.5 10 in exp.dat
+
+
+    2) to do the same fit but with a background create a column 3, fill it
+       with constant values and use echo as a fake column manipulation program
+      doing nothing.
+
+   newcol 3 -c 1.0 exp.dat
+   fitcol 2 gausscol 1 132.3 0.5 10 and rem 3 in exp.dat
+
+   3) to do the same with a linear background, put into a column 4 the x values
+
+   newcol 4 -c 4.0 exp.dat
+   fitcol 2 gausscol 1 132.3 0.5 10 and rem 3 and rem 4 in exp.dat
+
+   4) to fit two gaussians with fixed fwhm and stepping in position initially
+    only with 0.1
+
+   fitcol 2 gausscol 1 132.3s0.1 0.5f 10 and  gausscol 1 100.3s0.1 0.5f 10 and rem 3 and rem 4 in exp.dat
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">gausscol<A ID="6061"></A><A ID="gausscol"></A> col position fwhm area *.*:</I></STRONG></DT>
+<DD> calculate a
+gaussian from the x values given in column col.
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">The formula for a gaussian is:
 <!-- MATH
- \begin{equation}
-\hat \mathcal H=\sum_{n=1}^N \hat \mathcal H(n) -\frac{1}{2} \sum_{n,n',\alpha,\beta}
- {\mathcal J}_{\alpha\beta}(\mathbf R_{n'} - \mathbf R_n) \hat \mathcal I_{\alpha}^n \hat \mathcal I_{\beta}^{n'}.
-\end{equation}
- -->
- &nbsp;  <A ID="fullhamiltonian"></A><IMG
- STYLE="height: 7.79ex; vertical-align: -3.46ex; " SRC="img1350.svg"
- ALT="$\displaystyle
-\hat \mathcal H=\sum_{n=1}^N \hat \mathcal H(n) -\frac{1}{2} \su...
-..._{n'} - \mathbf R_n) \hat \mathcal I_{\alpha}^n \hat \mathcal I_{\beta}^{n'}.
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">207</SPAN>)</SPAN>
-</DIV>
-The first term <!-- MATH
- $\hat \mathcal H(n)$
+ $\sigma={\rm fwhm}/\sqrt{8*log(2)}$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img71.svg"
- ALT="$\hat \mathcal H(n)$"></SPAN> denotes the Hamiltonian of
- a subsystem <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
- ALT="$n$"></SPAN>
-(e.g.&nbsp;an ion, or cluster of ions). The second term describes a bilinear interaction 
-between different subsystems
-through the operators <!-- MATH
- $\hat \mathcal I_{\alpha}^n$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.00ex; vertical-align: -0.69ex; " SRC="img73.svg"
- ALT="$\hat \mathcal I_{\alpha}^n$"></SPAN>, with <!-- MATH
- $\alpha = 1,2,...,m$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img74.svg"
- ALT="$\alpha = 1,2,...,m$"></SPAN>. The operators <!-- MATH
- $\hat \mathcal H(n)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img71.svg"
- ALT="$\hat \mathcal H(n)$"></SPAN> and <!-- MATH
- $\hat \mathcal I_{\alpha}^n$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.00ex; vertical-align: -0.69ex; " SRC="img73.svg"
- ALT="$\hat \mathcal I_{\alpha}^n$"></SPAN> act in the subspace <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
- ALT="$n$"></SPAN> of the Hilbert space, i.e. <!-- MATH
- $[\hat \mathcal I_{\alpha}^n,\hat \mathcal I_{\alpha}^{n'}]=0$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img75.svg"
- ALT="$[\hat \mathcal I_{\alpha}^n,\hat \mathcal I_{\alpha}^{n'}]=0$"></SPAN>,
+ STYLE="height: 3.10ex; vertical-align: -0.82ex; " SRC="img1306.svg"
+ ALT="$\sigma={\rm fwhm}/\sqrt{8*log(2)}$"></SPAN>,
 <!-- MATH
- $[\hat \mathcal H(n),\hat \mathcal I_{\alpha}^{n'}]=0$
+ ${\rm gauss}(x)=\frac{{\rm area} exp(-(x-{\rm position})^2/2 \sigma^2)}{\sqrt{2*\pi}\sigma}$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img76.svg"
- ALT="$[\hat \mathcal H(n),\hat \mathcal I_{\alpha}^{n'}]=0$"></SPAN> and <!-- MATH
- $[\hat \mathcal H(n),\hat \mathcal H(n')]=0$
+ STYLE="height: 4.06ex; vertical-align: -1.38ex; " SRC="img1307.svg"
+ ALT="${\rm gauss}(x)=\frac{{\rm area} exp(-(x-{\rm position})^2/2 \sigma^2)}{\sqrt{2*\pi}\sigma}$"></SPAN>
+</DD>
+<DT><STRONG><I CLASS="slanted">getvalue<A ID="6072"></A><A ID="getvalue"></A> colx coly xvalue dx filename</I></STRONG></DT>
+<DD>
+program to get the yvalue of a function by averaging
+ over an interval xvalue+-dx,
+ note: colx has to be sorted
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><DL>
+<DT><STRONG>Option  -c 24.13 </STRONG></DT>
+<DD>compare the value with <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.92ex; vertical-align: -0.31ex; " SRC="img1308.svg"
+ ALT="$24.13\pm0.01$"></SPAN> (error corresponds to last 
+  digit, and exit with failure message if extracted y-value is
+                    not corresponding
+</DD>
+<DT><STRONG>Option -s 24.13</STRONG></DT>
+<DD>same as -c but compute standard deviation <!-- MATH
+ $(yvalue-24.13)^2$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img77.svg"
- ALT="$[\hat \mathcal H(n),\hat \mathcal H(n')]=0$"></SPAN>
-for <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.42ex; vertical-align: -0.57ex; " SRC="img78.svg"
- ALT="$n \neq n'$"></SPAN><A ID="tex2html63"
-  HREF="footnode.html#foot9013"><SUP><SPAN CLASS="arabic">25</SPAN></SUP></A>.
-For example, in the case of a Heisenberg
- exchange between magnetic ions we would identify the set of operators with
- <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img79.svg"
- ALT="$\alpha=1,2,3$"></SPAN> with the three components of the  spin: <!-- MATH
- $\hat \mathcal I_1 \leftrightarrow \hat S_x, \hat \mathcal I_2 %%@
-\leftrightarrow \hat S_y, \hat \mathcal I_3 \leftrightarrow \hat S_z$
+ STYLE="height: 2.69ex; vertical-align: -0.70ex; " SRC="img1309.svg"
+ ALT="$(yvalue-24.13)^2$"></SPAN> and output #!sta=
+</DD>
+<DT><STRONG>Option  -var 24.13</STRONG></DT>
+<DD>same as -c but compute variance <!-- MATH
+ $(yvalue-24.13)^2/0.01^2$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img1351.svg"
- ALT="$\hat \mathcal I_1 \leftrightarrow \hat S_x, \hat \mathcal I_2 %%@
-\leftrightarrow \hat S_y, \hat \mathcal I_3 \leftrightarrow \hat S_z$"></SPAN>.
-The beauty of the analysis which follows is that it can be applied to
-almost any Hamiltonian of the form (<A HREF="#fullhamiltonian">223</A>). The analysis
-of complex magnetic systems can thus be attempted by starting from a simple
-form such as the Heisenberg model and by introducing, step-by-step, more
-complexity into the model. For example, anisotropy and interactions with extended range can be introduced by modifying <!-- MATH
- ${\mathcal J}_{\alpha\beta}(\mathbf R_n - \mathbf R_{n'})$
+ STYLE="height: 2.69ex; vertical-align: -0.70ex; " SRC="img1310.svg"
+ ALT="$(yvalue-24.13)^2/0.01^2$"></SPAN> and output #!sta=
+</DD>
+</DL><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+ output: the y-value is written to stdout and environment variable MCPHASE_YVALUE
+         1/y-value is written to stdout MCPHASE_YVALUE_INVERSE
+         standarddeviation (by default scatter of data) to stdout and MCPHASE_STA
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">getvariable<A ID="6081"></A><A ID="getvariable"></A> [options] variablename filename</I></STRONG></DT>
+<DD>
+ program to get the value of a variable from a file 
+  (e.g. somewhere in a file there is 
+   a statement T=4.3 and you want to get out this 4.3)
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><DL>
+<DT><STRONG>Option  -c 24.13 </STRONG></DT>
+<DD>compare the value with <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.92ex; vertical-align: -0.31ex; " SRC="img1308.svg"
+ ALT="$24.13\pm0.01$"></SPAN> (error corresponds to last 
+  digit, and exit with failure message if extracted y-value is
+                    not corresponding
+</DD>
+<DT><STRONG>Option -s 24.13</STRONG></DT>
+<DD>same as -c but compute standard deviation <!-- MATH
+ $(value-24.13)^2$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img81.svg"
- ALT="${\mathcal J}_{\alpha\beta}(\mathbf R_n - \mathbf R_{n'})$"></SPAN>, higher order operators can be 
-introduced  by extending the index range for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.70ex; " SRC="img1311.svg"
+ ALT="$(value-24.13)^2$"></SPAN> and output #!sta=
+</DD>
+<DT><STRONG>Option  -var 24.13</STRONG></DT>
+<DD>same as -c but compute variance <!-- MATH
+ $(value-24.13)^2/0.01^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.70ex; " SRC="img1312.svg"
+ ALT="$(value-24.13)^2/0.01^2$"></SPAN> and output #!sta=
+</DD>
+<DT><STRONG>Option   -vec 2  </STRONG></DT>
+<DD>in case the variable is a vector (e.g. G= 32 4.2 4 ), get second component 
+                   (i.e. 4.2)
+</DD>
+</DL><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+ output: the variable value is written to stdout and environment variable 
+         MCPHASE_GETVARIABLE_VALUE, the name is stored in 
+         MCPHASE_GETVARIABLE_NAME
+        mind lines starting with # are ignored (unless these start with #!)
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">histcol<A ID="6091"></A><A ID="histcol"></A> col [stepwidth|-n steps] *.*:</I></STRONG></DT>
+<DD> generates a histogram of
+a column in a data file and stores it in histcol.out. stepwidth is the 
+stepwidth of the histogram points. Alternatively the number of
+steps in the histogram may be given by e.g. <I CLASS="slanted">-n 100</I>.
+</DD>
+<DT><STRONG><I CLASS="slanted">int<A ID="6098"></A><A ID="int"></A> [-m] colx coly *.*:</I></STRONG></DT>
+<DD>
+ program  to integrate columnx vs columny=f(x), integration is done 
+point by point, the result goes to the data file, the total integral 
+INT=<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.80ex; vertical-align: -0.83ex; " SRC="img1313.svg"
+ ALT="$\int f(x)dx$"></SPAN> is printed to stdout and set to the 
+ environment variable MCPHASE_INT.
+ option -m: n-th moments<A ID="6104"></A> are calculated according to <!-- MATH
+ $\mu_1=\int x f(x)dx$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.80ex; vertical-align: -0.83ex; " SRC="img1314.svg"
+ ALT="$\mu_1=\int x f(x)dx$"></SPAN>/INT, <!-- MATH
+ $\mu_n=\int (x-\mu_1)^n f(x)dx$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.80ex; vertical-align: -0.83ex; " SRC="img1315.svg"
+ ALT="$\mu_n=\int (x-\mu_1)^n f(x)dx$"></SPAN>/INT.
+The results go to stdout and environment variables MCPHASE_INT_MU_1,
+  MCPHASE_INT_MU_2,MCPHASE_INT_MU_3 ... are set.
+</DD>
+<DT><STRONG><I CLASS="slanted">linreg<A ID="6105"></A><A ID="linreg"></A> col n file:</STRONG></DT>
+<DD> calculates linear regression of n columns in file
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+          col     ...... column containing y_k values followed by
+          n       ...... n columns containing x_ik (i=1 to n)
+	  filename... filename
+
+    the program calculates the linear regression, i.e. the best values
+    of coefficients ai such that y_k~sum_i a_i*x_ik for every data line k
+    in the file. The n linear regression equations solved to determin a_i
+    are (i,j=1 ...n):
+
+     sum_k x_jk y_k = sum_i a_i (sum_k x_ik * x_jk)
+
+   Output: - sdtoud: best coefficients a_i  and standard deviation
+             sta=sum_k (y_k-sum_i a_i*x_ik)^2
+           - file: new column col+n+1 contining sum_i a_i*x_ik
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">lorentzcol<A ID="6112"></A><A ID="lorentzcol"></A> col position fwhm area:</STRONG></DT>
+<DD>calculate a lorentzian from
+a column with x values, the formula for a Lorentz curve is: 
+<!-- MATH
+ ${\rm lorentz}(x)=\frac{1.0}{\pi{\rm fwhm}(1.0+(x-{\rm position})^2/fwhm^2)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.39ex; vertical-align: -1.32ex; " SRC="img1316.svg"
+ ALT="${\rm lorentz}(x)=\frac{1.0}{\pi{\rm fwhm}(1.0+(x-{\rm position})^2/fwhm^2)}$"></SPAN>
+</DD>
+<DT><STRONG><I CLASS="slanted">multcol<A ID="6121"></A>  colx coly file:</STRONG></DT>
+<DD> multiplies column x and column y of file, result is stored in col y
+</DD>
+<DT><STRONG><I CLASS="slanted">newcol<A ID="6125"></A><A ID="newcol"></A> col [options] file:</STRONG></DT>
+<DD> creates a new column col in file containing the line numbe. option: -c 12.3  ... instead of line number put constant 12.3 into the new column
+</DD>
+<DT><STRONG><I CLASS="slanted">newcols<A ID="6131"></A><A ID="newcols"></A> col n [options] file:</STRONG></DT>
+<DD> creates n new columns from column col
+ in file. New columns are inserted after column col and contain the same data as column col.
+ options: -c 12.3 ...  put constant 12.3 into the new columns, -n ... put line number into the new column.
+</DD>
+<DT><STRONG><I CLASS="slanted">newline<A ID="6137"></A><A ID="newline"></A> n text file:</STRONG></DT>
+<DD> creates a new line number n  in file containing the text 
+</DD>
+<DT><STRONG><I CLASS="slanted">potcol<A ID="6142"></A><A ID="potcol"></A> col const file:</STRONG></DT>
+<DD>  col=col<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.07ex; vertical-align: -0.12ex; " SRC="img1317.svg"
+ ALT="$^{\rm const}$"></SPAN> in file
+</DD>
+<DT><STRONG><I CLASS="slanted">range<A ID="6148"></A><A ID="range"></A> col min max file:</STRONG></DT>
+<DD> deletes (comments out) all data points outside min max in column  col of
+                       file file (remember to store your full data set in some other
+		       file before using this command), # is used to comment lines
+</DD>
+<DT><STRONG><I CLASS="slanted">rotate<A ID="6153"></A><A ID="rotate"></A> xcol ycol angle file:</I></STRONG></DT>
+<DD>
+program rotate  used to rotate coordinate axes,
+ xcol,yxol=columns containing x and y , 
+ angle=angle <SPAN CLASS="MATH"><IMG
  STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img82.svg"
- ALT="$\alpha$"></SPAN>, and a complex single-ion term <!-- MATH
- $\hat \mathcal H(n)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img71.svg"
- ALT="$\hat \mathcal H(n)$"></SPAN> may be added. 
-Another example for a Hamiltonian (<A HREF="#fullhamiltonian">223</A>)  is the problem of lattice dynamics, which can
- be treated in the framework of this
-formalism by identifying the operators <!-- MATH
- $\hat \mathcal I^n_{\alpha}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.00ex; vertical-align: -0.69ex; " SRC="img83.svg"
- ALT="$\hat \mathcal I^n_{\alpha}$"></SPAN>
- with the atomic displacements <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.77ex; vertical-align: -0.12ex; " SRC="img84.svg"
- ALT="$u^{n}$"></SPAN>. Here the index <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img82.svg"
- ALT="$\alpha$"></SPAN> is not necessary and
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
- ALT="$n$"></SPAN> refers to both, the atomic position index and the spatial coordinate of the displacement,
-  <!-- MATH
- $n=(1,x),(1,y),(1,z),(2,x),(2,y),(2,z), ...$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img85.svg"
- ALT="$n=(1,x),(1,y),(1,z),(2,x),(2,y),(2,z), ...$"></SPAN>. Note that this can be done, because the three spatial components of the 
-displacement operators commute with each other (in contrast to the components of the spin) and each displacement
-component acts in its own subspace of the Hilbert space. The kinetic energy
-will be part of the single ion term <!-- MATH
- $\hat \mathcal H(n)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img71.svg"
- ALT="$\hat \mathcal H(n)$"></SPAN>. Allowing more complexity to the system,
-both the spin and lattice degrees of freedom can be introduced and spin-phonon interactions can be
-handled by the theory.
-
+ ALT="$\alpha$"></SPAN> of rotation around z.
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
 <P>
-The main limitation of the approach is that it neglects fluctuations associated with phase 
-transitions and quantum disorder. We are primarily concerned, therefore, with excitations 
-associated with a  well-ordered ground state.
-
-<P>
-The translational symmetry of the system is 
-represented by a Bravais lattice (which, in general,
-will be a superlattice of a crystal lattice). 
-The position of subsystem <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
- ALT="$n$"></SPAN> can be specified by a lattice 
-vector <!-- MATH
- $\ensuremath{\boldsymbol\ell}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1352.svg"
- ALT="$\ensuremath{\boldsymbol\ell}$"></SPAN> and a basis vector <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img1353.svg"
- ALT="$\mathbf b_s$"></SPAN>. The latter is 
-the position of <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
- ALT="$n$"></SPAN> relative to <!-- MATH
- $\ensuremath{\boldsymbol\ell}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1352.svg"
- ALT="$\ensuremath{\boldsymbol\ell}$"></SPAN>. 
-The index <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img135.svg"
- ALT="$s$"></SPAN> (<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.26ex; vertical-align: -0.57ex; " SRC="img1354.svg"
- ALT="$s=1,2,...,N_b$"></SPAN>) labels the subsystems 
-within the unit cell.
-
-<P>
-The calculation of the excited states of the
- system starts from a mean-field model for the ground-state order. 
-We define a mean field acting on each subsystem by
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-H_{\alpha}^s=\sum_{\ensuremath{\boldsymbol\ell}'s'\beta}
- {\mathcal J}_{\alpha\beta}(\ensuremath{\boldsymbol\ell}'+\mathbf b_{s'}-\ensuremath{\boldsymbol\ell}-\mathbf b_s) \langle \hat \mathcal
-I^{s'}_{\beta}\rangle,
-\end{equation}
- -->
- &nbsp;  <A ID="meanfieldformula"></A><IMG
- STYLE="height: 6.06ex; vertical-align: -3.53ex; " SRC="img1355.svg"
- ALT="$\displaystyle
-H_{\alpha}^s=\sum_{\ensuremath{\boldsymbol\ell}'s'\beta}
-{\mathc...
-...ath{\boldsymbol\ell}-\mathbf b_s) \langle \hat \mathcal
-I^{s'}_{\beta}\rangle,
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">208</SPAN>)</SPAN>
-</DIV>
-where <!-- MATH
- $\langle \hat \mathcal I^{s'}_{\beta}\rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.39ex; vertical-align: -1.09ex; " SRC="img1356.svg"
- ALT="$\langle \hat \mathcal I^{s'}_{\beta}\rangle$"></SPAN> represents the thermal expectation value at a temperature <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img65.svg"
- ALT="$T$"></SPAN> in the mean 
-field acting on subsystem <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.97ex; vertical-align: -0.12ex; " SRC="img1357.svg"
- ALT="$s'$"></SPAN>. Note that the mean field 
-is periodic in the lattice, so does not depend on <!-- MATH
- $\ensuremath{\boldsymbol\ell}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1352.svg"
- ALT="$\ensuremath{\boldsymbol\ell}$"></SPAN>. 
-The mean-field Hamiltonian for subsystem <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img135.svg"
- ALT="$s$"></SPAN> is then given by
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-\hat \mathcal H^{\rm MF}(s) =\hat  \mathcal H(s)
- - \sum_{\alpha=1}^m H_{\alpha}^s \hat \mathcal I^s_{\alpha}
-\end{equation}
- -->
- &nbsp;  <A ID="mfhamiltonian"></A><IMG
- STYLE="height: 6.99ex; vertical-align: -3.06ex; " SRC="img1358.svg"
- ALT="$\displaystyle
-\hat \mathcal H^{\rm MF}(s) =\hat \mathcal H(s)
-- \sum_{\alpha=1}^m H_{\alpha}^s \hat \mathcal I^s_{\alpha}
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">209</SPAN>)</SPAN>
-</DIV>
-The mean-field ground state is obtained from the self-consistent solution of (<A HREF="#meanfieldformula">224</A>) and (<A HREF="#mfhamiltonian">225</A>). This iterative procedure is illustrated in fig.&nbsp;<A HREF="#figmfproc">32</A>. The mean field Hamiltonian (<A HREF="#mfhamiltonian">225</A>)
- for the subsystem <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img135.svg"
- ALT="$s$"></SPAN>
-is used to calculate the thermal 
-expectation values 
-<!-- MATH
- $\langle\hat \mathcal I^{s'}_{\beta}\rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.39ex; vertical-align: -1.09ex; " SRC="img1356.svg"
- ALT="$\langle \hat \mathcal I^{s'}_{\beta}\rangle$"></SPAN> 
-for the initial mean field acting 
-on all subsystems <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.42ex; vertical-align: -0.57ex; " SRC="img1359.svg"
- ALT="$s'=1,2, ...,m$"></SPAN>. 
-Equation&nbsp;(<A HREF="#meanfieldformula">224</A>) is then used to calculate 
-a new set of mean fields. These are again 
-used in (<A HREF="#mfhamiltonian">225</A>), and the procedure 
-repeated until convergence is reached to within
- some specified precision. The free energy of 
-the mean field ground state is evaluated and 
-compared to that of other solutions obtained
- at the same temperature (computed from other
-initial states and superlattices). The solution with 
-the lowest free energy corresponds to the stable ground state.
-
-<P>
-We now turn to the excited states. From linear response theory it can 
-be shown&nbsp;[<A
- HREF="node163.html#jensen91-1">1</A>, page 143]
-that the excited states are poles of the dynamical susceptibility, 
-which is defined by
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-\chi_{BA}^{}(\omega)=\lim_{\varepsilon\to0^+}\Bigg[\sum_{aa'}^{E_a\ne E_{a'}}
-\frac{\langle a|\hat{B}|a'\rangle\langle a'|\hat{A}|a\rangle}
-{E_{a'}-E_a-\hbar(\omega+i\varepsilon)}(n_a^{}-n_{a'}^{})
-+\frac{i\varepsilon}{\omega+i\varepsilon}\chi_{BA}'(el)\Bigg]
-\end{equation}
- -->
- &nbsp;  <A ID="generalsuszeptibility"></A><IMG
- STYLE="height: 7.70ex; vertical-align: -3.12ex; " SRC="img1360.svg"
- ALT="$\displaystyle \chi_{BA}^{}(\omega)=\lim_{\varepsilon\to0^+}\Bigg[\sum_{aa'}^{E_...
-..._a^{}-n_{a'}^{})
-+\frac{i\varepsilon}{\omega+i\varepsilon}\chi_{BA}'(el)\Bigg]
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">210</SPAN>)</SPAN>
-</DIV>
-where
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-\chi_{BA}'(el)=\frac{1}{kT}
-\sum_{aa'}^{E_a= E_{a'}}\langle a|\hat{B}-\langle \hat{B}\rangle|a'\rangle \langle
-a'|\hat{A}-\langle \hat{A}\rangle|a\rangle\,n_a^{}
-\end{equation}
- -->
- &nbsp;  <A ID="e5"></A><IMG
- STYLE="height: 7.68ex; vertical-align: -3.12ex; " SRC="img1361.svg"
- ALT="$\displaystyle \chi_{BA}'(el)=\frac{1}{kT}
-\sum_{aa'}^{E_a= E_{a'}}\langle a\ver...
-... a'\rangle \langle
-a'\vert\hat{A}-\langle \hat{A}\rangle\vert a\rangle\,n_a^{}
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">211</SPAN>)</SPAN>
-</DIV>
-and
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-n_a^{}=\frac{\exp(-E_a^{}/kT)}{\sum_{a'}\exp(-E_{a'}/kT)};\qquad
-\langle \hat{A}\rangle=\sum_a\langle a|\hat{A}|a\rangle\,n_a^{}
-\end{equation}
- -->
- &nbsp;  <A ID="e6"></A><IMG
- STYLE="height: 6.43ex; vertical-align: -3.02ex; " SRC="img1362.svg"
- ALT="$\displaystyle n_a^{}=\frac{\exp(-E_a^{}/kT)}{\sum_{a'}\exp(-E_{a'}/kT)};\qquad
-\langle \hat{A}\rangle=\sum_a\langle a\vert\hat{A}\vert a\rangle\,n_a^{}
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">212</SPAN>)</SPAN>
-</DIV>
-
-<P>
-Here the energy levels and eigenstates
- of the Hamiltonian (<A HREF="#fullhamiltonian">223</A>) are denoted by <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1363.svg"
- ALT="$E_{{a}}$"></SPAN> and
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1364.svg"
- ALT="$\vert{a} \rangle$"></SPAN>, respectively.
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img1365.svg"
- ALT="$n_{{a}}$"></SPAN> is the corresponding 
-Boltzmann occupation probability. 
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.42ex; vertical-align: -0.12ex; " SRC="img1366.svg"
- ALT="$\hat A$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.42ex; vertical-align: -0.12ex; " SRC="img1367.svg"
- ALT="$\hat B$"></SPAN> are
-quantum mechanical operators describing the perturbation 
-to the Hamiltonian and the response of the system
-according to the general concept of linear response theory&nbsp;[<A
- HREF="node163.html#jensen91-1">1</A>].
-The expression (<A HREF="#generalsuszeptibility">226</A>) is based on a system with well defined
-energy levels implying that the poles of
-<!-- MATH
- $\chi_{BA}^{}(z=\omega+i\varepsilon)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.61ex; vertical-align: -0.76ex; " SRC="img1368.svg"
- ALT="$\chi_{BA}^{}(z=\omega+i\varepsilon)$"></SPAN> are all lying on the real axis,
-or that the absorptive part of the response function
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-\chi_{BA}''(\omega)\equiv\lim_{\varepsilon\to0^+}\frac{1}{2i}
-\left[\chi_{BA}^{}(z)-\chi_{AB}^{}(-z^\ast)\right]
-\end{equation}
- -->
- &nbsp;  <A ID="e7"></A><IMG
- STYLE="height: 5.14ex; vertical-align: -1.97ex; " SRC="img1369.svg"
- ALT="$\displaystyle \chi_{BA}''(\omega)\equiv\lim_{\varepsilon\to0^+}\frac{1}{2i}
-\left[\chi_{BA}^{}(z)-\chi_{AB}^{}(-z^\ast)\right]
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">213</SPAN>)</SPAN>
-</DIV>
-becomes a sum of <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1370.svg"
- ALT="$\delta$"></SPAN>-functions, which are only non-zero when
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.83ex; vertical-align: -0.12ex; " SRC="img1371.svg"
- ALT="$\hbar\omega$"></SPAN> is equal to the excitation energies <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1372.svg"
- ALT="$E_{a'}-E_a$"></SPAN>. If
-the susceptibility contains an elastic contribution, then the
-function <!-- MATH
- $\chi_{BA}''(\omega)/\omega=\pi\chi_{BA}'(el)\delta(\omega)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.61ex; vertical-align: -0.76ex; " SRC="img1373.svg"
- ALT="$\chi_{BA}''(\omega)/\omega=\pi\chi_{BA}'(el)\delta(\omega)$"></SPAN>
-in the zero frequency limit. In any realistic, interacting system the
-energy levels are no longer discrete states and fluctuations will
-cause spontaneous transitions between the different levels. Nonzero
-probabilities for such transitions may be accounted for in a
-phenomenological way by replacing <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1372.svg"
- ALT="$E_{a'}-E_a$"></SPAN> in equation (<A HREF="#generalsuszeptibility">226</A>)
-by <!-- MATH
- $E_{a'}-E_a-i\Upsilon_{a'a}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1374.svg"
- ALT="$E_{a'}-E_a-i\Upsilon_{a'a}$"></SPAN>, where <!-- MATH
- $\Upsilon_{a'a}\ge0$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1375.svg"
- ALT="$\Upsilon_{a'a}\ge0$"></SPAN>. In this
-approximation the response becomes a sum of Lorentzians
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-\chi_{BA}''(\omega)\simeq \sum_{aa'}
-\frac{\langle a|\hat{B}|a'\rangle\langle a'|\hat{A}|a\rangle\,\Upsilon_{a'a}^{}}
-{(E_{a'}-E_a-\hbar\omega)^2+\Upsilon_{a'a}^2}(n_a^{}-n_{a'}^{})
-+\frac{\hbar\omega\,\Upsilon_0^{}}{(\hbar\omega)^2+\Upsilon_0^2}\chi_{BA}'(el)
-\end{equation}
- -->
- &nbsp;  <A ID="e8"></A><IMG
- STYLE="height: 6.98ex; vertical-align: -3.12ex; " SRC="img1376.svg"
- ALT="$\displaystyle \chi_{BA}''(\omega)\simeq \sum_{aa'}
-\frac{\langle a\vert\hat{B}\...
-...+\frac{\hbar\omega\,\Upsilon_0^{}}{(\hbar\omega)^2+\Upsilon_0^2}\chi_{BA}'(el)
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">214</SPAN>)</SPAN>
-</DIV>
-The same result is obtained if <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img1377.svg"
- ALT="$\varepsilon$"></SPAN> is kept as a nonzero
-positive quantity in (<A HREF="#generalsuszeptibility">226</A>) instead of taking the limit
-<!-- MATH
- $\varepsilon\to0^+$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.07ex; vertical-align: -0.12ex; " SRC="img1378.svg"
- ALT="$\varepsilon\to0^+$"></SPAN>, i.e. if assuming
-<!-- MATH
- $\varepsilon=\Upsilon_{a'a}/\hbar$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1379.svg"
- ALT="$\varepsilon=\Upsilon_{a'a}/\hbar$"></SPAN> in the different terms in the sum
-and <!-- MATH
- $\varepsilon=\Upsilon_0/\hbar$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1380.svg"
- ALT="$\varepsilon=\Upsilon_0/\hbar$"></SPAN> in the elastic term.
-
-<P>
-Because of the periodicity of our system we define generalized 
-susceptibilities <!-- MATH
- $\chi_{\alpha\beta}^{ss'}({\mathbf Q},\omega)\equiv\chi_{BA}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.38ex; vertical-align: -1.09ex; " SRC="img1381.svg"
- ALT="$\chi_{\alpha\beta}^{ss'}({\mathbf Q},\omega)\equiv\chi_{BA}$"></SPAN> by choosing the Fourier transform operators
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">The rotation is done using the following formula:
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
 <BR>
 <DIV CLASS="displaymath">
 
 <!-- MATH
  \begin{eqnarray}
-\hat A&=&\frac{1}{\sqrt{N}}\exp({\rm i}{\mathbf Q} \cdot \mathbf b_{s'})\sum_{\ensuremath{\boldsymbol\ell}'}\exp({\rm i}\mathbf Q  \cdot \ensuremath{\boldsymbol\ell}')\hat \mathcal I^{(\ensuremath{\boldsymbol\ell}' s')}_{\beta} \\
-\hat B&=&\frac{1}{\sqrt{N}}\exp({\rm i}{\mathbf Q}  \cdot \mathbf b_{s})\sum_{\ensuremath{\boldsymbol\ell}}\exp({\rm i}\mathbf Q  \cdot \ensuremath{\boldsymbol\ell})\hat \mathcal I^{(\ensuremath{\boldsymbol\ell}s)}_{\alpha},
+x'&= &\cos(\alpha)*x+\sin(\alpha)*y \nonumber \\
+ y'&=&-\sin(\alpha)*x+\cos(\alpha)*y
 \end{eqnarray}
  -->
 <TABLE CLASS="equation" >
 <TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 2.42ex; vertical-align: -0.12ex; " SRC="img1382.svg"
- ALT="$\displaystyle \hat A$"></TD>
+ STYLE="height: 2.09ex; vertical-align: -0.12ex; " SRC="img1318.svg"
+ ALT="$\displaystyle x'$"></TD>
 <TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
  ALT="$\textstyle =$"></TD>
 <TD style="text-align:left;"><IMG
- STYLE="height: 6.37ex; vertical-align: -3.21ex; " SRC="img1383.svg"
- ALT="$\displaystyle \frac{1}{\sqrt{N}}\exp({\rm i}{\mathbf Q} \cdot \mathbf b_{s'})\s...
-...{\boldsymbol\ell}')\hat \mathcal I^{(\ensuremath{\boldsymbol\ell}' s')}_{\beta}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">215</SPAN>)</TD></TR>
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1319.svg"
+ ALT="$\displaystyle \cos(\alpha)*x+\sin(\alpha)*y$"></TD><TD class="rfill">&nbsp;</TD></TR>
 <TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 2.42ex; vertical-align: -0.12ex; " SRC="img1384.svg"
- ALT="$\displaystyle \hat B$"></TD>
+ STYLE="height: 2.54ex; vertical-align: -0.57ex; " SRC="img1320.svg"
+ ALT="$\displaystyle y'$"></TD>
 <TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
  ALT="$\textstyle =$"></TD>
 <TD style="text-align:left;"><IMG
- STYLE="height: 6.30ex; vertical-align: -3.14ex; " SRC="img1385.svg"
- ALT="$\displaystyle \frac{1}{\sqrt{N}}\exp({\rm i}{\mathbf Q} \cdot \mathbf b_{s})\su...
-...th{\boldsymbol\ell})\hat \mathcal I^{(\ensuremath{\boldsymbol\ell}s)}_{\alpha},$"></TD><TD class="rfill">(<SPAN CLASS="arabic">216</SPAN>)</TD></TR>
-</TABLE></DIV>
-where <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img296.svg"
- ALT="$N$"></SPAN> is the number of unit cells.  It will also be convenient to introduce the Fourier transform of the two-body interaction
-
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1321.svg"
+ ALT="$\displaystyle -\sin(\alpha)*x+\cos(\alpha)*y$"></TD><TD class="rfill">(<SPAN CLASS="arabic">170</SPAN>)</TD></TR>
+</TABLE></DIV><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">rpvalue<A ID="6160"></A><A ID="rpvalue"></A> colx coly  *.*:</STRONG></DT>
+<DD>  program rpvalue<A ID="6165"></A>  used to calculate 
+                       the <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img1322.svg"
+ ALT="$R_p$"></SPAN>-value from columns number colx and coly 
+		       in a file *.*. The <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img1322.svg"
+ ALT="$R_p$"></SPAN>-value is defined as
+		       </I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
 <DIV CLASS="displaymath">
 
 <!-- MATH
  \begin{equation}
-{\mathcal J}_{\alpha\beta}^{ss'}({\mathbf Q})=\sum_{\ensuremath{\boldsymbol\ell}'} {\mathcal J}_{\alpha\beta}(\ensuremath{\boldsymbol\ell}'+\mathbf b_{s'}-\mathbf b_s) \exp\{{\rm i}\mathbf Q  \cdot (\ensuremath{\boldsymbol\ell}'+\mathbf b_{s'}-\mathbf b_s)\}
+R_p= 100*\frac{\sum_{i=1}^{N} |(x(i)-y(i)|}{\sum_{i=1}^{N}|x(i)|}
 \end{equation}
  -->
  &nbsp;  <IMG
- STYLE="height: 5.75ex; vertical-align: -3.21ex; " SRC="img1386.svg"
- ALT="$\displaystyle {\mathcal J}_{\alpha\beta}^{ss'}({\mathbf Q})=\sum_{\ensuremath{\...
-...i}\mathbf Q \cdot (\ensuremath{\boldsymbol\ell}'+\mathbf b_{s'}-\mathbf b_s)\}
+ STYLE="height: 6.81ex; vertical-align: -2.84ex; " SRC="img1323.svg"
+ ALT="$\displaystyle R_p= 100*\frac{\sum_{i=1}^{N} \vert(x(i)-y(i)\vert}{\sum_{i=1}^{N}\vert x(i)\vert}
 $"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">217</SPAN>)</SPAN>
-</DIV>
-We have arbitrarily chosen 
-<!-- MATH
- ${\ensuremath{\boldsymbol\ell}} = 0$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1387.svg"
- ALT="${\ensuremath{\boldsymbol\ell}} = 0$"></SPAN> since <!-- MATH
- ${\mathcal J}({\mathbf Q})$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img392.svg"
- ALT="${\mathcal J}({\mathbf Q})$"></SPAN> 
-is the same for all <!-- MATH
- $\ensuremath{\boldsymbol\ell}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1352.svg"
- ALT="$\ensuremath{\boldsymbol\ell}$"></SPAN> due to the translational symmetry.
-
+(<SPAN CLASS="arabic">171</SPAN>)</SPAN>
+</DIV><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+                       <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img349.svg"
+ ALT="$N$"></SPAN> denotes the number of data points in the file.
+</DD>
+<DT><STRONG><I CLASS="slanted">setvalue<A ID="6172"></A><A ID="setvalue"></A> row column text files:</STRONG></DT>
+<DD> sets the numerical value in a specified position of a data file.
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
 <P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+     row         : row number
+     column    : column number
+     number   : text to be placed in file at this position
+     files         : one or more filenames
 
-<DIV class="CENTER"><A ID="figmfproc"></A><A ID="8754"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 32:</STRONG>
-Illustration of the iterative flow used for solving the mean-field
-Hamiltonian eq.&nbsp;(<A HREF="#mfhamiltonian">225</A>)</CAPTION>
-<TR><TD><IMG
- STYLE="" SRC="img1388.svg"
- ALT="\begin{figure}
-% latex2html id marker 6653\setlength{\unitlength}{0.14in} % se...
-...\end{picture} % title of the Figure
-% label to refer figure in text
-\end{figure}"></TD></TR>
-</TABLE>
-</DIV>
-
-<P>
-The calculation of the dynamical 
-susceptibility<A ID="tex2html65"
-  HREF="footnode.html#foot8755"><SUP><SPAN CLASS="arabic">26</SPAN></SUP></A>  <!-- MATH
- $\overline{\chi}({\mathbf Q},\omega)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img1392.svg"
- ALT="$\overline{\chi}({\mathbf Q},\omega)$"></SPAN>
-from the Hamiltonian (<A HREF="node12.html#hamiltonian">5</A>) is carried out 
-within the
-mean field &ndash; random phase approximation 
-(MF&ndash;RPA)&nbsp;[<A
- HREF="node163.html#jensen91-1">1</A>,<A
- HREF="node163.html#tjablikov67-1">71</A>]. 
-This approximation neglects correlations 
-in the differences 
-<!-- MATH
- $\hat \mathcal I^n(t) - \langle  \hat \mathcal I^n (t) \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.97ex; vertical-align: -0.70ex; " SRC="img1393.svg"
- ALT="$\hat \mathcal I^n(t) - \langle \hat \mathcal I^n (t) \rangle $"></SPAN> of 
-different subsystems <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
- ALT="$n$"></SPAN>.
- In this approach the dynamical  
-susceptibility <!-- MATH
- $\overline{\chi}({\mathbf Q},\omega)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img1392.svg"
- ALT="$\overline{\chi}({\mathbf Q},\omega)$"></SPAN> 
-for a primitive lattice (<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.09ex; vertical-align: -0.12ex; " SRC="img1394.svg"
- ALT="$s=s'=0$"></SPAN>)
-can be calculated from the solution to
-
-<P>
-
+    example: $0 4 5 3.142 data.dat
+             replaces the number in row 4 and column 5 by 3.142 in file data.dat
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">shiftcol<A ID="6179"></A><A ID="shiftcol"></A> col const *.*:</STRONG></DT>
+<DD> used to add a constant (const) to a column (number col) in file(s) *.*
+</DD>
+<DT><STRONG><I CLASS="slanted">sincol<A ID="6184"></A><A ID="sincol"></A> col const file:</STRONG></DT>
+<DD> calculates sinus of a column sin(col) 
+</DD>
+<DT><STRONG><I CLASS="slanted">sumcol<A ID="6189"></A><A ID="sumcol"></A> col *.*</STRONG></DT>
+<DD> prints to stdout number of lines, sum of squares, sum of absolute values of column col in file *.*
+</DD>
+<DT><STRONG><I CLASS="slanted">swapcol<A ID="6194"></A><A ID="swapcol"></A> colx coly file:</STRONG></DT>
+<DD> swaps column x and column y of file
+</DD>
+<DT><STRONG><I CLASS="slanted">tancol<A ID="6199"></A><A ID="tancol"></A> col file:</STRONG></DT>
+<DD> calculates tangens of a column tan(col)
+</DD>
+<DT><STRONG><I CLASS="slanted">tanhcol<A ID="6204"></A><A ID="tanhcol"></A> col file:</STRONG></DT>
+<DD> calculates tangens-hyperbolicus of a column tanh(col)
+</DD>
+<DT><STRONG><I CLASS="slanted">uvw2fwhm<A ID="6209"></A><A ID="uvw2fwhm"></A> u v w col *.*:</STRONG></DT>
+<DD> used to calculate the full
+                   width half maximum from
+                   2theta in degree according to fullprofs u,v,w parameters ...
+                  The column col in file *.* must contain 2theta scattering angle
+                 values and is overwritten with the fwhm as calculated by
+                  </I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
 <DIV CLASS="displaymath">
 
 <!-- MATH
  \begin{equation}
-1=\left [ \overline{\chi}^0(\omega)^{-1}-\overline{\mathcal J}({\mathbf Q}) \right]\overline{\chi}({\mathbf Q},\omega),
-\end{equation}
- -->
- &nbsp;  <A ID="mfrpasimple"></A><IMG
- STYLE="height: 2.74ex; vertical-align: -0.93ex; " SRC="img1395.svg"
- ALT="$\displaystyle
-1=\left [ \overline{\chi}^0(\omega)^{-1}-\overline{\mathcal J}({\mathbf Q}) \right]\overline{\chi}({\mathbf Q},\omega),
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">218</SPAN>)</SPAN>
-</DIV>
-
-<P>
-where <!-- MATH
- $\overline{\chi}^0(\omega)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.26ex; vertical-align: -0.70ex; " SRC="img1396.svg"
- ALT="$\overline{\chi}^0(\omega)$"></SPAN> is the usual single ion magnetic
-susceptibility tensor.
-This equation can be written for the more general case of several
- subsystems (<!-- MATH
- $s=1,2,3,4,...,N_B$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 7.49ex; vertical-align: -0.57ex; " SRC="img1397.svg"
- ALT="$s=1,2,3,4,...,N_B$"></SPAN>) as
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-\delta_{ss'}=
-\sum_{s''=1}^{N_B}\left[
-\delta_{ss''}[\overline{\chi}^{s}(\omega)]^{-1}
--\overline{{\mathcal J}}^{ss''}({\mathbf Q})
-\right]
-\overline{\chi}^{s''s'}({\mathbf Q},\omega),
-\end{equation}
- -->
- &nbsp;  <A ID="mfrpass"></A><IMG
- STYLE="height: 7.50ex; vertical-align: -3.12ex; " SRC="img1398.svg"
- ALT="$\displaystyle
-\delta_{ss'}=
-\sum_{s''=1}^{N_B}\left[
-\delta_{ss''}[\overline{\c...
-...l J}}^{ss''}({\mathbf Q})
-\right]
-\overline{\chi}^{s''s'}({\mathbf Q},\omega),
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">219</SPAN>)</SPAN>
-</DIV>
-
-<P>
-or, in index notation, to
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-\delta_{ss'}\delta_{\alpha\beta}=
-\sum_{s''=1}^{N_B}\sum_{\delta=1}^m\left[
-\delta_{ss''}[\chi^{s}(\omega)]^{-1}_{\alpha\delta}
--{\mathcal J}_{\alpha\delta}^{ss''}({\mathbf Q})
-\right]
-\chi_{\delta\beta}^{s''s'}({\mathbf Q},\omega),
-\end{equation}
- -->
- &nbsp;  <A ID="meanfieldrpa"></A><IMG
- STYLE="height: 2.94ex; vertical-align: -3.14ex; " SRC="img1399.svg"
- ALT="$\displaystyle
-\delta_{ss'}\delta_{\alpha\beta}=
-\sum_{s''=1}^{N_B}\sum_{\delta=...
-...a}^{ss''}({\mathbf Q})
-\right]
-\chi_{\delta\beta}^{s''s'}({\mathbf Q},\omega),
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">220</SPAN>)</SPAN>
-</DIV>
-where <!-- MATH
- $\chi^{s}_{\alpha\beta}(\omega)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 7.30ex; vertical-align: -1.09ex; " SRC="img1400.svg"
- ALT="$\chi^{s}_{\alpha\beta}(\omega)$"></SPAN> is the
- subsystem susceptibility (the same for all <!-- MATH
- $\ensuremath{\boldsymbol\ell}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1352.svg"
- ALT="$\ensuremath{\boldsymbol\ell}$"></SPAN>), given by
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-\chi^{s}_{\alpha\beta}(\omega)=
-\sum_{jj'} \frac{\langle j|\hat \mathcal I_{\alpha}-\langle\hat \mathcal I_{\alpha}\rangle|j'\rangle\langle j'|\hat \mathcal
-I_{\beta}-\langle\hat \mathcal I_{\beta}\rangle|j\rangle}{\epsilon_{j'}-\epsilon_j-\hbar \omega}
-(p_j-p_{j'}).
-\end{equation}
- -->
- &nbsp;  <A ID="singleionsusceptibility"></A><IMG
- STYLE="height: 1.89ex; vertical-align: -3.44ex; " SRC="img1401.svg"
- ALT="$\displaystyle
-\chi^{s}_{\alpha\beta}(\omega)=
-\sum_{jj'} \frac{\langle j\vert\h...
-...ta}\rangle\vert j\rangle}{\epsilon_{j'}-\epsilon_j-\hbar \omega}
-(p_j-p_{j'}).
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">221</SPAN>)</SPAN>
-</DIV>
-where for the sake of simplicity we omit the <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img135.svg"
- ALT="$s$"></SPAN> index 
-on all quantities on the right-hand side. 
-Here <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.89ex; vertical-align: -0.78ex; " SRC="img1402.svg"
- ALT="$\epsilon_j$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.78ex; " SRC="img1403.svg"
- ALT="$\epsilon_{j'}$"></SPAN> are 
-energy levels of the subsystem <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img135.svg"
- ALT="$s$"></SPAN> as calculated 
-self-consistently within the mean-field theory
-using the Hamiltonian (<A HREF="#mfhamiltonian">225</A>), 
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1404.svg"
- ALT="$\vert j\rangle$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.89ex; vertical-align: -0.70ex; " SRC="img1405.svg"
- ALT="$\vert j'\rangle$"></SPAN> denote the corresponding 
-eigenstates and <SPAN CLASS="MATH"><IMG
- STYLE="height: 6.13ex; vertical-align: -0.78ex; " SRC="img1406.svg"
- ALT="$p_j$"></SPAN> the corresponding population numbers:
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-p_{j} = \frac{\exp(-\epsilon_{j}/{k}T)}{\sum_{j'}\exp(-\epsilon_{j'}/{k}T)}.
+{\rm fwhm }= \sqrt {u \tan^2(\theta) + v \tan(\theta) + w}
 \end{equation}
  -->
  &nbsp;  <IMG
- STYLE="height: 1.95ex; vertical-align: -2.72ex; " SRC="img1407.svg"
- ALT="$\displaystyle p_{j} = \frac{\exp(-\epsilon_{j}/{k}T)}{\sum_{j'}\exp(-\epsilon_{j'}/{k}T)}.
+ STYLE="height: 4.49ex; vertical-align: -1.33ex; " SRC="img1324.svg"
+ ALT="$\displaystyle {\rm fwhm }= \sqrt {u \tan^2(\theta) + v \tan(\theta) + w}
 $"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">222</SPAN>)</SPAN>
-</DIV>
-
+(<SPAN CLASS="arabic">172</SPAN>)</SPAN>
+</DIV><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">zshift<A ID="6218"></A><A ID="zshift"></A> constx colx coly *.*:</STRONG></DT>
+<DD> shifts colx by a constant such that it is zero at a specified value constx of colx. 
+</DD>
+</DL></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-The writing of (<A HREF="#singleionsusceptibility">237</A>) has been simplified in two ways. The obvious
-one is that <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img386.svg"
- ALT="$\omega$"></SPAN> should read <!-- MATH
- $\omega+i \varepsilon$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.50ex; vertical-align: -0.31ex; " SRC="img1408.svg"
- ALT="$\omega+i \varepsilon$"></SPAN> where
-<!-- MATH
- $\varepsilon\to0^+$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.07ex; vertical-align: -0.12ex; " SRC="img1378.svg"
- ALT="$\varepsilon\to0^+$"></SPAN>. Secondly, the elastic contribution is included
-in (<A HREF="#singleionsusceptibility">237</A>) by assuming the use of the following convention:
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.78ex; " SRC="img1403.svg"
- ALT="$\epsilon_{j'}$"></SPAN> is being replaced by <!-- MATH
- $\epsilon_{j'}+d$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.89ex; vertical-align: -0.78ex; " SRC="img1409.svg"
- ALT="$\epsilon_{j'}+d$"></SPAN> in all terms
-where <!-- MATH
- $\epsilon_{j'}=\epsilon_j$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.78ex; " SRC="img1410.svg"
- ALT="$\epsilon_{j'}=\epsilon_j$"></SPAN>. The shift in energy introduced is
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.63ex; vertical-align: -0.70ex; " SRC="img1411.svg"
- ALT="$\vert d\vert\ll k^{}T$"></SPAN> and hence
-<!-- MATH
- $p_j-p_{j'}=p_j\,d/k^{}T$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.42ex; vertical-align: -0.78ex; " SRC="img1412.svg"
- ALT="$p_j-p_{j'}=p_j\,d/k^{}T$"></SPAN> to leading order. Notice that
-the matrix elements of the thermal expectation values in (<A HREF="#singleionsusceptibility">237</A>) are
-only nonzero in the special cases of <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.57ex; " SRC="img1413.svg"
- ALT="$j=j'$"></SPAN>. Using the two
-conventions equation (<A HREF="#singleionsusceptibility">237</A>) becomes 
-equivalent to (<A HREF="#generalsuszeptibility">226</A>) in the limit of
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.95ex; vertical-align: -0.12ex; " SRC="img1414.svg"
- ALT="$d\to0$"></SPAN> (after taking the limit <!-- MATH
- $\varepsilon\to0^+$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.07ex; vertical-align: -0.12ex; " SRC="img1378.svg"
- ALT="$\varepsilon\to0^+$"></SPAN>).
-Since the expectation values are only needed
-in (<A HREF="#singleionsusceptibility">237</A>) when considering the elastic contribution, we may use this
-fact to signal that the second convention has to be applied whenever
-the expectation values are subtracted from the operators.
-
-<P>
-In order to evaluate
- equations
-(<A HREF="#mfrpasimple">234</A>)-(<A HREF="#singleionsusceptibility">237</A>) without producing a numerical divergence 
-it is necessary to add to <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img386.svg"
- ALT="$\omega$"></SPAN> a small imaginary constant <!-- MATH
- $\omega \rightarrow \omega+i\epsilon$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.38ex; vertical-align: -0.31ex; " SRC="img1415.svg"
- ALT="$\omega \rightarrow \omega+i\epsilon$"></SPAN>
-and insert this into equation (<A HREF="#singleionsusceptibility">237</A>). 
-If the option <I CLASS="slanted">-r <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img92.svg"
- ALT="$\epsilon$"></SPAN></I> is used,
-the program <I CLASS="slanted">McDisp</I> calculates the above expression for every energy
-and stores the result in <I CLASS="slanted">./results/mcdisp.dsigma</I>. 
-
-<P>
-If the option <I CLASS="slanted">-r</I> is not used, the
- program <I CLASS="slanted">mcdisp<A ID="6802"></A></I> uses only the extremely fast DMD (Dynamical Matrix Diagonalisation) algorithm[<A
- HREF="node163.html#rotter06-400">72</A>] to calculate excitation energies and intensities and store the result in <I CLASS="slanted">mcdisp.qom, mcdisp.qei, etc.</I>. The flowing chart of such a calculation is shown in fig.&nbsp;<A HREF="node152.html#figdmdproc">33</A>
-and the formalism is outlined hereafter:
-
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A ID="tex2html1110"
-  HREF="node152.html">DMD - formalism</A>
-<LI><A ID="tex2html1111"
-  HREF="node153.html">Calculation of the Correlation Function of Physical Observables</A>
-<LI><A ID="tex2html1112"
-  HREF="node154.html">Evaluating results - Graphical Visualisation of Spin and Charge Oscillations of Excitations</A>
-<LI><A ID="tex2html1113"
-  HREF="node155.html">Application to Neutron scattering</A>
-<UL>
-<LI><A ID="tex2html1114"
-  HREF="node156.html">Coherent Nuclear Inelastic Scattering - 1 Phonon processes</A>
-<LI><A ID="tex2html1115"
-  HREF="node157.html">Magnetic inelastic Scattering</A>
-</UL>
-<BR>
-<LI><A ID="tex2html1116"
-  HREF="node158.html">Dipole Approximation</A>
-</UL>
-<!--End of Table of Child-Links-->
-
+<SPAN CLASS="SMALL"></SPAN>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
 <A
@@ -915,23 +827,23 @@ and the formalism is outlined hereafter:
 <A
  HREF="node150.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1106"
-  HREF="node7.html">
+<A ID="tex2html1162"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1108"
-  HREF="node164.html">
+<A ID="tex2html1164"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node152.html">DMD - formalism</A>
+ HREF="node152.html">Programs of General Interest</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node150.html">Derivation of the Chargedensity</A>
- &nbsp; <B>  <A ID="tex2html1107"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1109"
-  HREF="node164.html">Index</A></B> </DIV>
+ HREF="node150.html">Programs for Specific Tasks</A>
+ &nbsp; <B>  <A ID="tex2html1163"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1165"
+  HREF="node180.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

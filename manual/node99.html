@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>External module functions dmq1 - used by mcdisp </TITLE>
+<TITLE>External module function Icalc_parameter_storage_matrix_init - used by mcphas,singleion,spins and densplt,mcdiff </TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,205 +23,125 @@
  HREF="node100.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node88.html">
+ HREF="node96.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node98.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html876"
-  HREF="node7.html">
+<A ID="tex2html911"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html878"
-  HREF="node164.html">
+<A ID="tex2html913"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node100.html">External module functions drixs1</A>
+ HREF="node100.html">External module function du1calc</A>
 <B> Up:</B> <A
- HREF="node88.html">Module Functions for Observables</A>
+ HREF="node96.html">Basic Module Functions</A>
 <B> Previous:</B> <A
- HREF="node98.html">External module function mqcalc</A>
- &nbsp; <B>  <A ID="tex2html877"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html879"
-  HREF="node164.html">Index</A></B> 
+ HREF="node98.html">External module function IMcalc</A>
+ &nbsp; <B>  <A ID="tex2html912"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html914"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION0001721100000000000000"></A><A ID="3550"></A>
+<H3><A ID="SECTION000161300000000000000"></A><A ID="3986"></A><A ID="3987"></A><A ID="3988"></A><A ID="3989"></A><A ID="3990"></A>
 <BR>
-External module functions <I CLASS="slanted">dmq1</I> - used by <I CLASS="slanted">mcdisp</I>  
-</H3>
-
+External module function <I CLASS="slanted">Icalc_parameter_storage_matrix_init</I> - used by <I CLASS="slanted">mcphas</I>,<I CLASS="slanted">singleion</I>,<I CLASS="slanted">spins</I> and <I CLASS="slanted">densplt</I>,<I CLASS="slanted">mcdiff</I>  
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-Similarly  &rdquo;going beyond&rdquo;  dipolar approximation in the program <I CLASS="slanted">mcdisp<A ID="3551"></A></I>
-can be done with  module functions <I CLASS="slanted">dmq1</I> and <I CLASS="slanted">estates</I>. 
-The input of <I CLASS="slanted">dmq1</I> 
-has similar arguments as
-<I CLASS="slanted">du1calc</I>, but as additional argument an orientation
-of the scattering vector,
-output should be a corresponding vector
- <!-- MATH
- ${\mathbf m^s_{\alpha1}}(\mathbf Q)=\sqrt{(p_- -p_+)}
-\langle -|\hat \mathbf M_{\alpha}^{\dag }(\mathbf Q)-\langle \hat \mathbf M_{\alpha}^{\dag }(\mathbf Q)\rangle|+\rangle/\mu_B$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.14ex; vertical-align: -0.82ex; " SRC="img866.svg"
- ALT="${\mathbf m^s_{\alpha1}}(\mathbf Q)=\sqrt{(p_--p_+)}
-\langle -\vert\hat \mathbf...
-...Q)-\langle \hat \mathbf M_{\alpha}^{\dag }(\mathbf Q)\rangle\vert+\rangle/\mu_B$"></SPAN>.
-Here <!-- MATH
- $\hat \mathcal Q_{\alpha}=\frac{\hat  \mathbf M_{\alpha}(\mathbf Q)}{-2 \mu_B}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 4.01ex; vertical-align: -1.23ex; " SRC="img867.svg"
- ALT="$\hat \mathcal Q_{\alpha}=\frac{\hat \mathbf M_{\alpha}(\mathbf Q)}{-2 \mu_B}$"></SPAN>
- are the cartesian components of the scattering operator.
- <I CLASS="slanted">dmq1</I> is called many times, for
- every scattering vector. In order to
- do an efficient calculation the eigenstates should be calculated only
- once, this is the task of function <I CLASS="slanted">estates</I> (see above).
-
+<SPAN CLASS="SMALL">This routine is optional, i.e. it may be programmed, but is not absolutely necessary.
+Before any call to Icalc this function will be called. subsequent calls to Icalc will provide this matrix to Icalc, Icalc may set values to this matrix to be read in the next call
+of Icalc.
+</SPAN>
 <P>
-The format to be used is:
+<SPAN CLASS="SMALL">This feature provides the designer of a single ion module  with the possiblity to store information for subsquent calls of Icalc,
+ usually the eigenvalues and eigenstates of a problem. This can be very useful to accelerate computations. For example, in <I CLASS="slanted">mcphas</I> meanfield iterations require
+to solve a similar eigenvalue problem in each iteration step. Therefore the <I CLASS="slanted">mcphas</I> module provides
+to the single ion module on every call to the function <I CLASS="slanted">Icalc</I> the parmeter matrix 
+which the module stored in its last call for a specfic ion in the magnetic unit cell.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">At the start of the programs <I CLASS="slanted">mcphas</I> <I CLASS="slanted">mcdiff</I> <I CLASS="slanted">singleion</I> the function <I CLASS="slanted">Icalc_parameter_storage_matrix_init</I>
+is called (if present in the module) and it should initialize a Complex Matrix by a command such as
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"><I CLASS="slanted">(*parstorage)=ComplexMatrix(0,nofrows,1,nofcols);</I>
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">and fill this matrix with sensible numerical values, in particular for the effective field, temperature given at the input of this function.
+Parameters <I CLASS="slanted">MODPAR</I> and Lande Factor <I CLASS="slanted">gJ</I> may be used for this purpose.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">The routine should look similar to
 <SPAN CLASS="FOOTNOTESIZE">
-</SPAN><PRE>
-extern "C" int dmq1(int &amp; tn,double &amp; th,double &amp; ph,double J0,
-double &amp; J2, double &amp; J4, double &amp; J6,ComplexMatrix &amp; est,double &amp; T,
-ComplexVector &amp; mq1, float &amp; maxE)
-</PRE><SPAN CLASS="FOOTNOTESIZE">
+</SPAN></SPAN><PRE>
+#include "vector.h"          // MatPack vector class must be included
+
+#ifdef __linux__
+extern "C" void Icalc_parameter_storage_matrix_init(
+#else
+extern "C" __declspec(dllexport) void Icalc_parameter_storage_matrix_init(
+#endif
+// on output
+                     ComplexMatrix * parstorage,    // storage matrix
+// on input
+                       Hxc ,                 //   vector of exchange field [meV] (can be n-dimensional, for a set of n operators)
+                       Hext,                 // external magnetic field [T]
+                      double *g_J,           // Input Lande g-factor
+                      double &amp;T,             // Input temperature (K)
+                      Vector &amp;MODPAR,     // Input vector of parameters 
+                                          //from single ion property file
+                      char **sipffilename)// Single ion properties filename
+{ // ... some code to compute eigenvectors and eigenvalues
+
+// dimension matrix
+(*parstorage)=ComplexMatrix(0,nofrows,1,nofcols);
+
+// fill matrix with values
+int l,m;
+          for(l=1;l&lt;=nofrows;++l)for(m=1;m&lt;=nofcols;++m)
+          {(*parstorage)(l,m)=complex &lt;double&gt; ( 4 , 2);}
+                 // instead of 4 and 2 put the real 
+                 //and imaginary parts to be stored
+}
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE"></SPAN>
 </SPAN>
 <P>
-<SPAN CLASS="FOOTNOTESIZE">The meaning of the symbols is as follows:
-</SPAN>
-<P>
-<SPAN CLASS="FOOTNOTESIZE"></SPAN><PRE>
-on input
-   |tn|            transition-number  
-   sign(tn)        &gt;0 standard with printouts for user information, 
-                   &lt;0 routine should omit any printout
-   th              polar angle theta of the scattering vector Q 
-                   (angle with the axb axis=c axis) in rad
-   ph              polar angle phi of the scattering vector Q 
-                   (angle with bx(axb)=a in the projection into
-                   the  bx(axb),b plane = angle with a in the projection into 
-				   the ab plane) in rad
-   J0,J2,J4,J6     form factor functions &lt;jn(Q)&gt;   
-   est             eigenstate matrix (as calculated by estates),
-                   it should also contain population numbers of the states (row 0)
-   T               Temperature[K]
-   mq1(1)           ninit + i pinit (from mcdisp options  -ninit and -pinit)
-   maxE            maximum transition energy (from mcdisp option maxE)
-on output
-   int             total number of transitions
-   mq1             vector mq(alpha)=&lt;-|-2Qalpha|+&gt;sqrt(p- - p+)
-                   
-     Note on Qalpha
-        Cartesian components of the scattering operator Qalpha, alpha=1,2,3=a,b,c
-        according to Lovesey Neutron Scattering equation 6.87b 
-        scattering operator is given in  spherical coordinates Q-1,Q0,Q+1 (introduced
-        as described above on input of th and ph) these are related to euclidean 
-		components by 11.123
-        Q1=Qbx(axb)
-        Q2=Qb                         
-        Q3=Qaxb    
-                   
-        the orbital and spin contributions can be given as separate 
-		components  according to Lovesey Neutron Scattering 
-		equations 11.55 and 11.71 (the spin part 11.71 has to be
-        divided by 2), i.e.
-        &lt;-|QSa,b,c|+&gt;=
-          =&lt;-|sum_i exp(i k ri) s_(a,b,c)|+&gt; /2                   as defined by 11.71 / 2
-				   
-        &lt;-|QLa,b,c|+&gt;=
-          =&lt;-|sum_i exp(i k ri) (-(k x grad_i)_(a,b,c)/|k|)|+&gt;     as defined by 11.54 /(-|k|)
-	     thus for k=0 &lt;QS&gt;=&lt;S&gt;/2 and &lt;QL&gt;=&lt;L&gt;/2 
-        Q=2QS+QL, M(Q)=Q/(-2muB)=mq1/muB
-</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
-
-<P>
-The module function must perform the following tasks:
-
-<OL>
-<LI>for the transition number tn the vector mq1  is to be filled with the 3-components 
-of <!-- MATH
- ${\mathbf m^s_{\alpha1}}(\mathbf Q)=\sqrt{(p_- -p_+)}
-\langle -|\hat \mathbf M_{\alpha}^{\dag }(\mathbf Q)-\langle \hat \mathbf M_{\alpha}^{\dag }(\mathbf Q)\rangle|+\rangle/\mu_B$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.14ex; vertical-align: -0.82ex; " SRC="img868.svg"
- ALT="${\mathbf m^s_{\alpha1}}(\mathbf Q)=\sqrt{(p_--p_+)}
-\langle -\vert\hat \mathbf...
-...Q)-\langle \hat \mathbf M_{\alpha}^{\dag }(\mathbf Q)\rangle\vert+\rangle/\mu_B$"></SPAN>.
-, i.e. for <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img869.svg"
- ALT="$\alpha=1,..3$"></SPAN> 
-<EM>IMPORTANT: the numbering scheme of transitions has to
-be the same for du1calc and all the corresponding d...1 functions for observables !</EM>
-</LI>
-<LI>If the energy of this transition
-is zero, i.e. <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img842.svg"
- ALT="$\Delta(tn)=0$"></SPAN> (diffuse scattering), 
-the <!-- MATH
- ${\mathbf m^s_{\alpha1}}(\mathbf Q)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img870.svg"
- ALT="${\mathbf m^s_{\alpha1}}(\mathbf Q)$"></SPAN> 
- would be zero because <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img843.svg"
- ALT="$(p_--p_+)$"></SPAN> vanishes (compare expression (<A HREF="node152.html#mmatrix">240</A>)).
-In this case the single ion module should calculate <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img844.svg"
- ALT="$(p_+/kT)$"></SPAN> instead of <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img843.svg"
- ALT="$(p_--p_+)$"></SPAN>.
-</LI>
-<LI>if <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.90ex; vertical-align: -0.21ex; " SRC="img830.svg"
- ALT="$T&lt;0$"></SPAN> all quantities should be evaluated assuming that all Boltzmann probabilities <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img139.svg"
- ALT="$p_i$"></SPAN>
- are zero except for the state number <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img831.svg"
- ALT="$n=(-T)$"></SPAN>, for which the probability <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img832.svg"
- ALT="$p_n=1$"></SPAN>.
-</LI>
-</OL>
-
-<P>
-
+<SPAN CLASS="SMALL"></SPAN>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
 <A
  HREF="node100.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node88.html">
+ HREF="node96.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node98.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html876"
-  HREF="node7.html">
+<A ID="tex2html911"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html878"
-  HREF="node164.html">
+<A ID="tex2html913"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node100.html">External module functions drixs1</A>
+ HREF="node100.html">External module function du1calc</A>
 <B> Up:</B> <A
- HREF="node88.html">Module Functions for Observables</A>
+ HREF="node96.html">Basic Module Functions</A>
 <B> Previous:</B> <A
- HREF="node98.html">External module function mqcalc</A>
- &nbsp; <B>  <A ID="tex2html877"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html879"
-  HREF="node164.html">Index</A></B> </DIV>
+ HREF="node98.html">External module function IMcalc</A>
+ &nbsp; <B>  <A ID="tex2html912"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html914"
+  HREF="node180.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

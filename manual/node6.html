@@ -1,16 +1,17 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>...in version 5.3 ...</TITLE>
+<TITLE>...in version 5.5 ...</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node7.html">
 <LINK REL="previous" HREF="node5.html">
 <LINK REL="next" HREF="node7.html">
 </HEAD>
@@ -22,68 +23,81 @@
  HREF="node7.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node2.html">
+ HREF="node3.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node5.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html266"
-  HREF="node7.html">
+<A ID="tex2html294"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html268"
-  HREF="node164.html">
+<A ID="tex2html296"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node7.html">Contents</A>
+ HREF="node7.html">...in version 5.4 ...</A>
 <B> Up:</B> <A
- HREF="node2.html">What is New ?</A>
+ HREF="node3.html">What is New ?</A>
 <B> Previous:</B> <A
- HREF="node5.html">...in version 5.4 ...</A>
- &nbsp; <B>  <A ID="tex2html267"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html269"
-  HREF="node164.html">Index</A></B> 
+ HREF="node5.html">... in version 5.6</A>
+ &nbsp; <B>  <A ID="tex2html295"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html297"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION00024000000000000000">
- ...in version 5.3 ...</A>
+<H2><A ID="SECTION00013000000000000000">
+ ...in version 5.5 ...</A>
 </H2>
 
 <UL>
-<LI>Ce3p.sipf database: formfactor for Ce3+ ion coefficients FF improved 
+<LI><I CLASS="slanted">ic1ion &amp; icf1ion &amp; mcdiff.in file format for</I> <!-- MATH
+ $\langle \mathbf S \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img61.svg"
+ ALT="$\langle \mathbf S \rangle$"></SPAN>
+and  <!-- MATH
+ $\langle \mathbf L \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img62.svg"
+ ALT="$\langle \mathbf L \rangle$"></SPAN> - !!  Operator sequence changed to Sa Sb Sc La Lb Lc !! 
+(was Sa La Sb Lb Sc Lc)
 </LI>
-<LI><I CLASS="slanted">singleion</I> extended to ouput optional M(Q)
+<LI>mcphas got an option -doeps for magnetostrictive strain calculation using parameters
+calculated e.g. by makenn -cfph 
 </LI>
-<LI><I CLASS="slanted">setup_mcdiff_in</I>  options were blocking negative x y, therefore modified code
-           thus it can accept negative x y in phasediagram
+<LI>there are more examples using cf-phonon interaction
 </LI>
-<LI><I CLASS="slanted">mcdisp.jq </I> contains now hklblocknumber= lines 
- moreover mcdisp calculates scaled interation parameters to enable better fitting keeping TN constant
-if in mcdisp.par after the hkl of the first q vector a number is given, then
-scaled interaction parameters are computed such that their highest eigenvalue
-agrees with this number. Scaled parameters are saved in results/mcdisp_scaled.j
-and here follow standard deviations computed with the scaled parameters
- sta_scaled sta4_scaled
+<LI>module phonon: umax restrictino in module phonon done by 
+u= umax * tanh (u/umax) ... this avoids uniform shifts of the crystal 
 </LI>
-<LI><I CLASS="slanted">makenn</I> comments in output file removed to smooth iterative usage
+<LI><I CLASS="slanted">makenn</I> option -bvk extended to generate a sample bvk constants table 
 </LI>
-<LI><I CLASS="slanted">splitfile</I> option -c introduced to split at columns value changes
+<LI>anisotropy <!-- MATH
+ $H=D_{x4} S_x^4 +D_{y4} S_y^4 +D_{z4} S_x^4$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -1.01ex; " SRC="img63.svg"
+ ALT="$H=D_{x4} S_x^4 +D_{y4} S_y^4 +D_{z4} S_x^4$"></SPAN> introduced in module <I CLASS="slanted">so1ion</I>
 </LI>
-<LI><I CLASS="slanted">ic1ion bug for quasielastic beyond dipolar scattering fixed (spin exp value was not
-          subtracted from matrix elements)</I>
+<LI>made <I CLASS="slanted">mcphaseexplorer</I> compatible with java 1.8.0 and java 17 at the 
+           same time (see batch mpe for linux for options) 
 </LI>
-<LI><I CLASS="slanted">rotateBLm</I> bug reading Blm with sign  fixed
+<LI><I CLASS="slanted">cif2mcphas</I> changed to put phonon module for sipf files which are nonmagnetic
 </LI>
-<LI><I CLASS="slanted">mcphas2jvx</I> bug for nonortho primitive lattices fixed
+<LI>mcphas.xyt outputs periodicity of supercell
 </LI>
-<LI><I CLASS="slanted">getvalue</I> linux bug fixed
+<LI><I CLASS="slanted">spins</I> changed to produce for option -f spins_prim.jvx graphics output
+</LI>
+<LI><I CLASS="slanted">spinsfromq</I> phases correctly introduced for double and triple q structure
 </LI>
 </UL>
 
-<P>
 <P>
 <BR><HR>
 

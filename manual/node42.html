@@ -1,16 +1,17 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Going beyond the Dipole Approximation for the Neutron Form factor</TITLE>
+<TITLE>Example single ion property file for a simple antiferromagnet</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node43.html">
 <LINK REL="previous" HREF="node41.html">
 <LINK REL="next" HREF="node43.html">
 </HEAD>
@@ -22,412 +23,149 @@
  HREF="node43.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node37.html">
+ HREF="node35.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node41.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html557"
-  HREF="node7.html">
+<A ID="tex2html605"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html559"
-  HREF="node164.html">
+<A ID="tex2html607"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node43.html">mcdisp - the Calculation</A>
+ HREF="node43.html">mcphas.tst - input file</A>
 <B> Up:</B> <A
- HREF="node37.html">mcdiff - calculate and</A>
+ HREF="node35.html">Input Files</A>
 <B> Previous:</B> <A
- HREF="node41.html">Formalism II - Neutron</A>
- &nbsp; <B>  <A ID="tex2html558"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html560"
-  HREF="node164.html">Index</A></B> 
+ HREF="node41.html">Single Ion Property Input</A>
+ &nbsp; <B>  <A ID="tex2html606"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html608"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000115000000000000000"></A><A ID="mcdiff_gobeyond"></A>
-<BR>
-Going beyond the Dipole Approximation for the Neutron Form factor
-</H2>
-
+<H3><A ID="SECTION00091700000000000000">
+Example single ion property file  for a simple antiferromagnet</A>
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-Usually the magnetic form factor is calculated by the dipole approximation (see appendix&nbsp;<A HREF="node148.html#ffacts">J</A>).
-In order to go beyond the dipole approximation (see&nbsp;[<A
- HREF="node163.html#lovesey84-1">30</A>] chapter 11.6.2,equations 
-11.141-11.143, mind: there is a small error in equ 11.141 and 11.142 in this book, see below) for the 
-magnetic form factor it is necessary to take into account the expectation values
-<!-- MATH
- $\langle j_4(Q) \rangle$
+<SPAN CLASS="SMALL">Here is an example file <I CLASS="slanted">mcphas.cf1</I> describing the anisotropy of a 
+simple antiferromagnet with Ce atoms having basal plane anisotropy. Note the
+axis convention xyz<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img305.svg"
+ ALT="$\vert\vert$"></SPAN>abc, in case of non-orthogonal axes the convention 
+is <SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img249.svg"
+ ALT="$y\vert\vert\vec b$"></SPAN>, <!-- MATH
+ $z||(\vec a \times \vec b)$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img353.svg"
- ALT="$\langle j_4(Q) \rangle$"></SPAN> and <!-- MATH
- $\langle j_6(Q) \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img354.svg"
- ALT="$\langle j_6(Q) \rangle$"></SPAN> 
-(in addition to <!-- MATH
- $\langle j_0(Q) \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img355.svg"
- ALT="$\langle j_0(Q) \rangle$"></SPAN> and <!-- MATH
- $\langle j_2(Q) \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img356.svg"
- ALT="$\langle j_2(Q) \rangle$"></SPAN>). 
-Moreover the ground state wave functions, the <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img357.svg"
- ALT="$Z(K)$"></SPAN>-coefficients (see appendix&nbsp;<A HREF="node149.html#zk">K</A>
-or [<A
- HREF="node163.html#lovesey84-1">30</A>],table 11.1)
-and the momentum quantum number for each magnetic ion is required. This
-information has to be given in the input file 
-in the following format:
-
+ STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img250.svg"
+ ALT="$z\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img4.svg"
+ ALT="$x$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img251.svg"
+ ALT="$y$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img238.svg"
+ ALT="$z$"></SPAN>.
+</SPAN>
 <P>
-<SPAN CLASS="FOOTNOTESIZE">
-</SPAN><PRE>
-...
-# %SECTION 4% DESCRIPTION OF MAGNETIC UNIT CELL AND LIST OF MAGNETIC ATOMS
+<SPAN CLASS="SMALL"><SPAN CLASS="SMALL"></SPAN></SPAN><PRE>
+#!MODULE=so1ion
+#&lt;!--mcphase.sipf--&gt;
+#***************************************************************
+# Single Ion Parameter File for Module Cfield for  
+# mcphas version 3.0
+# - program to calculate static magnetic properties
+# reference: M. Rotter JMMM 272-276 (2004) 481
+# mcdisp version 3.0
+# - program to calculate the dispersion of magnetic excitations
+# reference: M. Rotter et al. J. Appl. Phys. A74 (2002) 5751
+# mcdiff version 3.0
+# - program to calculate neutron and magnetic xray diffraction
+# reference: M. Rotter and A. Boothroyd PRB 79 (2009) 140405R
+#***************************************************************
 #
 #
-# here follows the description of the magnetic unit cell with respect
-# to the primitive crystallographic unit cell:
-# 'nr1', 'nr2', 'nr3' ...the crystallographic unit cell has to be taken 
-#                        nr1 nr2 and nr3 times along r1 r2 and r3,
-#                        respectively to get magnetic unit cell
-# 'nat' denotes the number of magnetic atoms in magnetic unit cell
+# crystal field paramerized in Stevens formalism
 #
-# Temperature,  External Magnetic Field: Magnetic Unit Cell
-#! T=1.3 K Ha=0 T Hb= 0 T Hc= 0 T: nr1=2 nr2=2 nr3=2 nat=8 
+#-----------
+IONTYPE=Ce3+
+#-----------
+
+#--------------------------------------------------------------------------
+# Crystal Field parameters in Stevens Notation (coordinate system xyz||abc)
+#--------------------------------------------------------------------------
+units=meV
+B20=0.02
+
+
+#----------------
+# Stevens Factors
+#----------------
+ALPHA=-0.0571429
+BETA=0.00634921
+GAMMA=0
+
+#---------------------------------------------------------
+# Radial Matrix Elements (e.g. Abragam Bleaney 1971 p 399)
+#---------------------------------------------------------
+#&lt;r^2&gt; in units of a0^2 a0=0.5292 Angstroem
+R2=1.309
+#&lt;r^4&gt; in units of a0^4 a0=0.5292 Angstroem
+R4=3.964
+#&lt;r^6&gt; in units of a0^6 a0=0.5292 Angstroem
+R6=23.31
+
+#----------------
+# Lande factor gJ
+#----------------
+GJ=0.857143
+
+#-------------------------------------------------------
+# Neutron Scattering Length (10^-12 cm) (can be complex)
+#-------------------------------------------------------
+SCATTERINGLENGTHREAL=0.484
+SCATTERINGLENGTHIMAG=0
+#  ... note: - if an occupancy other than 1.0 is needed, just reduce 
+#              the scattering length linear accordingly
+
+#-------------------------------------------------------
+# Debye-Waller Factor: sqr(Intensity)~|sf|~EXP(-2 * DWF *s*s)=EXP (-W)
+#                      with s=sin(theta)/lambda=Q/4pi
+# relation to other notations: 2*DWF=Biso=8 pi^2 &lt;u^2&gt;
+# unit of DWF is [A^2]
+#-------------------------------------------------------
+DWF=0
+#--------------------------------------------------------------------------------------
+# Neutron Magnetic Form Factor coefficients - thanks to J Brown
+#   d = 2*pi/Q      
+#   s = 1/2/d = Q/4/pi   
+#   sin(theta) = lambda * s
+#   r= s*s = Q*Q/16/pi/pi
 #
+#   &lt;j0(Qr)&gt;=   FFj0A*EXP(-FFj0a*r) + FFj0B*EXP(-FFj0b*r) + FFj0C*EXP(-FFj0c*r) + FFj0D
+#   &lt;j2(Qr)&gt;=r*(FFj2A*EXP(-FFj2a*r) + FFj2B*EXP(-FFj2b*r) + FFj2C*EXP(-FFj2c*r) + FFj2D
+#   &lt;j4(Qr)&gt;=r*(FFj4A*EXP(-FFj4a*r) + FFj4B*EXP(-FFj4b*r) + FFj4C*EXP(-FFj4c*r) + FFj4D
+#   &lt;j6(Qr)&gt;=r*(FFj6A*EXP(-FFj6a*r) + FFj6B*EXP(-FFj6b*r) + FFj6C*EXP(-FFj6c*r) + FFj6D
 #
-# It follows a list of nat lines with to describe the magnetic moment configuration
-# Notes:
-# 'atom-filename' means the single ion property filename of this magnetic atom:
-#                 -it must contain the Formfactor Coefficients (e.g. see international tables)
-#                                      Lande factor
-#                                      Neutron Scattering Length (10^-12 cm) 
-#                 -it may contain a    Debey Waller Factor
-# 'da' 'db' and 'dc' are not used by the program (unless you enter a line #! use_dadbdc=1)
-# 'dr1','dr2' and 'dr3' refer to the primitive lattice given below
-# 'Ma','Mb','Mc' denote the magnetic moment components in Bohr magnetons
-#                in case of non orthogonal lattices instead of Ma Mb Mc the components Mi Mj Mk
-#                have to be given, which refer to an right handed orthogonal coordinate system 
-#                defined by j||b, k||(a x b) and i normal to k and j
-#  &lt;Sa&gt;  &lt;La&gt; &lt;Sb&gt; &lt;Lb &gt;  &lt;Sc&gt; &lt;Lc&gt;  (optional) denote the spin and orbital angular momentum components 
-# 'Hxc1' 'Hxc2' 'Hxc3' (optional line, used to go beyond dipole approx for formfactor)
-#                                     denote the exchange fields in meV 
-#
-#{atom-file} da[a]  db[b]    dc[c]     dr1[r1]  dr2[r2]  dr3[r3]   &lt;Ma&gt;     &lt;Mb&gt;     &lt;Mc&gt; [mb] [optional &lt;Sa&gt;  &lt;La&gt; &lt;Sb&gt; &lt;Lb &gt;  &lt;Sc&gt; &lt;Lc&gt;] 
-#{corresponding exchange fields Hxc [meV]- if passed to mcdiff only these are used for calculation (not the magnetic moments)}
-{Ce3p.sipf}  0.00000  0.00000  0.00000   0.00000  0.00000  0.00000   +0.69590 +0.69620 +0.00000  
-                    corresponding exchange fields Hxc [meV]--&gt; +0.58640 +0.58660 +0.00000
-{Ce3p.sipf}  0.50000  0.50000  0.50000   0.00000  0.00000  1.00000   -0.69590 -0.69620 +0.00000 
-                    corresponding exchange fields Hxc [meV]--&gt; -0.58640 -0.58660 +0.00000
-{Ce3p.sipf}  0.00000  1.00000  0.00000   0.00000  1.00000  0.00000   -0.69590 -0.69620 +0.00000 
-                    corresponding exchange fields Hxc [meV]--&gt; -0.58640 -0.58660 +0.00000
-{Ce3p.sipf}  0.50000  1.50000  0.50000   0.00000  1.00000  1.00000   +0.69590 +0.69620 +0.00000 
-                    corresponding exchange fields Hxc [meV]--&gt; +0.58640 +0.58660 +0.00000
-{Ce3p.sipf}  1.00000  0.00000  0.00000   1.00000  0.00000  0.00000   -0.69590 -0.69620 +0.00000 
-                    corresponding exchange fields Hxc [meV]--&gt; -0.58640 -0.58660 +0.00000
-{Ce3p.sipf}  1.50000  0.50000  0.50000   1.00000  0.00000  1.00000   +0.69590 +0.69620 +0.00000 
-                    corresponding exchange fields Hxc [meV]--&gt; +0.58640 +0.58660 +0.00000
-{Ce3p.sipf}  1.00000  1.00000  0.00000   1.00000  1.00000  0.00000   +0.69590 +0.69620 +0.00000  
-                    corresponding exchange fields Hxc [meV]--&gt; +0.58640 +0.58660 +0.00000
-{Ce3p.sipf}  1.50000  1.50000  0.50000   1.00000  1.00000  1.00000   -0.69590 -0.69620 +0.00000
-                    corresponding exchange fields Hxc [meV]--&gt; -0.58640 -0.58660 +0.00000
-</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+#   Dipole Approximation for Neutron Magnetic Formfactor:
+#        -Spin Form Factor       FS(Q)=&lt;j0(Q)&gt;
+#        -Angular Form Factor    FL(Q)=&lt;j0(Q)&gt;+&lt;j2(Q)&gt;
+#        -Rare Earth Form Factor F(Q) =&lt;j0(Q)&gt;+&lt;j2(Q)&gt;*(2/gJ-1)
 
+#--------------------------------------------------------------------------------------
+FFj0A=+0.2953 FFj0a=+17.6846 FFj0B=+0.2923 FFj0b=+6.7329 FFj0C=+0.4313 FFj0c=+5.3827 FFj0D=-0.0194
+FFj2A=+0.9809 FFj2a=+18.0630 FFj2B=+1.8413 FFj2b=+7.7688 FFj2C=+0.9905 FFj2c=+2.8452 FFj2D=+0.0120
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="SMALL"></SPAN></SPAN>
 <P>
-Such a file can be easily created by using the program <I CLASS="slanted">spins<A ID="1291"></A></I>. Alternatively, if no complete <I CLASS="slanted">mcphas</I> model
-calculation is available, the meanfields can be varied such as to
-give a good fit to experimental data.
-
-<P>
-If such information is given the formalism used by <I CLASS="slanted">mcdiff<A ID="1293"></A></I> changes in the following way. 
-(i) If possible, the expectation values of  <!-- MATH
- $\langle L_{d\alpha} \rangle_{T,H}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img332.svg"
- ALT="$\langle L_{d\alpha} \rangle_{T,H}$"></SPAN> <!-- MATH
- $\langle S_{d\alpha} \rangle_{T,H}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img331.svg"
- ALT="$\langle S_{d\alpha} \rangle_{T,H}$"></SPAN> <!-- MATH
- $\langle M_{d\alpha} \rangle_{T,H}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img358.svg"
- ALT="$\langle M_{d\alpha} \rangle_{T,H}$"></SPAN> are evaluated by the module functions <I CLASS="slanted">Lcalc, Scalc and mcalc</I>, respectively. These values are used to calculate the neutron intensities in dipole approximation (Idip).
-(ii) For the full intensity calculation instead of equation (<A HREF="node41.html#msf">32</A>) the magnetic structure factor <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.69ex; vertical-align: -0.70ex; " SRC="img359.svg"
- ALT="$\vert MSF\vert^2$"></SPAN> is calculated according to
-
-<P>
-<BR>
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{eqnarray}
-|\vec{\rm MSF}|^2 &=& \left ( \sum_{dd',\alpha\beta}(\delta_{\alpha\beta}-\hat \mathbf Q_{\alpha} \hat \mathbf Q_{\beta})
-\langle \hat \mathcal Q^{d \dag }_{\alpha} \rangle_{T,H} 
-\langle \hat \mathcal Q^{d'}_{\beta} \rangle_{T,H}
- e^{-i\mathbf Q(\mathbf B_d-\mathbf B_{d'})} e^{-W_d-W_{d'}} \right )\\
-\end{eqnarray}
- -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 3.05ex; vertical-align: -0.70ex; " SRC="img360.svg"
- ALT="$\displaystyle \vert\vec{\rm MSF}\vert^2$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 8.56ex; vertical-align: -3.72ex; " SRC="img361.svg"
- ALT="$\displaystyle \left ( \sum_{dd',\alpha\beta}(\delta_{\alpha\beta}-\hat \mathbf ...
-...ngle_{T,H}
-e^{-i\mathbf Q(\mathbf B_d-\mathbf B_{d'})} e^{-W_d-W_{d'}} \right )$"></TD><TD class="rfill">(<SPAN CLASS="arabic">47</SPAN>)</TD></TR>
-</TABLE></DIV>
-
-<P>
-Here the thermal expectation values <!-- MATH
- $\langle \dots \rangle_{T,H}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img362.svg"
- ALT="$\langle \dots \rangle_{T,H}$"></SPAN>
- of the scattering operators <!-- MATH
- $\hat \mathcal Q_{\alpha}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img363.svg"
- ALT="$\hat \mathcal Q_{\alpha}$"></SPAN> have to be evaluated
-for each ion <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img33.svg"
- ALT="$d$"></SPAN>. Note that  the scattering operators correspond to the
-Fourier transform of the atomic magnetisation density: <!-- MATH
- $\hat \mathcal Q=\frac{1}{2\mu_B}\hat M(\mathbf Q)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.54ex; vertical-align: -1.23ex; " SRC="img364.svg"
- ALT="$\hat \mathcal Q=\frac{1}{2\mu_B}\hat M(\mathbf Q)$"></SPAN>.
-If present in the single ion module, the function <I CLASS="slanted">mq</I> is called to calculate this quantity.
-
-<P>
-For example, for the single ion module <I CLASS="slanted">so1ion</I> the scattering operator <!-- MATH
- $\hat \mathcal Q=\frac{1}{2\mu_B}\hat M(\mathbf Q)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.54ex; vertical-align: -1.23ex; " SRC="img364.svg"
- ALT="$\hat \mathcal Q=\frac{1}{2\mu_B}\hat M(\mathbf Q)$"></SPAN> is calculated as follows (for <I CLASS="slanted">ic1ion</I> see section&nbsp;<A HREF="node116.html#ic1ionmq">15.6</A>): 
-once the eigenstates of each ion are known  in terms of 
-atomic wave functions <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img365.svg"
- ALT="$\vert SLJM \rangle $"></SPAN> (with <!-- MATH
- $M=-J,-J+1,\dots J$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.26ex; vertical-align: -0.57ex; " SRC="img366.svg"
- ALT="$M=-J,-J+1,\dots J$"></SPAN>) this
-evaluation can be performed by means of the following expressions for
- the matrix elements of the scattering operator (compare chapter 11.6.2
- in&nbsp;[<A
- HREF="node163.html#lovesey84-1">30</A>],equations 
-11.141-11.143, mind: there is a small error in equation 11.141 
-and 11.142 in this reference - the imaginary <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.76ex; vertical-align: -0.12ex; " SRC="img367.svg"
- ALT="$i$"></SPAN> has been misplaced ... the following 
-equations have been corrected for this mistake):
-
-<P>
-<BR>
-<DIV CLASS="displaymath"><A ID="scattoperator"></A>
-<!-- MATH
- \begin{eqnarray}
-\langle SLJM|\hat \mathcal Q_x |SLJM' \rangle & =& \frac{1}{2} \sum_{K',Q'} f(K') P(K',Q') \times \\
-&& \times               [Y_{K'-1,Q'+1}(\hat \mathbf Q)\sqrt{(K'-Q')(K'-Q'-1)}- 
-	        Y_{K'-1,Q'-1}(\hat \mathbf Q)\sqrt{(K'+Q')(K'+Q'-1)}] \nonumber \\
-\langle SLJM|\hat \mathcal Q_y |SLJM' \rangle & =& \frac{-i}{2} \sum_{K',Q'} f(K') P(K',Q') \times \\
-&& \times               [Y_{K'-1,Q'+1}(\hat \mathbf Q)\sqrt{(K'-Q')(K'-Q'-1)}+ 
-	        Y_{K'-1,Q'-1}(\hat \mathbf Q)\sqrt{(K'+Q')(K'+Q'-1)}] \nonumber \\
-\langle SLJM|\hat \mathcal Q_z |SLJM' \rangle & =&  \sum_{K',Q'} f(K') P(K',Q') 
-               [Y_{K'-1,Q'}(\hat \mathbf Q)\sqrt{(K'-Q')(K'+Q')}]
-\end{eqnarray}
- -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img368.svg"
- ALT="$\displaystyle \langle SLJM\vert\hat \mathcal Q_x \vert SLJM' \rangle$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 6.60ex; vertical-align: -3.44ex; " SRC="img369.svg"
- ALT="$\displaystyle \frac{1}{2} \sum_{K',Q'} f(K') P(K',Q') \times$"></TD><TD class="rfill">(<SPAN CLASS="arabic">48</SPAN>)</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 3.17ex; vertical-align: -0.78ex; " SRC="img370.svg"
- ALT="$\displaystyle \times [Y_{K'-1,Q'+1}(\hat \mathbf Q)\sqrt{(K'-Q')(K'-Q'-1)}-
-Y_{K'-1,Q'-1}(\hat \mathbf Q)\sqrt{(K'+Q')(K'+Q'-1)}]$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img371.svg"
- ALT="$\displaystyle \langle SLJM\vert\hat \mathcal Q_y \vert SLJM' \rangle$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 6.64ex; vertical-align: -3.44ex; " SRC="img372.svg"
- ALT="$\displaystyle \frac{-i}{2} \sum_{K',Q'} f(K') P(K',Q') \times$"></TD><TD class="rfill">(<SPAN CLASS="arabic">49</SPAN>)</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 3.17ex; vertical-align: -0.78ex; " SRC="img373.svg"
- ALT="$\displaystyle \times [Y_{K'-1,Q'+1}(\hat \mathbf Q)\sqrt{(K'-Q')(K'-Q'-1)}+
-Y_{K'-1,Q'-1}(\hat \mathbf Q)\sqrt{(K'+Q')(K'+Q'-1)}]$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img374.svg"
- ALT="$\displaystyle \langle SLJM\vert\hat \mathcal Q_z \vert SLJM' \rangle$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 5.97ex; vertical-align: -3.44ex; " SRC="img375.svg"
- ALT="$\displaystyle \sum_{K',Q'} f(K') P(K',Q')
-[Y_{K'-1,Q'}(\hat \mathbf Q)\sqrt{(K'-Q')(K'+Q')}]$"></TD><TD class="rfill">(<SPAN CLASS="arabic">50</SPAN>)</TD></TR>
-</TABLE></DIV>
-
-<P>
-Here the different symbols have the following meaning:
-
-<P>
-<BR>
-<DIV CLASS="displaymath"><A ID="zkfkpkq"></A>
-<!-- MATH
- \begin{eqnarray}
-Z(K') & = & c_{K'-1} \langle j_{K'-1}(Q) \rangle+c_{K'+1} \langle  j_{K'+1}(Q) \rangle \\
-f(K') & = & \sqrt{4\pi}Z(K')/K' \\
-P(K',Q') & = & (-1)^{J-M'}
-\left (\begin{array}{ccc}
-K' & J & J \\
--Q' & M' & -M \\
-\end{array} \right)
-\left (\begin{array}{ccc}
-K' & J & J \\
-0 &  J & -J \\
-\end{array} \right)^{-1} 
-\end{eqnarray}
- -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 2.67ex; vertical-align: -0.70ex; " SRC="img376.svg"
- ALT="$\displaystyle Z(K')$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img377.svg"
- ALT="$\displaystyle c_{K'-1} \langle j_{K'-1}(Q) \rangle+c_{K'+1} \langle j_{K'+1}(Q) \rangle$"></TD><TD class="rfill">(<SPAN CLASS="arabic">51</SPAN>)</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 2.67ex; vertical-align: -0.70ex; " SRC="img378.svg"
- ALT="$\displaystyle f(K')$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 3.02ex; vertical-align: -0.70ex; " SRC="img379.svg"
- ALT="$\displaystyle \sqrt{4\pi}Z(K')/K'$"></TD><TD class="rfill">(<SPAN CLASS="arabic">52</SPAN>)</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 2.67ex; vertical-align: -0.70ex; " SRC="img380.svg"
- ALT="$\displaystyle P(K',Q')$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 6.26ex; vertical-align: -2.32ex; " SRC="img381.svg"
- ALT="$\displaystyle (-1)^{J-M'}
-\left (\begin{array}{ccc}
-K' &amp; J &amp; J \\
--Q' &amp; M' &amp; -...
-...left (\begin{array}{ccc}
-K' &amp; J &amp; J \\
-0 &amp; J &amp; -J \\
-\end{array} \right)^{-1}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">53</SPAN>)</TD></TR>
-</TABLE></DIV>
-
-<P>
-The coefficients <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img382.svg"
- ALT="$c_{K'}$"></SPAN> have been tabulated (see appendix&nbsp;<A HREF="node149.html#zk">K</A> or table 11.1 of [<A
- HREF="node163.html#lovesey84-1">30</A>])
-and have to be given in the single ion parameter file(s) by entering the following lines
-
-<P>
-<PRE>
-# coefficients of Z(K') according to Lovesey chapter 11.6.1 page 233
-Z1c0=1.63636364  Z1c2=2.95041322
-Z3c2=-0.20896503 Z3c4=-0.25329095
-Z5c4=0.03820789  Z5c6=0.14258681
-Z7c6=-0.00614959
-</PRE>
-
-<P>
-The <!-- MATH
- $Y_{lm}(\hat \mathbf Q)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img383.svg"
- ALT="$Y_{lm}(\hat \mathbf Q)$"></SPAN> are the spherical harmonics evaluated for the direction of the
-scattering vector with respect to the crystal field coordinate system <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img6.svg"
- ALT="$xyz$"></SPAN>.
-The factor <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img384.svg"
- ALT="$P(K',Q')$"></SPAN> is defined in terms of <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.21ex; vertical-align: -0.57ex; " SRC="img385.svg"
- ALT="$3j$"></SPAN>-symbols.
-
-<P>
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node43.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node37.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node41.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html557"
-  HREF="node7.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html559"
-  HREF="node164.html">
-<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A
- HREF="node43.html">mcdisp - the Calculation</A>
-<B> Up:</B> <A
- HREF="node37.html">mcdiff - calculate and</A>
-<B> Previous:</B> <A
- HREF="node41.html">Formalism II - Neutron</A>
- &nbsp; <B>  <A ID="tex2html558"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html560"
-  HREF="node164.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<SPAN CLASS="SMALL"></SPAN>
+<BR><HR>
 
 </BODY>
 </HTML>

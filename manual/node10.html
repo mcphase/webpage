@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Introduction</TITLE>
+<TITLE>Frequently asked Questions</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -28,197 +28,89 @@
 <A
  HREF="node9.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html389"
-  HREF="node7.html">
+<A ID="tex2html419"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html391"
-  HREF="node164.html">
+<A ID="tex2html421"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node11.html">Getting Started ... List</A>
+ HREF="node11.html">Introduction</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node9.html">Frequently asked Questions</A>
- &nbsp; <B>  <A ID="tex2html390"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html392"
-  HREF="node164.html">Index</A></B> 
+ HREF="node9.html">How To ... ?</A>
+ &nbsp; <B>  <A ID="tex2html420"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html422"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A ID="SECTION00060000000000000000">
-Introduction</A>
+<H1><A ID="SECTION00040000000000000000">
+Frequently asked Questions</A>
 </H1>
+<PRE>
 
-<P>
-<I CLASS="slanted">McPhase</I> is a program package designed to calculate 
-properties of a magnetic system with localised magnetic moments
-given the crystal field and/or the
-exchange interaction constants.
-For rare earth ions it is based on the standard model
-of rare earth magnetism&nbsp;[<A
- HREF="node163.html#jensen91-1">1</A>].
-The Hamiltonian of the standard model of rare earth magnetism 
-is described in section&nbsp;<A HREF="node12.html#hamiltonian">5</A>.
-Alternatively, a more complex Hamiltonian can be used which includes
-all terms in intermediate coupling - this is important for transition metal
-and actinide ions.
+-) How are comments denoted "#" or "#!" ?
+Lines beginning with # are comment lines
+Lines beginning with #! are also comment lines, but some programs will
+      read information from these lines
 
-<P>
-For each of the many tasks of the program package separate programs have been written.
-Fig.&nbsp;<A HREF="#modules">1</A> gives an overview of the 
-tasks of these different modules of the program package.
+MODULES SO1ION and CFIELD
 
-<P>
+-) are modules cfield and so1ion different ?
 
-<DIV class="CENTER"><A ID="modules"></A><A ID="8110"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 1:</STRONG>
+no, these modules do exactly the same job (as used with singleion).
+However, if used as a module in mcphas, mcdisp etc the orientation
+of the crystal field coordinate system xyz with respect to the crystal
+axes abc is different:  for MODULE=so1ion it is xyz||abc, whereas for
+MODULE=cfield it is xyz||cab
 
-Structure of the program package showing the tasks of the different modules.</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-<IMG
- STYLE="height: 40.13ex; vertical-align: -0.12ex; " SRC="img64.svg"
- ALT="\includegraphics[angle=0,width=0.7\columnwidth]{figsrc/mcphas_modules.eps}">
+PROGRAM MCDISP
 
-</DIV></TD></TR>
-</TABLE>
-</DIV>
+-) I  get the error message: "Error 1: Chreduce: matrix B is not positiv
+definite" for some Q-vectors, what is going wrong ?
 
-<P>
-<DL>
-<DT><STRONG>singleion:</STRONG></DT>
-<DD>The best way to start with the program package is probably to get
-acquainted with
-the program <I CLASS="slanted">singleion<A ID="145"></A></I>, which is the most important of several 
-modules used for the calculation of single ion properties (see Section&nbsp;<A HREF="node15.html#cfield">6</A>).
-</DD>
-<DT><STRONG>mcphas:</STRONG></DT>
-<DD>This program has been written to calculate the thermodynamic properties.
-In order to  deal with the pair interactions a
- combined mean-field/monte-carlo algorithm is used in module <I CLASS="slanted">mcphas</I>.
-For a given temperature <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img65.svg"
- ALT="$T$"></SPAN> and magnetic field <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img66.svg"
- ALT="$\mathbf H$"></SPAN> (vector)
- several possible magnetic structures are stabilised
-by a mean field algorithm and the free energy is 
-calculated. The initial values for this mean-field procedure are
-modified by a Monte Carlo process.
-See Section&nbsp;<A HREF="node21.html#runmcphas">7</A> on how to perform such a simulation.
+most probably the magnetic structure you are using in mcdisp.mf is not the
+thermodynamically stable one. Try to rerun mcphas with less restrictions on
+the test structures and try to find a structure with a lower free energy.
+Probably the propagation vector of the stable magnetic structure is near
+to the Q-vector, where mcdisp gave the error.
 
-<P>
-The temperature and magnetic field is varied during the calculation
-and thereby it is possible to map out the magnetic phase diagram.
-The program produces a plot of the stabilised magnetic
-structures and the magnetisation on screen, the
-output files contain additional information 
-such as calculated magnetoelastic and  neutron-diffraction
-data. As a typical application of <I CLASS="slanted">mcphas</I> the calculated magnetic
-phase diagram of NdCu<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN> is shown in fig.&nbsp;<A HREF="#ndphased">2</A>.
-The exchange parameters required for the calculation of such a complex
-antiferromagnet have
-been determined from the dispersion of magnetic excitations
-measured by neutron spectroscopy with moments aligned ferromagnetically
-by an external magnetic field. Details are described elsewhere [<A
- HREF="node163.html#rotter00-29">2</A>].
+EXTERNAL MODULE IC1ION
 
-<P>
-</DD>
-<DT><STRONG>graphics:</STRONG></DT>
-<DD>Several graphic programs easy the visualisation of the
-calculated data (section&nbsp;<A HREF="node118.html#graphics">17</A>).
+-) I cannot find ic1ion.mag after running ic1ion - what is the reason ?
 
-<P>
-</DD>
-<DT><STRONG>mcdiff<A ID="153"></A>:</STRONG></DT>
-<DD>The program <I CLASS="slanted">McDiff</I> can be used to calculate the magnetic neutrons
-or resonant x-ray diffraction intensities. Note that neutron intensities
-can be calculated going beyond the dipolar approximation for the magnetic
-formfactor.
+Please be aware that on some windows systems the file extension ".mag" is associated
+with other programs than mcphase and the explorer does not explicitely show the ".mag",
+the file is there, you can make sure by listing the directory contents with the
+command "dir"
 
-<P>
-</DD>
-<DT><STRONG>mcdisp:</STRONG></DT>
-<DD>An additional program <I CLASS="slanted">McDisp</I> can be used to calculate the 
-dispersion and intensity
- of magnetic excitations and diffuse magnetic scattering cross section.
-  It is based on a mean field- random
-phase approximation treatment of the problem (section&nbsp;<A HREF="node43.html#mcdisp">9</A>). 
-</DD>
-<DT><STRONG>simannfit:</STRONG></DT>
-<DD>In oder to enable the determination of the parameters of the
-magnetic Hamiltonian from experimental data, a fitting tool
-<I CLASS="slanted">Simannfit</I> can be used to fit experimental  magnetic structure and excitation
-data. This tool is based on the simulated annealing 
-algorithm&nbsp;[<A
- HREF="node163.html#kirkpatrick83-671">3</A>] and described in section&nbsp;<A HREF="node125.html#simannfit">18</A>.
-</DD>
-</DL>
+-) The programs mcphas/mcdisp/chrgplt/charges/singleion will not load the ic1ion.so
+   module !?
+
+check if the first line in your single ion input file (.sipf) points to the path
+where the ic1ion.so module can be found: e.g.
+#!MODULE=c:\mcphas3_0\bin\ic1ion_module\ic1ion.so
+
+-) do I have to enter the free ion parameters F2 F4 F6 and XI in the sipf file ?
+
+No, usually it is sufficient to give the IONTYPE, e.g. IONTYPE=Co3+ and then
+the program automatically looks up F2 F4 F6 and XI in an internal table.
+However, if you are not happy with the values from the table, you can explicitely enter
+these constants. 
+However for some ions these parameters are not available in standard tables, then
+you have to enter them, it is shown in example/Ru3p\_create\_sipf how to create an
+sipf file by a Hartree Fock calculation for an ion which is not in the standard table.
+ Please always run ic1ion and check ic1ion.out to see if output  is correct.
+</PRE>
 
 <P>
 
-<DIV class="CENTER"><A ID="ndphased"></A><A ID="8112"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 2:</STRONG>
-
-Magnetic phase diagram for NdCu<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN> for magnetic field along
-the orthorhombic <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img2.svg"
- ALT="$b$"></SPAN>-direction. Colours represent the calculated phase
-diagram, lines correspond to experimentally determined phase boundaries.
-[plot created by program <I CLASS="slanted">phased</I>]
-</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-<IMG
- STYLE="height: 53.90ex; vertical-align: -0.12ex; " SRC="img67.svg"
- ALT="\includegraphics[angle=90,width=0.7\columnwidth]{figsrc/ndphased.eps}">
-
-</DIV></TD></TR>
-</TABLE>
-</DIV>
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node11.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="manual.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node9.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html389"
-  HREF="node7.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html391"
-  HREF="node164.html">
-<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A
- HREF="node11.html">Getting Started ... List</A>
-<B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
-<B> Previous:</B> <A
- HREF="node9.html">Frequently asked Questions</A>
- &nbsp; <B>  <A ID="tex2html390"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html392"
-  HREF="node164.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 
 </BODY>
 </HTML>

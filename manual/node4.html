@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>...in version 5.5 ...</TITLE>
+<TITLE>... in version 6.0 ...</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,83 +23,101 @@
  HREF="node5.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node2.html">
+ HREF="node3.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node3.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html258"
-  HREF="node7.html">
+<A ID="tex2html286"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html260"
-  HREF="node164.html">
+<A ID="tex2html288"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node5.html">...in version 5.4 ...</A>
+ HREF="node5.html">... in version 5.6</A>
 <B> Up:</B> <A
- HREF="node2.html">What is New ?</A>
+ HREF="node3.html">What is New ?</A>
 <B> Previous:</B> <A
- HREF="node3.html">... in version 5.6</A>
- &nbsp; <B>  <A ID="tex2html259"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html261"
-  HREF="node164.html">Index</A></B> 
+ HREF="node3.html">What is New ?</A>
+ &nbsp; <B>  <A ID="tex2html287"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html289"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION00022000000000000000">
- ...in version 5.5 ...</A>
+<H2><A ID="SECTION00011000000000000000">
+ ... in version 6.0 ...</A>
 </H2>
 
 <UL>
-<LI><I CLASS="slanted">ic1ion &amp; icf1ion &amp; mcdiff.in file format for</I> <!-- MATH
- $\langle \mathbf S \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img61.svg"
- ALT="$\langle \mathbf S \rangle$"></SPAN>
-and  <!-- MATH
- $\langle \mathbf L \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img62.svg"
- ALT="$\langle \mathbf L \rangle$"></SPAN> - !!  Operator sequence changed to Sa Sb Sc La Lb Lc !! 
-(was Sa La Sb Lb Sc Lc)
+<LI>External Stress / Pressure
 </LI>
-<LI>mcphas got an option -doeps for magnetostrictive strain calculation using parameters
-calculated e.g. by makenn -cfph 
+<LI>Electric Field and orientational Polarisation
 </LI>
-<LI>there are more examples using cf-phonon interaction
+<LI>Monte Carlo Metropolis algorithm
 </LI>
-<LI>module phonon: umax restrictino in module phonon done by 
-u= umax * tanh (u/umax) ... this avoids uniform shifts of the crystal 
+<LI>input files can contain variables and expressions such as Dz2=sqrt(2)*Dx2
 </LI>
-<LI><I CLASS="slanted">makenn</I> option -bvk extended to generate a sample bvk constants table 
+<LI><I CLASS="slanted">McPhaseExplorer</I> Button for opening the Manual  
 </LI>
-<LI>anisotropy <!-- MATH
- $H=D_{x4} S_x^4 +D_{y4} S_y^4 +D_{z4} S_x^4$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.00ex; vertical-align: -1.01ex; " SRC="img63.svg"
- ALT="$H=D_{x4} S_x^4 +D_{y4} S_y^4 +D_{z4} S_x^4$"></SPAN> introduced in module <I CLASS="slanted">so1ion</I>
+<LI><I CLASS="slanted">mcphas.ini</I>: flexible user defined output columns can be defined,
+          Magnetic and Electric Field can be input in euclidean coordinates or as components along crystal axis,
+          parameter repeat to control action if no convergence is achieved in mean field loop
 </LI>
-<LI>made <I CLASS="slanted">mcphaseexplorer</I> compatible with java 1.8.0 and java 17 at the 
-           same time (see batch mpe for linux for options) 
+<LI><I CLASS="slanted">cif2mcphas</I> atomic coordinates may contain references to previous atoms x y z, e.g. O1x
 </LI>
-<LI><I CLASS="slanted">cif2mcphas</I> changed to put phonon module for sipf files which are nonmagnetic
+<LI><I CLASS="slanted">ic1ion</I> operators -  bug removed for imaginary Tkq (i.e. q&lt;2) in expectation value calc in ic1ion 5.6 
 </LI>
-<LI>mcphas.xyt outputs periodicity of supercell
+<LI><I CLASS="slanted">reduce_unitcell</I> extended: for negative coefficient (+&ndash;) the sipf files will be overwritten
+         with CHARGE replaced by distributed charge - useful for problems with electric polarisation calculations
 </LI>
-<LI><I CLASS="slanted">spins</I> changed to produce for option -f spins_prim.jvx graphics output
+<LI><I CLASS="slanted">mcdisp</I> output files:  qom dsigma disgma.tot file have different format now (number of columns increased by one)
 </LI>
-<LI><I CLASS="slanted">spinsfromq</I> phases correctly introduced for double and triple q structure
+<LI><I CLASS="slanted">singleion</I> options  introduced for dynamical static susceptibility and INS scattering function
+</LI>
+<LI><I CLASS="slanted">makenn</I>: new options -rkkynest -djdeps1-6
+</LI>
+<LI><I CLASS="slanted">display</I>: option -vlines -hlines for vertical and horizontal guide to the eye lines
+</LI>
+<LI><I CLASS="slanted">mctest</I> - to test correct function of McPhase, cd  demo  and type <I CLASS="slanted">mctest test*.bat </I>
 </LI>
 </UL>
 
 <P>
-<BR><HR>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node5.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node3.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node3.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html286"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html288"
+  HREF="node180.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node5.html">... in version 5.6</A>
+<B> Up:</B> <A
+ HREF="node3.html">What is New ?</A>
+<B> Previous:</B> <A
+ HREF="node3.html">What is New ?</A>
+ &nbsp; <B>  <A ID="tex2html287"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html289"
+  HREF="node180.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

@@ -1,18 +1,18 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>ic1ion - a module for intermediate coupling</TITLE>
+<TITLE>External module function SMcalc - used by singleion </TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node117.html">
-<LINK REL="previous" HREF="node81.html">
+<LINK REL="next" HREF="node111.html">
+<LINK REL="previous" HREF="node109.html">
 <LINK REL="next" HREF="node111.html">
 </HEAD>
 
@@ -23,61 +23,61 @@
  HREF="node111.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="manual.html">
+ HREF="node102.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node109.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html920"
-  HREF="node7.html">
+<A ID="tex2html978"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html922"
-  HREF="node164.html">
+<A ID="tex2html980"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node111.html">using ic1ion as a</A>
+ HREF="node111.html">External module function dS1</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="node102.html">Module Functions for Observables</A>
 <B> Previous:</B> <A
- HREF="node109.html">External module function ro_calc</A>
- &nbsp; <B>  <A ID="tex2html921"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html923"
-  HREF="node164.html">Index</A></B> 
+ HREF="node109.html">External module function Scalc</A>
+ &nbsp; <B>  <A ID="tex2html979"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html981"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A ID="SECTION000180000000000000000"></A><A ID="3772"></A><A ID="ic1ion"></A>
+<H3><A ID="SECTION000162800000000000000"></A><A ID="4154"></A>
 <BR>
-<I CLASS="slanted">ic1ion</I> - a module for intermediate coupling
-</H1>
-
+External module function <I CLASS="slanted">SMcalc</I> - used by 
+<I CLASS="slanted">singleion</I> 
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-This powerful module, written by Duc Le, is able to do crystal field calculations
-using intermediate coupling schemes. 
-
+<SPAN CLASS="SMALL">This function is optional and intended to accellerate <I CLASS="slanted">singleion</I> by vectorizing the temperature and
+thus save computation resources when using the option <I CLASS="slanted">-Tsteps</I>. It has the same parameters as 
+<I CLASS="slanted">Scalc</I> with the following modifications:
+</SPAN>
 <P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A ID="tex2html924"
-  HREF="node111.html">using <I CLASS="slanted">ic1ion</I> as a stand-alone program to do crystal field calculations</A>
-<LI><A ID="tex2html925"
-  HREF="node112.html"><I CLASS="slanted">cpic1ion</I> - calculation of the specific heat from <I CLASS="slanted">ic1ion.out</I></A>
-<LI><A ID="tex2html926"
-  HREF="node113.html">using <I CLASS="slanted">ic1ion</I> as a module in <I CLASS="slanted">mcphas</I>,<I CLASS="slanted">mcdiff</I>,<I CLASS="slanted">mcdisp</I>,...</A>
-<LI><A ID="tex2html927"
-  HREF="node114.html"><I CLASS="slanted">icf1ion</I> - Intermediate Crystal Field module</A>
-<LI><A ID="tex2html928"
-  HREF="node115.html">Formalism</A>
-<LI><A ID="tex2html929"
-  HREF="node116.html">Formalism for going beyond the dipolar approximation</A>
-</UL>
-<!--End of Table of Child-Links-->
+<SPAN CLASS="SMALL"></SPAN>
+<OL>
+<LI><I CLASS="slanted">double <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.31ex; vertical-align: -0.12ex; " SRC="img952.svg"
+ ALT="$\ast$"></SPAN> T</I> is replaced by <I CLASS="slanted">Vector &amp; T</I> containing the temperatures for which 
+the calculation is to be done.
+</LI>
+<LI><I CLASS="slanted">Vector &amp; m </I> is replaced by <I CLASS="slanted">Matrix &amp; L</I> which should be filled with column
+vectors containing the  spin moment <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img973.svg"
+ ALT="$\mathbf S$"></SPAN>. Each column corresponds to a temperature given as input<I CLASS="slanted">Vector &amp; T</I>.
+ 
+</LI>
+</OL><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
 <BR><HR>
 
 </BODY>

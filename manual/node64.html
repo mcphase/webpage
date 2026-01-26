@@ -1,17 +1,16 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>The total Crystal field Phonon Interaction Hamiltonian</TITLE>
+<TITLE>Powder-averaging the spectra</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node65.html">
 <LINK REL="previous" HREF="node63.html">
 <LINK REL="next" HREF="node65.html">
 </HEAD>
@@ -23,580 +22,67 @@
  HREF="node65.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node60.html">
+ HREF="node61.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node63.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html676"
-  HREF="node7.html">
+<A ID="tex2html711"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html678"
-  HREF="node164.html">
+<A ID="tex2html713"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node65.html">Exchange Striction</A>
+ HREF="node65.html">Resonant Inelastic X-ray Scattering(RIXS)</A>
 <B> Up:</B> <A
- HREF="node60.html">Crystal Field Phonon Interaction</A>
+ HREF="node61.html">Powder Neutron Cross Section</A>
 <B> Previous:</B> <A
- HREF="node63.html">The lattice dynamic terms</A>
- &nbsp; <B>  <A ID="tex2html677"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html679"
-  HREF="node164.html">Index</A></B> 
+ HREF="node63.html">Calculation of the Dispersion</A>
+ &nbsp; <B>  <A ID="tex2html712"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html714"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000154000000000000000">
-The total Crystal field Phonon Interaction Hamiltonian</A>
-</H2>
-
+<H3><A ID="SECTION000113300000000000000">
+Powder-averaging the spectra</A>
+</H3><SPAN CLASS="SMALL">
+The third and last step in the calculation of the powder pattern is the averaging
+of the spectra with the same value of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.26ex; vertical-align: -0.57ex; " SRC="img205.svg"
+ ALT="$Q$"></SPAN>. This is done by restarting module
+<I CLASS="slanted">powdermagnon</I> by: 
+</SPAN>
 <P>
-To calculate  crystal field parameters <!-- MATH
- $B_{\gamma}(i)=B_l^m$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img684.svg"
- ALT="$B_{\gamma}(i)=B_l^m$"></SPAN> (<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img411.svg"
- ALT="$\gamma$"></SPAN> is a short hand
-notation for <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img685.svg"
- ALT="$lm$"></SPAN>) for the 
-ion at site <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.76ex; vertical-align: -0.12ex; " SRC="img367.svg"
- ALT="$i$"></SPAN> in the crystal with Stevens convention 
-we use the well known expressions of the point charge model:
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-B_{\gamma}(i)=B_l^m=-|e|\theta_l^i\langle r^l \rangle \gamma_{lm}(i) p_{lm}
-\end{equation}
- -->
- &nbsp;  <A ID="pcmodelclc"></A><IMG
- STYLE="height: 2.86ex; vertical-align: -0.78ex; " SRC="img686.svg"
- ALT="$\displaystyle
-B_{\gamma}(i)=B_l^m=-\vert e\vert\theta_l^i\langle r^l \rangle \gamma_{lm}(i) p_{lm}
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">96</SPAN>)</SPAN>
-</DIV>
-
-<P>
-Here, the <!-- MATH
- $\gamma_{lm}(i)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img687.svg"
- ALT="$\gamma_{lm}(i)$"></SPAN> are computed from the relative position <!-- MATH
- $R_{ji},\Omega_{ji}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img688.svg"
- ALT="$R_{ji},\Omega_{ji}$"></SPAN>
- (in spherical coordinates)
-of the point charges <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.89ex; vertical-align: -0.78ex; " SRC="img689.svg"
- ALT="$q_j$"></SPAN> using
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-\gamma_{lm}(i) = \sum_j  \frac{q_j}{2l+1}\frac{Z_{lm}(\Omega_{ji})}{\epsilon_0R_{ji}^{l+1}}
-\end{equation}
- -->
- &nbsp;  <A ID="pcmodelgamma"></A><IMG
- STYLE="height: 4.49ex; vertical-align: -1.99ex; " SRC="img690.svg"
- ALT="$\displaystyle
-\gamma_{lm}(i) = \sum_j \frac{q_j}{2l+1}\frac{Z_{lm}(\Omega_{ji})}{\epsilon_0R_{ji}^{l+1}}
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">97</SPAN>)</SPAN>
-</DIV>
-
-<P>
-Equation (<A HREF="#pcmodelgamma">104</A>) is based on the adiabatic approximation and 
-the dependence of the crystal field parameters on the displacements <!-- MATH
- $\hat \mathbf U_i$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.78ex; vertical-align: -0.46ex; " SRC="img578.svg"
- ALT="$\hat \mathbf U_i$"></SPAN> is not considered.
-Going beyond the adiabatic approximation this dependence may be considered and 
-the crystal field parameters may be expanded in terms of the strain <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img92.svg"
- ALT="$\epsilon$"></SPAN> and the 
-<!-- MATH
- $\hat \mathbf P_i$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.78ex; vertical-align: -0.46ex; " SRC="img589.svg"
- ALT="$\hat \mathbf P_i$"></SPAN> leading to the crystal field phonon interaction. Minimizing the Energy with respect to
-the strain tensor <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img92.svg"
- ALT="$\epsilon$"></SPAN> leads to expressions for the strain <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img92.svg"
- ALT="$\epsilon$"></SPAN> in terms of expectation values
-of Stevens Operators and displacement operators. 
-
-<P>
-The Hamiltonian can be written as a sum of phonon, crystal field and Zeeman contributions
- (writing <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img411.svg"
- ALT="$\gamma$"></SPAN> instead of <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img685.svg"
- ALT="$lm$"></SPAN> for the crystal field parameter
-indices, the <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.76ex; vertical-align: -0.12ex; " SRC="img367.svg"
- ALT="$i$"></SPAN> index counts nuclei carrying with them
-the charge producing the crystal field <!-- MATH
- $i=1,...,N_{\rm nuclei}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.26ex; vertical-align: -0.57ex; " SRC="img691.svg"
- ALT="$i=1,...,N_{\rm nuclei}$"></SPAN>, 
-the <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.21ex; vertical-align: -0.57ex; " SRC="img692.svg"
- ALT="$j$"></SPAN> index runs over magnetic ions,i.e. the only partially filled
-f or d electron shells  in a crystal <!-- MATH
- $j=N_{\rm nuclei}+1,... N_{\rm nuclei}+N_{\rm magnetic ions}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img693.svg"
- ALT="$j=N_{\rm nuclei}+1,... N_{\rm nuclei}+N_{\rm magnetic ions}$"></SPAN>,
-this is why we writ <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.21ex; vertical-align: -0.57ex; " SRC="img694.svg"
- ALT="$i&lt;j$"></SPAN> in the following sums)
-
-<P>
+<SPAN CLASS="SMALL">powdermagnon -r results
 <BR>
-<DIV CLASS="displaymath"><A ID="Hamiltonian"></A>
-<!-- MATH
- \begin{eqnarray}
-\hat H_{\rm tot} & = & \hat H_{\rm phon} +\sum_{i,\gamma} B_{\gamma}(i,\hat \mathbf U_1,...,\hat \mathbf U_N) O_{\gamma}(\hat \mathbf J_i) - \sum_i g_{J_i} \mu_B \hat \mathbf J_i \mathbf H \\
-&=& \hat H_{\rm phon} +\sum_{i,\gamma} B_{\gamma}(i,0,\dots,0) O_{\gamma}(\hat \mathbf J_i) + \hat H_{\rm cfph}\nonumber 
- 
-\end{eqnarray}
- -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img695.svg"
- ALT="$\displaystyle \hat H_{\rm tot}$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 5.94ex; vertical-align: -3.40ex; " SRC="img696.svg"
- ALT="$\displaystyle \hat H_{\rm phon} +\sum_{i,\gamma} B_{\gamma}(i,\hat \mathbf U_1,...
-... O_{\gamma}(\hat \mathbf J_i) - \sum_i g_{J_i} \mu_B \hat \mathbf J_i \mathbf H$"></TD><TD class="rfill">(<SPAN CLASS="arabic">98</SPAN>)</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 5.94ex; vertical-align: -3.40ex; " SRC="img697.svg"
- ALT="$\displaystyle \hat H_{\rm phon} +\sum_{i,\gamma} B_{\gamma}(i,0,\dots,0) O_{\gamma}(\hat \mathbf J_i) + \hat H_{\rm cfph}$"></TD><TD class="rfill">&nbsp;</TD></TR>
-</TABLE></DIV>
-
+mcdisp.qei 0.5 30 0.2 
+</SPAN>
 <P>
+<SPAN CLASS="SMALL">meaning take  results from file <I CLASS="slanted">results
 <BR>
-<DIV CLASS="displaymath"><A ID="Hcfph"></A>
-<!-- MATH
- \begin{eqnarray}
-\hat H_{\rm cfph}&=&\sum_{i<j,\gamma}\nabla_{\hat \mathbf U_i} B_{\gamma}(j) \hat \mathbf U_i O_{\gamma}(\hat \mathbf J_j) \nonumber \\
-&=& \sum_{i<j,\gamma}\nabla_{\hat \mathbf U_i} B_{\gamma}(j) (\bar a \mathbf R_i + \hat \mathbf P_i)O_{\gamma}(\hat \mathbf J_j) \nonumber \\
-&=& \sum_{i<j,\alpha\beta=1,2,3,\gamma=1,...} R_i^{\beta}  \frac{\partial B_{\gamma}(j)}{\partial \hat U_i^{\alpha}}  
-  \epsilon_{\alpha\beta} O_{\gamma}(\hat \mathbf J_j) \nonumber \\
- &&+\sum_{i<j,\gamma}\nabla_{\hat \mathbf U_j} B_{\gamma}(j) \hat \mathbf P_i O_{\gamma}(\hat \mathbf J_j) \nonumber \\
- 
-\end{eqnarray}
- -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img698.svg"
- ALT="$\displaystyle \hat H_{\rm cfph}$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 5.94ex; vertical-align: -3.40ex; " SRC="img699.svg"
- ALT="$\displaystyle \sum_{i&lt;j,\gamma}\nabla_{\hat \mathbf U_i} B_{\gamma}(j) \hat \mathbf U_i O_{\gamma}(\hat \mathbf J_j)$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 5.94ex; vertical-align: -3.40ex; " SRC="img700.svg"
- ALT="$\displaystyle \sum_{i&lt;j,\gamma}\nabla_{\hat \mathbf U_i} B_{\gamma}(j) (\bar a \mathbf R_i + \hat \mathbf P_i)O_{\gamma}(\hat \mathbf J_j)$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 6.86ex; vertical-align: -3.46ex; " SRC="img701.svg"
- ALT="$\displaystyle \sum_{i&lt;j,\alpha\beta=1,2,3,\gamma=1,...} R_i^{\beta} \frac{\part...
-...\partial \hat U_i^{\alpha}}
-\epsilon_{\alpha\beta} O_{\gamma}(\hat \mathbf J_j)$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 5.94ex; vertical-align: -3.40ex; " SRC="img702.svg"
- ALT="$\displaystyle +\sum_{i&lt;j,\gamma}\nabla_{\hat \mathbf U_j} B_{\gamma}(j) \hat \mathbf P_i O_{\gamma}(\hat \mathbf J_j)$"></TD><TD class="rfill">&nbsp;</TD></TR>
-</TABLE></DIV>
-
+mcdisp.qei</I> and average the
+spectra. Output is printed to the console (STDOUT) and can be piped to a file in
+order to print it with <I CLASS="slanted">displaycontour<A ID="2160"></A></I>. An example is given in fig.&nbsp;
+<A HREF="node61.html#prni2b2c_2K">13</A> and <A HREF="node61.html#prni2b2c_10K">14</A>.
+Parameters in the above command  are:
+</SPAN>
+<UL>
+<LI>0.5 ....Emin   [meV] minimal energy
+</LI>
+<LI>30 ....Emax   [meV] maximal energy
+</LI>
+<LI>0.2....deltaE [meV] energy step width
+</LI>
+</UL><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-In the last line of this equation we have made use of the invariance of the
-total crystal field energy under rotations
-and therefore substituted <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.55ex; vertical-align: -0.12ex; " SRC="img598.svg"
- ALT="$\bar a$"></SPAN> with the strain <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.55ex; vertical-align: -0.12ex; " SRC="img618.svg"
- ALT="$\bar \epsilon$"></SPAN>.
-Abbreviating notation we arrive at the final result for the crystal field phonon interaction:
-
-<P>
-<BR>
-<DIV CLASS="displaymath"><A ID="Hcfphsub"></A>
-<!-- MATH
- \begin{eqnarray}
-\hat H_{\rm cfph}&=& -\sum_{j,\alpha=1,..,6,\gamma=1,...} G_{\rm cfph}^{\alpha\gamma}(j) \epsilon_{\alpha} O_{\gamma}(\hat \mathbf J_j) \nonumber \\
- &&-\sum_{i<j,\alpha=1,2,3,\gamma=1,...} \Gamma^{\alpha\gamma}(ij) \hat P_i^{\alpha}a_0^{-1} O_{\gamma}(\hat \mathbf J_j)
- 
-\end{eqnarray}
- -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img698.svg"
- ALT="$\displaystyle \hat H_{\rm cfph}$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 5.94ex; vertical-align: -3.40ex; " SRC="img703.svg"
- ALT="$\displaystyle -\sum_{j,\alpha=1,..,6,\gamma=1,...} G_{\rm cfph}^{\alpha\gamma}(j) \epsilon_{\alpha} O_{\gamma}(\hat \mathbf J_j)$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 5.94ex; vertical-align: -3.40ex; " SRC="img704.svg"
- ALT="$\displaystyle -\sum_{i&lt;j,\alpha=1,2,3,\gamma=1,...} \Gamma^{\alpha\gamma}(ij) \hat P_i^{\alpha}a_0^{-1} O_{\gamma}(\hat \mathbf J_j)$"></TD><TD class="rfill">(<SPAN CLASS="arabic">99</SPAN>)</TD></TR>
-</TABLE></DIV>
-
-<P>
-Note, that the first part of this equation denotes the coupling of the strain to the crystal field
-and is commonly known as magnetoelastic interaction&nbsp;[<A
- HREF="node163.html#morin90-1">33</A>].
-The definition of the static magnetoelastic constants writing explicitly the Voigt notation of the first index <!-- MATH
- $\alpha=(\alpha\beta)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img663.svg"
- ALT="$\alpha=(\alpha\beta)$"></SPAN>
- is
-
-<P>
-
-<FONT COLOR="#0000ff">
-</FONT>
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-G_{\rm cfph}^{(\alpha\beta)\gamma}(j) =
--\frac{1}{2}\sum_{i}( R_i^{\beta}  \frac{\partial B_{\gamma}(j)}{\partial \hat  U_i^{\alpha}} 
-+ R_i^{\alpha} \frac{\partial B_{\gamma}(j)}{\partial \hat  U_i^{\beta}} ) 
-\end{equation}
- -->
- &nbsp;  <A ID="Gcfph"></A><IMG
- STYLE="height: 4.32ex; vertical-align: -1.80ex; " SRC="img705.svg"
- ALT="$\displaystyle
-G_{\rm cfph}^{(\alpha\beta)\gamma}(j) =
--\frac{1}{2}\sum_{i}(...
-...
-+ R_i^{\alpha} \frac{\partial B_{\gamma}(j)}{\partial \hat U_i^{\beta}} )
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">100</SPAN>)</SPAN>
-</DIV>
-
-<P>
-The dynamic magnetoelastic constants (the crystal field phonon coupling constants) are
-
-<P>
-
-<FONT COLOR="#0000ff">
-</FONT>
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-\Gamma^{\alpha\gamma}(ij)= -a_0\frac{\partial B_{\gamma}(j)}{\partial \hat  U_i^{\alpha}}
-\end{equation}
- -->
- &nbsp;  <A ID="Gammacfph"></A><IMG
- STYLE="height: 4.24ex; vertical-align: -1.74ex; " SRC="img706.svg"
- ALT="$\displaystyle
-\Gamma^{\alpha\gamma}(ij)= -a_0\frac{\partial B_{\gamma}(j)}{\partial \hat U_i^{\alpha}}
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">101</SPAN>)</SPAN>
-</DIV>
-
-<P>
-Note, that equation (<A HREF="#Gcfph">108</A>) makes use of the displacement derivatives of the 
-crystal field parameters and not the strain derivatives found in literature
- [<A
- HREF="node163.html#palmer78-2465">34</A>,<A
- HREF="node163.html#jensen75-320">35</A>,<A
- HREF="node163.html#mcewen91-3298">36</A>]. In section&nbsp;<A HREF="node69.html#determinePcmodel">12.9</A> a procedure
-to calculate these derivatives is described.
-
-<P>
-Summarizing, and remembering the dimensionless phonon displacement operators
-<!-- MATH
- $\hat \mathbf u = \hat \mathbf P / a_0$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img707.svg"
- ALT="$\hat \mathbf u = \hat \mathbf P / a_0$"></SPAN>, we can write the total Hamiltonian as
-
-<P>
-
-<FONT COLOR="#0000ff">
-</FONT>
-<BR>
-<DIV CLASS="displaymath"><A ID="Htot"></A>
-<!-- MATH
- \begin{eqnarray}
-\hat H_{\rm tot} & = & \sum_{i,\gamma} B_{\gamma}(i,0,\dots,0) O_{\gamma}(\hat \mathbf J_i) - \sum_i g_{J_i} \mu_B \hat \mathbf J_i \mathbf H+ \\
-&+&\sum_{i} \hat H_{\rm E}(i) + \frac{1}{2}\sum_{\alpha\gamma=1-6} c^{\alpha\gamma} \epsilon_{\alpha}\epsilon_{\gamma} - \nonumber \\
-&-&\frac{1}{2}\sum_{i\ne j,\alpha\beta} K_{\alpha\beta}(ij) \hat u_{i}^{\alpha}\hat u_{j}^{\beta} 
--\sum_{i<j,\alpha=1-6,\gamma}\Gamma^{\alpha\gamma}(ij) \hat u^{\alpha}_i O_{\gamma}(\hat \mathbf J_j)
-\nonumber \\
-&-&\sum_{i,\alpha=1-6,\gamma=1,2,3} G_{mix}^{\alpha\gamma}(i) \epsilon_{\alpha} \hat u_{i}^{\gamma} - \nonumber \\
-&-&\sum_{i,\alpha=1-6,\gamma=1,...} G_{\rm cfph}^{\alpha\gamma}(i) \epsilon_{\alpha} O_{\gamma}(\hat \mathbf J_i) \nonumber
- 
-\end{eqnarray}
- -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img695.svg"
- ALT="$\displaystyle \hat H_{\rm tot}$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 5.94ex; vertical-align: -3.40ex; " SRC="img708.svg"
- ALT="$\displaystyle \sum_{i,\gamma} B_{\gamma}(i,0,\dots,0) O_{\gamma}(\hat \mathbf J_i) - \sum_i g_{J_i} \mu_B \hat \mathbf J_i \mathbf H+$"></TD><TD class="rfill">(<SPAN CLASS="arabic">102</SPAN>)</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img709.svg"
- ALT="$\textstyle +$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 6.54ex; vertical-align: -3.38ex; " SRC="img710.svg"
- ALT="$\displaystyle \sum_{i} \hat H_{\rm E}(i) + \frac{1}{2}\sum_{\alpha\gamma=1-6} c^{\alpha\gamma} \epsilon_{\alpha}\epsilon_{\gamma} -$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img711.svg"
- ALT="$\textstyle -$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 6.62ex; vertical-align: -3.46ex; " SRC="img712.svg"
- ALT="$\displaystyle \frac{1}{2}\sum_{i\ne j,\alpha\beta} K_{\alpha\beta}(ij) \hat u_{...
-...\gamma}\Gamma^{\alpha\gamma}(ij) \hat u^{\alpha}_i O_{\gamma}(\hat \mathbf J_j)$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img711.svg"
- ALT="$\textstyle -$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 5.94ex; vertical-align: -3.40ex; " SRC="img713.svg"
- ALT="$\displaystyle \sum_{i,\alpha=1-6,\gamma=1,2,3} G_{mix}^{\alpha\gamma}(i) \epsilon_{\alpha} \hat u_{i}^{\gamma} -$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img711.svg"
- ALT="$\textstyle -$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 5.94ex; vertical-align: -3.40ex; " SRC="img714.svg"
- ALT="$\displaystyle \sum_{i,\alpha=1-6,\gamma=1,...} G_{\rm cfph}^{\alpha\gamma}(i) \epsilon_{\alpha} O_{\gamma}(\hat \mathbf J_i)$"></TD><TD class="rfill">&nbsp;</TD></TR>
-</TABLE></DIV>
-
-<P>
-The first line in (<A HREF="#Htot">110</A>) contains the single ion Hamiltonian (crystal field, Zeeman)
-
-<P>
-and the second line the phonon Einstein oscillator and elastic energy (also a &rdquo;single ion&rdquo; terms),
-the third line the interaction terms (phonon, crystal field phonon), 
-the forth line the mixing term and 
-the last line  the magnetoelastic term. 
-In a selfconsistent solution it is possible to 
-determine (i) <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img92.svg"
- ALT="$\epsilon$"></SPAN>, (ii) <!-- MATH
- $\langle \hat O_l^m(i) \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.08ex; vertical-align: -0.77ex; " SRC="img715.svg"
- ALT="$\langle \hat O_l^m(i) \rangle $"></SPAN> and (iii)
-<!-- MATH
- $\langle \hat \mathbf u_i \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img716.svg"
- ALT="$\langle \hat \mathbf u_i \rangle$"></SPAN>. This will produce multipolar phase diagrams including the
-magnetostrictive properties without the need of a detailed investigation of the symmetry adapted Hamiltonian.
-
-<P>
-Setting zero the derivative of the expectation value of the Hamiltonian (<A HREF="#Hamiltonian">105</A>) with respect to
- <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.55ex; vertical-align: -0.12ex; " SRC="img598.svg"
- ALT="$\bar a$"></SPAN> (i.e. minimizing the energy with respect to strain and  rotation) 
-yields the following relations 
-
-<P>
-<BR>
-<DIV CLASS="displaymath"><A ID="zeroa"></A>
-<!-- MATH
- \begin{eqnarray}
-0&=& \sum_{ij} \frac{c_L(ij)-c_T(ij)}{|\mathbf R_{ij}|^2}
-(\mathbf R_{ij}^T\bar \epsilon \mathbf R_{ij})R_{ij}^{\alpha}R_{ij}^{\beta}   \\
-      && + \frac{c_T(ij)}{2} (R_{ij}^{\alpha} (\bar \epsilon \mathbf R_{ij})^{\beta}+R_{ij}^{\beta} (\bar \epsilon R_{ij})^{\alpha}) \nonumber \\
-&& +2\sum_{ij} \frac{c_L(ij)-c_T(ij)}{|\mathbf R_{ij}|^2} 
-R_{ij}^{\alpha}R_{ij}^{\beta} \mathbf R_{ij}^T \langle \mathbf P_{i} \rangle  \nonumber \\
-      && +2 c_T(ij) \mathbf R_{ij}^{\beta} \langle \hat P_{i}^{\alpha} \rangle
-+ \sum_{ij,\gamma}\frac{\partial B_{\gamma}(i)}{\partial \hat U_j^{\alpha}}   R_j^{\beta}  \langle O_{\gamma}(\hat \mathbf J_i) \rangle \nonumber
- 
-\end{eqnarray}
- -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img717.svg"
- ALT="$\displaystyle 0$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 6.81ex; vertical-align: -3.40ex; " SRC="img718.svg"
- ALT="$\displaystyle \sum_{ij} \frac{c_L(ij)-c_T(ij)}{\vert\mathbf R_{ij}\vert^2}
-(\mathbf R_{ij}^T\bar \epsilon \mathbf R_{ij})R_{ij}^{\alpha}R_{ij}^{\beta}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">103</SPAN>)</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 5.12ex; vertical-align: -1.71ex; " SRC="img719.svg"
- ALT="$\displaystyle + \frac{c_T(ij)}{2} (R_{ij}^{\alpha} (\bar \epsilon \mathbf R_{ij})^{\beta}+R_{ij}^{\beta} (\bar \epsilon R_{ij})^{\alpha})$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 6.81ex; vertical-align: -3.40ex; " SRC="img720.svg"
- ALT="$\displaystyle +2\sum_{ij} \frac{c_L(ij)-c_T(ij)}{\vert\mathbf R_{ij}\vert^2}
-R_{ij}^{\alpha}R_{ij}^{\beta} \mathbf R_{ij}^T \langle \mathbf P_{i} \rangle$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 6.81ex; vertical-align: -3.40ex; " SRC="img721.svg"
- ALT="$\displaystyle +2 c_T(ij) \mathbf R_{ij}^{\beta} \langle \hat P_{i}^{\alpha} \ra...
-...ial \hat U_j^{\alpha}} R_j^{\beta} \langle O_{\gamma}(\hat \mathbf J_i) \rangle$"></TD><TD class="rfill">&nbsp;</TD></TR>
-</TABLE></DIV>
-
-<P>
-The index <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.76ex; vertical-align: -0.12ex; " SRC="img367.svg"
- ALT="$i$"></SPAN> needs only to go over the atoms in the unit cell, because the crystal structure
-is periodic. There are 9 equations for <!-- MATH
- $\alpha,\beta=1,2,3$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img722.svg"
- ALT="$\alpha,\beta=1,2,3$"></SPAN> for nine components
-<!-- MATH
- $a_{\alpha\beta}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.89ex; vertical-align: -0.78ex; " SRC="img608.svg"
- ALT="$a_{\alpha\beta}$"></SPAN>. Thus the coefficients of the strain  in  equation (<A HREF="#zeroa">111</A>)
-can be evaluated numerically. For each mean field iteration the strain <!-- MATH
- $\epsilon_{\alpha\beta}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.89ex; vertical-align: -0.78ex; " SRC="img723.svg"
- ALT="$\epsilon_{\alpha\beta}$"></SPAN> components
-can be calculated from equation (<A HREF="#zeroa">111</A>) and inserted into (<A HREF="#Hamiltonian">105</A>) until
-selfconsistency is achieved.
-
-<P>
-Considering only the strain <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.55ex; vertical-align: -0.12ex; " SRC="img618.svg"
- ALT="$\bar \epsilon$"></SPAN> we can make use of the elastic constants
-in forming the derivative of the Hamiltonian, 
-we get 6 equations for <!-- MATH
- $\alpha=1,...,6$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img724.svg"
- ALT="$\alpha=1,...,6$"></SPAN>, from which the 6 strain components can be determined.
-
-<P>
-<BR>
-<DIV CLASS="displaymath"><A ID="zeroeps"></A>
-<!-- MATH
- \begin{eqnarray}
-\sum_{\beta=1,..6}  c^{\alpha\beta} \epsilon_{\beta} &=&
- \sum_{i,\delta=1,2,3}  G_{mix}^{\alpha\delta}(i)\langle \hat u_{i}^{\delta} \rangle  \\
- &+& \sum_{i,\gamma=1,...} G_{\rm cfph}^{\alpha\gamma}(i) \langle O_{\gamma}(\hat \mathbf J_i) \rangle \nonumber
-\end{eqnarray}
- -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 5.99ex; vertical-align: -3.46ex; " SRC="img725.svg"
- ALT="$\displaystyle \sum_{\beta=1,..6} c^{\alpha\beta} \epsilon_{\beta}$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 5.99ex; vertical-align: -3.46ex; " SRC="img726.svg"
- ALT="$\displaystyle \sum_{i,\delta=1,2,3} G_{mix}^{\alpha\delta}(i)\langle \hat u_{i}^{\delta} \rangle$"></TD><TD class="rfill">(<SPAN CLASS="arabic">104</SPAN>)</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img709.svg"
- ALT="$\textstyle +$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 5.94ex; vertical-align: -3.40ex; " SRC="img727.svg"
- ALT="$\displaystyle \sum_{i,\gamma=1,...} G_{\rm cfph}^{\alpha\gamma}(i) \langle O_{\gamma}(\hat \mathbf J_i) \rangle$"></TD><TD class="rfill">&nbsp;</TD></TR>
-</TABLE></DIV>
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node65.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node60.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node63.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html676"
-  HREF="node7.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html678"
-  HREF="node164.html">
-<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A
- HREF="node65.html">Exchange Striction</A>
-<B> Up:</B> <A
- HREF="node60.html">Crystal Field Phonon Interaction</A>
-<B> Previous:</B> <A
- HREF="node63.html">The lattice dynamic terms</A>
- &nbsp; <B>  <A ID="tex2html677"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html679"
-  HREF="node164.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<SPAN CLASS="SMALL"></SPAN>
+<BR><HR>
 
 </BODY>
 </HTML>

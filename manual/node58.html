@@ -1,18 +1,17 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Including Phonons and Crystal-Field Phonon interactions</TITLE>
+<TITLE>example of input file mcdisp.par</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node60.html">
-<LINK REL="previous" HREF="node54.html">
+<LINK REL="previous" HREF="node57.html">
 <LINK REL="next" HREF="node59.html">
 </HEAD>
 
@@ -23,460 +22,409 @@
  HREF="node59.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="manual.html">
+ HREF="node56.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node57.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html638"
-  HREF="node7.html">
+<A ID="tex2html684"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html640"
-  HREF="node164.html">
+<A ID="tex2html686"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node59.html">Using Single Ion Module</A>
+ HREF="node59.html">Viewing the results of</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="node56.html">mcdisp - the Calculation</A>
 <B> Previous:</B> <A
- HREF="node57.html">Running McPhase and McDisp</A>
- &nbsp; <B>  <A ID="tex2html639"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html641"
-  HREF="node164.html">Index</A></B> 
+ HREF="node57.html">example of input file</A>
+ &nbsp; <B>  <A ID="tex2html685"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html687"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A ID="SECTION000140000000000000000"></A><A ID="phonons"></A>
+<H5><A ID="SECTION000110002000000000000"></A><A ID="2036"></A>
 <BR>
-Including Phonons and Crystal-Field Phonon interactions
-</H1>
-
+example of input file <I CLASS="slanted">mcdisp.par</I>
+</H5><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-In this section we discuss, how lattice dynamics may be considered in the framework of
-the Hamiltonian (<A HREF="node151.html#fullhamiltonian">223</A>). We will see that this corresponds 
-to a system of coupled Einstein oscillators. One such oscillator can be modelled 
-by setting up a <I CLASS="slanted">sipf</I> file with the module <I CLASS="slanted">phonon</I>. Coupling has
-to be done in <I CLASS="slanted">mcdisp.j</I>. Rephrasing lattice dynamics in this way allows 
-to couple phonons to the crystal field.
-
+<SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE">
+</SPAN></SPAN><PRE>
+# Parameter file  mcdisp.par - read by mcdisp version 5.1
+#&lt;!--mcdisp.mcdisp.par&gt;
+#*********************************************************************
+# mcdisp - program to calculate the dispersion of magnetic excitations
+# reference: M. Rotter et al. J. Appl. Phys. A74 (2002) 5751
+#*********************************************************************
+#
+# mcdisp calculates the neutron scattering cross section dsigma/dOmegadE' [barn/sr/meV/f.u.]
+#           f.u.=crystallogrpaphic unit cell (r1xr2xr3) for inelastic and diffuse scattering
+#
+# depending on what is kept constant it follows either kf or ki (1/A)
+#!kf=3.474
+# 
+# emin and emax define the energy range in which neutron intensities are calculated
+# for full calculation of the dynamical susceptibility (option "-r", inversion of the MF-RPA equation 
+# for each point in Q-omega space) the minimum and maximum energy has to be given (energy stepwidth is 
+# equal to the parameter epsilon given in the command line after "-r")
+#
+#!emin=0.1
+#!emax=80
+#
+# optional switches which can be 0 or 1 are
+#!calculate_magmoment_oscillation=1  creates mcdisp.qem
+#!calculate_spinmoment_oscillation=0  creates mcdisp.qes
+#!calculate_orbmoment_oscillation=0  creates mcdisp.qeo
+#!calculate_chargedensity_oscillation=1  creates mcdisp.qee
+#!calculate_spindensity_oscillation=0  creates mcdisp.qsd
+#!calculate_orbmomdensity_oscillation=0  creates mcdisp.qod
+#!calculate_phonon_oscillation=0  creates mcdisp.qep
+#!calculate_pel_oscillation=0  creates mcdisp.qpe
+#
+# (optional) number of parallel threads on your machine
+#  (if not set program will attempt to determine this automatically)
+# nofthreads=2
+#
+#     out* controls the type of output in user defined columns in files mcdisp.qei,qex,qom,dsigma,dsigma.tot
+#!out1=5 
+#!out2=6 
+#!out3=7 
+#!out4=4 
+#!out5=12 
+#!out6=13 
+#!out7=14 
+#!out8=8 
+#     ... in out*=n the numbers n have the following meaning:
+#            0....Qinc[1/A] 
+#            1....Qx[1/A]   
+#            2....Qy[1/A]   
+#            3....Qz[1/A]   
+#            4....T[K]      
+#            5....Ha[T]     
+#            6....Hb[T]     
+#            7....Hc[T]     
+#            8....|Q|[1/A]  
+#            9....hprim  
+#            10....kprim  
+#            11....lprim  
+#            12....h 
+#            13....k 
+#            14....l 
+#            15....Hi[T]   
+#            16....Hj[T]   
+#            17....Hk[T]   
+#            18....Ea[kV/mm] 
+#            19....Eb[kV/mm] 
+#            20....Ec[kV/mm] 
+#            21....Ei[kV/mm] 
+#            22....Ej[kV/mm] 
+#            23....Ek[kV/mm] 
+#            24....s1[GPa] 
+#            25....s2[GPa] 
+#            26....s3[GPa] 
+#            27....s4[GPa] 
+#            28....s5[GPa] 
+#            29....s6[GPa] 
+#
+# optional switch outS for control of the output of the magnetic scattering function in results/mcdisp.qei
+#! outS=3
+# .. valid values are
+# 0: not output of Salphabeta
+# 1: output Sperpalphabeta(Q,omega) in dipole approximation, with alpha,beta=x,y,z
+# 2: output Sperpalphabeta(Q,omega) going beyond dipole approximation (if possible), with alpha,beta=x,y,z
+# 3: output Sperpalphabeta(Q,omega) in dipole approximation, with alpha,beta=u,v,w
+# 4: output Sperpalphabeta(Q,omega) going beyond dipole approximation (if possible), with alpha,beta=u,v,w
+# 5: output Salphabeta(Q,omega) in dipole approximation, with alpha,beta=x,y,z (no output of dip intensity)
+# 6: output Salphabeta(Q,omega) in dipole approximation, with alpha,beta=u,v,w (no output of dip intensity)
+#
+# xyz coordinate refer to y||b, z||(a x b) and x normal to y and z
+# uvw coordinates refer to u||Q=k-k', w perpendicular to the scattering plane
+#     (as determined by the cross product of subsequent vectors in the input
+#     q-vector list) and v perpendicular to u and w, such that uvw form a righthanded system
+#
+#
+# Commands such as the following are used to generate a hkl list (to activate put #! instead of # at beginning of line):
+#
+# - a Q vector mesh to be mapped in the calculation it can be in Miller indices
+#hmin=0 hmax=1 deltah=0.1
+#kmin=0 kmax=1 deltak=0.1
+#lmin=0 lmax=1 deltal=0.1
+#
+# or in Qx Qy Qz (1/A) where y||b z||axb and x perpendicular to y and z
+#Qxmin=0 Qxmax=1 deltaQx=0.1
+#Qymin=0 Qymax=1 deltaQy=0.1
+#Qzmin=0 Qzmax=1 deltaQz=0.1
+#
+# - file(s) containing list of Q vectors with (optional) energies of observed excitations to be fitted
+# h k l [E(meV) [statistical_weight  [intensity [fwhm ]]]]
+#
+# hklfile=file1
+# hklfile=file2
+# ...
+#
+# or
+# Qx Qy Qz(1/A) [E(meV) [statistical_weight  [intensity [fwhm ]]]]
+#
+# QxQyQzfile=file1
+# QxQyQzfile=file2
+# ...
+#
+#
+# - some lines in reciprocal space 
+#
+#hklline=h1=0 k1=1 l1=0 to hN=1 kN=1 lN=0 Nstp=21
+#hklline=h1=0 k1=2 l1=0 to hN=1 kN=1 lN=0 Nstp=21
+#
+#QxQyQzline=Qx1=0 Qy1=1 Qz1=0 to QxN=1 QyN=1 QzN=0 Nstp=21
+#QxQyQzline=Qx1=0 Qy1=2 Qz1=0 to QxN=1 QyN=1 QzN=0 Nstp=21
+#
+# - some planes in reciprocal space 
+#
+#hklplane=h0=0 k0=1 l0=0 to hN=1 kN=1 lN=0 Nstp=21 to hM=1 kM=0 lM=3 Mstp=21  
+# or
+#QxyQzplane=Qx0=0 Qy0=1 Qz0=0 to QxN=1 QyN=1 QzN=0 Nstp=21 to QxM=1 QyM=0 QzM=3 Mstp=21  
+# 
+#
+# - a list of Q vectors with (optional) energies of observed excitations to be fitted
+# h k l [E(meV) [statistical_weight  [intensity [fwhm ]]]]
+1 0 0 
+2 0 0 
+3 0 0 
+0.1 0 0 
+0 0.1 0 
+0 0 0.1
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+</SPAN>
 <P>
-A three dimensional Einstein oscillator (for atom <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.76ex; vertical-align: -0.12ex; " SRC="img367.svg"
- ALT="$i$"></SPAN>) in a solid can be described by 
-the following Hamiltonian
-
+<SPAN CLASS="SMALL">this file describes, which <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img499.svg"
+ ALT="$q$"></SPAN> vectors will be calculated.
+Miller indices always refer to the lattice <!-- MATH
+ $\vec a^*, \vec b^*, \vec c^*$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.95ex; vertical-align: -0.57ex; " SRC="img337.svg"
+ ALT="$\vec a^*,\vec b^*,\vec c^*$"></SPAN>, which
+is the reciprocal lattice of <!-- MATH
+ $\vec a, \vec b, \vec c$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.95ex; vertical-align: -0.57ex; " SRC="img295.svg"
+ ALT="$\vec a,\vec b,\vec c$"></SPAN> as defined by lattice
+parameters <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img350.svg"
+ ALT="$a,b,c$"></SPAN> and angles <!-- MATH
+ $\alpha,\beta,\gamma$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img351.svg"
+ ALT="$\alpha,\beta,\gamma$"></SPAN> as given in
+input file <I CLASS="slanted">mcphas.j</I>.
+</SPAN>
 <P>
-
-<FONT COLOR="#0000ff">
-</FONT>
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-\hat H_E(i)=\frac{a_0^2{\hat \mathbf w_i}^2}{2m_i} - \frac{1}{2} {\hat \mathbf u}^T_i \overline{K}(ii) {\hat \mathbf u}_i
-\end{equation}
- -->
- &nbsp;  <A ID="einstein"></A><IMG
- STYLE="height: 3.89ex; vertical-align: -1.15ex; " SRC="img525.svg"
- ALT="$\displaystyle
-\hat H_E(i)=\frac{a_0^2{\hat \mathbf w_i}^2}{2m_i} - \frac{1}{2} {\hat \mathbf u}^T_i \overline{K}(ii) {\hat \mathbf u}_i
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">66</SPAN>)</SPAN>
-</DIV>
-
+<SPAN CLASS="SMALL">The
+program <I CLASS="slanted">mcdisp<A ID="2040"></A></I> then calculates only 
+the excitation energies at these reflections and (if measured
+energies are given) computes a standard deviation
+and prints
+this deviation to stdout as &rdquo;sta=3120.31&rdquo; [this can directly
+be used by fitting program such as <I CLASS="slanted">simannfit<A ID="2041"></A></I>]. Note that
+several experimental energies and intensities may be entered in separate lines. 
+<I CLASS="slanted">mcdisp<A ID="2042"></A></I> will check the list and if subsequent lines contain
+the same values of h,k and l it will do the calculation for this scattering vector
+only one time.
+</SPAN>
 <P>
-Here <!-- MATH
- $\hat \mathbf u$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.87ex; vertical-align: -0.12ex; " SRC="img526.svg"
- ALT="$\hat \mathbf u$"></SPAN> is the dimensionless displacement vector 
-(<!-- MATH
- $\hat \mathbf u_i={\hat \mathbf P}_i/a_0=\Delta {\hat \mathbf r}_i/a_0$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img527.svg"
- ALT="$\hat \mathbf u_i={\hat \mathbf P}_i/a_0=\Delta {\hat \mathbf r}_i/a_0$"></SPAN>, 
-with the Bohr radius <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.07ex; vertical-align: -0.46ex; " SRC="img528.svg"
- ALT="$a_0=0.5219$"></SPAN>&nbsp;Å), <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img529.svg"
- ALT="$m_i$"></SPAN> the
-mass of the atom <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.76ex; vertical-align: -0.12ex; " SRC="img367.svg"
- ALT="$i$"></SPAN>, <!-- MATH
- $\hat \mathbf w_i=d\hat \mathbf u_i/dt= \mathbf p_i/a_0$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img530.svg"
- ALT="$\hat \mathbf w_i=d\hat \mathbf u_i/dt= \mathbf p_i/a_0$"></SPAN> the conjugate momentum to <!-- MATH
- $\hat \mathbf u_i$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.22ex; vertical-align: -0.46ex; " SRC="img531.svg"
- ALT="$\hat \mathbf u_i$"></SPAN> and
-<!-- MATH
- $\overline{K}(ii)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.85ex; vertical-align: -0.70ex; " SRC="img532.svg"
- ALT="$\overline{K}(ii)$"></SPAN> the Matrix describing the restoring force.
-
+<SPAN CLASS="SMALL">The standard deviation is calculated by taking for a set of measured energies (at a 
+given q-vector) the squared sum of differences to the nearest
+calculated energy. Thus only the calculated energies which are close to a 
+measured energy contribute to the standard deviation. 
+If an experimental intensity is provided with the set of measured energies, 
+then calculated energies will be considered only if they have intensity (magnetic+nuclear)
+larger than this experimental intensity (for standard deviation sta_int)
+Statistical weighting as given by the user in <I CLASS="slanted">mcdisp.par</I>
+for each q-vector is applied. If the weighting is less than zero, the 
+inverse squared sum of differences to the nearest
+calculated energy is taken (&rdquo;antipeak&rdquo;, this is useful in order to 
+tell the program, that there is no peak at this energy).
+In addition to the standard deviation &rdquo;sta&rdquo; some other quantitites are calculated and 
+may be used in fitting experimental data:
+</SPAN>
 <P>
-Coupling such oscillators leads to the Hamiltonian
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-\hat H_{phon}=\sum_i \hat H_E(i) -\frac{1}{2} \sum_{i\neq i'} {\hat \mathbf u}_i^T \overline{K}(ii')  {\hat \mathbf u}_{i'}
-\end{equation}
- -->
- &nbsp;  <IMG
- STYLE="height: 6.62ex; vertical-align: -3.46ex; " SRC="img533.svg"
- ALT="$\displaystyle \hat H_{phon}=\sum_i \hat H_E(i) -\frac{1}{2} \sum_{i\neq i'} {\hat \mathbf u}_i^T \overline{K}(ii') {\hat \mathbf u}_{i'}
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">67</SPAN>)</SPAN>
-</DIV>
-
-<P>
-Note that our coupling constants <!-- MATH
- $K_{\alpha\beta}(ii')=-A_{\alpha\beta}(ii')$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img534.svg"
- ALT="$K_{\alpha\beta}(ii')=-A_{\alpha\beta}(ii')$"></SPAN>, where
- <!-- MATH
- $A_{\alpha\beta}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img535.svg"
- ALT="$A_{\alpha\beta}$"></SPAN> are the second-order derivatives of the potential energy
-as defined e.g. in [<A
- HREF="node163.html#lovesey84-1">30</A>, page 99].
-
-<P>
-In a mean field type of theory 
-the phonon single ion module has thus to solve the Hamiltonian
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-\hat H_E=\frac{a_0^2{\hat \mathbf w}^2}{2m} - \frac{1}{2} {\hat \mathbf u}^T \overline{K} {\hat \mathbf u} - {\mathbf F}^T {\hat \mathbf u}
-\end{equation}
- -->
- &nbsp;  <A ID="phonsiham"></A><IMG
- STYLE="height: 3.65ex; vertical-align: -0.92ex; " SRC="img536.svg"
- ALT="$\displaystyle
-\hat H_E=\frac{a_0^2{\hat \mathbf w}^2}{2m} - \frac{1}{2} {\hat \mathbf u}^T \overline{K} {\hat \mathbf u} - {\mathbf F}^T {\hat \mathbf u}
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">68</SPAN>)</SPAN>
-</DIV>
-
-<P>
-Here the force <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img537.svg"
- ALT="$\mathbf F$"></SPAN> corresponds to the exchange field <!-- MATH
- $\mathbf H_{xc}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.17ex; vertical-align: -0.46ex; " SRC="img538.svg"
- ALT="$\mathbf H_{xc}$"></SPAN> and <!-- MATH
- $\hat \mathbf u$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.87ex; vertical-align: -0.12ex; " SRC="img526.svg"
- ALT="$\hat \mathbf u$"></SPAN> to
- the general operator <!-- MATH
- $\hat \mathbf I$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.43ex; vertical-align: -0.12ex; " SRC="img445.svg"
- ALT="$\hat \mathbf I$"></SPAN> and <!-- MATH
- $\overline{K}(nn')$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.85ex; vertical-align: -0.70ex; " SRC="img539.svg"
- ALT="$\overline{K}(nn')$"></SPAN> to <!-- MATH
- $\mathcal J(nn')$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img540.svg"
- ALT="$\mathcal J(nn')$"></SPAN> of equation (<A HREF="node151.html#fullhamiltonian">223</A>),
-respectively. The single ion Hamiltonian (<A HREF="#phonsiham">71</A>) can be solved by transforming
-it to normal coordinates (main axis of the Einstein oscillator) using the transformation
-matrix <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.28ex; vertical-align: -0.12ex; " SRC="img541.svg"
- ALT="$\overline{S}$"></SPAN>, which diagonalises <!-- MATH
- $\overline{K}=\overline{S}^T\overline{\Omega}\overline{S}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.81ex; vertical-align: -0.12ex; " SRC="img542.svg"
- ALT="$\overline{K}=\overline{S}^T\overline{\Omega}\overline{S}$"></SPAN>:
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-\hat \mathbf u'=\overline{S} \hat \mathbf u +\overline{\Omega}^{-1} \overline{S} \mathbf F
-\end{equation}
- -->
- &nbsp;  <IMG
- STYLE="height: 2.94ex; vertical-align: -0.31ex; " SRC="img543.svg"
- ALT="$\displaystyle \hat \mathbf u'=\overline{S} \hat \mathbf u +\overline{\Omega}^{-1} \overline{S} \mathbf F
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">69</SPAN>)</SPAN>
-</DIV>
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-\hat H_E=\frac{a_0^2{\hat \mathbf w}^{'2}}{2m}-\frac{1}{2} {\hat \mathbf u}^{'T} \overline{\Omega} {\hat \mathbf u'}
--\frac{1}{2}\mathbf F^T  \mathbf u_0
-\end{equation}
- -->
- &nbsp;  <A ID="phonsihamdiag"></A><IMG
- STYLE="height: 4.02ex; vertical-align: -0.92ex; " SRC="img544.svg"
- ALT="$\displaystyle
-\hat H_E=\frac{a_0^2{\hat \mathbf w}^{'2}}{2m}-\frac{1}{2} {\ha...
-...'T} \overline{\Omega} {\hat \mathbf u'}
--\frac{1}{2}\mathbf F^T \mathbf u_0
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">70</SPAN>)</SPAN>
-</DIV>
-
-<P>
-Due to the action of the force <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img537.svg"
- ALT="$\mathbf F$"></SPAN> the equilibrium position of the oscillator
-is <!-- MATH
- $\mathbf u_0=-\overline{S}^T\overline{\Omega}^{-1}\overline{S}\mathbf F$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.16ex; vertical-align: -0.46ex; " SRC="img545.svg"
- ALT="$\mathbf u_0=-\overline{S}^T\overline{\Omega}^{-1}\overline{S}\mathbf F$"></SPAN> (it is the task of the function
-<I CLASS="slanted">Icalc</I> to return this equilibrium position), the energies correspond to the three elements
-of the diagonal matrix <!-- MATH
- $\overline{\Omega}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.28ex; vertical-align: -0.12ex; " SRC="img546.svg"
- ALT="$\overline{\Omega}$"></SPAN>, i.e. <!-- MATH
- $\Omega_{11}=-m a_0^2 (\Delta_1 /\hbar)^2$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.69ex; vertical-align: -0.70ex; " SRC="img547.svg"
- ALT="$\Omega_{11}=-m a_0^2 (\Delta_1 /\hbar)^2$"></SPAN>,
-<!-- MATH
- $\Omega_{22}=-m a_0^2 (\Delta_2 /\hbar)^2$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.69ex; vertical-align: -0.70ex; " SRC="img548.svg"
- ALT="$\Omega_{22}=-m a_0^2 (\Delta_2 /\hbar)^2$"></SPAN>,
-<!-- MATH
- $\Omega_{33}=-m a_0^2 (\Delta_3 /\hbar)^2$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.69ex; vertical-align: -0.70ex; " SRC="img549.svg"
- ALT="$\Omega_{33}=-m a_0^2 (\Delta_3 /\hbar)^2$"></SPAN>. In order to run <I CLASS="slanted">mcdisp</I> we
-have to calculate the transition matrix elements:
-
-<P>
-The single ion susceptibility for such a transition, e.g. <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img550.svg"
- ALT="$\Delta_1$"></SPAN> - corresponds to
-
-<P>
+<SPAN CLASS="SMALL"></SPAN>
 <BR>
 <DIV CLASS="displaymath">
 
 <!-- MATH
  \begin{eqnarray}
-\overline{\chi}^0&=&\sum_{\nu\mu}\frac{\langle \nu|\hat \mathbf u|\mu\rangle\langle \mu |\hat \mathbf u^T|\nu \rangle}{\Delta_1 -\hbar \omega}
-(p_{\nu} -p_{\mu}) \\
-&=&\sum_{\nu\mu}\frac{\langle \nu|\overline{S}^T \hat \mathbf u'|\mu\rangle\langle \mu |\hat \mathbf u'^T \overline{S}|\nu \rangle}{\Delta_1 -\hbar \omega}
-(p_{\nu} -p_{\mu}) 
+{\rm sta}                              & =& \sum_i |weight(i)|*[Eexp(i) - nearestEcalc(i)]^{[2*sign(weight(i))]}\\
+{\rm sta\_int   }                       & = &\sum_i |weight(i)|*[Eexp(i) - nearestEcalc_{\rm with %%@
+Int>Iexp(i)>0.1mb/srf.u.}]^{[2*sign(weight(i))]}\\
+{\rm sta\_without\_antipeaks }           & =& \sum_{i, weight(i)>0}  weight(i)*[Eexp(i) - nearestEcalc(i)]^2\\
+{\rm sta\_int\_without\_antipeaks }       & =&\sum_{i,weight(i)>0}  weight(i)*[Eexp(i) - nearestEcalc_{\rm with %%@
+Int>Iexp(i)>0.1mb/srf.u.}]^2\\
+{\rm sta\_without\_weights }              &=& \sum_i [Eexp(i) - nearestEcalc(i)]^{[2*sign(weight(i))]}\\
+{\rm sta\_int\_without\_weights}          & =&\sum_i [Eexp(i) - nearestEcalc_{\rm with %%@
+Int>Iexp(i)>0.1mb/srf.u.}]^{[2*sign(weight(i))]}\\
+{\rm sta\_without\_antipeaks\_weights}    & = &\sum_{i, weight(i)>0}[Eexp(i) - nearestEcalc(i)]^2\\
+{\rm sta\_int\_without\_antipeaks\_weights}& =& \sum_{i, weight(i)>0} [Eexp(i) - nearestEcalc_{\rm with %%@
+Int>Iexp(i)>0.1mb/srf.u.}]^2\\
 \end{eqnarray}
  -->
 <TABLE CLASS="equation" >
 <TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 2.68ex; vertical-align: -0.57ex; " SRC="img551.svg"
- ALT="$\displaystyle \overline{\chi}^0$"></TD>
+ STYLE="height: 1.66ex; vertical-align: -0.12ex; " SRC="img500.svg"
+ ALT="$\displaystyle {\rm sta}$"></TD>
 <TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
  ALT="$\textstyle =$"></TD>
 <TD style="text-align:left;"><IMG
- STYLE="height: 6.95ex; vertical-align: -3.34ex; " SRC="img552.svg"
- ALT="$\displaystyle \sum_{\nu\mu}\frac{\langle \nu\vert\hat \mathbf u\vert\mu\rangle\...
-...ert\hat \mathbf u^T\vert\nu \rangle}{\Delta_1 -\hbar \omega}
-(p_{\nu} -p_{\mu})$"></TD><TD class="rfill">(<SPAN CLASS="arabic">71</SPAN>)</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+ STYLE="height: 5.62ex; vertical-align: -3.09ex; " SRC="img501.svg"
+ ALT="$\displaystyle \sum_i \vert weight(i)\vert*[Eexp(i) - nearestEcalc(i)]^{[2*sign(weight(i))]}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">74</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.78ex; vertical-align: -0.12ex; " SRC="img502.svg"
+ ALT="$\displaystyle {\rm sta\_int }$"></TD>
 <TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
  ALT="$\textstyle =$"></TD>
 <TD style="text-align:left;"><IMG
- STYLE="height: 7.58ex; vertical-align: -3.34ex; " SRC="img553.svg"
- ALT="$\displaystyle \sum_{\nu\mu}\frac{\langle \nu\vert\overline{S}^T \hat \mathbf u'...
-...f u'^T \overline{S}\vert\nu \rangle}{\Delta_1 -\hbar \omega}
-(p_{\nu} -p_{\mu})$"></TD><TD class="rfill">(<SPAN CLASS="arabic">72</SPAN>)</TD></TR>
-</TABLE></DIV>
-Because the different components of <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.97ex; vertical-align: -0.12ex; " SRC="img554.svg"
- ALT="$\mathbf u'$"></SPAN> commute and the Hamiltonian (<A HREF="#phonsihamdiag">73</A>)
-is separable, for the transition <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img550.svg"
- ALT="$\Delta_1$"></SPAN> only the terms with <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.69ex; " SRC="img555.svg"
- ALT="$u_1'$"></SPAN> in the nominator
-contribute:
-
+ STYLE="height: 5.62ex; vertical-align: -3.09ex; " SRC="img503.svg"
+ ALT="$\displaystyle \sum_i \vert weight(i)\vert*[Eexp(i) - nearestEcalc_{\rm with %%@
+Int&gt;Iexp(i)&gt;0.1mb/srf.u.}]^{[2*sign(weight(i))]}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">75</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img504.svg"
+ ALT="$\displaystyle {\rm sta\_without\_antipeaks }$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.17ex; vertical-align: -3.64ex; " SRC="img505.svg"
+ ALT="$\displaystyle \sum_{i, weight(i)&gt;0} weight(i)*[Eexp(i) - nearestEcalc(i)]^2$"></TD><TD class="rfill">(<SPAN CLASS="arabic">76</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img506.svg"
+ ALT="$\displaystyle {\rm sta\_int\_without\_antipeaks }$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.17ex; vertical-align: -3.64ex; " SRC="img507.svg"
+ ALT="$\displaystyle \sum_{i,weight(i)&gt;0} weight(i)*[Eexp(i) - nearestEcalc_{\rm with %%@
+Int&gt;Iexp(i)&gt;0.1mb/srf.u.}]^2$"></TD><TD class="rfill">(<SPAN CLASS="arabic">77</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img508.svg"
+ ALT="$\displaystyle {\rm sta\_without\_weights }$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.62ex; vertical-align: -3.09ex; " SRC="img509.svg"
+ ALT="$\displaystyle \sum_i [Eexp(i) - nearestEcalc(i)]^{[2*sign(weight(i))]}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">78</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img510.svg"
+ ALT="$\displaystyle {\rm sta\_int\_without\_weights}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.62ex; vertical-align: -3.09ex; " SRC="img511.svg"
+ ALT="$\displaystyle \sum_i [Eexp(i) - nearestEcalc_{\rm with %%@
+Int&gt;Iexp(i)&gt;0.1mb/srf.u.}]^{[2*sign(weight(i))]}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">79</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img512.svg"
+ ALT="$\displaystyle {\rm sta\_without\_antipeaks\_weights}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.17ex; vertical-align: -3.64ex; " SRC="img513.svg"
+ ALT="$\displaystyle \sum_{i, weight(i)&gt;0}[Eexp(i) - nearestEcalc(i)]^2$"></TD><TD class="rfill">(<SPAN CLASS="arabic">80</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img514.svg"
+ ALT="$\displaystyle {\rm sta\_int\_without\_antipeaks\_weights}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.17ex; vertical-align: -3.64ex; " SRC="img515.svg"
+ ALT="$\displaystyle \sum_{i, weight(i)&gt;0} [Eexp(i) - nearestEcalc_{\rm with %%@
+Int&gt;Iexp(i)&gt;0.1mb/srf.u.}]^2$"></TD><TD class="rfill">(<SPAN CLASS="arabic">81</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
 <P>
+<SPAN CLASS="SMALL">The output files of program <I CLASS="slanted">McDisp</I> are 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BLOCKQUOTE><SPAN CLASS="SMALL">[<I CLASS="slanted">mcdisp.trs</I>:] contains all single ion transitions with strengths <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img516.svg"
+ ALT="$\gamma$"></SPAN> 
+and neutron intensities.
+[<I CLASS="slanted">mcdisp.qom</I>:] Contains the energies of the modes and scattering cross sections  for each mode 
+calculated using the DMD algorithm described in section&nbsp;<A HREF="node168.html#DMDform">M.1</A>
+[<I CLASS="slanted">mcdisp.qei</I>] energies and neutron scattering intensities calculated by the DMD algorithm, if 
+        the energy of a mode is outside interval  [emin,emax] the value -1 is output for the intensity.
+[<I CLASS="slanted">mcdisp.qeX'observable'</I>] energies and absorptive part of the dynamical
+        susceptibilities calculated using the DMD algorithm.
+[<I CLASS="slanted">mcdisp.qem .qes .qel .qsd .qod .qee .qpe</I>] eigenvectors for different observables (relative phase and amplitudes)
+[<I CLASS="slanted">mcdisp.dsigma</I>(only created with option <I CLASS="slanted">-r</I>):] Contains the energy dependence of the scattering cross section
+calculated according to section&nbsp;<A HREF="node167.html#formalism">M</A> within the energy range specified by [emin,emax] given in <I CLASS="slanted">mcdisp.par</I>. 
+[<I CLASS="slanted">mcdisp.dsigma.tot</I>:] sum of intensities in interval  [emin,emax].  For option <I CLASS="slanted">-r</I> : Sum of intensities calculated in <I CLASS="slanted">mcdisp.dsigma</I>.
+</SPAN></BLOCKQUOTE><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">
 <BR>
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{eqnarray}
-\chi^0_{\alpha\beta}&=&S^T_{\alpha1}\sum_{\nu\mu}\frac{\langle \nu|\hat u_1'|\mu\rangle\langle \mu |\hat  u_1'|\nu \rangle}{\Delta_1 -\hbar \omega}
-(p_{\nu} -p_{\mu}) S_{1\beta}\\
-&=& S^T_{\alpha1}S_{1\beta}\frac{\hbar^2}{2ma_0^2\Delta_1}\left(\frac{1}{\Delta_1-\hbar\omega}+\frac{1}{\Delta_1+\hbar\omega}\right )
-\end{eqnarray}
- -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 3.12ex; vertical-align: -1.01ex; " SRC="img556.svg"
- ALT="$\displaystyle \chi^0_{\alpha\beta}$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 6.74ex; vertical-align: -3.34ex; " SRC="img557.svg"
- ALT="$\displaystyle S^T_{\alpha1}\sum_{\nu\mu}\frac{\langle \nu\vert\hat u_1'\vert\mu...
-...hat u_1'\vert\nu \rangle}{\Delta_1 -\hbar \omega}
-(p_{\nu} -p_{\mu}) S_{1\beta}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">73</SPAN>)</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 5.89ex; vertical-align: -2.33ex; " SRC="img558.svg"
- ALT="$\displaystyle S^T_{\alpha1}S_{1\beta}\frac{\hbar^2}{2ma_0^2\Delta_1}\left(\frac{1}{\Delta_1-\hbar\omega}+\frac{1}{\Delta_1+\hbar\omega}\right )$"></TD><TD class="rfill">(<SPAN CLASS="arabic">74</SPAN>)</TD></TR>
-</TABLE></DIV>
-
-<P>
-In order to derive the last result we had to express <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.69ex; " SRC="img559.svg"
- ALT="$\hat u_1'$"></SPAN> in terms of ladder  operators
-<!-- MATH
- $\hat u_1'=a_0^{-1} \hbar/\sqrt{2m\Delta_1}(\hat a+\hat a^{\dagger})$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.88ex; vertical-align: -0.74ex; " SRC="img560.svg"
- ALT="$\hat u_1'=a_0^{-1} \hbar/\sqrt{2m\Delta_1}(\hat a+\hat a^{\dagger})$"></SPAN> and  apply <!-- MATH
- $\hat a^{\dagger}|\nu\rangle=\sqrt{\nu+1}|\nu+1\rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.81ex; vertical-align: -0.70ex; " SRC="img561.svg"
- ALT="$\hat a^{\dagger}\vert\nu\rangle=\sqrt{\nu+1}\vert\nu+1\rangle$"></SPAN>,
-<!-- MATH
- $\hat a|\nu\rangle=\sqrt{\nu}|\nu-1\rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.66ex; vertical-align: -0.70ex; " SRC="img562.svg"
- ALT="$\hat a\vert\nu\rangle=\sqrt{\nu}\vert\nu-1\rangle$"></SPAN> and <!-- MATH
- $\sum_{\nu=0}^{\infty}(p_{\nu}-p_{\nu+1})(\nu+1)=1$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.79ex; vertical-align: -0.81ex; " SRC="img563.svg"
- ALT="$\sum_{\nu=0}^{\infty}(p_{\nu}-p_{\nu+1})(\nu+1)=1$"></SPAN>,
-<!-- MATH
- $p_{\nu}=exp(-\nu\Delta_1/kT)(1-exp(-\Delta_1/kT))$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img564.svg"
- ALT="$p_{\nu}=exp(-\nu\Delta_1/kT)(1-exp(-\Delta_1/kT))$"></SPAN>. This shows that the single ion susceptibility
-of our atom can be written as a sum of three effective transitions (with temperature independent
-susceptibility)
-
-<P>
 <BR>
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{eqnarray}
-\chi^0_{\alpha\beta}
-&=& \sum_{n=1,2,3} S^T_{\alpha n}S_{n\beta}\frac{\hbar^2}{2ma_0^2\Delta_n}
-\left(\frac{1}{\Delta_n-\hbar\omega}+\frac{1}{\Delta_n+\hbar\omega}\right )
-\end{eqnarray}
- -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 3.12ex; vertical-align: -1.01ex; " SRC="img556.svg"
- ALT="$\displaystyle \chi^0_{\alpha\beta}$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 6.93ex; vertical-align: -3.38ex; " SRC="img565.svg"
- ALT="$\displaystyle \sum_{n=1,2,3} S^T_{\alpha n}S_{n\beta}\frac{\hbar^2}{2ma_0^2\Delta_n}
-\left(\frac{1}{\Delta_n-\hbar\omega}+\frac{1}{\Delta_n+\hbar\omega}\right )$"></TD><TD class="rfill">(<SPAN CLASS="arabic">75</SPAN>)</TD></TR>
-</TABLE></DIV>
-
+<BR>
+<EM>Exercises:</EM>
+</SPAN>
+<UL>
+<LI>Type <I CLASS="slanted">mcdisp -max 3</I> to
+calculate the dispersion of magnetic excitations for NdCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>.
+and inspect the results
+<I CLASS="slanted">examples/ndcu2b_new/results/mcdisp.qei</I>.
+Which  transition has the largest intensity ?
+</LI>
+</UL><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-Thus the module <I CLASS="slanted">phonon</I> has to provide in it's function <I CLASS="slanted">du1calc</I> these three
-transitions (=number of transitions).
-
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A ID="tex2html642"
-  HREF="node59.html">Using Single Ion Module <I CLASS="slanted">phonon</I></A>
-</UL>
-<!--End of Table of Child-Links-->
-
+<SPAN CLASS="SMALL"></SPAN>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
 <A
  HREF="node59.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="manual.html">
+ HREF="node56.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node57.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html638"
-  HREF="node7.html">
+<A ID="tex2html684"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html640"
-  HREF="node164.html">
+<A ID="tex2html686"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node59.html">Using Single Ion Module</A>
+ HREF="node59.html">Viewing the results of</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="node56.html">mcdisp - the Calculation</A>
 <B> Previous:</B> <A
- HREF="node57.html">Running McPhase and McDisp</A>
- &nbsp; <B>  <A ID="tex2html639"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html641"
-  HREF="node164.html">Index</A></B> </DIV>
+ HREF="node57.html">example of input file</A>
+ &nbsp; <B>  <A ID="tex2html685"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html687"
+  HREF="node180.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

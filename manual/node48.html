@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Powder Neutron Cross Section</TITLE>
+<TITLE>Options for a running simulation</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node52.html">
+<LINK REL="next" HREF="node49.html">
 <LINK REL="previous" HREF="node47.html">
 <LINK REL="next" HREF="node49.html">
 </HEAD>
@@ -23,100 +23,99 @@
  HREF="node49.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node43.html">
+ HREF="node34.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node47.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html591"
-  HREF="node7.html">
+<A ID="tex2html629"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html593"
-  HREF="node164.html">
+<A ID="tex2html631"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node49.html">Creation of the q-vector</A>
+ HREF="node49.html">Output Files - mcphas.qvc,phs,sps,mf,fum,j1...,xyt,hkl</A>
 <B> Up:</B> <A
- HREF="node43.html">mcdisp - the Calculation</A>
+ HREF="node34.html">mcphas - calculation of</A>
 <B> Previous:</B> <A
- HREF="node47.html">Diffuse Scattering</A>
- &nbsp; <B>  <A ID="tex2html592"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html594"
-  HREF="node164.html">Index</A></B> 
+ HREF="node47.html">Starting a simulation</A>
+ &nbsp; <B>  <A ID="tex2html630"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html632"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000123000000000000000">
-Powder Neutron Cross Section</A>
-</H2>
-
+<H2><A ID="SECTION00093000000000000000">
+Options for a running simulation</A>
+</H2><SPAN CLASS="SMALL">
+... when the program is running, the options in the main window
+can be changed. Pressing &rdquo;displayall&rdquo; displays the current spin-configuration
+at each iteration step. Pressing &rdquo;log fe vs Q&rdquo; appends free energy vs Q
+data to <I CLASS="slanted">mcphas.log</I> for every (<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.01ex; vertical-align: -0.31ex; " SRC="img334.svg"
+ ALT="$T-H$"></SPAN>) point.
+</SPAN>
 <P>
-
-<DIV class="CENTER"><A ID="prni2b2c_2K"></A><A ID="8255"></A>
+<SPAN CLASS="SMALL">The file <I CLASS="slanted">./results/.spins.eps</I> is used to show the information about the currently calculated
+spin structure on the screen using the postscript file viewer ghostview.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">The file <I CLASS="slanted">./results/.mcphas.fum</I> contains the information of the magnetisation curve
+which is currently calculated. This information is automatically displayed on the screen.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">The program <I CLASS="slanted">display</I> (see section <A HREF="node135.html#display">17.1</A>) can be used 
+for the online display<A ID="1500"></A> of any other
+curve(s).
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV class="CENTER"><A ID="magnetization"></A><A ID="1505"></A>
 <TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 13:</STRONG>
-Magnetic Neutron powder spectrum of PrNi<SPAN CLASS="MATH"><IMG
+<CAPTION class="BOTTOM"><STRONG>Figure 9:</STRONG>
+Calculated magnetisation of NdCu<SPAN CLASS="MATH"><IMG
  STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN>B<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN>C for <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img10.svg"
- ALT="$T=2$"></SPAN>&nbsp;K as calculated using module <I CLASS="slanted">powdermagnons</I> in combination with <I CLASS="slanted">mcdisp</I>.</CAPTION>
+ ALT="$_2$"></SPAN> for field parallel to the orthorhombic <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img2.svg"
+ ALT="$b$"></SPAN>-direction.</CAPTION>
 <TR><TD>
 <DIV class="CENTER">
 
 <IMG
- STYLE="height: 43.63ex; vertical-align: -0.12ex; " SRC="img413.svg"
- ALT="\includegraphics[angle=0, width=0.5\textwidth]{figsrc/contour2K_070504.eps}">
+ STYLE="height: 31.83ex; vertical-align: -0.12ex; " SRC="img335.svg"
+ ALT="\includegraphics[angle=0, width=0.3\textwidth]{figsrc/magnetization_ndcu2.eps}">
 
 </DIV></TD></TR>
 </TABLE>
 </DIV>
-
+<SPAN CLASS="SMALL">
+</SPAN>
 <P>
-
-<DIV class="CENTER"><A ID="prni2b2c_10K"></A><A ID="8256"></A>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV class="CENTER"><A ID="magnetostrictiongraphic"></A><A ID="1512"></A>
 <TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 14:</STRONG>
-Magnetic Neutron powder spectrum of PrNi<SPAN CLASS="MATH"><IMG
+<CAPTION class="BOTTOM"><STRONG>Figure 10:</STRONG>
+Calculated spontaneous magnetostriction of NdCu<SPAN CLASS="MATH"><IMG
  STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN>B<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN>C for <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img9.svg"
- ALT="$T=10$"></SPAN>&nbsp;K  as calculated using module <I CLASS="slanted">powdermagnons</I> in combination with <I CLASS="slanted">mcdisp</I>.</CAPTION>
+ ALT="$_2$"></SPAN>.</CAPTION>
 <TR><TD>
 <DIV class="CENTER">
 
 <IMG
- STYLE="height: 43.63ex; vertical-align: -0.12ex; " SRC="img414.svg"
- ALT="\includegraphics[angle=0, width=0.5\textwidth]{figsrc/contour10K_070504.eps}">
+ STYLE="height: 60.38ex; vertical-align: -0.12ex; " SRC="img336.svg"
+ ALT="\includegraphics[angle=0, width=0.8\textwidth]{figsrc/magnetostriction_ndcu2.eps}">
 
 </DIV></TD></TR>
 </TABLE>
 </DIV>
-
+<SPAN CLASS="SMALL">
+</SPAN>
 <P>
-<I CLASS="slanted">Mcdisp</I> in combination with module <I CLASS="slanted">powdermagnon</I> can be used to calculate
-powder neutron pattern. In order to do this, a 3-step procedure is required:
-
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A ID="tex2html595"
-  HREF="node49.html">Creation of the q-vector list</A>
-<LI><A ID="tex2html596"
-  HREF="node50.html">Calculation of the Dispersion using <I CLASS="slanted">mcdisp</I></A>
-<LI><A ID="tex2html597"
-  HREF="node51.html">Powder-averaging the spectra</A>
-</UL>
-<!--End of Table of Child-Links-->
+<SPAN CLASS="SMALL"></SPAN>
 <BR><HR>
 
 </BODY>

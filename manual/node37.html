@@ -1,18 +1,18 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>mcdiff - calculate and fit magnetic Neutron or Resonant Xray Scattering</TITLE>
+<TITLE>mcphas.ini - controlling the algorithm</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node43.html">
-<LINK REL="previous" HREF="node21.html">
+<LINK REL="next" HREF="node38.html">
+<LINK REL="previous" HREF="node36.html">
 <LINK REL="next" HREF="node38.html">
 </HEAD>
 
@@ -23,433 +23,423 @@
  HREF="node38.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="manual.html">
+ HREF="node35.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node36.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html532"
-  HREF="node7.html">
+<A ID="tex2html585"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html534"
-  HREF="node164.html">
+<A ID="tex2html587"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node38.html">How to generate and</A>
+ HREF="node38.html">Example mcphas.ini file for</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="node35.html">Input Files</A>
 <B> Previous:</B> <A
- HREF="node36.html">Output Files - mcphas.qvc,phs,sps,mf,fum,j1...,xyt,hkl</A>
- &nbsp; <B>  <A ID="tex2html533"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html535"
-  HREF="node164.html">Index</A></B> 
+ HREF="node36.html">Example - a simple</A>
+ &nbsp; <B>  <A ID="tex2html586"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html588"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A ID="SECTION000110000000000000000"></A><A ID="1012"></A><A ID="mcdiff"></A>
+<H3><A ID="SECTION00091200000000000000"></A><A ID="1234"></A>
 <BR>
-<I CLASS="slanted">mcdiff</I> - calculate and fit  magnetic Neutron or Resonant Xray 
-Scattering
-</H1>
-
+<I CLASS="slanted">mcphas.ini</I> - controlling the algorithm
+</H3><SPAN CLASS="SMALL">
+   Initial file containing algorithm control parameters, for instance the range and spacing of
+   propagation vectors Q or the number of Monte Carlo trials for initial spin configurations
+    - <EM>mind</EM>: this
+   file is rewritten and reread  when running the program and may be changed by the
+   user in order to manipulate the running simulation.
+</SPAN>
 <P>
-In order to calculate neutron diffraction and resonant magnetic Xray scattering
-at a specified temperature and magnetic field you can use the module <I CLASS="slanted">mcdiff<A ID="1014"></A></I>.
-An input file <I CLASS="slanted">mcdiff.in </I> for this program can be easily created from
-the output file <I CLASS="slanted">mcphas.sps</I> by the program <I CLASS="slanted">setup_mcdiff_in<A ID="1017"></A></I>
-(in <I CLASS="slanted">mcdiff.in </I> structural data of non magnetic atoms and wavelength
-                        and maximal angle have to be edited).
-<A ID="tex2html22"
-  HREF="footnode.html#foot8952"><SUP><SPAN CLASS="arabic">11</SPAN></SUP></A> 
-<I CLASS="slanted">mcdiff<A ID="1020"></A></I> then calculates neutron reflection and intensity list.
-Miller indices always refer to the lattice <!-- MATH
- $\vec a^*, \vec b^*, \vec c^*$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.95ex; vertical-align: -0.57ex; " SRC="img238.svg"
- ALT="$\vec a^*,\vec b^*,\vec c^*$"></SPAN>, which
-is the reciprocal lattice of <!-- MATH
- $\vec a, \vec b, \vec c$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.95ex; vertical-align: -0.57ex; " SRC="img211.svg"
- ALT="$\vec a,\vec b,\vec c$"></SPAN> as defined by lattice
-parameters <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img252.svg"
- ALT="$a,b,c$"></SPAN> and angles <!-- MATH
- $\alpha,\beta,\gamma$
- -->
-<SPAN CLASS="MATH"><IMG
+<SPAN CLASS="SMALL"><I CLASS="slanted">mcphas.ini<A ID="1236"></A></I> consists of several sections:
+</SPAN><DL>
+<DT><STRONG>MCPHASE RUNTIME CONTROL:</STRONG></DT>
+<DD>this section contains the parameters
+controlling the status of the calculation.
+</DD>
+<DT><STRONG>XY PHASEDIAGRAM PARAMETERS:</STRONG></DT>
+<DD>here the temperature and field (stress) range and
+step widths of the calculation are specified.
+The definition of the x and y
+axis in terms of temperature and magnetic/electric field / stress is followed by the
+corresponding range and step width. An offset may be given for all
+field and temperature values.
+Note that for most cases of interest
+this offset is zero (T0=0, Ha0=0, Hb0=0, Hc0=0, Ea0=0, Eb0=0, Ec0=0, s10=0, s20, ..., s60=0).
+ For the simple case of calculating a Temperature-Field phase diagram
+ It is just necessary to set xT=1 and give the temperature range by
+xmin/xmax/xstep. For field in b direction then just set yHb=1 and 
+define the range in ymin/ymax/ystep.
+In case of non-orthogonal axes the applied magnetic field
+components <SPAN CLASS="MATH"><IMG
  STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img253.svg"
- ALT="$\alpha,\beta,\gamma$"></SPAN>.
+ ALT="$Ha, Hb, Hc$"></SPAN> refer to components with respect to
+unit vectors along <!-- MATH
+ $\mathbf a,\mathbf b,\mathbf c$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img254.svg"
+ ALT="$\mathbf a,\mathbf b,\mathbf c$"></SPAN>, respectively. 
+Alternatively <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img255.svg"
+ ALT="$Hi, Hj, Hk$"></SPAN> may be used, where <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img256.svg"
+ ALT="$ijk$"></SPAN> refer to
+the orthogonal coordinate system
+defined with respect to the nonorthogonal lattice <!-- MATH
+ $\mathbf a,\mathbf b,\mathbf c$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img254.svg"
+ ALT="$\mathbf a,\mathbf b,\mathbf c$"></SPAN> as
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img257.svg"
+ ALT="$Hj\vert\vert\mathbf b$"></SPAN>, <!-- MATH
+ $Hk||(\mathbf a \times \mathbf b)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img258.svg"
+ ALT="$Hk\vert\vert(\mathbf a \times \mathbf b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img259.svg"
+ ALT="$Hi$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.26ex; vertical-align: -0.57ex; " SRC="img260.svg"
+ ALT="$Hj$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img261.svg"
+ ALT="$Hk$"></SPAN>.
 
 <P>
-Here follows an example input file (see examples/ndcu2b_new/mcdiff<A ID="1021"></A>.in):
+In this coordinate system also the demagnetization factor may be entered which
+is used to establish a relation between the external applied magnetic and electric
+field and the internal field in the sample using calculated magnetisation and
+electric polarisation. By default the input electric and magnetic fields
+refer to the internal field in the sample. However, by putting the switch
+ <I CLASS="slanted">demag=1</I> it is possible to tell the program, that the input field specified
+by x and y is actually the external applied field and a demagnetisation correction
+should be made for every mean field loop iteration / Monte Carlo step
+in order to obtain the internal magnetic field in the sample.
+</DD>
+<DT><STRONG>GENERATION OF SPINCONFIGURATIONS:</STRONG></DT>
+<DD>at the beginning of the program
+some initial values of spin configurations are generated from a set of 
+propagation vectors. This section defines the range of propagation vectors
+and the step width.
+Depending on the value of the propagation Q with respect to the primitive reciprocal lattice
+1-, 2- or 3-dimensional simulations of magnetic lattices
+are possible. It is advisable to 
+think carefully about the chosen range and spacing of Q vectors in order
+to limit calculation time.
 
 <P>
-<SPAN CLASS="FOOTNOTESIZE">
-</SPAN><PRE>
-# this file is the input file read by program mcdiff version 5.6 Mon Oct 21 18:19:08 2024
-#&lt;!--mcdiff.mcdiff.in&gt;
-#***************************************************************
-#      mcdiff is a program for the calculation of elastic
-#   neutron diffraction and resonant magnetic Xray scattering 
-#  reference: M. Rotter and A. Boothroyd PRB 79 (2009) 140405R
-#*************************************************************** 
-# this input file contains 4 sections corresponding to different
-# groups of parameters
-#
-# - all lines have to start with a # sign with the  exception of 
-#   the lines containing atomic positional parameters
-# - the other parameters have to be defined in the corresponding 
-#   section by statements such as parameter=value
-# - the sequence of the parameters within a section is arbitrary
-# 
-#
-# %SECTION 1%  OVERALL PARAMETERS
-#
-#! lambda   = 2.4  wavelength (A)
-#
-#! thetamax = 10   maximum bragg angle (deg)
-#
-#! ovalltemp= 0  overall temperature factor (A^2) 
-#           ...I ~ EXP(-2 * ovalltemp * sintheta^2 / lambda^2) 
-#                  relation to other notations:
-#                  ovalltemp = Biso = 8 pi^2 Uiso^2
-#
-#! lorentz=0  type of lorentzfactor to be used
-#            0.....no lorentzfactor 
-#            1.....neutron powder flat sample
-#            2.....neutron powder cylindrical sample
-#            3.....neutron single crystal
-#            4.....neutron TOF powder cyl. sample - d-pattern log scaled
-#            5.....neutron TOF powder cyl. sample - d-pattern normal scaled
-#
-# out*  controls the type of output in  mcdiff.out 
-#!out0=-1  0..short header, 1...standard header, 2... long header in mcdiff.out
-# (a negative value triggers calculation of magnetic xray scattering)
-#
-#!  nofoutputcolumns=12  number of columns in output file mcdiff.out
-# choose out* to set type of desired output in column 1 to 12
-# (default is h k l d Q 2theta Inuc Imag Itot)
-#
-#!out1=31 out2=32 out3=33 out4=37 out5=38 out6=39 out7=27 out8=28 out9=29 out10=1 out11=0 out12=30 
-#
-#     ... in out*=n the numbers n have the following meaning:
-#            0....LF #
-#            1....|NSF|[b] #
-#            2....Re(NSF)[b] #
-#            3....Im(NSF)[b] #
-#            4....|MSF| #
-#            5....|MSF.P| #
-#            6....Re(MSF.P) #
-#            7....Im(MSF.P) #
-#            8....|MSFdip| #
-#            9....|MSFdip.P| #
-#            10....Re(MSFdip.P) #
-#            11....Im(MSFdip.P) #
-#            12....angl(Q,P)[°] #
-#            13....i(MSFxMSF*).P #
-#            14....I+ #
-#            15....I- #
-#            16....I+/I- #
-#            17....i(MSFxMSF*)dip.P #
-#            18....Idip+ #
-#            19....Idip- #
-#            20....Idip+/Idip- #
-#            21....2*|MSF.P|/sin^2(angl(Q,P) #
-#            22....2*|MSFdip.P|/sin^2(angl(Q,P) #
-#            23....2|NSF|sqrt(4PI/3.65)(|g|-sqrt(g^2-1/sin(angl(Q,P))))_with_g=(1+I+/I-)/(1-I+/I-) #
-#            24....2|NSF|sqrt(4PI/3.65)(|g|+sqrt(g^2-1/sin(angl(Q,P))))_with_g=(1+I+/I-)/(1-I+/I-) #
-#            25....2|NSF|sqrt(4PI/3.65)(|g|-sqrt(g^2-1/sin(angl(Q,P))))_with_g=(1+Idip+/Idip-)/(1-Idip+/Idip-) #
-#            26....2|NSF|sqrt(4PI/3.65)(|g|+sqrt(g^2-1/sin(angl(Q,P))))_with_g=(1+Idip+/Idip-)/(1-Idip+/Idip-) #
-#            27....Inuc(2t)	#
-#            28....Imag(2t)   #
-#            29....Itot(2t)   #
-#            30....Imag_dip(2t) #
-#            31....h     #
-#            32.... k     #
-#            33.... l     #
-#            34....d[A]       #
-#            35....|Q|[1/A]   #
-#            36....2theta     #
-#            37....Qi[1/A]    #
-#            38....Qj[1/A]     Qi Qj Qk are euclidean components of scattering vector#
-#            39....Qk[1/A]     with j||b, k||(a x b) and i normal to k and j#
-#            40....T[K]       #
-#            41....Ha[T]      #
-#            42....Hb[T]      #
-#            43....Hc[T]      #
-#            44....hprim      #
-#            45....kprim      #
-#            46....lprim      #
-#            47....Itotdip(2t) #
-#
-#           In the above the intensities I+ and I- are the intensities in a polarised neutron
-#           experiment with incident polarisation up (+) or down (-):
-#            I+-=LF exp(-OTF Q^2/8pi^2) 
-#                    [ |NSF/NB|^2 + 3.65/4pi (|MSF|^2-+i(MSF x MSF*).P)/NB^2 
-#                        +-  sqrt(3.65/4pi)/NB^2 (NSF (MSF*.P) + NSF* (MSF.P)]
-#           LF  ..... Lorentzfactor
-#           MSF ..... magnetic structure factor
-#           NSF ..... nuclear structure factor
-#
-#
-#             For some of the above options we need the
-#! Pa=  0.0000   Components of Polarisation Vector in terms of lattice vectors P=(Pa * a + Pb * b + Pc *c)
-#! Pb=  0.0000   Note: the length of P, i.e. |P| indicates the degree of beam polarisation (|P|&lt;=1)
-#! Pc=  0.1045
-#
-#
-# %SECTION 2% LIST OF NONMAGNETIC ATOMS IN CRYSTALLOGRAPHIC UNIT CELL
-#
-#
-#! natcryst=32      number of nonmagnetic atoms in primitive crystalographic unit cell
-#
-# it follows a list of natcryst lines with nonmagnetic atoms
-# ... notes: - if an occupancy other than 1.0 is needed, just reduce 
-#              the scattering length linear accordingly
-#            - Debye Waller Factor notation: sqr(Intensity) ~ structure factor ~ 
-#              ~sum_n ()n exp(-2 DWFn sin^2(theta) / lambda^2)=EXP (-Wn),  
-#              relation to other notations: 2*DWF = B = 8 pi^2 &lt;u^2&gt;, units DWF (A^2)
-#
-#! use_dadbdc=1
-#            - 0 means: da db and dc are not used by the program (unless you enter a line #! use_dadbdc=1),
-#               dr1,dr2 and dr3 refer to the primitive lattice given below
-# Real Imag[scattering length(10^-12cm)]   da(a)    db(b)    dc(c)    dr1(r1)  dr2(r2)  dr3(r3)  DWF(A^2)
-   0.34490   0.00000                        0.16220  0.32440  0.57620  0.16220  0.32440  0.57620  0.00000
-   0.34490   0.00000                        0.67560  0.83780  0.57620  0.67560  0.83780  0.57620  0.00000
-   0.34490   0.00000                        0.16220  0.83780  0.57620  0.16220  0.83780  0.57620  0.00000
-  0.34490   0.00000                        0.83780  0.67560  0.07620  0.83780  0.67560  0.07620  0.00000
-   0.34490   0.00000                        0.32440  0.16220  0.07620  0.32440  0.16220  0.07620  0.00000
-   0.34490   0.00000                        0.83780  0.16220  0.07620  0.83780  0.16220  0.07620  0.00000
-   0.34490   0.00000                        0.32440  0.16220  0.42380  0.32440  0.16220  0.42380  0.00000
-   0.34490   0.00000                        0.83780  0.67560  0.42380  0.83780  0.67560  0.42380  0.00000
-   0.34490   0.00000                        0.83780  0.16220  0.42380  0.83780  0.16220  0.42380  0.00000
-   0.34490   0.00000                        0.67560  0.83780  0.92380  0.67560  0.83780  0.92380  0.00000
-   0.34490   0.00000                        0.16220  0.32440  0.92380  0.16220  0.32440  0.92380  0.00000
-   0.34490   0.00000                        0.16220  0.83780  0.92380  0.16220  0.83780  0.92380  0.00000
-   0.34490   0.00000                        0.56370  0.12740  0.25000  0.56370  0.12740  0.25000  0.00000
-   0.34490   0.00000                        0.87260  0.43630  0.25000  0.87260  0.43630  0.25000  0.00000
-   0.34490   0.00000                        0.56370  0.43630  0.25000  0.56370  0.43630  0.25000  0.00000
-   0.34490   0.00000                        0.43630  0.87260  0.75000  0.43630  0.87260  0.75000  0.00000
-   0.34490   0.00000                        0.12740  0.56370  0.75000  0.12740  0.56370  0.75000  0.00000
-   0.34490   0.00000                        0.43630  0.56370  0.75000  0.43630  0.56370  0.75000  0.00000
-   0.70300   0.00000                        0.50000  0.00000  0.00000  0.50000  0.00000  0.00000  0.00000
-   0.70300   0.00000                        0.00000  0.50000  0.00000  0.00000  0.50000  0.00000  0.00000
-   0.70300   0.00000                        0.50000  0.50000  0.00000  0.50000  0.50000  0.00000  0.00000
-   0.70300   0.00000                        0.50000  0.00000  0.50000  0.50000  0.00000  0.50000  0.00000
-   0.70300   0.00000                        0.00000  0.50000  0.50000  0.00000  0.50000  0.50000  0.00000
-   0.70300   0.00000                        0.50000  0.50000  0.50000  0.50000  0.50000  0.50000  0.00000
-   0.34490   0.00000                        0.33330  0.66670  0.01160  0.33330  0.66670  0.01160  0.00000
-   0.34490   0.00000                        0.66670  0.33330  0.51160  0.66670  0.33330  0.51160  0.00000
-   0.34490   0.00000                        0.66670  0.33330  0.98840  0.66670  0.33330  0.98840  0.00000
-   0.34490   0.00000                        0.33330  0.66670  0.48840  0.33330  0.66670  0.48840  0.00000
-   0.34490   0.00000                        0.00000  0.00000  0.25000  0.00000  0.00000  0.25000  0.00000
-   0.34490   0.00000                        0.00000  0.00000  0.75000  0.00000  0.00000  0.75000  0.00000
-   0.70300   0.00000                        0.00000  0.00000  0.00000  0.00000  0.00000  0.00000  0.00000
-   0.70300   0.00000                        0.00000  0.00000  0.50000  0.00000  0.00000  0.50000  0.00000
-#
-#
-# %SECTION 3% DESCRIPTION OF THE LATTICE
-#
-#
-# Note: what follows here may directly be taken from the output of program spins 
-#       (file spins.out) or charges (file charges.out)
-# -----------------------------------------------------------------------------
-#
-# lattice constants (A) and angles 
-#! a=8.8142 b=8.8142 c=9.5692 alpha=  90 beta=  90 gamma=  120
-#
-# primitive lattice vectors 
-#! r1a= 30.533248 r2a= -0.000052 r3a= -0.000000
-#! r1b= -17.628396 r2b= 35.256701 r3b= -0.000000   primitive lattice vectors (a)(b)(c)
-#! r1c= 0.000000 r2c= 0.000000 r3c= 9.569378
-#
-#      - coordinate system ijk defined by  j||b, k||(a x b) and i normal to k and j
-#! strain tensor (optional): eps1=-2.042e-06=epsii eps2=-2.812e-06=epsjj eps3=1.865e-05=epskk eps4=   0=2epsjk eps5=   0=2epsik eps6=-1.487e-06=2epsij
-#
-#
-# %SECTION 4% DESCRIPTION OF MAGNETIC UNIT CELL AND LIST OF MAGNETIC ATOMS
-#
-#
-# here follows the description of the magnetic unit cell with respect
-# to the primitive crystallographic unit cell:
-# 'nr1', 'nr2', 'nr3' ...the crystallographic unit cell has to be taken 
-#                        nr1 nr2 and nr3 times along r1 r2 and r3,
-#                        respectively to get magnetic unit cell
-# 'nat' denotes the number of magnetic atoms in magnetic unit cell
-#
-# Temperature,  External Magnetic Field: Magnetic Unit Cell
-#! T=2 K Ha=0 T Hb= 0 T Hc= 0 T: nr1=4 nr2=4 nr3=1 nat=96 
-#
-#
-# It follows a list of nat lines with to describe the magnetic moment configuration
-# Notes:
-# 'atom-filename' means the single ion property filename of this magnetic atom:
-#                 -it must contain the Formfactor Coefficients (e.g. see international tables)
-#                                      Lande factor
-#                                      Neutron Scattering Length (10^-12 cm) 
-#                 -it may contain a    Debey Waller Factor
-# 'da' 'db' and 'dc' are not used by the program (unless you enter a line #! use_dadbdc=1)
-# 'dr1','dr2' and 'dr3' refer to the primitive lattice given below
-# 'Ma','Mb','Mc' denote the magnetic moment components in Bohr magnetons
-#                in case of non orthogonal lattices instead of Ma Mb Mc the components Mx My Mz
-#                have to be given, which refer to an right handed orthogonal coordinate system 
-#                defined by y||b, z||(a x b) and x normal to y and z
-#  &lt;Sa&gt; &lt;Sb&gt; &lt;Sc&gt;  &lt;La&gt; &lt;Lb &gt; &lt;Lc&gt;  (optional) denote the spin and orbital angular momentum components 
-# 'mf1' 'mf2' 'mf3' (optional line, used to go beyond dipole approx for formfactor)
-#                                     denote the corresponding exchange fields in meV
-#
-#{atom-file} da[a]  db[b]    dc[c]     dr1[r1]  dr2[r2]  dr3[r3]   &lt;Ma&gt;     &lt;Mb&gt;     &lt;Mc&gt; [mb] [optional &lt;Sa&gt; &lt;Sb&gt; &lt;Sc&gt; &lt;La&gt; &lt;Lb&gt; &lt;Lc&gt; ]
-#{corresponding exchange fields [meV]- if passed to mcdiff only these are used for calculation (not the magnetic moments)}
-{Gd.sipf}  0.19285  0.38570  0.25000   0.19285  0.38570  0.25000   +5.07780 -4.19680 -1.44390  +2.53890 -2.09840 -0.72190 +0.00000 +0.00000 +0.00000
-{Gd.sipf}  0.61430  0.80715  0.25000   0.61430  0.80715  0.25000   +0.09500 +6.38750 -1.78580  +0.04750 +3.19380 -0.89290 +0.00000 +0.00000 +0.00000
-{Gd.sipf}  0.19285  0.80715  0.25000   0.19285  0.80715  0.25000   -4.78970 -2.67750 +3.62190  -2.39490 -1.33880 +1.81090 +0.00000 +0.00000 +0.00000
-{Gd.sipf}  0.80715  0.61430  0.75000   0.80715  0.61430  0.75000   +5.92820 -2.89990 -0.45460  +2.96410 -1.45000 -0.22730 +0.00000 +0.00000 +0.00000
-...
-</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+For example a good starting point is to begin with a calculation with large
+step widths (e.g. 0.1)  covering the Brillouin zone. This should give an idea
+of the propagation vectors which are stabilised. An advanced calculation
+could then fine tune the propagation and determine its accurate value (using
+small step widths in a limited area of the zone).
+The verbose option of <I CLASS="slanted">mcphas</I> allows to inspect the propagation vectors
+which are actually used in the calculation.
+Trick: in order to get a quick overview of the
+q-vector range covered by the mcphas<A ID="1240"></A> simulation start mcphas, exit and 
+just type <I CLASS="slanted">felog ./results/mcphas.qvc</I> (need <I CLASS="slanted">perl,perldl,pdl,pgplot</I> packages).
 
 <P>
-After issuing the command <I CLASS="slanted">mcdiff<A ID="1024"></A></I> 
-the program calculates the following output file <I CLASS="slanted">results/mcdiff<A ID="1025"></A>.out</I>:
+In order to limit calculation time, the maximum periodicity
+of the magnetic unit cell with respect to the crystallographic unit cell 
+(maxqperiod) and the maximum number of spins in the magnetic unit cell 
+(maxnofspins) can be limited. Also the maximum number of test spin configurations
+in the internal table can be limited (maxnoftestspincf).
+A critical feature with respect to calculation time is also the number of
+spin configurations which are generated by a random process from a tabulated
+SPINCONFIGURATIONS during the calculation. 
 
 <P>
-<SPAN CLASS="FOOTNOTESIZE">
-</SPAN><PRE>
-#{output file of program mcdiff ./results/mcdiff.out input file: mcdiff.in mcdiff version 3.0 Tue Jun 23 %%@
-12:51:43 2009
-#!&lt;--mcdiff.mcdiff.out--&gt;
-#***********************************************************************
-#*
-#* mcdiff - program to calculate neutron and magnetic xray diffraction
-#*
-#* reference: M. Rotter and A. Boothroyd PRB 79 (2009) 140405R
-#***********************************************************************
-#! lattice parameters : a= 4.3843 A  b= 4.3843 A c= 2.4194 A  alpha=90  beta=90 gamma=90
-# prim. unit cell   /  4.384 A \     /  0.000 A \     /  0.000 A \ 
-#                b1=|  0.000 A |  b2=|  4.384 A |  b3=| -0.000 A |
-#                   \ -0.000 A /     \  0.000 A /     \  4.839 A /
-#! Wavelength=0.9 A   number of atoms: 4
-#! T= 2 K Ha= 0 T Hb= 0 T Hc= 0 T
-#! Overall temperature factor B=0.3 A^2: Intensity is proportional to exp(-2*B*(sin(theta)/lambda)^2)
-# Lorentz Factor: 1 / sin^2(2theta)   neutron powder flat sample
-#
-# Lorentz Factor not considered for resonant magnetic xray scattering - F1 and F2 transition intensities %%@
-calculated
-# according to fRMXS as given in equation (2) of Longfield et al. PRB 66 054417 (2002) and maximized with %%@
-respect to azimuth.
-#
-#! nofatoms=4 atoms in unit cell: List of atomic positions dr1 dr2 dr3, moments m scattering lengths sl,
-# Debye Waller factor (sqr(Intensity)~|NSF| ~sum_i ()i exp(-2 DWFi sin^2(theta) / lambda^2)=EXP (-Wi),
-# units DWF [A^2], relation to other notations 2*DWF=B=8 pi^2 &lt;u^2&gt;)
-#  and  Lande factors total angular momentum J (=0 if dipole approximation is used) &lt;j0&gt; and &lt;j2&gt; formfactor
-# coefficients
-#  dr1[r1]dr2[r2]dr3[r3]ma[MuB]mb[MuB]mc[MuB]sl[10^-12cm]  DWF[A^2] gJ     &lt;j0&gt;:A a      B      b      C      %%@
-c      D      &lt;j2&gt;A  a      B      b      C      c      D
-#  0.000  0.000  0.000  0.000  0.000 -2.130  0.484+0.000i  0.000  0.857 F(Q)=j0-(1-2/gJ)j2 formfactor for %%@
-rare earth/transition metals with gJ=2 0.295 17.685  0.292  6.733  0.431  5.383 -0.019  0.981 18.063  1.841  %%@
-7.769  0.991  2.845  0.012 
-#  0.000  0.000  0.500  0.000  0.000  2.130  0.484+0.000i  0.000  0.857 F(Q)=j0-(1-2/gJ)j2 formfactor for %%@
-rare earth/transition metals with gJ=2 0.295 17.685  0.292  6.733  0.431  5.383 -0.019  0.981 18.063  1.841  %%@
-7.769  0.991  2.845  0.012 
-#  0.500  0.500  0.250  0.000  0.000  0.000  0.772+0.000i  0.000  0.000  1.000  0.000  0.000  0.000  0.000  %%@
-0.000  0.000  0.000  0.000  0.000  0.000  0.000  0.000  0.000 
-#  0.500  0.500  0.750  0.000  0.000  0.000  0.772+0.000i  0.000  0.000  1.000  0.000  0.000  0.000  0.000  %%@
-0.000  0.000  0.000  0.000  0.000  0.000  0.000  0.000  0.000 
-#}
-#{h     k      l      d[A]    |Q|[1/A] 2theta  Inuc(2t) Imag(2t) Itot(2t) |NSF|     LF   Imag_dip(2t) %%@
-F1:max-Isigpi azim Ipisig azim Ipipig azim F2:max-Isigpi azim Ipisig azim Ipipig azim  |^ma_q| |^mb_q| %%@
-|^mc_q| |^ma^2_q||^mb^2_q||^mc^2_q||(^ma*^mb)_q||(^ma*^mc)_q||(^mb*^mc)_q|}
- 0.000  0.000  0.500  4.8388  1.2985  10.672   0.0000   0.0000   0.0000   0.0000  29.1583   0.0000        %%@
-0.010111 270 0.010111  90 0.000000   0   0.000000 360 0.000000 180 0.000000  90    0.0000   0.0000   1.0652   %%@
-0.0000   0.0000   0.0000   0.0000   0.0000   0.0000
- 0.000  0.000 -0.500  4.8388  1.2985  10.672   0.0000   0.0000   0.0000   0.0000  29.1583   0.0000        %%@
-0.010111  90 0.010111 270 0.000000 360   0.000000 180 0.000000 360 0.000000  90    0.0000   0.0000   1.0652   %%@
-0.0000   0.0000   0.0000   0.0000   0.0000   0.0000
- 1.000  0.000  0.000  4.3843  1.4331  11.782   0.4935   0.0000   0.4935   0.5760  23.9836   0.0000        %%@
-0.000000   0 0.000000   0 0.000000   0   0.013544 314 0.013544 314 0.000571 270    0.0000   0.0000   0.0000   %%@
-0.0000   0.0000   2.2691   0.0000   0.0000   0.0000
--1.000  0.000 -0.000  4.3843  1.4331  11.782   0.4935   0.0000   0.4935   0.5760  23.9836   0.0000        %%@
-0.000000   0 0.000000   0 0.000000   0   0.013544 314 0.013544 314 0.000571 270    0.0000   0.0000   0.0000   %%@
-0.0000   0.0000   2.2691   0.0000   0.0000   0.0000
- 0.000  1.000 -0.000  4.3843  1.4331  11.782   0.4935   0.0000   0.4935   0.5760  23.9836   0.0000        %%@
-0.000000   0 0.000000   0 0.000000   0   0.013544 314 0.013544 314 0.000571 270    0.0000   0.0000   0.0000   %%@
-0.0000   0.0000   2.2691   0.0000   0.0000   0.0000
--0.000 -1.000  0.000  4.3843  1.4331  11.782   0.4935   0.0000   0.4935   0.5760  23.9836   0.0000        %%@
-0.000000   0 0.000000   0 0.000000   0   0.013544 314 0.013544 314 0.000571 270    0.0000   0.0000   0.0000   %%@
-0.0000   0.0000   2.2691   0.0000   0.0000   0.0000
- 1.000  0.000  0.500  3.2490  1.9339  15.923   0.0000   0.4821   0.4821   0.0000  13.2870   0.4821        %%@
-0.775763   0 0.775763 180 0.046891  90   0.000000  98 0.000000 278 0.000000   0    0.0000   0.0000   1.0652   %%@
-0.0000   0.0000   0.0000   0.0000   0.0000   0.0000
- 1.000  0.000 -0.500  3.2490  1.9339  15.923   0.0000   0.4821   0.4821   0.0000  13.2870   0.4821        %%@
-0.775763 360 0.775763 180 0.046891 270   0.000000 262 0.000000  82 0.000000 360    0.0000   0.0000   1.0652   %%@
-0.0000   0.0000   0.0000   0.0000   0.0000   0.0000
-etc ....
------------------------------------------------------------------------
-</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+In summary the variables in this section are mainly important to adapt the
+program to a given computer system with finite speed. They have to be set
+to optimise between speed and accuracy of the calculation. In order to
+find appropriate values it is best to perform some calculations 
+and restrict the parameters step by step if insufficient speed is obtained.
+Also the examples included in the program package may serve as starting
+points.
 
 <P>
-This reflection list contains the Miller indices, the d-spacing, the scattering vector,
-the scattering angle 2<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img254.svg"
- ALT="$\Theta$"></SPAN>, nuclear and magnetic neutron scattering intensities
-and the corresponding structure-, Lorentzfactor. Moreover it contains the
-intensities for the different scattering channels of resonant magnetic x-ray scattering,
-the intensity is shown together with the azimuth value where it is maximum. In addition,
-the absolute value of the Fourier transform of the magnetic moment components in the different
-crystal directions and of some products of the moment components is given.
+</DD>
+<DT><STRONG>PARAMETERS FOR SUB FECALC SELFCONSISTENCY PROCESS:</STRONG></DT>
+<DD>the most important
+procedure in the module <I CLASS="slanted">mcphas</I> is the sub <I CLASS="slanted">fecalc</I><A ID="1245"></A>. In this part of the 
+program the self consistent calculation of the magnetic moment configuration
+is performed 
+as shown schematically in fig.&nbsp;<A HREF="node35.html#fecalc">8</A>, for the code see bin/src/mcphas_fecalc.c. 
+In addition or alternatively a Monte Carlo calculation can be performed
+&nbsp;<A ID="tex2html27"
+  HREF="footnode.html#foot9388"><SUP><SPAN CLASS="arabic">18</SPAN></SUP></A>
+In the mean field approximation the Hamiltonian&nbsp;(<A HREF="node13.html#hamilton">1</A>) is approximated
+by a sum over the <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img263.svg"
+ ALT="$N_b$"></SPAN> sites in the magnetic supercell
 
 <P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-<UL CLASS="ChildLinks">
-<LI><A ID="tex2html536"
-  HREF="node38.html">How to generate and view a powder diffraction profile</A>
-<LI><A ID="tex2html537"
-  HREF="node39.html">How to calculate only specific reflections, azimuth dependence and fitting of neutron intensities</A>
-<LI><A ID="tex2html538"
-  HREF="node40.html">Formalism I - Resonant Magnetic Xray Scattering Intensity</A>
-<LI><A ID="tex2html539"
-  HREF="node41.html">Formalism II - Neutron Cross section</A>
-<LI><A ID="tex2html540"
-  HREF="node42.html">Going beyond the Dipole Approximation for the Neutron Form factor</A>
-</UL>
-<!--End of Table of Child-Links-->
+<DIV CLASS="displaymath">
 
+<!-- MATH
+ \begin{equation}
+{\hat \mathcal H}=\sum_{s=1}^{N_b} \hat H^{MF}(s) + E_{corr}
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 7.44ex; vertical-align: -3.06ex; " SRC="img264.svg"
+ ALT="$\displaystyle {\hat \mathcal H}=\sum_{s=1}^{N_b} \hat H^{MF}(s) + E_{corr}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">33</SPAN>)</SPAN>
+</DIV>
+
+<P>
+with the single ion Hamiltonian
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\hat H^{MF}(s)=  \hat H(s)
+	     - \sum_{\alpha=1}^{\rm nofcomponents} H_{\alpha}^s \hat I_{\alpha}^s
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 7.52ex; vertical-align: -3.06ex; " SRC="img265.svg"
+ ALT="$\displaystyle \hat H^{MF}(s)= \hat H(s)
+- \sum_{\alpha=1}^{\rm nofcomponents} H_{\alpha}^s \hat I_{\alpha}^s
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">34</SPAN>)</SPAN>
+</DIV>
+
+<P>
+In case of module <I CLASS="slanted">so1ion<A ID="1265"></A></I> in it's simplest 
+application with <!-- MATH
+ ${\rm nofcomponents}=3$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img266.svg"
+ ALT="${\rm nofcomponents}=3$"></SPAN> interaction operators only, the interaction operators
+are defined to be equal to the total angular momentum, i.e. <!-- MATH
+ $\hat I_{\alpha}=\hat J_{\alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img267.svg"
+ ALT="$\hat I_{\alpha}=\hat J_{\alpha}$"></SPAN>
+(with the magnetic moment <!-- MATH
+ $\mathbf M=g_{J} \mu_B \langle \hat \mathbf J \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img268.svg"
+ ALT="$\mathbf M=g_{J} \mu_B \langle \hat \mathbf J \rangle$"></SPAN> )
+and the single ion Hamiltonian is given by
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\hat H^{MF}_{\rm so1ion}(s)=  \underbrace{ B_l^m \hat O_{lm}({\hat \mathbf J}^s)
+	     - g_{Js} \mu_B {\hat \mathbf J}^s \cdot {\mathbf H} }_{\hat H(s) }-   {\hat \mathbf I}^s \cdot {\mathbf H}^s 
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 7.23ex; vertical-align: -4.93ex; " SRC="img269.svg"
+ ALT="$\displaystyle \hat H^{MF}_{\rm so1ion}(s)= \underbrace{ B_l^m \hat O_{lm}({\hat...
+...}^s \cdot {\mathbf H} }_{\hat H(s) }- {\hat \mathbf I}^s \cdot {\mathbf H}^s
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">35</SPAN>)</SPAN>
+</DIV>
+
+<P>
+Note, here <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img270.svg"
+ ALT="${\mathbf H}^s$"></SPAN> denotes the exchange field at the site <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img215.svg"
+ ALT="$s$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img271.svg"
+ ALT="${\mathbf H}$"></SPAN> denotes the applied
+magnetic field<A ID="tex2html28"
+  HREF="footnode.html#foot9391"><SUP><SPAN CLASS="arabic">19</SPAN></SUP></A>.
+
+<P>
+The correction term is defined by
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+E_{corr}=\frac{1}{2}\sum_{s=1}^{N_b}\sum_{\alpha=1}^{\rm nofcomponents}  \langle {\hat I}^s_{\alpha}
+ \rangle {H}^s_{\alpha} 
+\end{equation}
+ -->
+ &nbsp;  <A ID="Ecorrterm"></A><IMG
+ STYLE="height: 3.32ex; vertical-align: -0.92ex; " SRC="img273.svg"
+ ALT="$\displaystyle
+E_{corr}=\frac{1}{2}\sum_{s=1}^{N_b}\sum_{\alpha=1}^{\rm nofcomponents} \langle {\hat I}^s_{\alpha}
+\rangle {H}^s_{\alpha}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">36</SPAN>)</SPAN>
+</DIV>
+
+<P>
+and the components exchange fields <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img270.svg"
+ ALT="${\mathbf H}^s$"></SPAN> are given by
+
+<P>
+
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+H^s_{\alpha}=\sum_{\mathbf G'}\sum_{s'=1}^{N_b}\sum_{\beta=1}^{\rm nofcomponents} {\mathcal J}_{\alpha\beta}
+(\mathbf r_s-(\mathbf G'+\mathbf r_{s'})) \langle \hat I^{s'}_{\beta} \rangle
+\end{equation}
+ -->
+ &nbsp;  <A ID="meanfield"></A><IMG
+ STYLE="height: 3.53ex; vertical-align: -1.13ex; " SRC="img274.svg"
+ ALT="$\displaystyle
+H^s_{\alpha}=\sum_{\mathbf G'}\sum_{s'=1}^{N_b}\sum_{\beta=1}^{...
+...(\mathbf r_s-(\mathbf G'+\mathbf r_{s'})) \langle \hat I^{s'}_{\beta} \rangle
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">37</SPAN>)</SPAN>
+</DIV>
+
+<P>
+The exchange fields <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img270.svg"
+ ALT="${\mathbf H}^s$"></SPAN> and the moments <!-- MATH
+ $\langle {\hat\mathbf I}^s \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img275.svg"
+ ALT="$\langle {\hat\mathbf I}^s \rangle$"></SPAN> 
+are determined in a self consistent
+way. For a given magnetic unit cell and initial configuration 
+of moments (taken from table or q-vectors, modified randomly according to setting of NOFRNDTRIES)
+the exchange fields are calculated according to equation&nbsp;(<A HREF="#meanfield">37</A>). 
+Then, for each
+magnetic ion the single ion property module is taken 
+and the  moment <!-- MATH
+ $\langle {\hat\mathbf I}^s \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img275.svg"
+ ALT="$\langle {\hat\mathbf I}^s \rangle$"></SPAN> is 
+calculated from it's mean field. The mean fields are used again in equation&nbsp;(<A HREF="#meanfield">37</A>)
+and so on .... until convergence is reached. 
+Then, the free energy per site <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img216.svg"
+ ALT="$f$"></SPAN>
+
+<P>
+<BR>
+<DIV CLASS="displaymath"><A ID="freeenergy"></A>
+<!-- MATH
+ \begin{eqnarray}
+f&=&-kT\frac{1}{N_b}\sum_s \ln(z_s) + \frac{E_{corr}}{N_B} \\
+  z_s&=&\sum_i \exp(-\epsilon^s_i/kT) \, {\rm\dots  partition \, sum \, of \, the \, site} \, s  \\
+&&\epsilon_i^s \, {\rm\dots  \, eigenvalues \, of \, }\hat H^{MF}(s) \nonumber
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img276.svg"
+ ALT="$\displaystyle f$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.27ex; vertical-align: -3.02ex; " SRC="img277.svg"
+ ALT="$\displaystyle -kT\frac{1}{N_b}\sum_s \ln(z_s) + \frac{E_{corr}}{N_B}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">38</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img278.svg"
+ ALT="$\displaystyle z_s$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.62ex; vertical-align: -3.09ex; " SRC="img279.svg"
+ ALT="$\displaystyle \sum_i \exp(-\epsilon^s_i/kT) \, {\rm\dots partition \, sum \, of \, the \, site} \, s$"></TD><TD class="rfill">(<SPAN CLASS="arabic">39</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img280.svg"
+ ALT="$\displaystyle \epsilon_i^s \, {\rm\dots \, eigenvalues \, of \, }\hat H^{MF}(s)$"></TD><TD class="rfill">&nbsp;</TD></TR>
+</TABLE></DIV>
+
+<P>
+of the stabilised
+configuration is calculated (this is why this sub is called <I CLASS="slanted">fecalc</I>). 
+The free energies of a lot of different stabilised configurations have to
+be compared in order to find out which configuration has lowest free energy, i.e.
+is stable in thermal  equilibrium.
+
+<P>
+It may happen that this process does
+not converge due to bad choice of the initial configuration, therefore a maximum number
+of mean field loops has to be given by the user (MAXNOFMFLOOPS). <A ID="tex2html29"
+  HREF="footnode.html#foot1330"><SUP><SPAN CLASS="arabic">20</SPAN></SUP></A>
+The results of a calculation may be significantly influenced by
+changing parameters such as the maximum number of iteration loops 
+in this section. 
+In fact the simulation is always a compromise of calculation time and accuracy: if only
+a few initial spin configurations are tried at each (H-T) point, the calculation speed is
+fast, however it is possible that the program misses the magnetic structure with the
+lowest free energy. The same holds if other critical parameters of the simulation are
+restricted too much.
+
+<P>
+</DD>
+<DT><STRONG>OUTPUT OF PHYSICAL PROPERTIES:</STRONG></DT>
+<DD>Some options for the output of the calculation can be changed in this section.
+</DD>
+</DL><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
 <A
  HREF="node38.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="manual.html">
+ HREF="node35.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node36.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html532"
-  HREF="node7.html">
+<A ID="tex2html585"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html534"
-  HREF="node164.html">
+<A ID="tex2html587"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node38.html">How to generate and</A>
+ HREF="node38.html">Example mcphas.ini file for</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="node35.html">Input Files</A>
 <B> Previous:</B> <A
- HREF="node36.html">Output Files - mcphas.qvc,phs,sps,mf,fum,j1...,xyt,hkl</A>
- &nbsp; <B>  <A ID="tex2html533"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html535"
-  HREF="node164.html">Index</A></B> </DIV>
+ HREF="node36.html">Example - a simple</A>
+ &nbsp; <B>  <A ID="tex2html586"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html588"
+  HREF="node180.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

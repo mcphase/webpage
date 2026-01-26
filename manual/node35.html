@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Options for a running simulation</TITLE>
+<TITLE>Input Files</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node36.html">
+<LINK REL="next" HREF="node47.html">
 <LINK REL="previous" HREF="node34.html">
 <LINK REL="next" HREF="node36.html">
 </HEAD>
@@ -23,96 +23,116 @@
  HREF="node36.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node21.html">
+ HREF="node34.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node34.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html524"
-  HREF="node7.html">
+<A ID="tex2html566"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html526"
-  HREF="node164.html">
+<A ID="tex2html568"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node36.html">Output Files - mcphas.qvc,phs,sps,mf,fum,j1...,xyt,hkl</A>
+ HREF="node36.html">Example - a simple</A>
 <B> Up:</B> <A
- HREF="node21.html">mcphas - calculation of</A>
+ HREF="node34.html">mcphas - calculation of</A>
 <B> Previous:</B> <A
- HREF="node34.html">Starting a simulation</A>
- &nbsp; <B>  <A ID="tex2html525"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html527"
-  HREF="node164.html">Index</A></B> 
+ HREF="node34.html">mcphas - calculation of</A>
+ &nbsp; <B>  <A ID="tex2html567"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html569"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000103000000000000000">
-Options for a running simulation</A>
-</H2>
-... when the program is running, the options in the main window
-can be changed. Pressing &rdquo;displayall&rdquo; displays the current spin-configuration
-at each iteration step. Pressing &rdquo;log fe vs Q&rdquo; appends free energy vs Q
-data to <I CLASS="slanted">mcphas.log</I> for every (<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.01ex; vertical-align: -0.31ex; " SRC="img235.svg"
- ALT="$T-H$"></SPAN>) point.
-
+<H2><A ID="SECTION00091000000000000000">
+Input Files</A>
+</H2><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-The file <I CLASS="slanted">./results/.spins.eps</I> is used to show the information about the currently calculated
-spin structure on the screen using the postscript file viewer ghostview.
-
+<SPAN CLASS="SMALL">The program <I CLASS="slanted">McPhase</I> needs the following input files (all in the same directory)
+ in order to run:
+</SPAN>
 <P>
-The file <I CLASS="slanted">./results/.mcphas.fum</I> contains the information of the magnetisation curve
-which is currently calculated. This information is automatically displayed on the screen.
-
+<SPAN CLASS="SMALL"></SPAN>
+<OL>
+<LI><I CLASS="slanted">mcphas.ini<A ID="1220"></A></I>
+ - controlling the algorithm
+</LI>
+<LI><I CLASS="slanted">mcphas.j<A ID="1221"></A></I>
+  - lattice and exchange parameters
+</LI>
+<LI><I CLASS="slanted">mcphas.tst<A ID="1222"></A>(optional)</I>  - test spin configurations
+</LI>
+<LI><I CLASS="slanted">single-ion property files</I>
+</LI>
+<LI><I CLASS="slanted">directory ./results/</I>
+ - directory where calculated data is stored
+</LI>
+<LI><I CLASS="slanted">directory ./fit</I> - experimental data for fit (optional)
+</LI>
+</OL><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-The program <I CLASS="slanted">display</I> (see section <A HREF="node119.html#display">17.1</A>) can be used 
-for the online display<A ID="937"></A> of any other
-curve(s).
-
+<SPAN CLASS="SMALL">All
+ of these input files have to be in one directory and the program
+has to be started in this directory. The results of the simulation
+are then stored in the  subdirectory ./results/, which must exist before starting
+the program 
+... see directory ./examples/ for some examples.
+ In order to prepare these files
+for a new calculation it is best to take them from an example, copy the files
+to a new directory and make the
+modifications  to adapt them to the new problem.
+</SPAN>
 <P>
-
-<DIV class="CENTER"><A ID="magnetization"></A><A ID="942"></A>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV class="CENTER"><A ID="fecalc"></A><A ID="9385"></A>
 <TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 9:</STRONG>
-Calculated magnetisation of NdCu<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN> for field parallel to the orthorhombic <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img2.svg"
- ALT="$b$"></SPAN>-direction.</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-
-<IMG
- STYLE="height: 31.83ex; vertical-align: -0.12ex; " SRC="img236.svg"
- ALT="\includegraphics[angle=0, width=0.3\textwidth]{figsrc/magnetization_ndcu2.eps}">
-
-</DIV></TD></TR>
+<CAPTION class="BOTTOM"><STRONG>Figure 8:</STRONG>
+Mean field process of sub <I CLASS="slanted">fecalc</I>.</CAPTION>
+<TR><TD><IMG
+ STYLE="height: 54.64ex; vertical-align: -0.12ex; " SRC="img252.svg"
+ ALT="\includegraphics[angle=0,width=0.9\columnwidth]{figsrc/fecalc.eps}"></TD></TR>
 </TABLE>
 </DIV>
-
+<SPAN CLASS="SMALL">
+</SPAN>
 <P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-<DIV class="CENTER"><A ID="magnetostrictiongraphic"></A><A ID="949"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 10:</STRONG>
-Calculated spontaneous magnetostriction of NdCu<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN>.</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-
-<IMG
- STYLE="height: 60.38ex; vertical-align: -0.12ex; " SRC="img237.svg"
- ALT="\includegraphics[angle=0, width=0.8\textwidth]{figsrc/magnetostriction_ndcu2.eps}">
-
-</DIV></TD></TR>
-</TABLE>
-</DIV>
-
-<P>
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html570"
+  HREF="node36.html">Example - a simple antiferromagnet</A>
+<LI><A ID="tex2html571"
+  HREF="node37.html"><I CLASS="slanted">mcphas.ini</I> - controlling the algorithm</A>
+<LI><A ID="tex2html572"
+  HREF="node38.html">Example <I CLASS="slanted">mcphas.ini</I> file for a simple antiferromagnet</A>
+<LI><A ID="tex2html573"
+  HREF="node39.html"><I CLASS="slanted">mcphas.j</I> - lattice and exchange parameters</A>
+<LI><A ID="tex2html574"
+  HREF="node40.html">Example <I CLASS="slanted">mcphas.j</I> file for a simple antiferromagnet</A>
+<LI><A ID="tex2html575"
+  HREF="node41.html">Single Ion Property Input Files</A>
+<LI><A ID="tex2html576"
+  HREF="node42.html">Example single ion property file  for a simple antiferromagnet</A>
+<LI><A ID="tex2html577"
+  HREF="node43.html"><I CLASS="slanted">mcphas.tst</I> - input file of test spin-configurations (optional)</A>
+<LI><A ID="tex2html578"
+  HREF="node44.html">Example <I CLASS="slanted">mcphas.tst</I> file  for a simple antiferromagnet</A>
+<LI><A ID="tex2html579"
+  HREF="node45.html">subdirectory <I CLASS="slanted">./results</I> - directory where calculated data is stored</A>
+<LI><A ID="tex2html580"
+  HREF="node46.html">subdirectory <I CLASS="slanted">./fit</I> - experimental data for fit (optional) </A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 
 </BODY>

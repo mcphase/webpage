@@ -5,6 +5,11 @@ J.~Jensen and A.~R. Mackintosh,
 \newblock {\em Rare Earth Magnetism},
 \newblock Clarendon Press Oxford  (1991)
 
+\bibitem{metropolis53-1087}
+N.~Metropolis, A.~Rosenbluth, M.~Rosenbluth, A.~Teller  and E.~Teller,
+\newblock ``Equation of State Calculations by Fast Computing Machines``,
+\newblock {\em J. of. Chem. Phys.}   {\bf 21} 6(1953) 1087
+
 \bibitem{rotter00-29}
 M.~Rotter, M.~Loewenhaupt, S.~Kramp, T.~Reif, N.~M. Pyka, W.~Schmidt  and
   R.~v.~d. Kamp,
@@ -163,6 +168,12 @@ V~U~S Rao and W~E Wallace,
 \bibitem{dekker}
 A~J Dekker,
 \newblock {\em J. Appl. Phys.}   {\bf 36} (1965) 906
+
+\bibitem{bowden81-827}
+G.~J. Bowden and R.~G. Clark,
+\newblock ``Fourier transforms of dipole-dipole interactions using Ewalds
+  method``,
+\newblock {\em J.~Phys.~}   {\bf C 14} (1981) L827
 
 \bibitem{longfield02-054417}
 M.~J. Longfield, J.~A. Paixao, N.~Bernhoeft  and G.~H. Lander,
@@ -342,6 +353,11 @@ M~Rotter, M~D Le, H~Lewtas, A~T Boothroyd, J~A Blanco  and R~Hammerling,
   McPhase, a versatile modelling suite for Magnetic Neutron Scattering``,
 \newblock {\em Journal of Physics: Conference Series}   {\bf 325} 1(2011)
   012005
+
+\bibitem{barron80-609}
+T.~H.~K. Barron, J.~G. Collins  and G.~K. White,
+\newblock ``Thermal Expansion of Solids at Low Temperature``,
+\newblock {\em Adv.~Phys.~}   {\bf 29} (1980) 609
 
 \bibitem{stevens52-209}
 K.~W.~H. Stevens,

@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>External module function dm1 - used by mcdisp</TITLE>
+<TITLE>Debye Waller Factor</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -29,169 +29,49 @@
  HREF="node90.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
 <A ID="tex2html844"
-  HREF="node7.html">
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
 <A ID="tex2html846"
-  HREF="node164.html">
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node92.html">External module function Lcalc</A>
+ HREF="node92.html">Nuclear Neutron Scattering Length</A>
 <B> Up:</B> <A
- HREF="node88.html">Module Functions for Observables</A>
+ HREF="node88.html">Single Ion Modules</A>
 <B> Previous:</B> <A
- HREF="node90.html">External module function mMcalc</A>
+ HREF="node90.html">Magnetic Formfactor Coefficients</A>
  &nbsp; <B>  <A ID="tex2html845"
-  HREF="node7.html">Contents</A></B> 
+  HREF="node8.html">Contents</A></B> 
  &nbsp; <B>  <A ID="tex2html847"
-  HREF="node164.html">Index</A></B> 
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION000172300000000000000"></A><A ID="3435"></A>
-<BR>
-External module function <I CLASS="slanted">dm1</I> - used by <I CLASS="slanted">mcdisp</I>
-</H3>
-
+<H2><A ID="SECTION000153000000000000000">
+Debye Waller Factor</A>
+</H2><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-In order to visualized magnetic moment fluctuations and to calculate neutron intensities
-in dipole approximation the external single ion module has to provide the transition
-matrix elements of the magnetic moment operator in units of <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img847.svg"
- ALT="$\mu_B$"></SPAN> by the
-vector <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img848.svg"
- ALT="$m1$"></SPAN>, which is given by:
- <!-- MATH
- ${\rm m1}^s_{\alpha}=\sqrt{(p_- -p_+)}\langle -|\hat m^s_{\alpha}-\langle\hat  m^s_{\alpha}\rangle_{\mathbf H,T}|+\rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.10ex; vertical-align: -0.82ex; " SRC="img849.svg"
- ALT="${\rm m1}^s_{\alpha}=\sqrt{(p_--p_+)}\langle -\vert\hat m^s_{\alpha}-\langle\hat m^s_{\alpha}\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>. 
-
-<P>
-The format to be used is:
+<SPAN CLASS="SMALL">For the more accurate calculation of neutron intensities it is
+necessary to give the magnetic form factor (see the table in appendix&nbsp;<A HREF="node164.html#ffacts">J</A>)
+and the Debye Waller Factor in the single ion property input file. This can
+easily be don by adding some additional lines to a single ion property file:
 <SPAN CLASS="FOOTNOTESIZE">
-</SPAN><PRE>
-extern "C" int dm1(int &amp; tn,double &amp; T,Vector &amp; Hxc,Vector &amp; Hext,double * g_J,Vector &amp; MODPAR,
-char ** sipffilename,ComplexVector &amp; m1,float &amp; maxE, ComplexMatrix &amp; est)
-</PRE><SPAN CLASS="FOOTNOTESIZE">
+</SPAN></SPAN><PRE>
+#-------------------------------------------------------
+# Debye-Waller Factor: sqr(Intensity)~|sf|~EXP(-2 * DWF *s*s)=EXP (-W)
+#                      with s=sin(theta)/lambda=Q/4pi
+# relation to other notations: 2*DWF=Biso=8 pi^2 &lt;u^2&gt;
+# unit of DWF is [A^2]
+#-------------------------------------------------------
+DWF=0.4
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE"></SPAN>
 </SPAN>
 <P>
-<SPAN CLASS="FOOTNOTESIZE">The meaning of the symbols is as follows:
-</SPAN>
-<P>
-<SPAN CLASS="FOOTNOTESIZE"></SPAN><PRE>
-on input
-   |tn|            transition-number  
-   sign(tn)        &gt;0 standard, &lt;0 routine should do some printout to stdout for user information
-   MODPAR          Vector with Parameters  read in single ion property file
-   sipffilename    file name of the single ion parameter file
-   g_J             Lande factor
-   T               Temperature[K]
-   Hxc             vector of exchange field [meV] (can be n-dimensional, for a set of n operators)
-   Hext            external magnetic field [T]
-   est             eigenstate matrix (initialized by estates)
-                   it should/may also contain population numbers of the states
-				   (imaginary part of row 0)
-                   and eigenvalues (real part of row 0) with values set by the most recent call
-				   for this ion (use of this matrix is optional)
-   u1(1)           ninit + i pinit (from mcdisp options  -ninit and -pinit)
-   maxE            upper boundary for transition energy (meV) to be considered
-                   (from mcdisp option -maxE)
-on output
-   int             total number of transitions
-   u1             transition matrix element vector m1=&lt;-|m-&lt;m&gt;|+&gt;sqrt((n- - n+))
-</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
-The module function must perform the following tasks:
-
-<OL>
-<LI>check if the dimensions of vector Hxc (taken by <I CLASS="slanted">mcphas</I> from the number of 
-interaction constant columns in <I CLASS="slanted">mcphas.j<A ID="3448"></A></I>)
- and MODPAR (taken by <I CLASS="slanted">mcphas</I> from the number of params in the single ion property
-file) agree with the module specifications. If the check fails the module function should exit the
-program with an appropriate error message
-</LI>
-<LI>the module function should do a numbering of all possible single ion transitions and return
-the total number of transitions as an integer. Input file parameters params are supplied as a vector MODPAR and
-Lande factor as g_J and  can be used for this purpose. The numbering will depend on
-the parameters ninit, pinit and maxE which are provided as input. These parameters
-have to be considered. <EM>IMPORTANT: the numbering scheme of transitions has to
-be the same for du1calc and all the corresponding d...1 functions for observables !</EM>
-</LI>
-<LI>for the transition number tn the vector m1 is to
- be filled with 
-<!-- MATH
- ${\mathbf m1^s_{\alpha}}=\sqrt{(p_- -p_+)}\langle -|\hat m^s_{\alpha}-\langle\hat  m^s_{\alpha}\rangle_{\mathbf H,T}|+\rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.10ex; vertical-align: -0.82ex; " SRC="img850.svg"
- ALT="${\mathbf m1^s_{\alpha}}=\sqrt{(p_--p_+)}\langle -\vert\hat m^s_{\alpha}-\langle\hat m^s_{\alpha}\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>.
-(note <!-- MATH
- $\hat \mathbf m=2\hat \mathbf S+ \hat \mathbf L$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.62ex; vertical-align: -0.31ex; " SRC="img851.svg"
- ALT="$\hat \mathbf m=2\hat \mathbf S+ \hat \mathbf L $"></SPAN>).
-</LI>
-<LI>If the energy of this transition
-is zero, i.e. <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img842.svg"
- ALT="$\Delta(tn)=0$"></SPAN> (diffuse scattering), 
-the expression (<A HREF="node152.html#mmatrix">240</A>) would be zero because <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img843.svg"
- ALT="$(p_--p_+)$"></SPAN> vanishes.
-In this case the single ion module should calculate <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img844.svg"
- ALT="$(p_+/kT)$"></SPAN> instead of <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img843.svg"
- ALT="$(p_--p_+)$"></SPAN>.
-</LI>
-<LI>if <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.90ex; vertical-align: -0.21ex; " SRC="img830.svg"
- ALT="$T&lt;0$"></SPAN> all quantities should be evaluated assuming that all Boltzmann probabilities <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img139.svg"
- ALT="$p_i$"></SPAN>
- are zero except for the state number <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img831.svg"
- ALT="$n=(-T)$"></SPAN>, for which the probability <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img832.svg"
- ALT="$p_n=1$"></SPAN>.
-</LI>
-</OL>
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node92.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node88.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node90.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html844"
-  HREF="node7.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html846"
-  HREF="node164.html">
-<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A
- HREF="node92.html">External module function Lcalc</A>
-<B> Up:</B> <A
- HREF="node88.html">Module Functions for Observables</A>
-<B> Previous:</B> <A
- HREF="node90.html">External module function mMcalc</A>
- &nbsp; <B>  <A ID="tex2html845"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html847"
-  HREF="node164.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<SPAN CLASS="SMALL"></SPAN>
+<BR><HR>
 
 </BODY>
 </HTML>

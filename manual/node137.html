@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Module kramer - a Kramers Ground State Doublet Single Ion Module</TITLE>
+<TITLE>Programs display_densities - display of the superstructure and excitations</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,803 +23,364 @@
  HREF="node138.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="manual.html">
+ HREF="node134.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node136.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1048"
-  HREF="node7.html">
+<A ID="tex2html1098"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1050"
-  HREF="node164.html">
+<A ID="tex2html1100"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node138.html">Module brillouin - an</A>
+ HREF="node138.html">Program hkl, hkl2d and</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="node134.html">Programs for Graphical display</A>
 <B> Previous:</B> <A
- HREF="node136.html">Programs of General Interest</A>
- &nbsp; <B>  <A ID="tex2html1049"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1051"
-  HREF="node164.html">Index</A></B> 
+ HREF="node136.html">Programs display_density - display</A>
+ &nbsp; <B>  <A ID="tex2html1099"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1101"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A ID="SECTION000250000000000000000"></A><A ID="kramers"></A>
+<H2><A ID="SECTION000193000000000000000"></A><A ID="4928"></A><A ID="displaydensities"></A>
 <BR>
-Module <I CLASS="slanted">kramer</I>  - a Kramers Ground State Doublet Single Ion Module
-</H1>
-
+Programs <I CLASS="slanted">display_densities</I>  - display of the superstructure
+and excitations
+</H2><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-The crystal field ground state of a magnetic ion often can be
-approximated by a doublet. In this description the crystal field
-anisotropy enters by defining the saturation moment of this doublet
-in <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img13.svg"
- ALT="$a$"></SPAN>,<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img2.svg"
- ALT="$b$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img5.svg"
- ALT="$c$"></SPAN> direction: denoting the two states of the doublet
-by <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1128.svg"
- ALT="$\vert\pm&gt;$"></SPAN> the non vanishing matrix elements of the angular momentum
-operator can be abbreviated by 
-
+<SPAN CLASS="SMALL">The program <I CLASS="slanted">display_densities</I><A ID="4931"></A> 
+can be used simply to popout spin/exchange field configuration 
+and also to display a 3d animation of spin/moment/densities, even including a movie of
+excitations.
+</SPAN>
 <P>
-<BR>
-<DIV CLASS="displaymath">
+<SPAN CLASS="SMALL"></SPAN>
+<DIV class="CENTER"><A ID="spingraphic"></A><A ID="9786"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 25:</STRONG>
+Calculated Spin-Structure of NdCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN> at <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img21.svg"
+ ALT="$T=$"></SPAN>&nbsp;1.5&nbsp;K and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img22.svg"
+ ALT="$H=0$"></SPAN>.
+[plot created by program <I CLASS="slanted">display_densities</I><A ID="4937"></A>]</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
 
-<!-- MATH
- \begin{eqnarray}
-<\pm|{\hat \mathbf J}_a|\mp>=A & A^{\star}=A & A\mbox{... saturation moment in $a$\  direction}\nonumber\\
-<\pm|{\hat \mathbf J}_b|\pm>=\pm B & B^{\star}=B & B\mbox{... saturation moment in $b$\  direction}\\
-<\pm|{\hat \mathbf J}_c|\mp>=C & C^{\star}=-C & C\mbox{... saturation moment in $c$\  direction}\nonumber\\
-\end{eqnarray}
- -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img1129.svg"
- ALT="$\displaystyle &lt;\pm\vert{\hat \mathbf J}_a\vert\mp&gt;=A$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.83ex; vertical-align: -0.12ex; " SRC="img1130.svg"
- ALT="$\textstyle A^{\star}=A$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1131.svg"
- ALT="$\displaystyle A\mbox{... saturation moment in $a$\ direction}$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img1132.svg"
- ALT="$\displaystyle &lt;\pm\vert{\hat \mathbf J}_b\vert\pm&gt;=\pm B$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.83ex; vertical-align: -0.12ex; " SRC="img1133.svg"
- ALT="$\textstyle B^{\star}=B$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1134.svg"
- ALT="$\displaystyle B\mbox{... saturation moment in $b$\ direction}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">143</SPAN>)</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img1135.svg"
- ALT="$\displaystyle &lt;\pm\vert{\hat \mathbf J}_c\vert\mp&gt;=C$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 2.02ex; vertical-align: -0.31ex; " SRC="img1136.svg"
- ALT="$\textstyle C^{\star}=-C$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1137.svg"
- ALT="$\displaystyle C\mbox{... saturation moment in $c$\ direction}$"></TD><TD class="rfill">&nbsp;</TD></TR>
-</TABLE></DIV>
+<IMG
+ STYLE="height: 84.40ex; vertical-align: -0.12ex; " SRC="img1148.svg"
+ ALT="\includegraphics[angle=0, width=1.0\textwidth]{figsrc/ndcu2b/resultss/spinsab.eps}">
 
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<SPAN CLASS="SMALL">
+</SPAN>
 <P>
-then the single ion Hamiltonian <!-- MATH
- $H=H_{cf}- g_J \mu_b {\mathbf H}{\mathbf J}$
+<SPAN CLASS="SMALL"></SPAN><DL>
+<DT><STRONG> display_densities -f[c 12 0.1] mcphas.sps T Ha Hb Hc</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG> display_densities -f mcphas.sps x y</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG> display_densities -f[c 12 0.1] mcphas.sps out1 out2 out3 ou4 out5 out6 out7</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG> display_densities -f mcphas.sps n</STRONG></DT>
+<DD>if used with -f filename this file has to be a mcphas.mf or mcphas.sps or mcphas.tst file,
+the spin configuration
+   at given temperature T[K] (column 3 in mcphas.* output files)
+and magnetic effective field H[T] (columns 5,6,7 in mcphas.* output files)  
+    is read and extracted from this file and printed on screen (stdout), nothing
+ else is done. Instead of temperature and magnetic field also the x y point coordinates
+in the phasediagram or the index n (from the sequence of spin configuartions) or
+ out1,...,out7 (refers to the external parameters in column 1-7 in mcphas.* output files) can be given.
+the option -fc 12 0.1 displays a commented user readable information about the 12 largerst
+spin components in the primitive unit cell with absolute values larger than 0.1 (useful for
+inspection of numbers).
+</DD>
+<DT><STRONG> display_densities -tMSL -prefix 001 &nbsp; T Ha Hb Hc</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG> display_densities -tHex -prefix 001T Ha Hb Hc</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG> display_densities -tI -prefix 001T Ha Hb Hc</STRONG></DT>
+<DD>if used with -t... output to stdout a table with T Ha Hb Hc atom positions and
+for -tMSL 
+              magnetic moments <!-- MATH
+ $\langle Mx \rangle \langle My \rangle \langle Mz \rangle$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img1138.svg"
- ALT="$H=H_{cf}- g_J \mu_b {\mathbf H}{\mathbf J}$"></SPAN>
-can be written as
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-\hat H=g_J \mu_B
-\left (
-\begin{array}{cc}
-B H_b & -A H_a- C H_c\\
--A H_a +C H_c &  -B H_b
-\end{array}
-\right)=
-\left (
-\begin{array}{cc}
-\alpha & \beta\\
-\beta^{\star} & -\alpha
-\end{array}
-\right)
-\end{equation}
- -->
- &nbsp;  <A ID="hamkramer"></A><IMG
- STYLE="height: 5.79ex; vertical-align: -2.32ex; " SRC="img1139.svg"
- ALT="$\displaystyle
-\hat H=g_J \mu_B
-\left (
-\begin{array}{cc}
-B H_b &amp; -A H_a- ...
-...{array}{cc}
-\alpha &amp; \beta\\
-\beta^{\star} &amp; -\alpha
-\end{array}
-\right)
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">144</SPAN>)</SPAN>
-</DIV>
-
-<P>
-This Hamilton may be diagonalised yielding the 2 eigenvalues
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.38ex; vertical-align: -0.66ex; " SRC="img1140.svg"
- ALT="$\lambda_{\pm}$"></SPAN>,<!-- MATH
- $\Delta=\lambda_+ - \lambda_-$
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1149.svg"
+ ALT="$\langle Mx \rangle \langle My \rangle \langle Mz \rangle$"></SPAN>, orbital moments and spin 
+              of each atom in the magnetic unitc cell , for 
+       -tHex  exchange fields and for 
+       -tI    with expectation values of interaction operators <!-- MATH
+ $\langle I \rangle$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.38ex; vertical-align: -0.66ex; " SRC="img1141.svg"
- ALT="$\Delta=\lambda_+ - \lambda_-$"></SPAN>:
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img894.svg"
+ ALT="$\langle I \rangle$"></SPAN>.
 
 <P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-\lambda_{\pm}=\pm \sqrt{\alpha^2+\beta^{\star}\beta}
-\end{equation}
- -->
- &nbsp;  <IMG
- STYLE="height: 3.10ex; vertical-align: -0.66ex; " SRC="img1142.svg"
- ALT="$\displaystyle \lambda_{\pm}=\pm \sqrt{\alpha^2+\beta^{\star}\beta}
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">145</SPAN>)</SPAN>
-</DIV>
-
-<P>
-and the eigenvectors
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-|\lambda_{\pm}>=\frac{-\beta|+>+(\alpha-\lambda_{\pm})|->}
-{\sqrt{|\alpha-\lambda_{\pm}|^2+\beta^{\star}\beta}}
-\end{equation}
- -->
- &nbsp;  <IMG
- STYLE="height: 6.15ex; vertical-align: -2.74ex; " SRC="img1143.svg"
- ALT="$\displaystyle \vert\lambda_{\pm}&gt;=\frac{-\beta\vert+&gt;+(\alpha-\lambda_{\pm})\vert-&gt;}
-{\sqrt{\vert\alpha-\lambda_{\pm}\vert^2+\beta^{\star}\beta}}
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">146</SPAN>)</SPAN>
-</DIV>
-
-<P>
-using Boltzmann statistics (<!-- MATH
- $Z=\exp(-\Delta/2kT)+\exp(\Delta/2kT)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1144.svg"
- ALT="$Z=\exp(-\Delta/2kT)+\exp(\Delta/2kT)$"></SPAN>) the expectation values of the magnetic
-moment can be calculated as
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-<{\hat \mathbf M}>=\sum_{\pm}<\lambda_{\pm}|g_J{\hat \mathbf J}|\lambda_{\pm}>
-\frac{\exp(-\lambda_{\pm}/kT)}{Z}
-\end{equation}
- -->
- &nbsp;  <IMG
- STYLE="height: 6.62ex; vertical-align: -3.21ex; " SRC="img1145.svg"
- ALT="$\displaystyle &lt;{\hat \mathbf M}&gt;=\sum_{\pm}&lt;\lambda_{\pm}\vert g_J{\hat \mathbf J}\vert\lambda_{\pm}&gt;
-\frac{\exp(-\lambda_{\pm}/kT)}{Z}
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">147</SPAN>)</SPAN>
-</DIV>
-
-<P>
-with 
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-<\lambda_{\pm}|\hat J_a|\lambda_{\pm}>=
-\frac{-2A \Re[\beta^{\star}(\alpha-\lambda_{\pm})]}
-{|\alpha-\lambda_{\pm}|^2+\beta^{\star}\beta}
-\end{equation}
- -->
- &nbsp;  <IMG
- STYLE="height: 5.70ex; vertical-align: -2.29ex; " SRC="img1146.svg"
- ALT="$\displaystyle &lt;\lambda_{\pm}\vert\hat J_a\vert\lambda_{\pm}&gt;=
-\frac{-2A \Re[\b...
-...alpha-\lambda_{\pm})]}
-{\vert\alpha-\lambda_{\pm}\vert^2+\beta^{\star}\beta}
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">148</SPAN>)</SPAN>
-</DIV>
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-<\lambda_{\pm}|\hat J_b|\lambda_{\pm}>=
-\frac{-B \beta^{\star}\beta+B|\alpha-\lambda_{\pm}|^2}
-{|\alpha-\lambda_{\pm}|^2+\beta^{\star}\beta}
-\end{equation}
- -->
- &nbsp;  <IMG
- STYLE="height: 5.85ex; vertical-align: -2.29ex; " SRC="img1147.svg"
- ALT="$\displaystyle &lt;\lambda_{\pm}\vert\hat J_b\vert\lambda_{\pm}&gt;=
-\frac{-B \beta^{...
-...-\lambda_{\pm}\vert^2}
-{\vert\alpha-\lambda_{\pm}\vert^2+\beta^{\star}\beta}
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">149</SPAN>)</SPAN>
-</DIV>
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-<\lambda_{\pm}|\hat J_c|\lambda_{\pm}>=
-\frac{2 \Re(\beta C)(\alpha-\lambda_{\pm})}
-{|\alpha-\lambda_{\pm}|^2+\beta^{\star}\beta}
-\end{equation}
- -->
- &nbsp;  <IMG
- STYLE="height: 5.70ex; vertical-align: -2.29ex; " SRC="img1148.svg"
- ALT="$\displaystyle &lt;\lambda_{\pm}\vert\hat J_c\vert\lambda_{\pm}&gt;=
-\frac{2 \Re(\bet...
-...\alpha-\lambda_{\pm})}
-{\vert\alpha-\lambda_{\pm}\vert^2+\beta^{\star}\beta}
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">150</SPAN>)</SPAN>
-</DIV>
-
-<P>
-The magnetic energy <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1149.svg"
- ALT="$U$"></SPAN> can be calculated
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-U=\sum_{\pm}\lambda_{\pm}\frac{\exp(-\lambda_{\pm}/kT)}{Z}
-\end{equation}
- -->
- &nbsp;  <IMG
- STYLE="height: 6.62ex; vertical-align: -3.21ex; " SRC="img1150.svg"
- ALT="$\displaystyle U=\sum_{\pm}\lambda_{\pm}\frac{\exp(-\lambda_{\pm}/kT)}{Z}
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">151</SPAN>)</SPAN>
-</DIV>
-
-<P>
-For the calculation of the magnetic excitations the program <SPAN style="font-family:monospace">mcdisp</SPAN>
-needs also a function which calculates the transition matrix elements
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-M_{\alpha\beta}=<\lambda_-|\hat J_{\alpha}|\lambda_+>
-<\lambda_+|\hat J_{\beta}|\lambda_-> \tanh(\Delta/2kT)
-\end{equation}
- -->
- &nbsp;  <IMG
- STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img1151.svg"
- ALT="$\displaystyle M_{\alpha\beta}=&lt;\lambda_-\vert\hat J_{\alpha}\vert\lambda_+&gt;
-&lt;\lambda_+\vert\hat J_{\beta}\vert\lambda_-&gt; \tanh(\Delta/2kT)
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">152</SPAN>)</SPAN>
-</DIV>
-
-<P>
-using the expressions
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-<\lambda_-|\hat J_a|\lambda_+>=
-\frac{-2A (\alpha\Re(\beta)+i\lambda_+ \Im(\beta))}
-{\sqrt{(|\alpha-\lambda_{+}|^2+\beta^{\star}\beta)
-(|\alpha-\lambda_{-}|^2+\beta^{\star}\beta)}}
-\end{equation}
- -->
- &nbsp;  <IMG
- STYLE="height: 6.15ex; vertical-align: -2.74ex; " SRC="img1152.svg"
- ALT="$\displaystyle &lt;\lambda_-\vert\hat J_a\vert\lambda_+&gt;=
-\frac{-2A (\alpha\Re(\be...
-...^2+\beta^{\star}\beta)
-(\vert\alpha-\lambda_{-}\vert^2+\beta^{\star}\beta)}}
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">153</SPAN>)</SPAN>
-</DIV>
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-<\lambda_-|\hat J_b|\lambda_+>=
-\frac{-2B \beta^{\star} \beta}
-{\sqrt{(|\alpha-\lambda_{+}|^2+\beta^{\star}\beta)
-(|\alpha-\lambda_{-}|^2+\beta^{\star}\beta)}}
-\end{equation}
- -->
- &nbsp;  <IMG
- STYLE="height: 6.02ex; vertical-align: -2.74ex; " SRC="img1153.svg"
- ALT="$\displaystyle &lt;\lambda_-\vert\hat J_b\vert\lambda_+&gt;=
-\frac{-2B \beta^{\star} ...
-...^2+\beta^{\star}\beta)
-(\vert\alpha-\lambda_{-}\vert^2+\beta^{\star}\beta)}}
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">154</SPAN>)</SPAN>
-</DIV>
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-<\lambda_-|\hat J_c|\lambda_+>=
-\frac{2|C| (-\alpha\Im(\beta)+i\lambda_+ \Re(\beta))}
-{\sqrt{(|\alpha-\lambda_{+}|^2+\beta^{\star}\beta)
-(|\alpha-\lambda_{-}|^2+\beta^{\star}\beta)}}
-\end{equation}
- -->
- &nbsp;  <IMG
- STYLE="height: 6.15ex; vertical-align: -2.74ex; " SRC="img1154.svg"
- ALT="$\displaystyle &lt;\lambda_-\vert\hat J_c\vert\lambda_+&gt;=
-\frac{2\vert C\vert (-\a...
-...^2+\beta^{\star}\beta)
-(\vert\alpha-\lambda_{-}\vert^2+\beta^{\star}\beta)}}
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">155</SPAN>)</SPAN>
-</DIV>
-
-<P>
-The module given in <I CLASS="slanted">/examples/cecu2a/kramer.c</I> can be compiled
-by typing make in the directory <I CLASS="slanted">/examples/cecu2a/</I> thus using the
-<I CLASS="slanted">/examples/cecu2a/makefile</I>. It diagonalises
-the Hamiltonian (<A HREF="node139.html#ham">176</A>) and calculates the thermal expectation 
-value <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.83ex; vertical-align: -0.46ex; " SRC="img1155.svg"
- ALT="$&lt;&gt;_T$"></SPAN> of the vector <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img1156.svg"
- ALT="$\mathbf J$"></SPAN>. The moment <!-- MATH
- ${\mathbf M}=g_J \mu_B <{\mathbf J}>_T$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.27ex; vertical-align: -0.57ex; " SRC="img1157.svg"
- ALT="${\mathbf M}=g_J \mu_B &lt;{\mathbf J}&gt;_T$"></SPAN>
-is returned to the mcphas<A ID="5352"></A> program:
-
-<P>
-//<SPAN CLASS="FOOTNOTESIZE"></SPAN><PRE>
-// example c file for dynamically loadable module of program
-// mcphas ... it must not be c++, but pure c compiled with gcc and linked 
-// with ld  !! The calculation has been compared to the internal (doublet)
-// routine of mcphas
-#include &lt;cstdio&gt;
-#include &lt;cmath&gt;
-#include &lt;complex&gt;
-#include &lt;vector.h&gt;
-
-#define MU_B 0.05788
-#define K_B  0.0862
-#define SMALL 1e-10
-#define PI   3.14159265
-
-// this is called directly after loading it into memory from dlopen
-#ifdef __linux__
-//extern "C" void _init(void)
-#else
-//extern "C" __declspec(dllexport)void _init(void)
-#endif
-//{  fprintf(stdout,"kramer.so: is loaded\n");}
-
-// called just before removing from memory
-#ifdef __linux__
-//extern "C" void _fini(void)
-#else
-//extern "C" __declspec(dllexport) void _fini(void)
-#endif
-//{  fprintf(stdout,"kramer.so: is removed\n");}
-
-//routine Icalc for kramers doublet
-#ifdef __MINGW32__
-extern "C" __declspec(dllexport) void Icalc(Vector &amp; Jr,double * T, Vector &amp; Hxc,Vector &amp; Hext,double * g_J, Vector &amp; MODPAR,char ** sipffile,
-                      double * lnZ,double * U,ComplexMatrix &amp; est)
-#else
-extern "C" void Icalc(Vector &amp; Jr,double * T, Vector &amp; Hxc,Vector &amp; Hext,double * g_J, Vector &amp; MODPAR,char ** sipffile,
-                      double * lnZ,double * U,ComplexMatrix &amp; est)
-#endif
-{ /*on input
-    T		temperature[K]
-    gJmbHin	vector of effective field [meV]
-    gJ          Lande factor
-    MODPAR         single ion parameter values (A, B, C corresponding to &lt;+|Ja|-&gt;,&lt;-|Jb|-&gt;,&lt;+|Jc|-&gt;/i
-                 MODPAR4= angle of rotation around c axis (deg)
-                 MODPAR5= angle of rotation around new x axis (degree)
-
-  on output    
-    J		single ion momentum vector &lt;J&gt;
-    Z		single ion partition function
-    U		single ion magnetic energy
-*/
-// check dimensions of vector
-if(Jr.Hi()!=3||Hxc.Hi()!=3||MODPAR.Hi()!=5)
-   {fprintf(stderr,"Error loadable module kramer.so: wrong number of dimensions - check number of columns in file mcphas.j or number of parameters in single ion property file\n");
-    exit(EXIT_FAILURE);}
-Vector gjmbHin(1,Hxc.Hi());
-gjmbHin=Hxc+(*g_J)*MU_B*Hext;
-
-// rotate effective field
-double sf=sin(MODPAR(4)*PI/180);
-double cf=cos(MODPAR(4)*PI/180);
-double st=sin(-MODPAR(5)*PI/180);
-double ct=cos(-MODPAR(5)*PI/180);
-Vector J(1,3);
-Vector gjmbH(1,3);
-Matrix rot(1,3,1,3);
-      rot(1,1)=cf;    rot(1,2)=sf;   rot(1,3)=0;
-      rot(2,1)=-ct*sf;rot(2,2)=ct*cf;rot(2,3)=-st;
-      rot(3,1)=-st*sf;rot(3,2)=st*cf;rot(3,3)=ct;
-Matrix brot(1,3,1,3);
-      brot(1,1)=cf;    brot(1,2)=-sf*ct;   brot(1,3)=-st*sf;
-      brot(2,1)=sf;brot(2,2)=ct*cf;brot(2,3)=st*cf;
-      brot(3,1)=0.0  ;brot(3,2)=-st;brot(3,3)=ct;
-
-//printf("%g %g %g\n",gjmbHin(1),gjmbHin(2),gjmbHin(3));
-gjmbH=rot*gjmbHin;
-//printf("%g %g %g\n",gjmbH(1),gjmbH(2),gjmbH(3));
-   
-  double alpha, betar, betai, lambdap,lambdap_K_BT, lambdap2, expp, expm, np, nm;
-  double nennerp, nennerm, jap, jam, jbp, jbm, jcp, jcm,Z;
-  double alpha_lambdap,alphaplambdap,alphaxlambdap;
-  alpha = MODPAR[2] * gjmbH[2];
-  betar = -MODPAR[1] * gjmbH[1];
-  betai = -MODPAR[3] * gjmbH[3];
-
-  lambdap2 = alpha * alpha + betar * betar + betai * betai;
-  lambdap = sqrt (lambdap2);
-  lambdap_K_BT=lambdap/K_B/(*T);
-  if (lambdap_K_BT&gt;700){lambdap_K_BT=700;}
-  if (lambdap_K_BT&lt;-700){lambdap_K_BT=-700;}
-  expm = exp (lambdap_K_BT);
-  expp = 1/expm; //=exp (-lambdap_K_BT);
-  Z = expp + expm;
-  (*lnZ)=log(Z);
-  np = expp / Z;
-  nm = expm / Z;
-  (*U)=lambdap*(np-nm); // energy
-//printf("T=%g expp=%g expm=%g \n",(*T),expp,expm);
-
-    alphaxlambdap=alpha*lambdap;
-    alpha_lambdap=alpha-lambdap;
-    alphaplambdap=alpha+lambdap;
-    nennerp=  2.0*(-alphaxlambdap+lambdap2);    
-    nennerm=  2.0*(alphaxlambdap+lambdap2);    
-
-  if (nennerp &gt; SMALL)
-    {
-      jap = -MODPAR[1] * 2.0 * betar * (alpha_lambdap) / nennerp;
-      jbp = MODPAR[2] * (2.0 * alpha*alpha_lambdap) / nennerp;
-      jcp = -2.0 * MODPAR[3] * betai * (alpha_lambdap) / nennerp;
-    }
-  else
-    {
-      jap = 0;
-      if (alpha * alpha &gt; SMALL)
-	{
-	  jbp = -copysign (MODPAR[2], alpha);
-	}
-      else
-	{
-	  jbp = 0;
-	}
-      jcp = 0;
-    }
-
-  if (nennerm &gt; SMALL)
-    {
-      jam = -MODPAR[1] * 2.0 * betar * (alphaplambdap) / nennerm;
-      jbm = MODPAR[2] * (2.0 * alpha*alphaplambdap) / nennerm;
-      jcm = -2.0 * MODPAR[3] * betai * (alphaplambdap) / nennerm;
-    }
-  else
-    {
-      jam = 0;
-      if (alpha * alpha &gt; SMALL)
-	{
-	  jbm = copysign (MODPAR[2], alpha);
-	}
-      else
-	{
-	  jbm = 0;
-	}
-      jcm = 0;
-    }
-
-  J[1] = np * jap + nm * jam;
-  J[2] = np * jbp + nm * jbm;
-  J[3] = np * jcp + nm * jcm;
-// printf ("np=%g nm=%g jap=%g jbp=%g jcp=%g jam=%g jbm=%g jcm=%g \n",np,nm,jap,jbp,jcp,jam,jbm,jcm);
-//  printf ("gjmbHa=%g gjmbHb=%g gjmbHc=%g Ja=%g Jb=%g Jc=%g \n", gjmbH[1], gjmbH[2], gjmbH[3], J[1], J[2], J[3]);
-//printf("J %g %g %g\n",J(1),J(2),J(3));
-
-Jr=brot*J;
-//printf("J %g %g %g\n",Jr(1),Jr(2),Jr(3));
-
-
-return;
-}
-
-#ifdef __MINGW32__
-extern "C" __declspec(dllexport) void mcalc(Vector &amp; Jr,double * T, Vector &amp; Hxc,Vector &amp; Hext,double * g_J, Vector &amp; MODPAR,char ** sipffile,
-                      ComplexMatrix &amp; est)
-#else
-extern "C" void mcalc(Vector &amp; Jr,double * T, Vector &amp; Hxc,Vector &amp; Hext,double * g_J, Vector &amp; MODPAR,char ** sipffile,
-                      ComplexMatrix &amp; est)
-#endif
-{ double U,lnz;
-  Icalc(Jr,T, Hxc,Hext,g_J,MODPAR,sipffile,&amp;U,&amp;lnz,est); 
-  Jr*=(*g_J);
-}
-/**************************************************************************/
-// for mcdisp this routine is needed
-#ifdef __MINGW32__
-extern "C" __declspec(dllexport) int du1calc(int &amp; tn,double &amp; T, Vector &amp; Hxc,Vector &amp; Hext,double * g_J,Vector &amp; MODPAR, char ** sipffile,
-                       ComplexVector &amp; u1r,float &amp; delta,int &amp; n, int &amp; nd,ComplexMatrix &amp; est)
-#else
-extern "C" int du1calc(int &amp; tn,double &amp; T, Vector &amp; Hxc,Vector &amp; Hext,double * g_J,Vector &amp; MODPAR, char ** sipffile,
-                       ComplexVector &amp; u1r,float &amp; delta,int &amp; n, int &amp; nd,ComplexMatrix &amp; est)
-#endif
-{ 
-  /*on input
-    tn          transition-number - meaningless for kramers doublet, because there is only one transition
-    MODPAR         A,M,Ci...saturation moment/gJ[MU_B] of groundstate doublet in a.b.c direction
-    g_J		lande factor
-    T		temperature[K]
-    gjmbH	vector of effective field [meV]
-  on output    
-    delta	splitting of kramers doublet [meV]
-    u1r(i)	&lt;-|Ji-&lt;Ji&gt;|+&gt; sqrt(tanh(delta/2kT))
-*/
-  double alpha, betar, betai, lambdap,lambdap_K_BT, lambdap2, expp, expm, np, nm;
-  double nennerp, nennerm, nenner;
-  complex&lt;double&gt; ja,jb,jc,i(0,1),jap,jbp,jcp,jam,jbm,jcm;
-  double alpha_lambdap,alphaplambdap,alphaxlambdap;
-  double Z,lnz,u;
-  static int pr;
-  static Vector gjmbHin(1,3);
-gjmbHin=Hxc+(*g_J)*MU_B*Hext;
-  static Vector Jin(1,3);
-  static Vector J(1,3);
-  static ComplexVector u1(1,3);
-  // clalculate thermal expectation values (needed for quasielastic scattering)
-  Jin=0;if(T&gt;0){ Icalc(Jin,&amp;T,Hxc,Hext,g_J,MODPAR,sipffile,&amp;lnz,&amp;u,est);}
-                else {T=-T;}
-// rotate effective field
-double sf=sin(MODPAR(4)*PI/180);
-double cf=cos(MODPAR(4)*PI/180);
-double st=sin(-MODPAR(5)*PI/180);
-double ct=cos(-MODPAR(5)*PI/180);
-Vector gjmbH(1,3);
-Matrix rot(1,3,1,3);
-      rot(1,1)=cf;    rot(1,2)=sf;   rot(1,3)=0;
-      rot(2,1)=-ct*sf;rot(2,2)=ct*cf;rot(2,3)=-st;
-      rot(3,1)=-st*sf;rot(3,2)=st*cf;rot(3,3)=ct;
-Matrix brot(1,3,1,3);
-      brot(1,1)=cf;    brot(1,2)=-sf*ct;   brot(1,3)=-st*sf;
-      brot(2,1)=sf;brot(2,2)=ct*cf;brot(2,3)=st*cf;
-      brot(3,1)=0.0  ;brot(3,2)=-st;brot(3,3)=ct;
-
-gjmbH=rot*gjmbHin;
-J=rot*Jin;
-
-  pr=0;
-  if (tn&lt;0) {pr=1;tn*=-1;}
-
-  alpha = MODPAR[2] * gjmbH[2];
-  betar = -MODPAR[1] * gjmbH[1];
-  betai = -MODPAR[3] * gjmbH[3];
-  lambdap2 = alpha * alpha + betar * betar + betai * betai;
-  lambdap = sqrt (lambdap2);
-  
-  lambdap_K_BT=lambdap/K_B/T;
-  if (lambdap_K_BT&gt;700){lambdap_K_BT=700;}
-  if (lambdap_K_BT&lt;-700){lambdap_K_BT=-700;}
-  expm = exp (lambdap_K_BT);
-  expp = 1/expm; //=exp (-lambdap_K_BT);
-  Z = expp + expm;
-  np = expp / Z;
-  nm = expm / Z;
-
-    alphaxlambdap=alpha*lambdap;
-    alpha_lambdap=alpha-lambdap;
-    alphaplambdap=alpha+lambdap;
-    nennerp=  2.0*(-alphaxlambdap+lambdap2);    
-    nennerm=  2.0*(alphaxlambdap+lambdap2);    
-
-if (tn==2)
- {delta=2*lambdap; //set delta !!!
-    nenner=sqrt(nennerp*nennerm);
-
-  if (nenner &gt; SMALL)
-    {
-      ja = -MODPAR[1] * 2.0*(alpha * betar+i * betai * lambdap) / nenner;
-      jb = -MODPAR[2] * 2.0 * (betar*betar+betai*betai) / nenner;
-      jc = -MODPAR[3] * 2.0*(alpha*betai -i *betar*lambdap) / nenner;
-    }
-  else
-    {
-      if (alpha &gt; SMALL)
-	{ja = MODPAR[1];  // &lt;-| is the ground state
-  	 jb = 0;
-         jc = -i*MODPAR[3];
-	}
-      else
-	{ja = MODPAR[1];  // &lt;+| is the ground state
-  	 jb = 0;
-         jc = i*MODPAR[3]; 	
-	}
-    }
-
- if (delta&gt;SMALL)
-  {// now lets calculate mat
-  u1(1)=ja*sqrt(nm-np);
-  u1(2)=jb*sqrt(nm-np);
-  u1(3)=jc*sqrt(nm-np);
-  } else
-  {// quasielastic scattering needs epsilon * nm / KT ....
-  u1(1)=ja*sqrt(nm/K_B/T);
-  u1(2)=jb*sqrt(nm/K_B/T);
-  u1(3)=jc*sqrt(nm/K_B/T);
-  }
- }
- else
- { delta=-SMALL; // transition within the same level
-  if (nennerp &gt; SMALL)
-    {
-      jap = -MODPAR[1] * 2.0 * betar * (alpha_lambdap) / nennerp;
-      jbp = MODPAR[2] * (2.0 * alpha*alpha_lambdap) / nennerp;
-      jcp = -2.0 * MODPAR[3] * betai * (alpha_lambdap) / nennerp;
-    }
-  else
-    {
-      jap = 0;
-      if (alpha * alpha &gt; SMALL)
-	{
-	  jbp = -copysign (MODPAR[2], alpha);
-	}
-      else
-	{
-	  jbp = -MODPAR[2];
-	}
-      jcp = 0;
-    }
-
-  if (nennerm &gt; SMALL)
-    {
-      jam = -MODPAR[1] * 2.0 * betar * (alphaplambdap) / nennerm;
-      jbm = MODPAR[2] * (2.0 * alpha*alphaplambdap) / nennerm;
-      jcm = -2.0 * MODPAR[3] * betai * (alphaplambdap) / nennerm;
-    }
-  else
-    {
-      jam = 0;
-      if (alpha * alpha &gt; SMALL)
-	{
-	  jbm = copysign (MODPAR[2], alpha);
-	}
-      else
-	{
-	  jbm = MODPAR[2];
-	}
-      jcm = 0;
-    }
- if (tn==1)
- {// now lets calculate mat
- u1(1)=(jam-J(1))*sqrt(nm/K_B/T);
- u1(2)=(jbm-J(2))*sqrt(nm/K_B/T);
- u1(3)=(jcm-J(3))*sqrt(nm/K_B/T);
- }else{ // tn = 3 in this case
- // now lets calculate mat
- u1(1)=(jap-J(1))*sqrt(np/K_B/T);
- u1(2)=(jbp-J(2))*sqrt(np/K_B/T);
- u1(3)=(jcp-J(3))*sqrt(np/K_B/T);
- }
-}
-if (pr==1) printf ("delta=%4.6g meV\n",delta);
+</DD>
+<DT><STRONG>display_densities -c<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-s<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-o<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-m<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-j-p i j k<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-div-S<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-L<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-M-P-prefix 001T Ha Hb Hc [h k l E]</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>display_densities -c<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-s<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-o<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-m<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-j-p i j k<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-div-S<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-L<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-M-P-prefix 001out1 out2 ... out7 [h k l E]</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>display_densities -c<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-s<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-o<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-m<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-j-p i j k<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-div-S<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-L<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-M-P-prefix 001x y</STRONG></DT>
+<DD>if used without a filename, the information is read from results/mcphas.* res
+ults/mcdisp.*
+   output files and 3d graphical animations are created.
+</DD>
+</DL><SPAN CLASS="SMALL"> 
+</SPAN><PRE>
+   options are:
+         -c ... calculate chargedensity
+         -s ... calculate spindensity
+         -o ... calculate angular orbital momentum density
+         -m ... calculate magnetic moment density
+         -j ... calculate currentdensity
+         -p i j k ... calculate projection of spin/orbital/current/magnetic moment density
+                  along direction i j k, e.g. 0 0 1
+         -div    ... calculate divergence of spin/orbital/current/magnetic moment density
+         -S  ... show arrow indicating spin
+         -L  ... show arrow indicating orbital angular momentum
+         -M  ... show arrow indicating magnetic moment
+         -P  ... calculate phononic displacement
+         note, that in order to animate changes in the above quantities, the corresponding
+         switch has to be enabled in the mcdisp calculation (mcdisp.par) and the single ion
+         modules have to be capable of calculating the corresponding observables.
  
-// rotate back mat(i,j)
-for(int i=1;i&lt;=3;++i)for(int j=1;j&lt;=3;++j){
-u1r(i)=0.0;
-for(int i1=1;i1&lt;=3;++i1){
-u1r(i)+=brot(i,i1)*u1(i1);
-}}
+         -prefix 001 ... use input file(s) results/001mc* instead of results/mc*
+ 
+   examples:
+        display_densities -c 2 0 0 1
+        ...calculates the charge density at T=2K and H=(0,0,1) Tesla
+        display_densities  -tI 2 0 0 1 
+        ... outputs a table with atomic positions and expectations values &lt;I&gt;
+</PRE><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV class="CENTER"><A ID="chargegraphic"></A><A ID="9787"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 26:</STRONG>
+Calculated 4f Charge-Structure of NdCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN> at <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img21.svg"
+ ALT="$T=$"></SPAN>&nbsp;1.5&nbsp;K and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img22.svg"
+ ALT="$H=0$"></SPAN>.
+[plot created by program <I CLASS="slanted">display_densities</I><A ID="4951"></A>]</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
 
+<IMG
+ STYLE="height: 60.19ex; vertical-align: -0.12ex; " SRC="img1150.svg"
+ ALT="\includegraphics[angle=0, width=0.7\textwidth]{figsrc/ndcu2b/resultss/chargesab.eps}">
 
-return 3;// kramers doublet has always exactly one transition + 2 levels (quasielastic scattering)!
-}
-
-/**************************************************************************/
-// for mcdisp this routine is needed
-#ifdef __MINGW32__
-extern "C" __declspec(dllexport) int dm1(int &amp; tn,double &amp; T, Vector &amp; Hxc,Vector &amp; Hext,double * g_J,Vector &amp; MODPAR, char ** sipffile,
-                       ComplexVector &amp; m1,float &amp; maxE,ComplexMatrix &amp; est)
-#else
-extern "C" int dm1(int &amp; tn,double &amp; T, Vector &amp; Hxc,Vector &amp; Hext,double * g_J,Vector &amp; MODPAR, char ** sipffile,
-                       ComplexVector &amp; m1,float &amp; maxE,ComplexMatrix &amp; est)
-#endif
-{int nnt,n,nd;
-nnt=du1calc(tn,T,Hxc,Hext,g_J,MODPAR,sipffile,m1,maxE,n,nd,est);m1*=(*g_J);return nnt; 
-}
-//
-</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
-
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">The program can be used to calculate (partial) chargedensity for the unfilled shells
+ of magnetic ions in  a magnetic unit cell, which has been calculated by <I CLASS="slanted">mcphas</I> and
+ stored in <I CLASS="slanted">mcphas.mf</I> for a specific temperature and magnetic field.
+   For the calculation of the charge density the  formula are used as given in
+appendix&nbsp;<A HREF="node166.html#chargedensityoperator">L</A>. 
+In order to do so <I CLASS="slanted">display_densities</I><A ID="4958"></A>  requires input files and the result of a
+full <I CLASS="slanted">mcphas</I> simulation.
+Alternatively, <I CLASS="slanted">display_densities</I><A ID="4961"></A>
+can  calculate the spindensity, the orbital magnetic moment density, the total magnetic
+moment density (in Trammel gauge) and the (orbital) electric current density.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">The program outputs a magnetic structure (and magnetic excitation)
+  graphic/movie in the output files of different format:
+  results/spins*.eps (postscript), results/spins*.fst (fp_studio),
+  results/spins.out (ascii) and results/spins*.jvx (javaview).
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Output files:
+</SPAN>
+<OL>
+<LI>encapsulated postscript ps-file <I CLASS="slanted">results/spins*.eps</I>
+                  of a spin/orbital/totalmagnetic moment configuration, 
+</LI>
+<LI>the files <I CLASS="slanted">results/spins.fst</I> and <I CLASS="slanted">results/spins_prim.fst</I> are created, 
+                which can be read by the fullprof program <I CLASS="slanted">fp_studio</I>
+                for on screen display<A ID="4967"></A> of a spin/orbital/totalmagnetic moment configuration,
+</LI>
+<LI>the configuration of expectation values <!-- MATH
+ $\langle\mathbf I\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1151.svg"
+ ALT="$\langle\mathbf I\rangle$"></SPAN> (or whatever is stored in the file addressed by the option -f)
+                 is printed to stdout - therefore this program can be used with option <I CLASS="slanted">-f results/mcphas.mf</I> 
+			       to generate an input file
+			       for program <I CLASS="slanted">McDisp</I> (example: <I CLASS="slanted">spins -f results/mcphas.mf 1 1 0 0  <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.57ex; vertical-align: -0.21ex; " SRC="img210.svg"
+ ALT="$&gt;$"></SPAN> mcdisp.mf</I>)  
+</LI>
+<LI>the text file <I CLASS="slanted">results/spins.out</I> is created, which is useful to produce input files for
+              the diffraction program <I CLASS="slanted">mcdiff<A ID="4972"></A></I> (done in the script <I CLASS="slanted">setup_mcdiff_in</I>)
+</LI>
+<LI>the graphics files <I CLASS="slanted">results/spins.jvx</I> and <I CLASS="slanted">results/spins_prim.jvx</I>, which can be displayed
+         by the program <I CLASS="slanted">javaview</I>, e.g. by the command <I CLASS="slanted">java javaview spin_prim.jvx</I>.
+</LI>
+<LI>if <I CLASS="slanted">spins</I> is used with arguments <I CLASS="slanted">h k l E(meV)</I>, it takes the eigenvectors of magnetic 
+excitations
+        from files <I CLASS="slanted">results/mcdisp.q*</I>  created by <I CLASS="slanted">mcdisp</I>) and produces a graphical
+        animation of the spin osciallation which is associated with this magnetic mode. The output is a series
+        of files <I CLASS="slanted">results/spins.*.jvx</I> and <I CLASS="slanted">results/spins_prim.*.jvx</I> which can be viewed by program
+        <I CLASS="slanted">javaview</I>, e.g. by the command <I CLASS="slanted">java javaview "model=results/spins_prim.*.jvx" 
+        Animation.LastKey=16 background="255 255 255"</I>.  <I CLASS="slanted">javaview</I> is also able to produce a sequence
+		of gif files (press c in the animation window), which can then be processed by an animation editor
+		to generate an animation, which can be inserted in presentations. For example, you can use
+ <I CLASS="slanted">Imagemagick</I> graphics package (has to be installed separately!)
+        to create an animation. The following command will issue a proper gif animation, which you can include in 
+           power point        
+        presentations etc.: <I CLASS="slanted">convert -delay 1 -size 100x100 -loop 1 geomAnim.*.gif output.gif</I>.
+ 
+</LI>
+</OL><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Note, in case of non-orthogonal axes the convention 
+                           for applied field <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img253.svg"
+ ALT="$Ha, Hb, Hc$"></SPAN> 
+                            is <SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img494.svg"
+ ALT="$Hb\vert\vert\vec b$"></SPAN>, <!-- MATH
+ $Hc||(\vec a \times \vec b)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img495.svg"
+ ALT="$Hc\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img496.svg"
+ ALT="$Ha$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img497.svg"
+ ALT="$Hb$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img498.svg"
+ ALT="$Hc$"></SPAN>.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">The graphics output format can be fine tuned in <I CLASS="slanted">results/graphic_parameters.set</I> 
+  by  <I CLASS="slanted">spins_scale_moment</I>,
+<I CLASS="slanted">show_abc_unitcell, show_primitive_crystal_unitcell, show_magnetic_unitcell, show_atoms, 
+scale_view_1,
+scale_view_2, scale_view_3</I>,  
+<I CLASS="slanted">spins_wave_amplitude, spins_show_ellipses, spins_show_direction_of_static_moment</I>.
+<I CLASS="slanted">show_abc_unitcell, show_primitive_crystal_unitcell, show_magnetic_unitcell, show_atoms, show_density</I>...
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Technical information: the program <I CLASS="slanted">display_densities</I><A ID="4996"></A> 
+is actually a script which
+calls  <I CLASS="slanted">spins<A ID="4997"></A></I> 
+ (a program with the same arguments as <I CLASS="slanted">display_densities</I>
+which calculates the iso surfaces and stores
+it in format for the java based graphic program <I CLASS="slanted">javaview</I> and
+also as a grid. The way in which this is done is controlled by 
+the parameter file <I CLASS="slanted">results/graphic_parameters.set</I>
+.... in  order to display the results graphically the following java
+programs are called:
+</SPAN><PRE>
+  java javaview results/spins.jvx
+  java javaview "model=results/spins.*.jvx" Animation.LastKey=16 background="255 255 255"
+</PRE><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
 <A
  HREF="node138.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="manual.html">
+ HREF="node134.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node136.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1048"
-  HREF="node7.html">
+<A ID="tex2html1098"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1050"
-  HREF="node164.html">
+<A ID="tex2html1100"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node138.html">Module brillouin - an</A>
+ HREF="node138.html">Program hkl, hkl2d and</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="node134.html">Programs for Graphical display</A>
 <B> Previous:</B> <A
- HREF="node136.html">Programs of General Interest</A>
- &nbsp; <B>  <A ID="tex2html1049"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1051"
-  HREF="node164.html">Index</A></B> </DIV>
+ HREF="node136.html">Programs display_density - display</A>
+ &nbsp; <B>  <A ID="tex2html1099"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1101"
+  HREF="node180.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

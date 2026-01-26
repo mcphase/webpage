@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Landé Factor</TITLE>
+<TITLE>Elastic Energy </TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -28,45 +28,532 @@
 <A
  HREF="node74.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html726"
-  HREF="node7.html">
+<A ID="tex2html774"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html728"
-  HREF="node164.html">
+<A ID="tex2html776"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node76.html">Magnetic Formfactor Coefficients</A>
+ HREF="node76.html">External Stress</A>
 <B> Up:</B> <A
- HREF="node74.html">Single Ion Modules</A>
+ HREF="node74.html">Crystal Field Phonon Interaction</A>
 <B> Previous:</B> <A
- HREF="node74.html">Single Ion Modules</A>
- &nbsp; <B>  <A ID="tex2html727"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html729"
-  HREF="node164.html">Index</A></B> 
+ HREF="node74.html">Crystal Field Phonon Interaction</A>
+ &nbsp; <B>  <A ID="tex2html775"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html777"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000161000000000000000">
-Landé Factor</A>
-</H2>
-
+<H2><A ID="SECTION000141000000000000000">
+Elastic Energy <!-- MATH
+ $E_{\rm elastic}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img14.svg"
+ ALT="$E_{\rm elastic}$"></SPAN></A>
+</H2><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-In order to calculate the magnetisation and Zeeman term, the Landé factor
-has to be entered in the single ion property file. For a rare earth ion this
-factor gives the ratio of negative angular momentum / magnetic moment.
-Note, for intermediate coupling schemes this factor has no meaning (should be set to zero).
-
+<SPAN CLASS="SMALL">The elastic energy <!-- MATH
+ $E_{\rm elastic}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img14.svg"
+ ALT="$E_{\rm elastic}$"></SPAN> is bilinear in  <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img13.svg"
+ ALT="$a$"></SPAN>
+</SPAN>
 <P>
-<PRE>
-#Lande Factor
-GJ=0.85714
-</PRE>
-
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath"><A ID="Eel"></A>
+<!-- MATH
+ \begin{eqnarray}
+E_{\rm elastic} &=& \frac{1}{2}\sum_{ij} \frac{c_L(ij)-c_T(ij)}{2|\mathbf R_{ij}|^2}
+(\mathbf R_{ij}^T\bar a \mathbf R_{ij})^2  \\
+      && + \frac{c_T(ij)}{2} \mathbf R_{ij}^T\bar a^T\bar a \mathbf R_{ij} \nonumber \\
+&=& \frac{1}{2} \sum_{ij,\alpha\beta\gamma\delta} \frac{c_L(ij)-c_T(ij)}{2|\mathbf R_{ij}|^2} 
+R_{ij}^{\alpha}R_{ij}^{\beta}R_{ij}^{\gamma}R_{ij}^{\delta}
+a_{\alpha\beta}a_{\gamma\delta} \nonumber \\
+&& + \frac{c_T(ij)}{2} R_{ij}^{\alpha} R_{ij}^{\delta}
+a_{\alpha\beta} \delta_{\beta\gamma} a_{\gamma\delta}  \nonumber
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img713.svg"
+ ALT="$\displaystyle E_{\rm elastic}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.81ex; vertical-align: -3.40ex; " SRC="img714.svg"
+ ALT="$\displaystyle \frac{1}{2}\sum_{ij} \frac{c_L(ij)-c_T(ij)}{2\vert\mathbf R_{ij}\vert^2}
+(\mathbf R_{ij}^T\bar a \mathbf R_{ij})^2$"></TD><TD class="rfill">(<SPAN CLASS="arabic">103</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.12ex; vertical-align: -1.71ex; " SRC="img715.svg"
+ ALT="$\displaystyle + \frac{c_T(ij)}{2} \mathbf R_{ij}^T\bar a^T\bar a \mathbf R_{ij}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.86ex; vertical-align: -3.46ex; " SRC="img716.svg"
+ ALT="$\displaystyle \frac{1}{2} \sum_{ij,\alpha\beta\gamma\delta} \frac{c_L(ij)-c_T(i...
+...ha}R_{ij}^{\beta}R_{ij}^{\gamma}R_{ij}^{\delta}
+a_{\alpha\beta}a_{\gamma\delta}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.12ex; vertical-align: -1.71ex; " SRC="img717.svg"
+ ALT="$\displaystyle + \frac{c_T(ij)}{2} R_{ij}^{\alpha} R_{ij}^{\delta}
+a_{\alpha\beta} \delta_{\beta\gamma} a_{\gamma\delta}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-<BR><HR>
+<SPAN CLASS="SMALL">We calculate it's derivative with respect to <!-- MATH
+ $a_{\alpha\beta}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.89ex; vertical-align: -0.78ex; " SRC="img718.svg"
+ ALT="$a_{\alpha\beta}$"></SPAN>:
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{eqnarray}
+\frac{\partial E_{\rm elastic}}{\partial a_{\alpha\beta}}&=& \frac{1}{2}\sum_{ij,\gamma\delta} \frac{c_L(ij)-c_T(ij)}{|\mathbf R_{ij}|^2}
+R_{ij}^{\alpha}R_{ij}^{\beta}R_{ij}^{\gamma}R_{ij}^{\delta}
+a_{\gamma\delta} \nonumber \\
+&& +    \frac{c_T(ij)}{2} R_{ij}^{\alpha}R_{ij}^{\delta}
+ \delta_{\beta\gamma} a_{\gamma\delta} + \nonumber \\
+&& \frac{c_T(ij)}{2} R_{ij}^{\gamma} R_{ij}^{\beta}
+a_{\gamma\delta} \delta_{\delta\alpha} 
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 5.65ex; vertical-align: -2.37ex; " SRC="img719.svg"
+ ALT="$\displaystyle \frac{\partial E_{\rm elastic}}{\partial a_{\alpha\beta}}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.86ex; vertical-align: -3.46ex; " SRC="img720.svg"
+ ALT="$\displaystyle \frac{1}{2}\sum_{ij,\gamma\delta} \frac{c_L(ij)-c_T(ij)}{\vert\ma...
+...2}
+R_{ij}^{\alpha}R_{ij}^{\beta}R_{ij}^{\gamma}R_{ij}^{\delta}
+a_{\gamma\delta}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.12ex; vertical-align: -1.71ex; " SRC="img721.svg"
+ ALT="$\displaystyle + \frac{c_T(ij)}{2} R_{ij}^{\alpha}R_{ij}^{\delta}
+\delta_{\beta\gamma} a_{\gamma\delta} +$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.12ex; vertical-align: -1.71ex; " SRC="img722.svg"
+ ALT="$\displaystyle \frac{c_T(ij)}{2} R_{ij}^{\gamma} R_{ij}^{\beta}
+a_{\gamma\delta} \delta_{\delta\alpha}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">104</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">An we make also use of the definition of elastic constants <EM>(important note: these
+are not the effective elastic constants, which can be determined experimentally, because
+they do not take into account, that the atomic positions relax when the crystal is 
+strained. To relax atomic positions and compute effective elastic constants use
+option -cel of program <I CLASS="slanted">mcphasit</I>)</EM>:
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath"><A ID="elconst"></A>
+<!-- MATH
+ \begin{eqnarray}
+c^{\alpha\beta\gamma\delta} &= &
+\frac{\partial^2E_{\rm elastic}}{\partial a_{\alpha\beta} \partial a_{\gamma\delta}} \\
+&=& \frac{1}{2}\sum_{ij}\frac{c_L(ij)-c_T(ij)}{|\mathbf R_{ij}|^2} 
+R_{ij}^{\alpha}R_{ij}^{\beta}R_{ij}^{\gamma}R_{ij}^{\delta}
+ \nonumber \\
+&& +    \frac{c_T(ij)}{2} R_{ij}^{\alpha}R_{ij}^{\delta}
+ \delta_{\beta\gamma}  + \nonumber \\
+&& \frac{c_T(ij)}{2} R_{ij}^{\gamma} R_{ij}^{\beta}
+ \delta_{\delta\alpha} 
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.31ex; vertical-align: -0.12ex; " SRC="img723.svg"
+ ALT="$\displaystyle c^{\alpha\beta\gamma\delta}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.93ex; vertical-align: -2.37ex; " SRC="img724.svg"
+ ALT="$\displaystyle \frac{\partial^2E_{\rm elastic}}{\partial a_{\alpha\beta} \partial a_{\gamma\delta}}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">105</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.81ex; vertical-align: -3.40ex; " SRC="img725.svg"
+ ALT="$\displaystyle \frac{1}{2}\sum_{ij}\frac{c_L(ij)-c_T(ij)}{\vert\mathbf R_{ij}\vert^2}
+R_{ij}^{\alpha}R_{ij}^{\beta}R_{ij}^{\gamma}R_{ij}^{\delta}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.12ex; vertical-align: -1.71ex; " SRC="img726.svg"
+ ALT="$\displaystyle + \frac{c_T(ij)}{2} R_{ij}^{\alpha}R_{ij}^{\delta}
+\delta_{\beta\gamma} +$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.12ex; vertical-align: -1.71ex; " SRC="img727.svg"
+ ALT="$\displaystyle \frac{c_T(ij)}{2} R_{ij}^{\gamma} R_{ij}^{\beta}
+\delta_{\delta\alpha}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">106</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">we make use of the fact that the strain <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.55ex; vertical-align: -0.12ex; " SRC="img728.svg"
+ ALT="$\bar \epsilon$"></SPAN> is a symmetric 
+tensor (<!-- MATH
+ $\epsilon_{\alpha\beta}=\epsilon_{\beta\alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.89ex; vertical-align: -0.78ex; " SRC="img729.svg"
+ ALT="$\epsilon_{\alpha\beta}=\epsilon_{\beta\alpha}$"></SPAN>) and a rotation
+is antisymmetric (<!-- MATH
+ $\omega_{\alpha\beta}=-\omega_{\beta\alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.24ex; vertical-align: -0.78ex; " SRC="img730.svg"
+ ALT="$\omega_{\alpha\beta}=-\omega_{\beta\alpha}$"></SPAN>) and 
+the linear transformation <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.55ex; vertical-align: -0.12ex; " SRC="img708.svg"
+ ALT="$\bar a$"></SPAN> can be written as <!-- MATH
+ $\bar a=\bar \epsilon + \bar \omega$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img731.svg"
+ ALT="$\bar a=\bar \epsilon + \bar \omega$"></SPAN>. Thus
+it is possible to rewrite the elastic energy in the well known fashion
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath"><A ID="Eelconst"></A>
+<!-- MATH
+ \begin{eqnarray}
+E_{\rm elastic} &=& \frac{1}{2}\sum_{\alpha\beta\gamma\delta} c^{\alpha\beta\gamma\delta} \epsilon_{\alpha\beta}\epsilon_{\gamma\delta}
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img713.svg"
+ ALT="$\displaystyle E_{\rm elastic}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.62ex; vertical-align: -3.46ex; " SRC="img732.svg"
+ ALT="$\displaystyle \frac{1}{2}\sum_{\alpha\beta\gamma\delta} c^{\alpha\beta\gamma\delta} \epsilon_{\alpha\beta}\epsilon_{\gamma\delta}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">107</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Note that we have neglected the fact, that nonzero transversal springs will 
+result in a dependence of the elastic energy on the rotation tensor <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.55ex; vertical-align: -0.12ex; " SRC="img733.svg"
+ ALT="$\bar \omega$"></SPAN> as
+can been seen by inserting a rotation into the second part of (<A HREF="#Eel">107</A>).
+<A ID="tex2html42"
+  HREF="footnode.html#foot9550"><SUP><SPAN CLASS="arabic">22</SPAN></SUP></A>
+Therefore transversal springs have to be used with caution
+ in the description of a phonon spectrum.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Note that the transversal spring part in the elastic constants as defined in (<A HREF="#elconst">109</A>) 
+is not symmetric upon exchange of indices. It is convenient to use a symmetrized version
+of the elastic constants, which will yield the same elastic energy, because the
+strain tensor is symmetric:
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">
+<FONT COLOR="#0000ff">
+</FONT></SPAN>
+<BR>
+<DIV CLASS="displaymath"><A ID="elconstsymm"></A>
+<!-- MATH
+ \begin{eqnarray}
+c^{\alpha\beta\gamma\delta} &= &
+ \frac{1}{2}\sum_{ij}\frac{c_L(ij)-c_T(ij)}{|\mathbf R_{ij}|^2} 
+R_{ij}^{\alpha}R_{ij}^{\beta}R_{ij}^{\gamma}R_{ij}^{\delta}
+ \nonumber \\
+&& +    \frac{c_T(ij)}{4} ( R_{ij}^{\alpha}R_{ij}^{\delta}
+ \delta_{\beta\gamma}  + \nonumber \\
+&&  R_{ij}^{\gamma} R_{ij}^{\beta}
+ \delta_{\delta\alpha}  \nonumber \\
+&& +    R_{ij}^{\beta}R_{ij}^{\delta}
+ \delta_{\alpha\gamma}  +   R_{ij}^{\gamma}R_{ij}^{\alpha}
+ \delta_{\delta\beta} ) \nonumber \\
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.31ex; vertical-align: -0.12ex; " SRC="img723.svg"
+ ALT="$\displaystyle c^{\alpha\beta\gamma\delta}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.81ex; vertical-align: -3.40ex; " SRC="img725.svg"
+ ALT="$\displaystyle \frac{1}{2}\sum_{ij}\frac{c_L(ij)-c_T(ij)}{\vert\mathbf R_{ij}\vert^2}
+R_{ij}^{\alpha}R_{ij}^{\beta}R_{ij}^{\gamma}R_{ij}^{\delta}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.12ex; vertical-align: -1.71ex; " SRC="img735.svg"
+ ALT="$\displaystyle + \frac{c_T(ij)}{4} ( R_{ij}^{\alpha}R_{ij}^{\delta}
+\delta_{\beta\gamma} +$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 3.43ex; vertical-align: -1.08ex; " SRC="img736.svg"
+ ALT="$\displaystyle R_{ij}^{\gamma} R_{ij}^{\beta}
+\delta_{\delta\alpha}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 3.43ex; vertical-align: -1.08ex; " SRC="img737.svg"
+ ALT="$\displaystyle + R_{ij}^{\beta}R_{ij}^{\delta}
+\delta_{\alpha\gamma} + R_{ij}^{\gamma}R_{ij}^{\alpha}
+\delta_{\delta\beta} )$"></TD><TD class="rfill">&nbsp;</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">With the help of elastic constants we can rewrite the derivative of the elastic energy
+(<A HREF="#Eelconst">111</A>), again ignoring the rotation dependence:
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath"><A ID="Eelderivelconst"></A>
+<!-- MATH
+ \begin{eqnarray}
+\frac{\partial E_{\rm elastic}}{\partial \epsilon_{\alpha\beta}}&=&
+\sum_{\gamma\delta=1,2,3} c^{\alpha\beta\gamma\delta} \epsilon_{\gamma\delta}
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 5.65ex; vertical-align: -2.37ex; " SRC="img738.svg"
+ ALT="$\displaystyle \frac{\partial E_{\rm elastic}}{\partial \epsilon_{\alpha\beta}}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.99ex; vertical-align: -3.46ex; " SRC="img739.svg"
+ ALT="$\displaystyle \sum_{\gamma\delta=1,2,3} c^{\alpha\beta\gamma\delta} \epsilon_{\gamma\delta}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">108</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">To easy the indexing we apply the notation of Voigt
+</SPAN>
+<BR>
+<DIV CLASS="displaymath"><A ID="voigt"></A>
+<!-- MATH
+ \begin{eqnarray}
+\epsilon_1&=&\epsilon_{11}  \\
+\epsilon_2&=&\epsilon_{22} \nonumber \\
+\epsilon_3&=&\epsilon_{33}\nonumber \\
+\epsilon_4&=&2\epsilon_{23}=2\epsilon_{32}\nonumber \\
+\epsilon_5&=&2\epsilon_{31}=2\epsilon_{13}\nonumber \\
+\epsilon_6&=&2\epsilon_{12}=2\epsilon_{21} \nonumber
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img740.svg"
+ ALT="$\displaystyle \epsilon_1$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img741.svg"
+ ALT="$\displaystyle \epsilon_{11}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">109</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img742.svg"
+ ALT="$\displaystyle \epsilon_2$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img743.svg"
+ ALT="$\displaystyle \epsilon_{22}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img744.svg"
+ ALT="$\displaystyle \epsilon_3$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img745.svg"
+ ALT="$\displaystyle \epsilon_{33}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img746.svg"
+ ALT="$\displaystyle \epsilon_4$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.07ex; vertical-align: -0.46ex; " SRC="img747.svg"
+ ALT="$\displaystyle 2\epsilon_{23}=2\epsilon_{32}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img748.svg"
+ ALT="$\displaystyle \epsilon_5$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.07ex; vertical-align: -0.46ex; " SRC="img749.svg"
+ ALT="$\displaystyle 2\epsilon_{31}=2\epsilon_{13}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img750.svg"
+ ALT="$\displaystyle \epsilon_6$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.07ex; vertical-align: -0.46ex; " SRC="img751.svg"
+ ALT="$\displaystyle 2\epsilon_{12}=2\epsilon_{21}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Note the elastic constants do not contain any prefactor in Voigt notation, i.e.
+</SPAN>
+<BR>
+<DIV CLASS="displaymath"><A ID="voigtel"></A>
+<!-- MATH
+ \begin{eqnarray}
+c^{11}&=&c^{1111} \\
+c^{44}&=&c^{2323} \nonumber \\
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.23ex; vertical-align: -0.12ex; " SRC="img752.svg"
+ ALT="$\displaystyle c^{11}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.23ex; vertical-align: -0.12ex; " SRC="img753.svg"
+ ALT="$\displaystyle c^{1111}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">110</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.23ex; vertical-align: -0.12ex; " SRC="img754.svg"
+ ALT="$\displaystyle c^{44}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.23ex; vertical-align: -0.12ex; " SRC="img755.svg"
+ ALT="$\displaystyle c^{2323}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">There are 21 independent elastic constants, <!-- MATH
+ $c^{\alpha\beta}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.20ex; vertical-align: -0.12ex; " SRC="img756.svg"
+ ALT="$c^{\alpha\beta}$"></SPAN> with <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img757.svg"
+ ALT="$\beta=1,...,6$"></SPAN> and
+<!-- MATH
+ $\alpha \le \beta$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img758.svg"
+ ALT="$\alpha \le \beta$"></SPAN> (or less, see  http://koski.ucdavis.edu/BRILLOUIN/CRYSTALS/Elasticities.html). The other 60 elastic constants 
+can be obtained from the symmetry relations <!-- MATH
+ $c^{\alpha\beta}=c^{\beta\alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.20ex; vertical-align: -0.12ex; " SRC="img759.svg"
+ ALT="$c^{\alpha\beta}=c^{\beta\alpha}$"></SPAN>, 
+<!-- MATH
+ $c^{\alpha\beta\gamma\delta}=c^{\beta\alpha\gamma\delta}=c^{\alpha\beta\delta\gamma}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.20ex; vertical-align: -0.12ex; " SRC="img760.svg"
+ ALT="$c^{\alpha\beta\gamma\delta}=c^{\beta\alpha\gamma\delta}=c^{\alpha\beta\delta\gamma}$"></SPAN>.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">The elastic energy in Voigt notation is given by
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath"><A ID="Eelconstvoigt"></A>
+<!-- MATH
+ \begin{eqnarray}
+E_{\rm elastic} &=& \frac{1}{2}\sum_{\alpha\gamma=1,..,6} c^{\alpha\gamma} \epsilon_{\alpha}\epsilon_{\gamma}
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img713.svg"
+ ALT="$\displaystyle E_{\rm elastic}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.54ex; vertical-align: -3.38ex; " SRC="img761.svg"
+ ALT="$\displaystyle \frac{1}{2}\sum_{\alpha\gamma=1,..,6} c^{\alpha\gamma} \epsilon_{\alpha}\epsilon_{\gamma}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">111</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node76.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node74.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node74.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html774"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html776"
+  HREF="node180.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node76.html">External Stress</A>
+<B> Up:</B> <A
+ HREF="node74.html">Crystal Field Phonon Interaction</A>
+<B> Previous:</B> <A
+ HREF="node74.html">Crystal Field Phonon Interaction</A>
+ &nbsp; <B>  <A ID="tex2html775"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html777"
+  HREF="node180.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

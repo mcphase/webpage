@@ -1,18 +1,18 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Diffuse Scattering</TITLE>
+<TITLE>Starting a simulation</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node48.html">
-<LINK REL="previous" HREF="node46.html">
+<LINK REL="previous" HREF="node35.html">
 <LINK REL="next" HREF="node48.html">
 </HEAD>
 
@@ -23,72 +23,265 @@
  HREF="node48.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node43.html">
+ HREF="node34.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node46.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html587"
-  HREF="node7.html">
+<A ID="tex2html625"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html589"
-  HREF="node164.html">
+<A ID="tex2html627"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node48.html">Powder Neutron Cross Section</A>
+ HREF="node48.html">Options for a running</A>
 <B> Up:</B> <A
- HREF="node43.html">mcdisp - the Calculation</A>
+ HREF="node34.html">mcphas - calculation of</A>
 <B> Previous:</B> <A
- HREF="node46.html">Viewing the results of</A>
- &nbsp; <B>  <A ID="tex2html588"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html590"
-  HREF="node164.html">Index</A></B> 
+ HREF="node46.html">subdirectory ./fit - experimental</A>
+ &nbsp; <B>  <A ID="tex2html626"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html628"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000122000000000000000">
-Diffuse Scattering</A>
-</H2>
-
+<H2><A ID="SECTION00092000000000000000"></A>
+<A ID="start"></A>
+<BR>
+Starting a simulation
+</H2><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-The program <I CLASS="slanted">McDisp</I> may be used straightforward to calculate quasi elastic intensity
- by
-
+<SPAN CLASS="SMALL">To start the simulation goto the directory containing the
+input files <I CLASS="slanted">mcphas.ini, mcphas.j, etc. </I> and type
+</SPAN>
 <P>
-
+<SPAN CLASS="SMALL"></SPAN><DL>
+<DT><STRONG><I CLASS="slanted">mcphas</I></STRONG></DT>
+<DD>to run the program generating stepwise <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.01ex; vertical-align: -0.31ex; " SRC="img321.svg"
+ ALT="$H-T$"></SPAN> values 
+              in a loop given by <I CLASS="slanted">mcphas.ini<A ID="1445"></A></I> (you can also press the
+              symbol in the <I CLASS="slanted">McPhase - Explorer</I> window). The complete syntax of the command is actually
+</DD>
+<DT><STRONG><I CLASS="slanted">mcphas<A ID="1447"></A>[options] [file]</I></STRONG></DT>
+<DD>Adding the name of a file will run the program with an input file &ndash;   
+             <I CLASS="slanted">file</I> contains T(K) Hi(T) Hj(T) Hk(T) values to be calculated  in columns 
+             3, 5, 6, 7, respectively (ijk coordinates defined by  <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img315.svg"
+ ALT="$j\vert\vert b$"></SPAN>, <!-- MATH
+ $k||(a \times b)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img316.svg"
+ ALT="$k\vert\vert(a \times b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.76ex; vertical-align: -0.12ex; " SRC="img322.svg"
+ ALT="$i$"></SPAN> normal to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img323.svg"
+ ALT="$k$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.21ex; vertical-align: -0.57ex; " SRC="img324.svg"
+ ALT="$j$"></SPAN> )
+             if [file] is not given, xmin xmax xstep (xT xHa xHb xHc)
+             ymin ymax ystep (yT yHa yHb yHc) is read from file <I CLASS="slanted">mcphas.ini<A ID="1449"></A></I>
+	     and phase diagram is calculated
+</DD>
+</DL><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Options are
+</SPAN><DL>
+<DT><STRONG><I CLASS="slanted">-h</I></STRONG></DT>
+<DD>to  print help and version of <I CLASS="slanted">McPhas</I>.
+</DD>
+<DT><STRONG><I CLASS="slanted">-stamax 14</I></STRONG></DT>
+<DD>end mcphas<A ID="1453"></A> if standard deviation exceeds 14.
+</DD>
+<DT><STRONG><I CLASS="slanted">-a</I></STRONG></DT>
+<DD>avoid overwriting output files in results, append new results to existing files
+</DD>
+<DT><STRONG><I CLASS="slanted">-doeps</I></STRONG></DT>
+<DD>refine strain epsilon using elastic and magnetoelastic constants 
+see also section <A HREF="node71.html#phonons">11</A> for how to enter these constants into <I CLASS="slanted">mcphas.j</I>
+</DD>
+<DT><STRONG><I CLASS="slanted">-cd</I></STRONG></DT>
+<DD>treat classical dipole interaction internally  (for the the first three 
+the interaction operators <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.26ex; vertical-align: -0.57ex; " SRC="img325.svg"
+ ALT="$I_1,I_2,I_3$"></SPAN>, which must correspond to angular momentum <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img326.svg"
+ ALT="$J$"></SPAN>, such as in the so1ion module)
+            and it
+                 is assumed that <!-- MATH
+ $(g_J.I_1,g_J.I_2,g_J.I_3)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img327.svg"
+ ALT="$(g_J.I_1,g_J.I_2,g_J.I_3)$"></SPAN> are the components of the magnetic
+ moment (<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img281.svg"
+ ALT="$g_J$"></SPAN> given in sipf file, thus setting it zero there will exclude the
+corresponding ion from the dipolar interaction calculation - this is the way for example to include 
+phonon degrees of freedom in such a calculation),
+  the classical dipole interaction is calculated using the series expansion for the classical dipolar expansion 
+given by Bowden[<A
+ HREF="node179.html#bowden81-827">30</A>]. Using this option permits to avoid a large number of interaction constants in
+<I CLASS="slanted">mcphas.j</I>. For the mean field loop the dipolar interaction in equation (26) of[<A
+ HREF="node179.html#bowden81-827">30</A>] 
+has to be evaluated for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img328.svg"
+ ALT="$q=0$"></SPAN>, which is ambigous due to a factor <!-- MATH
+ $q_{\alpha}q_{\beta}/q^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -0.78ex; " SRC="img329.svg"
+ ALT="$q_{\alpha}q_{\beta}/q^2$"></SPAN> which appears
+in the first term &rdquo;I&rdquo; in equation (26) of[<A
+ HREF="node179.html#bowden81-827">30</A>]. This ambigousity reflects the shape
+of the sample. The factor <!-- MATH
+ $q_{\alpha}q_{\beta}/q^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -0.78ex; " SRC="img329.svg"
+ ALT="$q_{\alpha}q_{\beta}/q^2$"></SPAN> is approximated in <I CLASS="slanted">mcphas</I> by zero, i.e. &rdquo;I=0&rdquo; or
+ <!-- MATH
+ $q_{\alpha}q_{\beta}/q^2 \sim 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -0.78ex; " SRC="img330.svg"
+ ALT="$q_{\alpha}q_{\beta}/q^2 \sim 0$"></SPAN>. This choice corresponds to setting <!-- MATH
+ $D_{zz}(q=0)=D^{eff}_{zz}(q=0)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -0.70ex; " SRC="img331.svg"
+ ALT="$D_{zz}(q=0)=D^{eff}_{zz}(q=0)$"></SPAN>
+in [<A
+ HREF="node179.html#jensen91-1">1</A>], p. 236 - on this page the energy in applied magnetic field is given, which
+includes the demagnetising factor according to equation (5.5.6). Adding the energy of the
+demagnetizing field (see [] equation (6.49)) and introducing the internal
+applied magnetic field according to [<A
+ HREF="node179.html#jensen91-1">1</A>], p. 236, equation (5.5.9) it can
+be seen, that the energy depends on <!-- MATH
+ $D^{eff}_{zz}(q=0)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -0.70ex; " SRC="img332.svg"
+ ALT="$D^{eff}_{zz}(q=0)$"></SPAN> and the internal magnetic field
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img333.svg"
+ ALT="$H_I$"></SPAN>. The magnetic structure can be calculated my <I CLASS="slanted">mcphasit</I> without taking into account explicitely the
+demagnetisation tensor. Note that the demagnetisation tensor (sample shape)
+will influence the excitations, see eplanation of option -cd for
+<I CLASS="slanted">mcdisp</I> for details.
+</DD>
+<DT><STRONG><I CLASS="slanted">-cel  0.0001</I></STRONG></DT>
+<DD>to compute elastic constants by applying stress of 0.0001 GPa. This needs more computation
+     time, because one by one each component of the stress tensor is set to 0.0001 GPa and a mean field loop is done
+     to compute the results strains. In this way, elastic constants can be obtained, which can be compared to experiment.
+</DD>
+<DT><STRONG><I CLASS="slanted">-cv  0.01</I></STRONG></DT>
+<DD>to compute specific heat by applying temperature step of 0.01K and computing derivative of energy u         
+</DD>
+<DT><STRONG><I CLASS="slanted">-v</I></STRONG></DT>
+<DD>to  enable verbose mode with lots of messages of <I CLASS="slanted">McPhas</I>. Specifically
+the verbose mode enables the following features:
+  
 <UL>
-<LI>specification of an energy
-range [emin,emax] in file <I CLASS="slanted">mcdisp.par<A ID="1521"></A></I> which corresponds to the interval of energies (around zero
-energy transfer) sensed by the detector of the diffuse scattering experiment. 
+<LI>more information is printed out, 
 </LI>
-<LI>quasi elastic intensity is expected only in the paramagnetic state - thus in <I CLASS="slanted">mcdisp.mf<A ID="1522"></A></I> a
- a temperature above the magnetic ordering temperature should be selected.
+<LI>the q-vectors file <I CLASS="slanted">./results/mcphas.qvc</I> will contain 
+				    the explicit spin configurations
 </LI>
-<LI>start <I CLASS="slanted">mcdisp</I> in the usual way, using the DMD method.
+<LI>the display<A ID="1480"></A> on screen (ghostview window using 
+				     <I CLASS="slanted">./results/.sps.eps</I>) will be updated not only 
+				    when a H-T point has been finished but always 
+				    when a structure with smaller free energy 
+				    has been stabilised
+  
 </LI>
-</UL> 
-
+</UL>
+ 
+</DD>
+<DT><STRONG><I CLASS="slanted">-prefix 001  </I></STRONG></DT>
+<DD>try to read files starting with 001, e.g.
+ 		    001mcphas.ini, if these exist, otherwise take
+ 		    standard input files, check if in mcphas.ini there are
+                   parameters such as 001xmin and use those, if these are given AFTER the 
+                   the standard parameters (i.e. xmin=0 ...001xmin=1 will set xmin to 1 whereas
+              001xmin=1 ...xmin=0 will set xmin to 0). Output goes to files
+ 		    results/001mcphas*.* (option ideal for parallel processes).
+                   Wildcard * may be used in the prefix option, e.g.  -prefix 00* will run
+                   <I CLASS="slanted">mcphas</I> with all prefixes in the mcphas.ini file starting with 00.
+                   Note, some shells will need the syntax  -prefix &rdquo;00*&rdquo; for wildcards.
+ 
+</DD>
+<DT><STRONG><I CLASS="slanted">-read  001 </I></STRONG></DT>
+<DD>try to read output files of previous calculation starting
+ 		     with 001, e.g. results/001mcphas.fum, if these exist, and if 
+ 		    the x-y-T-Ha-Hb-Hc point is found and the calculation was stable 
+                   (i.e. free energy in results/001mcphas.fum not zero do not 
+                   recalculate it but take results from this previous calculation
+ 		     and store those. Option to recalculate nonstable points only.
+</DD>
+<DT><STRONG><I CLASS="slanted">-t 3</I></STRONG></DT>
+<DD>Takes structure number 3 in <I CLASS="slanted">mcphas.tst </I> and no other structures
+                   and traces this solution, i.e. no other structures are calculated and no comparison of
+                   free energies is done.
+</DD>
+<DT><STRONG><I CLASS="slanted">mcphasit<A ID="1485"></A></I></STRONG></DT>
+<DD>to start mcphase in commandline mode without opening any window
+</DD>
+</DL><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-The file <I CLASS="slanted">mcdisp.dsigma.tot</I> produced by the calculation contains the calculated diffuse scattering cross section.
-Figure&nbsp;<A HREF="node46.html#ho2ti2o7diffuse">12</A> shows an output of such a calculation for the diffuse scattering
-on Ho<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN>Ti<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN>O<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img8.svg"
- ALT="$_7$"></SPAN>.
-
+<SPAN CLASS="SMALL">
+<BR>
+<BR>
+<BR>
+<EM>Exercises:</EM>
+</SPAN>
+<UL>
+<LI>Look at the input files for <I CLASS="slanted">McPhase</I> given in the directory
+<I CLASS="slanted">examples/ndcu2b_new</I>.  How many atoms are contained in the crystallographic basis ?
+</LI>
+<LI>Start the simulation by typing the command <I CLASS="slanted">mcphas</I>.
+</LI>
+</UL><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-For comparison it is also possible to do a calculation using the option <I CLASS="slanted">-r</I> forcing
- the program <I CLASS="slanted">mcdisp<A ID="1528"></A></I> to calculate the cross section
- using the full MF-RPA algorithm (output stored in <I CLASS="slanted">mcdisp.dsigma</I>)
-
-<P>
-<BR><HR>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node48.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node34.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node46.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html625"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html627"
+  HREF="node180.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node48.html">Options for a running</A>
+<B> Up:</B> <A
+ HREF="node34.html">mcphas - calculation of</A>
+<B> Previous:</B> <A
+ HREF="node46.html">subdirectory ./fit - experimental</A>
+ &nbsp; <B>  <A ID="tex2html626"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html628"
+  HREF="node180.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

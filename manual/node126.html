@@ -1,18 +1,18 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Setting up parameter files for fitting</TITLE>
+<TITLE>ic1ion - a module for intermediate coupling</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node127.html">
-<LINK REL="previous" HREF="node125.html">
+<LINK REL="next" HREF="node133.html">
+<LINK REL="previous" HREF="node95.html">
 <LINK REL="next" HREF="node127.html">
 </HEAD>
 
@@ -23,153 +23,63 @@
  HREF="node127.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node125.html">
+ HREF="manual.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node125.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1004"
-  HREF="node7.html">
+<A ID="tex2html1042"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1006"
-  HREF="node164.html">
+<A ID="tex2html1044"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node127.html">Telling the fitting program,</A>
+ HREF="node127.html">using ic1ion as a</A>
 <B> Up:</B> <A
- HREF="node125.html">Searchspace and Simannfit -</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node125.html">Searchspace and Simannfit -</A>
- &nbsp; <B>  <A ID="tex2html1005"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1007"
-  HREF="node164.html">Index</A></B> 
+ HREF="node125.html">External module function ro_calc</A>
+ &nbsp; <B>  <A ID="tex2html1043"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1045"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000211000000000000000">
-Setting up parameter files for fitting</A>
-</H2>
-
-<P>
-In order to fit, it is necessary to tell the fitting programs <I CLASS="slanted">searchspace<A ID="4419"></A></I> and
- <I CLASS="slanted">simannfit<A ID="4420"></A></I>, which 
-parameters in some input files should be varied. Take for instance
-the input file <I CLASS="slanted">mcphas.jjj</I>: if you want to vary a parameter, create a file 
-<I CLASS="slanted">mcphas.jjj.forfit</I> which is an exact copy of <I CLASS="slanted">mcphas.jjj</I> - in 
-this file you substitute the value of the parameter which you want to vary  
- by <EM>par</EM>name[value,min,max,xx,stp].
- Here value denotes the starting value, min and max the parameter range, xx an arbitrary
- number (this field will be used by the algorithm to calculate the error of the
- parameter). Stp denotes the maximum step width for this parameter.
-Here follows an example:
-
-<P>
-
-<OL>
-<LI>Original input file <I CLASS="slanted">/mcphas/examples/ndba2cu3o7/mcdiff.in</I>:
-<SPAN CLASS="FOOTNOTESIZE">
-</SPAN><PRE>
-...
-#
-#{atom-file} da[a]  db[b]    dc[c]     dr1[r1]  dr2[r2]  dr3[r3]   &lt;Ma&gt;     &lt;Mb&gt;  &lt;Mc&gt; [mb]
-#{corresponding effective fields gjmbHeff [meV]- if passed to mcdiff only these are used 
-# for caculation (not the magnetic moments)}
-{Nd3p.sipf} 0.50000 0.50000 0.50000 0.50000 0.50000 0.50000 +0.00000 +0.00000 -1.36910  
-           corresponding effective fields gjmbHeff [meV]--&gt; +0.00000 +0.00000 -0.07530
-{Nd3p.sipf} 0.50000 0.50000 1.50000 0.50000 0.50000 1.50000 +0.00000 +0.00000 +1.36910  
-           corresponding effective fields gjmbHeff [meV]--&gt; +0.00000 +0.00000 +0.07530
-...
-</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
-
-<P>
-</LI>
-<LI>Modified input file<I CLASS="slanted">/mcphas/examples/dba2cu3o7/mcdiff.in.forfit</I>: 
-<SPAN CLASS="FOOTNOTESIZE">
-</SPAN><PRE>
-...
-#{atom-file} da[a]  db[b]    dc[c]     dr1[r1]  dr2[r2]  dr3[r3]   &lt;Ma&gt;     &lt;Mb&gt;  &lt;Mc&gt; [mb]
-#{corresponding effective fields gjmbHeff [meV]- if passed to mcdiff only these are used 
-# for caculation (not the magnetic moments)}
-{Nd3p.sipf} 0.5000 0.5000 0.5000 0.5000 0.5000 0.5000  0.0000 0.0000 -1.3691  
-  corresponding effective fields gjmbHeff [meV]--&gt;     0.0000 parHb %%@
-[-2.815596e-003,-2.000000e-002,1.000000e-002,2.762505e-005,4.851325e-003] parHc %%@
-[-5.328829e-002,-9.000000e-002,-5.000000e-002,1.614710e-005,4.896285e-003]
-{Nd3p.sipf} 0.5000 0.5000 1.5000 0.5000 0.5000 1.5000  0.0000 0.0000 1.3691  
-   corresponding effective fields gjmbHeff [meV]--&gt;    0.0000 function[-1*parHb] function[-1*parHc]
-...
-</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
-
-<P>
-</LI>
-</OL>
-
-<P>
-As can be seen constraints on the parameters can be implemented by
-substituting the parameter value by <EM>function[par</EM>name<EM>]</EM>.
-This means for instance, that instead of <EM>function[par2a]</EM> the algorithm
-uses the parameter <EM>par2a</EM> specified at another place of the input file.
-
-<P>
-
-<DIV class="CENTER"><A ID="searchspace"></A><A ID="9004"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 30:</STRONG>
-Coverage of a two-dimensional parameter space by program <I CLASS="slanted">searchspace<A ID="4442"></A></I></CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-
-<IMG
- STYLE="height: 67.86ex; vertical-align: -0.12ex; " SRC="img1038.svg"
- ALT="\includegraphics[angle=0, width=0.8\textwidth]{figsrc/searchspace.eps}">
-
-</DIV></TD></TR>
-</TABLE>
-</DIV>
-
-<P>
-<B>What does searchspace/simannfit do with these parameter files ?</B>
-
-<P>
-The fitting programs <I CLASS="slanted">searchspace<A ID="4445"></A></I> and 
-<I CLASS="slanted">simannfit<A ID="4446"></A></I> take the modified file and generate from it an
-input file in the original format (using several different
-sets of parameters) and call the program
-<I CLASS="slanted">calcsta</I> for each parameter set.
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node127.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node125.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node125.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1004"
-  HREF="node7.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1006"
-  HREF="node164.html">
-<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<H1><A ID="SECTION000170000000000000000"></A><A ID="4445"></A><A ID="ic1ion"></A>
 <BR>
-<B> Next:</B> <A
- HREF="node127.html">Telling the fitting program,</A>
-<B> Up:</B> <A
- HREF="node125.html">Searchspace and Simannfit -</A>
-<B> Previous:</B> <A
- HREF="node125.html">Searchspace and Simannfit -</A>
- &nbsp; <B>  <A ID="tex2html1005"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1007"
-  HREF="node164.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<I CLASS="slanted">ic1ion</I> - a module for intermediate coupling
+</H1><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">This powerful module, written by Duc Le, is able to do crystal field calculations
+using intermediate coupling schemes. 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html1046"
+  HREF="node127.html">using <I CLASS="slanted">ic1ion</I> as a stand-alone program to do crystal field calculations</A>
+<LI><A ID="tex2html1047"
+  HREF="node128.html"><I CLASS="slanted">cpic1ion</I> - calculation of the specific heat from <I CLASS="slanted">ic1ion.out</I></A>
+<LI><A ID="tex2html1048"
+  HREF="node129.html">using <I CLASS="slanted">ic1ion</I> as a module in <I CLASS="slanted">mcphas</I>,<I CLASS="slanted">mcdiff</I>,<I CLASS="slanted">mcdisp</I>,...</A>
+<LI><A ID="tex2html1049"
+  HREF="node130.html"><I CLASS="slanted">icf1ion</I> - Intermediate Crystal Field module</A>
+<LI><A ID="tex2html1050"
+  HREF="node131.html">Formalism</A>
+<LI><A ID="tex2html1051"
+  HREF="node132.html">Formalism for going beyond the dipolar approximation</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 
 </BODY>
 </HTML>

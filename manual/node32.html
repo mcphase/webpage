@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>subdirectory ./results - directory where calculated data is stored</TITLE>
+<TITLE>Module Tasks:</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,42 +23,179 @@
  HREF="node33.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node22.html">
+ HREF="node31.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node31.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html512"
-  HREF="node7.html">
+<A ID="tex2html539"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html514"
-  HREF="node164.html">
+<A ID="tex2html541"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node33.html">subdirectory ./fit - experimental</A>
+ HREF="node33.html">Module Usage:</A>
 <B> Up:</B> <A
- HREF="node22.html">Input Files</A>
+ HREF="node31.html">Using the so1ion module</A>
 <B> Previous:</B> <A
- HREF="node31.html">Example mcphas.tst file for</A>
- &nbsp; <B>  <A ID="tex2html513"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html515"
-  HREF="node164.html">Index</A></B> 
+ HREF="node31.html">Using the so1ion module</A>
+ &nbsp; <B>  <A ID="tex2html540"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html542"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION0001011000000000000000">
-subdirectory <I CLASS="slanted">./results</I> - directory where calculated data is stored</A>
-</H3>
-
+<H3><A ID="SECTION00083100000000000000">
+Module Tasks:</A>
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-In order to be able to save the results of a calculation the directory <I CLASS="slanted">./results</I> has to
-exist. Mind that all files in this directory will be overwritten without warning. 
-
+<SPAN CLASS="SMALL">  SIMPLICIUS: What do you actually mean by module ?
+</SPAN>
 <P>
-<BR><HR>
+<SPAN CLASS="SMALL">  EWALD: A module in the sense of <I CLASS="slanted">McPhase</I> is a program which is called by another program.
+In particular,
+the single ion module <I CLASS="slanted">so1ion<A ID="1152"></A></I> provides to <I CLASS="slanted">mcphas</I> the magnetic properties
+of a single rare earth ion subject to the crystal field. Its main duty is
+to calculate the magnetic moment given an external magnetic field <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img66.svg"
+ ALT="$\mathbf H$"></SPAN> and an exchange field <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img230.svg"
+ ALT="$\mathbf H^s$"></SPAN>. 
+To be more explicit - given the external magnetic  and the exchange field  by <I CLASS="slanted">mcphas</I>
+ the module <I CLASS="slanted">so1ion<A ID="1155"></A></I>
+ diagonalises the crystal field and Zeeman Hamiltonian (<A HREF="#cfze">29</A>):
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+{\hat \mathcal H}=  B_l^m \hat O_{lm}({\hat \mathbf J})
+	     -  g_{J} \mu_B {\hat \mathbf J} \cdot {\mathbf H} - {\hat \mathbf J} \cdot { \mathbf H^s}
+\end{equation}
+ -->
+ &nbsp;  <A ID="cfze"></A><IMG
+ STYLE="height: 0.23ex; vertical-align: -0.12ex; " SRC="img231.svg"
+ ALT="$\displaystyle
+{\hat \mathcal H}= B_l^m \hat O_{lm}({\hat \mathbf J})
+- g_...
+..._B {\hat \mathbf J} \cdot {\mathbf H} - {\hat \mathbf J} \cdot { \mathbf H^s}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">29</SPAN>)</SPAN>
+</DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">and calculates the expectation value of the angular momentum
+ <!-- MATH
+ $\langle \hat \mathbf J \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img232.svg"
+ ALT="$\langle \hat \mathbf J \rangle$"></SPAN>
+according to
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\langle \hat \mathbf J \rangle =
+\sum_{i=1}^{2J+1} p_{i} \langle i |\hat \mathbf J | i \rangle
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 7.42ex; vertical-align: -3.09ex; " SRC="img233.svg"
+ ALT="$\displaystyle \langle \hat \mathbf J \rangle =
+\sum_{i=1}^{2J+1} p_{i} \langle i \vert\hat \mathbf J \vert i \rangle
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">30</SPAN>)</SPAN>
+</DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">with 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{eqnarray}
+p_{i}&=&\frac{\exp(-\epsilon_{i}/kT)}{z}\\
+z&=&\sum_{i=1}^{2J+1} \exp(-\epsilon_{i}/kT)
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img234.svg"
+ ALT="$\displaystyle p_{i}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.12ex; vertical-align: -1.71ex; " SRC="img235.svg"
+ ALT="$\displaystyle \frac{\exp(-\epsilon_{i}/kT)}{z}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">31</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img236.svg"
+ ALT="$\displaystyle z$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 7.42ex; vertical-align: -3.09ex; " SRC="img237.svg"
+ ALT="$\displaystyle \sum_{i=1}^{2J+1} \exp(-\epsilon_{i}/kT)$"></TD><TD class="rfill">(<SPAN CLASS="arabic">32</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Here <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img238.svg"
+ ALT="$z$"></SPAN> is the partition sum, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img223.svg"
+ ALT="$\vert i\rangle$"></SPAN> the eigenstate corresponding to
+the eigenvalue <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img239.svg"
+ ALT="$\epsilon_{i}$"></SPAN> of the Hamiltonian (<A HREF="#cfze">29</A>). 
+<A ID="tex2html23"
+  HREF="footnode.html#foot9373"><SUP><SPAN CLASS="arabic">15</SPAN></SUP></A>
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node33.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node31.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node31.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html539"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html541"
+  HREF="node180.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node33.html">Module Usage:</A>
+<B> Up:</B> <A
+ HREF="node31.html">Using the so1ion module</A>
+<B> Previous:</B> <A
+ HREF="node31.html">Using the so1ion module</A>
+ &nbsp; <B>  <A ID="tex2html540"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html542"
+  HREF="node180.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

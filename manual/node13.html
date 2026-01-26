@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Rare Earth Ions</TITLE>
+<TITLE>The Hamiltonian</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node14.html">
+<LINK REL="next" HREF="node28.html">
 <LINK REL="previous" HREF="node12.html">
 <LINK REL="next" HREF="node14.html">
 </HEAD>
@@ -23,149 +23,239 @@
  HREF="node14.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node12.html">
+ HREF="manual.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node12.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html403"
-  HREF="node7.html">
+<A ID="tex2html431"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html405"
-  HREF="node164.html">
+<A ID="tex2html433"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node14.html">Intermediate Coupling</A>
+ HREF="node14.html">Rare Earth Ions</A>
 <B> Up:</B> <A
- HREF="node12.html">The Hamiltonian</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node12.html">The Hamiltonian</A>
- &nbsp; <B>  <A ID="tex2html404"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html406"
-  HREF="node164.html">Index</A></B> 
+ HREF="node12.html">Getting Started ... List</A>
+ &nbsp; <B>  <A ID="tex2html432"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html434"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION00081000000000000000">
-Rare Earth Ions</A>
-</H2>
-
-<P>
-A more specific example of is the following magnetic  Hamiltonian <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img86.svg"
- ALT="$\mathcal H$"></SPAN> for rare earth ions,
- which may be treated with the program package:
-
-<P>
-
+<H1><A ID="SECTION00070000000000000000"></A>
+<A ID="hamiltonian"></A>
+<BR>
+The Hamiltonian
+</H1>
+  EWALD: 
+We assume a quantum mechanical system that can be described by the Hamiltonian
+ 
 <DIV CLASS="displaymath">
 
 <!-- MATH
  \begin{equation}
-{\mathcal H}= \sum_{n,lm} B_l^m O_{lm}({\mathbf J}^n)
-             -\frac{1}{2}  \sum_{nn'} {\mathcal J}(nn') {\mathbf J}^n{\mathbf J}^{n'}
-	     - \sum_{n} g_{Jn} \mu_B {\mathbf J}^n {\mathbf H} 
+\hat \mathcal H=\sum_{n=1}^N \hat \mathcal H(n) -\frac{1}{2} \sum_{n,n',\alpha,\beta}
+ {\mathcal J}_{\alpha\beta}(\mathbf R_{n'} - \mathbf R_n) \hat \mathcal I_{\alpha}^n \hat \mathcal I_{\beta}^{n'}.
+ 
 \end{equation}
  -->
- &nbsp;  <A ID="hamiltonre"></A><IMG
- STYLE="height: 3.42ex; vertical-align: -1.13ex; " SRC="img87.svg"
+ &nbsp;  <A ID="hamilton"></A><IMG
+ STYLE="height: 3.51ex; vertical-align: -1.13ex; " SRC="img70.svg"
  ALT="$\displaystyle
-{\mathcal H}= \sum_{n,lm} B_l^m O_{lm}({\mathbf J}^n)
--\fra...
-...hbf J}^n{\mathbf J}^{n'}
-- \sum_{n} g_{Jn} \mu_B {\mathbf J}^n {\mathbf H}
+\hat \mathcal H=\sum_{n=1}^N \hat \mathcal H(n) -\frac{1}{2} \...
+...{n'} - \mathbf R_n) \hat \mathcal I_{\alpha}^n \hat \mathcal I_{\beta}^{n'}.
 $"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">2</SPAN>)</SPAN>
+(<SPAN CLASS="arabic">1</SPAN>)</SPAN>
 </DIV>
-
-<P>
-The first term describes the crystal field (Stevens Operators <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img88.svg"
- ALT="$O_l^m$"></SPAN>, see table in appendix&nbsp;<A HREF="node143.html#stevens">G</A>), the second the magnetic
-exchange interaction, the third the Zeeman energy if an external magnetic field is applied.
-Instead (or rather in addition) to this it is also possible to treat the 
-more general two ion exchange coupling
-
-<P>
-
-<DIV CLASS="displaymath">
-
+The first term <!-- MATH
+ $\hat \mathcal H(n)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img71.svg"
+ ALT="$\hat \mathcal H(n)$"></SPAN> denotes the Hamiltonian of
+ a subsystem <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
+ ALT="$n$"></SPAN>
+(e.g.&nbsp;an ion, or cluster of ions). The second term describes a bilinear interaction 
+between different subsystems
+through the operators <!-- MATH
+ $\hat \mathcal I_{\alpha}^n$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.69ex; " SRC="img73.svg"
+ ALT="$\hat \mathcal I_{\alpha}^n$"></SPAN>, with <!-- MATH
+ $\alpha = 1,2,...,m$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img74.svg"
+ ALT="$\alpha = 1,2,...,m$"></SPAN>. 
+The operators <!-- MATH
+ $\hat \mathcal H(n)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img71.svg"
+ ALT="$\hat \mathcal H(n)$"></SPAN> 
+and <!-- MATH
+ $\hat \mathcal I_{\alpha}^n$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.69ex; " SRC="img73.svg"
+ ALT="$\hat \mathcal I_{\alpha}^n$"></SPAN> act in the subspace <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
+ ALT="$n$"></SPAN> of the Hilbert space, 
+i.e. <!-- MATH
+ $[\hat \mathcal I_{\alpha}^n,\hat \mathcal I_{\alpha}^{n'}]=0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img75.svg"
+ ALT="$[\hat \mathcal I_{\alpha}^n,\hat \mathcal I_{\alpha}^{n'}]=0$"></SPAN>,
 <!-- MATH
- \begin{equation}
-{\mathcal H}_{JJ}=
-             -\frac{1}{2}  \sum_{nn'} \sum_ {ll'} \sum_{mm'}
-	     {\mathcal K}_{ll'}^{mm'}(nn') O_{lm}({\mathbf J}^n) O_{l'm'}({\mathbf J}^{n'})
-\end{equation}
- -->
- &nbsp;  <A ID="multipolehamilton"></A><IMG
- STYLE="height: 3.21ex; vertical-align: -0.92ex; " SRC="img89.svg"
- ALT="$\displaystyle
-{\mathcal H}_{JJ}=
--\frac{1}{2} \sum_{nn'} \sum_ {ll'} \sum_...
-...\mathcal K}_{ll'}^{mm'}(nn') O_{lm}({\mathbf J}^n) O_{l'm'}({\mathbf J}^{n'})
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">3</SPAN>)</SPAN>
-</DIV>
-
-<P>
-For further information on the notation and symmetry restrictions to the
-parameters in the Hamiltonian refer to&nbsp;[<A
- HREF="node163.html#jensen91-1">1</A>].
-
-<P>
-In addition to the above terms in the Hamiltonian the coupling of magnetic and lattice properties
-is possible by introducing magnetoelastic interactions:
-In order to calculate magnetoelastic effects the parameters <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img41.svg"
- ALT="$B_l^m$"></SPAN>, <!-- MATH
- ${\mathcal J}(ij)$
+ $[\hat \mathcal H(n),\hat \mathcal I_{\alpha}^{n'}]=0$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img90.svg"
- ALT="${\mathcal J}(ij)$"></SPAN> (or more general
-the <!-- MATH
- ${\mathcal K}_{ll'}^{mm'}(ij)$
+ STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img76.svg"
+ ALT="$[\hat \mathcal H(n),\hat \mathcal I_{\alpha}^{n'}]=0$"></SPAN> and <!-- MATH
+ $[\hat \mathcal H(n),\hat \mathcal H(n')]=0$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.07ex; vertical-align: -0.77ex; " SRC="img91.svg"
- ALT="${\mathcal K}_{ll'}^{mm'}(ij)$"></SPAN>) are expanded in a Taylor expansion in the strain tensor
+ STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img77.svg"
+ ALT="$[\hat \mathcal H(n),\hat \mathcal H(n')]=0$"></SPAN>
+for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.42ex; vertical-align: -0.57ex; " SRC="img78.svg"
+ ALT="$n \neq n'$"></SPAN><A ID="tex2html11"
+  HREF="footnode.html#foot319"><SUP><SPAN CLASS="arabic">8</SPAN></SUP></A>.
+For example, in the case of a Heisenberg
+ exchange between magnetic ions we would identify the set of operators with
+ <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img79.svg"
+ ALT="$\alpha=1,2,3$"></SPAN> with the three components of the  spin: <!-- MATH
+ $\hat \mathcal I_1 \leftrightarrow \hat S_x, \hat \mathcal I_2 %%@
+\leftrightarrow \hat S_y, \hat \mathcal I_3 \leftrightarrow \hat S_z$
+ -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img92.svg"
- ALT="$\epsilon$"></SPAN> resulting in the magnetoelastic interaction (i.e. keeping only the terms linear
-in <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img92.svg"
- ALT="$\epsilon$"></SPAN>). The equilibrium strain can be 
-calculated by considering in addition the elastic energy and minimising the total free energy.
-The procedure is described in detail in&nbsp;[<A
- HREF="node163.html#rotter02-8885">19</A>].
+ STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img80.svg"
+ ALT="$\hat \mathcal I_1 \leftrightarrow \hat S_x, \hat \mathcal I_2 %%@
+\leftrightarrow \hat S_y, \hat \mathcal I_3 \leftrightarrow \hat S_z$"></SPAN>.
 
 <P>
-<BR>
-<BR>
-<BR>
+ORLANDO: Do we really need so many symbols - is there no simpler theory ? 
 
 <P>
-<EM>Exercises:</EM>
+EWALD: Well, the beauty of the analysis which follows is that it can be applied to
+almost any Hamiltonian of the form (<A HREF="#hamilton">1</A>). And there are a lot ! 
+ The analysis
+of complex magnetic systems can thus be attempted by starting from a simple
+form such as the Heisenberg model and by introducing, step-by-step, more
+complexity into the model. For example, anisotropy and interactions with extended range can be introduced by modifying <!-- MATH
+ ${\mathcal J}_{\alpha\beta}(\mathbf R_n - \mathbf R_{n'})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img81.svg"
+ ALT="${\mathcal J}_{\alpha\beta}(\mathbf R_n - \mathbf R_{n'})$"></SPAN>, higher order operators can be 
+introduced  by extending the index range for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img82.svg"
+ ALT="$\alpha$"></SPAN>, and a complex single-ion term <!-- MATH
+ $\hat \mathcal H(n)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img71.svg"
+ ALT="$\hat \mathcal H(n)$"></SPAN> may be added. 
+Another example for a Hamiltonian (<A HREF="#hamilton">1</A>)  is the problem of lattice dynamics, which can
+ be treated in the framework of this
+formalism by identifying the operators <!-- MATH
+ $\hat \mathcal I^n_{\alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.69ex; " SRC="img83.svg"
+ ALT="$\hat \mathcal I^n_{\alpha}$"></SPAN>
+ with the atomic displacements <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.12ex; " SRC="img84.svg"
+ ALT="$u^{n}$"></SPAN>. Here the index <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img82.svg"
+ ALT="$\alpha$"></SPAN> is not necessary and
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
+ ALT="$n$"></SPAN> refers to both, the atomic position index and the spatial coordinate of the displacement,
+  <!-- MATH
+ $n=(1,x),(1,y),(1,z),(2,x),(2,y),(2,z), ...$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img85.svg"
+ ALT="$n=(1,x),(1,y),(1,z),(2,x),(2,y),(2,z), ...$"></SPAN>. Note that this can be done, because the three spatial components of the 
+displacement operators commute with each other (in contrast to the components of the spin) and each displacement
+component acts in its own subspace of the Hilbert space. The kinetic energy
+will be part of the single ion term <!-- MATH
+ $\hat \mathcal H(n)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img71.svg"
+ ALT="$\hat \mathcal H(n)$"></SPAN>. Allowing more complexity to the system,
+both the spin and lattice degrees of freedom can be introduced and spin-phonon interactions can be
+handled by the theory.
 
+<P>
+SIMPLICIUS: For the exotic matter which is todays main scientific interest because everything else is
+pretty well studied, there are important limits to your approach - I guess you are aware !
+
+<P>
+EWALD: The main limitation of the approach is that it neglects fluctuations associated with phase 
+transitions and quantum disorder. We are primarily concerned, therefore, with excitations 
+associated with a  well-ordered ground state.
+
+<P>
+Two special forms of the Hamiltonian (<A HREF="#hamilton">1</A>), which have been implemented
+are given in the following. Some other forms are also available, by programming
+a single ion module the user may treat any type single ion Hamiltonian <!-- MATH
+ $\hat \mathcal H(n)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img71.svg"
+ ALT="$\hat \mathcal H(n)$"></SPAN>.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html435"
+  HREF="node14.html">Rare Earth Ions</A>
+<LI><A ID="tex2html436"
+  HREF="node15.html">Intermediate Coupling</A>
+<LI><A ID="tex2html437"
+  HREF="node16.html">Summary</A>
 <UL>
-<LI>Write down the list of nonzero crystal field parameters in the crystal field Hamiltonian
-of a Nd<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img3.svg"
- ALT="$^{3+}$"></SPAN> ion in an orthorhombic crystal field (Section&nbsp;<A HREF="node15.html#cfield">6</A> describes how such a parameter set
-enters a <I CLASS="slanted">McPhase</I> calculation).
-</LI>
-<LI>Taking a primitive orthorhombic lattice of Nd<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img3.svg"
- ALT="$^{3+}$"></SPAN> ions write down the most general
-anisotropic bilinear interaction  for the nearest neighbour exchange interaction
-(Section&nbsp;<A HREF="node26.html#mcphasj">7.1.4</A> describes how such a parameters set enters a <I CLASS="slanted">McPhase calculation</I>).
-</LI>
-</UL>
-
-<P>
+<LI><A ID="tex2html438"
+  HREF="node17.html">Zeeman energy</A>
+<LI><A ID="tex2html439"
+  HREF="node18.html">Magnetic exchange</A>
+<LI><A ID="tex2html440"
+  HREF="node19.html">Intermediate coupling</A>
+<LI><A ID="tex2html441"
+  HREF="node20.html">Dzyaloshinskii-Moriya interaction</A>
+<LI><A ID="tex2html442"
+  HREF="node21.html">Classical dipole dipole interaction</A>
+<LI><A ID="tex2html443"
+  HREF="node22.html">Crystal field</A>
+<LI><A ID="tex2html444"
+  HREF="node23.html">Exchange striction</A>
+<LI><A ID="tex2html445"
+  HREF="node24.html">Phonons</A>
+<LI><A ID="tex2html446"
+  HREF="node25.html">Single-ion electrostatic and spin-orbit interaction</A>
+<LI><A ID="tex2html447"
+  HREF="node26.html">Magneto-elastic interaction</A>
+<LI><A ID="tex2html448"
+  HREF="node27.html">Elastic energy and external stress</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
 
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
@@ -173,28 +263,28 @@ anisotropic bilinear interaction  for the nearest neighbour exchange interaction
  HREF="node14.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node12.html">
+ HREF="manual.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node12.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html403"
-  HREF="node7.html">
+<A ID="tex2html431"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html405"
-  HREF="node164.html">
+<A ID="tex2html433"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node14.html">Intermediate Coupling</A>
+ HREF="node14.html">Rare Earth Ions</A>
 <B> Up:</B> <A
- HREF="node12.html">The Hamiltonian</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node12.html">The Hamiltonian</A>
- &nbsp; <B>  <A ID="tex2html404"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html406"
-  HREF="node164.html">Index</A></B> </DIV>
+ HREF="node12.html">Getting Started ... List</A>
+ &nbsp; <B>  <A ID="tex2html432"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html434"
+  HREF="node180.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

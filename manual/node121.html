@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Programs display_densities - display of the superstructure and excitations</TITLE>
+<TITLE>External module function spindensity_coeff - used by densplt, spins, display_density,display_densities</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,341 +23,114 @@
  HREF="node122.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node118.html">
+ HREF="node102.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node120.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html976"
-  HREF="node7.html">
+<A ID="tex2html1022"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html978"
-  HREF="node164.html">
+<A ID="tex2html1024"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node122.html">Program hkl, hkl2d and</A>
+ HREF="node122.html">External module function dspindensity_coeff1</A>
 <B> Up:</B> <A
- HREF="node118.html">Programs for Graphical display</A>
+ HREF="node102.html">Module Functions for Observables</A>
 <B> Previous:</B> <A
- HREF="node120.html">Programs display_density - display</A>
- &nbsp; <B>  <A ID="tex2html977"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html979"
-  HREF="node164.html">Index</A></B> 
+ HREF="node120.html">External module function dchargedensity_coeff1</A>
+ &nbsp; <B>  <A ID="tex2html1023"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1025"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000203000000000000000"></A><A ID="4254"></A><A ID="displaydensities"></A>
+<H3><A ID="SECTION0001621900000000000000"></A><A ID="4359"></A><A ID="4360"></A><A ID="4361"></A><A ID="4362"></A>
 <BR>
-Programs <I CLASS="slanted">display_densities</I>  - display of the superstructure
-and excitations
-</H2>
-
+External module function <I CLASS="slanted">spindensity_coeff</I> -
+used by <I CLASS="slanted">densplt</I>,
+<I CLASS="slanted">spins</I>,
+<I CLASS="slanted">display_density</I>,<I CLASS="slanted">display_densities</I>
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-The program <I CLASS="slanted">display_densities</I><A ID="4257"></A> 
-can be used simply to popout spin/exchange field configuration 
-and also to display a 3d animation of spin/moment/densities, even including a movie of
-excitations.
-
+<SPAN CLASS="SMALL">In order to calculate spindensities
+the following function has to be
+present in the module file <I CLASS="slanted">*.so</I>:
+</SPAN>
 <P>
-
-<DIV class="CENTER"><A ID="spingraphic"></A><A ID="8540"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 25:</STRONG>
-Calculated Spin-Structure of NdCu<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN> at <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img21.svg"
- ALT="$T=$"></SPAN>&nbsp;1.5&nbsp;K and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img22.svg"
- ALT="$H=0$"></SPAN>.
-[plot created by program <I CLASS="slanted">display_densities</I><A ID="4263"></A>]</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-
-<IMG
- STYLE="height: 84.40ex; vertical-align: -0.12ex; " SRC="img1028.svg"
- ALT="\includegraphics[angle=0, width=1.0\textwidth]{figsrc/ndcu2b/resultss/spinsab.eps}">
-
-</DIV></TD></TR>
-</TABLE>
-</DIV>
-
+<SPAN CLASS="SMALL"></SPAN><PRE>
+extern "C" void spindensity_coeff(Vector &amp;aSlm, int &amp; xyz, double *T,Vector &amp;Hxc, 
+   Vector &amp; Hext,double *gJ,Vector &amp;MODPAR,char **sipffilename,ComplexMatrix &amp; Icalc_parstorage);
+</PRE><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-<DL>
-<DT><STRONG> display_densities -f[c 12 0.1] mcphas.sps T Ha Hb Hc</STRONG></DT>
-<DD>
-</DD>
-<DT><STRONG> display_densities -f mcphas.sps x y</STRONG></DT>
-<DD>
-</DD>
-<DT><STRONG> display_densities -f mcphas.sps n</STRONG></DT>
-<DD>if used with -f filename this file has to be a mcphas.mf or mcphas.sps or mcphas.tst file,
-the spin configuration
-   at given temperature T[K] and magnetic effective field H[T]
-    is read and extracted from this file and printed on screen (stdout), nothing
- else is done. Insterad of temperature and magnetic field also the x y point coordinates
-in the phasediagram or the index n (from the sequence of spin configuartions) can be given.
-the option -fc 12 0.1 displays a commented user readable information about the 12 largerst
-spin components in the primitive unit cell with absolute values larger than 0.1 (useful for
-inspection of numbers).
-</DD>
-<DT><STRONG> display_densities -tMSL -prefix 001 &nbsp; T Ha Hb Hc</STRONG></DT>
-<DD>
-</DD>
-<DT><STRONG> display_densities -tHex -prefix 001T Ha Hb Hc</STRONG></DT>
-<DD>
-</DD>
-<DT><STRONG> display_densities -tI -prefix 001T Ha Hb Hc</STRONG></DT>
-<DD>if used with -t... output to stdout a table with T Ha Hb Hc atom positions and
-for -tMSL 
-              magnetic moments <!-- MATH
- $\langle Mx \rangle \langle My \rangle \langle Mz \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1029.svg"
- ALT="$\langle Mx \rangle \langle My \rangle \langle Mz \rangle$"></SPAN>, orbital moments and spin 
-              of each atom in the magnetic unitc cell , for 
-       -tHex  exchange fields and for 
-       -tI    with expectation values of interaction operators <!-- MATH
- $\langle I \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img779.svg"
- ALT="$\langle I \rangle$"></SPAN>.
-
+<SPAN CLASS="SMALL">Note for windows users with MINGW the declaration should be <I CLASS="slanted">extern "C" __declspec(dllexport) void spindensity_coeff(...)</I>.
+</SPAN>
 <P>
-</DD>
-<DT><STRONG>display_densities -c<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
- ALT="$\vert$"></SPAN>-s<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
- ALT="$\vert$"></SPAN>-o<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
- ALT="$\vert$"></SPAN>-m<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
- ALT="$\vert$"></SPAN>-j-p i j k<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
- ALT="$\vert$"></SPAN>-div-S<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
- ALT="$\vert$"></SPAN>-L<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
- ALT="$\vert$"></SPAN>-M-P-prefix 001T Ha Hb Hc [h k l E]</STRONG></DT>
-<DD>
-</DD>
-<DT><STRONG>display_densities -c<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
- ALT="$\vert$"></SPAN>-s<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
- ALT="$\vert$"></SPAN>-o<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
- ALT="$\vert$"></SPAN>-m<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
- ALT="$\vert$"></SPAN>-j-p i j k<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
- ALT="$\vert$"></SPAN>-div-S<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
- ALT="$\vert$"></SPAN>-L<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
- ALT="$\vert$"></SPAN>-M-P-prefix 001x y</STRONG></DT>
-<DD>if used without a filename, the information is read from results/mcphas.* res
-ults/mcdisp.*
-   output files and 3d graphical animations are created.
-</DD>
-</DL> 
-<PRE>
-   options are:
-         -c ... calculate chargedensity
-         -s ... calculate spindensity
-         -o ... calculate angular orbital momentum density
-         -m ... calculate magnetic moment density
-         -j ... calculate currentdensity
-         -p i j k ... calculate projection of spin/orbital/current/magnetic moment density
-                  along direction i j k, e.g. 0 0 1
-         -div    ... calculate divergence of spin/orbital/current/magnetic moment density
-         -S  ... show arrow indicating spin
-         -L  ... show arrow indicating orbital angular momentum
-         -M  ... show arrow indicating magnetic moment
-         -P  ... calculate phononic displacement
-         note, that in order to animate changes in the above quantities, the corresponding
-         switch has to be enabled in the mcdisp calculation (mcdisp.par) and the single ion
-         modules have to be capable of calculating the corresponding observables.
- 
-         -prefix 001 ... use input file(s) results/001mc* instead of results/mc*
- 
-   examples:
-        display_densities -c 2 0 0 1
-        ...calculates the charge density at T=2K and H=(0,0,1) Tesla
-        display_densities  -tI 2 0 0 1 
-        ... outputs a table with atomic positions and expectations values &lt;I&gt;
-</PRE>
-
+<SPAN CLASS="SMALL">The meaning of the symbols is as follows:
+<SPAN CLASS="FOOTNOTESIZE">
+</SPAN></SPAN><PRE>
+  on input
+    xyz         direction index 1,2,3 = x,y,z (component for the spindensity vector to be calculated)
+    T           temperature[K]
+    Hxc        vector of exchange field [meV] (can be n-dimensional, for a set of n operators)
+     Hext      external magnetic field [T]
+    gJ          Lande factor
+    MODPAR      Vector with Parameters  read in single ion property file
+    sipffilename    file name of the single ion parameter file
+    Icalc_parstorage parameter matrix (initialized by Icalc_parameter_storage_matrix_init)
+                   it should/may contain any information, e.g. population numbers of the
+				   states (imaginary part of row 0)
+                   and eigenvalues (real part of row 0) with values set by the most recent call
+                   for this ion (making use of this matrix is optional)
+  on output
+    aSlm         Output single ion moments =expectation values of
+                coefficients of Zlm R^2(r) at a given temperature T and
+                effective field H
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+</SPAN>
 <P>
-
-<DIV class="CENTER"><A ID="chargegraphic"></A><A ID="8541"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 26:</STRONG>
-Calculated 4f Charge-Structure of NdCu<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN> at <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img21.svg"
- ALT="$T=$"></SPAN>&nbsp;1.5&nbsp;K and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img22.svg"
- ALT="$H=0$"></SPAN>.
-[plot created by program <I CLASS="slanted">display_densities</I><A ID="4276"></A>]</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-
-<IMG
- STYLE="height: 59.15ex; vertical-align: -0.12ex; " SRC="img1030.svg"
- ALT="\includegraphics[angle=0, width=0.7\textwidth]{figsrc/ndcu2b/resultss/chargesab.eps}">
-
-</DIV></TD></TR>
-</TABLE>
-</DIV>
-
-<P>
-The program can be used to calculate (partial) chargedensity for the unfilled shells
- of magnetic ions in  a magnetic unit cell, which has been calculated by <I CLASS="slanted">mcphas</I> and
- stored in <I CLASS="slanted">mcphas.mf</I> for a specific temperature and magnetic field.
-   For the calculation of the charge density the  formula are used as given in
-appendix&nbsp;<A HREF="node150.html#chargedensityoperator">L</A>. 
-In order to do so <I CLASS="slanted">display_densities</I><A ID="4283"></A>  requires input files and the result of a
-full <I CLASS="slanted">mcphas</I> simulation.
-Alternatively, <I CLASS="slanted">display_densities</I><A ID="4286"></A>
-can  calculate the spindensity, the orbital magnetic moment density, the total magnetic
-moment density (in Trammel gauge) and the (orbital) electric current density.
-
-<P>
-The program outputs a magnetic structure (and magnetic excitation)
-  graphic/movie in the output files of different format:
-  results/spins*.eps (postscript), results/spins*.fst (fp_studio),
-  results/spins.out (ascii) and results/spins*.jvx (javaview).
-
-<P>
-Output files:
-
+<SPAN CLASS="SMALL">The module function must perform the following tasks:
+</SPAN>
 <OL>
-<LI>encapsulated postscript ps-file <I CLASS="slanted">results/spins*.eps</I>
-                  of a spin/orbital/totalmagnetic moment configuration, 
-</LI>
-<LI>the files <I CLASS="slanted">results/spins.fst</I> and <I CLASS="slanted">results/spins_prim.fst</I> are created, 
-                which can be read by the fullprof program <I CLASS="slanted">fp_studio</I>
-                for on screen display<A ID="4292"></A> of a spin/orbital/totalmagnetic moment configuration,
-</LI>
-<LI>the configuration of expectation values <!-- MATH
- $\langle\mathbf I\rangle$
+<LI>calculate the coefficients of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.77ex; " SRC="img1006.svg"
+ ALT="$Z_l^m R^2(r)$"></SPAN> in the expansion of
+      the spin density vector <!-- MATH
+ $M^S_{x,y,z}=\sum_{l,m} a^{x,y,z}_{S,lm} Z_l^m R^2(r)$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1031.svg"
- ALT="$\langle\mathbf I\rangle$"></SPAN> (or whatever is stored in the file addressed by the option -f)
-                 is printed to stdout - therefore this program can be used with option <I CLASS="slanted">-f results/mcphas.mf</I> 
-			       to generate an input file
-			       for program <I CLASS="slanted">McDisp</I> (example: <I CLASS="slanted">spins -f results/mcphas.mf 1 1 0 0  <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.57ex; vertical-align: -0.21ex; " SRC="img130.svg"
- ALT="$&gt;$"></SPAN> mcdisp.mf</I>)  
-</LI>
-<LI>the text file <I CLASS="slanted">results/spins.out</I> is created, which is useful to produce input files for
-              the diffraction program <I CLASS="slanted">mcdiff<A ID="4297"></A></I> (done in the script <I CLASS="slanted">setup_mcdiff_in</I>)
-</LI>
-<LI>the graphics files <I CLASS="slanted">results/spins.jvx</I> and <I CLASS="slanted">results/spins_prim.jvx</I>, which can be displayed
-         by the program <I CLASS="slanted">javaview</I>, e.g. by the command <I CLASS="slanted">java javaview spin_prim.jvx</I>.
-</LI>
-<LI>if <I CLASS="slanted">spins</I> is used with arguments <I CLASS="slanted">h k l E(meV)</I>, it takes the eigenvectors of magnetic 
-excitations
-        from files <I CLASS="slanted">results/mcdisp.q*</I>  created by <I CLASS="slanted">mcdisp</I>) and produces a graphical
-        animation of the spin osciallation which is associated with this magnetic mode. The output is a series
-        of files <I CLASS="slanted">results/spins.*.jvx</I> and <I CLASS="slanted">results/spins_prim.*.jvx</I> which can be viewed by program
-        <I CLASS="slanted">javaview</I>, e.g. by the command <I CLASS="slanted">java javaview "model=results/spins_prim.*.jvx" 
-        Animation.LastKey=16 background="255 255 255"</I>.  <I CLASS="slanted">javaview</I> is also able to produce a sequence
-		of gif files (press c in the animation window), which can then be processed by an animation editor
-		to generate an animation, which can be inserted in presentations. For example, you can use
- <I CLASS="slanted">Imagemagick</I> graphics package (has to be installed separately!)
-        to create an animation. The following command will issue a proper gif animation, which you can include in 
-           power point        
-        presentations etc.: <I CLASS="slanted">convert -delay 1 -size 100x100 -loop 1 geomAnim.*.gif output.gif</I>.
- 
-</LI>
-</OL>
-
-<P>
-Note, in case of non-orthogonal axes the convention 
-                           for applied field <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img172.svg"
- ALT="$Ha, Hb, Hc$"></SPAN> 
-                            is <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img246.svg"
- ALT="$Hb\vert\vert\vec b$"></SPAN>, <!-- MATH
- $Hc||(\vec a \times \vec b)$
+ STYLE="height: 3.19ex; vertical-align: -1.13ex; " SRC="img1007.svg"
+ ALT="$M^S_{x,y,z}=\sum_{l,m} a^{x,y,z}_{S,lm} Z_l^m R^2(r)$"></SPAN>
+      The output Vector alm(1,...,49) should contain  <!-- MATH
+ $a^{x,y,z}_{S,lm}$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img247.svg"
- ALT="$Hc\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img176.svg"
- ALT="$Ha$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img177.svg"
- ALT="$Hb$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img178.svg"
- ALT="$Hc$"></SPAN>.
-
+ STYLE="height: 3.05ex; vertical-align: -1.13ex; " SRC="img1008.svg"
+ ALT="$a^{x,y,z}_{S,lm}$"></SPAN>
+      in the following order (lm):  00,1-1, 10,11, 2-2, 2-1,20,21,22, 3-3, 3-2, ...,65,66
+</LI>
+<LI>if <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.90ex; vertical-align: -0.21ex; " SRC="img949.svg"
+ ALT="$T&lt;0$"></SPAN> all quantities should be evaluated assuming that all Boltzmann probabilities <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img219.svg"
+ ALT="$p_i$"></SPAN>
+ are zero except for the state number <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img950.svg"
+ ALT="$n=(-T)$"></SPAN>, for which the probability <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img951.svg"
+ ALT="$p_n=1$"></SPAN>.
+</LI>
+</OL><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-The graphics output format can be fine tuned in <I CLASS="slanted">results/graphic_parameters.set</I> 
-  by  <I CLASS="slanted">spins_scale_moment</I>,
-<I CLASS="slanted">show_abc_unitcell, show_primitive_crystal_unitcell, show_magnetic_unitcell, show_atoms, 
-scale_view_1,
-scale_view_2, scale_view_3</I>,  
-<I CLASS="slanted">spins_wave_amplitude, spins_show_ellipses, spins_show_direction_of_static_moment</I>.
-<I CLASS="slanted">show_abc_unitcell, show_primitive_crystal_unitcell, show_magnetic_unitcell, show_atoms, show_density</I>...
-
-<P>
-Technical information: the program <I CLASS="slanted">display_densities</I><A ID="4321"></A> 
-is actually a script which
-calls  <I CLASS="slanted">spins<A ID="4322"></A></I> 
- (a program with the same arguments as <I CLASS="slanted">display_densities</I>
-which calculates the iso surfaces and stores
-it in format for the java based graphic program <I CLASS="slanted">javaview</I> and
-also as a grid. The way in which this is done is controlled by 
-the parameter file <I CLASS="slanted">results/graphic_parameters.set</I>
-.... in  order to display the results graphically the following java
-programs are called:
-<PRE>
-  java javaview results/spins.jvx
-  java javaview "model=results/spins.*.jvx" Animation.LastKey=16 background="255 255 255"
-</PRE>
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node122.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node118.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node120.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html976"
-  HREF="node7.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html978"
-  HREF="node164.html">
-<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A
- HREF="node122.html">Program hkl, hkl2d and</A>
-<B> Up:</B> <A
- HREF="node118.html">Programs for Graphical display</A>
-<B> Previous:</B> <A
- HREF="node120.html">Programs display_density - display</A>
- &nbsp; <B>  <A ID="tex2html977"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html979"
-  HREF="node164.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<SPAN CLASS="SMALL"></SPAN>
+<BR><HR>
 
 </BODY>
 </HTML>

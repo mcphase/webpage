@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Formalism I - Resonant Magnetic Xray Scattering Intensity</TITLE>
+<TITLE>Example mcphas.j file for a simple antiferromagnet</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,295 +23,218 @@
  HREF="node41.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node37.html">
+ HREF="node35.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node39.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html549"
-  HREF="node7.html">
+<A ID="tex2html597"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html551"
-  HREF="node164.html">
+<A ID="tex2html599"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node41.html">Formalism II - Neutron</A>
+ HREF="node41.html">Single Ion Property Input</A>
 <B> Up:</B> <A
- HREF="node37.html">mcdiff - calculate and</A>
+ HREF="node35.html">Input Files</A>
 <B> Previous:</B> <A
- HREF="node39.html">How to calculate only</A>
- &nbsp; <B>  <A ID="tex2html550"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html552"
-  HREF="node164.html">Index</A></B> 
+ HREF="node39.html">mcphas.j - lattice and</A>
+ &nbsp; <B>  <A ID="tex2html598"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html600"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000113000000000000000">
-Formalism I - Resonant Magnetic Xray Scattering Intensity</A>
-</H2>
-
-<P>
-The resonant magnetic scattering intensity is calculated as outlined for example in&nbsp;[<A
- HREF="node163.html#longfield02-054417">29</A>]
-for the magnetic electric dipole scattering according to the squared absolute value of the scattering
-amplitude given for the ion <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
- ALT="$n$"></SPAN> in the lattice as
-
-<P>
+<H3><A ID="SECTION00091500000000000000"></A><A ID="1373"></A>
 <BR>
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{eqnarray}
-&&f_{nE1}^{RXMS}=   \\
-&&=\left (
-\begin{array}{cc}
-\sigma \rightarrow \sigma & \pi \rightarrow \sigma \\
-\sigma \rightarrow \pi & \pi \rightarrow \pi 
-\end{array}
- \right) = F^{(0)}
-\left ( \begin{array}{cc}
-1 & 0 \\
-0 & \cos2\Theta 
-\end{array} \right )
--iF^{(1)}  \nonumber \\
-&&\times 
-\left ( \begin{array}{cc}
-0 & z_1 \cos \Theta + z_3 \sin \Theta \\
-z_3 \sin \Theta - z_1 \cos \Theta & -z_2 \sin 2\Theta  
-\end{array} \right ) + F^{(2)}\nonumber \\
-&&\times 
-\left ( \begin{array}{cc}
-z_2^2 & -z_2(z_1 \sin \Theta - z_3 \cos \Theta) \\
-+z_2(z_1 \sin \Theta + z_3 \cos \Theta) & -\cos^2 \Theta (z_1^2 \tan^2 \Theta + z_3^2)
-\end{array} \right ) \nonumber \\
-\end{eqnarray}
- -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 2.87ex; vertical-align: -0.69ex; " SRC="img259.svg"
- ALT="$\displaystyle f_{nE1}^{RXMS}=$"></TD><TD class="rfill">(<SPAN CLASS="arabic">23</SPAN>)</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 5.79ex; vertical-align: -2.32ex; " SRC="img260.svg"
- ALT="$\displaystyle =\left (
-\begin{array}{cc}
-\sigma \rightarrow \sigma &amp; \pi \right...
-...ft ( \begin{array}{cc}
-1 &amp; 0 \\
-0 &amp; \cos2\Theta
-\end{array} \right )
--iF^{(1)}$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 5.79ex; vertical-align: -2.32ex; " SRC="img261.svg"
- ALT="$\displaystyle \times
-\left ( \begin{array}{cc}
-0 &amp; z_1 \cos \Theta + z_3 \sin \...
-...sin \Theta - z_1 \cos \Theta &amp; -z_2 \sin 2\Theta
-\end{array} \right ) + F^{(2)}$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 5.79ex; vertical-align: -2.32ex; " SRC="img262.svg"
- ALT="$\displaystyle \times
-\left ( \begin{array}{cc}
-z_2^2 &amp; -z_2(z_1 \sin \Theta - z...
-...cos \Theta) &amp; -\cos^2 \Theta (z_1^2 \tan^2 \Theta + z_3^2)
-\end{array} \right )$"></TD><TD class="rfill">&nbsp;</TD></TR>
-</TABLE></DIV> 
-
+Example <I CLASS="slanted">mcphas.j</I> file for a simple antiferromagnet
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-Here, dropping the site index <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
- ALT="$n$"></SPAN>, <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img254.svg"
- ALT="$\Theta$"></SPAN> is the Bragg scattering angle and
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img263.svg"
- ALT="$z_1, z_2$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img264.svg"
- ALT="$z_3$"></SPAN> aree components of the magnetization vector with respect
-to the coordinate system <!-- MATH
- $[\mathbf u_1,\mathbf u_2,\mathbf u_3]$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img265.svg"
- ALT="$[\mathbf u_1,\mathbf u_2,\mathbf u_3]$"></SPAN>. The scattering plane, defined by the
-direction of the incident and final wave vectors  <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img266.svg"
- ALT="$\mathbf k$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.97ex; vertical-align: -0.12ex; " SRC="img267.svg"
- ALT="$\mathbf k'$"></SPAN>, contains <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.61ex; vertical-align: -0.46ex; " SRC="img268.svg"
- ALT="$\mathbf u_1$"></SPAN> lying
-perpendicular and in the sense of <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img266.svg"
- ALT="$\mathbf k$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.61ex; vertical-align: -0.46ex; " SRC="img269.svg"
- ALT="$\mathbf u_3$"></SPAN> parallel to the scattering
-vector <!-- MATH
- $\mathbf Q=\mathbf k-\mathbf k'$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.42ex; vertical-align: -0.57ex; " SRC="img270.svg"
- ALT="$\mathbf Q=\mathbf k-\mathbf k'$"></SPAN>. The scattering channels for <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.29ex; vertical-align: -0.12ex; " SRC="img271.svg"
- ALT="$F^{(1)}$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.87ex; vertical-align: -0.70ex; " SRC="img272.svg"
- ALT="$F^(2)$"></SPAN> terms are considered
-separately and no interference is considered. 
-
+<SPAN CLASS="SMALL">Here are example files of a tetragonal antiferromagnet with nearest neighbour interactions, all
+files are equivalent:
+</SPAN>
 <P>
-To determine the azimuthal dependence the <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img273.svg"
- ALT="$z_i$"></SPAN> are expanded in terms of the components
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.89ex; vertical-align: -0.78ex; " SRC="img274.svg"
- ALT="$\mu_x,\mu_y$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img275.svg"
- ALT="$\mu_z$"></SPAN> of the magnetic moment along the orthogonal euclidean coordinate
-system defined by  y||b, z||(a x b) and x perpendicular to y and z.
-
+<SPAN CLASS="SMALL"><SPAN CLASS="SMALL">
+</SPAN></SPAN><PRE> 
+# simple antiferromagnet 
+#&lt;!--mcphase.mcphas.j--&gt;
+#***************************************************************
+# Lattice Constants (A)
+#! a=4.3843 b=4.3843 c=2.4194 alpha=  90 beta=  90 gamma=  90
+#! r1a=   1 r2a=   0 r3a=   0
+#! r1b=   0 r2b=   1 r3b=   0   primitive lattice vectors [a][b][c]
+#! r1c=   0 r2c=   0 r3c=   1
+#! nofatoms=1  nofcomponents=3  number of atoms in primitive unit cell/number of components of each spin
+# ****************************************************************************
+#! da=  0 [a] db=  0 [b] dc=  0 nofneighbours=2 diagonalexchange=0  sipffilename=Ce3p.sipf
+# da[a] db[b] dc[c] Jaa[meV] Jbb[meV] Jcc[meV] Jab[meV] Jba[meV] Jac[meV] Jca[meV] Jbc[meV] Jcb[meV]
++0	+0	+1	-0.1	-0.1	-0.1   0  0  0  0  0  0
++0	+0	-1	-0.1	-0.1	-0.1   0  0  0  0  0  0
+#
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="SMALL"></SPAN>
+</SPAN>
 <P>
-<BR>
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{eqnarray}
-z_1&=&\mu_x \sin \alpha_1 \cos(\Psi+\delta_1)+\mu_y \sin \alpha_2 \cos(\Psi +\delta_2) \nonumber \\
-&& +\mu_z \sin \alpha_3 \cos (\Psi +\delta_3), \nonumber \\
-z_2 & = & \mu_x \sin \alpha_1 \sin (\Psi +\delta_1)+\mu_y \sin \alpha_2 \sin (\Psi+\delta_2) \nonumber \\
-& & +\mu_z \sin \alpha_3 \sin (\Psi +\delta_3) \nonumber \\
-z_3 & = & \mu_x \cos \alpha_1 + \mu_y \cos \alpha_2 + \mu_z \cos \alpha_3 
-\end{eqnarray}
- -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img276.svg"
- ALT="$\displaystyle z_1$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img277.svg"
- ALT="$\displaystyle \mu_x \sin \alpha_1 \cos(\Psi+\delta_1)+\mu_y \sin \alpha_2 \cos(\Psi +\delta_2)$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img278.svg"
- ALT="$\displaystyle +\mu_z \sin \alpha_3 \cos (\Psi +\delta_3),$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img279.svg"
- ALT="$\displaystyle z_2$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img280.svg"
- ALT="$\displaystyle \mu_x \sin \alpha_1 \sin (\Psi +\delta_1)+\mu_y \sin \alpha_2 \sin (\Psi+\delta_2)$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img281.svg"
- ALT="$\displaystyle +\mu_z \sin \alpha_3 \sin (\Psi +\delta_3)$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img282.svg"
- ALT="$\displaystyle z_3$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 2.24ex; vertical-align: -0.78ex; " SRC="img283.svg"
- ALT="$\displaystyle \mu_x \cos \alpha_1 + \mu_y \cos \alpha_2 + \mu_z \cos \alpha_3$"></TD><TD class="rfill">(<SPAN CLASS="arabic">24</SPAN>)</TD></TR>
-</TABLE></DIV>
-
+<SPAN CLASS="SMALL">Using diagonalexchange this may be shortened to
+</SPAN>
 <P>
-with angles <!-- MATH
- $\alpha_i=\angle( \hat \mathbf x_i \cdot \mathbf u_3)_{\Psi=0}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img284.svg"
- ALT="$\alpha_i=\angle( \hat \mathbf x_i \cdot \mathbf u_3)_{\Psi=0}$"></SPAN> 
-and <!-- MATH
- $\delta_i=\angle(\mathbf x_i^{\perp}\cdot \mathbf u_1)_{\Psi=0}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.80ex; vertical-align: -0.72ex; " SRC="img285.svg"
- ALT="$\delta_i=\angle(\mathbf x_i^{\perp}\cdot \mathbf u_1)_{\Psi=0}$"></SPAN>, 
-where <!-- MATH
- $\hat \mathbf x_{1,2,3}=\hat \mathbf x,\hat \mathbf y,\hat \mathbf z$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.53ex; vertical-align: -0.78ex; " SRC="img286.svg"
- ALT="$\hat \mathbf x_{1,2,3}=\hat \mathbf x,\hat \mathbf y,\hat \mathbf z$"></SPAN> 
-and <!-- MATH
- $\mathbf x_i^{\perp}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.80ex; vertical-align: -0.72ex; " SRC="img287.svg"
- ALT="$\mathbf x_i^{\perp}$"></SPAN> is the projection of
-<!-- MATH
- $\hat \mathbf x_i$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.22ex; vertical-align: -0.46ex; " SRC="img288.svg"
- ALT="$\hat \mathbf x_i$"></SPAN> onto the plane perpendicular to <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.27ex; vertical-align: -0.57ex; " SRC="img289.svg"
- ALT="$\mathbf Q$"></SPAN>. In the chosen experimental geometry
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img290.svg"
- ALT="$\Psi=0$"></SPAN> when <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.26ex; vertical-align: -0.12ex; " SRC="img291.svg"
- ALT="$\mathbf x$"></SPAN> points to the x-ray source (and for the special case
-of <!-- MATH
- $\mathbf Q|| \mathbf x$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img292.svg"
- ALT="$\mathbf Q\vert\vert \mathbf x$"></SPAN> when <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.71ex; vertical-align: -0.57ex; " SRC="img293.svg"
- ALT="$\mathbf y$"></SPAN> points to the x-ray source).
-
+<SPAN CLASS="SMALL"><SPAN CLASS="SMALL">
+</SPAN></SPAN><PRE> 
+# simple antiferromagnet 
+#&lt;!--mcphase.mcphas.j--&gt;
+#***************************************************************
+# Lattice Constants (A)
+#! a=4.3843 b=4.3843 c=2.4194 alpha=  90 beta=  90 gamma=  90
+#! r1a=   1 r2a=   0 r3a=   0
+#! r1b=   0 r2b=   1 r3b=   0   primitive lattice vectors [a][b][c]
+#! r1c=   0 r2c=   0 r3c=   1
+#! nofatoms=1  nofcomponents=3  number of atoms in primitive unit cell/number of components of each spin
+# ****************************************************************************
+#! da=  0 [a] db=  0 [b] dc=  0 nofneighbours=2 diagonalexchange=1  sipffilename=Ce3p.sipf
+# da[a] db[b] dc[c] Jaa[meV] Jbb[meV] Jcc[meV] Jab[meV] Jba[meV] Jac[meV] Jca[meV] Jbc[meV] Jcb[meV]
++0	+0	+1	-0.1	-0.1	-0.1   
++0	+0	-1	-0.1	-0.1	-0.1   
+#
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="SMALL"></SPAN>
+</SPAN>
 <P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node41.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node37.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node39.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html549"
-  HREF="node7.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html551"
-  HREF="node164.html">
-<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A
- HREF="node41.html">Formalism II - Neutron</A>
-<B> Up:</B> <A
- HREF="node37.html">mcdiff - calculate and</A>
-<B> Previous:</B> <A
- HREF="node39.html">How to calculate only</A>
- &nbsp; <B>  <A ID="tex2html550"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html552"
-  HREF="node164.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<SPAN CLASS="SMALL">with indexexchange option the sequence of two ion interaction parameters can be changed and
+zero parameters may be omitted:
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"><SPAN CLASS="SMALL">
+</SPAN></SPAN><PRE> 
+# simple antiferromagnet 
+#&lt;!--mcphase.mcphas.j--&gt;
+#***************************************************************
+# Lattice Constants (A)
+#! a=4.3843 b=4.3843 c=2.4194 alpha=  90 beta=  90 gamma=  90
+#! r1a=   1 r2a=   0 r3a=   0
+#! r1b=   0 r2b=   1 r3b=   0   primitive lattice vectors [a][b][c]
+#! r1c=   0 r2c=   0 r3c=   1
+#! nofatoms=1  nofcomponents=3  number of atoms in primitive unit cell/number of components of each spin
+# ****************************************************************************
+#! da=  0 [a] db=  0 [b] dc=  0 nofneighbours=2 diagonalexchange=2  sipffilename=Ce3p.sipf
+# da[a] db[b] dc[c] Jaa[meV] Jbb[meV] Jcc[meV] Jab[meV] Jba[meV] Jac[meV] Jca[meV] Jbc[meV] Jcb[meV]
+#! indexexchange = JaJa JaJc JcJa JbJb JcJc
++0	+0	+1	-0.1 0 0 -0.1	-0.1  
++0	+0	-1	-0.1 0 0 -0.1	-0.1  
+#
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="SMALL"></SPAN>
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"><SPAN CLASS="SMALL">
+</SPAN></SPAN><PRE> 
+# simple antiferromagnet 
+#&lt;!--mcphase.mcphas.j--&gt;
+#***************************************************************
+# Lattice Constants (A)
+#! a=4.3843 b=4.3843 c=2.4194 alpha=  90 beta=  90 gamma=  90
+#! r1a=   1 r2a=   0 r3a=   0
+#! r1b=   0 r2b=   1 r3b=   0   primitive lattice vectors [a][b][c]
+#! r1c=   0 r2c=   0 r3c=   1
+#! nofatoms=1  nofcomponents=3  number of atoms in primitive unit cell/number of components of each spin
+# ****************************************************************************
+#! da=  0 [a] db=  0 [b] dc=  0 nofneighbours=2 diagonalexchange=2 sipffilename=Ce3p.sipf
+# da[a] db[b] dc[c] Jaa[meV] Jbb[meV] Jcc[meV] Jab[meV] Jba[meV] Jac[meV] Jca[meV] Jbc[meV] Jcb[meV]
+#! indexexchange = 1,1 1,3, 3,1 2,2 3,3
++0	+0	+1	-0.1 0 0 -0.1	-0.1  
++0	+0	-1	-0.1 0 0 -0.1	-0.1  
+#
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="SMALL"></SPAN>
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">using symmetricexchange together with indexexchange will assume that the interaction tensor is symmetic and 
+only half of it may be given:
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"><SPAN CLASS="SMALL">
+</SPAN></SPAN><PRE> 
+# simple antiferromagnet 
+#&lt;!--mcphase.mcphas.j--&gt;
+#***************************************************************
+# Lattice Constants (A)
+#! a=4.3843 b=4.3843 c=2.4194 alpha=  90 beta=  90 gamma=  90
+#! r1a=   1 r2a=   0 r3a=   0
+#! r1b=   0 r2b=   1 r3b=   0   primitive lattice vectors [a][b][c]
+#! r1c=   0 r2c=   0 r3c=   1
+#! nofatoms=1  nofcomponents=3  number of atoms in primitive unit cell/number of components of each spin
+# ****************************************************************************
+#! da=  0 [a] db=  0 [b] dc=  0 nofneighbours=2 diagonalexchange=2 sipffilename=Ce3p.sipf
+# da[a] db[b] dc[c] Jaa[meV] Jbb[meV] Jcc[meV] Jab[meV] Jba[meV] Jac[meV] Jca[meV] Jbc[meV] Jcb[meV]
+#! symmetricexchange=1 indexexchange = JaJa JaJc JbJb JcJc
++0	+0	+1	-0.1 0  -0.1	-0.1  
++0	+0	-1	-0.1 0  -0.1	-0.1  
+#
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="SMALL"></SPAN>
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">For magnetoelastic problems elastic constants and  magnetoelastic interactions  can be entered in the following form,
+for the definition of the magnetoelastic constants <!-- MATH
+ $G_{\rm cfph}^{(\alpha\beta)\gamma}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.66ex; vertical-align: -1.13ex; " SRC="img304.svg"
+ ALT="$G_{\rm cfph}^{(\alpha\beta)\gamma}$"></SPAN>
+see equation (<A HREF="node79.html#Gcfph">132</A>):
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"><SPAN CLASS="SMALL">
+</SPAN></SPAN><PRE> 
+# antiferromagnet with magnetoelastic interactions
+#&lt;!--mcphase.mcphas.j--&gt;
+#***************************************************************
+# Lattice Constants (A)
+# Lattice Constants (A)
+#! a=8.062 b=8.062 c=8.062 alpha=90 beta=90 gamma=90
+#! r1a=0 r2a=0.5 r3a=0.5
+#! r1b=0.5 r2b=0 r3b=0.5 primitive lattice vectors [a][b][c]
+#! r1c=0.5 r2c=0.5 r3c=0
+#! nofatoms=1  nofcomponents=3  number of atoms in primitive unit cell/number of components of each spin
+#
+#! Primitive Unit Cell Volume [A^3]: pVol=130.999123582
+# Nonzero Elastic constants   in meV per primitive unit cell in Voigt notation only first index&lt;=second index has to be given
+# because the constants are symmetric Celij=Celji
+# Elastic constants refer to the Euclidean coordinate system ijk defined
+# with respect to abc as j||b, k||(a x b) and i normal to k and j
+# Note: these elastic constants refer to the elastic energy in the Hemiltonian
+#   and do not necessarily correspond to the experimental elastic constants
+# a) if phonon degrees of freedom are present, use elastic constants as created by 
+#    makenn (see manual section on Crystal field Phonon Interaction -  Elastic energy)
+# b) if only magnetic ions are present - use effective elastic constants 
+#    as measured at high temperature or computed by mcphasit or     reduce_unitcell from a 
+#    phonon model    
+#!  Cel11=+121111.877 Cel12=+35479.1703 Cel13=+35479.1703
+#!  Cel22=+121111.877 Cel23=+35479.1703
+#!  Cel33=+121111.877
+#!  Cel44=+35479.1703
+#!  Cel55=+35479.1703
+#!  Cel66=+35479.1703 
+#! unit conversion:  1 meV/Primitive Unit Cell Volume =0.00122304635038043 GPa
+#
+# ****************************************************************************
+#! da=  0 [a] db=  0 [b] dc=  0 nofneighbours=2 diagonalexchange=2 sipffilename=Ce3p.sipf
+#   G indices:  
+#  epsilon_alphabeta(strain tensor indices-Voigt Notation),gamma(I-operator index, see so1ion Module definition)
+#   .... this is explicitely ....
+#          eps6,O22S eps4,O21S eps1,O20  eps2,O20 eps3,O20 ... 
+#! Gindices=  6,4      4,5       1,6        2,6      3,6    5,7 1,8 2,8 4,17 6,18  6,19 1,20 2,20  4,21 6,21 1,22 4,23  6,23 1,24 2,24 
+#   corresponding magnetoelastic constants (meV)
+#! G=  21.28 42.56 10.64 10.64 -21.28 42.56  -31.9231.92 -0.462 -0.132 0.066  0.0642 0.064 0.096 0.066 -0.126 0.126 0.46 0.448 0.448 0.228
+# da[a] db[b] dc[c] Jaa[meV] Jbb[meV] Jcc[meV] Jab[meV] Jba[meV] Jac[meV] Jca[meV] Jbc[meV] Jcb[meV]
+#! symmetricexchange=1 indexexchange = JaJa JaJc JbJb JcJc
++0	+0	+1	-0.1 0  -0.1	-0.1  
++0	+0	-1	-0.1 0  -0.1	-0.1  
+#
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="SMALL"></SPAN>
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR><HR>
 
 </BODY>
 </HTML>

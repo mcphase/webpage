@@ -1,0 +1,378 @@
+<!DOCTYPE HTML>
+
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
+<HTML lang="en">
+<HEAD>
+<TITLE>Installation of the program package</TITLE>
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node179.html">
+<LINK REL="previous" HREF="node177.html">
+<LINK REL="next" HREF="node179.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A
+ HREF="node179.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node177.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html1281"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html1283"
+  HREF="node180.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node179.html">References</A>
+<B> Up:</B> <A
+ HREF="manual.html">USERS MANUAL Workshops available</A>
+<B> Previous:</B> <A
+ HREF="node177.html">Unit Conventions in McPhase</A>
+ &nbsp; <B>  <A ID="tex2html1282"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1284"
+  HREF="node180.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A ID="SECTION000400000000000000000">
+Installation of the program package</A>
+</H1><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE"></SPAN></SPAN><PRE>
+
+McPhase  home page:
+    http://www.mcphase.de
+
+---------------------------------------------------------------------
+I WINDOWS
+---------------------------------------------------------------------
+
+the windows version of McPhase provides all calculation programs
+however less graphic tools. 
+
+Preriquisites:
+- for  running McPhase, McDisp
+    Windows 2000, XP, VISTA, 7, or newer
+-----------------------------------------------------------------------
+Installation Procedure:
+
+ just run mcphX_Y.exe and follow the instructions
+
+ In case of problems:
+ In order that McPhas finds its exe files,you have to edit
+ the file dos.bat and modify the following commands:
+ 
+ set the variable MCPHASE_DIR to your mcphase directory (no spaces in pathname
+ allowed), in our example  to c:\mcphas
+  
+   set MCPHASE_DIR=c:\mcphas
+  
+ Now the Installation should be complete and to test this 
+   open the mcphas-shell, change into an example directory:
+
+   cd c:\mcphas\examples\ndcu2b_new
+
+  and type:
+
+   mcphas
+
+-&gt; the program should start running
+
+ To test the correct function of different programs use the test
+ utility mctest. type:
+  
+   cd demo
+   mctest test*.bat
+
+  ... if an Error appears, kindly give feedback. IF not, the installation
+  is correct.
+
+
+[ Instructions for compiling the sources:
+  (necessary if mcphas does not run on your system after installation
+    * gcc for windows (e.g. MinGW-14.2.0.exe (or newer) and MSYS-1.0.10.exe
+    available at http://www.mingw.org)
+    * java (&gt; 17.0)  available at java.sun.com,
+     if you do not know wether java (and which version) is installed
+     on your computer, open a dos shell and type:
+     java -version
+
+    install compiler MinGW--14.2.0.exe (or later) and MSYS-1.0.10.exe
+    install MSYS
+
+    cd  mcphas\
+    type: make clean
+          make
+
+ OPTIMIZATION:
+ if you want to compile with more optimization to make the program faster, try instead of
+ make
+
+ make clean
+ make fast=1
+
+ If you have a multiple core processor and want to set the number of threads -
+ There are 3 ways to set the number of threads:
+
+1. Using a system variable: MCPHASE_NOFTHREADS - this could be set
+e.g. in dos.bat (I've not changed this file - so for the distribution
+you could change it maybe to a commented out value for users to see).
+
+2. In mcphas.ini or mcdisp.par with the variable: nofthreads=
+
+3. If neither of the above variables are specified, the program
+attempts to determine the number of (logical) cores and sets the
+number of threads equal to this value. For a modern-ish quad core
+computer this number will probably be 8 (two logical cores per
+physical cores with hyperthreading).
+
+If it fails to determine the number of cores it sets it to 1.
+
+There is a hardcoded maximum of 255 threads.
+
+
+]
+************** known problems ****
+Windows mcphaseexploerer, mpe does not open:
+- if there is a window showing problems with some modules: click disable modules and continue
+- if mpe crashes restart from black windows "mpe"
+- if you had mcphase installed there might be traces of mpe in the system which
+  hamper a smooth start, there could exist  folders "mcphaseexplorer" in 
+hidden folders under “home/AppData/Roaming” and “home/AppData/Local” which you should
+delete by hand, maybe then it works ...
+**********************************
+
+-------------------------------------------------------------------
+II  LINUX 
+-------------------------------------------------------------------
+Prerequisits:
+- for compiling and running McPhas, McDisp
+    Suse Linux 6.0/ 6.2/ 7.0/ 7.1 / 7.2 / 8.1 / 9.2
+         with
+    gcc, gfortran or g77
+    perl
+    java
+    PDL 2.0      PerlDL  http://pdl.perl.org  comman to install: cpan -I pdl
+   (MacOS  install sourceforge SciPDL App and put to lin.bat: source /Applications/PDL/setup_bash )
+    
+- option (needed only for some old plotting programs, which are not maintained any more):
+   [ flex
+    yacc
+    PGPLOT 5.2.0 graphics library
+            http://www.astro.caltech.edu/~tjp/pgplot/
+    PGPLOT 2.11/2.18  pgplot module for perl
+            ftp://ftp.freenet.de/pub/ftp.cpan.org/pub/CPAN/modules/by-
+            module/PGPLOT/
+            http://www.aao.gov.au/local/www/kgb/pgperl/    
+            NOTE THE INSTALLATION BUG FOR &gt;SUSE 6.2: after typing 'perl 
+            Makefile.PL'
+	    you have to manually edit 'Makefile' and substitute 'f2c' with 'g2c' 
+            before
+	    continuing with 'make' and 'make test' ...  
+     ] 
+-----------------------------------------------------------------------
+Installation Procedure:
+
+a) unpack and untar the zip file into your mcphase directory, in our example /usr/local
+
+    gunzip mcphas-*.*.tar.gz
+
+    tar -xvf mcphas-X.Y.tar
+
+
+b) In order that McPhas finds its  files,you have to edit
+ the file lin.bat and modify the following commands:
+ 
+ set the variable MCPHASE_DIR to your mcphase directory, in our example
+ to /usr/local/mcphas
+  
+   export MCPHASE_DIR=/usr/local/mcphas
+   
+    - in order to use the plotting programs
+      make sure that the other variables are set correctly
+
+   in order to set the above environment at login put the above export
+   commands into /etc/profile.local 
+   e.g. put there:
+
+   . /data/martin/mcphas/lin.bat
+
+
+
+c) Now the installation should be complete. To test the Program: 
+   goto your mcphase directory and set the environment variables correctly by typing:
+   
+   . ./lin.bat
+   
+   
+   goto directory by: cd  ./demo
+   and run the tests by:  mctest test*.bat
+   
+   kindly report errors, which come up. If not errors come up,
+   claculations on your system reproduce standard results.
+
+[e) if it is necessary to recompile the sources -
+
+    goto $MCPHASE_DIR and type:
+
+    make
+   
+ OPTIMIZATION:
+ if you want to compile with more optimization to make the program faster, try instead of
+ make
+
+ make clean
+ make fast=1
+ 
+ (this might work not on all systems)
+
+  If you have a multiple core processor and want to set the number of threads -
+  There are 3 ways to set the number of threads:
+
+ 1. Using a system variable: MCPHASE_NOFTHREADS - this could be set
+ e.g. in dos.bat (I've not changed this file - so for the distribution
+ you could change it maybe to a commented out value for users to see).
+
+ 2. In mcphas.ini or mcdisp.par with the variable: nofthreads=
+
+ 3. If neither of the above variables are specified, the program
+ attempts to determine the number of (logical) cores and sets the
+ number of threads equal to this value. For a modern-ish quad core
+ computer this number will probably be 8 (two logical cores per
+ physical cores with hyperthreading).
+
+ If it fails to determine the number of cores it sets it to 1.
+
+ There is a hardcoded maximum of 255 threads.
+
+f) type 
+
+   make clean
+   
+   to remove files which are not needed
+]
+
+-------------------------------------------------------------------
+II  Tips for McPhase installation on Mac OS
+-------------------------------------------------------------------
+
+start with linux distribution and proceed like linux:
+
+- use linux version mcph**.tgz
+
+- get g++ and gfortran compiler
+- get perl
+... careful: it might be that e.g. in makenn "perl" ist used
+and sometimes it is necessary to say which perl version to use, because
+several are installed at the computer e.g. /usr/bin/perl
+/opt/local/bin/perl by editing the first line files in bin/*.pl
+
+- java:  !! do not install java 17 or 18 jdk, because it will override the 
+standard java version "1.8.0_333" Java(TM) SE Runtime Environment (build 1.8.0_333-b02)
+and give security issues not opening files !!
+  for compiling  netbeans install java 1.8.0_06 jdk
+  use zulu for mcOS delivered with mcphase in folder bin/zulu...
+
+- simple without compiling: download /usr/local/gfortran/lib/*
+     in order to have all fortran libraries 
+and try to run executables such as singleion etc. !
+ ... if this does not work: 
+
+on McOs Monterey
+
+- for gcc,gfortran install homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+ 
+- with hombrew install gcc ... it includes gfortran
+
+- install  SciPDL binary https://pdl.perl.org/?page=install
+           to use add to lin.bat source /Applications/PDL/setup_bash
+[[[ alternatively for PDL on McOs Sierra use sudo port ... to install 
+
+get PerlPDL
+
+as superuser do:
+cpan install PDL
+
+maybe with force
+cpan -f -i PDL
+
+(on system update do)
+cpan reinstall PDL
+
+test with:
+perl -e "use PDL"
+
+# necessary to make PDL and Extutils::F77 ok:
+export PERL5LIB=/opt/local/lib/perl5/site_perl/5.24/
+
+if this does not wotk to install PDL ...
+
+possibly download manually lates source of PDL 
+https://sourceforge.net/projects/pdl/files/PDL/2.4.11/
+and untar and follow instructions in INSTALL to compile and install
+it (you might need to cpan -i ExtUtils::F77 in order that this works
+and you will have to set WITH_SLATEC=1 in .perdld.conf ...)
+... 
+
+but also without this manual download you might be successful 
+- the problem might be, 
+that fortran compiler does not work because -lSystem is not found, 
+in this case try:
+
+export LIBRARY_PATH=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib
+export LD_LIBRARY_PATH=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib
+
+or 
+
+
+export GFORTRANLIB=-L/opt/homebrew/Cellar/gcc/15.2.0/lib/gcc/current/
+]]]
+
+
+
+in lin.bat make the following settings:
+
+# necessary to make run gcalc interpolation algorthm (perl would not find MAth:interpolate.pm)
+export PERL5LIB=/opt/local/lib/perl5/site_perl/5.16.3/
+#export PERL5LIB=
+
+export PATH=$MCPHASE_DIR/bin:$MCPHASE_DIR/Output/important_scripts:$PATH
+# uncomment this to set the path to the java directory on your computer
+export jdkhome=/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home
+export JAVA_BINDIR=/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/bin
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home
+export JAVA_ROOT=/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk
+export JRE_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/jre
+
+
+- latex2html in order to recompile html-manual (brew or port)
+
+sudo port install libpng
+sudo port install latex2html
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<P>
+<SPAN CLASS="SMALL">   </SPAN>
+<BR><HR>
+
+</BODY>
+</HTML>

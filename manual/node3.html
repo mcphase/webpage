@@ -1,18 +1,18 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>... in version 5.6 ...</TITLE>
+<TITLE>What is New ?</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node4.html">
-<LINK REL="previous" HREF="node2.html">
+<LINK REL="next" HREF="node8.html">
+<LINK REL="previous" HREF="manual.html">
 <LINK REL="next" HREF="node4.html">
 </HEAD>
 
@@ -23,120 +23,53 @@
  HREF="node4.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node2.html">
+ HREF="manual.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node2.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html254"
-  HREF="node7.html">
+<A ID="tex2html278"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html256"
-  HREF="node164.html">
+<A ID="tex2html280"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node4.html">...in version 5.5 ...</A>
+ HREF="node4.html">... in version 6.0</A>
 <B> Up:</B> <A
- HREF="node2.html">What is New ?</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node2.html">What is New ?</A>
- &nbsp; <B>  <A ID="tex2html255"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html257"
-  HREF="node164.html">Index</A></B> 
+ HREF="node2.html">Acknowledgements</A>
+ &nbsp; <B>  <A ID="tex2html279"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html281"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION00021000000000000000">
- ... in version 5.6 ...</A>
-</H2>
-
-<UL>
-<LI><I CLASS="slanted">mcphas</I>
-
-<UL>
-<LI>introduced self consistent treatment of exchange striction, see section <A HREF="node60.html#JT">12</A>
-</LI>
-<LI>bugs removed: fecalc evalfe was not full multithreading, ic1ion and icf1ion cfp were buggy
-</LI>
-<LI>introduced experimental error in <I CLASS="slanted">fit/mcphas.fum</I> for calculation of sta
-            and allow for fitting of any quantity in <I CLASS="slanted">mcphas.fum</I>
-</LI>
-</UL>
-</LI>
-<LI><I CLASS="slanted">singleion</I> option -Tsteps -Hsteps -v introduced to allow simple loops with high speed 
-</LI>
-<LI><I CLASS="slanted">pointc</I>: a standard deviation sta of calculated  to input cf parameters can be calculated (option -s)
-</LI>
-<LI><I CLASS="slanted">fform</I> extended, option -t to format year month day hour min second into timestamp in seconds
-</LI>
-<LI><I CLASS="slanted">getvalue</I> improved to do interpolation, too (dx=0)
-</LI>
-<LI>check of righthandedness of primitive lattice in reading <I CLASS="slanted">mcphas.j</I> introduced
-</LI>
-<LI><I CLASS="slanted">display_density, densplt</I> enabled to read exchange field components from command line
-</LI>
-<LI><I CLASS="slanted">cif2mcphas</I> reading of atomic positions extended to be able to put something such as
-         <PRE>(C1+Tm2)/2 (C1+Tm2)/2 (C1+Tm2)/2
-</PRE> for a position instead of 0.253(23) 0.423  0.5, 
-option -nm (nonmagnetic) introduced to force nonmagnetic atoms
-</LI>
-<LI><I CLASS="slanted">reduce_unitcell</I>: check if atoms are in primitive unit cell, if not
-         move them there, option -delatoms introduced to allow to delete atoms from <I CLASS="slanted">mcphas.j</I>
-</LI>
-<LI>TmNiC<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN> example created, using electron point charges on bondings
-         and solving linear equation system to calculate some point charges
-         given <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img17.svg"
- ALT="$B_2^0$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img60.svg"
- ALT="$B_2^2$"></SPAN> from high T expansion of inverse magnetic susceptibility
-</LI>
-<LI><I CLASS="slanted">makenn</I> 
-revised to make possible exchange striction calculations using option -djdx -djdy -djdz,
-bug in elastic constants formula found and corrected 
-</LI>
-<LI><I CLASS="slanted">display </I>: adapted to enable display of error bars 
-</LI>
-<LI>option -r in <I CLASS="slanted">simannfit</I>
-</LI>
-</UL>
+<H1><A ID="SECTION00010000000000000000">
+What is New ?</A>
+</H1>
 
 <P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node4.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node2.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node2.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html254"
-  HREF="node7.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html256"
-  HREF="node164.html">
-<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A
- HREF="node4.html">...in version 5.5 ...</A>
-<B> Up:</B> <A
- HREF="node2.html">What is New ?</A>
-<B> Previous:</B> <A
- HREF="node2.html">What is New ?</A>
- &nbsp; <B>  <A ID="tex2html255"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html257"
-  HREF="node164.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html282"
+  HREF="node4.html">... in version 6.0 ...</A>
+<LI><A ID="tex2html283"
+  HREF="node5.html">... in version 5.6 ...</A>
+<LI><A ID="tex2html284"
+  HREF="node6.html">...in version 5.5 ...</A>
+<LI><A ID="tex2html285"
+  HREF="node7.html">...in version 5.4 ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 
 </BODY>
 </HTML>

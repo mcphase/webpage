@@ -1,16 +1,17 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Module Usage:</TITLE>
+<TITLE>Dzyaloshinskii-Moriya interaction</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node21.html">
 <LINK REL="previous" HREF="node19.html">
 <LINK REL="next" HREF="node21.html">
 </HEAD>
@@ -22,165 +23,96 @@
  HREF="node21.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node18.html">
+ HREF="node16.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node19.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html438"
-  HREF="node7.html">
+<A ID="tex2html484"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html440"
-  HREF="node164.html">
+<A ID="tex2html486"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node21.html">mcphas - calculation of</A>
+ HREF="node21.html">Classical dipole dipole interaction</A>
 <B> Up:</B> <A
- HREF="node18.html">Using the so1ion module</A>
+ HREF="node16.html">Summary</A>
 <B> Previous:</B> <A
- HREF="node19.html">Module Tasks:</A>
- &nbsp; <B>  <A ID="tex2html439"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html441"
-  HREF="node164.html">Index</A></B> 
+ HREF="node19.html">Intermediate coupling</A>
+ &nbsp; <B>  <A ID="tex2html485"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html487"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00093200000000000000">
-Module Usage:</A>
-</H3>
-
+<H3><A ID="SECTION00073400000000000000">
+Dzyaloshinskii-Moriya interaction</A>
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-The program <I CLASS="slanted">mcphas</I> (-calculation of the magnetic phase diagram) 
-requires a single ion
-property input file of the same format as given above in
-section&nbsp;<A HREF="node17.html#cfieldexample">6.2</A> (also for each ion in the
-crystallographic unit cell):
+<SPAN CLASS="SMALL">DMI can be written in the form of the two-ion interaction as
+</SPAN>
+<DIV CLASS="displaymath">
 
-<P>
-
-<UL>
-<LI>The first line in the single ion property file tells <I CLASS="slanted">mcphas</I> that the module
-<I CLASS="slanted">so1ion<A ID="659"></A></I> should be used for this ion. 
-</LI>
-<LI>Comment lines start with #. 
-</LI>
-<LI>The type of ion has to be given plus
-several lines containing the crystal field parameters. 
-</LI>
-</UL>
-
-<P>
-It follows a simple  example (for more complicated examples see section <A HREF="node28.html#sifile">7.1.6</A> and 
-<I CLASS="slanted">mcphas.cf1</I> in the 
-directory <I CLASS="slanted">examples/ndcu2b_new</I>):
-
-<P>
-<PRE>
-#!MODULE=so1ion
-#&lt;!--mcphas.sipf--&gt;
-# comment followed by
-# the ion type and the crystal field parameters [meV]
- IONTYPE=Nd3+
-# - note you can also do any pure spin problem by entering e.g. IONTYPE=S=2.5 
- B20=  0.116765                                           
- B22  =  0.134172                                           
- B40  =  0.0019225                                          
- B42  =  0.0008704                                          
- B44  =  0.0016916                                          
- B60  =  0.0000476                                          
- B62  =  0.0000116                                          
- B64  =  0.0000421                                          
- B66  =  0.0003662
-</PRE>
-
-<P>
-<DL>
-<DT><STRONG>Note:</STRONG></DT>
-<DD>In order to use the <I CLASS="slanted">so1ion<A ID="667"></A></I>  module in <I CLASS="slanted">McPhase</I> a convention for
-the orientation of the <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img6.svg"
- ALT="$xyz$"></SPAN> coordinate system (of the crystal field) relative
-to the crystal axis <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img162.svg"
- ALT="$abc$"></SPAN> has to be made:
- The axes convention adopted in module <I CLASS="slanted">so1ion</I> for the crystal field parameters
-is - <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img163.svg"
- ALT="$\vec a\vert\vert x$"></SPAN>, <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img164.svg"
- ALT="$\vec b\vert\vert y$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img165.svg"
- ALT="$\vec c\vert\vert z$"></SPAN>. <A ID="tex2html17"
-  HREF="footnode.html#foot8148"><SUP><SPAN CLASS="arabic">9</SPAN></SUP></A>
-In case of non-orthogonal axes the convention 
-is <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img169.svg"
- ALT="$y\vert\vert\vec b$"></SPAN>, <!-- MATH
- $z||(\vec a \times \vec b)$
+<!-- MATH
+ \begin{equation}
+\hat{\mathcal{H}}_{DMI}
+    =
+    -
+    \frac{1}{2}
+    \sum_{nn^{\prime},\alpha\beta=1,2,3}
+    \mathcal{J}_{\alpha\beta}(\mathbf{R}_{n^{\prime}} - \mathbf{R}_{n})
+    \hat{\mathcal{I}}_{\alpha}^n
+    \hat{\mathcal{I}}_{\beta}^{n^{\prime}}
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 6.62ex; vertical-align: -3.46ex; " SRC="img149.svg"
+ ALT="$\displaystyle \hat{\mathcal{H}}_{DMI}
+=
+-
+\frac{1}{2}
+\sum_{nn^{\prime}...
+..._{n})
+\hat{\mathcal{I}}_{\alpha}^n
+\hat{\mathcal{I}}_{\beta}^{n^{\prime}}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">10</SPAN>)</SPAN>
+</DIV><SPAN CLASS="SMALL">
+where the operators are understood as
+<!-- MATH
+ $\hat{\mathcal{I}}_{1}  \leftrightarrow \hat{J}_x$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img170.svg"
- ALT="$z\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img4.svg"
- ALT="$x$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img171.svg"
- ALT="$y$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img158.svg"
- ALT="$z$"></SPAN>.
-
-<P>
-The reason for
-this unique choice is to make it possible to treat quadrupolar interactions - the 
-generalisation of bilinear interactions to these higher order interactions
-is much easier in a unique axes convention.
-
-<P>
-<SPAN CLASS="SMALL">
-<B>Information for experienced users:</B> the first line in the single ion property file
-can either refer to  one of the standard
-single ion property modules (e.g. Kramers ground state
-doublet #!MODULE=kramers, full crystal field #!MODULE=so1ion) or a shared library file, which will be loaded
-dynamically into the program at runtime 
- - for a description
-of this file see section&nbsp;<A HREF="node28.html#sifile">7.1.6</A>.
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img139.svg"
+ ALT="$\hat{\mathcal{I}}_{1} \leftrightarrow \hat{J}_x$"></SPAN>,
+<!-- MATH
+ $\hat{\mathcal{I}}_{2}  \leftrightarrow \hat{J}_y$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img140.svg"
+ ALT="$\hat{\mathcal{I}}_{2} \leftrightarrow \hat{J}_y$"></SPAN>,
+<!-- MATH
+ $\hat{\mathcal{I}}_{3}  \leftrightarrow \hat{J}_z$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img141.svg"
+ ALT="$\hat{\mathcal{I}}_{3} \leftrightarrow \hat{J}_z$"></SPAN> and
+<!-- MATH
+ $\mathcal{J}_{\alpha\beta}(\mathbf{R}_{n^{\prime}} - \mathbf{R}_{n})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img150.svg"
+ ALT="$\mathcal{J}_{\alpha\beta}(\mathbf{R}_{n^{\prime}} - \mathbf{R}_{n})$"></SPAN> is a
+skew-symmetric matrix.
 </SPAN>
-
 <P>
-<P>
-</DD>
-</DL>
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node21.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node18.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node19.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html438"
-  HREF="node7.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html440"
-  HREF="node164.html">
-<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A
- HREF="node21.html">mcphas - calculation of</A>
-<B> Up:</B> <A
- HREF="node18.html">Using the so1ion module</A>
-<B> Previous:</B> <A
- HREF="node19.html">Module Tasks:</A>
- &nbsp; <B>  <A ID="tex2html439"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html441"
-  HREF="node164.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<SPAN CLASS="SMALL"></SPAN>
+<BR><HR>
 
 </BODY>
 </HTML>

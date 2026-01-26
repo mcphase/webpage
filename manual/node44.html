@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>example of input file mcdisp.mf</TITLE>
+<TITLE>Example mcphas.tst file for a simple antiferromagnet</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,86 +23,92 @@
  HREF="node45.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node43.html">
+ HREF="node35.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node43.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html575"
-  HREF="node7.html">
+<A ID="tex2html613"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html577"
-  HREF="node164.html">
+<A ID="tex2html615"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node45.html">example of input file</A>
+ HREF="node45.html">subdirectory ./results - directory</A>
 <B> Up:</B> <A
- HREF="node43.html">mcdisp - the Calculation</A>
+ HREF="node35.html">Input Files</A>
 <B> Previous:</B> <A
- HREF="node43.html">mcdisp - the Calculation</A>
- &nbsp; <B>  <A ID="tex2html576"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html578"
-  HREF="node164.html">Index</A></B> 
+ HREF="node43.html">mcphas.tst - input file</A>
+ &nbsp; <B>  <A ID="tex2html614"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html616"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H5><A ID="SECTION000120001000000000000">
-example of input file <I CLASS="slanted">mcdisp.mf</I></A>
-</H5>
-this file contains temperature <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img65.svg"
- ALT="$T$"></SPAN>, the external field <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img393.svg"
- ALT="$H$"></SPAN> and
-the exchange fields on the different sites:
-
+<H3><A ID="SECTION00091900000000000000"></A><A ID="1406"></A>
+<BR>
+Example <I CLASS="slanted">mcphas.tst</I> file  for a simple antiferromagnet
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-<PRE>
-# Parameter file  mcdisp.mf - read by mcdisp version 3.0
-#&lt;!--mcdisp.mcdisp.mf&gt;
-#*********************************************************************
-# mcdisp - program to calculate the dispersion of magnetic excitations
-# reference: M. Rotter et al. J. Appl. Phys. A74 (2002) 5751
-#*********************************************************************
-#'T'             temperature T
-#'Ha' 'Hb' 'Hc'  magnetic field
-#'n'             number of atoms in magnetic unit cell
-#'nofatoms'      number of atoms in primitive crystal unit cell
-#'nofcomponents' dimension of moment vector of a magnetic atoms
-T=2 Ha=0 Hb=0 Hc=0 n=10 nofatoms=2 nofcomponents=3
- 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000
- 0.2708 0.3354 -0.3354 -0.2708 0.2947 -0.2708 -0.3354 0.3354 0.2708 -0.2947
- 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000
- 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000
- 0.2708 0.3354 -0.3354 -0.2708 0.2947 -0.2708 -0.3354 0.3354 0.2708 -0.2947
- 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000
-</PRE>
-
+<SPAN CLASS="SMALL">Here is the file <I CLASS="slanted">mcphas.tst<A ID="1407"></A></I> for the simple antiferromagnet example
+describing some spin configurations
+to be used as starting values for the mean field process:
+</SPAN>
 <P>
-The file <I CLASS="slanted">mcdisp.mf<A ID="1439"></A></I> can be easily set up by using the program <I CLASS="slanted">setup_mcdisp_mf<A ID="1440"></A></I> or alternatively by the program <I CLASS="slanted">spins<A ID="1441"></A></I> 
-described in section&nbsp;<A HREF="node121.html#displaydensities">17.3</A>.
-                            Note, in case of non-orthogonal axes the convention for applied field <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img172.svg"
- ALT="$Ha, Hb, Hc$"></SPAN> 
-                            is <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img246.svg"
- ALT="$Hb\vert\vert\vec b$"></SPAN>, <!-- MATH
- $Hc||(\vec a \times \vec b)$
+<SPAN CLASS="SMALL"><SPAN CLASS="SMALL"></SPAN></SPAN><PRE> 
+# Test spin configurations for meanfield calculation - module mcphas version 3.0
+#&lt;!--mcphase.mcphas.tst--&gt;
+#*********************************************************
+# mcphas - program to calculate static magnetic properties
+# reference: M. Rotter JMMM 272-276 (2004) 481
+#**********************************************************
+#! nofatoms=1
+#!nofcomponents=3
+# File Format: blocks of 3xnofatoms lines consisting of
+# ma[1] ma[2] ma[3] .... ma[n]
+# mb[1] mb[2] mb[3] .... mb[n]
+# mc[1] mc[2] mc[3] .... mc[n]
+#   a configuration moments along c
+0
+1
+0
+
+0
+-1
+0
+# end of configuration
+# new configuration
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+1 1 -1 1 1.1 -1 1 1 -1 1 1 -1.1 1 1 1 1
+1 1 -1 1 1 -1 1 1 -1 1 1 -1 1 1.1 1 1.1
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+1 1 -1 1 1 -1 1 1 -1 1 1 -1 1 1 1 1.1
+1 1 -1 1 1 -1 1 1 -1 1 1 -1 1 1 1 1
+# end of configuration
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="SMALL"></SPAN>
+Note, in case of non-orthogonal axes the convention 
+is <SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img310.svg"
+ ALT="$mb\vert\vert\vec b$"></SPAN>, <!-- MATH
+ $mc||(\vec a \times \vec b)$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img247.svg"
- ALT="$Hc\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img176.svg"
- ALT="$Ha$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img177.svg"
- ALT="$Hb$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img178.svg"
- ALT="$Hc$"></SPAN>.
-
+ STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img311.svg"
+ ALT="$mc\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img312.svg"
+ ALT="$ma$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img313.svg"
+ ALT="$mb$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img314.svg"
+ ALT="$mc$"></SPAN>.
+</SPAN>
 <P>
+<SPAN CLASS="SMALL"></SPAN>
 <BR><HR>
 
 </BODY>

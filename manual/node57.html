@@ -1,16 +1,17 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Running McPhase and McDisp</TITLE>
+<TITLE>example of input file mcdisp.mf</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node58.html">
 <LINK REL="previous" HREF="node56.html">
 <LINK REL="next" HREF="node58.html">
 </HEAD>
@@ -22,195 +23,88 @@
  HREF="node58.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node54.html">
+ HREF="node56.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node56.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html634"
-  HREF="node7.html">
+<A ID="tex2html680"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html636"
-  HREF="node164.html">
+<A ID="tex2html682"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node58.html">Including Phonons and Crystal-Field</A>
+ HREF="node58.html">example of input file</A>
 <B> Up:</B> <A
- HREF="node54.html">Including Quadrupolar and Higher</A>
+ HREF="node56.html">mcdisp - the Calculation</A>
 <B> Previous:</B> <A
- HREF="node56.html">Option indexexchange in order</A>
- &nbsp; <B>  <A ID="tex2html635"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html637"
-  HREF="node164.html">Index</A></B> 
+ HREF="node56.html">mcdisp - the Calculation</A>
+ &nbsp; <B>  <A ID="tex2html681"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html683"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000133000000000000000">
-Running <I CLASS="slanted">McPhase</I> and <I CLASS="slanted">McDisp</I></A>
-</H2>
-
+<H5><A ID="SECTION000110001000000000000">
+example of input file <I CLASS="slanted">mcdisp.mf</I></A>
+</H5><SPAN CLASS="SMALL">
+this file contains temperature <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img65.svg"
+ ALT="$T$"></SPAN>, the external field <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img493.svg"
+ ALT="$H$"></SPAN> and
+the exchange fields on the different sites:
+</SPAN>
 <P>
-The programs <I CLASS="slanted">mcphas</I> and <I CLASS="slanted">mcdisp<A ID="1754"></A></I> are run completely the same way as usual, only
-the output files contain also information about the (thermal) expectation values of <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img510.svg"
- ALT="$&lt;O_l^m&gt;$"></SPAN>
-dependent on temperature and magnetic field. 
-Using the module so1ion the notation <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img464.svg"
- ALT="$&lt;\hat J_a&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img465.svg"
- ALT="$&lt;\hat J_b&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img466.svg"
- ALT="$&lt;\hat J_c&gt;$"></SPAN>,
+<SPAN CLASS="SMALL"></SPAN><PRE>
+# Parameter file  mcdisp.mf - read by mcdisp version 3.0
+#&lt;!--mcdisp.mcdisp.mf&gt;
+#*********************************************************************
+# mcdisp - program to calculate the dispersion of magnetic excitations
+# reference: M. Rotter et al. J. Appl. Phys. A74 (2002) 5751
+#*********************************************************************
+#'T'             temperature T
+#'Ha' 'Hb' 'Hc'  magnetic field
+#'n'             number of atoms in magnetic unit cell
+#'nofatoms'      number of atoms in primitive crystal unit cell
+#'nofcomponents' dimension of moment vector of a magnetic atoms
+#! x=1.5 y=0 T=1.5 |H|=0 Ha=0 Hb=0 Hc=0 n=20 spins nofatoms=2 in primitive basis nofcomponents=3 - configuration
+ 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000
+ 0.2708 0.3354 -0.3354 -0.2708 0.2947 -0.2708 -0.3354 0.3354 0.2708 -0.2947
+ 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000
+ 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000
+ 0.2708 0.3354 -0.3354 -0.2708 0.2947 -0.2708 -0.3354 0.3354 0.2708 -0.2947
+ 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000
+</PRE><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">The file <I CLASS="slanted">mcdisp.mf<A ID="2032"></A></I> can be easily set up by using the program <I CLASS="slanted">setup_mcdisp_mf<A ID="2033"></A></I> or alternatively by the program <I CLASS="slanted">spins<A ID="2034"></A></I> 
+described in section&nbsp;<A HREF="node137.html#displaydensities">17.3</A>.
+                            Note, in case of non-orthogonal axes the convention for applied field <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img253.svg"
+ ALT="$Ha, Hb, Hc$"></SPAN> 
+                            is <SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img494.svg"
+ ALT="$Hb\vert\vert\vec b$"></SPAN>, <!-- MATH
+ $Hc||(\vec a \times \vec b)$
+ -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img511.svg"
- ALT="$&lt;\hat J_d&gt;$"></SPAN>, <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img512.svg"
- ALT="$&lt;\hat J_e&gt;$"></SPAN>, etc. correspond to <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img513.svg"
- ALT="$&lt;J_a&gt;$"></SPAN>, <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img514.svg"
- ALT="$&lt;J_b&gt;$"></SPAN>,
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img515.svg"
- ALT="$&lt;J_c&gt;$"></SPAN>, <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img516.svg"
- ALT="$&lt;O_{22}(s)&gt;$"></SPAN>, <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img517.svg"
- ALT="$&lt;O_{21}(s)&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img518.svg"
- ALT="$&lt;O_{20}&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img519.svg"
- ALT="$&lt;O_{21}&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img520.svg"
- ALT="$&lt;O_{22}&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img521.svg"
- ALT="$&lt;O_{33}(s)&gt;$"></SPAN>, ...
- respectively.
-Note that by the higher order interactions not only the static properties are changed, but also the
-dispersion of the magnetic excitations is influenced.
-
+ STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img495.svg"
+ ALT="$Hc\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img496.svg"
+ ALT="$Ha$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img497.svg"
+ ALT="$Hb$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img498.svg"
+ ALT="$Hc$"></SPAN>.
+</SPAN>
 <P>
-The directory <I CLASS="slanted">examples/gdru2si2</I> contains an example of a simulation of biquadratic (i.e. isotropic quadrupolar) interactions leading to an improved description of magnetic susceptibility.
-
-<P>
-For DyCu<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN> the conversion
-of the magnetic axis due to quadrupolar exchange has been calculated according to the model 
-[<A
- HREF="node163.html#yoshida98-1421">9</A>]. The calculated quadrupolar phase diagram is shown in figure&nbsp;<A HREF="#qphased">15</A>.
-
-<P>
-
-<DIV class="CENTER"><A ID="qphased"></A><A ID="8279"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 15:</STRONG>
-DyCu<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN>: calculated quadrupolar phased diagram. When applying a large magnetic field
-parallel to the <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img5.svg"
- ALT="$c$"></SPAN> axis of the orthorhombic crystal, the system undergoes a structural transformation
-associated with a reorientation of the structural unit cell. This effect can be modelled by a large
-quadrupolar interaction.[plot created with program <I CLASS="slanted">phased</I>]</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-
-<IMG
- STYLE="height: 38.82ex; vertical-align: -38.85ex; " SRC="img522.svg"
- ALT="\includegraphics[angle=-90, width=0.5\textwidth]{figsrc/dyphased.eps}">
-
-</DIV></TD></TR>
-</TABLE>
-</DIV>
-
-<P>
-When large  quadrupolar interactions are present, the excitation spectrum is changed and
-quadrupolar modes (orbitons) with a finite dispersion are expected. 
-These modes correspond to an cooperative oscillation of the quadrupolar moments such as shown
-in figure&nbsp;<A HREF="#qmodes">16</A>.
-The program <I CLASS="slanted">mcdisp<A ID="1772"></A></I>
-is able to calculate this dispersion and the corresponding neutron scattering cross section as shown
-in figure&nbsp;<A HREF="#qintensity">17</A> for the case of PrCu<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN>. 
-
-<P>
-
-<DIV class="CENTER"><A ID="qmodes"></A><A ID="1778"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 16:</STRONG>
-Orbital excitations viewed  as correlated changes in 4f-charge densities.</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-
-<IMG
- STYLE="height: 35.35ex; vertical-align: -0.12ex; " SRC="img523.svg"
- ALT="\includegraphics[angle=0, width=0.6\textwidth]{figsrc/orbiton.eps}">
-
-</DIV></TD></TR>
-</TABLE>
-</DIV>
-
-<P>
-
-<DIV class="CENTER"><A ID="qintensity"></A><A ID="8959"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 17:</STRONG>
-PrCu<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN>: calculated dispersion of quadrupolar excitations in a field of 5 Tesla parallel to the <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img13.svg"
- ALT="$a$"></SPAN> axis of this orthorhombic system.
-[plot created with program <I CLASS="slanted">displaycontour<A ID="1785"></A></I>]</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-
-<IMG
- STYLE="height: 41.49ex; vertical-align: -0.12ex; " SRC="img524.svg"
- ALT="\includegraphics[angle=0, width=0.5\textwidth]{figsrc/prcu2_0k0_5T.eps}">
-
-</DIV></TD></TR>
-</TABLE>
-</DIV>
-
-<P>
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node58.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node54.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node56.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html634"
-  HREF="node7.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html636"
-  HREF="node164.html">
-<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A
- HREF="node58.html">Including Phonons and Crystal-Field</A>
-<B> Up:</B> <A
- HREF="node54.html">Including Quadrupolar and Higher</A>
-<B> Previous:</B> <A
- HREF="node56.html">Option indexexchange in order</A>
- &nbsp; <B>  <A ID="tex2html635"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html637"
-  HREF="node164.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<SPAN CLASS="SMALL"></SPAN>
+<BR><HR>
 
 </BODY>
 </HTML>

@@ -1,17 +1,16 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Calculation of the Exchange Striction Parameters using makenn</TITLE>
+<TITLE>Running McPhase and McDisp</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node71.html">
 <LINK REL="previous" HREF="node69.html">
 <LINK REL="next" HREF="node71.html">
 </HEAD>
@@ -23,62 +22,199 @@
  HREF="node71.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node60.html">
+ HREF="node67.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node69.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html700"
-  HREF="node7.html">
+<A ID="tex2html739"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html702"
-  HREF="node164.html">
+<A ID="tex2html741"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node71.html">Magnetoelastic Options to mcphas</A>
+ HREF="node71.html">Including Phonons, Electrical Polarisation</A>
 <B> Up:</B> <A
- HREF="node60.html">Crystal Field Phonon Interaction</A>
+ HREF="node67.html">Including Quadrupolar and Higher</A>
 <B> Previous:</B> <A
- HREF="node69.html">Setting up a Point</A>
- &nbsp; <B>  <A ID="tex2html701"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html703"
-  HREF="node164.html">Index</A></B> 
+ HREF="node69.html">Option indexexchange in order</A>
+ &nbsp; <B>  <A ID="tex2html740"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html742"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION0001510000000000000000"></A><A ID="determineExstricpar"></A>
+<H2><A ID="SECTION000123000000000000000">
+Running <I CLASS="slanted">McPhase</I> and <I CLASS="slanted">McDisp</I></A>
+</H2><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">The programs <I CLASS="slanted">mcphas</I> and <I CLASS="slanted">mcdisp<A ID="2351"></A></I> are run completely the same way as usual, only
+the output files contain also information about the (thermal) expectation values of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img615.svg"
+ ALT="$&lt;O_l^m&gt;$"></SPAN>
+dependent on temperature and magnetic field. 
+Using the module so1ion the notation <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img569.svg"
+ ALT="$&lt;\hat J_a&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img570.svg"
+ ALT="$&lt;\hat J_b&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img571.svg"
+ ALT="$&lt;\hat J_c&gt;$"></SPAN>,
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img616.svg"
+ ALT="$&lt;\hat J_d&gt;$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img617.svg"
+ ALT="$&lt;\hat J_e&gt;$"></SPAN>, etc. correspond to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img618.svg"
+ ALT="$&lt;J_a&gt;$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img619.svg"
+ ALT="$&lt;J_b&gt;$"></SPAN>,
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img620.svg"
+ ALT="$&lt;J_c&gt;$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img621.svg"
+ ALT="$&lt;O_{22}(s)&gt;$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img622.svg"
+ ALT="$&lt;O_{21}(s)&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img623.svg"
+ ALT="$&lt;O_{20}&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img624.svg"
+ ALT="$&lt;O_{21}&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img625.svg"
+ ALT="$&lt;O_{22}&gt;$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img626.svg"
+ ALT="$&lt;O_{33}(s)&gt;$"></SPAN>, ...
+ respectively.
+Note that by the higher order interactions not only the static properties are changed, but also the
+dispersion of the magnetic excitations is influenced.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">The directory <I CLASS="slanted">examples/gdru2si2</I> contains an example of a simulation of biquadratic (i.e. isotropic quadrupolar) interactions leading to an improved description of magnetic susceptibility.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">For DyCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN> the conversion
+of the magnetic axis due to quadrupolar exchange has been calculated according to the model 
+[<A
+ HREF="node179.html#yoshida98-1421">10</A>]. The calculated quadrupolar phase diagram is shown in figure&nbsp;<A HREF="#qphased">15</A>.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV class="CENTER"><A ID="qphased"></A><A ID="9512"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 15:</STRONG>
+DyCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>: calculated quadrupolar phased diagram. When applying a large magnetic field
+parallel to the <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img5.svg"
+ ALT="$c$"></SPAN> axis of the orthorhombic crystal, the system undergoes a structural transformation
+associated with a reorientation of the structural unit cell. This effect can be modelled by a large
+quadrupolar interaction.[plot created with program <I CLASS="slanted">phased</I>]</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+
+<IMG
+ STYLE="height: 38.82ex; vertical-align: -38.85ex; " SRC="img627.svg"
+ ALT="\includegraphics[angle=-90, width=0.5\textwidth]{figsrc/dyphased.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">When large  quadrupolar interactions are present, the excitation spectrum is changed and
+quadrupolar modes (orbitons) with a finite dispersion are expected. 
+These modes correspond to an cooperative oscillation of the quadrupolar moments such as shown
+in figure&nbsp;<A HREF="#qmodes">16</A>.
+The program <I CLASS="slanted">mcdisp<A ID="2369"></A></I>
+is able to calculate this dispersion and the corresponding neutron scattering cross section as shown
+in figure&nbsp;<A HREF="#qintensity">17</A> for the case of PrCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>. 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV class="CENTER"><A ID="qmodes"></A><A ID="2375"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 16:</STRONG>
+Orbital excitations viewed  as correlated changes in 4f-charge densities.</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+
+<IMG
+ STYLE="height: 35.35ex; vertical-align: -0.12ex; " SRC="img628.svg"
+ ALT="\includegraphics[angle=0, width=0.6\textwidth]{figsrc/orbiton.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV class="CENTER"><A ID="qintensity"></A><A ID="10232"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 17:</STRONG>
+PrCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>: calculated dispersion of quadrupolar excitations in a field of 5 Tesla parallel to the <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img13.svg"
+ ALT="$a$"></SPAN> axis of this orthorhombic system.
+[plot created with program <I CLASS="slanted">displaycontour<A ID="2382"></A></I>]</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+
+<IMG
+ STYLE="height: 41.75ex; vertical-align: -0.12ex; " SRC="img629.svg"
+ ALT="\includegraphics[angle=0, width=0.5\textwidth]{figsrc/prcu2_0k0_5T.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node71.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node67.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node69.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html739"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html741"
+  HREF="node180.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-Calculation of the Exchange Striction Parameters using <I CLASS="slanted">makenn</I>
-</H2>
-
-<P>
-The positional derivatives of the two ion interactions in equation&nbsp;(<A HREF="node65.html#Hwexstric">115</A>)
-has to be evaluated in order to calculate the exchange striction. Within the McPhase 
-package the program <I CLASS="slanted">makenn</I>  may perform this task and it will use analytical formulas.
-Here comes a typical code example:
-
-<P>
-<PRE>
-REM create exchange interaction
-call makenn 7 -kaneyoshi 6 4.5 4
-call copy results/makenn.j mcphas.j
-REM ... and its position derivatives using the -djd... option of makenn
-call makenn 7 -kaneyoshi 6 4.5 4 -djdx
-call makenn 7 -kaneyoshi 6 4.5 4 -djdy
-call makenn 7 -kaneyoshi 6 4.5 4 -djdz
-call copy results/makenn.djdx mcphas.djdx
-call copy results/makenn.djdy mcphas.djdy
-call copy results/makenn.djdz mcphas.djdz
-
-REM start mcphase with option -doeps to calculate strain
-call mcphasit -doeps
-</PRE>
-
-<P>
-<BR><HR>
+<B> Next:</B> <A
+ HREF="node71.html">Including Phonons, Electrical Polarisation</A>
+<B> Up:</B> <A
+ HREF="node67.html">Including Quadrupolar and Higher</A>
+<B> Previous:</B> <A
+ HREF="node69.html">Option indexexchange in order</A>
+ &nbsp; <B>  <A ID="tex2html740"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html742"
+  HREF="node180.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

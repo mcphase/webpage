@@ -1,18 +1,18 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Single Ion Modules</TITLE>
+<TITLE>Crystal Field Phonon Interaction</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node81.html">
-<LINK REL="previous" HREF="node60.html">
+<LINK REL="next" HREF="node88.html">
+<LINK REL="previous" HREF="node71.html">
 <LINK REL="next" HREF="node75.html">
 </HEAD>
 
@@ -28,429 +28,319 @@
 <A
  HREF="node73.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html716"
-  HREF="node7.html">
+<A ID="tex2html757"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html718"
-  HREF="node164.html">
+<A ID="tex2html759"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node75.html">Landé Factor</A>
+ HREF="node75.html">Elastic Energy</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node73.html">Project - Extending McPhase</A>
- &nbsp; <B>  <A ID="tex2html717"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html719"
-  HREF="node164.html">Index</A></B> 
+ HREF="node73.html">Electric Fields and Polarisation</A>
+ &nbsp; <B>  <A ID="tex2html758"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html760"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A ID="SECTION000160000000000000000"></A><A ID="simod"></A>
+<H1><A ID="SECTION000140000000000000000"></A><A ID="JT"></A>
 <BR>
-Single Ion Modules
-</H1>
-
+Crystal Field Phonon Interaction
+</H1><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-In table&nbsp;<A HREF="#simodtable">4</A> the different single ion modules are listed
-together with the standard operator sequence <!-- MATH
- $\hat I_a,\hat I_b,\hat I_c ...$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.87ex; vertical-align: -0.57ex; " SRC="img20.svg"
- ALT="$\hat I_a,\hat I_b,\hat I_c ...$"></SPAN>.
-
+<SPAN CLASS="SMALL">Here some formulas are listed. Starting point is the phonon part,
+ written in more general terms. 
+</SPAN>
 <P>
-Usually, internal single ion modules are used as a starting point.
-Alternatively, the single ion properties can be calculated by a program
-module which has to be written in <I CLASS="slanted">c</I>. Details about this can be found 
-in chapter <A HREF="node81.html#extsimod">14</A>. Several external modules are supplied also
-with the program package.
-
-<P>
-<BR>
-<DIV class="CENTER">
-
-<A ID="8367"></A>
-<TABLE class="PAD  BORDER" style="">
-<CAPTION><STRONG>Table 4:</STRONG>
-Single ion<A ID="3067"></A> modules and standard operator sequence <!-- MATH
- $\hat I_a,\hat I_b,\hat I_c ...$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.87ex; vertical-align: -0.57ex; " SRC="img20.svg"
- ALT="$\hat I_a,\hat I_b,\hat I_c ...$"></SPAN>.</CAPTION>
-<TR><TD CLASS="LEFT">module</TD>
-<TD CLASS="LEFT"><!-- MATH
- $\hat I_a,\hat I_b,\hat I_c ...$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.87ex; vertical-align: -0.57ex; " SRC="img20.svg"
- ALT="$\hat I_a,\hat I_b,\hat I_c ...$"></SPAN></TD>
-</TR>
-<TR><TD CLASS="LEFT">INTERNAL MODULES</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD CLASS="LEFT"><I CLASS="slanted">so1ion</I></TD>
-<TD CLASS="LEFT"><!-- MATH
- $\hat J_a,\hat J_b,\hat J_c,\hat O_{2-2},\hat O_{2-1},\hat O_{20},\hat O_{21},\hat O_{22},\hat O_{3-3}...\hat O_{66},\hat J_a^2,\hat J_b^2,\hat J_c^2,\hat J_a^4,\hat J_b^4,\hat J_c^4$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.08ex; vertical-align: -0.77ex; " SRC="img785.svg"
- ALT="$\hat J_a,\hat J_b,\hat J_c,\hat O_{2-2},\hat O_{2-1},\hat O_{20},\hat O_{21},\h...
-.....\hat O_{66},\hat J_a^2,\hat J_b^2,\hat J_c^2,\hat J_a^4,\hat J_b^4,\hat J_c^4$"></SPAN></TD>
-</TR>
-<TR><TD CLASS="LEFT"><I CLASS="slanted">cfield</I></TD>
-<TD CLASS="LEFT"><!-- MATH
- $\hat J_a,\hat J_b,\hat J_c,\hat O_{2-2},\hat O_{2-1},\hat O_{20},\hat O_{21},\hat O_{22},\hat O_{3-3}...\hat O_{66}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.96ex; vertical-align: -0.66ex; " SRC="img786.svg"
- ALT="$\hat J_a,\hat J_b,\hat J_c,\hat O_{2-2},\hat O_{2-1},\hat O_{20},\hat O_{21},\hat O_{22},\hat O_{3-3}...\hat O_{66}$"></SPAN></TD>
-</TR>
-<TR><TD CLASS="LEFT"><I CLASS="slanted">kramer</I></TD>
-<TD CLASS="LEFT"><!-- MATH
- $\hat J_a,\hat J_b,\hat J_c$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.87ex; vertical-align: -0.57ex; " SRC="img787.svg"
- ALT="$\hat J_a,\hat J_b,\hat J_c$"></SPAN></TD>
-</TR>
-<TR><TD CLASS="LEFT"><I CLASS="slanted">brillouin</I></TD>
-<TD CLASS="LEFT"><!-- MATH
- $\hat J_a,\hat J_b,\hat J_c$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.87ex; vertical-align: -0.57ex; " SRC="img787.svg"
- ALT="$\hat J_a,\hat J_b,\hat J_c$"></SPAN></TD>
-</TR>
-<TR><TD CLASS="LEFT"><I CLASS="slanted">cluster</I></TD>
-<TD CLASS="LEFT">defined in sipf file</TD>
-</TR>
-<TR><TD CLASS="LEFT"><I CLASS="slanted">phonon</I></TD>
-<TD CLASS="LEFT"><!-- MATH
- $\hat u_a,\hat u_b,\hat u_c$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img788.svg"
- ALT="$\hat u_a,\hat u_b,\hat u_c$"></SPAN></TD>
-</TR>
-<TR><TD CLASS="LEFT">EXTERNAL MODULES</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD CLASS="LEFT"><I CLASS="slanted">examples/cecu2a/1ion_mod/kramer.so</I></TD>
-<TD CLASS="LEFT"><!-- MATH
- $\hat J_a,\hat J_b,\hat J_c$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.87ex; vertical-align: -0.57ex; " SRC="img787.svg"
- ALT="$\hat J_a,\hat J_b,\hat J_c$"></SPAN></TD>
-</TR>
-<TR><TD CLASS="LEFT"><I CLASS="slanted">examples/dyni2b2c/1ion_mod/quartett.so</I></TD>
-<TD CLASS="LEFT"><!-- MATH
- $\hat J_a,\hat J_b,\hat J_c$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.87ex; vertical-align: -0.57ex; " SRC="img787.svg"
- ALT="$\hat J_a,\hat J_b,\hat J_c$"></SPAN></TD>
-</TR>
-<TR><TD CLASS="LEFT"><I CLASS="slanted">examples/erni2b2c/1ion_mod/quartett.so</I></TD>
-<TD CLASS="LEFT"><!-- MATH
- $\hat J_a,\hat J_b,\hat J_c$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.87ex; vertical-align: -0.57ex; " SRC="img787.svg"
- ALT="$\hat J_a,\hat J_b,\hat J_c$"></SPAN></TD>
-</TR>
-<TR><TD CLASS="LEFT"><I CLASS="slanted">examples/gdni2b2c/1ion_mod/brillouin.so</I></TD>
-<TD CLASS="LEFT"><!-- MATH
- $\hat J_a,\hat J_b,\hat J_c$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.87ex; vertical-align: -0.57ex; " SRC="img787.svg"
- ALT="$\hat J_a,\hat J_b,\hat J_c$"></SPAN></TD>
-</TR>
-<TR><TD CLASS="LEFT"><I CLASS="slanted">examples/ndcu2b_1dim/1ion_mod/kramer.so</I></TD>
-<TD CLASS="LEFT"><!-- MATH
- $\hat J_a,\hat J_b,\hat J_c$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.87ex; vertical-align: -0.57ex; " SRC="img787.svg"
- ALT="$\hat J_a,\hat J_b,\hat J_c$"></SPAN></TD>
-</TR>
-<TR><TD CLASS="LEFT"><I CLASS="slanted">ic1ion</I></TD>
-<TD CLASS="LEFT"><!-- MATH
- $\hat S_a,\hat S_b,\hat S_c,\hat L_a,\hat L_b,\hat L_c,\hat T_2^{-2},\hat T_2^{-1},\hat T_2^{0},\hat T_2^{1},\hat T_2^{2},\hat T_3^{-3}...\hat T_6^{6}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.04ex; vertical-align: -0.74ex; " SRC="img789.svg"
- ALT="$\hat S_a,\hat S_b,\hat S_c,\hat L_a,\hat L_b,\hat L_c,\hat T_2^{-2},\hat T_2^{-1},\hat T_2^{0},\hat T_2^{1},\hat T_2^{2},\hat T_3^{-3}...\hat T_6^{6}$"></SPAN></TD>
-</TR>
-<TR><TD CLASS="LEFT"><I CLASS="slanted">icf1ion</I></TD>
-<TD CLASS="LEFT"><!-- MATH
- $\hat S_a,\hat S_b,\hat S_c,\hat L_a,\hat L_b,\hat L_c,\hat T_2^{-2},\hat T_2^{-1},\hat T_2^{0},\hat T_2^{1},\hat T_2^{2},\hat T_3^{-3}...\hat T_6^{6}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.04ex; vertical-align: -0.74ex; " SRC="img789.svg"
- ALT="$\hat S_a,\hat S_b,\hat S_c,\hat L_a,\hat L_b,\hat L_c,\hat T_2^{-2},\hat T_2^{-1},\hat T_2^{0},\hat T_2^{1},\hat T_2^{2},\hat T_3^{-3}...\hat T_6^{6}$"></SPAN></TD>
-</TR>
-<TR><TD CLASS="LEFT"><I CLASS="slanted">bin/cf1ion_module/cfield.so</I></TD>
-<TD CLASS="LEFT"><!-- MATH
- $\hat J_a,\hat J_b,\hat J_c,\hat O_{2-2},\hat O_{2-1},\hat O_{20},\hat O_{21},\hat O_{22},\hat O_{4-4}...,\hat O_{44},\hat O_{6-6}...\hat O_{66}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.96ex; vertical-align: -0.66ex; " SRC="img790.svg"
- ALT="$\hat J_a,\hat J_b,\hat J_c,\hat O_{2-2},\hat O_{2-1},\hat O_{20},\hat O_{21},\hat O_{22},\hat O_{4-4}...,\hat O_{44},\hat O_{6-6}...\hat O_{66}$"></SPAN></TD>
-</TR>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV class="CENTER"><A ID="figbvk"></A><A ID="2609"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 18:</STRONG>
+Illustration of the transversal and longitudinal BvK springs</CAPTION>
+<TR><TD><IMG
+ STYLE="height: 35.58ex; " SRC="img686.svg"
+ ALT="\begin{figure}\setlength{\unitlength}{0.14in} % selecting unit length
+\cente...
+...{picture}
+% title of the Figure
+% label to refer figure in text
+\end{figure}"></TD></TR>
 </TABLE>
 </DIV>
-<BR>
-
+<SPAN CLASS="SMALL">
+</SPAN>
 <P>
-The filename given for each atom in <I CLASS="slanted">mcphas.j<A ID="3125"></A></I>
-or <I CLASS="slanted">mcdiff.in<A ID="3126"></A></I> determines, which single ion module 
-is to be used for a specific ion in the calculation.
-As internal single ion modules there are currently available an isotropic spin (internal module <I CLASS="slanted">brillouin</I>, see
-appendix&nbsp;<A HREF="node138.html#brillouin">B</A>), an 
- anisotropic doublet (internal module <I CLASS="slanted">kramers</I>, see appendix&nbsp;<A HREF="node137.html#kramers">A</A>), 
-and the rare earth crystal field (internal module <I CLASS="slanted">so1ion<A ID="3131"></A></I> and
-cfield, see section&nbsp;<A HREF="node15.html#cfield">6</A>).
-
-<P>
-<BR>
-<BR> 
-<B>Internal Single Ion Property Modules:</B> 
-<BLOCKQUOTE>
-[<I CLASS="slanted">brillouin</I>]
-If the internal module <I CLASS="slanted">brillouin</I>
- (Brillouin function used for single ion properties,
-  see appendix&nbsp;<A HREF="node138.html#brillouin">B</A>) is used,
-the single ion property file must start with
-</BLOCKQUOTE><PRE>#!MODULE=brillouin
-</PRE><BLOCKQUOTE> and
-the corresponding spin
- quantum number <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img791.svg"
- ALT="$J$"></SPAN> has to be given in the first uncommented
-lines.
-Here is an example:
-</BLOCKQUOTE><PRE>
-#!MODULE=brillouin
-#&lt;!--mcphas.sipf--&gt;
-# single ion parameter file for Gd
-J = 3.5
-</PRE><BLOCKQUOTE>
-[<I CLASS="slanted">kramer</I>] If the internal module <I CLASS="slanted">kramers</I> (anisotropic doublet ground state, see appendix &nbsp;<A HREF="node137.html#kramers">A</A>) is used,
-the single ion property file must start with
-</BLOCKQUOTE><PRE>#!MODULE=kramer
-</PRE><BLOCKQUOTE> and
-the corresponding saturation magnetisations have to be given in the first uncommented
-line.
-Here is an example:
-</BLOCKQUOTE><PRE>
-#!MODULE=kramer
-#&lt;!--mcphas.sipf--&gt;
-# single ion parameter file for CeCu2
-paramnames= |&lt;+|Ja|-&gt;| |&lt;-|Jb|-&gt;| |&lt;+|Jc|-&gt;|
-params= 1.6 0.58333   1.1
-</PRE><BLOCKQUOTE>
-[<I CLASS="slanted">so1ion<A ID="3150"></A></I>]In order to use the rare earth crystal field module the first line should read
-</BLOCKQUOTE><PRE>#!MODULE=so1ion
-</PRE>
-<P>
-<BLOCKQUOTE>then the ion name should be given followed by a list of nonzero crystal field parameters
-(for a more detailed description of this module refer to section&nbsp;<A HREF="node15.html#cfield">6</A>).
-</BLOCKQUOTE>
-<P><PRE>
-#!MODULE=so1ion
-#&lt;!--mcphase.sipf--&gt;
- IONTYPE=Ce3+
- B20=  0.1e-1                                           
- B22  =  -0.3e-1                                       
- B40  =  0.0
- B42  =  0.0
- B44  =  0.0
- B60  =  0.0
- B62  =  0.0
- B64  =  0.0
- B66  =  0.0
-</PRE>
-<P>
-<BLOCKQUOTE>The standard operator sequence of this module can be modified by enabling 
-perl parsing<A ID="3156"></A>
-of the sipf file, i.e. putting instead of &rdquo;IONTYPE=&rdquo; a line &rdquo;#!perl with IONTYPE=&rdquo;.
-Then (i) all variables have to be given in perl notation, i.e. putting a &rdquo;$&rdquo; sign
-in front of the variable name. (ii) all lines (except comment lines starting with
-'#') and variable declarations have to end with ';'. In the following example
-we show how to redefine operator <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img792.svg"
- ALT="$\hat I_1$"></SPAN> (by default the x component of the
-total angular momentum <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img793.svg"
- ALT="$\hat J_x$"></SPAN> to <!-- MATH
- $\hat I_1 \equiv 5 \hat O_4^4 + O_4^0$
+<SPAN CLASS="SMALL">The index <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.76ex; vertical-align: -0.12ex; " SRC="img322.svg"
+ ALT="$i$"></SPAN> now denotes all atomic
+positions in a crystal, the momentum vector is <!-- MATH
+ $\mathbf p_i=a_0 \mathbf w_i$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.00ex; vertical-align: -0.69ex; " SRC="img794.svg"
- ALT="$\hat I_1 \equiv 5 \hat O_4^4 + O_4^0$"></SPAN>.
-Moreover, one of the RIXS operator is (re)defined, which enables to specify 
-the appropriate tensor (note, that this will be only effective, if all the variables
-SIGMA0r,SIGMA0i,SIGMA1r,SIGMA1i,SIGMA2r,SIGMA2i are zero).
-</BLOCKQUOTE>
-<P><PRE>
-#!MODULE=so1ion
-#&lt;!--mcphase.sipf--&gt;
-#!perl with IONTYPE=Ce3+
- $B20=  0.1e-1;                                       
- $B22  =  -0.3e-1;
- $B40  =  0.0;
- $B42  =  0.0;
- $B44  =  0.0;
- $B60  =  0.0;
- $B62  =  0.0;
- $B64  =  0.0;
- $B66  =  0.0;
- $I1 = 5.0 * $O44 + $O40; # for quadrupolar interactions
-
-# for anisotropic Resonant Inelastic X-ray Scattering
-$sigma1_a2u=1.423;
-$R12=-2* $sigma1_a2u * $Jz;
-# Note: Operators which may be redefined here are denoted by the variables:
-# I1 I2 I3 ....
-# Jx Jy Jz
-# Jx2 Jy2 Jz2  (=Jx*Jx Jy*Jy Jz*Jz)
-# O22S O21S O20 O21 O22 O31S .... O66
-</PRE>
-<P>
-<BLOCKQUOTE>[<I CLASS="slanted">cluster<A ID="3159"></A></I>]
-This module is designed to combine several subsystems (described
-by other modules - currently kramer or so1ion) into a cluster with bilinear
-interactions. The Hamiltonian of such a cluster is then
-diagonalized exactly. Clusters can interact via interaction operators
+ STYLE="height: 1.71ex; vertical-align: -0.57ex; " SRC="img687.svg"
+ ALT="$\mathbf p_i=a_0 \mathbf w_i$"></SPAN> and  the
+displacement vector is <!-- MATH
+ $\hat \mathbf U_i$
+ -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img795.svg"
- ALT="$I_n$"></SPAN>, which can be defined in the sipf file. 
-</BLOCKQUOTE>
+ STYLE="height: 2.78ex; vertical-align: -0.46ex; " SRC="img688.svg"
+ ALT="$\hat \mathbf U_i$"></SPAN>. Fig.&nbsp;<A HREF="#figbvk">18</A> shows the Born-van-Karman
+model definition of longitudinal springs <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img689.svg"
+ ALT="$c_L$"></SPAN> and transversal
+springs <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img690.svg"
+ ALT="$c_T$"></SPAN> used in the following derivation.
+</SPAN>
 <P>
-<BLOCKQUOTE>Here is an example of a cluster module input file, which is designed
-to model the hyperfine interaction of the f electrons and the nucleus
-of Pr<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img3.svg"
- ALT="$^{3+}$"></SPAN>.
-</BLOCKQUOTE>
-<P><PRE>
-#!MODULE=cluster
-#&lt;!--mcphase.sipf--&gt;
-# here must be set the filename containing the structure of the cluster
-#!structurefile=cluster.j
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath"><A ID="Hphonon"></A>
+<!-- MATH
+ \begin{eqnarray}
+\hat H_{\rm phon}& =&\sum_{i} \frac{a_0^2\hat  \mathbf w_i^2}{2 m_i} +
+\frac{1}{2}\sum_{ij} \frac{c_L(ij)-c_T(ij)}{2|\mathbf R_{ij}|^2} 
+(\hat \mathbf U_j . \mathbf R_{ij}-\hat  \mathbf U_i . \mathbf R_{ij})^2 \nonumber \\
+      && + \frac{c_T(ij)}{2} (\hat \mathbf U_j - \hat \mathbf U_i )^2 \\
+ 
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img691.svg"
+ ALT="$\displaystyle \hat H_{\rm phon}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.96ex; vertical-align: -3.40ex; " SRC="img692.svg"
+ ALT="$\displaystyle \sum_{i} \frac{a_0^2\hat \mathbf w_i^2}{2 m_i} +
+\frac{1}{2}\sum_...
+...vert^2}
+(\hat \mathbf U_j . \mathbf R_{ij}-\hat \mathbf U_i . \mathbf R_{ij})^2$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.12ex; vertical-align: -1.71ex; " SRC="img693.svg"
+ ALT="$\displaystyle + \frac{c_T(ij)}{2} (\hat \mathbf U_j - \hat \mathbf U_i )^2$"></TD><TD class="rfill">(<SPAN CLASS="arabic">99</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Note that the sum over indices <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.21ex; vertical-align: -0.57ex; " SRC="img694.svg"
+ ALT="$i,j$"></SPAN> counts each spring twice, thus a factor of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img695.svg"
+ ALT="$1/2$"></SPAN>
+has been added to the  Hamiltonian before the sum.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Note that the difference in undisplaced lattice positions is denoted by <!-- MATH
+ $\mathbf R_{ij}=\mathbf R_{j}-\mathbf R_{i}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img696.svg"
+ ALT="$\mathbf R_{ij}=\mathbf R_{j}-\mathbf R_{i}$"></SPAN>.
+The displacement vector <!-- MATH
+ $\hat \mathbf U_i$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -0.46ex; " SRC="img688.svg"
+ ALT="$\hat \mathbf U_i$"></SPAN> is split into 
+a strain component <!-- MATH
+ $\bar \epsilon \mathbf R_i$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.46ex; " SRC="img697.svg"
+ ALT="$\bar \epsilon \mathbf R_i$"></SPAN> a rotational component
+<!-- MATH
+ $\bar \omega \mathbf R_i$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.46ex; " SRC="img698.svg"
+ ALT="$\bar \omega \mathbf R_i$"></SPAN> and a dynamic component <!-- MATH
+ $\hat \mathbf P_i$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -0.46ex; " SRC="img699.svg"
+ ALT="$\hat \mathbf P_i$"></SPAN> (displacement operator)
+obeying periodic boundary conditions 
+<!-- MATH
+ $\hat \mathbf U_i = \bar \epsilon \mathbf R_i + \bar \omega \mathbf R_i+\hat  \mathbf P_i= \bar a \mathbf R_i+\hat  \mathbf P_i$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -0.46ex; " SRC="img700.svg"
+ ALT="$\hat \mathbf U_i = \bar \epsilon \mathbf R_i + \bar \omega \mathbf R_i+\hat \mathbf P_i= \bar a \mathbf R_i+\hat \mathbf P_i$"></SPAN>.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath"><A ID="Ur2"></A>
+<!-- MATH
+ \begin{eqnarray}
+(\hat \mathbf U_j . \mathbf R_{ij}-\hat  \mathbf U_i . \mathbf R_{ij})^2 &=&
+ (\mathbf R_{ij}^T\bar a \mathbf R_{ij}+ \mathbf R_{ij}^T \mathbf P_{ij})^2 \nonumber \\
+&=& (\mathbf R_{ij}^T\bar a \mathbf R_{ij})^2 + 2 \mathbf R_{ij}^T\bar a \mathbf R_{ij}\mathbf R_{ij}^T \hat \mathbf P_{ij} \nonumber \\
+&&+ (\mathbf R_{ij}^T \hat \mathbf P_{ij})^2
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img701.svg"
+ ALT="$\displaystyle (\hat \mathbf U_j . \mathbf R_{ij}-\hat \mathbf U_i . \mathbf R_{ij})^2$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 3.18ex; vertical-align: -1.01ex; " SRC="img702.svg"
+ ALT="$\displaystyle (\mathbf R_{ij}^T\bar a \mathbf R_{ij}+ \mathbf R_{ij}^T \mathbf P_{ij})^2$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 3.32ex; vertical-align: -1.01ex; " SRC="img703.svg"
+ ALT="$\displaystyle (\mathbf R_{ij}^T\bar a \mathbf R_{ij})^2 + 2 \mathbf R_{ij}^T\bar a \mathbf R_{ij}\mathbf R_{ij}^T \hat \mathbf P_{ij}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 3.32ex; vertical-align: -1.01ex; " SRC="img704.svg"
+ ALT="$\displaystyle + (\mathbf R_{ij}^T \hat \mathbf P_{ij})^2$"></TD><TD class="rfill">(<SPAN CLASS="arabic">100</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath"><A ID="U2"></A>
+<!-- MATH
+ \begin{eqnarray}
+(\hat \mathbf U_j - \hat \mathbf U_i )^2 &=& \mathbf R_{ij}^T\bar a^T\bar a \mathbf R_{ij} \nonumber \\
+&&2 \mathbf R_{ij}^T\bar a^T\hat \mathbf P_{ij} +\hat  \mathbf P_{ij}^T \hat \mathbf P_{ij}
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img705.svg"
+ ALT="$\displaystyle (\hat \mathbf U_j - \hat \mathbf U_i )^2$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 3.18ex; vertical-align: -1.01ex; " SRC="img706.svg"
+ ALT="$\displaystyle \mathbf R_{ij}^T\bar a^T\bar a \mathbf R_{ij}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 3.32ex; vertical-align: -1.01ex; " SRC="img707.svg"
+ ALT="$\displaystyle 2 \mathbf R_{ij}^T\bar a^T\hat \mathbf P_{ij} +\hat \mathbf P_{ij}^T \hat \mathbf P_{ij}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">101</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Equations (<A HREF="#Ur2">104</A>) and (<A HREF="#U2">105</A>) contain terms quadratic in <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.55ex; vertical-align: -0.12ex; " SRC="img708.svg"
+ ALT="$\bar a$"></SPAN>, which will be
+considered as elastic energy contributions. The terms quadratic in <!-- MATH
+ $\hat \mathbf P$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.43ex; vertical-align: -0.12ex; " SRC="img709.svg"
+ ALT="$\hat \mathbf P$"></SPAN> will contribute
+to the lattice dynamics. In addition there are also 
+terms linear in <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.55ex; vertical-align: -0.12ex; " SRC="img708.svg"
+ ALT="$\bar a$"></SPAN> and <!-- MATH
+ $\hat \mathbf P$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.43ex; vertical-align: -0.12ex; " SRC="img709.svg"
+ ALT="$\hat \mathbf P$"></SPAN>. 
+Thus the phonon Hamiltonian (<A HREF="#Hphonon">102</A>) can be separated into the elastic Energy <!-- MATH
+ $E_{\rm elastic}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img14.svg"
+ ALT="$E_{\rm elastic}$"></SPAN>, the
+Einstein single ion oscillation term <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img710.svg"
+ ALT="$H_{\rm E}$"></SPAN>, the bilinear interaction term <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img711.svg"
+ ALT="$H_{\rm int}$"></SPAN>
+and the mixing term <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img15.svg"
+ ALT="$H_{mix}$"></SPAN> 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath">
 
-# in this example we set I1,I2,I3 the I1 I2 I3 of the first ion in the cluster, which 
-# is modelled by Pr3p.sipf (electronic magnetic moment) ... these degrees of freedom
-# interact by Heisenberg/RKKY interactions
-$I1=$I1_1;
-$I2=$I1_2;
-$I3=$I1_3;
-
-# here should follow the description of cluster magnetic moments in terms
-# of moments of the individual ions
-$GJ=0.8;
-$Gnuc=-0.9367e-3;
-$M1=$I1_1-&gt;multiply_scalar($GJ)+ $I2_1-&gt;multiply_scalar($Gnuc);
-$M2=$I1_2-&gt;multiply_scalar($GJ)+ $I2_2-&gt;multiply_scalar($Gnuc);
-$M3=$I1_3-&gt;multiply_scalar($GJ)+ $I2_3-&gt;multiply_scalar($Gnuc);
-</PRE>
+<!-- MATH
+ \begin{eqnarray}
+\hat H_{\rm phon}& =&E_{\rm elastic} +\hat  H_{mix}+\hat  H_{\rm E}+\hat H_{\rm int}
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img691.svg"
+ ALT="$\displaystyle \hat H_{\rm phon}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img712.svg"
+ ALT="$\displaystyle E_{\rm elastic} +\hat H_{mix}+\hat H_{\rm E}+\hat H_{\rm int}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">102</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-<BLOCKQUOTE>The structure of the cluster is described by a structurefile which has
-to contain the information about the internal structure of the cluster
-(positions and sipf files of the constituting subsystems, interactions),
-the notation is exactly the same as for the input file <I CLASS="slanted">mcphas.j</I>,
-here comes an example to be used with the above <I CLASS="slanted">cluster.sipf</I> to describe
-hyperfine interactions in Pr:
-</BLOCKQUOTE><PRE>
-# cluster description
-#&lt;!--mcphase.mcphas.j--&gt;
-#
-# Lattice Constants (A)
-#! a=4.261 b=4.261 c=4.261 alpha=  90 beta=  90 gamma=  90
-#! r1a= 1 r2a= 0 r3a= 0
-#! r1b= 0 r2b= 1 r3b= 0   primitive lattice vectors [a][b][c]
-#! r1c= 0 r2c= 0 r3c= 1
-#! nofatoms=2  nofcomponents=3  number of atoms in cluster unit cell/number of components of each spin
-#*********************************************************************
-#! da=   0 [a] db=   0 [b] dc=   0 [c] nofneighbours=1 diagonalexchange=1  sipffilename=Pr3p.sipf
-#da[a]   db[b]     dc[c]       Jaa[meV]  Jbb[meV]  Jcc[meV]  Jab[meV]  Jba[meV]  Jac[meV]  Jca[meV]  Jbc[meV]  Jcb[meV]
-# A=52mK=52e-3*0.08622 meV
-+0       0         0.01      -4.4824e-3  -4.4824e-3  -4.4824e-3
-#*********************************************************************
-#! da=   0 [a] db=   0 [b] dc=   0.01 [c] nofneighbours=1 diagonalexchange=1  sipffilename=prnuc.sipf
-#da[a]   db[b]     dc[c]       Jaa[meV]  Jbb[meV]  Jcc[meV]  Jab[meV]  Jba[meV]  Jac[meV]  Jca[meV]  Jbc[meV]  Jcb[meV]
-+0       0        -0.01      -4.4824e-3  -4.4824e-3  -4.4824e-3
-</PRE><BLOCKQUOTE>
-Of course the sipf files<I CLASS="slanted">Pr3p.sipf </I>and <I CLASS="slanted">prnuc.sipf</I> must exist and describe
-the 4f shell and the nucleus of Pr, respectively. For more details on this
-example see folder <I CLASS="slanted">examples/Pr3Pd20Si6</I>. Another example worth looking
-at is <I CLASS="slanted">examples/LaCo3_podlesnyak_polaron</I>. There the calculation of the 
-magnetic structure factor of a spin polaron is demonstrated.
-Note: currently the observables, which are implemented in the cluster module are 
-magnetisation and Fourier transform of magnetization density (<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img796.svg"
- ALT="$M(\mathbf Q)$"></SPAN>).
-In order to enable these, the three components of the magnetization (M1 M2 M3) and of the 
-individual magnetic moments of the cluster (M1_1 M1_2 M1_3 M2_1 M2_2 M2_3 ... Mn_1 Mn_2 Mn_3)
-have to be given in terms of the operators I1_1,I1_2,...In_m... (n=1,..,nofatoms of cluster,
-m=1... nofcomponents of cluster). 
-</BLOCKQUOTE>
-<P>
-<BLOCKQUOTE>On the operators
-</BLOCKQUOTE>
-<UL>
-<LI>in the mean field loop only the I1 I2 I3  operators are used, the interactions in mcphas.j refer to these operators. 
-</LI>
-<LI>I1_1 I1_2 etc are not used later on, only on loading the module they are needed to be 
-      able to define other operators
-</LI>
-<LI>M1 M2 M3 are the components (x y z) of the magnetic moment (observable), these are 
-      used in order to be able to calculate the magnetic moment in <I CLASS="slanted">mcphas.fum</I>, to draw a
-      magnetic moment picture in <I CLASS="slanted">spins.c</I> (<I CLASS="slanted">display_densities</I>) and to generate output for 
-      mcdiff (done by spins.c)
-</LI>
-<LI>M1_1 etc are the components of the magnetic moment of ion 1 in the cluster 
-      (observable), they are what we need in order to "look into the cluster"
-      (<I CLASS="slanted">jvx fst, spins.out spins*.eps</I>). For <I CLASS="slanted">mcdisp</I> and <I CLASS="slanted">mcdiff</I> these operators are needed
-      in order to "go beyond dipole approximation for the total cluster" ... i.e. dipole 
-      approximation = based on the total moment M1 M2 M3 observable (treats cluster as 
-      one atom situated at the position which you enter for the cluster in mcphas.j),
-       beyond dipole intensities = based on M1_1 M1_2 at positions described by cluster.j 
-      relatively to the position of the cluster center which you enter in mcphas.j
-</LI>
-</UL>
-<P>
-
-<P>
-In addition to the basic parameters described above the single ion property file 
-may/should contain additional parameters as described below. 
-
-<P>
+<SPAN CLASS="SMALL"></SPAN>
 <BR><HR>
 <!--Table of Child-Links-->
 <A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
 <UL CLASS="ChildLinks">
-<LI><A ID="tex2html720"
-  HREF="node75.html">Landé Factor</A>
-<LI><A ID="tex2html721"
-  HREF="node76.html">Magnetic Formfactor Coefficients</A>
-<LI><A ID="tex2html722"
-  HREF="node77.html">Debye Waller Factor</A>
-<LI><A ID="tex2html723"
-  HREF="node78.html">Nuclear Neutron Scattering Length</A>
-<LI><A ID="tex2html724"
-  HREF="node79.html">Radial Wavefunction</A>
-<LI><A ID="tex2html725"
-  HREF="node80.html">Radial Matrix Elements</A>
+<LI><A ID="tex2html761"
+  HREF="node75.html">Elastic Energy <!-- MATH
+ $E_{\rm elastic}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img14.svg"
+ ALT="$E_{\rm elastic}$"></SPAN></A>
+<LI><A ID="tex2html762"
+  HREF="node76.html">External Stress</A>
+<LI><A ID="tex2html763"
+  HREF="node77.html">Mixing term <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img15.svg"
+ ALT="$H_{mix}$"></SPAN></A>
+<LI><A ID="tex2html764"
+  HREF="node78.html">The lattice dynamic terms <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img16.svg"
+ ALT="$H_{E}+H_{int}$"></SPAN></A>
+<LI><A ID="tex2html765"
+  HREF="node79.html">The total Crystal field Phonon Interaction Hamiltonian</A>
+<LI><A ID="tex2html766"
+  HREF="node80.html">Exchange Striction</A>
+<LI><A ID="tex2html767"
+  HREF="node81.html">Progam Workflow for calculating Magnetoelastic Effects and the Static Jahn Teller Effect</A>
+<LI><A ID="tex2html768"
+  HREF="node82.html">Calculation of the Elastic Constants using <I CLASS="slanted">makenn</I></A>
+<LI><A ID="tex2html769"
+  HREF="node83.html">Calculation of the Crystal Field Phonon Interaction using a Point Charge Model</A>
+<LI><A ID="tex2html770"
+  HREF="node84.html">Setting up a Point Charge Model which yields given Crystal Field Parameters</A>
+<LI><A ID="tex2html771"
+  HREF="node85.html">Calculation of the Exchange Striction Parameters using <I CLASS="slanted">makenn</I></A>
+<LI><A ID="tex2html772"
+  HREF="node86.html">Magnetoelastic Options to <I CLASS="slanted">mcphas</I></A>
+<LI><A ID="tex2html773"
+  HREF="node87.html">TmCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN> - magnetoelastic effects and Neutron Spectra calculated with CF-phonon interaction</A>
 </UL>
 <!--End of Table of Child-Links-->
 
@@ -465,23 +355,23 @@ may/should contain additional parameters as described below.
 <A
  HREF="node73.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html716"
-  HREF="node7.html">
+<A ID="tex2html757"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html718"
-  HREF="node164.html">
+<A ID="tex2html759"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node75.html">Landé Factor</A>
+ HREF="node75.html">Elastic Energy</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node73.html">Project - Extending McPhase</A>
- &nbsp; <B>  <A ID="tex2html717"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html719"
-  HREF="node164.html">Index</A></B> </DIV>
+ HREF="node73.html">Electric Fields and Polarisation</A>
+ &nbsp; <B>  <A ID="tex2html758"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html760"
+  HREF="node180.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

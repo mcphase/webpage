@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>External module function chargedensity_coeff - used by densplt, spins, display_density,display_densities</TITLE>
+<TITLE>External module function mcalc - used by mcdiff and mcphas </TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,91 +23,157 @@
  HREF="node104.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node88.html">
+ HREF="node102.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node102.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html892"
-  HREF="node7.html">
+<A ID="tex2html950"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html894"
-  HREF="node164.html">
+<A ID="tex2html952"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node104.html">External module function dchargedensity_coeff1</A>
+ HREF="node104.html">External module function mMcalc</A>
 <B> Up:</B> <A
- HREF="node88.html">Module Functions for Observables</A>
+ HREF="node102.html">Module Functions for Observables</A>
 <B> Previous:</B> <A
- HREF="node102.html">External module function dP1</A>
- &nbsp; <B>  <A ID="tex2html893"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html895"
-  HREF="node164.html">Index</A></B> 
+ HREF="node102.html">Module Functions for Observables</A>
+ &nbsp; <B>  <A ID="tex2html951"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html953"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION0001721500000000000000"></A><A ID="3662"></A><A ID="3663"></A><A ID="3664"></A><A ID="3665"></A>
+<H3><A ID="SECTION000162100000000000000"></A><A ID="4058"></A><A ID="4060"></A>
 <BR>
-External module function <I CLASS="slanted">chargedensity_coeff</I> -
-used by <I CLASS="slanted">densplt</I>,
-<I CLASS="slanted">spins</I>,
-<I CLASS="slanted">display_density</I>,<I CLASS="slanted">display_densities</I>
-</H3>
-
+External module function <I CLASS="slanted">mcalc</I> - used by <I CLASS="slanted">mcdiff</I>
+and <I CLASS="slanted">mcphas</I>  
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-In order to calculate the chargedensity, the expansion coefficients
-have to be evaluated and
+<SPAN CLASS="SMALL">In order to calculate magnetic moments
  the following function has to be present in the module file <I CLASS="slanted">*.so</I>:
-
+</SPAN>
 <P>
-<PRE>
-extern "C" void chargedensity_coeff(Vector &amp; cd,double * T, Vector &amp; Hxc, Vector &amp; Hext,
+<SPAN CLASS="SMALL"></SPAN><PRE>
+extern "C" void mcalc(Vector &amp; m,double * T, Vector &amp; Hxc, Vector &amp; Hext,
                       double * gJ, Vector &amp; MODPAR,
                       char ** sipffilename, ComplexMatrix &amp; Icalc_parstorage);
-</PRE>
-
+</PRE><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-it works exactly as <I CLASS="slanted">mcalc</I> with the only modification
-that the vector cd has 28 components, therefore we do not give more details here.
-
+<SPAN CLASS="SMALL">Note for windows users with MINGW the declaration
+ should be <I CLASS="slanted">extern "C" __declspec(dllexport) void mcalc(...)</I>.
+</SPAN>
 <P>
-The module function must perform the following task:
-
+<SPAN CLASS="SMALL">The meaning of the symbols is as follows:
+<SPAN CLASS="FOOTNOTESIZE">
+</SPAN></SPAN><PRE>
+  on input
+    T           temperature[K]
+    Hxc         vector of exchange field [meV] (n-dimensional, for a set of n operators I)
+    Hext        external magnetic field [T] (3 components)
+    gJ          Lande factor as read from sipf file
+    MODPAR      Vector with Parameters  read from single ion property file
+    sipffilename    file name of the single ion parameter file
+    Icalc_parstorage parameter matrix (initialized by Icalc_parameter_storage_matrix_init)
+                   it should/may contain any information, e.g. population numbers of the
+                   states (imaginary part of row 0)
+                   and eigenvalues (real part of row 0) with values set by the most recent call
+                   for this ion (use of this matrix is optional, it is provided to save time by
+                   storing here information instead of recalculating it for every call of Icalc)
+  on output    
+    m             =&lt;2S+L&gt;, thermal expectation value of the magnetic moment operator &lt;m&gt; 
+                  in units of muB
+    Icalc_parstorage     parameter matrix matrix (optional)
+                   it should/may contain any information for the next call of mcalc/Icalc, e.g.
+                   population numbers of the states (imaginary part of row 0)
+                   and eigenvalues (real part of row 0) ...
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+The module function must perform the following tasks:
+</SPAN>
 <OL>
-<LI>calculate the coefficients of <!-- MATH
- $-|e|Z_l^m R^2(r)$
+<LI>check if the dimensions of vector Hxc (taken by <I CLASS="slanted">mcphas</I> from the number of 
+interaction constant columns in <I CLASS="slanted">mcphas.j<A ID="4069"></A></I>)
+ and MODPAR (taken by <I CLASS="slanted">mcphas</I> from the number of params in the single ion property
+file) agree with the module specifications.  If the check fails the module function should exit the
+program with an appropriate error message
+</LI>
+<LI>the module should calculate from external field <!-- MATH
+ $\mathbf H_{ext}$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.77ex; " SRC="img882.svg"
- ALT="$-\vert e\vert Z_l^m R^2(r)$"></SPAN> in the expansion of
-      the charge density in equation (<A HREF="node150.html#chargedensity2">220</A>).
-      The output Vector cd(1,...,28) should contain  coefficients 
-     (i.e. <!-- MATH
- $\langle\sum_i Z_l^m (\Omega_i)\rangle$
+ STYLE="height: 2.17ex; vertical-align: -0.46ex; " SRC="img943.svg"
+ ALT="$\mathbf H_{ext}$"></SPAN> at a given temperature the 
+thermal expectation values of the three components of the magnetic moment
+and return them as
+a vector <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.26ex; vertical-align: -0.12ex; " SRC="img965.svg"
+ ALT="$\mathbf m$"></SPAN>. Input file parameters params are supplied as a vector MODPAR and
+Lande factor as gJ and  can be used for this purpose. The Hamiltonian
+is usually assumed to be of the general form
+ <!-- MATH
+ $\hat H=\hat H_0- \hat \mathbf M \mathbf H_{ext} - \hat I_a {\rm Hxc}(1) -\hat I_b {\rm Hxc}(2) -\hat I_c {\rm Hxc}(3)
+-\hat I_d {\rm Hxc}(4) ...$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.66ex; vertical-align: -0.81ex; " SRC="img813.svg"
- ALT="$\langle\sum_i Z_l^m(\Omega_i)\rangle$"></SPAN>)
-      in the following order (lm):  00, 2-2, 2-1,20,21,22, 4-4, 4-3,..,44,6-6,6-5 ...,65,66
+ STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img946.svg"
+ ALT="$\hat H=\hat H_0- \hat \mathbf M \mathbf H_{ext} - \hat I_a {\rm Hxc}(1) - \hat I_b {\rm Hxc}(2) -\hat I_c {\rm Hxc}(3)
+-\hat I_d {\rm Hxc}(4) ...$"></SPAN>.
 </LI>
 <LI>if <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.90ex; vertical-align: -0.21ex; " SRC="img830.svg"
+ STYLE="height: 1.90ex; vertical-align: -0.21ex; " SRC="img949.svg"
  ALT="$T&lt;0$"></SPAN> all quantities should be evaluated assuming that all Boltzmann probabilities <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img139.svg"
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img219.svg"
  ALT="$p_i$"></SPAN>
  are zero except for the state number <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img831.svg"
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img950.svg"
  ALT="$n=(-T)$"></SPAN>, for which the probability <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img832.svg"
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img951.svg"
  ALT="$p_n=1$"></SPAN>.
 </LI>
-</OL>
-
+</OL><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-<BR><HR>
+<SPAN CLASS="SMALL">Thus the function resembles closely Icalc, however no U and lnZ are calculated and
+the magnetic moment vector <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.26ex; vertical-align: -0.12ex; " SRC="img965.svg"
+ ALT="$\mathbf m$"></SPAN>, which is returned, has always exactly 3 components.
+</SPAN>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node104.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node102.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node102.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html950"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html952"
+  HREF="node180.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node104.html">External module function mMcalc</A>
+<B> Up:</B> <A
+ HREF="node102.html">Module Functions for Observables</A>
+<B> Previous:</B> <A
+ HREF="node102.html">Module Functions for Observables</A>
+ &nbsp; <B>  <A ID="tex2html951"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html953"
+  HREF="node180.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

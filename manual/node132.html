@@ -1,17 +1,16 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Fitting is an art: some general remarks</TITLE>
+<TITLE>Formalism for going beyond the dipolar approximation</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node133.html">
 <LINK REL="previous" HREF="node131.html">
 <LINK REL="next" HREF="node133.html">
 </HEAD>
@@ -23,111 +22,139 @@
  HREF="node133.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node125.html">
+ HREF="node126.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node131.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1028"
-  HREF="node7.html">
+<A ID="tex2html1072"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1030"
-  HREF="node164.html">
+<A ID="tex2html1074"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node133.html">Crystal Field Example: Fitting</A>
+ HREF="node133.html">bfk - Inelastic neutron-scattering</A>
 <B> Up:</B> <A
- HREF="node125.html">Searchspace and Simannfit -</A>
+ HREF="node126.html">ic1ion - a module</A>
 <B> Previous:</B> <A
- HREF="node131.html">Stopping a fit/parameter space</A>
- &nbsp; <B>  <A ID="tex2html1029"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1031"
-  HREF="node164.html">Index</A></B> 
+ HREF="node131.html">Formalism</A>
+ &nbsp; <B>  <A ID="tex2html1073"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1075"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000217000000000000000">
-Fitting is an art: some general remarks</A>
-</H2>
-
-<P>
-Fitting data is in most cases not a straightforward procedure and requires
-a lot of experience and intuition. Even the fitting of a Gaussian to some
-experimental data is sometimes difficult and the available algorithms fail,
- if the initial
-stepwidths or starting values are not chosen with some care.
-This rule holds even more for complex non linear fitting in a large
-parameter space. In many cases a simple theoretical model is used
-and it is <B>not</B> clear at the beginning if this model is able
-to describe the data at all. 
-So how can reasonable starting parameters be found ? What value
-for the statistical temperature has to be chosen ?
-
-<P>
-One possible way to attack this problem is to monitor the status of a fit
-by viewing online its quality when fitting. The value of <EM>sta</EM> which is put onto
-the screen together with the standard deviation is only a very rudimentary information.
-In most cases it is necessary to view the data which is to be fitted graphically and
-see how the calculated data matches. It is also advisable to monitor the
-standard deviation and how it changes with time. After starting the
-fit it should the be possible to judge, if stepwidths should be modified or if
-the parameter range was chosen too small or too large etc.
-
-<P>
-To view online the contents of a file which contains data in column format
-the program <I CLASS="slanted">display</I> can be used. To start the display<A ID="4552"></A> of
-the file <EM>data.dat</EM> with x-axis data in column 1 and y-axis data
-in column 2 just type (java has to be installed in order to use this):
-
-<P>
-display<A ID="4554"></A> 1 2 data.dat
-
-<P>
-In order to send this data display<A ID="4555"></A> to the background type under Linux:
-
-<P>
-display<A ID="4556"></A> 1 2 data.dat &amp;
-
-<P>
-and under windows:
-
-<P>
-start display<A ID="4557"></A> 1 2 data.dat
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node133.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node125.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node131.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1028"
-  HREF="node7.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1030"
-  HREF="node164.html">
-<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<H2><A ID="SECTION000176000000000000000"></A><A ID="ic1ionmq"></A>
 <BR>
-<B> Next:</B> <A
- HREF="node133.html">Crystal Field Example: Fitting</A>
-<B> Up:</B> <A
- HREF="node125.html">Searchspace and Simannfit -</A>
-<B> Previous:</B> <A
- HREF="node131.html">Stopping a fit/parameter space</A>
- &nbsp; <B>  <A ID="tex2html1029"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1031"
-  HREF="node164.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+Formalism for going beyond the dipolar approximation
+</H2><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"><I CLASS="slanted">ic1ion</I> is prepared to do calculations of the neutron cross section going beyond the dipole approximation for 
+the scattering cross section. The formulation of the scattering operator
+ implemented in the functions <I CLASS="slanted">mq</I> and <I CLASS="slanted">dncalc</I> have been given by Lovesey and Balcar&nbsp;[<A
+ HREF="node179.html#lovesey84-1">32</A>], 6.87b:
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{eqnarray}
+\langle  l^\nu v S L J M| \hat \mathcal Q_q | l^\nu v' S' L' J' M' \rangle &=& \sqrt{4\pi}\sum_{K',Q,Q'} \left [ %%@
+Y_{K'-1}^{Q}(\hat \mathbf Q) \left (\frac{2K'+1}{K'+1}\right ) \right. \\
+&& \times \{ A(K'-1,K')+B(K'-1,K')(K'-1 Q K' Q'|1q)\}\\
+&& \left . + Y_{K'}^{Q}(\hat \mathbf Q) B(K',K') (K' Q K' Q'|1q) \right ] (K' Q' J' M'|JM)
+ 
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img1101.svg"
+ ALT="$\displaystyle \langle l^\nu v S L J M\vert \hat \mathcal Q_q \vert l^\nu v' S' L' J' M' \rangle$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.90ex; vertical-align: -3.44ex; " SRC="img1102.svg"
+ ALT="$\displaystyle \sqrt{4\pi}\sum_{K',Q,Q'} \left [ %%@
+Y_{K'-1}^{Q}(\hat \mathbf Q) \left (\frac{2K'+1}{K'+1}\right ) \right.$"></TD><TD class="rfill">(<SPAN CLASS="arabic">155</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.67ex; vertical-align: -0.70ex; " SRC="img1103.svg"
+ ALT="$\displaystyle \times \{ A(K'-1,K')+B(K'-1,K')(K'-1 Q K' Q'\vert 1q)\}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">156</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.40ex; vertical-align: -1.63ex; " SRC="img1104.svg"
+ ALT="$\displaystyle \left . + Y_{K'}^{Q}(\hat \mathbf Q) B(K',K') (K' Q K' Q'\vert 1q) \right ] (K' Q' J' M'\vert JM)$"></TD><TD class="rfill">(<SPAN CLASS="arabic">157</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">... these are the spherical components with <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img1105.svg"
+ ALT="$q=-1,0,1$"></SPAN>, which are related to the cartesian components by
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{eqnarray}
+\hat \mathcal Q_x &=& +\frac{1}{\sqrt{2}}(\hat \mathcal Q_{+1} +\hat \mathcal Q_{-1})\\
+\hat \mathcal Q_y &=& -\frac{i}{\sqrt{2}}(\hat \mathcal Q_{+1} -\hat \mathcal Q_{-1}) \\
+\hat \mathcal Q_z &=& \hat \mathcal Q_0  \\
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img1106.svg"
+ ALT="$\displaystyle \hat \mathcal Q_x$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.44ex; vertical-align: -2.28ex; " SRC="img1107.svg"
+ ALT="$\displaystyle +\frac{1}{\sqrt{2}}(\hat \mathcal Q_{+1} +\hat \mathcal Q_{-1})$"></TD><TD class="rfill">(<SPAN CLASS="arabic">158</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img1108.svg"
+ ALT="$\displaystyle \hat \mathcal Q_y$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.48ex; vertical-align: -2.28ex; " SRC="img1109.svg"
+ ALT="$\displaystyle -\frac{i}{\sqrt{2}}(\hat \mathcal Q_{+1} -\hat \mathcal Q_{-1})$"></TD><TD class="rfill">(<SPAN CLASS="arabic">159</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img1110.svg"
+ ALT="$\displaystyle \hat \mathcal Q_z$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img1111.svg"
+ ALT="$\displaystyle \hat \mathcal Q_0$"></TD><TD class="rfill">(<SPAN CLASS="arabic">160</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">The coefficients <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1112.svg"
+ ALT="$A(K,K')$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1113.svg"
+ ALT="$B(K,K')$"></SPAN> are complex to obtain, formulas will not be given here, we refer the reader to&nbsp;[<A
+ HREF="node179.html#lovesey84-1">32</A>] and just mention, that the computation involves
+of 3j, 6j and 9j symbols and some fractional parentage coefficients. 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR><HR>
 
 </BODY>
 </HTML>

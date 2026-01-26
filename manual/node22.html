@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Input Files</TITLE>
+<TITLE>Crystal field</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node34.html">
+<LINK REL="next" HREF="node23.html">
 <LINK REL="previous" HREF="node21.html">
 <LINK REL="next" HREF="node23.html">
 </HEAD>
@@ -23,100 +23,265 @@
  HREF="node23.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node21.html">
+ HREF="node16.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node21.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html461"
-  HREF="node7.html">
+<A ID="tex2html492"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html463"
-  HREF="node164.html">
+<A ID="tex2html494"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node23.html">Example - a simple</A>
+ HREF="node23.html">Exchange striction</A>
 <B> Up:</B> <A
- HREF="node21.html">mcphas - calculation of</A>
+ HREF="node16.html">Summary</A>
 <B> Previous:</B> <A
- HREF="node21.html">mcphas - calculation of</A>
- &nbsp; <B>  <A ID="tex2html462"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html464"
-  HREF="node164.html">Index</A></B> 
+ HREF="node21.html">Classical dipole dipole interaction</A>
+ &nbsp; <B>  <A ID="tex2html493"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html495"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000101000000000000000">
-Input Files</A>
-</H2>
-The program <I CLASS="slanted">McPhase</I> needs the following input files (all in the same directory)
- in order to run:
-
+<H3><A ID="SECTION00073600000000000000">
+Crystal field</A>
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
+<SPAN CLASS="SMALL">Single-ion crystal field is written with Stevens operators as
+</SPAN>
+<DIV CLASS="displaymath">
 
-<OL>
-<LI><I CLASS="slanted">mcphas.ini<A ID="686"></A></I>
- - controlling the algorithm
-</LI>
-<LI><I CLASS="slanted">mcphas.j<A ID="687"></A></I>
-  - lattice and exchange parameters
-</LI>
-<LI><I CLASS="slanted">mcphas.tst<A ID="688"></A>(optional)</I>  - test spin configurations
-</LI>
-<LI><I CLASS="slanted">single-ion property files</I>
-</LI>
-<LI><I CLASS="slanted">directory ./results/</I>
- - directory where calculated data is stored
-</LI>
-<LI><I CLASS="slanted">directory ./fit</I> - experimental data for fit (optional)
-</LI>
-</OL>
+<!-- MATH
+ \begin{equation}
+\hat{\mathcal{H}}_{CF1-S}(n)
+    =
+    \sum_{lm}
+    B_l^m
+    \hat{O}_{lm}(\mathbf{J}^n)
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 5.68ex; vertical-align: -3.14ex; " SRC="img153.svg"
+ ALT="$\displaystyle \hat{\mathcal{H}}_{CF1-S}(n)
+=
+\sum_{lm}
+B_l^m
+\hat{O}_{lm}(\mathbf{J}^n)
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">13</SPAN>)</SPAN>
+</DIV><SPAN CLASS="SMALL">
+or with Wybourne operators <!-- MATH
+ $\hat{T}_{lm}^n$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.08ex; vertical-align: -0.77ex; " SRC="img154.svg"
+ ALT="$\hat{T}_{lm}^n$"></SPAN> and Wybourne parameters
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img114.svg"
+ ALT="$L_l^m$"></SPAN> as
+</SPAN>
+<DIV CLASS="displaymath">
 
+<!-- MATH
+ \begin{equation}
+\hat{\mathcal{H}}_{CF1-W}(n)
+    =  
+    \sum_{lm}
+    L_l^m(n)
+    \hat{T}_{lm}^{n}
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 5.68ex; vertical-align: -3.14ex; " SRC="img155.svg"
+ ALT="$\displaystyle \hat{\mathcal{H}}_{CF1-W}(n)
+=
+\sum_{lm}
+L_l^m(n)
+\hat{T}_{lm}^{n}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">14</SPAN>)</SPAN>
+</DIV><SPAN CLASS="SMALL">
+where <!-- MATH
+ $\hat{T}_{lm}^n$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.08ex; vertical-align: -0.77ex; " SRC="img154.svg"
+ ALT="$\hat{T}_{lm}^n$"></SPAN> is an operator equivalents of real valued spherical
+harmonic functions
+</SPAN>
+<BR>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{eqnarray}
+\hat{T}_{l0}
+    &=&
+    \sqrt{4\pi/(2l+1)}
+    \sum_i
+    Y_{l0}(\Omega_{i_n}),
+    \nonumber\\
+    \hat{T}_{l,\pm|m|}
+    &=&
+    \sqrt{4\pi/(2l+1)}
+    \sum_i
+    \sqrt{\pm 1}
+    [Y_{l,-|m|}(\Omega_{i_n}) \pm (-1)^m Y_{l,|m|}(\Omega_{i_n})]
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img156.svg"
+ ALT="$\displaystyle \hat{T}_{l0}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.62ex; vertical-align: -3.09ex; " SRC="img157.svg"
+ ALT="$\displaystyle \sqrt{4\pi/(2l+1)}
+\sum_i
+Y_{l0}(\Omega_{i_n}),$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 3.25ex; vertical-align: -0.94ex; " SRC="img158.svg"
+ ALT="$\displaystyle \hat{T}_{l,\pm\vert m\vert}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.62ex; vertical-align: -3.09ex; " SRC="img159.svg"
+ ALT="$\displaystyle \sqrt{4\pi/(2l+1)}
+\sum_i
+\sqrt{\pm 1}
+[Y_{l,-\vert m\vert}(\Omega_{i_n}) \pm (-1)^m Y_{l,\vert m\vert}(\Omega_{i_n})]$"></TD><TD class="rfill">(<SPAN CLASS="arabic">15</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+for the ion <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
+ ALT="$n$"></SPAN>, where index <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.11ex; vertical-align: -0.46ex; " SRC="img160.svg"
+ ALT="$i_n$"></SPAN> runs over all electrons in the
+open shell of an ion (d, f). Two-ion crystal field can be written with the
+Stevens operators as
+</SPAN>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\hat{\mathcal{H}}_{CF2-S}
+    =
+    -\frac{1}{2}
+    \sum_{nn^{\prime}}
+    \sum_{ll^{\prime}}
+    \sum_{mm^{\prime}}
+    K_{ll^{\prime}}^{mm^{\prime}}(nn^{\prime})
+    \hat{O}_{lm}(\mathbf{J}^n)
+    \hat{O}_{l^{\prime}m^{\prime}}(\mathbf{J}^{n^{\prime}})
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 6.30ex; vertical-align: -3.14ex; " SRC="img161.svg"
+ ALT="$\displaystyle \hat{\mathcal{H}}_{CF2-S}
+=
+-\frac{1}{2}
+\sum_{nn^{\prime}}...
+..._{lm}(\mathbf{J}^n)
+\hat{O}_{l^{\prime}m^{\prime}}(\mathbf{J}^{n^{\prime}})
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">16</SPAN>)</SPAN>
+</DIV><SPAN CLASS="SMALL">
+or with the Wybourne operators  as
+</SPAN>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\hat{\mathcal{H}}_{CF2-W}
+    =
+    -
+    \frac{1}{2}
+    \sum_{nn^{\prime}}
+    \Biggl[
+        \sum_{kk^{\prime}}
+        \sum_{qq^{\prime}}
+        \mathcal{K}_{kk^{\prime}}^{qq^{\prime}}(nn^{\prime})
+        \hat{T}_{kq}^n
+        \hat{T}_{k^{\prime}q^{\prime}}^{n^{\prime}}
+    \Biggr]
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 7.59ex; vertical-align: -3.44ex; " SRC="img162.svg"
+ ALT="$\displaystyle \hat{\mathcal{H}}_{CF2-W}
+=
+-
+\frac{1}{2}
+\sum_{nn^{\prim...
+...me})
+\hat{T}_{kq}^n
+\hat{T}_{k^{\prime}q^{\prime}}^{n^{\prime}}
+\Biggr]
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">17</SPAN>)</SPAN>
+</DIV><SPAN CLASS="SMALL">
+where operators are defined as <!-- MATH
+ $\hat{\mathcal{I}}_{\alpha}^n \leftrightarrow \hat{O}_{lm}(\mathbf{J}^n)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img163.svg"
+ ALT="$\hat{\mathcal{I}}_{\alpha}^n \leftrightarrow \hat{O}_{lm}(\mathbf{J}^n)$"></SPAN>
+or <!-- MATH
+ $\hat{\mathcal{I}}_{\alpha}^n \leftrightarrow \hat{T}_{kq}^n$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.39ex; vertical-align: -1.09ex; " SRC="img164.svg"
+ ALT="$\hat{\mathcal{I}}_{\alpha}^n \leftrightarrow \hat{T}_{kq}^n$"></SPAN> and 
+index <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img82.svg"
+ ALT="$\alpha$"></SPAN> runs over <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img26.svg"
+ ALT="$m$"></SPAN> pairs of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img165.svg"
+ ALT="$(l,m)$"></SPAN> or <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img166.svg"
+ ALT="$(k,q)$"></SPAN>
+respectively. Interaction parameters are either
+<!-- MATH
+ $\mathcal{J}_{\alpha,\beta}(\mathbf{R}_{n^{\prime}} - \mathbf{R}_{n}) \leftrightarrow K_{ll^{\prime}}^{mm^{\prime}}(nn^{\prime})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.08ex; vertical-align: -0.78ex; " SRC="img167.svg"
+ ALT="$\mathcal{J}_{\alpha,\beta}(\mathbf{R}_{n^{\prime}} - \mathbf{R}_{n}) \leftrightarrow K_{ll^{\prime}}^{mm^{\prime}}(nn^{\prime})$"></SPAN>
+or
+<!-- MATH
+ $\mathcal{J}_{\alpha,\beta}(\mathbf{R}_{n^{\prime}} - \mathbf{R}_{n}) \leftrightarrow \mathcal{K}_{kk^{\prime}}^{qq^{\prime}}(nn^{\prime})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.38ex; vertical-align: -0.82ex; " SRC="img168.svg"
+ ALT="$\mathcal{J}_{\alpha,\beta}(\mathbf{R}_{n^{\prime}} - \mathbf{R}_{n}) \leftrightarrow \mathcal{K}_{kk^{\prime}}^{qq^{\prime}}(nn^{\prime})$"></SPAN>,
+where index <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img169.svg"
+ ALT="$\beta$"></SPAN> runs over <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img26.svg"
+ ALT="$m$"></SPAN> pairs of <!-- MATH
+ $(l^{\prime},m^{\prime})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img170.svg"
+ ALT="$(l^{\prime},m^{\prime})$"></SPAN> or <!-- MATH
+ $(k^{\prime},q^{\prime})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img171.svg"
+ ALT="$(k^{\prime},q^{\prime})$"></SPAN>
+respectively.
+</SPAN>
 <P>
-All
- of these input files have to be in one directory and the program
-has to be started in this directory. The results of the simulation
-are then stored in the  subdirectory ./results/, which must exist before starting
-the program 
-... see directory ./examples/ for some examples.
- In order to prepare these files
-for a new calculation it is best to take them from an example, copy the files
-to a new directory and make the
-modifications  to adapt them to the new problem.
-
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A ID="tex2html465"
-  HREF="node23.html">Example - a simple antiferromagnet</A>
-<LI><A ID="tex2html466"
-  HREF="node24.html"><I CLASS="slanted">mcphas.ini</I> - controlling the algorithm</A>
-<LI><A ID="tex2html467"
-  HREF="node25.html">Example <I CLASS="slanted">mcphas.ini</I> file for a simple antiferromagnet</A>
-<LI><A ID="tex2html468"
-  HREF="node26.html"><I CLASS="slanted">mcphas.j</I> - lattice and exchange parameters</A>
-<LI><A ID="tex2html469"
-  HREF="node27.html">Example <I CLASS="slanted">mcphas.j</I> file for a simple antiferromagnet</A>
-<LI><A ID="tex2html470"
-  HREF="node28.html">Single Ion Property Input Files</A>
-<LI><A ID="tex2html471"
-  HREF="node29.html">Example single ion property file  for a simple antiferromagnet</A>
-<LI><A ID="tex2html472"
-  HREF="node30.html"><I CLASS="slanted">mcphas.tst</I> - input file of test spin-configurations (optional)</A>
-<LI><A ID="tex2html473"
-  HREF="node31.html">Example <I CLASS="slanted">mcphas.tst</I> file  for a simple antiferromagnet</A>
-<LI><A ID="tex2html474"
-  HREF="node32.html">subdirectory <I CLASS="slanted">./results</I> - directory where calculated data is stored</A>
-<LI><A ID="tex2html475"
-  HREF="node33.html">subdirectory <I CLASS="slanted">./fit</I> - experimental data for fit (optional) </A>
-</UL>
-<!--End of Table of Child-Links-->
+<SPAN CLASS="SMALL"></SPAN>
 <BR><HR>
 
 </BODY>

@@ -1,16 +1,17 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Reverse Rotation Matrices</TITLE>
+<TITLE>Stopping a fit/parameter space search</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node148.html">
 <LINK REL="previous" HREF="node146.html">
 <LINK REL="next" HREF="node148.html">
 </HEAD>
@@ -22,168 +23,44 @@
  HREF="node148.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node145.html">
+ HREF="node141.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node146.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1090"
-  HREF="node7.html">
+<A ID="tex2html1146"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1092"
-  HREF="node164.html">
+<A ID="tex2html1148"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node148.html">Magnetic Form factors for</A>
+ HREF="node148.html">Fitting is an art:</A>
 <B> Up:</B> <A
- HREF="node145.html">Transforming Crystal Field Parameters</A>
+ HREF="node141.html">Searchspace and Simannfit -</A>
 <B> Previous:</B> <A
- HREF="node146.html">Forward Rotation Matrices</A>
- &nbsp; <B>  <A ID="tex2html1091"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1093"
-  HREF="node164.html">Index</A></B> 
+ HREF="node146.html">Starting a fit</A>
+ &nbsp; <B>  <A ID="tex2html1147"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1149"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION000330200000000000000"></A> <A ID="ap-mcph2cfMat"></A>
-<BR>
-Reverse Rotation Matrices
-</H3>
-
+<H2><A ID="SECTION000206000000000000000">
+Stopping a fit/parameter space search</A>
+</H2><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-These matrices rotate a set of crystal field parameters (or Stevens operators) by <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1309.svg"
- ALT="$\Theta_1$"></SPAN>=90<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.77ex; vertical-align: -0.12ex; " SRC="img1304.svg"
- ALT="$^o$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1310.svg"
- ALT="$\Phi_1$"></SPAN>=90<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.77ex; vertical-align: -0.12ex; " SRC="img1304.svg"
- ALT="$^o$"></SPAN> and again by <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1311.svg"
- ALT="$\Theta_2$"></SPAN>=90<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.77ex; vertical-align: -0.12ex; " SRC="img1304.svg"
- ALT="$^o$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1312.svg"
- ALT="$\Phi_2$"></SPAN>=90<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.77ex; vertical-align: -0.12ex; " SRC="img1304.svg"
- ALT="$^o$"></SPAN>.
-
+<SPAN CLASS="SMALL">The fitting procedure should be stopped by changing the program <I CLASS="slanted">calcsta</I>, so that it
+writes <I CLASS="slanted">sta=0</I> to the standard output (stdout in Linux). Then the fitting
+procedure is stopped. The last value of parameters fitted can be found in the
+input parameter files.
+</SPAN>
 <P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-\stackrel{=}{\mathbf S^{-1}}_2(\pi/2,\pi/2) = \left(
-\begin{array}{ccccc}
- 0 & -1/2 &    0 &    0 &    0 \\
- 0 &    0 &    0 &    1 &    0 \\
- 0 &    0 & -1/2 &    0 &  1/2 \\
- 2 &    0 &    0 &    0 &    0 \\
- 0 &    0 & -3/2 &    0 & -1/2 \\
-\end{array} \right)
-\end{equation}
- -->
- &nbsp;  <A ID="eq:R2"></A><IMG
- STYLE="height: 14.12ex; vertical-align: -6.50ex; " SRC="img1313.svg"
- ALT="$\displaystyle
-\stackrel{=}{\mathbf S^{-1}}_2(\pi/2,\pi/2) = \left(
-\begin{arra...
-.../2 \\
-2 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
-0 &amp; 0 &amp; -3/2 &amp; 0 &amp; -1/2 \\
-\end{array} \right)
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">188</SPAN>)</SPAN>
-</DIV>
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-\stackrel{=}{\mathbf S^{-1}}_4(\pi/2,\pi/2) = \left(
-\begin{array}{ccccccccc}
- 0 &  1/8 &    0 &  7/8 &    0 &    0 &    0 &    0 &    0 \\
- 0 &    0 &    0 &    0 &    0 & -7/4 &    0 & -3/4 &    0 \\
- 0 & -1/4 &    0 &  1/4 &    0 &    0 &    0 &    0 &    0 \\
- 0 &    0 &    0 &    0 &    0 & -3/4 &    0 &  1/4 &    0 \\
- 0 &    0 &    0 &    0 &  3/8 &    0 & -1/8 &    0 &  1/8 \\
- 1 &    0 & -1/2 &    0 &    0 &    0 &    0 &    0 &    0 \\
- 0 &    0 &    0 &    0 &  5/2 &    0 & -1/2 &    0 & -1/2 \\
--1 &    0 & -7/2 &    0 &    0 &    0 &    0 &    0 &    0 \\
- 0 &    0 &    0 &    0 & 35/8 &    0 &  7/8 &    0 &  1/8 \\
-\end{array} \right)
-\end{equation}
- -->
- &nbsp;  <A ID="eq:R4"></A><IMG
- STYLE="height: 25.22ex; vertical-align: -12.08ex; " SRC="img1314.svg"
- ALT="$\displaystyle
-\stackrel{=}{\mathbf S^{-1}}_4(\pi/2,\pi/2) = \left(
-\begin{arra...
-... &amp; 0 &amp; 0 \\
-0 &amp; 0 &amp; 0 &amp; 0 &amp; 35/8 &amp; 0 &amp; 7/8 &amp; 0 &amp; 1/8 \\
-\end{array} \right)
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">189</SPAN>)</SPAN>
-</DIV>
-
-<P>
-<SPAN CLASS="SCRIPTSIZE"></SPAN>
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-\stackrel{=}{\mathbf S^{-1}}_6(\pi/2,\pi/2) = \left(
-\begin{array}{ccccccccccccc}
-   0 &  -1/32 &      0 & -11/32 &      0 & -33/32 &      0 &      0 &      0 &      0 &      %%@
-0 &      0 &      0 \\
-   0 &      0 &      0 &      0 &      0 &      0 &      0 &  33/16 &      0 &  33/16 &      %%@
-0 &   5/16 &      0 \\
-   0 &    1/8 &      0 &    3/8 &      0 &   -3/8 &      0 &      0 &      0 &      0 &      %%@
-0 &      0 &      0 \\
-   0 &      0 &      0 &      0 &      0 &      0 &      0 &  15/16 &      0 &  -1/16 &      %%@
-0 &  -5/16 &      0 \\
-   0 &  -5/32 &      0 &   9/32 &      0 &  -5/32 &      0 &      0 &      0 &      0 &      %%@
-0 &      0 &      0 \\
-   0 &      0 &      0 &      0 &      0 &      0 &      0 &    5/8 &      0 &   -3/8 &      %%@
-0 &    1/8 &      0 \\
-   0 &      0 &      0 &      0 &      0 &      0 &  -5/16 &      0 &   1/16 &      0 &  %%@
--1/16 &      0 &   1/16 \\
- 3/4 &      0 &   -1/2 &      0 &    1/4 &      0 &      0 &      0 &      0 &      0 &      %%@
-0 &      0 &      0 \\
-   0 &      0 &      0 &      0 &      0 &      0 &-105/32 &      0 &  17/32 &      0 &  %%@
--5/32 &      0 & -15/32 \\
--5/8 &      0 &   -5/4 &      0 &    9/8 &      0 &      0 &      0 &      0 &      0 &      %%@
-0 &      0 &      0 \\
-   0 &      0 &      0 &      0 &      0 &      0 & -63/16 &      0 &   3/16 &      0 &  %%@
-13/16 &      0 &   3/16 \\
- 3/8 &      0 &   11/4 &      0 &   33/8 &      0 &      0 &      0 &      0 &      0 &      %%@
-0 &      0 &      0 \\
-   0 &      0 &      0 &      0 &      0 &      0 &-231/32 &      0 & -33/32 &      0 & %%@
--11/32 &      0 &  -1/32 \\
-\end{array} \right)
-\end{equation}
- -->
- &nbsp;  <A ID="eq:R6"></A><IMG
- STYLE="height: 36.33ex; vertical-align: -17.65ex; " SRC="img1315.svg"
- ALT="$\displaystyle
-\stackrel{=}{\mathbf S^{-1}}_6(\pi/2,\pi/2) = \left(
-\begin{arra...
-...&amp; 0 &amp;-231/32 &amp; 0 &amp; -33/32 &amp; 0 &amp; %%@
--11/32 &amp; 0 &amp; -1/32 \\
-\end{array} \right)
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">190</SPAN>)</SPAN>
-</DIV><SPAN CLASS="SCRIPTSIZE"></SPAN>
-
-<P>
-
+<SPAN CLASS="SMALL"></SPAN>
 <BR><HR>
 
 </BODY>

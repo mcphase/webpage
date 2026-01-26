@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>External module function dchargedensity_coeff1 - used by mcdisp</TITLE>
+<TITLE>External module function mMcalc - used by singleion </TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,67 +23,61 @@
  HREF="node105.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node88.html">
+ HREF="node102.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node103.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html896"
-  HREF="node7.html">
+<A ID="tex2html954"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html898"
-  HREF="node164.html">
+<A ID="tex2html956"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node105.html">External module function spindensity_coeff</A>
+ HREF="node105.html">External module function dm1</A>
 <B> Up:</B> <A
- HREF="node88.html">Module Functions for Observables</A>
+ HREF="node102.html">Module Functions for Observables</A>
 <B> Previous:</B> <A
- HREF="node103.html">External module function chargedensity_coeff</A>
- &nbsp; <B>  <A ID="tex2html897"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html899"
-  HREF="node164.html">Index</A></B> 
+ HREF="node103.html">External module function mcalc</A>
+ &nbsp; <B>  <A ID="tex2html955"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html957"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION0001721600000000000000"></A><A ID="3674"></A>
+<H3><A ID="SECTION000162200000000000000"></A><A ID="4079"></A>
 <BR>
-External module function <I CLASS="slanted">dchargedensity_coeff1</I> - used by <I CLASS="slanted">mcdisp</I>
-</H3>
-
+External module function <I CLASS="slanted">mMcalc</I> - used by 
+<I CLASS="slanted">singleion</I> 
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-In order to visualize charge density  fluctuations 
- the external single ion module has to provide the transition
-matrix elements of the chargedensity coefficient operator <!-- MATH
- $\sum_i \hat Z_{lm}(\Omega_i)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.12ex; vertical-align: -0.81ex; " SRC="img883.svg"
- ALT="$\sum_i \hat Z_{lm}(\Omega_i)$"></SPAN> by a
-vector <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img884.svg"
- ALT="$cd1$"></SPAN>, which is given by:
- <!-- MATH
- ${\rm cd1}^s_{\alpha=lm}=\sqrt{(p_- -p_+)}\langle -|\sum_i \hat  Z^s_{lm}(\Omega_i)-\langle \sum_i\hat  Z^s_{lm}(\Omega_i)\rangle_{\mathbf H,T}|+\rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.13ex; vertical-align: -0.82ex; " SRC="img885.svg"
- ALT="${\rm cd1}^s_{\alpha=lm}=\sqrt{(p_--p_+)}\langle -\vert\sum_i \hat Z^s_{lm}(\Omega_i)-\langle \sum_i\hat Z^s_{lm}(\Omega_i)\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>. 
-
+<SPAN CLASS="SMALL">This function is optional and intended to accellerate <I CLASS="slanted">singleion</I> by vectorizing the temperature and
+thus save computation resources when using the option <I CLASS="slanted">-Tsteps</I>. It has the same parameters as 
+<I CLASS="slanted">mcalc</I> with the following modifications:
+</SPAN>
 <P>
-The format to be used is:
-<SPAN CLASS="FOOTNOTESIZE">
-</SPAN><PRE>
-extern "C" int dchargedensity_ceoff1(int &amp; tn,double &amp; T,Vector &amp; Hxc,Vector &amp; Hext,double * g_J,Vector &amp; MODPAR,
-char ** sipffilename,ComplexVector &amp; cd1,float &amp; maxE, ComplexMatrix &amp; est)
-</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
-The meaning of the symbols follows exactly that of function 
-<I CLASS="slanted">dm1</I> and therefore not explained here.
-
+<SPAN CLASS="SMALL"></SPAN>
+<OL>
+<LI><I CLASS="slanted">double <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.31ex; vertical-align: -0.12ex; " SRC="img952.svg"
+ ALT="$\ast$"></SPAN> T</I> is replaced by <I CLASS="slanted">Vector &amp; T</I> containing the temperatures for which 
+the calculation is to be done.
+</LI>
+<LI><I CLASS="slanted">Vector &amp; m </I> is replaced by <I CLASS="slanted">Matrix &amp; m</I> which should be filled with column
+vectors containing the  magnetic moments <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.26ex; vertical-align: -0.12ex; " SRC="img965.svg"
+ ALT="$\mathbf m$"></SPAN>. Each column corresponds to a temperature given as input<I CLASS="slanted">Vector &amp; T</I>.
+ 
+</LI>
+</OL><SPAN CLASS="SMALL">
+</SPAN>
 <P>
+<SPAN CLASS="SMALL"></SPAN>
 <BR><HR>
 
 </BODY>

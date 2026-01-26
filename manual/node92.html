@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>External module function Lcalc - used by mcdiff and mcphas </TITLE>
+<TITLE>Nuclear Neutron Scattering Length</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -29,52 +29,48 @@
  HREF="node91.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
 <A ID="tex2html848"
-  HREF="node7.html">
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
 <A ID="tex2html850"
-  HREF="node164.html">
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node93.html">External module function LMcalc</A>
+ HREF="node93.html">Radial Wavefunction</A>
 <B> Up:</B> <A
- HREF="node88.html">Module Functions for Observables</A>
+ HREF="node88.html">Single Ion Modules</A>
 <B> Previous:</B> <A
- HREF="node91.html">External module function dm1</A>
+ HREF="node91.html">Debye Waller Factor</A>
  &nbsp; <B>  <A ID="tex2html849"
-  HREF="node7.html">Contents</A></B> 
+  HREF="node8.html">Contents</A></B> 
  &nbsp; <B>  <A ID="tex2html851"
-  HREF="node164.html">Index</A></B> 
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION000172400000000000000"></A><A ID="3459"></A><A ID="3461"></A>
-<BR>
-External module function <I CLASS="slanted">Lcalc</I> - used by <I CLASS="slanted">mcdiff</I>
-and <I CLASS="slanted">mcphas</I>  
-</H3>
-
+<H2><A ID="SECTION000154000000000000000">
+Nuclear Neutron Scattering Length</A>
+</H2><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-In order to calculate the angular momentum <!-- MATH
- $\langle \hat \mathbf L \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img803.svg"
- ALT="$\langle \hat \mathbf L\rangle$"></SPAN>
- the following function has to be present in the module file <I CLASS="slanted">*.so</I>:
-
+<SPAN CLASS="SMALL">In order to calculate nuclear neutron intensities properly, <I CLASS="slanted">mcdiff</I> has to
+be provided with the neutron scattering length in units of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img912.svg"
+ ALT="$10^{-14}$"></SPAN>&nbsp;m.
+<SPAN CLASS="FOOTNOTESIZE">
+</SPAN></SPAN><PRE>
+#-------------------------------------------------------
+# Neutron Scattering Length (10^-12 cm) (can be complex)
+#-------------------------------------------------------
+SCATTERINGLENGTHREAL=0.769
+SCATTERINGLENGTHIMAG=0
+#  ... note: - if an occupancy other than 1.0 is needed, just reduce 
+#              the scattering length linear accordingly
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+</SPAN>
 <P>
-<PRE>
-extern "C" void Lcalc(Vector &amp; L,double * T, Vector &amp; Hxc, Vector &amp; Hext,
-                      double * gJ, Vector &amp; MODPAR,
-                      char ** sipffilename, ComplexMatrix &amp; Icalc_parstorage);
-</PRE>
-
-<P>
-it works exactly as <I CLASS="slanted">mcalc</I>, therefore we do not give more details here.
-
-<P>
+<SPAN CLASS="SMALL"></SPAN>
 <BR><HR>
 
 </BODY>

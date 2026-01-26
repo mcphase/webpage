@@ -1,18 +1,18 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Crystal Field Phonon Interaction</TITLE>
+<TITLE>Diffuse Scattering</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node74.html">
-<LINK REL="previous" HREF="node58.html">
+<LINK REL="next" HREF="node61.html">
+<LINK REL="previous" HREF="node59.html">
 <LINK REL="next" HREF="node61.html">
 </HEAD>
 
@@ -23,344 +23,73 @@
  HREF="node61.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="manual.html">
+ HREF="node56.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node59.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html647"
-  HREF="node7.html">
+<A ID="tex2html692"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html649"
-  HREF="node164.html">
+<A ID="tex2html694"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node61.html">Elastic Energy</A>
+ HREF="node61.html">Powder Neutron Cross Section</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="node56.html">mcdisp - the Calculation</A>
 <B> Previous:</B> <A
- HREF="node59.html">Using Single Ion Module</A>
- &nbsp; <B>  <A ID="tex2html648"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html650"
-  HREF="node164.html">Index</A></B> 
+ HREF="node59.html">Viewing the results of</A>
+ &nbsp; <B>  <A ID="tex2html693"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html695"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A ID="SECTION000150000000000000000"></A><A ID="JT"></A>
-<BR>
-Crystal Field Phonon Interaction
-</H1>
-
+<H2><A ID="SECTION000112000000000000000">
+Diffuse Scattering</A>
+</H2><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-Here some formulas are listed. Starting point is the phonon part,
- written in more general terms. 
-
+<SPAN CLASS="SMALL">The program <I CLASS="slanted">McDisp</I> may be used straightforward to calculate quasi elastic intensity
+ by
+</SPAN>
 <P>
-
-<DIV class="CENTER"><A ID="figbvk"></A><A ID="1995"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 18:</STRONG>
-Illustration of the transversal and longitudinal BvK springs</CAPTION>
-<TR><TD><IMG
- STYLE="height: 35.58ex; " SRC="img576.svg"
- ALT="\begin{figure}\setlength{\unitlength}{0.14in} % selecting unit length
-\cente...
-...{picture}
-% title of the Figure
-% label to refer figure in text
-\end{figure}"></TD></TR>
-</TABLE>
-</DIV>
-
+<SPAN CLASS="SMALL"></SPAN>
+<UL>
+<LI>specification of an energy
+range [emin,emax] in file <I CLASS="slanted">mcdisp.par<A ID="2119"></A></I> which corresponds to the interval of energies (around zero
+energy transfer) sensed by the detector of the diffuse scattering experiment. 
+</LI>
+<LI>quasi elastic intensity is expected only in the paramagnetic state - thus in <I CLASS="slanted">mcdisp.mf<A ID="2120"></A></I> a
+ a temperature above the magnetic ordering temperature should be selected.
+</LI>
+<LI>start <I CLASS="slanted">mcdisp</I> in the usual way, using the DMD method.
+</LI>
+</UL><SPAN CLASS="SMALL"> 
+</SPAN>
 <P>
-The index <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.76ex; vertical-align: -0.12ex; " SRC="img367.svg"
- ALT="$i$"></SPAN> now denotes all atomic
-positions in a crystal, the momentum vector is <!-- MATH
- $\mathbf p_i=a_0 \mathbf w_i$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.71ex; vertical-align: -0.57ex; " SRC="img577.svg"
- ALT="$\mathbf p_i=a_0 \mathbf w_i$"></SPAN> and  the
-displacement vector is <!-- MATH
- $\hat \mathbf U_i$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.78ex; vertical-align: -0.46ex; " SRC="img578.svg"
- ALT="$\hat \mathbf U_i$"></SPAN>. Fig.&nbsp;<A HREF="#figbvk">18</A> shows the Born-van-Karman
-model definition of longitudinal springs <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img579.svg"
- ALT="$c_L$"></SPAN> and transversal
-springs <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img580.svg"
- ALT="$c_T$"></SPAN> used in the following derivation.
-
-<P>
-<BR>
-<DIV CLASS="displaymath"><A ID="Hphonon"></A>
-<!-- MATH
- \begin{eqnarray}
-\hat H_{\rm phon}& =&\sum_{i} \frac{a_0^2\hat  \mathbf w_i^2}{2 m_i} +
-\frac{1}{2}\sum_{ij} \frac{c_L(ij)-c_T(ij)}{2|\mathbf R_{ij}|^2} 
-(\hat \mathbf U_j . \mathbf R_{ij}-\hat  \mathbf U_i . \mathbf R_{ij})^2 \nonumber \\
-      && + \frac{c_T(ij)}{2} (\hat \mathbf U_j - \hat \mathbf U_i )^2 \\
- 
-\end{eqnarray}
- -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img581.svg"
- ALT="$\displaystyle \hat H_{\rm phon}$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 6.96ex; vertical-align: -3.40ex; " SRC="img582.svg"
- ALT="$\displaystyle \sum_{i} \frac{a_0^2\hat \mathbf w_i^2}{2 m_i} +
-\frac{1}{2}\sum_...
-...vert^2}
-(\hat \mathbf U_j . \mathbf R_{ij}-\hat \mathbf U_i . \mathbf R_{ij})^2$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 5.12ex; vertical-align: -1.71ex; " SRC="img583.svg"
- ALT="$\displaystyle + \frac{c_T(ij)}{2} (\hat \mathbf U_j - \hat \mathbf U_i )^2$"></TD><TD class="rfill">(<SPAN CLASS="arabic">76</SPAN>)</TD></TR>
-</TABLE></DIV>
-
-<P>
-Note that the sum over indices <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.21ex; vertical-align: -0.57ex; " SRC="img584.svg"
- ALT="$i,j$"></SPAN> counts each spring twice, thus a factor of <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img585.svg"
- ALT="$1/2$"></SPAN>
-has been added to the  Hamiltonian before the sum.
-
-<P>
-Note that the difference in undisplaced lattice positions is denoted by <!-- MATH
- $\mathbf R_{ij}=\mathbf R_{j}-\mathbf R_{i}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img586.svg"
- ALT="$\mathbf R_{ij}=\mathbf R_{j}-\mathbf R_{i}$"></SPAN>.
-The displacement vector <!-- MATH
- $\hat \mathbf U_i$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.78ex; vertical-align: -0.46ex; " SRC="img578.svg"
- ALT="$\hat \mathbf U_i$"></SPAN> is split into 
-a strain component <!-- MATH
- $\bar \epsilon \mathbf R_i$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.17ex; vertical-align: -0.46ex; " SRC="img587.svg"
- ALT="$\bar \epsilon \mathbf R_i$"></SPAN> a rotational component
-<!-- MATH
- $\bar \omega \mathbf R_i$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.17ex; vertical-align: -0.46ex; " SRC="img588.svg"
- ALT="$\bar \omega \mathbf R_i$"></SPAN> and a dynamic component <!-- MATH
- $\hat \mathbf P_i$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.78ex; vertical-align: -0.46ex; " SRC="img589.svg"
- ALT="$\hat \mathbf P_i$"></SPAN> (displacement operator)
-obeying periodic boundary conditions 
-<!-- MATH
- $\hat \mathbf U_i = \bar \epsilon \mathbf R_i + \bar \omega \mathbf R_i+\hat  \mathbf P_i= \bar a \mathbf R_i+\hat  \mathbf P_i$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.78ex; vertical-align: -0.46ex; " SRC="img590.svg"
- ALT="$\hat \mathbf U_i = \bar \epsilon \mathbf R_i + \bar \omega \mathbf R_i+\hat \mathbf P_i= \bar a \mathbf R_i+\hat \mathbf P_i$"></SPAN>.
-
-<P>
-<BR>
-<DIV CLASS="displaymath"><A ID="Ur2"></A>
-<!-- MATH
- \begin{eqnarray}
-(\hat \mathbf U_j . \mathbf R_{ij}-\hat  \mathbf U_i . \mathbf R_{ij})^2 &=&
- (\mathbf R_{ij}^T\bar a \mathbf R_{ij}+ \mathbf R_{ij}^T \mathbf P_{ij})^2 \nonumber \\
-&=& (\mathbf R_{ij}^T\bar a \mathbf R_{ij})^2 + 2 \mathbf R_{ij}^T\bar a \mathbf R_{ij}\mathbf R_{ij}^T \hat \mathbf P_{ij} \nonumber \\
-&&+ (\mathbf R_{ij}^T \hat \mathbf P_{ij})^2
-\end{eqnarray}
- -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img591.svg"
- ALT="$\displaystyle (\hat \mathbf U_j . \mathbf R_{ij}-\hat \mathbf U_i . \mathbf R_{ij})^2$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 3.18ex; vertical-align: -1.01ex; " SRC="img592.svg"
- ALT="$\displaystyle (\mathbf R_{ij}^T\bar a \mathbf R_{ij}+ \mathbf R_{ij}^T \mathbf P_{ij})^2$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 3.32ex; vertical-align: -1.01ex; " SRC="img593.svg"
- ALT="$\displaystyle (\mathbf R_{ij}^T\bar a \mathbf R_{ij})^2 + 2 \mathbf R_{ij}^T\bar a \mathbf R_{ij}\mathbf R_{ij}^T \hat \mathbf P_{ij}$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 3.32ex; vertical-align: -1.01ex; " SRC="img594.svg"
- ALT="$\displaystyle + (\mathbf R_{ij}^T \hat \mathbf P_{ij})^2$"></TD><TD class="rfill">(<SPAN CLASS="arabic">77</SPAN>)</TD></TR>
-</TABLE></DIV>
-
-<P>
-<BR>
-<DIV CLASS="displaymath"><A ID="U2"></A>
-<!-- MATH
- \begin{eqnarray}
-(\hat \mathbf U_j - \hat \mathbf U_i )^2 &=& \mathbf R_{ij}^T\bar a^T\bar a \mathbf R_{ij} \nonumber \\
-&&2 \mathbf R_{ij}^T\bar a^T\hat \mathbf P_{ij} +\hat  \mathbf P_{ij}^T \hat \mathbf P_{ij}
-\end{eqnarray}
- -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img595.svg"
- ALT="$\displaystyle (\hat \mathbf U_j - \hat \mathbf U_i )^2$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 3.18ex; vertical-align: -1.01ex; " SRC="img596.svg"
- ALT="$\displaystyle \mathbf R_{ij}^T\bar a^T\bar a \mathbf R_{ij}$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 3.32ex; vertical-align: -1.01ex; " SRC="img597.svg"
- ALT="$\displaystyle 2 \mathbf R_{ij}^T\bar a^T\hat \mathbf P_{ij} +\hat \mathbf P_{ij}^T \hat \mathbf P_{ij}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">78</SPAN>)</TD></TR>
-</TABLE></DIV>
-
-<P>
-Equations (<A HREF="#Ur2">81</A>) and (<A HREF="#U2">82</A>) contain terms quadratic in <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.55ex; vertical-align: -0.12ex; " SRC="img598.svg"
- ALT="$\bar a$"></SPAN>, which will be
-considered as elastic energy contributions. The terms quadratic in <!-- MATH
- $\hat \mathbf P$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.43ex; vertical-align: -0.12ex; " SRC="img599.svg"
- ALT="$\hat \mathbf P$"></SPAN> will contribute
-to the lattice dynamics. In addition there are also 
-terms linear in <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.55ex; vertical-align: -0.12ex; " SRC="img598.svg"
- ALT="$\bar a$"></SPAN> and <!-- MATH
- $\hat \mathbf P$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.43ex; vertical-align: -0.12ex; " SRC="img599.svg"
- ALT="$\hat \mathbf P$"></SPAN>. 
-Thus the phonon Hamiltonian (<A HREF="#Hphonon">79</A>) can be separated into the elastic Energy <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img14.svg"
- ALT="$E_{el}$"></SPAN>, the
-Einstein single ion oscillation term <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img600.svg"
- ALT="$H_{\rm E}$"></SPAN>, the bilinear interaction term <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img601.svg"
- ALT="$H_{\rm int}$"></SPAN>
-and the mixing term <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img15.svg"
- ALT="$H_{mix}$"></SPAN> 
-
-<P>
-<BR>
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{eqnarray}
-\hat H_{\rm phon}& =&E_{el} +\hat  H_{mix}+\hat  H_{\rm E}+\hat H_{\rm int}
-\end{eqnarray}
- -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img581.svg"
- ALT="$\displaystyle \hat H_{\rm phon}$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img602.svg"
- ALT="$\displaystyle E_{el} +\hat H_{mix}+\hat H_{\rm E}+\hat H_{\rm int}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">79</SPAN>)</TD></TR>
-</TABLE></DIV>
-
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A ID="tex2html651"
-  HREF="node61.html">Elastic Energy <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img14.svg"
- ALT="$E_{el}$"></SPAN></A>
-<LI><A ID="tex2html652"
-  HREF="node62.html">Mixing term <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img15.svg"
- ALT="$H_{mix}$"></SPAN></A>
-<LI><A ID="tex2html653"
-  HREF="node63.html">The lattice dynamic terms <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img16.svg"
- ALT="$H_{E}+H_{int}$"></SPAN></A>
-<LI><A ID="tex2html654"
-  HREF="node64.html">The total Crystal field Phonon Interaction Hamiltonian</A>
-<LI><A ID="tex2html655"
-  HREF="node65.html">Exchange Striction</A>
-<LI><A ID="tex2html656"
-  HREF="node66.html">Progam Workflow for calculating Magnetoelastic Effects and the Static Jahn Teller Effect</A>
-<LI><A ID="tex2html657"
-  HREF="node67.html">Calculation of the Elastic Constants using <I CLASS="slanted">makenn</I></A>
-<LI><A ID="tex2html658"
-  HREF="node68.html">Calculation of the Crystal Field Phonon Interaction using a Point Charge Model</A>
-<LI><A ID="tex2html659"
-  HREF="node69.html">Setting up a Point Charge Model which yields given Crystal Field Parameters</A>
-<LI><A ID="tex2html660"
-  HREF="node70.html">Calculation of the Exchange Striction Parameters using <I CLASS="slanted">makenn</I></A>
-<LI><A ID="tex2html661"
-  HREF="node71.html">Magnetoelastic Options to <I CLASS="slanted">mcphas</I></A>
-<LI><A ID="tex2html662"
-  HREF="node72.html">TmCu<SPAN CLASS="MATH"><IMG
+<SPAN CLASS="SMALL">The file <I CLASS="slanted">mcdisp.dsigma.tot</I> produced by the calculation contains the calculated diffuse scattering cross section.
+Figure&nbsp;<A HREF="node59.html#ho2ti2o7diffuse">12</A> shows an output of such a calculation for the diffuse scattering
+on Ho<SPAN CLASS="MATH"><IMG
  STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN> - magnetoelastic effects and Neutron Spectra calculated with CF-phonon interaction</A>
-<LI><A ID="tex2html663"
-  HREF="node73.html">Project - Extending McPhase to include Stress tensor</A>
-</UL>
-<!--End of Table of Child-Links-->
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node61.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="manual.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node59.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html647"
-  HREF="node7.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html649"
-  HREF="node164.html">
-<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A
- HREF="node61.html">Elastic Energy</A>
-<B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
-<B> Previous:</B> <A
- HREF="node59.html">Using Single Ion Module</A>
- &nbsp; <B>  <A ID="tex2html648"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html650"
-  HREF="node164.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+ ALT="$_2$"></SPAN>Ti<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>O<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img8.svg"
+ ALT="$_7$"></SPAN>.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">For comparison it is also possible to do a calculation using the option <I CLASS="slanted">-r</I> forcing
+ the program <I CLASS="slanted">mcdisp<A ID="2126"></A></I> to calculate the cross section
+ using the full MF-RPA algorithm (output stored in <I CLASS="slanted">mcdisp.dsigma</I>)
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR><HR>
 
 </BODY>
 </HTML>

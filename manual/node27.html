@@ -1,17 +1,16 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Example mcphas.j file for a simple antiferromagnet</TITLE>
+<TITLE>Elastic energy and external stress</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node28.html">
 <LINK REL="previous" HREF="node26.html">
 <LINK REL="next" HREF="node28.html">
 </HEAD>
@@ -23,156 +22,75 @@
  HREF="node28.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node22.html">
+ HREF="node16.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node26.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html492"
-  HREF="node7.html">
+<A ID="tex2html512"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html494"
-  HREF="node164.html">
+<A ID="tex2html514"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node28.html">Single Ion Property Input</A>
+ HREF="node28.html">singleion - a Crystal</A>
 <B> Up:</B> <A
- HREF="node22.html">Input Files</A>
+ HREF="node16.html">Summary</A>
 <B> Previous:</B> <A
- HREF="node26.html">mcphas.j - lattice and</A>
- &nbsp; <B>  <A ID="tex2html493"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html495"
-  HREF="node164.html">Index</A></B> 
+ HREF="node26.html">Magneto-elastic interaction</A>
+ &nbsp; <B>  <A ID="tex2html513"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html515"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION000101500000000000000"></A><A ID="833"></A>
-<BR>
-Example <I CLASS="slanted">mcphas.j</I> file for a simple antiferromagnet
-</H3>
-
+<H3><A ID="SECTION000731100000000000000">
+Elastic energy and external stress</A>
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-Here are example files of a tetragonal antiferromagnet with nearest neighbour interactions, all
-files are equivalent:
+<SPAN CLASS="SMALL">Classical elastic energy and external stress can be included as
+</SPAN>
+<DIV CLASS="displaymath">
 
-<P>
-<SPAN CLASS="SMALL">
-</SPAN><PRE> 
-# simple antiferromagnet 
-#&lt;!--mcphase.mcphas.j--&gt;
-#***************************************************************
-# Lattice Constants (A)
-#! a=4.3843 b=4.3843 c=2.4194 alpha=  90 beta=  90 gamma=  90
-#! r1a=   1 r2a=   0 r3a=   0
-#! r1b=   0 r2b=   1 r3b=   0   primitive lattice vectors [a][b][c]
-#! r1c=   0 r2c=   0 r3c=   1
-#! nofatoms=1  nofcomponents=3  number of atoms in primitive unit cell/number of components of each spin
-# ****************************************************************************
-#! da=  0 [a] db=  0 [b] dc=  0 nofneighbours=2 diagonalexchange=0  sipffilename=Ce3p.sipf
-# da[a] db[b] dc[c] Jaa[meV] Jbb[meV] Jcc[meV] Jab[meV] Jba[meV] Jac[meV] Jca[meV] Jbc[meV] Jcb[meV]
-+0	+0	+1	-0.1	-0.1	-0.1   0  0  0  0  0  0
-+0	+0	-1	-0.1	-0.1	-0.1   0  0  0  0  0  0
-#
-</PRE><SPAN CLASS="SMALL"></SPAN>
+<!-- MATH
+ \begin{equation}
+\hat{H}
+    =
+    \frac{1}{2}
+    \sum_{\alpha\gamma=1-6}
+    c^{\alpha\gamma}
+    \epsilon_{\alpha}
+    \epsilon_{\gamma}
+    -
+    \sum_{\alpha=1,\dots,6}
+    \sigma_{\alpha}
+    \epsilon_{\alpha}
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 6.54ex; vertical-align: -3.38ex; " SRC="img197.svg"
+ ALT="$\displaystyle \hat{H}
+=
+\frac{1}{2}
+\sum_{\alpha\gamma=1-6}
+c^{\alpha\g...
+..._{\gamma}
+-
+\sum_{\alpha=1,\dots,6}
+\sigma_{\alpha}
+\epsilon_{\alpha}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">24</SPAN>)</SPAN>
+</DIV><SPAN CLASS="SMALL">
 
+</SPAN>
 <P>
-Using diagonalexchange this may be shortened to
-
-<P>
-<SPAN CLASS="SMALL">
-</SPAN><PRE> 
-# simple antiferromagnet 
-#&lt;!--mcphase.mcphas.j--&gt;
-#***************************************************************
-# Lattice Constants (A)
-#! a=4.3843 b=4.3843 c=2.4194 alpha=  90 beta=  90 gamma=  90
-#! r1a=   1 r2a=   0 r3a=   0
-#! r1b=   0 r2b=   1 r3b=   0   primitive lattice vectors [a][b][c]
-#! r1c=   0 r2c=   0 r3c=   1
-#! nofatoms=1  nofcomponents=3  number of atoms in primitive unit cell/number of components of each spin
-# ****************************************************************************
-#! da=  0 [a] db=  0 [b] dc=  0 nofneighbours=2 diagonalexchange=1  sipffilename=Ce3p.sipf
-# da[a] db[b] dc[c] Jaa[meV] Jbb[meV] Jcc[meV] Jab[meV] Jba[meV] Jac[meV] Jca[meV] Jbc[meV] Jcb[meV]
-+0	+0	+1	-0.1	-0.1	-0.1   
-+0	+0	-1	-0.1	-0.1	-0.1   
-#
-</PRE><SPAN CLASS="SMALL"></SPAN>
-
-<P>
-with indexexchange option the sequence of two ion interaction parameters can be changed and
-zero parameters may be omitted:
-
-<P>
-<SPAN CLASS="SMALL">
-</SPAN><PRE> 
-# simple antiferromagnet 
-#&lt;!--mcphase.mcphas.j--&gt;
-#***************************************************************
-# Lattice Constants (A)
-#! a=4.3843 b=4.3843 c=2.4194 alpha=  90 beta=  90 gamma=  90
-#! r1a=   1 r2a=   0 r3a=   0
-#! r1b=   0 r2b=   1 r3b=   0   primitive lattice vectors [a][b][c]
-#! r1c=   0 r2c=   0 r3c=   1
-#! nofatoms=1  nofcomponents=3  number of atoms in primitive unit cell/number of components of each spin
-# ****************************************************************************
-#! da=  0 [a] db=  0 [b] dc=  0 nofneighbours=2 diagonalexchange=2  sipffilename=Ce3p.sipf
-# da[a] db[b] dc[c] Jaa[meV] Jbb[meV] Jcc[meV] Jab[meV] Jba[meV] Jac[meV] Jca[meV] Jbc[meV] Jcb[meV]
-#! indexexchange = JaJa JaJc JcJa JbJb JcJc
-+0	+0	+1	-0.1 0 0 -0.1	-0.1  
-+0	+0	-1	-0.1 0 0 -0.1	-0.1  
-#
-</PRE><SPAN CLASS="SMALL"></SPAN>
-
-<P>
-<SPAN CLASS="SMALL">
-</SPAN><PRE> 
-# simple antiferromagnet 
-#&lt;!--mcphase.mcphas.j--&gt;
-#***************************************************************
-# Lattice Constants (A)
-#! a=4.3843 b=4.3843 c=2.4194 alpha=  90 beta=  90 gamma=  90
-#! r1a=   1 r2a=   0 r3a=   0
-#! r1b=   0 r2b=   1 r3b=   0   primitive lattice vectors [a][b][c]
-#! r1c=   0 r2c=   0 r3c=   1
-#! nofatoms=1  nofcomponents=3  number of atoms in primitive unit cell/number of components of each spin
-# ****************************************************************************
-#! da=  0 [a] db=  0 [b] dc=  0 nofneighbours=2 diagonalexchange=2 sipffilename=Ce3p.sipf
-# da[a] db[b] dc[c] Jaa[meV] Jbb[meV] Jcc[meV] Jab[meV] Jba[meV] Jac[meV] Jca[meV] Jbc[meV] Jcb[meV]
-#! indexexchange = 1,1 1,3, 3,1 2,2 3,3
-+0	+0	+1	-0.1 0 0 -0.1	-0.1  
-+0	+0	-1	-0.1 0 0 -0.1	-0.1  
-#
-</PRE><SPAN CLASS="SMALL"></SPAN>
-
-<P>
-using symmetricexchange together with indexexchange will assume that the interaction tensor is symmetic and 
-only half of it may be given:
-
-<P>
-<SPAN CLASS="SMALL">
-</SPAN><PRE> 
-# simple antiferromagnet 
-#&lt;!--mcphase.mcphas.j--&gt;
-#***************************************************************
-# Lattice Constants (A)
-#! a=4.3843 b=4.3843 c=2.4194 alpha=  90 beta=  90 gamma=  90
-#! r1a=   1 r2a=   0 r3a=   0
-#! r1b=   0 r2b=   1 r3b=   0   primitive lattice vectors [a][b][c]
-#! r1c=   0 r2c=   0 r3c=   1
-#! nofatoms=1  nofcomponents=3  number of atoms in primitive unit cell/number of components of each spin
-# ****************************************************************************
-#! da=  0 [a] db=  0 [b] dc=  0 nofneighbours=2 diagonalexchange=2 sipffilename=Ce3p.sipf
-# da[a] db[b] dc[c] Jaa[meV] Jbb[meV] Jcc[meV] Jab[meV] Jba[meV] Jac[meV] Jca[meV] Jbc[meV] Jcb[meV]
-#! symmetricexchange=1 indexexchange = JaJa JaJc JbJb JcJc
-+0	+0	+1	-0.1 0  -0.1	-0.1  
-+0	+0	-1	-0.1 0  -0.1	-0.1  
-#
-</PRE><SPAN CLASS="SMALL"></SPAN>
-
-<P>
+<SPAN CLASS="SMALL"></SPAN>
 <BR><HR>
 
 </BODY>

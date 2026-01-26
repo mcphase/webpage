@@ -1,18 +1,18 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>External module function Scalc - used by mcdiff and mcphas </TITLE>
+<TITLE>All about Programming External Single Ion Modules</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node96.html">
-<LINK REL="previous" HREF="node94.html">
+<LINK REL="next" HREF="node126.html">
+<LINK REL="previous" HREF="node88.html">
 <LINK REL="next" HREF="node96.html">
 </HEAD>
 
@@ -23,59 +23,624 @@
  HREF="node96.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node88.html">
+ HREF="manual.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node94.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
 <A ID="tex2html860"
-  HREF="node7.html">
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
 <A ID="tex2html862"
-  HREF="node164.html">
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node96.html">External module function SMcalc</A>
+ HREF="node96.html">Basic Module Functions</A>
 <B> Up:</B> <A
- HREF="node88.html">Module Functions for Observables</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node94.html">External module function dL1</A>
+ HREF="node94.html">Radial Matrix Elements</A>
  &nbsp; <B>  <A ID="tex2html861"
-  HREF="node7.html">Contents</A></B> 
+  HREF="node8.html">Contents</A></B> 
  &nbsp; <B>  <A ID="tex2html863"
-  HREF="node164.html">Index</A></B> 
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION000172700000000000000"></A><A ID="3490"></A><A ID="3492"></A>
+<H1><A ID="SECTION000160000000000000000"></A><A ID="extsimod"></A>
 <BR>
-External module function <I CLASS="slanted">Scalc</I> - used by <I CLASS="slanted">mcdiff</I>
-and <I CLASS="slanted">mcphas</I>  
-</H3>
-
+All about Programming External Single Ion Modules
+</H1><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-In order to calculate the total spin <!-- MATH
- $\langle \hat \mathbf S \rangle$
+<SPAN CLASS="SMALL">Single ion properties can be described in a very flexible way by
+user programmed single ion module functions, which are loaded at runtime.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">The first line in such a single ion property file
+must contain the filename of the loadable module, in the following example
+the file <I CLASS="slanted">./1ion_mod/kramer.so</I>:
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN><PRE>
+#!./1ion_mod/kramer.so
+#&lt;!--mcphas.sipf--&gt;
+# single ion parameter file for CeCu2
+# there follow some module parameters (up to 9) which are 
+# loaded at initialisation of the module
+nof_electrons=1
+MODPAR1=1.6
+MODPAR2=0.58333
+MODPAR3=1.1
+
+...
+</PRE><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">If the first line refers not to an internal module, but to
+ a loadable module file, the single ion
+properties are calculated using functions in this module file.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">In the following sections the different functions are presented
+which need to be present in the loadable module in order to 
+run the programs. All functions have to be present, but only 
+formally. If a function is not implemented please just let
+print out a message and exit. The corresponding programs
+will not work then. Table&nbsp;<A HREF="#modulefunctions">5</A> lists all
+functions which can be implemented in a loadable module.
+There are two groups of functions: (i) basic module functions, which
+provide the information about the interaction operators <!-- MATH
+ $\hat \mathbf I$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img805.svg"
- ALT="$\langle \hat\mathbf S\rangle$"></SPAN>
- the following function has to be present in the module file <I CLASS="slanted">*.so</I>:
-
+ STYLE="height: 2.43ex; vertical-align: -0.12ex; " SRC="img550.svg"
+ ALT="$\hat \mathbf I$"></SPAN>
+and their transition matrix elements. These are used to solve the
+meanfield Hamiltonian and calculate the excitation energies (using the DMD method).
+(ii) module functions for observables - these are used to generate
+output for different observables, such as neutron cross sections, 
+magnetic moments, chargedensities etc.
+</SPAN>
 <P>
-<PRE>
-extern "C" void Scalc(Vector &amp; S,double * T, Vector &amp; Hxc, Vector &amp; Hext,
-                      double * gJ, Vector &amp; MODPAR,
-                      char ** sipffilename, ComplexMatrix &amp; Icalc_parstorage);
-</PRE>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV class="CENTER">
 
+<A ID="9621"></A>
+<TABLE class="PAD  BORDER" style="">
+<CAPTION><STRONG>Table 5:</STRONG>
+External Single ion<A ID="3870"></A> module functions in the context of the <I CLASS="slanted">McPhase</I>
+programs.</CAPTION>
+<TR><TD CLASS="LEFT">Module - Function</TD>
+<TD CLASS="LEFT">obligatory for</TD>
+<TD CLASS="LEFT">optional for</TD>
+<TD CLASS="LEFT">description</TD>
+</TR>
+<TR><TD CLASS="LEFT">Basic Functions</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">void Icalc</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">mcphas,singleion</I></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">calculates <!-- MATH
+ $\langle \hat \mathbf I \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img913.svg"
+ ALT="$\langle \hat \mathbf I \rangle$"></SPAN></TD>
+</TR>
+<TR><TD CLASS="LEFT">void IMcalc</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">singleion</I></TD>
+<TD CLASS="LEFT">the same with vectorized Temperature</TD>
+</TR>
+<TR><TD CLASS="LEFT"><SPAN CLASS="TINY">Icalc_parameter_storage_matrix_init</SPAN></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">mcphas</I></TD>
+<TD CLASS="LEFT">parameter storage for Icalc,mcalc etc</TD>
+</TR>
+<TR><TD CLASS="LEFT"><SPAN CLASS="TINY">(void)</SPAN></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">mcdiff</I></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">singleion</I></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">spins</I></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">densplt</I></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">int du1calc</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">mcdisp</I></TD>
+<TD CLASS="LEFT"><I CLASS="slanted">singleion</I></TD>
+<TD CLASS="LEFT">calculates <!-- MATH
+ $\langle -|\hat \mathbf I|+\rangle\sqrt{(p_- -p_+)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.14ex; vertical-align: -0.82ex; " SRC="img914.svg"
+ ALT="$\langle -\vert\hat \mathbf I\vert+\rangle\sqrt{(p_--p_+)}$"></SPAN></TD>
+</TR>
+<TR><TD CLASS="LEFT">void estates</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">mcdiff</I></TD>
+<TD CLASS="LEFT">parameter storage for du1calc,dm1,dS1,...</TD>
+</TR>
+<TR><TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">singleion</I></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">mcdisp</I></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">Observables</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">void mcalc</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">mcdiff,singleion</I></TD>
+<TD CLASS="LEFT">magnetic moment <!-- MATH
+ $\langle\hat \mathbf M\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img915.svg"
+ ALT="$\langle\hat \mathbf M\rangle$"></SPAN> [<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img916.svg"
+ ALT="$\mu_B$"></SPAN>]</TD>
+</TR>
+<TR><TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">mcphase</I></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">void mMcalc</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">singleion</I></TD>
+<TD CLASS="LEFT">the same with vectorized T</TD>
+</TR>
+<TR><TD CLASS="LEFT">int dm1</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">mcdisp</I></TD>
+<TD CLASS="LEFT"><!-- MATH
+ $\langle-| \hat\mathbf M|+\rangle\sqrt{(p_- -p_+)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.14ex; vertical-align: -0.82ex; " SRC="img917.svg"
+ ALT="$\langle-\vert \hat\mathbf M\vert+\rangle\sqrt{(p_--p_+)}$"></SPAN>[<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img916.svg"
+ ALT="$\mu_B$"></SPAN>]</TD>
+</TR>
+<TR><TD CLASS="LEFT">void Lcalc</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">mcdiff,singleion</I></TD>
+<TD CLASS="LEFT">orbital ang. momentum <!-- MATH
+ $\langle \hat \mathbf L\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img918.svg"
+ ALT="$\langle \hat \mathbf L\rangle$"></SPAN>[<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.83ex; vertical-align: -0.12ex; " SRC="img919.svg"
+ ALT="$\hbar$"></SPAN>]</TD>
+</TR>
+<TR><TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">mcphase</I></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">void LMcalc</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">singleion</I></TD>
+<TD CLASS="LEFT">the same with vectorized T</TD>
+</TR>
+<TR><TD CLASS="LEFT">int dL1</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">mcdisp</I></TD>
+<TD CLASS="LEFT"><!-- MATH
+ $\langle-| \hat\mathbf L|+\rangle\sqrt{(p_- -p_+)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.14ex; vertical-align: -0.82ex; " SRC="img920.svg"
+ ALT="$\langle-\vert \hat\mathbf L\vert+\rangle\sqrt{(p_--p_+)}$"></SPAN>[<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.83ex; vertical-align: -0.12ex; " SRC="img919.svg"
+ ALT="$\hbar$"></SPAN>]</TD>
+</TR>
+<TR><TD CLASS="LEFT">void Scalc</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">mcdiff,singleion</I></TD>
+<TD CLASS="LEFT">spin <!-- MATH
+ $\langle \hat\mathbf S\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img921.svg"
+ ALT="$\langle \hat\mathbf S\rangle$"></SPAN>[<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.83ex; vertical-align: -0.12ex; " SRC="img919.svg"
+ ALT="$\hbar$"></SPAN>]</TD>
+</TR>
+<TR><TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">mcphase</I></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">void SMcalc</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">singleion</I></TD>
+<TD CLASS="LEFT">the same with vectorized T</TD>
+</TR>
+<TR><TD CLASS="LEFT">int dS1</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">mcdisp</I></TD>
+<TD CLASS="LEFT"><!-- MATH
+ $\langle-|\hat \mathbf S|+\rangle\sqrt{(p_- -p_+)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.14ex; vertical-align: -0.82ex; " SRC="img922.svg"
+ ALT="$\langle-\vert\hat \mathbf S\vert+\rangle\sqrt{(p_--p_+)}$"></SPAN>[<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.83ex; vertical-align: -0.12ex; " SRC="img919.svg"
+ ALT="$\hbar$"></SPAN>]</TD>
+</TR>
+<TR><TD CLASS="LEFT">void mqcalc</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">mcdiff</I></TD>
+<TD CLASS="LEFT">FT of magnetic moment <!-- MATH
+ $\langle\hat \mathbf M(\mathbf Q)\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img923.svg"
+ ALT="$\langle\hat \mathbf M(\mathbf Q)\rangle$"></SPAN>[<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img916.svg"
+ ALT="$\mu_B$"></SPAN>]</TD>
+</TR>
+<TR><TD CLASS="LEFT">int dmq1</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">mcdisp</I></TD>
+<TD CLASS="LEFT"><!-- MATH
+ $\langle-|\hat \mathbf M(\mathbf Q)|+\rangle\sqrt{(p_- -p_+)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.14ex; vertical-align: -0.82ex; " SRC="img924.svg"
+ ALT="$\langle-\vert\hat \mathbf M(\mathbf Q)\vert+\rangle\sqrt{(p_--p_+)}$"></SPAN>[<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img916.svg"
+ ALT="$\mu_B$"></SPAN>]</TD>
+</TR>
+<TR><TD CLASS="LEFT">int drixs1</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">mcdisp</I></TD>
+<TD CLASS="LEFT">RIXS transition operator <!-- MATH
+ $\hat \mathbf R$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.43ex; vertical-align: -0.12ex; " SRC="img925.svg"
+ ALT="$\hat \mathbf R$"></SPAN>,eq. (<A HREF="node65.html#rixsop">86</A>)</TD>
+</TR>
+<TR><TD CLASS="LEFT">void pcalc</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">mcphas</I></TD>
+<TD CLASS="LEFT">phononic displacement <!-- MATH
+ $\langle \hat \mathbf P\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img926.svg"
+ ALT="$\langle \hat \mathbf P\rangle$"></SPAN>[<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.25ex; vertical-align: -0.12ex; " SRC="img927.svg"
+ ALT="$\AA$"></SPAN>]</TD>
+</TR>
+<TR><TD CLASS="LEFT">nt dP1</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">mcdisp</I></TD>
+<TD CLASS="LEFT">phonon displacement <!-- MATH
+ $\langle-|\hat \mathbf P|+\rangle\sqrt{(p_- -p_+)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.14ex; vertical-align: -0.82ex; " SRC="img928.svg"
+ ALT="$\langle-\vert\hat \mathbf P\vert+\rangle\sqrt{(p_--p_+)}$"></SPAN>[<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.25ex; vertical-align: -0.12ex; " SRC="img927.svg"
+ ALT="$\AA$"></SPAN>]</TD>
+</TR>
+<TR><TD CLASS="LEFT">void pelcalc</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">mcphas</I></TD>
+<TD CLASS="LEFT">electric dipole moment <!-- MATH
+ $\langle \hat \mathbf p_{\rm el}\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img929.svg"
+ ALT="$\langle \hat \mathbf p_{\rm el}\rangle$"></SPAN>[<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img878.svg"
+ ALT="$\vert e\vert$"></SPAN>pm]</TD>
+</TR>
+<TR><TD CLASS="LEFT">nt dpel1</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">mcdisp</I></TD>
+<TD CLASS="LEFT">el. dipole moment <!-- MATH
+ $\langle-|\hat \mathbf p_{\rm el}|+\rangle\sqrt{(p_- -p_+)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.10ex; vertical-align: -0.82ex; " SRC="img930.svg"
+ ALT="$\langle-\vert\hat \mathbf p_{\rm el}\vert+\rangle\sqrt{(p_--p_+)}$"></SPAN>[<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img878.svg"
+ ALT="$\vert e\vert$"></SPAN>pm]</TD>
+</TR>
+<TR><TD CLASS="LEFT">void chargedensity_coeff</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">densplt -c</I></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">coeff of <!-- MATH
+ $-|e|Z_l^m(\Omega)R^2(r)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.77ex; " SRC="img931.svg"
+ ALT="$-\vert e\vert Z_l^m(\Omega)R^2(r)$"></SPAN> in equ.(<A HREF="node166.html#chargedensity2">250</A>)</TD>
+</TR>
+<TR><TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">spins -c</I></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">i.e. <!-- MATH
+ $\langle\sum_i Z_l^m(\Omega_i)\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.66ex; vertical-align: -0.81ex; " SRC="img932.svg"
+ ALT="$\langle\sum_i Z_l^m(\Omega_i)\rangle$"></SPAN></TD>
+</TR>
+<TR><TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">display_density c</I></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">display_densities -c</I></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">int dchargedensity_coeff1</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">mcdisp</I></TD>
+<TD CLASS="LEFT"><!-- MATH
+ $\langle-|\sum_i Z_l^m(\Omega_i)|+\rangle\sqrt{(p_- -p_+)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.10ex; vertical-align: -0.82ex; " SRC="img933.svg"
+ ALT="$\langle-\vert\sum_i Z_l^m(\Omega_i)\vert+\rangle\sqrt{(p_--p_+)}$"></SPAN></TD>
+</TR>
+<TR><TD CLASS="LEFT">void spindensity_coeff</TD>
+<TD CLASS="LEFT">-&rdquo;- -s</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">coeff of <!-- MATH
+ $Z_l^m(\Omega)R^2(r)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.77ex; " SRC="img934.svg"
+ ALT="$Z_l^m(\Omega)R^2(r)$"></SPAN></TD>
+</TR>
+<TR><TD CLASS="LEFT">int dspindensity_coeff1</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">mcdisp</I></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">void orbmomdensity_coeff</TD>
+<TD CLASS="LEFT">-&rdquo;- -m<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-o<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>-j</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">coeff of <!-- MATH
+ $Z_l^m(\Omega)F(r)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.62ex; vertical-align: -0.77ex; " SRC="img936.svg"
+ ALT="$Z_l^m(\Omega)F(r)$"></SPAN></TD>
+</TR>
+<TR><TD CLASS="LEFT">int dorbmomdensity_coeff1</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">mcdisp</I></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">double ro_calc</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">densplt -c</I></TD>
+<TD CLASS="LEFT">chargedensity (instead of expansion coeff)</TD>
+</TR>
+<TR><TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">spins -c</I></TD>
+<TD CLASS="LEFT">- will always be used if present</TD>
+</TR>
+<TR><TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">display_density c</I></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><I CLASS="slanted">display_densities -c</I></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+</TABLE>
+</DIV>
+<BR><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-it works exactly as <I CLASS="slanted">mcalc</I>, therefore we do not give more details here.
-
+<SPAN CLASS="SMALL"></SPAN>
 <P>
+<SPAN CLASS="SMALL">Note, in case of non-orthogonal axes the convention for the components
+of the external applied field <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img66.svg"
+ ALT="$\mathbf H$"></SPAN>, the mean field, the magnetic moment 
+components, the polarisation vectors etc. to be adopted in programming a single ion module is
+ <SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img937.svg"
+ ALT="$H_2\vert\vert\vec b$"></SPAN>, <!-- MATH
+ $H_3||(\vec a \times \vec b)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img938.svg"
+ ALT="$H_3\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img939.svg"
+ ALT="$H_1$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img940.svg"
+ ALT="$H_2$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img941.svg"
+ ALT="$H_3$"></SPAN>
+(here <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.89ex; vertical-align: -0.12ex; " SRC="img286.svg"
+ ALT="$\vec a$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.50ex; vertical-align: -0.12ex; " SRC="img287.svg"
+ ALT="$\vec b$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.89ex; vertical-align: -0.12ex; " SRC="img288.svg"
+ ALT="$\vec c$"></SPAN> denote the lattice vectors of the crystal structure
+as specified by the lattice constants <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img350.svg"
+ ALT="$a,b,c$"></SPAN> and the angles <!-- MATH
+ $\alpha,\beta,\gamma$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img351.svg"
+ ALT="$\alpha,\beta,\gamma$"></SPAN>
+ in <I CLASS="slanted">mcphas.j</I>).
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
 <BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html864"
+  HREF="node96.html">Basic Module Functions</A>
+<UL>
+<LI><A ID="tex2html865"
+  HREF="node97.html">External module function <I CLASS="slanted">Icalc</I> - used by <I CLASS="slanted">mcphas</I>,
+<I CLASS="slanted">singleion</I> </A>
+<LI><A ID="tex2html866"
+  HREF="node98.html">External module function <I CLASS="slanted">IMcalc</I> - used by 
+<I CLASS="slanted">singleion</I> </A>
+<LI><A ID="tex2html867"
+  HREF="node99.html">External module function <I CLASS="slanted">Icalc_parameter_storage_matrix_init</I> - used by <I CLASS="slanted">mcphas</I>,<I CLASS="slanted">singleion</I>,<I CLASS="slanted">spins</I> and <I CLASS="slanted">densplt</I>,<I CLASS="slanted">mcdiff</I>  </A>
+<LI><A ID="tex2html868"
+  HREF="node100.html">External module function <I CLASS="slanted">du1calc</I> - used by <I CLASS="slanted">mcdisp</I>,<I CLASS="slanted">singleion</I></A>
+<LI><A ID="tex2html869"
+  HREF="node101.html">External module function <I CLASS="slanted">estates</I> - used by <I CLASS="slanted">mcdisp</I>,
+ <I CLASS="slanted">mcdiff</I> and <I CLASS="slanted">singleion</I></A>
+</UL>
+<BR>
+<LI><A ID="tex2html870"
+  HREF="node102.html">Module Functions for Observables</A>
+<UL>
+<LI><A ID="tex2html871"
+  HREF="node103.html">External module function <I CLASS="slanted">mcalc</I> - used by <I CLASS="slanted">mcdiff</I>
+and <I CLASS="slanted">mcphas</I>  </A>
+<LI><A ID="tex2html872"
+  HREF="node104.html">External module function <I CLASS="slanted">mMcalc</I> - used by 
+<I CLASS="slanted">singleion</I> </A>
+<LI><A ID="tex2html873"
+  HREF="node105.html">External module function <I CLASS="slanted">dm1</I> - used by <I CLASS="slanted">mcdisp</I></A>
+<LI><A ID="tex2html874"
+  HREF="node106.html">External module function <I CLASS="slanted">Lcalc</I> - used by <I CLASS="slanted">mcdiff</I>
+and <I CLASS="slanted">mcphas</I>  </A>
+<LI><A ID="tex2html875"
+  HREF="node107.html">External module function <I CLASS="slanted">LMcalc</I> - used by 
+<I CLASS="slanted">singleion</I> </A>
+<LI><A ID="tex2html876"
+  HREF="node108.html">External module function <I CLASS="slanted">dL1</I> - used by <I CLASS="slanted">mcdisp</I></A>
+<LI><A ID="tex2html877"
+  HREF="node109.html">External module function <I CLASS="slanted">Scalc</I> - used by <I CLASS="slanted">mcdiff</I>
+and <I CLASS="slanted">mcphas</I>  </A>
+<LI><A ID="tex2html878"
+  HREF="node110.html">External module function <I CLASS="slanted">SMcalc</I> - used by 
+<I CLASS="slanted">singleion</I> </A>
+<LI><A ID="tex2html879"
+  HREF="node111.html">External module function <I CLASS="slanted">dS1</I> - used by <I CLASS="slanted">mcdisp</I></A>
+<LI><A ID="tex2html880"
+  HREF="node112.html">External module function <I CLASS="slanted">mqcalc</I> - used by <I CLASS="slanted">mcdiff</I>  </A>
+<LI><A ID="tex2html881"
+  HREF="node113.html">External module functions <I CLASS="slanted">dmq1</I> - used by <I CLASS="slanted">mcdisp</I>  </A>
+<LI><A ID="tex2html882"
+  HREF="node114.html">External module functions <I CLASS="slanted">drixs1</I> - used by <I CLASS="slanted">mcdisp</I>  </A>
+<LI><A ID="tex2html883"
+  HREF="node115.html">External module function <I CLASS="slanted">pcalc</I> - used by <I CLASS="slanted">mcdiff</I>
+and <I CLASS="slanted">mcphas</I>  </A>
+<LI><A ID="tex2html884"
+  HREF="node116.html">External module function <I CLASS="slanted">dP1</I> - used by <I CLASS="slanted">mcdisp</I></A>
+<LI><A ID="tex2html885"
+  HREF="node117.html">External module function <I CLASS="slanted">pelcalc</I> - used by <I CLASS="slanted">mcdiff</I>
+and <I CLASS="slanted">mcphas</I>  </A>
+<LI><A ID="tex2html886"
+  HREF="node118.html">External module function <I CLASS="slanted">dpel1</I> - used by <I CLASS="slanted">mcdisp</I></A>
+<LI><A ID="tex2html887"
+  HREF="node119.html">External module function <I CLASS="slanted">chargedensity_coeff</I> -
+used by <I CLASS="slanted">densplt</I>,
+<I CLASS="slanted">spins</I>,
+<I CLASS="slanted">display_density</I>,<I CLASS="slanted">display_densities</I></A>
+<LI><A ID="tex2html888"
+  HREF="node120.html">External module function <I CLASS="slanted">dchargedensity_coeff1</I> - used by <I CLASS="slanted">mcdisp</I></A>
+<LI><A ID="tex2html889"
+  HREF="node121.html">External module function <I CLASS="slanted">spindensity_coeff</I> -
+used by <I CLASS="slanted">densplt</I>,
+<I CLASS="slanted">spins</I>,
+<I CLASS="slanted">display_density</I>,<I CLASS="slanted">display_densities</I></A>
+<LI><A ID="tex2html890"
+  HREF="node122.html">External module function <I CLASS="slanted">dspindensity_coeff1</I> - used by <I CLASS="slanted">mcdisp</I></A>
+<LI><A ID="tex2html891"
+  HREF="node123.html">External module function <I CLASS="slanted">orbmomdensity_coeff</I> -
+used by <I CLASS="slanted">densplt</I>,
+<I CLASS="slanted">spins</I>,
+<I CLASS="slanted">display_density</I>,<I CLASS="slanted">display_densities</I></A>
+<LI><A ID="tex2html892"
+  HREF="node124.html">External module function <I CLASS="slanted">dorbmomdensity_coeff1</I> - used by <I CLASS="slanted">mcdisp</I></A>
+<LI><A ID="tex2html893"
+  HREF="node125.html">External module function <I CLASS="slanted">ro_calc</I> -
+used by <I CLASS="slanted">chrgplt</I>,
+<I CLASS="slanted">charges</I>
+</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node96.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node94.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html860"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html862"
+  HREF="node180.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node96.html">Basic Module Functions</A>
+<B> Up:</B> <A
+ HREF="manual.html">USERS MANUAL Workshops available</A>
+<B> Previous:</B> <A
+ HREF="node94.html">Radial Matrix Elements</A>
+ &nbsp; <B>  <A ID="tex2html861"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html863"
+  HREF="node180.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

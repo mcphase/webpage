@@ -1,17 +1,18 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Dipole Approximation</TITLE>
+<TITLE>Tesseral Harmonics</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="previous" HREF="node155.html">
+<LINK REL="next" HREF="node159.html">
+<LINK REL="previous" HREF="node157.html">
 <LINK REL="next" HREF="node159.html">
 </HEAD>
 
@@ -22,250 +23,637 @@
  HREF="node159.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node151.html">
+ HREF="manual.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node157.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1143"
-  HREF="node7.html">
+<A ID="tex2html1190"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1145"
-  HREF="node164.html">
+<A ID="tex2html1192"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node159.html">Theory for program bfk</A>
+ HREF="node159.html">Stevens Operators</A>
 <B> Up:</B> <A
- HREF="node151.html">Dynamical Susceptibility and Excitations</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node157.html">Magnetic inelastic Scattering</A>
- &nbsp; <B>  <A ID="tex2html1144"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1146"
-  HREF="node164.html">Index</A></B> 
+ HREF="node157.html">Crystal Field and Parameter</A>
+ &nbsp; <B>  <A ID="tex2html1191"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1193"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000375000000000000000">
-Dipole Approximation</A>
-</H2>
-
+<H1><A ID="SECTION000290000000000000000"></A><A ID="tesseral"></A>
+<BR>
+Tesseral Harmonics
+</H1><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-Frequently the neutron scattering cross section may be calculated 
-in the dipole
-approximation, which is valid if <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.70ex; " SRC="img1592.svg"
- ALT="$1/Q$"></SPAN> is much 
-larger than the spatial dimension of a subsystem, i.e.
- the radius of the electron shell. 
- Any deviations from spherical symmetry of the magnetic moment density
-(due to the crystal electric field) are neglected in this approximation.
-In the dipole approximation the scattering operator is written as a product of a form-factor and total angular momentum operator: 
-
+<SPAN CLASS="SMALL">Tesseral Harmonics as defined in terms of spherical harmonics by
+</SPAN>
 <P>
-
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
 <DIV CLASS="displaymath">
 
 <!-- MATH
- \begin{equation}
-\hat M^{n}_{\alpha}(\mathbf Q) \approx -\mu_B[F^n_S(Q) g_S \hat S^{n}_{\alpha} + F^n_L(Q) g_L \hat L^{n}_{\alpha}]
-\end{equation}
- -->
- &nbsp;  <IMG
- STYLE="height: 2.17ex; vertical-align: -0.70ex; " SRC="img1593.svg"
- ALT="$\displaystyle \hat M^{n}_{\alpha}(\mathbf Q) \approx -\mu_B[F^n_S(Q) g_S \hat S^{n}_{\alpha} + F^n_L(Q) g_L \hat L^{n}_{\alpha}]
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">262</SPAN>)</SPAN>
-</DIV>
-
-<P>
-where the spin and orbital <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img1594.svg"
- ALT="$g$"></SPAN>-factors 
-are <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.57ex; " SRC="img1595.svg"
- ALT="$g_S \approx 2$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.57ex; " SRC="img1596.svg"
- ALT="$g_L=1$"></SPAN>, respectively. <!-- MATH
- $F_S(Q)=\langle j_0 (Q) \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img1597.svg"
- ALT="$F_S(Q)=\langle j_0 (Q) \rangle$"></SPAN> and
- <!-- MATH
- $F_L(Q)=\langle j_0 (Q) \rangle + \langle j_2 (Q) \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img1598.svg"
- ALT="$F_L(Q)=\langle j_0 (Q) \rangle + \langle j_2 (Q) \rangle$"></SPAN> are the spin and orbital form factor for the ion <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
- ALT="$n$"></SPAN>, respectively, whilst <!-- MATH
- $\hat S^{n}_{\alpha}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.06ex; vertical-align: -0.69ex; " SRC="img1599.svg"
- ALT="$\hat S^{n}_{\alpha}$"></SPAN> and <!-- MATH
- $\hat L^{n}_{\alpha}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.06ex; vertical-align: -0.69ex; " SRC="img1600.svg"
- ALT="$\hat L^{n}_{\alpha}$"></SPAN> are their total angular momentum operators. We consider
-three cases of the dipole approximation:
-
-<P>
-<P>
-<BLOCKQUOTE>[<!-- MATH
- $\hat M^{n}_{\alpha}(\mathbf Q) \leftrightarrow -\mu_B
-\{ F^n_S(Q) g_S \hat S^{n}_{\alpha} + F^n_L(Q) g_L \hat L^{n}_{\alpha} \}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.00ex; vertical-align: -0.76ex; " SRC="img1601.svg"
- ALT="$\hat M^{n}_{\alpha}(\mathbf Q) \leftrightarrow -\mu_B
-\{ F^n_S(Q) g_S \hat S^{n}_{\alpha} + F^n_L(Q) g_L \hat L^{n}_{\alpha} \}$"></SPAN> : ]
-In this case, the full expression of the dipole approximation is used, whereby the scattering operator is replaced by
-a linear combination of spin and orbital momentum.
-</BLOCKQUOTE>
-<P>
-<BLOCKQUOTE>[<!-- MATH
- $\hat M^{n}_{\alpha}(\mathbf Q) \leftrightarrow -\mu_B
-F^n_S(Q) g_S \hat S^{n}_{\alpha}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.00ex; vertical-align: -0.76ex; " SRC="img1602.svg"
- ALT="$\hat M^{n}_{\alpha}(\mathbf Q) \leftrightarrow -\mu_B
-F^n_S(Q) g_S \hat S^{n}_{\alpha}$"></SPAN>:]
-In many magnetic ions the orbital moment is 
-zero, so it is sufficient
-to consider only the spin momentum. 
-This is the case for the half filled shells Gd<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img3.svg"
- ALT="$^{3+}$"></SPAN>, Eu<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img1158.svg"
- ALT="$^{2+}$"></SPAN>, or where the orbital moment is
-quenched by the crystal field in transition metal ions.
-</BLOCKQUOTE>
-<P>
-<BLOCKQUOTE>[<!-- MATH
- $\hat M^{n}_{\alpha}(\mathbf Q) \leftrightarrow -\mu_B
- g_J F^n(Q) \hat J_{\alpha}^n$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.42ex; vertical-align: -0.70ex; " SRC="img1603.svg"
- ALT="$\hat M^{n}_{\alpha}(\mathbf Q) \leftrightarrow -\mu_B
-g_J F^n(Q) \hat J_{\alpha}^n$"></SPAN>:]
-For rare earth based systems the orbital momentum cannot be neglected, however the
-spin orbit interaction is very strong so that in many cases it is sufficient to consider
-only the ground state multiplet according to Hund's rules. In this approximation the
-spin and orbital momentum are both proportional to the total angular momentum <!-- MATH
- $\hat \mathbf J$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.43ex; vertical-align: -0.12ex; " SRC="img430.svg"
- ALT="$\hat \mathbf J$"></SPAN> and the
-magnetisation operator may be written as 
-<!-- MATH
- $\hat M^{n}_{\alpha} \approx -\mu_B g_J F^n(Q)  \hat J_{\alpha}^n$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.20ex; vertical-align: -0.70ex; " SRC="img1604.svg"
- ALT="$\hat M^{n}_{\alpha} \approx -\mu_B g_J F^n(Q) \hat J_{\alpha}^n $"></SPAN> with
-the form factor  <!-- MATH
- $F(Q)=\langle j_0 (Q) \rangle + \frac{2-g_J}{g_J}\langle j_2 (Q) \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.42ex; vertical-align: -1.23ex; " SRC="img1605.svg"
- ALT="$F(Q)=\langle j_0 (Q) \rangle + \frac{2-g_J}{g_J}\langle j_2 (Q) \rangle $"></SPAN>.
-In this approximation the observable is the total angular momentum operator
-(<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img197.svg"
- ALT="$g_J$"></SPAN> denotes the Landé splitting factor).
-
-</BLOCKQUOTE>
-
-<P>
-<I CLASS="slanted">mcdisp<A ID="7644"></A></I> automatically calculates the intensity in
-dipole approximation and also going beyond, if the single ion module of an
-ion allows for that, the result
-is stored in file <I CLASS="slanted">mcdisp.qei</I>.
-
-<P>
-In dipole approximation a scattering function without polarisation factor
-can be defined:
-
-<P>
-<BR>
-<DIV CLASS="displaymath"><A ID="Sinel"></A>
-<!-- MATH
  \begin{eqnarray}
-S_{\rm mag}^{\rm inel,\alpha\beta}(\mathbf Q,\omega)&=&\left( \frac{ \gamma r_0}{2 \mu_B}  \right)^2
-\frac{1}{2\pi\hbar}\int_{-\infty}^{+\infty}dt e^{i\omega t}
-\frac{1}{N}\sum_{nn'} e^{-W_n(Q)- W_{n'}(Q)}\\
-&\times&  e^{-i\mathbf Q \cdot (\mathbf R_n-\mathbf R_{n'})}   (\langle \hat M_{\alpha}^{n \dag }(t,\mathbf Q)  \hat M_{\beta}^{n'}(0,\mathbf Q) \rangle_{T,H}
-- \langle \hat M^{n \dag }_{\alpha}(\mathbf Q)\rangle_{T,H} \langle \hat M^{n'}_{\beta}(\mathbf Q) \rangle_{T,H})\nonumber
+Z_{n0}&=&Y_n^0 \\
+Z_{n\alpha}\equiv Z_{n,\alpha}^c&=&\frac{1}{\sqrt{2}}[Y_n^{-\alpha}+(-1)^{\alpha}Y_n^{\alpha}] \dots \alpha>0 \\
+Z_{n\alpha}\equiv Z_{n,|\alpha|}^s&=&\frac{i}{\sqrt{2}}[Y_n^{\alpha}-(-1)^{\alpha}Y_n^{-\alpha}] \dots \alpha<0 \\
 \end{eqnarray}
  -->
 <TABLE CLASS="equation" >
 <TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 4.91ex; vertical-align: -1.01ex; " SRC="img1606.svg"
- ALT="$\displaystyle S_{\rm mag}^{\rm inel,\alpha\beta}(\mathbf Q,\omega)$"></TD>
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1453.svg"
+ ALT="$\displaystyle Z_{n0}$"></TD>
 <TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
  ALT="$\textstyle =$"></TD>
 <TD style="text-align:left;"><IMG
- STYLE="height: 4.87ex; vertical-align: -3.12ex; " SRC="img1577.svg"
- ALT="$\displaystyle \left( \frac{ \gamma r_0}{2 \mu_B} \right)^2
-\frac{1}{2\pi\hbar}\...
-...-\infty}^{+\infty}dt e^{i\omega t}
-\frac{1}{N}\sum_{nn'} e^{-W_n(Q)- W_{n'}(Q)}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">263</SPAN>)</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+ STYLE="height: 2.80ex; vertical-align: -0.69ex; " SRC="img1454.svg"
+ ALT="$\displaystyle Y_n^0$"></TD><TD class="rfill">(<SPAN CLASS="arabic">212</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.77ex; vertical-align: -1.01ex; " SRC="img1455.svg"
+ ALT="$\displaystyle Z_{n\alpha}\equiv Z_{n,\alpha}^c$"></TD>
 <TD style="text-align:center"><IMG
- STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img128.svg"
- ALT="$\textstyle \times$"></TD>
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
 <TD style="text-align:left;"><IMG
- STYLE="height: 6.11ex; vertical-align: -1.01ex; " SRC="img1607.svg"
- ALT="$\displaystyle e^{-i\mathbf Q \cdot (\mathbf R_n-\mathbf R_{n'})} (\langle \hat ...
-...}(\mathbf Q)\rangle_{T,H} \langle \hat M^{n'}_{\beta}(\mathbf Q) \rangle_{T,H})$"></TD><TD class="rfill">&nbsp;</TD></TR>
-</TABLE></DIV>
-
+ STYLE="height: 5.44ex; vertical-align: -2.28ex; " SRC="img1456.svg"
+ ALT="$\displaystyle \frac{1}{\sqrt{2}}[Y_n^{-\alpha}+(-1)^{\alpha}Y_n^{\alpha}] \dots \alpha&gt;0$"></TD><TD class="rfill">(<SPAN CLASS="arabic">213</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.92ex; vertical-align: -1.15ex; " SRC="img1457.svg"
+ ALT="$\displaystyle Z_{n\alpha}\equiv Z_{n,\vert\alpha\vert}^s$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.48ex; vertical-align: -2.28ex; " SRC="img1458.svg"
+ ALT="$\displaystyle \frac{i}{\sqrt{2}}[Y_n^{\alpha}-(-1)^{\alpha}Y_n^{-\alpha}] \dots \alpha&lt;0$"></TD><TD class="rfill">(<SPAN CLASS="arabic">214</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-<I CLASS="slanted">mcdisp</I> can be set to ouput this scattering function, which is sometimes
-convenient to analyse a model system. However, we have to keep in mind that
-it does not correspond to a observable in neutron scattering (the polarisation
-factor is missing and going beyond dipole approximation it depends on the
-gauge of the orbital magnetic moment density).
-
+<SPAN CLASS="SMALL">A similar table has been given in&nbsp;[<A
+ HREF="node179.html#goerrler96-121">70</A>] on p. 238 (mind, there are errors in <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.39ex; vertical-align: -0.69ex; " SRC="img1459.svg"
+ ALT="$Z^c_{41}$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.39ex; vertical-align: -0.69ex; " SRC="img1460.svg"
+ ALT="$Z^c_{43}$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.39ex; vertical-align: -0.69ex; " SRC="img1461.svg"
+ ALT="$Z^c_{52}$"></SPAN> ... in this reference)
+</SPAN>
 <P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath">
 
+<!-- MATH
+ \begin{eqnarray*}
+Z_{00}&=&\frac{1}{\sqrt{4\pi}}\\
+\hline
+Z^s_{11}&=&\sqrt{\frac{3}{4\pi}}[y/r] \\
+Z_{10}&=&\sqrt{\frac{3}{4\pi}}[z/r] \\
+Z^c_{11}&=&\sqrt{\frac{3}{4\pi}}[x/r] \\
+\hline
+Z^s_{22}&=&\frac{1}{4}\sqrt{\frac{15}{\pi}}[2xy/r^2] \\
+Z^s_{21}&=&\frac{1}{2}\sqrt{\frac{15}{\pi}}[yz/r^2] \\
+Z_{20}&=&\frac{1}{4}\sqrt{\frac{5}{\pi}}[(3z^2-r^2)/r^2] \\
+Z^c_{21}&=&\frac{1}{2}\sqrt{\frac{15}{\pi}}[xz/r^2] \\
+Z^c_{22}&=&\frac{1}{4}\sqrt{\frac{15}{\pi}}[(x^2-y^2)/r^2] \\
+\hline
+Z^s_{33}&=&\sqrt{\frac{35}{32\pi}}[(3x^2y-y^3)/r^3] \\
+Z^s_{32}&=&\sqrt{\frac{105}{16\pi}}[2xyz/r^3] \\
+Z^s_{31}&=&\sqrt{\frac{21}{32\pi}}[y(5z^2-r^2)/r^3] \\
+Z_{30}&=&\sqrt{\frac{7}{16\pi}}[z(5z^2-3r^2)/r^3] \\
+Z^c_{31}&=&\sqrt{\frac{21}{32\pi}}[x(5z^2-r^2)/r^3] \\
+Z^c_{32}&=&\sqrt{\frac{105}{16\pi}}[(x^2-y^2)z/r^3] \\
+Z^c_{33}&=&\sqrt{\frac{35}{32\pi}}[(x^3-3xy^2)/r^3] \\
+\hline
+Z^s_{44}&=&\frac{3}{16}\sqrt{\frac{35}{\pi}}[4(x^3y-xy^3)/r^4] \\
+Z^s_{43}&=&\frac{3}{8}\sqrt{\frac{70}{\pi}}[(3x^2y-y^3)z/r^4] \\
+Z^s_{42}&=&\frac{3}{8}\sqrt{\frac{5}{\pi}}[2xy(7z^2-r^2)/r^4] \\
+Z^s_{41}&=&\frac{3}{4}\sqrt{\frac{5}{2\pi}}[yz(7z^2-3r^2)/r^4] \\
+Z_{40}&=&\frac{3}{16}\frac{1}{\sqrt{\pi}}[35z^4-30z^2r^2+3r^4)/r^4] \\
+Z^c_{41}&=&\frac{3}{4}\sqrt{\frac{5}{2\pi}}[xz(7z^2-3r^2)/r^4] \\
+Z^c_{42}&=&\frac{3}{8}\sqrt{\frac{5}{\pi}}[(x^2-y^2)(7z^2-r^2)/r^4] \\
+Z^c_{43}&=&\frac{3}{8}\sqrt{\frac{70}{\pi}}[(x^3-3xy^2)z/r^4] \\
+Z^c_{44}&=&\frac{3}{16}\sqrt{\frac{35}{\pi}}[(x^4-6x^2y^2+y^4)/r^4] \\
+\hline
+Z^s_{55}&=&\sqrt{\frac{693}{512\pi}}[(5x^4y-10x^2y^3+y^5)/r^5] \\
+Z^s_{54}&=&\sqrt{\frac{3465}{256\pi}}[4(x^3y-xy^3)z/r^5] \\
+Z^s_{53}&=&\sqrt{\frac{385}{512\pi}}[(3x^2y-y^3)(9z^2-r^2)/r^5] \\
+Z^s_{52}&=&\sqrt{\frac{1155}{64\pi}}[2xy(3z^3-zr^2)/r^5] \\
+Z^s_{51}&=&\sqrt{\frac{165}{256\pi}}[y(21z^4-14z^2r^2+r^4)/r^5] \\
+Z_{50}&=&\sqrt{\frac{11}{256\pi}}[(63z^5-70z^3r^2+15zr^4)/r^5] \\
+Z^c_{51}&=&\sqrt{\frac{165}{256\pi}}[x(21z^4-14z^2r^2+r^4)/r^5] \\
+Z^c_{52}&=&\sqrt{\frac{1155}{64\pi}}[(x^2-y^2)(3z^3-zr^2)/r^5] \\
+Z^c_{53}&=&\sqrt{\frac{385}{512\pi}}[(x^3-3xy^2)(9z^2-r^2)/r^5] \\
+Z^c_{54}&=&\sqrt{\frac{3465}{256\pi}}[(x^4-6x^2y^2+y^4)z/r^5] \\
+Z^c_{55}&=&\sqrt{\frac{693}{512\pi}}[(x^5-10x^3y^2+5xy^4)/r^5] \\
+\hline
+Z^s_{66}&=&\frac{231}{64}\sqrt{\frac{26}{231\pi}}[(6x^5y-20x^3y^3+6xy^5)/r^6] \\
+Z^s_{65}&=&\sqrt{\frac{9009}{512\pi}}[(5x^4y-10x^2y^3+y^5)z/r^6] \\
+Z^s_{64}&=&\frac{21}{32}\sqrt{\frac{13}{7\pi}}[4(x^3y-xy^3)(11z^2-r^2)/r^6] \\
+Z^s_{63}&=&\frac{1}{32}\sqrt{\frac{2730}{\pi}}[(3x^2y-y^3)(11z^3-3zr^2)/r^6] \\
+Z^s_{62}&=&\frac{1}{64}\sqrt{\frac{2730}{\pi}}[2xy(33z^4-18z^2r^2+r^4)/r^6] \\
+Z^s_{61}&=&\frac{1}{8}\sqrt{\frac{273}{4\pi}}[yz(33z^4-30z^2r^2+5r^4)/r^6] \\
+Z_{60}&=&\frac{1}{32}\sqrt{\frac{13}{\pi}}[(231z^6-315z^4r^2+105z^2r^4-5r^6)/r^6] \\
+Z^c_{61}&=&\frac{1}{8}\sqrt{\frac{273}{4\pi}}[xz(33z^4-30z^2r^2+5r^4)/r^6] \\
+Z^c_{62}&=&\frac{1}{64}\sqrt{\frac{2730}{\pi}}[(x^2-y^2)(33z^4-18z^2r^2+r^4)/r^6] \\
+Z^c_{63}&=&\frac{1}{32}\sqrt{\frac{2730}{\pi}}[(x^3-3xy^2)(11z^3-3zr^2)/r^6] \\
+Z^c_{64}&=&\frac{21}{32}\sqrt{\frac{13}{7\pi}}[(x^4-6x^2y^2+y^4)(11z^2-r^2)/r^6] \\
+Z^c_{65}&=&\sqrt{\frac{9009}{512\pi}}[(x^5-10x^3y^2+5xy^4)z/r^6] \\
+Z^c_{66}&=&\frac{231}{64}\sqrt{\frac{26}{231\pi}}[(x^6-15x^4y^2+15x^2y^4-y^6)/r^6]
+\end{eqnarray*}
+ -->
+<TABLE CLASS="equation">
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1462.svg"
+ ALT="$\displaystyle Z_{00}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.44ex; vertical-align: -2.28ex; " SRC="img1463.svg"
+ ALT="$\displaystyle \frac{1}{\sqrt{4\pi}}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="" SRC="img1464.svg"
+ ALT="$\displaystyle \hline
+Z^s_{11}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1465.svg"
+ ALT="$\displaystyle \sqrt{\frac{3}{4\pi}}[y/r]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1466.svg"
+ ALT="$\displaystyle Z_{10}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1467.svg"
+ ALT="$\displaystyle \sqrt{\frac{3}{4\pi}}[z/r]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1468.svg"
+ ALT="$\displaystyle Z^c_{11}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1469.svg"
+ ALT="$\displaystyle \sqrt{\frac{3}{4\pi}}[x/r]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="" SRC="img1470.svg"
+ ALT="$\displaystyle \hline
+Z^s_{22}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1471.svg"
+ ALT="$\displaystyle \frac{1}{4}\sqrt{\frac{15}{\pi}}[2xy/r^2]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1472.svg"
+ ALT="$\displaystyle Z^s_{21}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1473.svg"
+ ALT="$\displaystyle \frac{1}{2}\sqrt{\frac{15}{\pi}}[yz/r^2]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1474.svg"
+ ALT="$\displaystyle Z_{20}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1475.svg"
+ ALT="$\displaystyle \frac{1}{4}\sqrt{\frac{5}{\pi}}[(3z^2-r^2)/r^2]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1476.svg"
+ ALT="$\displaystyle Z^c_{21}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1477.svg"
+ ALT="$\displaystyle \frac{1}{2}\sqrt{\frac{15}{\pi}}[xz/r^2]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1478.svg"
+ ALT="$\displaystyle Z^c_{22}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1479.svg"
+ ALT="$\displaystyle \frac{1}{4}\sqrt{\frac{15}{\pi}}[(x^2-y^2)/r^2]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="" SRC="img1480.svg"
+ ALT="$\displaystyle \hline
+Z^s_{33}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1481.svg"
+ ALT="$\displaystyle \sqrt{\frac{35}{32\pi}}[(3x^2y-y^3)/r^3]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1482.svg"
+ ALT="$\displaystyle Z^s_{32}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1483.svg"
+ ALT="$\displaystyle \sqrt{\frac{105}{16\pi}}[2xyz/r^3]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1484.svg"
+ ALT="$\displaystyle Z^s_{31}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1485.svg"
+ ALT="$\displaystyle \sqrt{\frac{21}{32\pi}}[y(5z^2-r^2)/r^3]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1486.svg"
+ ALT="$\displaystyle Z_{30}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1487.svg"
+ ALT="$\displaystyle \sqrt{\frac{7}{16\pi}}[z(5z^2-3r^2)/r^3]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1488.svg"
+ ALT="$\displaystyle Z^c_{31}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1489.svg"
+ ALT="$\displaystyle \sqrt{\frac{21}{32\pi}}[x(5z^2-r^2)/r^3]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1490.svg"
+ ALT="$\displaystyle Z^c_{32}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1491.svg"
+ ALT="$\displaystyle \sqrt{\frac{105}{16\pi}}[(x^2-y^2)z/r^3]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1492.svg"
+ ALT="$\displaystyle Z^c_{33}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1493.svg"
+ ALT="$\displaystyle \sqrt{\frac{35}{32\pi}}[(x^3-3xy^2)/r^3]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="" SRC="img1494.svg"
+ ALT="$\displaystyle \hline
+Z^s_{44}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1495.svg"
+ ALT="$\displaystyle \frac{3}{16}\sqrt{\frac{35}{\pi}}[4(x^3y-xy^3)/r^4]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1496.svg"
+ ALT="$\displaystyle Z^s_{43}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1497.svg"
+ ALT="$\displaystyle \frac{3}{8}\sqrt{\frac{70}{\pi}}[(3x^2y-y^3)z/r^4]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1498.svg"
+ ALT="$\displaystyle Z^s_{42}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1499.svg"
+ ALT="$\displaystyle \frac{3}{8}\sqrt{\frac{5}{\pi}}[2xy(7z^2-r^2)/r^4]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1500.svg"
+ ALT="$\displaystyle Z^s_{41}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1501.svg"
+ ALT="$\displaystyle \frac{3}{4}\sqrt{\frac{5}{2\pi}}[yz(7z^2-3r^2)/r^4]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1502.svg"
+ ALT="$\displaystyle Z_{40}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.44ex; vertical-align: -2.28ex; " SRC="img1503.svg"
+ ALT="$\displaystyle \frac{3}{16}\frac{1}{\sqrt{\pi}}[35z^4-30z^2r^2+3r^4)/r^4]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1504.svg"
+ ALT="$\displaystyle Z^c_{41}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1505.svg"
+ ALT="$\displaystyle \frac{3}{4}\sqrt{\frac{5}{2\pi}}[xz(7z^2-3r^2)/r^4]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1506.svg"
+ ALT="$\displaystyle Z^c_{42}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1507.svg"
+ ALT="$\displaystyle \frac{3}{8}\sqrt{\frac{5}{\pi}}[(x^2-y^2)(7z^2-r^2)/r^4]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1508.svg"
+ ALT="$\displaystyle Z^c_{43}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1509.svg"
+ ALT="$\displaystyle \frac{3}{8}\sqrt{\frac{70}{\pi}}[(x^3-3xy^2)z/r^4]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1510.svg"
+ ALT="$\displaystyle Z^c_{44}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1511.svg"
+ ALT="$\displaystyle \frac{3}{16}\sqrt{\frac{35}{\pi}}[(x^4-6x^2y^2+y^4)/r^4]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="" SRC="img1512.svg"
+ ALT="$\displaystyle \hline
+Z^s_{55}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1513.svg"
+ ALT="$\displaystyle \sqrt{\frac{693}{512\pi}}[(5x^4y-10x^2y^3+y^5)/r^5]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1514.svg"
+ ALT="$\displaystyle Z^s_{54}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1515.svg"
+ ALT="$\displaystyle \sqrt{\frac{3465}{256\pi}}[4(x^3y-xy^3)z/r^5]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1516.svg"
+ ALT="$\displaystyle Z^s_{53}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1517.svg"
+ ALT="$\displaystyle \sqrt{\frac{385}{512\pi}}[(3x^2y-y^3)(9z^2-r^2)/r^5]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1518.svg"
+ ALT="$\displaystyle Z^s_{52}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1519.svg"
+ ALT="$\displaystyle \sqrt{\frac{1155}{64\pi}}[2xy(3z^3-zr^2)/r^5]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1520.svg"
+ ALT="$\displaystyle Z^s_{51}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1521.svg"
+ ALT="$\displaystyle \sqrt{\frac{165}{256\pi}}[y(21z^4-14z^2r^2+r^4)/r^5]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1522.svg"
+ ALT="$\displaystyle Z_{50}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1523.svg"
+ ALT="$\displaystyle \sqrt{\frac{11}{256\pi}}[(63z^5-70z^3r^2+15zr^4)/r^5]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1524.svg"
+ ALT="$\displaystyle Z^c_{51}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1525.svg"
+ ALT="$\displaystyle \sqrt{\frac{165}{256\pi}}[x(21z^4-14z^2r^2+r^4)/r^5]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1526.svg"
+ ALT="$\displaystyle Z^c_{52}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1527.svg"
+ ALT="$\displaystyle \sqrt{\frac{1155}{64\pi}}[(x^2-y^2)(3z^3-zr^2)/r^5]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1528.svg"
+ ALT="$\displaystyle Z^c_{53}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1529.svg"
+ ALT="$\displaystyle \sqrt{\frac{385}{512\pi}}[(x^3-3xy^2)(9z^2-r^2)/r^5]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1530.svg"
+ ALT="$\displaystyle Z^c_{54}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1531.svg"
+ ALT="$\displaystyle \sqrt{\frac{3465}{256\pi}}[(x^4-6x^2y^2+y^4)z/r^5]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1532.svg"
+ ALT="$\displaystyle Z^c_{55}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1533.svg"
+ ALT="$\displaystyle \sqrt{\frac{693}{512\pi}}[(x^5-10x^3y^2+5xy^4)/r^5]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="" SRC="img1534.svg"
+ ALT="$\displaystyle \hline
+Z^s_{66}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1535.svg"
+ ALT="$\displaystyle \frac{231}{64}\sqrt{\frac{26}{231\pi}}[(6x^5y-20x^3y^3+6xy^5)/r^6]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1536.svg"
+ ALT="$\displaystyle Z^s_{65}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1537.svg"
+ ALT="$\displaystyle \sqrt{\frac{9009}{512\pi}}[(5x^4y-10x^2y^3+y^5)z/r^6]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1538.svg"
+ ALT="$\displaystyle Z^s_{64}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1539.svg"
+ ALT="$\displaystyle \frac{21}{32}\sqrt{\frac{13}{7\pi}}[4(x^3y-xy^3)(11z^2-r^2)/r^6]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1540.svg"
+ ALT="$\displaystyle Z^s_{63}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1541.svg"
+ ALT="$\displaystyle \frac{1}{32}\sqrt{\frac{2730}{\pi}}[(3x^2y-y^3)(11z^3-3zr^2)/r^6]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1542.svg"
+ ALT="$\displaystyle Z^s_{62}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1543.svg"
+ ALT="$\displaystyle \frac{1}{64}\sqrt{\frac{2730}{\pi}}[2xy(33z^4-18z^2r^2+r^4)/r^6]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1544.svg"
+ ALT="$\displaystyle Z^s_{61}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1545.svg"
+ ALT="$\displaystyle \frac{1}{8}\sqrt{\frac{273}{4\pi}}[yz(33z^4-30z^2r^2+5r^4)/r^6]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1546.svg"
+ ALT="$\displaystyle Z_{60}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1547.svg"
+ ALT="$\displaystyle \frac{1}{32}\sqrt{\frac{13}{\pi}}[(231z^6-315z^4r^2+105z^2r^4-5r^6)/r^6]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1548.svg"
+ ALT="$\displaystyle Z^c_{61}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1549.svg"
+ ALT="$\displaystyle \frac{1}{8}\sqrt{\frac{273}{4\pi}}[xz(33z^4-30z^2r^2+5r^4)/r^6]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1550.svg"
+ ALT="$\displaystyle Z^c_{62}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1551.svg"
+ ALT="$\displaystyle \frac{1}{64}\sqrt{\frac{2730}{\pi}}[(x^2-y^2)(33z^4-18z^2r^2+r^4)/r^6]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1552.svg"
+ ALT="$\displaystyle Z^c_{63}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1553.svg"
+ ALT="$\displaystyle \frac{1}{32}\sqrt{\frac{2730}{\pi}}[(x^3-3xy^2)(11z^3-3zr^2)/r^6]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1554.svg"
+ ALT="$\displaystyle Z^c_{64}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1555.svg"
+ ALT="$\displaystyle \frac{21}{32}\sqrt{\frac{13}{7\pi}}[(x^4-6x^2y^2+y^4)(11z^2-r^2)/r^6]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1556.svg"
+ ALT="$\displaystyle Z^c_{65}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1557.svg"
+ ALT="$\displaystyle \sqrt{\frac{9009}{512\pi}}[(x^5-10x^3y^2+5xy^4)z/r^6]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.69ex; " SRC="img1558.svg"
+ ALT="$\displaystyle Z^c_{66}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.88ex; vertical-align: -1.95ex; " SRC="img1559.svg"
+ ALT="$\displaystyle \frac{231}{64}\sqrt{\frac{26}{231\pi}}[(x^6-15x^4y^2+15x^2y^4-y^6)/r^6]$"></TD><TD class="rfill">&nbsp;</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">
+</SPAN>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
 <A
  HREF="node159.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node151.html">
+ HREF="manual.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node157.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1143"
-  HREF="node7.html">
+<A ID="tex2html1190"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1145"
-  HREF="node164.html">
+<A ID="tex2html1192"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node159.html">Theory for program bfk</A>
+ HREF="node159.html">Stevens Operators</A>
 <B> Up:</B> <A
- HREF="node151.html">Dynamical Susceptibility and Excitations</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node157.html">Magnetic inelastic Scattering</A>
- &nbsp; <B>  <A ID="tex2html1144"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1146"
-  HREF="node164.html">Index</A></B> </DIV>
+ HREF="node157.html">Crystal Field and Parameter</A>
+ &nbsp; <B>  <A ID="tex2html1191"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1193"
+  HREF="node180.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

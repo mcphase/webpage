@@ -1,17 +1,16 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>External module function dL1 - used by mcdisp</TITLE>
+<TITLE>Radial Matrix Elements</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node95.html">
 <LINK REL="previous" HREF="node93.html">
 <LINK REL="next" HREF="node95.html">
 </HEAD>
@@ -29,56 +28,47 @@
  HREF="node93.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
 <A ID="tex2html856"
-  HREF="node7.html">
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
 <A ID="tex2html858"
-  HREF="node164.html">
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node95.html">External module function Scalc</A>
+ HREF="node95.html">All about Programming External</A>
 <B> Up:</B> <A
- HREF="node88.html">Module Functions for Observables</A>
+ HREF="node88.html">Single Ion Modules</A>
 <B> Previous:</B> <A
- HREF="node93.html">External module function LMcalc</A>
+ HREF="node93.html">Radial Wavefunction</A>
  &nbsp; <B>  <A ID="tex2html857"
-  HREF="node7.html">Contents</A></B> 
+  HREF="node8.html">Contents</A></B> 
  &nbsp; <B>  <A ID="tex2html859"
-  HREF="node164.html">Index</A></B> 
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION000172600000000000000"></A><A ID="3479"></A>
-<BR>
-External module function <I CLASS="slanted">dL1</I> - used by <I CLASS="slanted">mcdisp</I>
-</H3>
-
+<H2><A ID="SECTION000156000000000000000">
+Radial Matrix Elements</A>
+</H2><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-In order to visualize angular momentum fluctuations and to calculate neutron intensities
-in dipole approximation the external single ion module has to provide the transition
-matrix elements of the angular momentum by the
-vector <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img853.svg"
- ALT="$L1$"></SPAN>, which is given by:
- <!-- MATH
- ${\rm L1}^s_{\alpha}=\sqrt{(p_- -p_+)}\langle -|\hat L^s_{\alpha}-\langle\hat  L^s_{\alpha}\rangle_{\mathbf H,T}|+\rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.13ex; vertical-align: -0.82ex; " SRC="img854.svg"
- ALT="${\rm L1}^s_{\alpha}=\sqrt{(p_--p_+)}\langle -\vert\hat L^s_{\alpha}-\langle\hat L^s_{\alpha}\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>. 
-
-<P>
-The format to be used is:
+<SPAN CLASS="SMALL">For the program <I CLASS="slanted">pointc</I> alternatively, the radial matrix elements can be given:
 <SPAN CLASS="FOOTNOTESIZE">
-</SPAN><PRE>
-extern "C" int dL1(int &amp; tn,double &amp; T,Vector &amp; Hxc,Vector &amp; Hext,double * g_J,Vector &amp; MODPAR,
-char ** sipffilename,ComplexVector &amp; L1,float &amp; maxE, ComplexMatrix &amp; est)
-</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
-The meaning of the symbols follows exactly that of function 
-<I CLASS="slanted">dm1</I> and therefore not explained here.
-
+</SPAN></SPAN><PRE>
+#---------------------------------------------------------
+# Radial Matrix Elements (e.g. Abragam Bleaney 1971 p 399)
+#---------------------------------------------------------
+#&lt;r^2&gt; in units of a0^2 a0=0.5292 Angstroem
+R2=1.114
+#&lt;r^4&gt; in units of a0^4 a0=0.5292 Angstroem
+R4=2.91
+#&lt;r^6&gt; in units of a0^6 a0=0.5292 Angstroem
+R6=15.03
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+</SPAN>
 <P>
+<SPAN CLASS="SMALL"></SPAN>
 <BR><HR>
 
 </BODY>

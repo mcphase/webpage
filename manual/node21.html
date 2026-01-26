@@ -1,18 +1,18 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>mcphas - calculation of thermodynamic properties (Magnetisation, Susceptibility, Specific Heat, Neutron Diffraction, etc.)</TITLE>
+<TITLE>Classical dipole dipole interaction</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node37.html">
-<LINK REL="previous" HREF="node15.html">
+<LINK REL="next" HREF="node22.html">
+<LINK REL="previous" HREF="node20.html">
 <LINK REL="next" HREF="node22.html">
 </HEAD>
 
@@ -23,146 +23,113 @@
  HREF="node22.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="manual.html">
+ HREF="node16.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node20.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html442"
-  HREF="node7.html">
+<A ID="tex2html488"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html444"
-  HREF="node164.html">
+<A ID="tex2html490"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node22.html">Input Files</A>
+ HREF="node22.html">Crystal field</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="node16.html">Summary</A>
 <B> Previous:</B> <A
- HREF="node20.html">Module Usage:</A>
- &nbsp; <B>  <A ID="tex2html443"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html445"
-  HREF="node164.html">Index</A></B> 
+ HREF="node20.html">Dzyaloshinskii-Moriya interaction</A>
+ &nbsp; <B>  <A ID="tex2html489"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html491"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A ID="SECTION000100000000000000000"></A>
-<A ID="runmcphas"></A>
-<BR>
-<I CLASS="slanted">mcphas</I> - calculation of thermodynamic properties (Magnetisation, Susceptibility, Specific Heat, Neutron Diffraction, etc.)
-</H1>
-
+<H3><A ID="SECTION00073500000000000000">
+Classical dipole dipole interaction</A>
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-In order to perform calculations beyond the capabilities of <I CLASS="slanted">singleion<A ID="676"></A></I> it is necessary
-to use the program <I CLASS="slanted">mcphas</I>. 
+<SPAN CLASS="SMALL">Classical magnetic dipole-dipole interaction can be written in the form of the
+two-ion interaction with the matrix parameter 
+</SPAN>
+<DIV CLASS="displaymath">
 
-<UL>
-<LI>As a first step it is possible to
-calculate the thermodynamic properties such as magnetisation or specific heat
-considering only single ion effects. In this case all the exchange parameters
-have to be set to zero in <I CLASS="slanted">mcphas.j<A ID="679"></A></I>. 
-</LI>
-<LI>for more advanced calculations the two - ion interactions have to be
-considered and may lead to magnetic order. <I CLASS="slanted">mcphas</I> can perform 
-calculations in the ordered state in the following way: for 
-a given temperature <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img65.svg"
- ALT="$T$"></SPAN> and magnetic field <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img66.svg"
- ALT="$\mathbf H$"></SPAN> (vector)
-several possible magnetic structures are stabilised
-by a mean field algorithm and the free energy is 
-calculated. The initial values for this mean-field procedure are
-modified by a Monte Carlo process.
+<!-- MATH
+ \begin{equation}
+\hat{\mathcal{H}}_{CDD}
+    =
+    -
+    \frac{1}{2}
+    \sum_{n\ne n^{\prime},\alpha\beta=1,2,3}
+    \mathcal{J}_{\alpha\beta}(\mathbf{R}_{n^{\prime}} - \mathbf{R}_{n})
+    \hat{\mathcal{I}}_{\alpha}^n
+    \hat{\mathcal{I}}_{\beta}^{n^{\prime}}
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 6.62ex; vertical-align: -3.46ex; " SRC="img151.svg"
+ ALT="$\displaystyle \hat{\mathcal{H}}_{CDD}
+=
+-
+\frac{1}{2}
+\sum_{n\ne n^{\pr...
+..._{n})
+\hat{\mathcal{I}}_{\alpha}^n
+\hat{\mathcal{I}}_{\beta}^{n^{\prime}}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">11</SPAN>)</SPAN>
+</DIV><SPAN CLASS="SMALL">
+where the operators are understood as
+<!-- MATH
+ $\hat{\mathcal{I}}_{1}  \leftrightarrow \hat{J}_x$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img139.svg"
+ ALT="$\hat{\mathcal{I}}_{1} \leftrightarrow \hat{J}_x$"></SPAN>,
+<!-- MATH
+ $\hat{\mathcal{I}}_{2}  \leftrightarrow \hat{J}_y$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img140.svg"
+ ALT="$\hat{\mathcal{I}}_{2} \leftrightarrow \hat{J}_y$"></SPAN>,
+<!-- MATH
+ $\hat{\mathcal{I}}_{3}  \leftrightarrow \hat{J}_z$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img141.svg"
+ ALT="$\hat{\mathcal{I}}_{3} \leftrightarrow \hat{J}_z$"></SPAN> and 
+</SPAN>
+<DIV CLASS="displaymath">
 
+<!-- MATH
+ \begin{equation}
+\mathcal{J}_{\alpha\beta}(\mathbf{R}_{n^{\prime}} - \mathbf{R}_{n})
+    =
+    \frac{\mu_0\mu_B^2 g_n g_{n^{\prime}}}{2\pi}
+    \Biggl(
+        3\frac{(R_{n^{\prime}}^{\alpha} - R_{n}^{\alpha})(R_{n^{\prime}}^{\beta} - R_{n}^{\beta})}{|\mathbf{R}_{n^{\prime}} - \mathbf{R}_{n}|^5}
+        -
+        \frac{\delta_{\alpha\beta}}{|\mathbf{R}_{n^{\prime}} - \mathbf{R}_{n}|^3}
+    \Biggr)
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 7.17ex; vertical-align: -3.02ex; " SRC="img152.svg"
+ ALT="$\displaystyle \mathcal{J}_{\alpha\beta}(\mathbf{R}_{n^{\prime}} - \mathbf{R}_{n...
+...\alpha\beta}}{\vert\mathbf{R}_{n^{\prime}} - \mathbf{R}_{n}\vert^3}
+\Biggr)
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">12</SPAN>)</SPAN>
+</DIV><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-The temperature and magnetic field is varied during the calculation
-and thereby it is possible to map out the magnetic phase diagram.
-</LI>
-</UL>
-
-<P>
-The program produces a plot of the stabilised magnetic
-structures and the magnetisation on screen, the
-output files contain additional information 
-such as calculated magnetoelastic and  neutron-scattering
-data. Several graphic programs easy the visualisation of the
-calculated data (section&nbsp;<A HREF="node118.html#graphics">17</A>).
-
-<P>
+<SPAN CLASS="SMALL"></SPAN>
 <BR><HR>
-<!--Table of Child-Links-->
-<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A ID="tex2html446"
-  HREF="node22.html">Input Files</A>
-<UL>
-<LI><A ID="tex2html447"
-  HREF="node23.html">Example - a simple antiferromagnet</A>
-<LI><A ID="tex2html448"
-  HREF="node24.html"><I CLASS="slanted">mcphas.ini</I> - controlling the algorithm</A>
-<LI><A ID="tex2html449"
-  HREF="node25.html">Example <I CLASS="slanted">mcphas.ini</I> file for a simple antiferromagnet</A>
-<LI><A ID="tex2html450"
-  HREF="node26.html"><I CLASS="slanted">mcphas.j</I> - lattice and exchange parameters</A>
-<LI><A ID="tex2html451"
-  HREF="node27.html">Example <I CLASS="slanted">mcphas.j</I> file for a simple antiferromagnet</A>
-<LI><A ID="tex2html452"
-  HREF="node28.html">Single Ion Property Input Files</A>
-<LI><A ID="tex2html453"
-  HREF="node29.html">Example single ion property file  for a simple antiferromagnet</A>
-<LI><A ID="tex2html454"
-  HREF="node30.html"><I CLASS="slanted">mcphas.tst</I> - input file of test spin-configurations (optional)</A>
-<LI><A ID="tex2html455"
-  HREF="node31.html">Example <I CLASS="slanted">mcphas.tst</I> file  for a simple antiferromagnet</A>
-<LI><A ID="tex2html456"
-  HREF="node32.html">subdirectory <I CLASS="slanted">./results</I> - directory where calculated data is stored</A>
-<LI><A ID="tex2html457"
-  HREF="node33.html">subdirectory <I CLASS="slanted">./fit</I> - experimental data for fit (optional) </A>
-</UL>
-<BR>
-<LI><A ID="tex2html458"
-  HREF="node34.html">Starting a simulation</A>
-<LI><A ID="tex2html459"
-  HREF="node35.html">Options for a running simulation</A>
-<LI><A ID="tex2html460"
-  HREF="node36.html">Output Files - <I CLASS="slanted">mcphas.qvc,phs,sps,mf,fum,j1...,xyt,hkl</I> </A>
-</UL>
-<!--End of Table of Child-Links-->
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node22.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="manual.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node20.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html442"
-  HREF="node7.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html444"
-  HREF="node164.html">
-<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A
- HREF="node22.html">Input Files</A>
-<B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
-<B> Previous:</B> <A
- HREF="node20.html">Module Usage:</A>
- &nbsp; <B>  <A ID="tex2html443"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html445"
-  HREF="node164.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

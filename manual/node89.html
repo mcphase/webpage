@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>External module function mcalc - used by mcdiff and mcphas </TITLE>
+<TITLE>Landé Factor</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -29,151 +29,45 @@
  HREF="node88.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
 <A ID="tex2html836"
-  HREF="node7.html">
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
 <A ID="tex2html838"
-  HREF="node164.html">
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node90.html">External module function mMcalc</A>
+ HREF="node90.html">Magnetic Formfactor Coefficients</A>
 <B> Up:</B> <A
- HREF="node88.html">Module Functions for Observables</A>
+ HREF="node88.html">Single Ion Modules</A>
 <B> Previous:</B> <A
- HREF="node88.html">Module Functions for Observables</A>
+ HREF="node88.html">Single Ion Modules</A>
  &nbsp; <B>  <A ID="tex2html837"
-  HREF="node7.html">Contents</A></B> 
+  HREF="node8.html">Contents</A></B> 
  &nbsp; <B>  <A ID="tex2html839"
-  HREF="node164.html">Index</A></B> 
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION000172100000000000000"></A><A ID="3402"></A><A ID="3404"></A>
-<BR>
-External module function <I CLASS="slanted">mcalc</I> - used by <I CLASS="slanted">mcdiff</I>
-and <I CLASS="slanted">mcphas</I>  
-</H3>
-
+<H2><A ID="SECTION000151000000000000000">
+Landé Factor</A>
+</H2><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-In order to calculate magnetic moments
- the following function has to be present in the module file <I CLASS="slanted">*.so</I>:
-
+<SPAN CLASS="SMALL">In order to calculate the magnetisation and Zeeman term, the Landé factor
+has to be entered in the single ion property file. For a rare earth ion this
+factor gives the ratio of negative angular momentum / magnetic moment.
+Note, for intermediate coupling schemes this factor has no meaning (should be set to zero).
+</SPAN>
 <P>
-<PRE>
-extern "C" void mcalc(Vector &amp; m,double * T, Vector &amp; Hxc, Vector &amp; Hext,
-                      double * gJ, Vector &amp; MODPAR,
-                      char ** sipffilename, ComplexMatrix &amp; Icalc_parstorage);
-</PRE>
-
+<SPAN CLASS="SMALL"></SPAN><PRE>
+#Lande Factor
+GJ=0.85714
+</PRE><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-Note for windows users with MINGW the declaration
- should be <I CLASS="slanted">extern "C" __declspec(dllexport) void mcalc(...)</I>.
-
-<P>
-The meaning of the symbols is as follows:
-<SPAN CLASS="FOOTNOTESIZE">
-</SPAN><PRE>
-  on input
-    T           temperature[K]
-    Hxc         vector of exchange field [meV] (n-dimensional, for a set of n operators I)
-    Hext        external magnetic field [T] (3 components)
-    gJ          Lande factor as read from sipf file
-    MODPAR      Vector with Parameters  read from single ion property file
-    sipffilename    file name of the single ion parameter file
-    Icalc_parstorage parameter matrix (initialized by Icalc_parameter_storage_matrix_init)
-                   it should/may contain any information, e.g. population numbers of the
-                   states (imaginary part of row 0)
-                   and eigenvalues (real part of row 0) with values set by the most recent call
-                   for this ion (use of this matrix is optional, it is provided to save time by
-                   storing here information instead of recalculating it for every call of Icalc)
-  on output    
-    m             =&lt;2S+L&gt;, thermal expectation value of the magnetic moment operator &lt;m&gt; 
-                  in units of muB
-    Icalc_parstorage     parameter matrix matrix (optional)
-                   it should/may contain any information for the next call of mcalc/Icalc, e.g.
-                   population numbers of the states (imaginary part of row 0)
-                   and eigenvalues (real part of row 0) ...
-</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
-The module function must perform the following tasks:
-
-<OL>
-<LI>check if the dimensions of vector Hxc (taken by <I CLASS="slanted">mcphas</I> from the number of 
-interaction constant columns in <I CLASS="slanted">mcphas.j<A ID="3413"></A></I>)
- and MODPAR (taken by <I CLASS="slanted">mcphas</I> from the number of params in the single ion property
-file) agree with the module specifications.  If the check fails the module function should exit the
-program with an appropriate error message
-</LI>
-<LI>the module should calculate from external field <!-- MATH
- $\mathbf H_{ext}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.17ex; vertical-align: -0.46ex; " SRC="img824.svg"
- ALT="$\mathbf H_{ext}$"></SPAN> at a given temperature the 
-thermal expectation values of the three components of the magnetic moment
-and return them as
-a vector <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.26ex; vertical-align: -0.12ex; " SRC="img846.svg"
- ALT="$\mathbf m$"></SPAN>. Input file parameters params are supplied as a vector MODPAR and
-Lande factor as gJ and  can be used for this purpose. The Hamiltonian
-is usually assumed to be of the general form
- <!-- MATH
- $\hat H=\hat H_0- \hat \mathbf M \mathbf H_{ext} - \hat I_a {\rm Hxc}(1) -\hat I_b {\rm Hxc}(2) -\hat I_c {\rm Hxc}(3)
--\hat I_d {\rm Hxc}(4) ...$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img827.svg"
- ALT="$\hat H=\hat H_0- \hat \mathbf M \mathbf H_{ext} - \hat I_a {\rm Hxc}(1) - \hat I_b {\rm Hxc}(2) -\hat I_c {\rm Hxc}(3)
--\hat I_d {\rm Hxc}(4) ...$"></SPAN>.
-</LI>
-<LI>if <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.90ex; vertical-align: -0.21ex; " SRC="img830.svg"
- ALT="$T&lt;0$"></SPAN> all quantities should be evaluated assuming that all Boltzmann probabilities <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img139.svg"
- ALT="$p_i$"></SPAN>
- are zero except for the state number <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img831.svg"
- ALT="$n=(-T)$"></SPAN>, for which the probability <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img832.svg"
- ALT="$p_n=1$"></SPAN>.
-</LI>
-</OL>
-
-<P>
-Thus the function resembles closely Icalc, however no U and lnZ are calculated and
-the magnetic moment vector <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.26ex; vertical-align: -0.12ex; " SRC="img846.svg"
- ALT="$\mathbf m$"></SPAN>, which is returned, has always exactly 3 components.
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node90.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node88.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node88.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html836"
-  HREF="node7.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html838"
-  HREF="node164.html">
-<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A
- HREF="node90.html">External module function mMcalc</A>
-<B> Up:</B> <A
- HREF="node88.html">Module Functions for Observables</A>
-<B> Previous:</B> <A
- HREF="node88.html">Module Functions for Observables</A>
- &nbsp; <B>  <A ID="tex2html837"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html839"
-  HREF="node164.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<SPAN CLASS="SMALL"></SPAN>
+<BR><HR>
 
 </BODY>
 </HTML>

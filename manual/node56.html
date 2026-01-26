@@ -1,18 +1,18 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Option indexexchange in order to shorten notation in mcphas.j</TITLE>
+<TITLE>mcdisp - the Calculation Program for Dispersive Excitations</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node57.html">
-<LINK REL="previous" HREF="node55.html">
+<LINK REL="next" HREF="node67.html">
+<LINK REL="previous" HREF="node50.html">
 <LINK REL="next" HREF="node57.html">
 </HEAD>
 
@@ -23,90 +23,401 @@
  HREF="node57.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node54.html">
+ HREF="manual.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node55.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html630"
-  HREF="node7.html">
+<A ID="tex2html666"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html632"
-  HREF="node164.html">
+<A ID="tex2html668"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node57.html">Running McPhase and McDisp</A>
+ HREF="node57.html">example of input file</A>
 <B> Up:</B> <A
- HREF="node54.html">Including Quadrupolar and Higher</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node55.html">Setting up mcphas.j and</A>
- &nbsp; <B>  <A ID="tex2html631"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html633"
-  HREF="node164.html">Index</A></B> 
+ HREF="node55.html">Going beyond the Dipole</A>
+ &nbsp; <B>  <A ID="tex2html667"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html669"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000132000000000000000">
-Option <I CLASS="slanted">indexexchange</I> in order to shorten notation in <I CLASS="slanted">mcphas.j</I></A>
-</H2>
-The <I CLASS="slanted">indexexchange</I> parameter discussed in section&nbsp;<A HREF="node26.html#mcphasj">7.1.4</A> may be useful in keeping the input
-of the exchange components short. For example the <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img502.svg"
- ALT="$\zeta$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img503.svg"
- ALT="$\eta$"></SPAN> strain modes on the quasi-cubic sites
-of a double hexagonal close packed structure involves the coupling of <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img504.svg"
- ALT="$\hat P_{zx}$"></SPAN> (<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img499.svg"
- ALT="$\hat I_g$"></SPAN>) and <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img505.svg"
- ALT="$\hat P_{xy}$"></SPAN> (<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img490.svg"
- ALT="$\hat I_d$"></SPAN>) 
-as well as <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img506.svg"
- ALT="$\hat P_{yz}$"></SPAN> (<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img493.svg"
- ALT="$\hat I_e$"></SPAN>) and <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.00ex; vertical-align: -0.69ex; " SRC="img507.svg"
- ALT="$\hat O_2^2$"></SPAN> <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img508.svg"
- ALT="$(\hat I_h)$"></SPAN> quadrupoles, so the <I CLASS="slanted">diagonalexchange=1</I> option 
-cannot be used. Thus 64 components need to be specified to describe the <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.92ex; vertical-align: -0.31ex; " SRC="img509.svg"
- ALT="$8\times 8$"></SPAN> exchange tensor. 
-However, we can simplify this with the <I CLASS="slanted">indexexchange</I> parameter by setting <I CLASS="slanted">diagonalexchange=2</I>, 
-as follows for UPd<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img25.svg"
- ALT="$_3$"></SPAN>:
+<H1><A ID="SECTION000110000000000000000"></A><A ID="mcdisp"></A>
+<BR>
+<I CLASS="slanted">mcdisp</I> - the Calculation Program for Dispersive Excitations
+</H1><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">  ORLANDO: We have now learned how to do many static properties of solids, including
+ magnetostriction and diffraction. Can we also do excitations ? I mean the dispersive
+excitations - we have so much data on inelastic neutron scattering, for example, which waits
+to be analysed ...
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">  SIMPLICIUS: I have some expert in my institute who can deal with such data ...
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">  ORLANDO: ... I know, I have already asked him for help, but it seems his interest is not
+in our particular compound. 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">  SIMPLICIUS: Tell me what is interesting in your compound and I will talk to him.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">  EWALD: I think maybe here the program <I CLASS="slanted">mcdisp</I> might help to speed up a bit the process of finding
+a model.
+For a given field <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img66.svg"
+ ALT="$\mathbf H$"></SPAN> and temperature <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img65.svg"
+ ALT="$T$"></SPAN> the dynamics of the  system
+can be calculated by the program <I CLASS="slanted">mcdisp<A ID="1945"></A></I>, 
+for details
+on the theory see appendix&nbsp;<A HREF="node167.html#formalism">M</A>. 
+<I CLASS="slanted">mcdisp<A ID="1947"></A></I> requires as input files
+the <I CLASS="slanted">mcphas.j<A ID="1948"></A></I> and single ion input files. In addition, the input file
+<I CLASS="slanted">mcdisp.par<A ID="1949"></A></I> and <I CLASS="slanted">mcdisp.mf<A ID="1950"></A></I> are needed 
+(see description below). 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN><DL>
+<DT><STRONG><I CLASS="slanted">mcdisp [options]</STRONG></DT>
+<DD>[file.mf]]  
+      calculates the dispersion of magnetic excitations
+	  needs as input file a <I CLASS="slanted">file.mf</I> (default <I CLASS="slanted">mcdisp.mf<A ID="1953"></A></I>)
+				and <I CLASS="slanted">mcdisp.par<A ID="1954"></A></I>.  Creates  
+				files <I CLASS="slanted">./results/mcdisp.qom</I> and <I CLASS="slanted">./results/mcdisp.qei</I>
+				containing the dispersion of the magnetic excitations and the neutron
+				scattering intensity. 
+</I>
+<P>
+<I CLASS="slanted">Options are:
+				 </I><DL>
+<DT><STRONG><I CLASS="slanted">-max</I></STRONG></DT>
+<DD>restricts the single ion susceptibility
+				used to maximum of  the n lowest lying transitions, starting
+				from the ground state (useful to save calculation time).
+&ndash;
+			        Note that by options <I CLASS="slanted">-minE</I> and <I CLASS="slanted">-maxE</I>
+				also an energy interval may be given (minE,maxE):
+				Single ion transitions with energies outside this
+				energy interval are not considered.
+                                               
+</DD>
+<DT></DT>
+<DD>option <I CLASS="slanted">-d</I> forces mcdisp to do calculation of intensities in dipole approximation only				
+				
+</DD>
+<DT><STRONG><I CLASS="slanted">-r</I></STRONG></DT>
+<DD>is used to calculate the energy dependence
+				of the cross section via the direct evaluation of the
+ dynamical susceptibility for a set of energy values (see appendix&nbsp;<A HREF="node167.html#formalism">M</A>). 
+If option <I CLASS="slanted">-r 0.032</I> is used, the energy dependence of 
+the scattering cross section is calculated within limits [emin,emax] (given in file
+<I CLASS="slanted">mcdisp.par</I>).
+The number, 0.032 in our case, indicates the imaginary part of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img482.svg"
+ ALT="$\omega$"></SPAN> 
+in units of meV (see equation
+(<A HREF="node167.html#singleionsusceptibility">267</A>) ). Setting it zero would lead to numerical
+divergencies, choosing it to large leads to large half widths of the calculated 
+peaks. 
+ Output
+is stored in output file <I CLASS="slanted">mcdisp.dsigma</I>.
+<EM>Note</EM>: option <I CLASS="slanted">-r</I> will only work correctly if all the single ion modules
+which are used conform to the following convention: if <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img420.svg"
+ ALT="$g_J\neq0$"></SPAN>, then 
+<!-- MATH
+ $\hat I_1=\hat J_x,\hat I_2=\hat J_y,\hat I_3=\hat J_z$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img483.svg"
+ ALT="$\hat I_1=\hat J_x,\hat I_2=\hat J_y,\hat I_3=\hat J_z$"></SPAN>, 
+if <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img422.svg"
+ ALT="$g_J=0$"></SPAN> then <!-- MATH
+ $\hat I_1=\hat S_x, \hat I_2=\hat L_x, \hat I_3=\hat S_y, \hat I_4=\hat L_y,
+\hat I_5=\hat S_z,\hat  I_6=\hat L_z$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img484.svg"
+ ALT="$\hat I_1=\hat S_x, \hat I_2=\hat L_x, \hat I_3=\hat S_y, \hat I_4=\hat L_y,
+\hat I_5=\hat S_z,\hat I_6=\hat L_z$"></SPAN> (here <!-- MATH
+ $\hat \mathbf S, \hat \mathbf L,\hat \mathbf J$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.88ex; vertical-align: -0.57ex; " SRC="img485.svg"
+ ALT="$\hat \mathbf S, \hat \mathbf L,\hat \mathbf J$"></SPAN> refer to the
+spin-, orbital- and total angular momentum, respectively in a coordinate system where
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img486.svg"
+ ALT="$y\vert\vert b$"></SPAN>,<!-- MATH
+ $z||(a \times b)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img487.svg"
+ ALT="$z\vert\vert(a \times b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img4.svg"
+ ALT="$x$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img251.svg"
+ ALT="$y$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img238.svg"
+ ALT="$z$"></SPAN>).
+ 
+</DD>
+<DT><STRONG><I CLASS="slanted">-jqm</I></STRONG></DT>
+<DD>To create an output of the Fourier transform <!-- MATH
+ ${\mathcal J}({\mathbf Q})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img488.svg"
+ ALT="${\mathcal J}({\mathbf Q})$"></SPAN>
+				
+</DD>
+<DT><STRONG><I CLASS="slanted">-jq</I></STRONG></DT>
+<DD>outputs largest eigenvalue of <!-- MATH
+ ${\mathcal J}({\mathbf Q})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img488.svg"
+ ALT="${\mathcal J}({\mathbf Q})$"></SPAN> and 
+corresponding eigenvector) or option
+</DD>
+<DT><STRONG><I CLASS="slanted">-jqe</I> </STRONG></DT>
+<DD>(outputs all eigenvalues). 
+ If energies are given for hkls in mcdisp.par, output file mcdisp_scaled.jq contains scaled parameters
+ such that energy of first hkl set corresponds to highest eigenvalue of <!-- MATH
+ ${\mathcal J}({\mathbf Q})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img488.svg"
+ ALT="${\mathcal J}({\mathbf Q})$"></SPAN>.
+</DD>
+<DT><STRONG><I CLASS="slanted">-cd</I></STRONG></DT>
+<DD>treat classical dipole interaction internally (for the the first three 
+   the interaction operators <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.26ex; vertical-align: -0.57ex; " SRC="img325.svg"
+ ALT="$I_1,I_2,I_3$"></SPAN>, which must correspond to angular momentum <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img326.svg"
+ ALT="$J$"></SPAN>, such as in the so1ion module)
+             and it
+                 is assumed that <!-- MATH
+ $(g_J.I_1,g_J.I_2,g_J.I_3)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img327.svg"
+ ALT="$(g_J.I_1,g_J.I_2,g_J.I_3)$"></SPAN> are 
+the components of the magnetic moment (<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img281.svg"
+ ALT="$g_J$"></SPAN> given in sipf file, thus setting it zero there will exclude the
+corresponding ion from the dipolar interaction calculation - this is the way for example to include 
+phonon degrees of freedom in such a calculation),
+ the classical dipole interaction is calculated using the series expansion for 
+the classical dipolar expansion 
+   given by Bowden[<A
+ HREF="node179.html#bowden81-827">30</A>]. Using this option permits to avoid a 
+large number of interaction constants in
+<I CLASS="slanted">mcphas.j</I>. If the dipolar interaction in equation (26) of[<A
+ HREF="node179.html#bowden81-827">30</A>] 
+has to be evaluated for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img489.svg"
+ ALT="$\mathbf q=0$"></SPAN> or for a reciprocal lattice vector 
+<!-- MATH
+ $\mathbf q=\mathbf q_L$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.71ex; vertical-align: -0.57ex; " SRC="img490.svg"
+ ALT="$\mathbf q=\mathbf q_L$"></SPAN>, it is ambigous due to a factor <!-- MATH
+ $q_{\alpha}q_{\beta}/q^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -0.78ex; " SRC="img329.svg"
+ ALT="$q_{\alpha}q_{\beta}/q^2$"></SPAN> which appears
+in the first term &rdquo;I&rdquo; and in the second term &rdquo;II' in equation (26) 
+of[<A
+ HREF="node179.html#bowden81-827">30</A>]. This ambigousity reflects the shape
+of the sample, compare the discussion on page 237 of [<A
+ HREF="node179.html#jensen91-1">1</A>].
+ In contrast to the static properties
+such as spin and mean fields and single ion excitation energies <I CLASS="slanted">mcphasit</I> 
+(where <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -0.70ex; " SRC="img491.svg"
+ ALT="$D^{eff}(q=0)$"></SPAN> is used) for the 
+dispersion of excitations in <I CLASS="slanted">mcdisp</I> the Fourier transform of the
+classical dipolar interaction is calculated for q=0 using equation 
+(5.5.6) in  [<A
+ HREF="node179.html#jensen91-1">1</A>]. This corresponds to setting the 
+zero by zero division in the first term &rdquo;I&rdquo;
+and in the second term &rdquo;II&rdquo; in equation (26) of[<A
+ HREF="node179.html#bowden81-827">30</A>] equal to
+the demagnetisation tensor, i.e.
+<!-- MATH
+ $q_{\alpha}q_{\beta}/q^2 |_{q\rightarrow 0} \sim \overline{n}_{\rm demag}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -0.78ex; " SRC="img492.svg"
+ ALT="$q_{\alpha}q_{\beta}/q^2 \vert _{q\rightarrow 0} \sim \overline{n}_{\rm demag}$"></SPAN>.
+				
+</DD>
+<DT><STRONG><I CLASS="slanted">-v</I></STRONG></DT>
+<DD>option is to display<A ID="1998"></A> more information.
 
 <P>
-<SPAN CLASS="FOOTNOTESIZE"></SPAN><PRE>
-# UPd3 
-#&lt;!--mcphase.mcphas.j--&gt;
-#! a=9.92465 b=5.73 c=9.65  alpha=  90 beta=  90 gamma=  90
-#! r1x= 1 r2x=   0 r3x=   0
-#! r1y= 0 r2y=   1 r3y=   0
-#! r1z= 0 r2z=   0 r3z=   1
-#! nofatoms=1 nofcomponents=8
-#*************************************************************************
-#! x=   0 [a] y=   0 [b] z=   0 nofneighbours=6 diagonalexchange=2 gJ=0.8 sipffilename=mcphas.cf1
-#! x[a]  y[b]    z[c]   Ja[meV]  Jb[meV]  Jc[meV]  Jd[meV]  Je[meV]  Jf[meV]  Jg[meV]  Jh[meV]
-#! symmetricexchange=1 indexexchange= JaJa JbJb JcJc JdJd JeJe JfJf JgJg JhJh JgJd JhJe
- 0    0    0.5 -0.022 -0.022 -0.022  0.0035198 -0.18643  -0.00053332 -0.18643   0.00087996  0.013      0.0064378
- 0    0   -0.5 -0.022 -0.022 -0.022  0.0035198 -0.18643  -0.00053332 -0.18643   0.00087996  0.013      0.0064378
- 0.5  0.5  0   -0.022 -0.022 -0.022 -0.0034195 -0.019714 -0.00034044 -0.019714 -0.00085486 -0.0065221 -0.0050197
--0.5 -0.5  0   -0.022 -0.022 -0.022 -0.0034195 -0.019714 -0.00034044 -0.019714 -0.00085486 -0.0065221 -0.0050197
- 0.5 -0.5  0   -0.022 -0.022 -0.022 -0.0034195 -0.019714 -0.00034044 -0.019714 -0.00085486 -0.0065221 -0.0050197
--0.5  0.5  0   -0.022 -0.022 -0.022 -0.0034195 -0.019714 -0.00034044 -0.019714 -0.00085486 -0.0065221 -0.0050197
-</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+</DD>
+<DT><STRONG><I CLASS="slanted">-a</I></STRONG></DT>
+<DD>can be used to avoid overwriting output files in results, new results
+				are appended.
 
 <P>
+</DD>
+<DT><STRONG><I CLASS="slanted">-c</I></STRONG></DT>
+<DD>can be used to create  a single ion
+				transition file <I CLASS="slanted">./results/mcdisp.trs</I>, which contains
+				all single ion transitions used in the calculation. It also contains the 
+                                    neutron intensities of the non interacting subsystems. This file can
+				be edited (uncommenting single ion transitions which should not
+				by used by a # sign at the beginning of the line)
+				and then the program can be restarted using the 
+				
+</DD>
+<DT><STRONG><I CLASS="slanted">-t</I></STRONG></DT>
+<DD>to
+				read the single ion transition file <I CLASS="slanted">./results/mcdisp.trs</I> and
+				calculate energies and neutron intensities of dispersive modes.
+				
+</DD>
+<DT><STRONG><I CLASS="slanted">-ninit n</I></STRONG></DT>
+<DD>to set the maximum number of low lying
+                                 initial states, which will be considered in calculating a single ion susceptibility (not functional
+                                 in all single ion modules).
+ 
+</DD>
+<DT><STRONG><I CLASS="slanted">-pinit p</I></STRONG></DT>
+<DD>to set the minimum thermal population of a 
+                                 initial state in order to be considered in the singleion ion susceptibility (not functional in
+                                 all singleion ion modules).
+ 
+</DD>
+<DT><STRONG><I CLASS="slanted">-prefix 001</I></STRONG></DT>
+<DD>to allow for easy parallel processing: all output files <I CLASS="slanted">results/mcdisp.*</I>
+                  will then be created with prefix <I CLASS="slanted">001</I>, i.e. <I CLASS="slanted">results/001mcdisp.*</I>.
+                  Moreover,  in <I CLASS="slanted">mcdisp.par</I> it is then possible to enter
+                  variables like <I CLASS="slanted">hklline=</I>  with prefix, in our case <I CLASS="slanted">001</I>, i.e. <I CLASS="slanted">001hklline</I>: this will trigger
+                  the program to read these variables only if started with the option <I CLASS="slanted">-prefix 001</I>. Another process
+                  maybe started with <I CLASS="slanted">-prefix 002</I> and will read variables such as <I CLASS="slanted">002hklline</I> and ignore <I CLASS="slanted">001hklline</I>.
+                  Variables without prefixes will always be read and used, in conflicting cases the last appearance in file
+                  mcdisp.par will be taken (i.e. 001kf=1 ...kf=2 will set kf to 2, whereas kf=2 001kf=1 will set kf to 1 if mcdisp is
+                  started with prefix 001).
+                  After finishing the different processes, the results of the calculations stored e.g. in <I CLASS="slanted">001mcdisp.qei</I> and
+                  <I CLASS="slanted">002mcdisp.qei</I> may be merged by commands like <I CLASS="slanted">appendfile mcdisp.qei 001mcdisp.qei 002mcdisp.qei</I>.
+    
+</DD>
+<DT><STRONG><I CLASS="slanted">-ignore_not_posdef_matrix_error</I></STRONG></DT>
+<DD>ignores error when energies get complex due to unphysical mf groundstate.
+    
+</DD>
+<DT><STRONG><I CLASS="slanted">-x</I></STRONG></DT>
+<DD>to calculate resonant inelastic x-ray intensities (maximized with respect to azimuth) instead of neutron intensities.
+    
+</DD>
+<DT><STRONG><I CLASS="slanted">-xa  azstp</I></STRONG></DT>
+<DD>to calculate resonant inelastic x-ray intensities with complete azimuth dependence for each reflection in steps azstep (deg).
+    
+</DD>
+<DT><STRONG><I CLASS="slanted">-xaf  azimuth</I></STRONG></DT>
+<DD>to calculate resonant inelastic x-ray intensities for the given azimuth (deg).				
+    
+</DD>
+<DT><STRONG><I CLASS="slanted">-X[observable]</I></STRONG></DT>
+<DD>to calculate omega and Q dependent susceptibility tensor for an
+ observable (e.g use -Xpel for RAMAN and inelastic X-ray scattering intensity on phonons). 
+      
+</DD>
+</DL><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">mcdispit [options]</STRONG></DT>
+<DD>[file.mf]]  same as <I CLASS="slanted">mcdisp</I>, but no graphic window
+</DD>
+</DL></I></I><SPAN CLASS="SMALL"> 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
 <BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><UL>
+<LI><UL>
+<LI><UL>
+<LI><A ID="tex2html670"
+  HREF="node57.html">example of input file <I CLASS="slanted">mcdisp.mf</I></A>
+<LI><A ID="tex2html671"
+  HREF="node58.html">example of input file <I CLASS="slanted">mcdisp.par</I></A>
+</UL>
+</UL>
+</UL>
+<BR>
+<LI><A ID="tex2html672"
+  HREF="node59.html">Viewing the results of McDisp</A>
+<LI><A ID="tex2html673"
+  HREF="node60.html">Diffuse Scattering</A>
+<LI><A ID="tex2html674"
+  HREF="node61.html">Powder Neutron Cross Section</A>
+<UL>
+<LI><A ID="tex2html675"
+  HREF="node62.html">Creation of the q-vector list</A>
+<LI><A ID="tex2html676"
+  HREF="node63.html">Calculation of the Dispersion using <I CLASS="slanted">mcdisp</I></A>
+<LI><A ID="tex2html677"
+  HREF="node64.html">Powder-averaging the spectra</A>
+</UL>
+<BR>
+<LI><A ID="tex2html678"
+  HREF="node65.html">Resonant Inelastic X-ray Scattering(RIXS)</A>
+<UL>
+<LI><A ID="tex2html679"
+  HREF="node66.html">Scattering geometry</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node57.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node55.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html666"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html668"
+  HREF="node180.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node57.html">example of input file</A>
+<B> Up:</B> <A
+ HREF="manual.html">USERS MANUAL Workshops available</A>
+<B> Previous:</B> <A
+ HREF="node55.html">Going beyond the Dipole</A>
+ &nbsp; <B>  <A ID="tex2html667"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html669"
+  HREF="node180.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

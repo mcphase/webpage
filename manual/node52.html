@@ -1,17 +1,18 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Resonant Inelastic X-ray Scattering(RIXS)</TITLE>
+<TITLE>How to calculate only specific reflections, azimuth dependence and fitting of neutron intensities</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="previous" HREF="node48.html">
+<LINK REL="next" HREF="node53.html">
+<LINK REL="previous" HREF="node51.html">
 <LINK REL="next" HREF="node53.html">
 </HEAD>
 
@@ -22,243 +23,139 @@
  HREF="node53.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node43.html">
+ HREF="node50.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node51.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html610"
-  HREF="node7.html">
+<A ID="tex2html650"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html612"
-  HREF="node164.html">
+<A ID="tex2html652"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node53.html">Scattering geometry</A>
+ HREF="node53.html">Formalism I - Resonant</A>
 <B> Up:</B> <A
- HREF="node43.html">mcdisp - the Calculation</A>
+ HREF="node50.html">mcdiff - calculate and</A>
 <B> Previous:</B> <A
- HREF="node51.html">Powder-averaging the spectra</A>
- &nbsp; <B>  <A ID="tex2html611"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html613"
-  HREF="node164.html">Index</A></B> 
+ HREF="node51.html">How to generate and</A>
+ &nbsp; <B>  <A ID="tex2html651"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html653"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000124000000000000000"></A><A ID="1567"></A>
-<BR>
-Resonant Inelastic X-ray Scattering(RIXS)
-</H2>
-
+<H2><A ID="SECTION000102000000000000000">
+How to calculate only specific reflections, azimuth dependence and fitting of neutron intensities</A>
+</H2><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-Using the option <I CLASS="slanted">-x</I> and <I CLASS="slanted">-xa</I>  the RIXS cross section can be calculated
-by <I CLASS="slanted">mcdisp</I><A ID="1571"></A>. 
-Option <I CLASS="slanted">-x</I> calculates resonant inelastic x-ray intensities 
-maximized with respect to azimuth.
- Option <I CLASS="slanted">-xa</I>  calculates resonant inelastic x-ray 
-intensities with complete azimuth dependence for each reflection.
-
+<SPAN CLASS="SMALL">For the fit of experimental intensities it is often desirable to save computation
+time by calculating the intensity only for a specified set of reflections and 
+compare it to experimental data. Such list should have the following format
+</SPAN>
 <P>
-The formalism is based on [<A
- HREF="node163.html#haverkort10-167404">31</A>, equ.8 ff],
-e.g. the observables <!-- MATH
- $\hat \mathcal O_{\alpha}$
+<SPAN CLASS="SMALL"></SPAN><PRE>
+#{h     k     l }
+0.500 0.500 0.500 
+0.500 0.500 1.500 
+0.500 0.500 2.500
+</PRE><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Lets assume such a list is stored  as file <I CLASS="slanted">hkllist.dat</I>.
+Then <I CLASS="slanted">mcdiff<A ID="1625"></A></I> can be started as: <I CLASS="slanted">mcdiff<A ID="1626"></A> hkllist.dat</I>.
+The output file will then contain the azimuth dependence of the magnetic intensity.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Alternatively, experimental intensities can be entered in the list, for example as
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN><PRE>
+#{h  k   l       Iexp err}
+0.500 0.500 0.500 115 4
+0.500 0.500 1.500 84  3
+0.500 0.500 2.500 50  1
+0.500 0.500 3.500 29  1
+0.500 0.500 4.500 22  2
+0.500 0.500 5.500 15  1
+0.500 0.500 6.500 12  1
+#
+1.500 1.500 0.500 -1
+1.500 -1.50 0.500 -1
+-1.50 1.500 0.500 77  8
+1.500 1.500 1.500 65  7
+1.500 1.500 2.500 59  5
+1.500 1.500 3.500 51  5
+</PRE><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">In this case the calculated neutron intensities are compared to
+the experimental intensities and the Rp value <!-- MATH
+ $R_{\rm p}=100
+\frac{\sum_{hkl} |I_{calc}(hkl)-I_{exp}(hkl)|}{\sum_{hkl}|I_{\rm 
+exp}(hkl)|}$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img419.svg"
- ALT="$\hat \mathcal O_{\alpha}$"></SPAN> are the 9 components (<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img82.svg"
- ALT="$\alpha$"></SPAN>
-=xx xy xz yx yy yz zx zy zz)
-of the tensor <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img420.svg"
- ALT="$\mathbf R$"></SPAN>, which is related to the operator
-<!-- MATH
- $R_{\omega,j}^{\epsilon_i\epsilon_o}$
+ STYLE="height: 4.00ex; vertical-align: -1.44ex; " SRC="img355.svg"
+ ALT="$R_{\rm p}=100
+\frac{\sum_{hkl} \vert I_{calc}(hkl)-I_{exp}(hkl)\vert}{\sum_{hkl}\vert I_{\rm
+exp}(hkl)\vert}$"></SPAN>. and <!-- MATH
+ $\chi^2=\sum_{hkl}\frac{ (I_{calc}(hkl)-I_{exp}(hkl))^2}{n(\Delta I_{\rm
+experror}(hkl))^2}$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.92ex; vertical-align: -1.08ex; " SRC="img421.svg"
- ALT="$R_{\omega,j}^{\epsilon_i\epsilon_o}$"></SPAN> in [<A
- HREF="node163.html#haverkort10-167404">31</A>] by
-
+ STYLE="height: 4.10ex; vertical-align: -1.38ex; " SRC="img356.svg"
+ ALT="$\chi^2=\sum_{hkl}\frac{ (I_{calc}(hkl)-I_{exp}(hkl))^2}{n(\Delta I_{\rm
+experror}(hkl))^2}$"></SPAN>
+is calculated (here <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
+ ALT="$n$"></SPAN> denotes the number of experimental reflections). 
+</SPAN>
 <P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-R_{\omega,j}^{\epsilon_i\epsilon_o}=\mathbf \epsilon _o^{\star} \cdot \mathbf R \cdot \mathbf \epsilon _i
-\end{equation}
- -->
- &nbsp;  <IMG
- STYLE="height: 2.92ex; vertical-align: -1.08ex; " SRC="img422.svg"
- ALT="$\displaystyle R_{\omega,j}^{\epsilon_i\epsilon_o}=\mathbf \epsilon _o^{\star} \cdot \mathbf R \cdot \mathbf \epsilon _i
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">62</SPAN>)</SPAN>
-</DIV>
-
+<SPAN CLASS="SMALL">Note, a negative experimental intensity in this
+list means, that the intensity of that reflection has to
+be added to the intensity of the next reflection in the list 
+and the sum should be compared to an experimental intensity.
+In this way domains or overlapping reflections can be treated. 
+The program will always calculate the intensity for each reflection
+seperately, if you wish to calculate the sum of intensities, which
+are compared to the experimental intensity, use program <I CLASS="slanted">sum_mcdiff_out</I><A ID="1640"></A>.
+</SPAN>
 <P>
-Here the vector <!-- MATH
- $\mathbf \epsilon$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img423.svg"
- ALT="$\mathbf \epsilon $"></SPAN> describes the polarisation of the incoming / outgoing
-photon beam (linear (real) or circular polarized (complex) light).
-Vector components (e.g. <!-- MATH
- $\hat \mathbf S$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.43ex; vertical-align: -0.12ex; " SRC="img424.svg"
- ALT="$\hat \mathbf S$"></SPAN> to the xyz coordinate system, where
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img390.svg"
- ALT="$y\vert\vert b$"></SPAN>,<!-- MATH
- $z||(a \times b)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img391.svg"
- ALT="$z\vert\vert(a \times b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img4.svg"
- ALT="$x$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img171.svg"
- ALT="$y$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img158.svg"
- ALT="$z$"></SPAN>.
-
-<P>
-For the isotropic ion the scattering operator <!-- MATH
- $R_{\omega,j}^{\epsilon_i\epsilon_o}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.92ex; vertical-align: -1.08ex; " SRC="img421.svg"
- ALT="$R_{\omega,j}^{\epsilon_i\epsilon_o}$"></SPAN>
-is given by
-
-<P>
-<BR>
-<DIV CLASS="displaymath"><A ID="rixsop"></A>
-<!-- MATH
- \begin{eqnarray}
-R_{\omega,j}^{\epsilon_i\epsilon_o}&=&\mathbf \epsilon _o^{\star} \cdot \mathbf R \cdot \mathbf \epsilon _i \\
-&=& \sigma^{(0)} \mathbf \epsilon _i \cdot \mathbf \epsilon _o^{\star} + \frac{\sigma^{(1)}}{s}
-\mathbf \epsilon _o^{\star} \times \mathbf \epsilon _i \hat \mathbf S_j \nonumber \\
-&& \frac{\sigma^{(2)}}{s(2s-1)} \left ( 
-\mathbf \epsilon _i \cdot \hat \mathbf S_j \mathbf \epsilon _o^{\star} \cdot \hat \mathbf S_j 
-+ \mathbf \epsilon _o^{\star} \cdot \hat \mathbf S_j \mathbf \epsilon _i \cdot \hat \mathbf S_j  
-- \frac{2}{3} \mathbf \epsilon _i \cdot \mathbf \epsilon _o^{\star} \hat \mathbf S_j^2
-\right )
-\end{eqnarray}
- -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 2.92ex; vertical-align: -1.08ex; " SRC="img425.svg"
- ALT="$\displaystyle R_{\omega,j}^{\epsilon_i\epsilon_o}$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 2.51ex; vertical-align: -0.69ex; " SRC="img426.svg"
- ALT="$\displaystyle \mathbf \epsilon _o^{\star} \cdot \mathbf R \cdot \mathbf \epsilon _i$"></TD><TD class="rfill">(<SPAN CLASS="arabic">63</SPAN>)</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 5.44ex; vertical-align: -1.71ex; " SRC="img427.svg"
- ALT="$\displaystyle \sigma^{(0)} \mathbf \epsilon _i \cdot \mathbf \epsilon _o^{\star...
-...1)}}{s}
-\mathbf \epsilon _o^{\star} \times \mathbf \epsilon _i \hat \mathbf S_j$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 6.05ex; vertical-align: -2.32ex; " SRC="img428.svg"
- ALT="$\displaystyle \frac{\sigma^{(2)}}{s(2s-1)} \left (
-\mathbf \epsilon _i \cdot \h...
-...athbf \epsilon _i \cdot \mathbf \epsilon _o^{\star} \hat \mathbf S_j^2
-\right )$"></TD><TD class="rfill">(<SPAN CLASS="arabic">64</SPAN>)</TD></TR>
-</TABLE></DIV>
-
-<P>
-In order to use this expression,  the conductivities <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img429.svg"
- ALT="$\sigma$"></SPAN> have
-to be entered in the <I CLASS="slanted">sipf</I> file, e.g.
-
-<P>
-<PRE>
-SIGMA0r=1.32
-SIGMA1r=1.32
-SIGMA2r=1.32
-SIGMA0i=1.32
-SIGMA1i=1.32
-SIGMA2i=1.32
-</PRE>
-('r' and 'i' stand for real and imaginary part, respectively).
-
-<P>
-Note: in module <I CLASS="slanted">so1ion</I><A ID="1608"></A> the scattering operator
-is given in terms of the total angular momentum <!-- MATH
- $\hat \mathbf J$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.43ex; vertical-align: -0.12ex; " SRC="img430.svg"
- ALT="$\hat \mathbf J$"></SPAN> instead
-of <!-- MATH
- $\hat \mathbf S$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.43ex; vertical-align: -0.12ex; " SRC="img424.svg"
- ALT="$\hat \mathbf S$"></SPAN>.
-
-<P>
-If a more complex tensor <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img420.svg"
- ALT="$\mathbf R$"></SPAN> is required, it's components
-can be defined in the sipf file using the perlparse option.
-
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A ID="tex2html614"
-  HREF="node53.html">Scattering geometry</A>
-</UL>
-<!--End of Table of Child-Links-->
-
+<SPAN CLASS="SMALL"></SPAN>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
 <A
  HREF="node53.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node43.html">
+ HREF="node50.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node51.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html610"
-  HREF="node7.html">
+<A ID="tex2html650"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html612"
-  HREF="node164.html">
+<A ID="tex2html652"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node53.html">Scattering geometry</A>
+ HREF="node53.html">Formalism I - Resonant</A>
 <B> Up:</B> <A
- HREF="node43.html">mcdisp - the Calculation</A>
+ HREF="node50.html">mcdiff - calculate and</A>
 <B> Previous:</B> <A
- HREF="node51.html">Powder-averaging the spectra</A>
- &nbsp; <B>  <A ID="tex2html611"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html613"
-  HREF="node164.html">Index</A></B> </DIV>
+ HREF="node51.html">How to generate and</A>
+ &nbsp; <B>  <A ID="tex2html651"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html653"
+  HREF="node180.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

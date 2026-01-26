@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>External module function IMcalc - used by singleion </TITLE>
+<TITLE>Setting up a Point Charge Model which yields given Crystal Field Parameters</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,73 +23,560 @@
  HREF="node85.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node82.html">
+ HREF="node74.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node83.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html795"
-  HREF="node7.html">
+<A ID="tex2html810"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html797"
-  HREF="node164.html">
+<A ID="tex2html812"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node85.html">External module function Icalc_parameter_storage_matrix_init</A>
+ HREF="node85.html">Calculation of the Exchange</A>
 <B> Up:</B> <A
- HREF="node82.html">Basic Module Functions</A>
+ HREF="node74.html">Crystal Field Phonon Interaction</A>
 <B> Previous:</B> <A
- HREF="node83.html">External module function Icalc</A>
- &nbsp; <B>  <A ID="tex2html796"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html798"
-  HREF="node164.html">Index</A></B> 
+ HREF="node83.html">Calculation of the Crystal</A>
+ &nbsp; <B>  <A ID="tex2html811"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html813"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION000171200000000000000"></A><A ID="3312"></A>
+<H2><A ID="SECTION0001410000000000000000"></A><A ID="determinePcmodel"></A>
 <BR>
-External module function <I CLASS="slanted">IMcalc</I> - used by 
-<I CLASS="slanted">singleion</I> 
-</H3>
-
+Setting up a Point Charge Model which yields given Crystal Field Parameters
+</H2><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-This function is optional and intended to accellerate <I CLASS="slanted">singleion</I> by vectorizing the temperature and
-thus save computation resources when using the option <I CLASS="slanted">-Tsteps</I>. It has the same parameters as 
-<I CLASS="slanted">Icalc</I> with the following modifications:
-
+<SPAN CLASS="SMALL">Sometimes some or all crystal field parameters are available, either from literature or determined from
+the high temperature expansion of inverse susceptibility etc.  In these cases the point charge model
+should reproduce these crystal field parameters and we describe here a procedure which has been tested
+with some success on a number of cases.
+</SPAN>
 <P>
-
-<OL>
-<LI><I CLASS="slanted">double <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.31ex; vertical-align: -0.12ex; " SRC="img833.svg"
- ALT="$\ast$"></SPAN> T</I> is replaced by <I CLASS="slanted">Vector &amp; T</I> containing the temperatures for which 
-the calculation is to be done.
-</LI>
-<LI><I CLASS="slanted">Vector &amp; I </I> is replaced by <I CLASS="slanted">Matrix &amp; I</I> which should be filled with column
-vectors containing the vector <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img826.svg"
- ALT="$\mathbf I$"></SPAN>. Each column corresponds to a temperature given as input<I CLASS="slanted">Vector &amp; T</I>.
-</LI>
-<LI><I CLASS="slanted">double <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.31ex; vertical-align: -0.12ex; " SRC="img833.svg"
- ALT="$\ast$"></SPAN> U</I> is replaced by <I CLASS="slanted">Vector &amp; U</I> which should be filled with
- the energies corresponding
-to the temperatures in <I CLASS="slanted">Vector &amp; T</I>
-</LI>
-<LI><I CLASS="slanted">double <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.31ex; vertical-align: -0.12ex; " SRC="img833.svg"
- ALT="$\ast$"></SPAN> lnZ</I> is replaced by <I CLASS="slanted">Vector &amp; lnZ</I> which shoul be filled with the partition sums corresponding
-to the temperatures in <I CLASS="slanted">Vector &amp; T</I>
-
+<SPAN CLASS="SMALL">As an example we consider the ternary compound TmNiC<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>, denoting point charges on
+Tm, Ni and C by <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img856.svg"
+ ALT="$q_{Tm}$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img857.svg"
+ ALT="$q_{Ni}$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img858.svg"
+ ALT="$q_{C}$"></SPAN>, respectively.
+The full calculation with all input files and logbook <I CLASS="slanted">calc.html</I> is available in <I CLASS="slanted">examples/tmcni2 </I>.
+</SPAN>
 <P>
-</LI>
-</OL>
-
+<SPAN CLASS="SMALL">From the high temperature expansion of the inverse susceptibility the second order crystal field
+parameters of this orthorhombic phase have been determined by&nbsp;[<A
+ HREF="node179.html#roman23-125137">40</A>]
+to be <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img859.svg"
+ ALT="$B_2^0=0.22$"></SPAN>&nbsp;meV and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img860.svg"
+ ALT="$B_2^2=-0.33$"></SPAN>&nbsp;meV. 
+We make now use of the fact, that every crystal field parameter is linear dependent on
+the point charge, compare equations&nbsp;(<A HREF="node79.html#pcmodelclc">127</A>) and (<A HREF="node79.html#pcmodelgamma">128</A>).
+Thus we get the following set of linear equations:
+</SPAN>
 <P>
-<BR><HR>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath"><A ID="pclinredproblem"></A>
+<!-- MATH
+ \begin{eqnarray}
+B_2^0 &=& {\rm Ni}_{20} q_{Ni}+{\rm C}_{20} q_{C}+{\rm Tm}_{20} q_{Tm} \nonumber \\
+B_2^2 &=& {\rm Ni}_{22} q_{Ni}+{\rm C}_{22} q_{C}+{\rm Tm}_{22} q_{Tm} \nonumber \\
+0 &=& q_{Ni}+2 q_{C}+ q_{Tm} 
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.80ex; vertical-align: -0.69ex; " SRC="img861.svg"
+ ALT="$\displaystyle B_2^0$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.26ex; vertical-align: -0.57ex; " SRC="img862.svg"
+ ALT="$\displaystyle {\rm Ni}_{20} q_{Ni}+{\rm C}_{20} q_{C}+{\rm Tm}_{20} q_{Tm}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.80ex; vertical-align: -0.69ex; " SRC="img863.svg"
+ ALT="$\displaystyle B_2^2$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.26ex; vertical-align: -0.57ex; " SRC="img864.svg"
+ ALT="$\displaystyle {\rm Ni}_{22} q_{Ni}+{\rm C}_{22} q_{C}+{\rm Tm}_{22} q_{Tm}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img831.svg"
+ ALT="$\displaystyle 0$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img865.svg"
+ ALT="$\displaystyle q_{Ni}+2 q_{C}+ q_{Tm}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">133</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">The last equation ensures the charge neutrality and should also be taken into account.
+The coefficients <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img866.svg"
+ ALT="${\rm Ni}_{lm}$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img867.svg"
+ ALT="${\rm C}_{lm}$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img868.svg"
+ ALT="${\rm Tm}_{lm}$"></SPAN> can be obtained by
+a point charge calculation with setting all charges zero except one (which is set to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img869.svg"
+ ALT="$1\vert e\vert$"></SPAN>) and
+evaluating the computed crystal field parameter <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img41.svg"
+ ALT="$B_l^m$"></SPAN>. 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">The following code snippet shows how to calculate the coefficients
+ <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img870.svg"
+ ALT="${\rm C}_{20}$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img871.svg"
+ ALT="${\rm C}_{22}$"></SPAN> using <I CLASS="slanted">cif2mcphas</I> in linux:
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN><PRE>
+cif2mcphas -pc 20 -sp -nm Ni -ch Tm=0,Ni=0,C=1 TmNiC2.cif
+#  extract coefficient 
+. getvariable B20 Tm1_1.sipf
+# stream editor sed is used to ensure if it is zero ("not found") a 0.0 is stored in C20 instead of "not"
+export C20=$(echo $MCPHASE_GETVARIABLE_VALUE | sed s/not/0.0/ )
+. getvariable B22 Tm1_1.sipf
+export C22=$(echo $MCPHASE_GETVARIABLE_VALUE | sed s/not/0.0/ )
+</PRE><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">...and in windows:
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN><PRE>
+call cif2mcphas -pc 20 -sp -nm Ni -ch Tm=0,Ni=0,C=1  TmNiC2.cif 
+echo B20=0.0 &gt; dd
+echo B22=0.0 &gt;&gt; dd
+REM then push the sipf file onto dd - if it contains B20 or B22 these will be read
+type Tm1_1.sipf &gt;&gt; dd
+call getvariable B20 dd
+set C20=%MCPHASE_GETVARIABLE_VALUE%
+call getvariable B22 dd
+set C22=%MCPHASE_GETVARIABLE_VALUE%
+</PRE><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV class="CENTER"><A ID="B20convergence"></A><A ID="3539"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 19:</STRONG>
+Convergence of the point charge calculation of the crystal field parameter <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img17.svg"
+ ALT="$B_2^0$"></SPAN> in TmNiC<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>.</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+
+<IMG
+  WIDTH="248" HEIGHT="134" STYLE=""
+ SRC="./B20convergence.jpg"
+ ALT="Image B20convergence">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Convergence is reached in the current
+system when point charges up to a distance of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.07ex; vertical-align: -0.46ex; " SRC="img872.svg"
+ ALT="$r_{max}=20$"></SPAN>&nbsp;Å  are taken into account, see fig.&nbsp;<A HREF="#B20convergence">19</A>. For the
+radial integrals <!-- MATH
+ $\langle r^l \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -0.70ex; " SRC="img873.svg"
+ ALT="$\langle r^l \rangle$"></SPAN> of Tm<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img3.svg"
+ ALT="$^{3+}$"></SPAN> we used the valus given by&nbsp;[<A
+ HREF="node179.html#edvardsson98-230">41</A>] including
+the shielding factors <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img534.svg"
+ ALT="$\sigma$"></SPAN>.
+Thus we arrived at a system of 3 equations (<A HREF="#pclinredproblem">141</A>) with 3 unknown charges. This system may be readily solved. However,
+it turns out, that the computed charges are unreasonable large and have unreasonable signs.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV class="CENTER"><A ID="modelTmNiC2"></A><A ID="3551"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 20:</STRONG>
+Point charge model for TmNiC<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>, large spheres correspond to atomic positions, small spheres to
+electronic bond charges <!-- MATH
+ $E^1, \dots, E^6$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.57ex; vertical-align: -0.57ex; " SRC="img18.svg"
+ ALT="$E^1, \dots , E^6$"></SPAN>.</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+
+<IMG
+  WIDTH="248" HEIGHT="200" STYLE=""
+ SRC="./model.jpg"
+ ALT="Image model">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Therefore, we introduced some additional point charges and placed these on the lines connecting
+a pair of atoms. This choice was motivated by the intuition, that the covalent bonding between
+the elements will lead to some anisotropic electronic charge density. We had to introduce 
+six such point charges, these are indicated by <!-- MATH
+ $E^1, \dots, E^6$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.57ex; vertical-align: -0.57ex; " SRC="img18.svg"
+ ALT="$E^1, \dots , E^6$"></SPAN> and refer to electronic bond
+charges for  C-C, C-Ni, C-Ni, Tm-C, Tm-Ni and Tm-Tm pairs, respectively (see fig&nbsp;<A HREF="#modelTmNiC2">20</A>) 
+ Here we show the corresponding part of the input cif file:
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN><PRE>
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_U_iso_or_equiv
+  _atom_site_adp_type
+  _atom_site_occupancy
+  _atom_site_site_symmetry_order
+  _atom_site_calc_flag
+  _atom_site_refinement_flags_posn
+  _atom_site_refinement_flags_adp
+  _atom_site_refinement_flags_occupancy
+  _atom_site_disorder_assembly
+  _atom_site_disorder_group
+ Tm1 Tm 0.5000 0.0000 0.3850(2) 0.0078(2) Uani 1 4 d S T P . .
+ Ni1 Ni 0.0000 0.0000 -0.0034(3) 0.0089(3) Uani 1 4 d S T P . .
+ C1 C 0.0000 0.349(2) 0.1851(18) 0.0105(16) Uani 1 2 d S T P . .
+; E1 C-C bond charge as 0 0.5 z as C1
+ E1 E 0.0000 0.500(2) C1        0.0105(16) Uani 1 2 d S T P . .
+; atomic radii  Tm 227 pm C 170pm  Ni 163pm
+; E2 E3 C-Ni bonds at 
+E2 E Ni1+(C1-Ni1)*163/(163+170) Ni1+(C1-Ni1)*163/(163+170) Ni1+(C1-Ni1)*163/(163+170)   0.0105(16) Uani 1 2 d S T P . .
+;  ... and
+E3 E Ni1+(C1-Ni1)*163/(163+170) Ni1+0.5+(C1-Ni1-0.5)*163/(163+170) Ni1+0.5+(C1-Ni1-0.5)*163/(163+170)	  0.0105(16) Uani 1 2 d S T P . .
+; E4 Tm - C bond charge at
+ E4 E C1+(Tm1-C1)*170/(227+170)  C1+(Tm1-C1)*170/(227+170)   C1+(Tm1-C1)*170/(227+170)    0.0105(16) Uani 1 2 d S T P . .
+; E5 Tm - Ni bond charge at
+ E5 E N1+(Tm1-Ni1)*163/(227+163) N1+(Tm1-Ni1)*163/(227+163) N1+(Tm1-Ni1)*163/(227+163)   0.0105(16) Uani 1 2 d S T P . .
+; Tm - Tm bond charge at
+E6 E  Tm1 Tm1+0.25  Tm1+0.25 0.0105(16) Uani 1 2 d S T P . .
+</PRE><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">The set of equations (<A HREF="#pclinredproblem">141</A>) has to be extended for these bond electron point charges and
+we get
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath"><A ID="pclinproblem"></A>
+<!-- MATH
+ \begin{eqnarray}
+B_2^0 &=& {\rm Ni}_{20} q_{Ni}+{\rm C}_{20} q_{C}+{\rm Tm}_{20} q_{Tm}+\sum_{i=1}^6 E^i_{20} q_{E^i} \nonumber \\
+B_2^2 &=& {\rm Ni}_{22} q_{Ni}+{\rm C}_{22} q_{C}+{\rm Tm}_{22} q_{Tm} +\sum_{i=1}^6 E^i_{22} q_{E^i} \nonumber \\
+0 &=& q_{Ni}+2 q_{C}+ q_{Tm} +q_{E^1}+2q_{E^2}+2q_{E^3}+4q_{E^4}+2q_{E^5}+2q_{E^6}
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.80ex; vertical-align: -0.69ex; " SRC="img861.svg"
+ ALT="$\displaystyle B_2^0$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 7.36ex; vertical-align: -3.09ex; " SRC="img874.svg"
+ ALT="$\displaystyle {\rm Ni}_{20} q_{Ni}+{\rm C}_{20} q_{C}+{\rm Tm}_{20} q_{Tm}+\sum_{i=1}^6 E^i_{20} q_{E^i}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.80ex; vertical-align: -0.69ex; " SRC="img863.svg"
+ ALT="$\displaystyle B_2^2$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 7.36ex; vertical-align: -3.09ex; " SRC="img875.svg"
+ ALT="$\displaystyle {\rm Ni}_{22} q_{Ni}+{\rm C}_{22} q_{C}+{\rm Tm}_{22} q_{Tm} +\sum_{i=1}^6 E^i_{22} q_{E^i}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img831.svg"
+ ALT="$\displaystyle 0$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img876.svg"
+ ALT="$\displaystyle q_{Ni}+2 q_{C}+ q_{Tm} +q_{E^1}+2q_{E^2}+2q_{E^3}+4q_{E^4}+2q_{E^5}+2q_{E^6}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">134</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">By variation of the charges <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img877.svg"
+ ALT="$q_{E^i}$"></SPAN> a set of point charges and crystal field parameters
+could be found, which reproduces closely the crystal field effects reported in&nbsp;[<A
+ HREF="node179.html#roman23-125137">40</A>], see
+table&nbsp;<A HREF="#pcmodel">3</A>.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV class="CENTER">
+
+<A ID="3599"></A>
+<TABLE class="PAD  BORDER" style="">
+<CAPTION><STRONG>Table 3:</STRONG>
+Point Charge Model for TmNiC<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN></CAPTION>
+<TR><TD CLASS="LEFT">atom</TD>
+<TD CLASS="LEFT">bond</TD>
+<TD CLASS="LEFT">charge(<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img878.svg"
+ ALT="$\vert e\vert$"></SPAN>)</TD>
+<TD CLASS="LEFT">da</TD>
+<TD CLASS="LEFT">db</TD>
+<TD CLASS="LEFT">dc</TD>
+</TR>
+<TR><TD CLASS="LEFT">Tm</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">2.159</TD>
+<TD CLASS="LEFT">0.5</TD>
+<TD CLASS="LEFT">0</TD>
+<TD CLASS="LEFT">0.385</TD>
+</TR>
+<TR><TD CLASS="LEFT">Ni</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">-0.339</TD>
+<TD CLASS="LEFT">0</TD>
+<TD CLASS="LEFT">0</TD>
+<TD CLASS="LEFT">-0.0034</TD>
+</TR>
+<TR><TD CLASS="LEFT">C</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">3.230</TD>
+<TD CLASS="LEFT">0</TD>
+<TD CLASS="LEFT">0.349</TD>
+<TD CLASS="LEFT">0.1851</TD>
+</TR>
+<TR><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img879.svg"
+ ALT="$E^1$"></SPAN></TD>
+<TD CLASS="LEFT">C-C</TD>
+<TD CLASS="LEFT">-2.6945</TD>
+<TD CLASS="LEFT">0</TD>
+<TD CLASS="LEFT">0.5</TD>
+<TD CLASS="LEFT">0.1851</TD>
+</TR>
+<TR><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img880.svg"
+ ALT="$E^2$"></SPAN></TD>
+<TD CLASS="LEFT">C-Ni</TD>
+<TD CLASS="LEFT">-1.5506</TD>
+<TD CLASS="LEFT">0</TD>
+<TD CLASS="LEFT">0.17083</TD>
+<TD CLASS="LEFT">0.08887</TD>
+</TR>
+<TR><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img881.svg"
+ ALT="$E^3$"></SPAN></TD>
+<TD CLASS="LEFT">C-Ni</TD>
+<TD CLASS="LEFT">-0.3955</TD>
+<TD CLASS="LEFT">0</TD>
+<TD CLASS="LEFT">0.42609</TD>
+<TD CLASS="LEFT">0.34412</TD>
+</TR>
+<TR><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img882.svg"
+ ALT="$E^4$"></SPAN></TD>
+<TD CLASS="LEFT">Tm-C</TD>
+<TD CLASS="LEFT">-0.2008</TD>
+<TD CLASS="LEFT">0.21411</TD>
+<TD CLASS="LEFT">0.19955</TD>
+<TD CLASS="LEFT">0.2707</TD>
+</TR>
+<TR><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img883.svg"
+ ALT="$E^5$"></SPAN></TD>
+<TD CLASS="LEFT">Tm-Ni</TD>
+<TD CLASS="LEFT">-0.2084</TD>
+<TD CLASS="LEFT">0.20897</TD>
+<TD CLASS="LEFT">0</TD>
+<TD CLASS="LEFT">0.16233</TD>
+</TR>
+<TR><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img884.svg"
+ ALT="$E^6$"></SPAN></TD>
+<TD CLASS="LEFT">Tm-Tm</TD>
+<TD CLASS="LEFT">-0.2369</TD>
+<TD CLASS="LEFT">0.5</TD>
+<TD CLASS="LEFT">0.25</TD>
+<TD CLASS="LEFT">0.635</TD>
+</TR>
+<TR><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img17.svg"
+ ALT="$B_2^0$"></SPAN></TD>
+<TD CLASS="LEFT">0.22 meV</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img60.svg"
+ ALT="$B_2^2$"></SPAN></TD>
+<TD CLASS="LEFT">-0.328 meV</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img885.svg"
+ ALT="$B_4^0$"></SPAN></TD>
+<TD CLASS="LEFT">-0.00105 meV</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img886.svg"
+ ALT="$B_4^2$"></SPAN></TD>
+<TD CLASS="LEFT">0.00296 meV</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img887.svg"
+ ALT="$B_4^4$"></SPAN></TD>
+<TD CLASS="LEFT">-0.00994 meV</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img888.svg"
+ ALT="$B_6^0$"></SPAN></TD>
+<TD CLASS="LEFT">-3.604e-06 meV</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img889.svg"
+ ALT="$B_6^2$"></SPAN></TD>
+<TD CLASS="LEFT">7.969e-06 meV</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img890.svg"
+ ALT="$B_6^4$"></SPAN></TD>
+<TD CLASS="LEFT">1.574e-05 meV</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img891.svg"
+ ALT="$B_6^6$"></SPAN></TD>
+<TD CLASS="LEFT">2.11e-05 meV</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+</TABLE>
+</DIV>
+<BR><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">This set of parameters was used to calculate the thermodynamic and spectroscopic physical properties
+using <I CLASS="slanted">mcphasit</I> and <I CLASS="slanted">mcdispit</I>, respectively. Note that in such calculations the
+bonding charges <!-- MATH
+ $E^1, \dots, E^6$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.57ex; vertical-align: -0.57ex; " SRC="img18.svg"
+ ALT="$E^1, \dots , E^6$"></SPAN> have to be removed, because electrons are correlated and 
+cannot move freely in a solid (compare Pauli principle, failure of the Drude model).
+Technically we have to remove the E charges from the list of atoms in 
+<I CLASS="slanted">mcphas.j</I> to prevent <I CLASS="slanted">mcphas</I> from calculating too large energy u and <I CLASS="slanted">mcdisp</I> 
+from calculating optical modes due to vibrations of electronic bonding charges E.
+This can be done with <I CLASS="slanted">reduce_unitcell</I> with option <I CLASS="slanted">-delatom</I>.
+In <I CLASS="slanted">examples/tmnic2/calc.bat </I> the procedure is described in detail.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node85.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node74.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node83.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html810"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html812"
+  HREF="node180.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node85.html">Calculation of the Exchange</A>
+<B> Up:</B> <A
+ HREF="node74.html">Crystal Field Phonon Interaction</A>
+<B> Previous:</B> <A
+ HREF="node83.html">Calculation of the Crystal</A>
+ &nbsp; <B>  <A ID="tex2html811"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html813"
+  HREF="node180.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

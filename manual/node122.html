@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Program hkl, hkl2d and mcdiff - graphical display of magnetic diffraction intensity</TITLE>
+<TITLE>External module function dspindensity_coeff1 - used by mcdisp</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,134 +23,69 @@
  HREF="node123.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node118.html">
+ HREF="node102.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node121.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html980"
-  HREF="node7.html">
+<A ID="tex2html1026"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html982"
-  HREF="node164.html">
+<A ID="tex2html1028"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node123.html">Program phased - graphical</A>
+ HREF="node123.html">External module function orbmomdensity_coeff</A>
 <B> Up:</B> <A
- HREF="node118.html">Programs for Graphical display</A>
+ HREF="node102.html">Module Functions for Observables</A>
 <B> Previous:</B> <A
- HREF="node121.html">Programs display_densities - display</A>
- &nbsp; <B>  <A ID="tex2html981"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html983"
-  HREF="node164.html">Index</A></B> 
+ HREF="node121.html">External module function spindensity_coeff</A>
+ &nbsp; <B>  <A ID="tex2html1027"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1029"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000204000000000000000"></A><A ID="4328"></A><A ID="4329"></A><A ID="4330"></A><A ID="4331"></A>
+<H3><A ID="SECTION0001622000000000000000"></A><A ID="4378"></A>
 <BR>
-Program <I CLASS="slanted">hkl</I>, <I CLASS="slanted">hkl2d</I> and <I CLASS="slanted">mcdiff</I> - graphical display of magnetic diffraction intensity
-</H2>
-<DL>
-<DT><STRONG><I CLASS="slanted">hkl<A ID="4333"></A></I> [options] [file] </STRONG></DT>
-<DD>produces neutron intensity graphic
- and postscript-file <I CLASS="slanted">hkl.eps</I>. <I CLASS="slanted">perl</I> and
-<I CLASS="slanted">pgplot</I> must be installed in order to use this program.
- Options are -n (plot reflex number n)
--h (help). If no file is given the program uses file <I CLASS="slanted">mcphas.hkl</I>.
-</DD>
-<DT><STRONG><I CLASS="slanted">hkl2d<A ID="4338"></A></I> [options] [file] </STRONG></DT>
-<DD>same as <I CLASS="slanted">hkl<A ID="4339"></A></I> but two-dimensional colour plot of intensity.
-</DD>
-</DL> 
-the following example (fig.&nbsp;<A HREF="#neutintgraphic">27</A>) shows the temperature dependence of the neutron intensity
-on the different harmonics of NdCu<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN>.
-
+External module function <I CLASS="slanted">dspindensity_coeff1</I> - used by <I CLASS="slanted">mcdisp</I>
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-
-<DIV class="CENTER"><A ID="neutintgraphic"></A><A ID="4346"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 27:</STRONG>
-NdCu<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN>: calculated temperature dependence of magnetic amplitudes of the
-main propagation vector and higher harmonics (at zero magnetic field).</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-
-<IMG
- STYLE="height: 57.76ex; vertical-align: -57.86ex; " SRC="img1032.svg"
- ALT="\includegraphics[angle=-90, width=0.8\textwidth]{figsrc/ndcu2b/resultss/hkl.eps}">
-
-</DIV></TD></TR>
-</TABLE>
-</DIV>
-
+<SPAN CLASS="SMALL">In order to visualize spin density  fluctuations 
+ the external single ion module has to provide the transition
+matrix elements of the spindensity coefficient operator <!-- MATH
+ $a^{x,y,z}_{S,lm}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.05ex; vertical-align: -1.13ex; " SRC="img1008.svg"
+ ALT="$a^{x,y,z}_{S,lm}$"></SPAN> by a
+vector <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1009.svg"
+ ALT="$aSlm1$"></SPAN>, which is given by:
+ <!-- MATH
+ ${\rm aS1}^s_{\alpha=lm}=\sqrt{(p_- -p_+)}\langle -|a^{x,y,z}_{S,lm}-\langle a^{x,y,z}_{S,lm}\rangle_{\mathbf H,T}|+\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.41ex; vertical-align: -1.13ex; " SRC="img1010.svg"
+ ALT="${\rm aS1}^s_{\alpha=lm}=\sqrt{(p_--p_+)}\langle -\vert a^{x,y,z}_{S,lm}-\langle a^{x,y,z}_{S,lm}\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>. 
+</SPAN>
 <P>
-In addition to the display<A ID="4349"></A> of the temperature dependence there is the
-possibility to generate a powder diffraction pattern by the 
-program mcdiff&nbsp;<A ID="4350"></A>. The 
-recommended procedure is to use 
-
+<SPAN CLASS="SMALL">The format to be used is:
+<SPAN CLASS="FOOTNOTESIZE">
+</SPAN></SPAN><PRE>
+extern "C" int dspindensity_ceoff1(int &amp; tn,double &amp; T,Vector &amp; Hxc,Vector &amp; Hext,double * g_J,Vector &amp; MODPAR,
+char ** sipffilename,ComplexVector &amp; aSlm1,int &amp; xyz,float &amp; maxE, ComplexMatrix &amp; est)
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+The meaning of the symbols follows exactly that of function 
+<I CLASS="slanted">dm1</I> and therefore not explained here.
+</SPAN>
 <P>
-<DL>
-<DT><STRONG><I CLASS="slanted">setup_mcdiff_in<A ID="4352"></A></I> T Ha Hb Hc:</STRONG></DT>
-<DD>to generate a file <I CLASS="slanted">mcdiff.in</I> which
-contains the spin configuration, lattice etc. information at a
-desired temperature. Edit this output file and at the beginning
-of the file insert some additional information as described in section&nbsp;<A HREF="node37.html#mcdiff">8</A>.
-
-<P>
-Continue by using  the modules
-</DD>
-<DT><STRONG><I CLASS="slanted">mcdiff<A ID="4355"></A></I>:</STRONG></DT>
-<DD>as described in detail in section&nbsp;<A HREF="node37.html#mcdiff">8</A> to
-generate a list of reflections with the corresponding neutron powder
-intensities (file <I CLASS="slanted">mcdiff<A ID="4357"></A>.out</I>). In order to create a powder pattern 
-a further step is required using the program
-</DD>
-<DT><STRONG><I CLASS="slanted">convolute<A ID="4358"></A></I>... mcdiff<A ID="4359"></A>.out [+options] resolution file:</STRONG></DT>
-<DD>is also described in section&nbsp;<A HREF="node134.html#addprog">19</A>. This program convolute<A ID="4361"></A>s the
-reflection list with a specific resolution function.
-</DD>
-</DL>
-
-<P>
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node123.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node118.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node121.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html980"
-  HREF="node7.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html982"
-  HREF="node164.html">
-<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A
- HREF="node123.html">Program phased - graphical</A>
-<B> Up:</B> <A
- HREF="node118.html">Programs for Graphical display</A>
-<B> Previous:</B> <A
- HREF="node121.html">Programs display_densities - display</A>
- &nbsp; <B>  <A ID="tex2html981"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html983"
-  HREF="node164.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<SPAN CLASS="SMALL"></SPAN>
+<BR><HR>
 
 </BODY>
 </HTML>

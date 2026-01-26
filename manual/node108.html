@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>External module function dorbmomdensity_coeff1 - used by mcdisp</TITLE>
+<TITLE>External module function dL1 - used by mcdisp</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,67 +23,63 @@
  HREF="node109.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node88.html">
+ HREF="node102.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node107.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html912"
-  HREF="node7.html">
+<A ID="tex2html970"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html914"
-  HREF="node164.html">
+<A ID="tex2html972"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node109.html">External module function ro_calc</A>
+ HREF="node109.html">External module function Scalc</A>
 <B> Up:</B> <A
- HREF="node88.html">Module Functions for Observables</A>
+ HREF="node102.html">Module Functions for Observables</A>
 <B> Previous:</B> <A
- HREF="node107.html">External module function orbmomdensity_coeff</A>
- &nbsp; <B>  <A ID="tex2html913"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html915"
-  HREF="node164.html">Index</A></B> 
+ HREF="node107.html">External module function LMcalc</A>
+ &nbsp; <B>  <A ID="tex2html971"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html973"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION0001722000000000000000"></A><A ID="3744"></A>
+<H3><A ID="SECTION000162600000000000000"></A><A ID="4135"></A>
 <BR>
-External module function <I CLASS="slanted">dorbmomdensity_coeff1</I> - used by <I CLASS="slanted">mcdisp</I>
-</H3>
-
+External module function <I CLASS="slanted">dL1</I> - used by <I CLASS="slanted">mcdisp</I>
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-In order to visualize orbital moment density  fluctuations 
- the external single ion module has to provide the transition
-matrix elements of the spindensity coefficient operator <!-- MATH
- $a^{x,y,z}_{L,lm}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.05ex; vertical-align: -1.13ex; " SRC="img893.svg"
- ALT="$a^{x,y,z}_{L,lm}$"></SPAN> by a
+<SPAN CLASS="SMALL">In order to visualize angular momentum fluctuations and to calculate neutron intensities
+in dipole approximation the external single ion module has to provide the transition
+matrix elements of the angular momentum by the
 vector <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img889.svg"
- ALT="$aSlm1$"></SPAN>, which is given by:
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img971.svg"
+ ALT="$L1$"></SPAN>, which is given by:
  <!-- MATH
- ${\rm aL1}^s_{\alpha=lm}=\sqrt{(p_- -p_+)}\langle -|a^{x,y,z}_{L,lm}-\langle a^{x,y,z}_{L,lm}\rangle_{\mathbf H,T}|+\rangle$
+ ${\rm L1}^s_{\alpha}=\sqrt{(p_- -p_+)}\langle -|\hat L^s_{\alpha}-\langle\hat  L^s_{\alpha}\rangle_{\mathbf H,T}|+\rangle$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.41ex; vertical-align: -1.13ex; " SRC="img897.svg"
- ALT="${\rm aL1}^s_{\alpha=lm}=\sqrt{(p_--p_+)}\langle -\vert a^{x,y,z}_{L,lm}-\langle a^{x,y,z}_{L,lm}\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>. 
-
+ STYLE="height: 3.13ex; vertical-align: -0.82ex; " SRC="img972.svg"
+ ALT="${\rm L1}^s_{\alpha}=\sqrt{(p_--p_+)}\langle -\vert\hat L^s_{\alpha}-\langle\hat L^s_{\alpha}\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>. 
+</SPAN>
 <P>
-The format to be used is:
+<SPAN CLASS="SMALL">The format to be used is:
 <SPAN CLASS="FOOTNOTESIZE">
-</SPAN><PRE>
-extern "C" int dspindensity_ceoff1(int &amp; tn,double &amp; T,Vector &amp; Hxc,Vector &amp; Hext,double * g_J,Vector &amp; MODPAR,
-char ** sipffilename,ComplexVector &amp; aLlm1,int &amp; xyz,float &amp; maxE, ComplexMatrix &amp; est)
-</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+</SPAN></SPAN><PRE>
+extern "C" int dL1(int &amp; tn,double &amp; T,Vector &amp; Hxc,Vector &amp; Hext,double * g_J,Vector &amp; MODPAR,
+char ** sipffilename,ComplexVector &amp; L1,float &amp; maxE, ComplexMatrix &amp; est)
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE"></SPAN>
 The meaning of the symbols follows exactly that of function 
 <I CLASS="slanted">dm1</I> and therefore not explained here.
-
+</SPAN>
 <P>
+<SPAN CLASS="SMALL"></SPAN>
 <BR><HR>
 
 </BODY>

@@ -1,18 +1,17 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Exchange Striction</TITLE>
+<TITLE>Resonant Inelastic X-ray Scattering(RIXS)</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node66.html">
-<LINK REL="previous" HREF="node64.html">
+<LINK REL="previous" HREF="node61.html">
 <LINK REL="next" HREF="node66.html">
 </HEAD>
 
@@ -23,196 +22,216 @@
  HREF="node66.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node60.html">
+ HREF="node56.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node64.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html680"
-  HREF="node7.html">
+<A ID="tex2html715"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html682"
-  HREF="node164.html">
+<A ID="tex2html717"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node66.html">Progam Workflow for calculating</A>
+ HREF="node66.html">Scattering geometry</A>
 <B> Up:</B> <A
- HREF="node60.html">Crystal Field Phonon Interaction</A>
+ HREF="node56.html">mcdisp - the Calculation</A>
 <B> Previous:</B> <A
- HREF="node64.html">The total Crystal field</A>
- &nbsp; <B>  <A ID="tex2html681"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html683"
-  HREF="node164.html">Index</A></B> 
+ HREF="node64.html">Powder-averaging the spectra</A>
+ &nbsp; <B>  <A ID="tex2html716"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html718"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000155000000000000000">
-Exchange Striction</A>
-</H2>
-
+<H2><A ID="SECTION000114000000000000000"></A><A ID="2165"></A>
+<BR>
+Resonant Inelastic X-ray Scattering(RIXS)
+</H2><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-If the two ion interactions are strain dependent, an additional contribution to the
-strain tensor has to be considered in the equations (<A HREF="node64.html#Htot">110</A>) to (<A HREF="node64.html#zeroeps">112</A>).
-The resulting contribution is commonly called <EM>exchange striction</EM>, because
-predominantly the magnetic exchange interactions will contribute.
-
+<SPAN CLASS="SMALL">Using the option <I CLASS="slanted">-x</I> and <I CLASS="slanted">-xa</I>  the RIXS cross section can be calculated
+by <I CLASS="slanted">mcdisp</I><A ID="2169"></A>. 
+Option <I CLASS="slanted">-x</I> calculates resonant inelastic x-ray intensities 
+maximized with respect to azimuth.
+ Option <I CLASS="slanted">-xa</I>  calculates resonant inelastic x-ray 
+intensities with complete azimuth dependence for each reflection.
+</SPAN>
 <P>
-We therefore extend the model by the exchange striction writing the 
-Hamiltonian
-
-<P>
-
-<DIV CLASS="displaymath">
-
-<!-- MATH
- \begin{equation}
-\hat H=\hat H_{\rm tot} -\frac{1}{2} \sum_{ij,\alpha\beta}
- {\mathcal J}_{\alpha\beta}((1+\bar a)(\mathbf R_{j} - \mathbf R_i)) \hat \mathcal I_{\alpha}^i \hat \mathcal I_{\beta}^{j}
-\end{equation}
- -->
- &nbsp;  <A ID="Hwithexstric"></A><IMG
- STYLE="height: 3.44ex; vertical-align: -1.13ex; " SRC="img728.svg"
- ALT="$\displaystyle
-\hat H=\hat H_{\rm tot} -\frac{1}{2} \sum_{ij,\alpha\beta}
-{\...
-... R_{j} - \mathbf R_i)) \hat \mathcal I_{\alpha}^i \hat \mathcal I_{\beta}^{j}
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">105</SPAN>)</SPAN>
-</DIV>
-
-<P>
-and expand the two ion interaction <!-- MATH
- ${\mathcal J}_{\alpha\beta}(\mathbf R_{ij})$
+<SPAN CLASS="SMALL">The formalism is based on [<A
+ HREF="node179.html#haverkort10-167404">33</A>, equ.8 ff],
+e.g. the observables <!-- MATH
+ $\hat \mathcal O_{\alpha}$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img729.svg"
- ALT="${\mathcal J}_{\alpha\beta}(\mathbf R_{ij}) $"></SPAN>
-in a Taylor expansion for small strain:
-
-<P>
-<BR>
-<DIV CLASS="displaymath"><A ID="jjtaylor"></A>
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img524.svg"
+ ALT="$\hat \mathcal O_{\alpha}$"></SPAN> are the 9 components (<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img82.svg"
+ ALT="$\alpha$"></SPAN>
+=xx xy xz yx yy yz zx zy zz)
+of the tensor <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img525.svg"
+ ALT="$\mathbf R$"></SPAN>, which is related to the operator
 <!-- MATH
- \begin{eqnarray}
-{\mathcal J}_{\alpha\beta}(\mathbf R=(1+\bar a)\mathbf R_{ij})&=&{\mathcal J}_{\alpha\beta}(\mathbf R_{ij})
-+ \frac{\partial {\mathcal J}_{\alpha\beta}}{\partial R^{\alpha'}} \frac{\partial (\bar a\mathbf R_{ij})^{\alpha'}}{\partial \epsilon_{\beta'}} \epsilon_{\beta'} + \dots \nonumber \\
-&=& {\mathcal J}_{\alpha\beta}(\mathbf R_{ij})+ 
-\sum_{\alpha'\gamma=1,2,3,\beta'=1,..,6}
-\frac{\partial {\mathcal J}_{\alpha\beta}}{\partial R^{\alpha'}}
-\frac{\partial \epsilon_{\alpha'\gamma}\mathbf R_{ij}^{\gamma}}{\partial \epsilon_{\beta'}} \epsilon_{\beta'}
-\end{eqnarray}
+ $R_{\omega,j}^{\epsilon_i\epsilon_o}$
  -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img730.svg"
- ALT="$\displaystyle {\mathcal J}_{\alpha\beta}(\mathbf R=(1+\bar a)\mathbf R_{ij})$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 6.23ex; vertical-align: -2.37ex; " SRC="img731.svg"
- ALT="$\displaystyle {\mathcal J}_{\alpha\beta}(\mathbf R_{ij})
-+ \frac{\partial {\mat...
-...mathbf R_{ij})^{\alpha'}}{\partial \epsilon_{\beta'}} \epsilon_{\beta'} + \dots$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 7.23ex; vertical-align: -3.46ex; " SRC="img732.svg"
- ALT="$\displaystyle {\mathcal J}_{\alpha\beta}(\mathbf R_{ij})+
-\sum_{\alpha'\gamma=1...
-...a'\gamma}\mathbf R_{ij}^{\gamma}}{\partial \epsilon_{\beta'}} \epsilon_{\beta'}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">106</SPAN>)</TD></TR>
-</TABLE></DIV>
-
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.92ex; vertical-align: -1.08ex; " SRC="img526.svg"
+ ALT="$R_{\omega,j}^{\epsilon_i\epsilon_o}$"></SPAN> in [<A
+ HREF="node179.html#haverkort10-167404">33</A>] by
+</SPAN>
 <P>
-Note that the second part of equation&nbsp;(<A HREF="#jjtaylor">114</A>) describes the exchange striction Hamiltonian, if
-inserted in equation&nbsp;(<A HREF="#Hwithexstric">113</A>). 
-
-<P>
-
-<FONT COLOR="#0000ff">
-</FONT>
+<SPAN CLASS="SMALL"></SPAN>
 <DIV CLASS="displaymath">
 
 <!-- MATH
  \begin{equation}
-\hat H=\hat H_{\rm tot} -\frac{1}{2} \sum_{ij,\alpha\beta}
- {\mathcal J}_{\alpha\beta}(\mathbf R_{ij}) \hat \mathcal I_{\alpha}^i \hat \mathcal I_{\beta}^{j}
- -\frac{1}{2} \sum_{ \stackrel{ij,\alpha\beta\alpha'\gamma=1,2,3}{\beta'=1,..,6}}
-\frac{\partial {\mathcal J}_{\alpha\beta}}{\partial R^{\alpha'}}
-\frac{\partial \epsilon_{\alpha'\gamma}\mathbf R_{ij}^{\gamma}}{\partial \epsilon_{\beta'}} \epsilon_{\beta'}
- \hat \mathcal I_{\alpha}^i \hat \mathcal I_{\beta}^{j}
+R_{\omega,j}^{\epsilon_i\epsilon_o}=\mathbf \epsilon _o^{\star} \cdot \mathbf R \cdot \mathbf \epsilon _i
 \end{equation}
  -->
- &nbsp;  <A ID="Hwexstric"></A><IMG
- STYLE="height: 5.25ex; vertical-align: -2.39ex; " SRC="img733.svg"
- ALT="$\displaystyle
-\hat H=\hat H_{\rm tot} -\frac{1}{2} \sum_{ij,\alpha\beta}
-{\...
-...}} \epsilon_{\beta'}
-\hat \mathcal I_{\alpha}^i \hat \mathcal I_{\beta}^{j}
+ &nbsp;  <IMG
+ STYLE="height: 2.92ex; vertical-align: -1.08ex; " SRC="img527.svg"
+ ALT="$\displaystyle R_{\omega,j}^{\epsilon_i\epsilon_o}=\mathbf \epsilon _o^{\star} \cdot \mathbf R \cdot \mathbf \epsilon _i
 $"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">107</SPAN>)</SPAN>
-</DIV>
-
+(<SPAN CLASS="arabic">82</SPAN>)</SPAN>
+</DIV><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-In section&nbsp;<A HREF="node70.html#determineExstricpar">12.10</A> we show, how  
-the position derivatives of the exchange parameters can be calculated.
-
+<SPAN CLASS="SMALL">Here the vector <!-- MATH
+ $\mathbf \epsilon$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img528.svg"
+ ALT="$\mathbf \epsilon $"></SPAN> describes the polarisation of the incoming / outgoing
+photon beam (linear (real) or circular polarized (complex) light).
+Vector components (e.g. <!-- MATH
+ $\hat \mathbf S$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.43ex; vertical-align: -0.12ex; " SRC="img529.svg"
+ ALT="$\hat \mathbf S$"></SPAN> to the xyz coordinate system, where
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img486.svg"
+ ALT="$y\vert\vert b$"></SPAN>,<!-- MATH
+ $z||(a \times b)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img487.svg"
+ ALT="$z\vert\vert(a \times b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img4.svg"
+ ALT="$x$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img251.svg"
+ ALT="$y$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img238.svg"
+ ALT="$z$"></SPAN>.
+</SPAN>
 <P>
-Equation (<A HREF="node64.html#zeroeps">112</A>) is extended for the case of exchange striction:
-
+<SPAN CLASS="SMALL">For the isotropic ion the scattering operator <!-- MATH
+ $R_{\omega,j}^{\epsilon_i\epsilon_o}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.92ex; vertical-align: -1.08ex; " SRC="img526.svg"
+ ALT="$R_{\omega,j}^{\epsilon_i\epsilon_o}$"></SPAN>
+is given by
+</SPAN>
 <P>
-
-<FONT COLOR="#0000ff">
-</FONT>
+<SPAN CLASS="SMALL"></SPAN>
 <BR>
-<DIV CLASS="displaymath"><A ID="zeroepsex"></A>
+<DIV CLASS="displaymath"><A ID="rixsop"></A>
 <!-- MATH
  \begin{eqnarray}
-\sum_{\beta=1,..,6}  c^{\alpha\beta} \epsilon_{\beta} &=&
- \sum_{i,\delta=1,2,3}  G_{mix}^{\alpha\delta}(i)\langle u_{i}^{\delta} \rangle  \\
- &+& \sum_{i,\gamma=1,...} G_{\rm cfph}^{\alpha\gamma}(i) \langle O_{\gamma}(\hat \mathbf J_i) \rangle \nonumber \\
- &+& \frac{1}{2}\sum_{ii',\delta,\delta'\alpha',\gamma=1,..,3}
-\frac{\partial {\mathcal J}_{\delta\delta'}(\mathbf R_{ii'})}{\partial R^{\alpha'}}
-\frac{\partial \epsilon_{\alpha'\gamma} R_{ii'}^{\gamma}}{\partial \epsilon_{\alpha}}
-\langle \hat \mathcal I_{\delta}^i \hat \mathcal I_{\delta'}^{i'}\rangle \nonumber
+R_{\omega,j}^{\epsilon_i\epsilon_o}&=&\mathbf \epsilon _o^{\star} \cdot \mathbf R \cdot \mathbf \epsilon _i \\
+&=& \sigma^{(0)} \mathbf \epsilon _i \cdot \mathbf \epsilon _o^{\star} + \frac{\sigma^{(1)}}{s}
+\mathbf \epsilon _o^{\star} \times \mathbf \epsilon _i \hat \mathbf S_j \nonumber \\
+&& \frac{\sigma^{(2)}}{s(2s-1)} \left ( 
+\mathbf \epsilon _i \cdot \hat \mathbf S_j \mathbf \epsilon _o^{\star} \cdot \hat \mathbf S_j 
++ \mathbf \epsilon _o^{\star} \cdot \hat \mathbf S_j \mathbf \epsilon _i \cdot \hat \mathbf S_j  
+- \frac{2}{3} \mathbf \epsilon _i \cdot \mathbf \epsilon _o^{\star} \hat \mathbf S_j^2
+\right )
 \end{eqnarray}
  -->
 <TABLE CLASS="equation" >
 <TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 5.99ex; vertical-align: -3.46ex; " SRC="img734.svg"
- ALT="$\displaystyle \sum_{\beta=1,..,6} c^{\alpha\beta} \epsilon_{\beta}$"></TD>
+ STYLE="height: 2.92ex; vertical-align: -1.08ex; " SRC="img530.svg"
+ ALT="$\displaystyle R_{\omega,j}^{\epsilon_i\epsilon_o}$"></TD>
 <TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
  ALT="$\textstyle =$"></TD>
 <TD style="text-align:left;"><IMG
- STYLE="height: 5.99ex; vertical-align: -3.46ex; " SRC="img735.svg"
- ALT="$\displaystyle \sum_{i,\delta=1,2,3} G_{mix}^{\alpha\delta}(i)\langle u_{i}^{\delta} \rangle$"></TD><TD class="rfill">(<SPAN CLASS="arabic">108</SPAN>)</TD></TR>
+ STYLE="height: 2.51ex; vertical-align: -0.69ex; " SRC="img531.svg"
+ ALT="$\displaystyle \mathbf \epsilon _o^{\star} \cdot \mathbf R \cdot \mathbf \epsilon _i$"></TD><TD class="rfill">(<SPAN CLASS="arabic">83</SPAN>)</TD></TR>
 <TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
 <TD style="text-align:center"><IMG
- STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img709.svg"
- ALT="$\textstyle +$"></TD>
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
 <TD style="text-align:left;"><IMG
- STYLE="height: 5.94ex; vertical-align: -3.40ex; " SRC="img727.svg"
- ALT="$\displaystyle \sum_{i,\gamma=1,...} G_{\rm cfph}^{\alpha\gamma}(i) \langle O_{\gamma}(\hat \mathbf J_i) \rangle$"></TD><TD class="rfill">&nbsp;</TD></TR>
+ STYLE="height: 5.44ex; vertical-align: -1.71ex; " SRC="img532.svg"
+ ALT="$\displaystyle \sigma^{(0)} \mathbf \epsilon _i \cdot \mathbf \epsilon _o^{\star...
+...1)}}{s}
+\mathbf \epsilon _o^{\star} \times \mathbf \epsilon _i \hat \mathbf S_j$"></TD><TD class="rfill">&nbsp;</TD></TR>
 <TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img709.svg"
- ALT="$\textstyle +$"></TD>
+<TD>&nbsp;</TD>
 <TD style="text-align:left;"><IMG
- STYLE="height: 6.95ex; vertical-align: -3.46ex; " SRC="img736.svg"
- ALT="$\displaystyle \frac{1}{2}\sum_{ii',\delta,\delta'\alpha',\gamma=1,..,3}
-\frac{\...
-...lpha}}
-\langle \hat \mathcal I_{\delta}^i \hat \mathcal I_{\delta'}^{i'}\rangle$"></TD><TD class="rfill">&nbsp;</TD></TR>
-</TABLE></DIV>
-
+ STYLE="height: 6.05ex; vertical-align: -2.32ex; " SRC="img533.svg"
+ ALT="$\displaystyle \frac{\sigma^{(2)}}{s(2s-1)} \left (
+\mathbf \epsilon _i \cdot \h...
+...athbf \epsilon _i \cdot \mathbf \epsilon _o^{\star} \hat \mathbf S_j^2
+\right )$"></TD><TD class="rfill">(<SPAN CLASS="arabic">84</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
 <P>
+<SPAN CLASS="SMALL">In order to use this expression,  the conductivities <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img534.svg"
+ ALT="$\sigma$"></SPAN> have
+to be entered in the <I CLASS="slanted">sipf</I> file, e.g.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN><PRE>
+SIGMA0r=1.32
+SIGMA1r=1.32
+SIGMA2r=1.32
+SIGMA0i=1.32
+SIGMA1i=1.32
+SIGMA2i=1.32
+</PRE><SPAN CLASS="SMALL">
+('r' and 'i' stand for real and imaginary part, respectively).
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Note: in module <I CLASS="slanted">so1ion</I><A ID="2206"></A> the scattering operator
+is given in terms of the total angular momentum <!-- MATH
+ $\hat \mathbf J$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.43ex; vertical-align: -0.12ex; " SRC="img535.svg"
+ ALT="$\hat \mathbf J$"></SPAN> instead
+of <!-- MATH
+ $\hat \mathbf S$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.43ex; vertical-align: -0.12ex; " SRC="img529.svg"
+ ALT="$\hat \mathbf S$"></SPAN>.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">If a more complex tensor <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img525.svg"
+ ALT="$\mathbf R$"></SPAN> is required, it's components
+can be defined in the sipf file using the perlparse option.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html719"
+  HREF="node66.html">Scattering geometry</A>
+</UL>
+<!--End of Table of Child-Links-->
 
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
@@ -220,28 +239,28 @@ Equation (<A HREF="node64.html#zeroeps">112</A>) is extended for the case of exc
  HREF="node66.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node60.html">
+ HREF="node56.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node64.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html680"
-  HREF="node7.html">
+<A ID="tex2html715"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html682"
-  HREF="node164.html">
+<A ID="tex2html717"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node66.html">Progam Workflow for calculating</A>
+ HREF="node66.html">Scattering geometry</A>
 <B> Up:</B> <A
- HREF="node60.html">Crystal Field Phonon Interaction</A>
+ HREF="node56.html">mcdisp - the Calculation</A>
 <B> Previous:</B> <A
- HREF="node64.html">The total Crystal field</A>
- &nbsp; <B>  <A ID="tex2html681"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html683"
-  HREF="node164.html">Index</A></B> </DIV>
+ HREF="node64.html">Powder-averaging the spectra</A>
+ &nbsp; <B>  <A ID="tex2html716"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html718"
+  HREF="node180.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

@@ -1,16 +1,17 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Using the so1ion module in McPhase and McDisp</TITLE>
+<TITLE>Magnetic exchange</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node19.html">
 <LINK REL="previous" HREF="node17.html">
 <LINK REL="next" HREF="node19.html">
 </HEAD>
@@ -22,58 +23,88 @@
  HREF="node19.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node15.html">
+ HREF="node16.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node17.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html428"
-  HREF="node7.html">
+<A ID="tex2html476"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html430"
-  HREF="node164.html">
+<A ID="tex2html478"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node19.html">Module Tasks:</A>
+ HREF="node19.html">Intermediate coupling</A>
 <B> Up:</B> <A
- HREF="node15.html">singleion - a Crystal</A>
+ HREF="node16.html">Summary</A>
 <B> Previous:</B> <A
- HREF="node17.html">Example - how to</A>
- &nbsp; <B>  <A ID="tex2html429"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html431"
-  HREF="node164.html">Index</A></B> 
+ HREF="node17.html">Zeeman energy</A>
+ &nbsp; <B>  <A ID="tex2html477"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html479"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION00093000000000000000"></A><A ID="609"></A>
-<A ID="cf1ion"></A>
-<BR>
-Using the <I CLASS="slanted">so1ion</I>  module in <I CLASS="slanted">McPhase</I> and <I CLASS="slanted">McDisp</I>
-</H2>
-
+<H3><A ID="SECTION00073200000000000000">
+Magnetic exchange</A>
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-The use 
- of the <I CLASS="slanted">so1ion<A ID="613"></A></I> module in <I CLASS="slanted">mcphas</I> is necessary in order to 
- go beyond the capabilities of <I CLASS="slanted">singleion<A ID="615"></A></I> (for instance the calculation
- of magnetisation or specific heat or if the exchange interaction
- given in equations&nbsp;(<A HREF="node12.html#hamilton">1</A>) and (<A HREF="node13.html#multipolehamilton">3</A>)
-  shall be taken into account).  
+<SPAN CLASS="SMALL">Isotropic magnetic exchange interaction (e.&nbsp;g. Heisenberg exchange) is written as
+</SPAN>
+<DIV CLASS="displaymath">
 
+<!-- MATH
+ \begin{equation}
+\hat{\mathcal{H}}_{X-J}
+    =
+    -
+    \frac{1}{2}
+    \sum_{nn^{\prime}, \alpha\beta=1,2,3}
+    \mathcal{J}(\mathbf{R}_{n^{\prime}} - \mathbf{R}_{n})
+    \hat{\mathcal{I}}_{\alpha}^n
+    \hat{\mathcal{I}}_{\beta}^{n^{\prime}}
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 6.62ex; vertical-align: -3.46ex; " SRC="img138.svg"
+ ALT="$\displaystyle \hat{\mathcal{H}}_{X-J}
+=
+-
+\frac{1}{2}
+\sum_{nn^{\prime}...
+..._{n})
+\hat{\mathcal{I}}_{\alpha}^n
+\hat{\mathcal{I}}_{\beta}^{n^{\prime}}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">8</SPAN>)</SPAN>
+</DIV><SPAN CLASS="SMALL">
+where the operators are understood as
+<!-- MATH
+ $\hat{\mathcal{I}}_{1}  \leftrightarrow \hat{J}_x$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img139.svg"
+ ALT="$\hat{\mathcal{I}}_{1} \leftrightarrow \hat{J}_x$"></SPAN>,
+<!-- MATH
+ $\hat{\mathcal{I}}_{2}  \leftrightarrow \hat{J}_y$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img140.svg"
+ ALT="$\hat{\mathcal{I}}_{2} \leftrightarrow \hat{J}_y$"></SPAN>,
+<!-- MATH
+ $\hat{\mathcal{I}}_{3}  \leftrightarrow \hat{J}_z$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img141.svg"
+ ALT="$\hat{\mathcal{I}}_{3} \leftrightarrow \hat{J}_z$"></SPAN>.
+</SPAN>
 <P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A ID="tex2html432"
-  HREF="node19.html">Module Tasks:</A>
-<LI><A ID="tex2html433"
-  HREF="node20.html">Module Usage:</A>
-</UL>
-<!--End of Table of Child-Links-->
+<SPAN CLASS="SMALL"></SPAN>
 <BR><HR>
 
 </BODY>

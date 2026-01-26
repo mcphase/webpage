@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>External module function estates - used by mcdisp, mcdiff and singleion</TITLE>
+<TITLE>TmCu - magnetoelastic effects and Neutron Spectra calculated with CF-phonon interaction</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -22,140 +22,198 @@
  HREF="node88.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node82.html">
+ HREF="node74.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node86.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html807"
-  HREF="node7.html">
+<A ID="tex2html822"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html809"
-  HREF="node164.html">
+<A ID="tex2html824"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node88.html">Module Functions for Observables</A>
+ HREF="node88.html">Single Ion Modules</A>
 <B> Up:</B> <A
- HREF="node82.html">Basic Module Functions</A>
+ HREF="node74.html">Crystal Field Phonon Interaction</A>
 <B> Previous:</B> <A
- HREF="node86.html">External module function du1calc</A>
- &nbsp; <B>  <A ID="tex2html808"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html810"
-  HREF="node164.html">Index</A></B> 
+ HREF="node86.html">Magnetoelastic Options to mcphas</A>
+ &nbsp; <B>  <A ID="tex2html823"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html825"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION000171500000000000000"></A><A ID="3384"></A><A ID="3385"></A><A ID="3386"></A>
-<BR>
-External module function <I CLASS="slanted">estates</I> - used by <I CLASS="slanted">mcdisp</I>,
- <I CLASS="slanted">mcdiff</I> and <I CLASS="slanted">singleion</I>
-</H3>
-
-<P>
-This routine is optional, i.e. may be programed but is not absolutely necessary. It provides the designer of a single ion module
-with the possiblity to store information, usually the eigenvalues and eigenstates of a problem. This can be very useful to accelerate computations. 
-For example, the module <I CLASS="slanted">mcdisp</I> provides to the single ion module functions
- <I CLASS="slanted">du1calc</I> and <I CLASS="slanted">dMQ1</I> and similar
-at every call the matrix <I CLASS="slanted">estates</I> which has been set initially for every atom
-by a call to <I CLASS="slanted">estates</I>.
-
-<P>
-At the start of the programs <I CLASS="slanted">mcdisp</I> <I CLASS="slanted">singleion</I> the function <I CLASS="slanted">estates</I>
-is called (if present in the module) and it should initialize the Complex Matrix by a command such as
-
-<P>
-<I CLASS="slanted">(*ests)=ComplexMatrix(0,nofrows,1,nofcols);</I> 
-
-<P>
-and fill this matrix with sensible numerical values for the effective field, temperature given.
-Parameters <I CLASS="slanted">MODPAR</I> and Lande Factor <I CLASS="slanted">gJ</I> may be used for this purpose. 
-
-<P>
-The routine should look similar to
-<SPAN CLASS="FOOTNOTESIZE">
-</SPAN><PRE>
-#include "vector.h"          // MatPack vector class must be included
-
-#ifdef __linux__
-extern "C" void estates(
-#else
-extern "C" __declspec(dllexport) void estates(
-#endif
-// on output
-                     ComplexMatrix * ests,    // eigenstate matrix      
-                                              // it must also contain population 
-                                              // numbers p_i of the states (imaginary part of row 0)
-                                              // and eigenvalues (real part of row 0)
-// on input
-                      Hxc ,                 //   vector of exchange field [meV] (can be n-dimensional, for a set of n operators)
-                      Hext  ,                     // external magnetic field [T]
-                      double *g_J,        // Input Lande g-factor
-                      double &amp;T,          // Input temperature (K)
-                      Vector &amp;MODPAR,     // Input vector of parameters from 
-					                      //single ion property file
-                      char **sipffilename)// Single ion properties filename                      
-{ // ... some code to compute eigenvectors and eigenvalues
-
- dj=21;  // dimension matrix according to the  dimension of your eigenvalue problem
-   (*ests) = ComplexMatrix(0,dj,1,dj);
-   Vector En(1,dj),pn(1,dj);Matrix zr(1,dj,1,dj);Matrix zi(1,dj,1,dj);
-   setup_and_solve_Hamiltonian(Hxc,Hext,En,zr,zi,sort); // call some function to solve your Hamiltonian
-   
-   for(i=1;i&lt;=dj;++i)for(j=1;j&lt;=dj;++j)(*ests)(i,j)=complex &lt;double&gt; (zr(i,j),zi(i,j));   // fill matrix with eigenstates
- 
-    //calculate partition sum and Boltzmann probabilities pn
-    double zz;calculate_Z_pn(En,T,zz,pn);
-
-     // put Energies and Boltzmann population into row 0 of eigenstates...
-     for(j=1;j&lt;=dj;++j){(*eigenstates)(0,j)=complex&lt;double&gt;(En(j),pn(j));}
-
-}
-</PRE><SPAN CLASS="FOOTNOTESIZE">
-Note: if <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.90ex; vertical-align: -0.21ex; " SRC="img830.svg"
- ALT="$T&lt;0$"></SPAN> all quantities should be evaluated assuming that all Boltzmann probabilities <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img139.svg"
- ALT="$p_i$"></SPAN>
- are zero except for the state number <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img831.svg"
- ALT="$n=(-T)$"></SPAN>, for which the probability <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img832.svg"
- ALT="$p_n=1$"></SPAN>.
+<H2><A ID="SECTION0001413000000000000000">
+TmCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN> - magnetoelastic effects and Neutron Spectra calculated with CF-phonon interaction</A>
+</H2><SPAN CLASS="SMALL">
 </SPAN>
-
 <P>
+<SPAN CLASS="SMALL">As an example for static and dynamic calculations including the crystal-field phonon interaction
+we present a &rdquo;simple&rdquo; calculation on TmCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>, all input files (<I CLASS="slanted">calc.bat</I>
+and logbook <I CLASS="slanted">calc.pdf</I> with all commands can be found in <I CLASS="slanted">examples/tmcu2_cf_phonon</I>.
+&rdquo;Simple&rdquo; in this context means, that the input parameters are quite basic and not fine
+tuned to match the experiment. As input we used for this orthorhombic system the
+crystal structure (see <I CLASS="slanted">TmCu2.cif</I>), point charges <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img898.svg"
+ ALT="$C_{Tm}=0.8\vert e\vert$"></SPAN> <!-- MATH
+ $C_{Cu}=-0.4|e|$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img899.svg"
+ ALT="$C_{Cu}=-0.4\vert e\vert$"></SPAN>
+with a cutoff radius of 15&nbsp;Å and
+a  distance dependent Born von Karman longitudinal spring model as output by default
+from <I CLASS="slanted">makenn -bvk</I>.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV class="CENTER"><A ID="tmcu2thecfclc"></A><A ID="3679"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 21:</STRONG>
+Crystal field striction, i.e. the crystal field influence on the thermal expansion
+in TmCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>.  - calculation results</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
 
+<IMG
+  WIDTH="248" HEIGHT="134" STYLE=""
+ SRC="./thecf.jpg"
+ ALT="Image thecf">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV class="CENTER"><A ID="tmcu2thecfexp"></A><A ID="9608"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 22:</STRONG>
+Crystal field striction, i.e. the crystal field influence on the thermal expansion
+in TmCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>. - experimental results&nbsp;[<A
+ HREF="node179.html#gratz93-7955">42</A>]</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+
+<IMG
+  WIDTH="248" HEIGHT="253" STYLE=""
+ SRC="./thecf_tmcu2_exp.jpg"
+ ALT="Image thecf_tmcu2_exp">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">With <I CLASS="slanted">mcphas -doeps</I> the static thermodynamic properties have been calculated, in particular
+the strain tensor. The computed crystal field contribution to the thermal expansion (fig.&nbsp;<A HREF="#tmcu2thecfclc">21</A>) is 
+in good agreement with the experimental data from powder X-ray diffraction (fig.&nbsp;<A HREF="#tmcu2thecfexp">22</A>).
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV class="CENTER"><A ID="tmcu2mag20k"></A><A ID="3696"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 23:</STRONG>
+Dispersive modes in TmCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN> along (11L) at <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img19.svg"
+ ALT="$T=20$"></SPAN>&nbsp;K, symbol size corresponds to the 
+magnetic scattering cross section, red: calculation without crystal field phonon interaction, blue:
+calculation with crystal field phonon interaction.</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+
+<IMG
+  WIDTH="372" HEIGHT="419" STYLE=""
+ SRC="./mag20K.jpg"
+ ALT="Image mag20K">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">By using <I CLASS="slanted">mcdisp</I> at the temperature of 20&nbsp;K the magnetic and nuclear inelastic neutron
+scattering cross section can be calculated. We show in fig.&nbsp;<A HREF="#tmcu2mag20k">23</A> the magnetic scattering along
+the (11L) direction. Including the crystal field phonon interaction clearly leads to a dynamic
+Jahn-Teller effect: the flat modes  split, shift and get
+dispersive and there is considerable magnetic intensity transfer to phonons.
+Thus the double peak feature in unpublished experimental data on powder can possibly
+be interpreted, see fig.&nbsp;<A HREF="#tmcu2mag20kexp">24</A>
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV class="CENTER"><A ID="tmcu2mag20kexp"></A><A ID="3706"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 24:</STRONG>
+TmCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN> neutron powder spectrum at <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img19.svg"
+ ALT="$T=20$"></SPAN>&nbsp;K as measured on IN6 (Institute Laue Langevin) and
+SV22 (FZ-Juelich), M. Loewenhaupt, private communication.</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+
+<IMG
+  WIDTH="372" HEIGHT="264" STYLE=""
+ SRC="./TmCu2 20K.jpg"
+ ALT="Image TmCu2 20K">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
 <A
  HREF="node88.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node82.html">
+ HREF="node74.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node86.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html807"
-  HREF="node7.html">
+<A ID="tex2html822"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html809"
-  HREF="node164.html">
+<A ID="tex2html824"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node88.html">Module Functions for Observables</A>
+ HREF="node88.html">Single Ion Modules</A>
 <B> Up:</B> <A
- HREF="node82.html">Basic Module Functions</A>
+ HREF="node74.html">Crystal Field Phonon Interaction</A>
 <B> Previous:</B> <A
- HREF="node86.html">External module function du1calc</A>
- &nbsp; <B>  <A ID="tex2html808"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html810"
-  HREF="node164.html">Index</A></B> </DIV>
+ HREF="node86.html">Magnetoelastic Options to mcphas</A>
+ &nbsp; <B>  <A ID="tex2html823"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html825"
+  HREF="node180.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

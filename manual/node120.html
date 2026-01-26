@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Programs display_density - display of the charge- spin- moment- current- density of a single ion</TITLE>
+<TITLE>External module function dchargedensity_coeff1 - used by mcdisp</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,160 +23,69 @@
  HREF="node121.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node118.html">
+ HREF="node102.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node119.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html972"
-  HREF="node7.html">
+<A ID="tex2html1018"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html974"
-  HREF="node164.html">
+<A ID="tex2html1020"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node121.html">Programs display_densities - display</A>
+ HREF="node121.html">External module function spindensity_coeff</A>
 <B> Up:</B> <A
- HREF="node118.html">Programs for Graphical display</A>
+ HREF="node102.html">Module Functions for Observables</A>
 <B> Previous:</B> <A
- HREF="node119.html">Programs display, displaybubbles, displaycontour,</A>
- &nbsp; <B>  <A ID="tex2html973"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html975"
-  HREF="node164.html">Index</A></B> 
+ HREF="node119.html">External module function chargedensity_coeff</A>
+ &nbsp; <B>  <A ID="tex2html1019"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1021"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000202000000000000000"></A><A ID="4234"></A><A ID="displaydensity"></A>
+<H3><A ID="SECTION0001621800000000000000"></A><A ID="4347"></A>
 <BR>
-Programs <I CLASS="slanted">display_density</I> 
-- display of the charge- spin- moment- current- density of a single ion
-</H2>
-
+External module function <I CLASS="slanted">dchargedensity_coeff1</I> - used by <I CLASS="slanted">mcdisp</I>
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-The program <I CLASS="slanted">display_density</I><A ID="4237"></A> is used to display a surface of constant
-charge density for an open shell ion, which is described by a single ion property file.
-In addition, also, the spin-, orbital moment, total magnetic moment and orbital current
-densities can be displayed. 
-
+<SPAN CLASS="SMALL">In order to visualize charge density  fluctuations 
+ the external single ion module has to provide the transition
+matrix elements of the chargedensity coefficient operator <!-- MATH
+ $\sum_i \hat Z_{lm}(\Omega_i)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.12ex; vertical-align: -0.81ex; " SRC="img1003.svg"
+ ALT="$\sum_i \hat Z_{lm}(\Omega_i)$"></SPAN> by a
+vector <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1004.svg"
+ ALT="$cd1$"></SPAN>, which is given by:
+ <!-- MATH
+ ${\rm cd1}^s_{\alpha=lm}=\sqrt{(p_- -p_+)}\langle -|\sum_i \hat  Z^s_{lm}(\Omega_i)-\langle \sum_i\hat  Z^s_{lm}(\Omega_i)\rangle_{\mathbf H,T}|+\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.13ex; vertical-align: -0.82ex; " SRC="img1005.svg"
+ ALT="${\rm cd1}^s_{\alpha=lm}=\sqrt{(p_--p_+)}\langle -\vert\sum_i \hat Z^s_{lm}(\Omega_i)-\langle \sum_i\hat Z^s_{lm}(\Omega_i)\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>. 
+</SPAN>
 <P>
-<DL>
-<DT><STRONG>display_density<A ID="4239"></A>  c<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
- ALT="$\vert$"></SPAN>s<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
- ALT="$\vert$"></SPAN>o<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
- ALT="$\vert$"></SPAN>m<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
- ALT="$\vert$"></SPAN>j -p i j k<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
- ALT="$\vert$"></SPAN>-div-S<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
- ALT="$\vert$"></SPAN>-L<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img816.svg"
- ALT="$\vert$"></SPAN>-Mmcphas.sipf
- T Ha Hb Hc</STRONG></DT>
-<DD>
-</DD>
-</DL> 
-<PRE>
-                 c ... calculate chargedensity
-                 s ... calculate spindensity
-                 o ... calculate angular orbital momentum density
-                 m ... calculate magnetic moment density
-                 j ... calculate currentdensity
-        optional p i j k ... calculate projection of spin/orbital/current/magnetic 
-                             moment density along direction i j k, e.g. 0 0 1
-        optional -div    ... calculate divergence of spin/orbital/current/magnetic 
-                             moment density
-        optional -S  ... show arrow indicating spin
-        optional -L  ... show arrow indicating orbital angular momentum
-        optional -M  ... show arrow indicating magnetic moment
-                 - crystal field  parameters Blm should be read from a
-                   standard mcphas single ion property file mcphas.sipf
-                 - given is temperature T[K] and magnetic effective field H[T]
-                options: if T&lt;0 then no thermal boltzmann distribution is taken
-                the statistical probability of each CF state has to be entered
-                by hand.
-     example:
-               display_density c Pr3p.sipf 2 0 0 1
-             ...calculates the charge density using crystal field from Pr3p.sipf
-                at T=2K and H=(0,0,1) Tesla
-</PRE>
-
+<SPAN CLASS="SMALL">The format to be used is:
+<SPAN CLASS="FOOTNOTESIZE">
+</SPAN></SPAN><PRE>
+extern "C" int dchargedensity_ceoff1(int &amp; tn,double &amp; T,Vector &amp; Hxc,Vector &amp; Hext,double * g_J,Vector &amp; MODPAR,
+char ** sipffilename,ComplexVector &amp; cd1,float &amp; maxE, ComplexMatrix &amp; est)
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+The meaning of the symbols follows exactly that of function 
+<I CLASS="slanted">dm1</I> and therefore not explained here.
+</SPAN>
 <P>
-Note: if T<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.57ex; vertical-align: -0.21ex; " SRC="img1027.svg"
- ALT="$&lt;$"></SPAN>0, then no thermal Boltzmann distribution is taken - 
-		the statistical probability of each CF state has to be 
-		entered by hand.
-
-<P>
-For the calculation of the charge density the  formula are used as given in
-appendix&nbsp;<A HREF="node150.html#chargedensityoperator">L</A>. 
-Spin-, Moment- and Currentdensities
-currently only available in combination with module <I CLASS="slanted">ic1ion<A ID="4244"></A></I>.
-Formalism based on [<A
- HREF="node163.html#balcar75-1581">60</A>,<A
- HREF="node163.html#balcar89-1">54</A>,<A
- HREF="node163.html#rotter11-12005">61</A>].
-
-<P>
-Technical information: the program <I CLASS="slanted">display_density</I> is actually a script which
-calls  <I CLASS="slanted">densplt<A ID="4247"></A></I> 
- (a program with the same arguments as <I CLASS="slanted">display_density</I>
-which calculates the iso surfaces and stores
-it in format for the java based graphic program <I CLASS="slanted">javaview</I> and
-also as a grid. The way in which this is done is controlled by 
-the parameter file <I CLASS="slanted">results/graphic_parameters.set</I>
-.... in  order to display the results graphically the following java
-programs are called:
-<PRE>
- javaview results/densplt.jvx
- displaycontour 2 3 4 results/densplti.grid
- displaycontour 1 3 4 results/denspltj.grid
- displaycontour 1 2 4 results/denspltk.grid
-</PRE>
-
-<P>
-Note on javaview: You can create also several plots (for instance for different temperatures) and store these
-in a sequence such as densplt.1.jvx, densplt.2.jvx, ... animate
-the view of 4 jvx files by typing: java javaview model=densplt.*.jvx Animation.LastKey=4 
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node121.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node118.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node119.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html972"
-  HREF="node7.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html974"
-  HREF="node164.html">
-<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A
- HREF="node121.html">Programs display_densities - display</A>
-<B> Up:</B> <A
- HREF="node118.html">Programs for Graphical display</A>
-<B> Previous:</B> <A
- HREF="node119.html">Programs display, displaybubbles, displaycontour,</A>
- &nbsp; <B>  <A ID="tex2html973"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html975"
-  HREF="node164.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<SPAN CLASS="SMALL"></SPAN>
+<BR><HR>
 
 </BODY>
 </HTML>

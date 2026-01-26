@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Symmetry considerations for Crystal Field Parameters</TITLE>
+<TITLE>Starting a parameter space search</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,56 +23,109 @@
  HREF="node145.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="manual.html">
+ HREF="node141.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node143.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1076"
-  HREF="node7.html">
+<A ID="tex2html1134"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1078"
-  HREF="node164.html">
+<A ID="tex2html1136"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node145.html">Transforming Crystal Field Parameters</A>
+ HREF="node145.html">analysing the results of</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="node141.html">Searchspace and Simannfit -</A>
 <B> Previous:</B> <A
- HREF="node143.html">Stevens Operators</A>
- &nbsp; <B>  <A ID="tex2html1077"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1079"
-  HREF="node164.html">Index</A></B> 
+ HREF="node143.html">Telling the fitting program,</A>
+ &nbsp; <B>  <A ID="tex2html1135"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1137"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A ID="SECTION000320000000000000000">
-Symmetry considerations for Crystal Field Parameters</A>
-</H1>
-
+<H2><A ID="SECTION000203000000000000000">
+Starting a parameter space search</A>
+</H2><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-Symmetry considerations allow to compile 
-table&nbsp;<A HREF="#tab:symmetry">8</A>, where the nonvanishing
-CEF parameters for all 
-crystallographic point groups are
-given&nbsp;[<A
- HREF="node163.html#bauer09-183">68</A>].
-
+<SPAN CLASS="SMALL">If the program <I CLASS="slanted">calcsta</I> has been set up, the parameter space may be
+searched by the program <I CLASS="slanted">searchspace<A ID="5167"></A></I>. It is started
+by the command (in the example you should go to the directory <I CLASS="slanted">/mcphas/examples/cecu2a/fit</I>) 
+:
+</SPAN>
 <P>
+<SPAN CLASS="SMALL"></SPAN>
+<BLOCKQUOTE><SPAN CLASS="SMALL"><I CLASS="slanted">searchspace 0 mcphas.jjj [and possible other input parameter files]</I>.
+</SPAN></BLOCKQUOTE><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Note that the user written program <I CLASS="slanted">calcsta</I> has to be in the
+directory where <I CLASS="slanted">searchspace<A ID="5173"></A></I> is started from.
+The &rdquo;0&rdquo; in the command means that the search is started for the first time.
+The program generates an output file <I CLASS="slanted">searchspace.0</I> with a list
+of parameter sets. This list may be shortened to stop searching 
+some regions of the parameter space and subsequently the program may be started
+with
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BLOCKQUOTE><SPAN CLASS="SMALL"><I CLASS="slanted">searchspace 1 mcphas.jjj [and possible other input parameter files]</I>.
+</SPAN></BLOCKQUOTE><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Now the values stored in <I CLASS="slanted">searchspace.0</I> are read and 
+the parameter space is searched in more detail and a longer list 
+of parameters is stored as <I CLASS="slanted">searchspace.1</I>. This may be again
+edited to drop some regions of the parameter space and <I CLASS="slanted">searchspace<A ID="5180"></A></I>
+may be started with <I CLASS="slanted">searchspace 2 ...</I> and so on ....
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">The program creates new parameter sets from an old set by incrementing/decrementing
+each of the parameters subsequently by a small step. In the first level this step
+is just equal to a quarter of the parameter range. Going from one level to
+ the next this step is halved. Figure&nbsp;<A HREF="node142.html#searchspace">18.1</A> shows how a two dimensional
+ parameter space is covered by this procedure. If all neighbouring points of
+ a given point show a larger value of <I CLASS="slanted">sta</I>, then the set is recorded, because it might be
+ near a minimum of <I CLASS="slanted">sta</I>. The parameter values are stored in the file
+ <I CLASS="slanted">results/searchspace.searchspace-level.localminima</I>.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node145.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node141.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node143.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html1134"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html1136"
+  HREF="node180.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
-<A ID="tab:symmetry"></A><IMG
- STYLE="" SRC="img1263.svg"
- ALT="\begin{landscape}
-% latex2html id marker 6102\par\begin{table}
-\caption{Possi...
-...&amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp;+ &amp; &amp; &amp; &amp; &amp;+ &amp; \\
-\end{tabular}
-\end{table}\par\end{landscape}">
-<BR>
-<BR><HR>
+<B> Next:</B> <A
+ HREF="node145.html">analysing the results of</A>
+<B> Up:</B> <A
+ HREF="node141.html">Searchspace and Simannfit -</A>
+<B> Previous:</B> <A
+ HREF="node143.html">Telling the fitting program,</A>
+ &nbsp; <B>  <A ID="tex2html1135"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1137"
+  HREF="node180.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

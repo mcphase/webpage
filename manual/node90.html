@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>External module function mMcalc - used by singleion </TITLE>
+<TITLE>Magnetic Formfactor Coefficients</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -29,54 +29,83 @@
  HREF="node89.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
 <A ID="tex2html840"
-  HREF="node7.html">
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
 <A ID="tex2html842"
-  HREF="node164.html">
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node91.html">External module function dm1</A>
+ HREF="node91.html">Debye Waller Factor</A>
 <B> Up:</B> <A
- HREF="node88.html">Module Functions for Observables</A>
+ HREF="node88.html">Single Ion Modules</A>
 <B> Previous:</B> <A
- HREF="node89.html">External module function mcalc</A>
+ HREF="node89.html">Landé Factor</A>
  &nbsp; <B>  <A ID="tex2html841"
-  HREF="node7.html">Contents</A></B> 
+  HREF="node8.html">Contents</A></B> 
  &nbsp; <B>  <A ID="tex2html843"
-  HREF="node164.html">Index</A></B> 
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION000172200000000000000"></A><A ID="3423"></A>
-<BR>
-External module function <I CLASS="slanted">mMcalc</I> - used by 
-<I CLASS="slanted">singleion</I> 
-</H3>
-
+<H2><A ID="SECTION000152000000000000000">
+Magnetic Formfactor Coefficients</A>
+</H2><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-This function is optional and intended to accellerate <I CLASS="slanted">singleion</I> by vectorizing the temperature and
-thus save computation resources when using the option <I CLASS="slanted">-Tsteps</I>. It has the same parameters as 
-<I CLASS="slanted">mcalc</I> with the following modifications:
-
+<SPAN CLASS="SMALL">For the more accurate calculation of neutron intensities it is
+necessary to give the magnetic form factor (see the table in appendix&nbsp;<A HREF="node164.html#ffacts">J</A>)
+in the single ion property input file. This can
+easily be don by adding some additional lines to a single ion property file:
+</SPAN>
 <P>
+<SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE">
+</SPAN></SPAN><PRE>
+#--------------------------------------------------------------------------------------
+# Neutron Magnetic Form Factor coefficients - thanks to J Brown
+#   d = 2*pi/Q      
+#   s = 1/2/d = Q/4/pi   
+#   sin(theta) = lambda * s
+#   r= s*s = Q*Q/16/pi/pi
+#
+#   &lt;j0(Qr)&gt;=   FFj0A*EXP(-FFj0a*r) + FFj0B*EXP(-FFj0b*r) + FFj0C*EXP(-FFj0c*r) + FFj0D
+#   &lt;j2(Qr)&gt;=r*(FFj2A*EXP(-FFj2a*r) + FFj2B*EXP(-FFj2b*r) + FFj2C*EXP(-FFj2c*r) + FFj2D
+#   &lt;j4(Qr)&gt;=r*(FFj4A*EXP(-FFj4a*r) + FFj4B*EXP(-FFj4b*r) + FFj4C*EXP(-FFj4c*r) + FFj4D
+#   &lt;j6(Qr)&gt;=r*(FFj6A*EXP(-FFj6a*r) + FFj6B*EXP(-FFj6b*r) + FFj6C*EXP(-FFj6c*r) + FFj6D
+#
+#   Dipole Approximation for Neutron Magnetic Formfactor:
+#        -Spin Form Factor       FS(Q)=&lt;j0(Q)&gt;
+#        -Angular Form Factor    FL(Q)=&lt;j0(Q)&gt;+&lt;j2(Q)&gt;
+#        -Rare Earth Form Factor F(Q) =&lt;j0(Q)&gt;+&lt;j2(Q)&gt;*(2/gJ-1)
 
-<OL>
-<LI><I CLASS="slanted">double <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.31ex; vertical-align: -0.12ex; " SRC="img833.svg"
- ALT="$\ast$"></SPAN> T</I> is replaced by <I CLASS="slanted">Vector &amp; T</I> containing the temperatures for which 
-the calculation is to be done.
-</LI>
-<LI><I CLASS="slanted">Vector &amp; m </I> is replaced by <I CLASS="slanted">Matrix &amp; m</I> which should be filled with column
-vectors containing the  magnetic moments <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.26ex; vertical-align: -0.12ex; " SRC="img846.svg"
- ALT="$\mathbf m$"></SPAN>. Each column corresponds to a temperature given as input<I CLASS="slanted">Vector &amp; T</I>.
- 
-</LI>
-</OL>
-
+#--------------------------------------------------------------------------------------
+FFj0A=0.0540 FFj0a=25.0293 FFj0B=0.3101 FFj0b=12.1020 FFj0C=0.6575 FFj0c=4.7223 FFj0D=-0.0216
+FFj2A=0.6751 FFj2a=18.3421 FFj2B=1.6272 FFj2b=7.2600 FFj2C=0.9644 FFj2c=2.6016 FFj2D=0.0150
+FFj4A=-0.4053 FFj4a=+14.0141 FFj4B=+0.0329 FFj4b=+7.0046 FFj4C=+0.3759 FFj4c=+1.7074 FFj4D=+0.0209
+FFj6A=-0.0416 FFj6a=+8.0136 FFj6B=-0.1261 FFj6b=+4.0399 FFj6C=+0.1400 FFj6c=+1.0873 FFj6D=+0.0102
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+In order to go beyond the dipolar approximation for the magnetic formfactor in case
+of rare earth ions and using module <I CLASS="slanted">so1ion</I> the coefficients <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img911.svg"
+ ALT="$Z(K')$"></SPAN> have to
+be given (see appendix&nbsp;<A HREF="node165.html#zk">K</A> for values):
+<SPAN CLASS="FOOTNOTESIZE">
+</SPAN></SPAN><PRE>
+#----------------------------------------------------------------------
+# coefficients of Z(K') according to Lovesey (Neutron Scattering) vol.2
+# chapter 11.6.1 page 233
+#  ... these coefficients are needed to go beyond dipolar approx.
+#      for the neutron magnetic formfactor in rare earth ions
+#----------------------------------------------------------------------
+Z1c0=+1.63636364  Z1c2=+2.95041322
+		  Z3c2=-0.20896503  Z3c4=-0.25329095
+				    Z5c4=+0.03820789  Z5c6=+0.14258681
+						      Z7c6=-0.00614959
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+</SPAN>
 <P>
+<SPAN CLASS="SMALL"></SPAN>
 <BR><HR>
 
 </BODY>

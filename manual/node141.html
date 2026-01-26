@@ -1,18 +1,18 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Crystal Field and Parameter Conventions</TITLE>
+<TITLE>Searchspace and Simannfit - Fitting Experimental Data</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node142.html">
-<LINK REL="previous" HREF="node140.html">
+<LINK REL="next" HREF="node150.html">
+<LINK REL="previous" HREF="node134.html">
 <LINK REL="next" HREF="node142.html">
 </HEAD>
 
@@ -28,701 +28,113 @@
 <A
  HREF="node140.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1064"
-  HREF="node7.html">
+<A ID="tex2html1114"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1066"
-  HREF="node164.html">
+<A ID="tex2html1116"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node142.html">Tesseral Harmonics</A>
+ HREF="node142.html">Setting up parameter files</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node140.html">ErNiBC - single ion</A>
- &nbsp; <B>  <A ID="tex2html1065"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1067"
-  HREF="node164.html">Index</A></B> 
+ HREF="node140.html">Program felog - display</A>
+ &nbsp; <B>  <A ID="tex2html1115"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1117"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A ID="SECTION000290000000000000000"></A><A ID="cfparconventions"></A>
+<H1><A ID="SECTION000200000000000000000"></A><A ID="simannfit"></A>
 <BR>
-Crystal Field and Parameter Conventions
-</H1>
-
+<I CLASS="slanted">Searchspace and Simannfit</I> - Fitting Experimental Data
+</H1><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-For historical reasons, crystal field parameters (effectively the radial matrix elements of the crystal field
-interactions) may be expressed in two different "normalisation", which we shall call <SPAN  CLASS="textit">Stevens</SPAN> and 
-<SPAN  CLASS="textit">Wybourne</SPAN>. Stevens&nbsp;[<A
- HREF="node163.html#stevens52-209">62</A>,<A
- HREF="node163.html#hutchings64-227">26</A>] initially expressed the radial parts of the crystal field interaction
-in terms of angular momentum operators <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1193.svg"
- ALT="$J_x$"></SPAN>, <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img1194.svg"
- ALT="$J_y$"></SPAN>, <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img909.svg"
- ALT="$J_z$"></SPAN>. He did this by taking the Cartesian expressions for 
-the tesseral harmonic functions (see Appendix&nbsp;<A HREF="node142.html#tesseral">F</A>), and replacing all instances of the coordinates
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img4.svg"
- ALT="$x$"></SPAN>, <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img171.svg"
- ALT="$y$"></SPAN>, and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img158.svg"
- ALT="$z$"></SPAN> with <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1193.svg"
- ALT="$J_x$"></SPAN>, <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img1194.svg"
- ALT="$J_y$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img909.svg"
- ALT="$J_z$"></SPAN> and allowing for the commutation relations of the angular
-momentum operators, but without considering the normalisation condition of these functions and hence are missing
-the prefactors before the square brackets in the expressions in Appendix&nbsp;<A HREF="node142.html#tesseral">F</A>. We denote these
-prefactors <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img36.svg"
- ALT="$p_{lm}$"></SPAN>. The Stevens crystal field Hamiltonian is thus
-
+<SPAN CLASS="SMALL">In order to fit experimental data a very general concept of fitting program 
+has been developed. 
+<I CLASS="slanted">Perl</I> has to be installed on the system in order to run
+this fitting program.
+</SPAN>
 <P>
-<DIV CLASS="displaymath">
+<SPAN CLASS="SMALL">The program <I CLASS="slanted">searchspace<A ID="5077"></A></I> is used to cover the parameter space and test
+different regions of this space for local minima 
+of a specific function <I CLASS="slanted">sta(par1, par2 par3 ...)</I> of
+these parameters.. It may be used to 
+find good starting values for the program <I CLASS="slanted">simannfit<A ID="5079"></A></I>.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">The program <I CLASS="slanted">simannfit<A ID="5080"></A></I> uses a simulated annealing algorithm described
+in&nbsp;[<A
+ HREF="node179.html#kirkpatrick83-671">4</A>].
+This algorithm does a random walk through the parameter space 
+with the aim to fit the parameters to  a minimum of the function <I CLASS="slanted">sta</I>.
+  Starting at a set of parameter values (par1, par2, par3) the algorithm
+changes these values by a randomly chosen step width (the maximum step width
+is specified at the beginning) to (par1', par2', par3').
+ The function <I CLASS="slanted">sta(par1', par2', par3', ...)</I> is calculated at
+for these new parameter values. The step is accepted if 
 <!-- MATH
- \begin{displaymath}
-\mathcal{H}_{\mathrm{cf}} = \sum_{l,m} A_{lm} \langle r^l \rangle \langle J || \theta_l || J \rangle \hat{O}_l^m (J)
-\end{displaymath}
+ $exp([sta(par')-sta(par)]/T)<{\rm a random number out of} [0,1]$
  -->
-
-<IMG
- STYLE="height: 5.99ex; vertical-align: -3.46ex; " SRC="img1195.svg"
- ALT="$\displaystyle \mathcal{H}_{\mathrm{cf}} = \sum_{l,m} A_{lm} \langle r^l \rangle \langle J \vert\vert \theta_l \vert\vert J \rangle \hat{O}_l^m (J)
-$">
-</DIV>
-
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1156.svg"
+ ALT="$exp([sta(par')-sta(par)]/T)&lt;{\rm a random number out of} [0,1]$"></SPAN>.
+Otherwise it is rejected. The statistical temperature <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img65.svg"
+ ALT="$T$"></SPAN> involved in this
+condition is lowered from step to step as well as the maximum step width allowed.
+</SPAN>
 <P>
-where the product <!-- MATH
- $A_{lm} \langle r^l \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.78ex; vertical-align: -0.70ex; " SRC="img1196.svg"
- ALT="$A_{lm} \langle r^l \rangle$"></SPAN> is commonly taken in the literature as the crystal
-field parameter, because the factorisation into an intrinsic parameter <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1197.svg"
- ALT="$A_{lm}$"></SPAN> and the expectation value of
-the radial wavefunction <!-- MATH
- $\langle r^l \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.78ex; vertical-align: -0.70ex; " SRC="img759.svg"
- ALT="$\langle r^l \rangle$"></SPAN> is derived from the point charge model and is not generally
-valid. Alternatively, 
-the product <!-- MATH
- $B_l^m = A_{lm} \langle r^l \rangle \langle J || \theta_l || J \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.85ex; vertical-align: -0.77ex; " SRC="img1198.svg"
- ALT="$B_l^m = A_{lm} \langle r^l \rangle \langle J \vert\vert \theta_l \vert\vert J \rangle$"></SPAN> is
-also commonly used, particularly in the neutron scattering literature. 
-<!-- MATH
- $\theta_l= \langle J || \theta_l || J \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1199.svg"
- ALT="$\theta_l= \langle J \vert\vert \theta_l \vert\vert J \rangle$"></SPAN> are the Stevens 
-factors:  for <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img1200.svg"
- ALT="$l=0,2,4,6$"></SPAN> these correspond to the number of electrons 
-in the unfilled shell <!-- MATH
- $\nu,\alpha_J,\beta_J,\gamma_J$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img1201.svg"
- ALT="$\nu,\alpha_J,\beta_J,\gamma_J$"></SPAN>, respectively.
-
+<SPAN CLASS="SMALL">In the following we describe how to set up the program packages of <I CLASS="slanted">McPhase</I> to
+solve a specific fitting problem.
+As an example we refer to the fitting of the magnetic 
+excitations of CeCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN> in <I CLASS="slanted">mcphas/examples/cecu2a/fit</I>. 
+</SPAN>
 <P>
-Wybourne&nbsp;[<A
- HREF="node163.html#wybourne65">52</A>] and subsequent co-authors on the other hand chose to use the tensor operators 
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img1202.svg"
- ALT="$\hat{C}_{lm}$"></SPAN> which transform in the same way as the functions <!-- MATH
- $C_{lm}(\theta,\phi) = \sqrt{4\pi / (2l+1)}
-Y_{lm}(\theta,\phi)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.10ex; vertical-align: -0.82ex; " SRC="img1203.svg"
- ALT="$C_{lm}(\theta,\phi) = \sqrt{4\pi / (2l+1)}
-Y_{lm}(\theta,\phi)$"></SPAN>, where <!-- MATH
- $Y_{lm}(\theta,\phi)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1204.svg"
- ALT="$Y_{lm}(\theta,\phi)$"></SPAN> are the spherical harmonic functions, to describe the crystal
-field. Thus the angular-dependent part of the crystal field matrix elements used by Wybourne differed from
-that of Stevens by the factor <!-- MATH
- $\lambda_{l0} = p_{l0} \sqrt{4\pi / (2l+1)}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.10ex; vertical-align: -0.82ex; " SRC="img1205.svg"
- ALT="$\lambda_{l0} = p_{l0} \sqrt{4\pi / (2l+1)}$"></SPAN> and
- <!-- MATH
- $\lambda_{lm} = p_{lm} \sqrt{8\pi / (2l+1)}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.10ex; vertical-align: -0.82ex; " SRC="img1206.svg"
- ALT="$\lambda_{lm} = p_{lm} \sqrt{8\pi / (2l+1)}$"></SPAN> for <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img1207.svg"
- ALT="$l\neq 0$"></SPAN>. The crystal field Hamiltonian used by Wybourne is
-thus (in our notation)
-
-<P>
-<DIV CLASS="displaymath">
-<!-- MATH
- \begin{displaymath}
-\mathcal{H}_{\mathrm{cf}} = \sum_{l,m} D_l^{m} \hat{C}_{lm}
-\end{displaymath}
- -->
-
-<IMG
- STYLE="height: 5.99ex; vertical-align: -3.46ex; " SRC="img1208.svg"
- ALT="$\displaystyle \mathcal{H}_{\mathrm{cf}} = \sum_{l,m} D_l^{m} \hat{C}_{lm}
-$">
-</DIV>
-
-<P>
-The disadvantage of the Wybourne approach is that one requires imaginary crystal field parameters, because the
-tensor operators <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img1202.svg"
- ALT="$\hat{C}_{lm}$"></SPAN> are not Hermitian. In <I CLASS="slanted">McPhase</I>, we have instead chosen to use slightly
-different tensor operators <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img1209.svg"
- ALT="$\hat{T}_{lm}$"></SPAN>, which are the Hermitian combinations of the <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img1202.svg"
- ALT="$\hat{C}_{lm}$"></SPAN>,
-
-<P>
-<DIV CLASS="displaymath">
-<!-- MATH
- \begin{displaymath}
-\hat{T}_{l0} = \hat{C}_{l0}, \qquad \hat{T}_{l,\pm|m|} = \sqrt{\pm 1} \left[ \hat{C}_{l,-|m|} \pm (-1)^{|m|} \hat{C}_{l,|m|} \right]
-\end{displaymath}
- -->
-
-<IMG
- STYLE="height: 4.40ex; vertical-align: -1.63ex; " SRC="img1210.svg"
- ALT="$\displaystyle \hat{T}_{l0} = \hat{C}_{l0}, \qquad \hat{T}_{l,\pm\vert m\vert} =...
-...C}_{l,-\vert m\vert} \pm (-1)^{\vert m\vert} \hat{C}_{l,\vert m\vert} \right]
-$">
-</DIV>
-
-<P>
-giving the Hamiltonian
-
-<P>
-<DIV CLASS="displaymath">
-<!-- MATH
- \begin{displaymath}
-\mathcal{H}_{\mathrm{cf}} = \sum_{l,m} L_l^m \hat{T}_{lm}
-\end{displaymath}
- -->
-
-<IMG
- STYLE="height: 5.99ex; vertical-align: -3.46ex; " SRC="img1211.svg"
- ALT="$\displaystyle \mathcal{H}_{\mathrm{cf}} = \sum_{l,m} L_l^m \hat{T}_{lm}
-$">
-</DIV>
-
-<P>
-Our <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img109.svg"
- ALT="$L_l^m$"></SPAN> parameters therefore have the same normalisation as the Wybourne parameters but will be real.
-
-<P>
-In summary:
-
-<OL>
-<LI>the various types of crystal field parameters are given in 
-table&nbsp;<A HREF="#cfpartypes">6</A>.
-</LI>
-<LI>crystal field parameters may have different units, in <I CLASS="slanted">
-McPhase</I> we use meV.
-</LI>
-<LI>crystal field coordinate systems used in literature may be 
-different from the convention used by single ion modules <I CLASS="slanted">so1ion,ic1ion,icf1ion</I>,
-which is the crystal field axes <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img6.svg"
- ALT="$xyz$"></SPAN> are such that <!-- MATH
- $x||a,y||b,z||c$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1212.svg"
- ALT="$x\vert\vert a,y\vert\vert b,z\vert\vert c$"></SPAN> in case
-of orthogonal lattices and in case of non-orthogonal axes 
-the convention is <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img169.svg"
- ALT="$y\vert\vert\vec b$"></SPAN>, <!-- MATH
- $z||(\vec a \times \vec b)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img170.svg"
- ALT="$z\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img4.svg"
- ALT="$x$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img171.svg"
- ALT="$y$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img158.svg"
- ALT="$z$"></SPAN>.
-</LI>
-</OL>
-
-<P>
-<BR><P></P>
-<DIV class="CENTER"><A ID="cfpartypes"></A><A ID="8636"></A>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV class="CENTER"><A ID="safit"></A><A ID="5090"></A>
 <TABLE>
-<CAPTION><STRONG>Table 6:</STRONG>
-Different Crystal Field Parameter Notation Schemes in Literature.
-Here half(<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img26.svg"
- ALT="$m$"></SPAN>) = <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.98ex; vertical-align: -0.92ex; " SRC="img27.svg"
- ALT="$\frac {1}{2}$"></SPAN> when <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img28.svg"
- ALT="$m\neq 0$"></SPAN> and half(<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img26.svg"
- ALT="$m$"></SPAN>)=1 when <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img29.svg"
- ALT="$m=0$"></SPAN>.
-Note that <I CLASS="slanted">lm</I> should be replaced by numbers - e.g. an example of Alm is <I CLASS="slanted">A20</I>, and that
-the operator equivalent factor <!-- MATH
- $\langle J || \theta_l || J \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img30.svg"
- ALT="$\langle J \vert\vert \theta _l \vert\vert J \rangle $"></SPAN>&nbsp;[<A
- HREF="node163.html#hutchings64-227">26</A>] should be <!-- MATH
- $\langle L || \theta_l || L
-\rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img31.svg"
- ALT="$\langle L \vert\vert \theta _l \vert\vert L \rangle $"></SPAN> for an <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img32.svg"
- ALT="$L$"></SPAN>-manifold which is the default for <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img33.svg"
- ALT="$d$"></SPAN>-electron ions&nbsp;[<A
- HREF="node163.html#abragam70-1">55</A>]. The constants <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img34.svg"
- ALT="$\lambda _{lm}$"></SPAN>
-are given in table&nbsp;<A HREF="#tab:wytostev">7</A>.</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-<TABLE class="PAD  BORDER" style="">
-<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT">Literature</TD>
-<TD CLASS="RIGHT">Parameter</TD>
-<TD CLASS="LEFT">Relation to <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img109.svg"
- ALT="$L_l^m$"></SPAN></TD>
-<TD CLASS="LEFT">Normalisation</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT">&nbsp;</TD>
-<TD CLASS="RIGHT">name in</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT">&nbsp;</TD>
-<TD CLASS="RIGHT"><I CLASS="slanted">McPhase</I></TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
- STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img1213.svg"
- ALT="$A_l^m$"></SPAN> in Hutchings 1964&nbsp;[<A
- HREF="node163.html#hutchings64-227">26</A>]</TD>
-<TD CLASS="RIGHT">Alm</TD>
-<TD CLASS="LEFT">=           <!-- MATH
- $\lambda_{lm} L_l^m /\langle r^l \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.85ex; vertical-align: -0.77ex; " SRC="img1214.svg"
- ALT="$\lambda_{lm} L_l^m /\langle r^l \rangle$"></SPAN></TD>
-<TD CLASS="LEFT">Stevens</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
- STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img1213.svg"
- ALT="$A_l^m$"></SPAN> in Kassman 1970&nbsp;[<A
- HREF="node163.html#kassman70-4118">63</A>]</TD>
-<TD CLASS="RIGHT">&nbsp;</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
- STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img1213.svg"
- ALT="$A_l^m$"></SPAN> in Abragam 1970&nbsp;[<A
- HREF="node163.html#abragam70-1">55</A>]</TD>
-<TD CLASS="RIGHT">&nbsp;</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
- STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img41.svg"
- ALT="$B_l^m$"></SPAN> in Hutchings 1964&nbsp;[<A
- HREF="node163.html#hutchings64-227">26</A>]</TD>
-<TD CLASS="RIGHT">Blm</TD>
-<TD CLASS="LEFT">=           <!-- MATH
- $\left \{ \begin{array}{lr}  \lambda_{lm} L_l^m \langle J || \theta_l || J \rangle & {\rm for~rare~earth} \\
-                                                                          \lambda_{lm} L_l^m \langle L || \theta_l || L \rangle & {\rm for~trans~metals}
-		                                       \end{array} \right .$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 5.79ex; vertical-align: -2.32ex; " SRC="img1215.svg"
- ALT="$\left \{ \begin{array}{lr} \lambda_{lm} L_l^m \langle J \vert\vert \theta_l \ve...
-...t \theta_l \vert\vert L \rangle &amp; {\rm for~trans~metals}
-\end{array} \right .$"></SPAN></TD>
-<TD CLASS="LEFT">Stevens</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
- STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img41.svg"
- ALT="$B_l^m$"></SPAN> in Jensen 1991&nbsp;[<A
- HREF="node163.html#jensen91-1">1</A>]</TD>
-<TD CLASS="RIGHT">&nbsp;</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.69ex; " SRC="img1216.svg"
- ALT="$B^l_m$"></SPAN> in Mulak 2000&nbsp;[<A
- HREF="node163.html#mulak00-1">64</A>]</TD>
-<TD CLASS="RIGHT">&nbsp;</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.69ex; " SRC="img1216.svg"
- ALT="$B^l_m$"></SPAN> in FOCUS</TD>
-<TD CLASS="RIGHT">&nbsp;</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.69ex; " SRC="img1216.svg"
- ALT="$B^l_m$"></SPAN> in AMOS</TD>
-<TD CLASS="RIGHT">&nbsp;</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
- STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img1217.svg"
- ALT="$V_l^m$"></SPAN> in Elliott 1953&nbsp;[<A
- HREF="node163.html#elliott53-387">65</A>]</TD>
-<TD CLASS="RIGHT">&nbsp;</TD>
-<TD CLASS="LEFT">=           <!-- MATH
- $\lambda_{lm} L_l^m$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.49ex; vertical-align: -0.77ex; " SRC="img1218.svg"
- ALT="$\lambda_{lm} L_l^m $"></SPAN></TD>
-<TD CLASS="LEFT">Stevens</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT">&nbsp;</TD>
-<TD CLASS="RIGHT">Wlm</TD>
-<TD CLASS="LEFT">= half(<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img26.svg"
- ALT="$m$"></SPAN>) <!-- MATH
- $\lambda_{lm} L_l^m /\langle r^l \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.85ex; vertical-align: -0.77ex; " SRC="img1214.svg"
- ALT="$\lambda_{lm} L_l^m /\langle r^l \rangle$"></SPAN></TD>
-<TD CLASS="LEFT">Stevens</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT">&nbsp;</TD>
-<TD CLASS="RIGHT">Vlm</TD>
-<TD CLASS="LEFT">= half(<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img26.svg"
- ALT="$m$"></SPAN>) <!-- MATH
- $\lambda_{lm} L_l^m \langle J || \theta_l || J \rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.62ex; vertical-align: -0.77ex; " SRC="img1219.svg"
- ALT="$\lambda_{lm} L_l^m \langle J \vert\vert \theta_l \vert\vert J \rangle$"></SPAN></TD>
-<TD CLASS="LEFT">Stevens</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT">&nbsp;</TD>
-<TD CLASS="RIGHT">Llm</TD>
-<TD CLASS="LEFT">=           <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img109.svg"
- ALT="$L_l^m$"></SPAN></TD>
-<TD CLASS="LEFT">Wybourne</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><!-- MATH
- $\begin{array}{l}B^l_0 \\B^l_m(c) \\B^l_m(s) \end{array}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 8.62ex; vertical-align: -3.75ex; " SRC="img1220.svg"
- ALT="$\begin{array}{l}B^l_0 \\ B^l_m(c) \\ B^l_m(s) \end{array} $"></SPAN> in SPECTRE</TD>
-<TD CLASS="RIGHT">&nbsp;</TD>
-<TD CLASS="LEFT">=           <!-- MATH
- $\left \{ \begin{array}{l}L_l^0 \\L_l^m \\-L_l^{-m} \end{array} \right .$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 8.61ex; vertical-align: -3.74ex; " SRC="img1221.svg"
- ALT="$\left \{ \begin{array}{l}L_l^0 \\ L_l^m \\ -L_l^{-m} \end{array} \right .$"></SPAN> with <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.21ex; " SRC="img40.svg"
- ALT="$m&gt;0$"></SPAN></TD>
-<TD CLASS="LEFT">Wybourne</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.69ex; " SRC="img1222.svg"
- ALT="$B_m^l$"></SPAN> in Wybourne 1965&nbsp;[<A
- HREF="node163.html#wybourne65">52</A>]<A ID="tex2html60"
-  HREF="footnode.html#foot5599"><SUP><SPAN CLASS="arabic">24</SPAN></SUP></A></TD>
-<TD CLASS="RIGHT">Dlm</TD>
-<TD CLASS="LEFT">=          <!-- MATH
- $\left \{ \begin{array}{lr} L_l^0 & m=0 \\
-                                                                (-1)^m(L_l^m-iL_l^{-m}) & m >0 \\
-                                                                L_l^{-m}+iL_l^{m}      &m<0    \\
-\par\end{array}  \right .$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 8.66ex; vertical-align: -3.77ex; " SRC="img1223.svg"
- ALT="$\left \{ \begin{array}{lr} L_l^0 &amp; m=0 \\
-(-1)^m(L_l^m-iL_l^{-m}) &amp; m &gt;0 \\
-L_l^{-m}+iL_l^{m} &amp;m&lt;0 \\
-\par\end{array} \right . $"></SPAN></TD>
-<TD CLASS="LEFT">Wybourne</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.69ex; " SRC="img1222.svg"
- ALT="$B_m^l$"></SPAN> in Kassman 1970&nbsp;[<A
- HREF="node163.html#kassman70-4118">63</A>]</TD>
-<TD CLASS="RIGHT">&nbsp;</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1224.svg"
- ALT="$B_{lm}$"></SPAN> in Mulak 2000&nbsp;[<A
- HREF="node163.html#mulak00-1">64</A>]</TD>
-<TD CLASS="RIGHT">&nbsp;</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1225.svg"
- ALT="$Ak(),CAk()$"></SPAN> in XTLS</TD>
-<TD CLASS="RIGHT">&nbsp;</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD ALIGN="LEFT">&nbsp;</TD><TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.69ex; " SRC="img1222.svg"
- ALT="$B_m^l$"></SPAN> in Newman 2000&nbsp;[<A
- HREF="node163.html#newman00-1">66</A>]</TD>
-<TD CLASS="RIGHT">&nbsp;</TD>
-<TD CLASS="LEFT">=           <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.62ex; vertical-align: -0.77ex; " SRC="img1226.svg"
- ALT="$(-1)^m L_l^m$"></SPAN></TD>
-<TD CLASS="LEFT">Wybourne</TD>
-</TR>
-</TABLE> 
-
-</DIV></TD></TR>
+<CAPTION class="BOTTOM"><STRONG>Figure 29:</STRONG>
+Layout of the fitting modules.</CAPTION>
+<TR><TD><IMG
+ STYLE="height: 71.84ex; vertical-align: -0.12ex; " SRC="img1157.svg"
+ ALT="\includegraphics[angle=0,width=0.7\columnwidth]{figsrc/simannfit.eps}"></TD></TR>
 </TABLE>
-</DIV><P></P>
-<BR>
-
+</DIV>
+<SPAN CLASS="SMALL">
+</SPAN>
 <P>
-<BR><P></P>
-<DIV class="CENTER"><A ID="tab:wytostev"></A><A ID="9010"></A>
-<TABLE>
-<CAPTION><STRONG>Table 7:</STRONG>
-<SPAN  CLASS="textit">Ratios <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img34.svg"
- ALT="$\lambda _{lm}$"></SPAN> of the Stevens to the real valued
- Wybourne normalised parameters</SPAN>.
-<!-- MATH
- $\lambda_{lm} \equiv B_l^m/(\theta_lL_l^m)= A_{lm}\langle r^l \rangle / L_l^m$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.85ex; vertical-align: -0.77ex; " SRC="img35.svg"
- ALT="$\lambda _{lm} \equiv B_l^m/(\theta _lL_l^m)= A_{lm}\langle r^l \rangle / L_l^m$"></SPAN>. 
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img34.svg"
- ALT="$\lambda _{lm}$"></SPAN> are related to the prefactors in the 
-tesseral harmonics (see appendix&nbsp;<A HREF="node142.html#tesseral">F</A>) <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img36.svg"
- ALT="$p_{lm}$"></SPAN> by 
-<!-- MATH
- $\lambda_{l0} =\sqrt{\frac{4\pi}{2l+1}}|p_{l0}|$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 4.49ex; vertical-align: -1.62ex; " SRC="img37.svg"
- ALT="$\lambda _{l0} =\sqrt {\frac {4\pi }{2l+1}}\vert p_{l0}\vert$"></SPAN> and
-<!-- MATH
- $\lambda_{lm} =\sqrt{\frac{8\pi}{2l+1}}|p_{lm}|$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 4.49ex; vertical-align: -1.62ex; " SRC="img38.svg"
- ALT="$\lambda _{lm} =\sqrt {\frac {8\pi }{2l+1}}\vert p_{lm}\vert$"></SPAN> for <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img28.svg"
- ALT="$m\neq 0$"></SPAN>&nbsp;[<A
- HREF="node163.html#newman00-1">66</A>, note that Newman on p.30, equ (2.7) defines
-his real valued Wybourne 
-parameters <!-- MATH
- $B_m^l({\rm Newman})\equiv (-1)^m L_l^m$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.85ex; vertical-align: -0.77ex; " SRC="img1250.svg"
- ALT="$B_m^l({\rm Newman})\equiv (-1)^m L_l^m$"></SPAN>].</CAPTION>
-<TR><TD>
-  <DIV class="CENTER">
-<TABLE class="PAD  BORDER" style="">
-<TR><TD CLASS="CENTER"></TD>
-<TD CLASS="CENTER" COLSPAN=7><SPAN><SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1227.svg"
- ALT="$\vert m\vert$"></SPAN></SPAN></TD>
-</TR>
-<TR><TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1228.svg"
- ALT="$l$"></SPAN></TD>
-<TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
- STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img1229.svg"
- ALT="$0$"></SPAN></TD>
-<TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
- STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img1230.svg"
- ALT="$1$"></SPAN></TD>
-<TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
- STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img1231.svg"
- ALT="$2$"></SPAN></TD>
-<TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
- STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img1232.svg"
- ALT="$3$"></SPAN></TD>
-<TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
- STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img1233.svg"
- ALT="$4$"></SPAN></TD>
-<TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
- STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img1234.svg"
- ALT="$5$"></SPAN></TD>
-<TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
- STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img1235.svg"
- ALT="$6$"></SPAN></TD>
-</TR>
-<TR><TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
- STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img1229.svg"
- ALT="$0$"></SPAN></TD>
-<TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
- STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img1230.svg"
- ALT="$1$"></SPAN></TD>
-<TD CLASS="CENTER">&nbsp;</TD>
-<TD CLASS="CENTER">&nbsp;</TD>
-<TD CLASS="CENTER">&nbsp;</TD>
-<TD CLASS="CENTER">&nbsp;</TD>
-<TD CLASS="CENTER">&nbsp;</TD>
-<TD CLASS="CENTER">&nbsp;</TD>
-</TR>
-<TR><TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
- STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img1231.svg"
- ALT="$2$"></SPAN></TD>
-<TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
- STYLE="height: 2.98ex; vertical-align: -0.92ex; " SRC="img27.svg"
- ALT="$\frac {1}{2}$"></SPAN></TD>
-<TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
- STYLE="height: 2.64ex; vertical-align: -0.42ex; " SRC="img1236.svg"
- ALT="$\sqrt{6}$"></SPAN></TD>
-<TD CLASS="CENTER"><!-- MATH
- $\frac{1}{2}\sqrt{6}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.13ex; vertical-align: -0.92ex; " SRC="img1237.svg"
- ALT="$\frac{1}{2}\sqrt{6}$"></SPAN></TD>
-<TD CLASS="CENTER">&nbsp;</TD>
-<TD CLASS="CENTER">&nbsp;</TD>
-<TD CLASS="CENTER">&nbsp;</TD>
-<TD CLASS="CENTER">&nbsp;</TD>
-</TR>
-<TR><TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
- STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img1233.svg"
- ALT="$4$"></SPAN></TD>
-<TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
- STYLE="height: 2.98ex; vertical-align: -0.92ex; " SRC="img1238.svg"
- ALT="$\frac{1}{8}$"></SPAN></TD>
-<TD CLASS="CENTER"><!-- MATH
- $\frac{1}{2}\sqrt{5}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.13ex; vertical-align: -0.92ex; " SRC="img1239.svg"
- ALT="$\frac{1}{2}\sqrt{5}$"></SPAN></TD>
-<TD CLASS="CENTER"><!-- MATH
- $\frac{1}{4}\sqrt{10}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.13ex; vertical-align: -0.92ex; " SRC="img1240.svg"
- ALT="$\frac{1}{4}\sqrt{10}$"></SPAN></TD>
-<TD CLASS="CENTER"><!-- MATH
- $\frac{1}{2}\sqrt{35}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.13ex; vertical-align: -0.92ex; " SRC="img1241.svg"
- ALT="$\frac{1}{2}\sqrt{35}$"></SPAN></TD>
-<TD CLASS="CENTER"><!-- MATH
- $\frac{1}{8}\sqrt{70}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.13ex; vertical-align: -0.92ex; " SRC="img1242.svg"
- ALT="$\frac{1}{8}\sqrt{70}$"></SPAN></TD>
-<TD CLASS="CENTER">&nbsp;</TD>
-<TD CLASS="CENTER">&nbsp;</TD>
-</TR>
-<TR><TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
- STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img1235.svg"
- ALT="$6$"></SPAN></TD>
-<TD CLASS="CENTER"><SPAN CLASS="MATH"><IMG
- STYLE="height: 2.98ex; vertical-align: -0.92ex; " SRC="img1243.svg"
- ALT="$\frac{1}{16}$"></SPAN></TD>
-<TD CLASS="CENTER"><!-- MATH
- $\frac{1}{8}\sqrt{42}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.13ex; vertical-align: -0.92ex; " SRC="img1244.svg"
- ALT="$\frac{1}{8}\sqrt{42}$"></SPAN></TD>
-<TD CLASS="CENTER"><!-- MATH
- $\frac{1}{16}\sqrt{105}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.13ex; vertical-align: -0.92ex; " SRC="img1245.svg"
- ALT="$\frac{1}{16}\sqrt{105}$"></SPAN></TD>
-<TD CLASS="CENTER"><!-- MATH
- $\frac{1}{8}\sqrt{105}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.13ex; vertical-align: -0.92ex; " SRC="img1246.svg"
- ALT="$\frac{1}{8}\sqrt{105}$"></SPAN></TD>
-<TD CLASS="CENTER"><!-- MATH
- $\frac{3}{16}\sqrt{14}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.13ex; vertical-align: -0.92ex; " SRC="img1247.svg"
- ALT="$\frac{3}{16}\sqrt{14}$"></SPAN></TD>
-<TD CLASS="CENTER"><!-- MATH
- $\frac{3}{8}\sqrt{77}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.13ex; vertical-align: -0.92ex; " SRC="img1248.svg"
- ALT="$\frac{3}{8}\sqrt{77}$"></SPAN></TD>
-<TD CLASS="CENTER"><!-- MATH
- $\frac{1}{16}\sqrt{231}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.13ex; vertical-align: -0.92ex; " SRC="img1249.svg"
- ALT="$\frac{1}{16}\sqrt{231}$"></SPAN></TD>
-</TR>
-</TABLE>
-    
-</DIV></TD></TR>
-</TABLE>
-</DIV><P></P>
-<BR>
+<SPAN CLASS="SMALL"></SPAN>
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html1118"
+  HREF="node142.html">Setting up parameter files for fitting</A>
+<LI><A ID="tex2html1119"
+  HREF="node143.html">Telling the fitting program, how to calculate the standard deviation <I CLASS="slanted">sta</I> which should be minimised</A>
+<LI><A ID="tex2html1120"
+  HREF="node144.html">Starting a parameter space search</A>
+<LI><A ID="tex2html1121"
+  HREF="node145.html">analysing the results of <I CLASS="slanted">searchspace</I></A>
+<LI><A ID="tex2html1122"
+  HREF="node146.html">Starting a fit</A>
+<LI><A ID="tex2html1123"
+  HREF="node147.html">Stopping a fit/parameter space search</A>
+<LI><A ID="tex2html1124"
+  HREF="node148.html">Fitting is an art: some general remarks</A>
+<LI><A ID="tex2html1125"
+  HREF="node149.html">Crystal Field  Example: Fitting Point Charges to Inverse Susceptibility Data</A>
+</UL>
+<!--End of Table of Child-Links-->
 
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
@@ -735,23 +147,23 @@ parameters <!-- MATH
 <A
  HREF="node140.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1064"
-  HREF="node7.html">
+<A ID="tex2html1114"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1066"
-  HREF="node164.html">
+<A ID="tex2html1116"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node142.html">Tesseral Harmonics</A>
+ HREF="node142.html">Setting up parameter files</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node140.html">ErNiBC - single ion</A>
- &nbsp; <B>  <A ID="tex2html1065"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1067"
-  HREF="node164.html">Index</A></B> </DIV>
+ HREF="node140.html">Program felog - display</A>
+ &nbsp; <B>  <A ID="tex2html1115"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1117"
+  HREF="node180.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

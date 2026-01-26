@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>External module function LMcalc - used by singleion </TITLE>
+<TITLE>Radial Wavefunction</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -29,54 +29,53 @@
  HREF="node92.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
 <A ID="tex2html852"
-  HREF="node7.html">
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
 <A ID="tex2html854"
-  HREF="node164.html">
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node94.html">External module function dL1</A>
+ HREF="node94.html">Radial Matrix Elements</A>
 <B> Up:</B> <A
- HREF="node88.html">Module Functions for Observables</A>
+ HREF="node88.html">Single Ion Modules</A>
 <B> Previous:</B> <A
- HREF="node92.html">External module function Lcalc</A>
+ HREF="node92.html">Nuclear Neutron Scattering Length</A>
  &nbsp; <B>  <A ID="tex2html853"
-  HREF="node7.html">Contents</A></B> 
+  HREF="node8.html">Contents</A></B> 
  &nbsp; <B>  <A ID="tex2html855"
-  HREF="node164.html">Index</A></B> 
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION000172500000000000000"></A><A ID="3467"></A>
-<BR>
-External module function <I CLASS="slanted">LMcalc</I> - used by 
-<I CLASS="slanted">singleion</I> 
-</H3>
-
+<H2><A ID="SECTION000155000000000000000">
+Radial Wavefunction</A>
+</H2><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-This function is optional and intended to accellerate <I CLASS="slanted">singleion</I> by vectorizing the temperature and
-thus save computation resources when using the option <I CLASS="slanted">-Tsteps</I>. It has the same parameters as 
-<I CLASS="slanted">Lcalc</I> with the following modifications:
-
+<SPAN CLASS="SMALL">In order to calculate the charge density correctly (programs <I CLASS="slanted">charges, chrgplt</I>) and
+to evaluate the pointcharge model (program <I CLASS="slanted">pointc</I>) the radial wave function has to be entered in the parametrization of Clementi and Roetti:
+<SPAN CLASS="FOOTNOTESIZE">
+</SPAN></SPAN><PRE>
+#------------------------------------------------------------------------------------------------------
+# radial wave function parameters R_Np,XIp(r)= r^(Np-1) . exp(-xi r) . (2 XIp)^(Np+0.5) / sqrt(2Np!)  
+# values tabulated in clementi &amp; roetti Atomic data and nuclear data tables 14 (1974) 177-478
+# Co2+ is isoelectronic to Fe+, looking at page  422 of Clemente &amp; Roetti 
+# the 3D radial wave function is expanded as R(r)=sum_p C_p R_Np,XIp(r)
+#------------------------------------------------------------------------------------------------------
+N1=3 XI1=4.95296 C1=0.36301 
+N2=3 XI2=12.2963 C2=0.02707 
+N3=3 XI3=7.03565 C3=0.14777
+N4=3 XI4=2.74850 C4=0.49771 
+N5=3 XI5=1.69027 C5=0.11388
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+</SPAN>
 <P>
-
-<OL>
-<LI><I CLASS="slanted">double <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.31ex; vertical-align: -0.12ex; " SRC="img833.svg"
- ALT="$\ast$"></SPAN> T</I> is replaced by <I CLASS="slanted">Vector &amp; T</I> containing the temperatures for which 
-the calculation is to be done.
-</LI>
-<LI><I CLASS="slanted">Vector &amp; m </I> is replaced by <I CLASS="slanted">Matrix &amp; L</I> which should be filled with column
-vectors containing the  angular momentum <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img852.svg"
- ALT="$\mathbf L$"></SPAN>. Each column corresponds to a temperature given as input<I CLASS="slanted">Vector &amp; T</I>.
- 
-</LI>
-</OL>
-
+<SPAN CLASS="SMALL">The radial wavefunction may be calculated numerically using the program <I CLASS="slanted">radwavfunc</I><A ID="3857"></A>.
+</SPAN>
 <P>
+<SPAN CLASS="SMALL"></SPAN>
 <BR><HR>
 
 </BODY>

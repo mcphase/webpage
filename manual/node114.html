@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>icf1ion - Intermediate Crystal Field module</TITLE>
+<TITLE>External module functions drixs1 - used by mcdisp </TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,61 +23,192 @@
  HREF="node115.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node110.html">
+ HREF="node102.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node113.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html942"
-  HREF="node7.html">
+<A ID="tex2html994"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html944"
-  HREF="node164.html">
+<A ID="tex2html996"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node115.html">Formalism</A>
+ HREF="node115.html">External module function pcalc</A>
 <B> Up:</B> <A
- HREF="node110.html">ic1ion - a module</A>
+ HREF="node102.html">Module Functions for Observables</A>
 <B> Previous:</B> <A
- HREF="node113.html">using ic1ion as a</A>
- &nbsp; <B>  <A ID="tex2html943"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html945"
-  HREF="node164.html">Index</A></B> 
+ HREF="node113.html">External module functions dmq1</A>
+ &nbsp; <B>  <A ID="tex2html995"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html997"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000184000000000000000">
-<I CLASS="slanted">icf1ion</I> - Intermediate Crystal Field module</A>
-</H2>
-
+<H3><A ID="SECTION0001621200000000000000"></A><A ID="4239"></A>
+<BR>
+External module functions <I CLASS="slanted">drixs1</I> - used by <I CLASS="slanted">mcdisp</I>  
+</H3><SPAN CLASS="SMALL">
+Very similar to the inelastic neutron scattering (module function <I CLASS="slanted">dmq1</I>)
+the Resonant inelastic X-ray scattering cross sections in the program <I CLASS="slanted">mcdisp<A ID="4241"></A></I>
+can be done with  module functions <I CLASS="slanted">drixs1</I> and <I CLASS="slanted">estates</I>. 
+The input of <I CLASS="slanted">drixs1</I> 
+has similar arguments as
+<I CLASS="slanted">du1calc</I>, but as additional argument an orientation
+of the scattering vector,
+output should be a corresponding vector
+ <!-- MATH
+ ${{\mathbf r\mathbf i\mathbf x\mathbf s}^s_{\alpha1}}(\mathbf Q)=\sqrt{(p_- -p_+)}
+\langle -|\hat \mathbf R_{\alpha}^{\dag }(\mathbf Q)-\langle \hat \mathbf R_{\alpha}^{\dag }(\mathbf Q)\rangle|+\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.14ex; vertical-align: -0.82ex; " SRC="img989.svg"
+ ALT="${{\mathbf r\mathbf i\mathbf x\mathbf s}^s_{\alpha1}}(\mathbf Q)=\sqrt{(p_--p_+)...
+...athbf Q)-\langle \hat \mathbf R_{\alpha}^{\dag }(\mathbf Q)\rangle\vert+\rangle$"></SPAN>.
+Here <!-- MATH
+ $\hat R_{\alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img990.svg"
+ ALT="$\hat R_{\alpha}$"></SPAN> with <!-- MATH
+ $\alpha= xx, xy ,xz, yx, yy, yz, zx,zy, zz$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img991.svg"
+ ALT="$\alpha= xx, xy ,xz, yx, yy, yz, zx,zy, zz$"></SPAN> are the 9 
+  components of the RIXS scattering operator, see equ (<A HREF="node65.html#rixsop">86</A>).
+ <I CLASS="slanted">drixs1</I> is called many times, for
+ every scattering vector. In order to
+ do an efficient calculation the eigenstates should be calculated only
+ once, this is the task of function <I CLASS="slanted">estates</I> (see above).
+</SPAN>
 <P>
-In addition to the full <I CLASS="slanted">ic1ion</I> module, there is a derived module, <I CLASS="slanted">icf1ion</I>, in which only the lowest
-energy term of constant <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img32.svg"
- ALT="$L$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img301.svg"
- ALT="$S$"></SPAN> is considered. Thus, the Coulomb interaction (see next section) is supposed
-to have such high energy that the low temperature physical properties may be accounted for just by the spin-orbit,
-crystal field, and exchange interactions. As a smaller energy matrix is required in this module, calculations will
-be faster. In the cases of a single outer shell electron or hole (e.g. Ce<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img3.svg"
- ALT="$^{3+}$"></SPAN> or Yb<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img3.svg"
- ALT="$^{3+}$"></SPAN>), the two modules are 
-identical. <I CLASS="slanted">icf1ion</I> accepts the same inputs as <I CLASS="slanted">ic1ion</I>, except that the Slater integrals <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.20ex; vertical-align: -0.12ex; " SRC="img903.svg"
- ALT="$F^k$"></SPAN> are 
-ignored. 
-
+<SPAN CLASS="SMALL">The format to be used is:
+<SPAN CLASS="FOOTNOTESIZE">
+</SPAN></SPAN><PRE>
+extern "C" int drixs1(int &amp; tn,double &amp; th,double &amp; ph,double J0,
+double &amp; J2, double &amp; J4, double &amp; J6,ComplexMatrix &amp; est,double &amp; T,
+ComplexVector &amp; rixs, float &amp; maxE)
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE">
+</SPAN></SPAN>
 <P>
-Currently (version 4.0), the beyond dipole part of <I CLASS="slanted">mcdisp</I> is not yet implemented, as are the calculations
-of the spin and orbital moment densities. All other packages may use <I CLASS="slanted">icf1ion</I>.
-
+<SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE">The meaning of the symbols is as follows:
+</SPAN></SPAN>
 <P>
-<BR><HR>
+<SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE"></SPAN></SPAN><PRE>
+on input
+   |tn|            transition-number  
+   sign(tn)        &gt;0 standard with printouts for user information, 
+                   &lt;0 routine should omit any printout
+   th              polar angle theta of the scattering vector Q 
+                   (angle with the axb axis=c axis) in rad
+   ph              polar angle phi of the scattering vector Q 
+                   (angle with bx(axb)=a in the projection into
+                   the  bx(axb),b plane = angle with a in the projection into 
+				   the ab plane) in rad
+   J0,J2,J4,J6     form factor functions &lt;jn(Q)&gt;   
+   est             eigenstate matrix (as calculated by estates),
+                   it should also contain population numbers of the states (row 0)
+   T               Temperature[K]
+   rixs(1)           ninit + i pinit (from mcdisp options  -ninit and -pinit)
+   maxE            maximum transition energy (from mcdisp option maxE)
+on output
+   int             total number of transitions
+   rixs            vector rixs(alpha)=&lt;-|Ralpha|+&gt;sqrt(p- - p+) 
+                   with alpha=1,..9=xx, xy ,xz, yx, yy, yz, zx,zy, zz
+                   
+     Note on coordinate system:
+        x||bx(axb)
+        y||b                         
+        z||axb
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">The module function must perform the following tasks:
+</SPAN>
+<OL>
+<LI>for the transition number tn the vector mq1  is to be filled with the 9-components 
+of <!-- MATH
+ ${{\mathbf r\mathbf i\mathbf x\mathbf s}^s_{\alpha1}}(\mathbf Q)=\sqrt{(p_- -p_+)}
+\langle -|\hat \mathbf R_{\alpha}^{\dag }(\mathbf Q)-\langle \hat \mathbf R_{\alpha}^{\dag }(\mathbf Q)\rangle|+\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.14ex; vertical-align: -0.82ex; " SRC="img992.svg"
+ ALT="${{\mathbf r\mathbf i\mathbf x\mathbf s}^s_{\alpha1}}(\mathbf Q)=\sqrt{(p_--p_+)...
+...athbf Q)-\langle \hat \mathbf R_{\alpha}^{\dag }(\mathbf Q)\rangle\vert+\rangle$"></SPAN>
+, i.e. for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img993.svg"
+ ALT="$\alpha=1,..9$"></SPAN>.
+<EM>IMPORTANT: the numbering scheme of transitions has to
+be the same for du1calc and all the corresponding d...1 functions for observables !</EM>
+</LI>
+<LI>If the energy of this transition
+is zero, i.e. <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img961.svg"
+ ALT="$\Delta(tn)=0$"></SPAN> (diffuse scattering), 
+the <!-- MATH
+ ${{\mathbf r\mathbf i\mathbf x\mathbf s}^s_{\alpha1}}(\mathbf Q)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img994.svg"
+ ALT="${{\mathbf r\mathbf i\mathbf x\mathbf s}^s_{\alpha1}}(\mathbf Q)$"></SPAN> 
+ would be zero because <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img962.svg"
+ ALT="$(p_--p_+)$"></SPAN> vanishes (compare expression (<A HREF="node168.html#mmatrix">270</A>)).
+In this case the single ion module should calculate <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img963.svg"
+ ALT="$(p_+/kT)$"></SPAN> instead of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img962.svg"
+ ALT="$(p_--p_+)$"></SPAN>.
+</LI>
+<LI>if <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.90ex; vertical-align: -0.21ex; " SRC="img949.svg"
+ ALT="$T&lt;0$"></SPAN> all quantities should be evaluated assuming that all Boltzmann probabilities <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img219.svg"
+ ALT="$p_i$"></SPAN>
+ are zero except for the state number <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img950.svg"
+ ALT="$n=(-T)$"></SPAN>, for which the probability <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img951.svg"
+ ALT="$p_n=1$"></SPAN>.
+</LI>
+</OL><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node115.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node102.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node113.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html994"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html996"
+  HREF="node180.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node115.html">External module function pcalc</A>
+<B> Up:</B> <A
+ HREF="node102.html">Module Functions for Observables</A>
+<B> Previous:</B> <A
+ HREF="node113.html">External module functions dmq1</A>
+ &nbsp; <B>  <A ID="tex2html995"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html997"
+  HREF="node180.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

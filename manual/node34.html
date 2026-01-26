@@ -1,18 +1,18 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Starting a simulation</TITLE>
+<TITLE>mcphas - calculation of thermodynamic properties (Magnetisation, Susceptibility, Specific Heat, Neutron Diffraction, etc.)</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node35.html">
-<LINK REL="previous" HREF="node22.html">
+<LINK REL="next" HREF="node50.html">
+<LINK REL="previous" HREF="node28.html">
 <LINK REL="next" HREF="node35.html">
 </HEAD>
 
@@ -23,127 +23,124 @@
  HREF="node35.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node21.html">
+ HREF="manual.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node33.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html520"
-  HREF="node7.html">
+<A ID="tex2html547"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html522"
-  HREF="node164.html">
+<A ID="tex2html549"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node35.html">Options for a running</A>
+ HREF="node35.html">Input Files</A>
 <B> Up:</B> <A
- HREF="node21.html">mcphas - calculation of</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node33.html">subdirectory ./fit - experimental</A>
- &nbsp; <B>  <A ID="tex2html521"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html523"
-  HREF="node164.html">Index</A></B> 
+ HREF="node33.html">Module Usage:</A>
+ &nbsp; <B>  <A ID="tex2html548"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html550"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000102000000000000000"></A>
-<A ID="start"></A>
+<H1><A ID="SECTION00090000000000000000"></A>
+<A ID="runmcphas"></A>
 <BR>
-Starting a simulation
-</H2>
-
+<I CLASS="slanted">mcphas</I> - calculation of thermodynamic properties (Magnetisation, Susceptibility, Specific Heat, Neutron Diffraction, etc.)
+</H1><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-To start the simulation goto the directory containing the
-input files <I CLASS="slanted">mcphas.ini, mcphas.j, etc. </I> and type
-
+<SPAN CLASS="SMALL">  ORLANDO: I understand:
+In order to perform calculations beyond the capabilities of <I CLASS="slanted">singleion<A ID="1210"></A></I> it is necessary
+to use the program <I CLASS="slanted">mcphas</I>. 
+So, how can we start to do such a calculation ?
+</SPAN>
 <P>
-<DL>
-<DT><STRONG><I CLASS="slanted">mcphas</I></STRONG></DT>
-<DD>to run the program generating stepwise <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.01ex; vertical-align: -0.31ex; " SRC="img234.svg"
- ALT="$H-T$"></SPAN> values 
-              in a loop given by <I CLASS="slanted">mcphas.ini<A ID="900"></A></I> (you can also press the
-              symbol in the <I CLASS="slanted">McPhase - Explorer</I> window).
-</DD>
-<DT><STRONG><I CLASS="slanted">mcphas<A ID="902"></A> [file]</I></STRONG></DT>
-<DD>to run the program with an input file &ndash;   
-             <I CLASS="slanted">file</I> contains T ha hb hc values to be calculated 
-             if [file] is not given, xmin xmax xstep (xT xHa xHb xHc)
-             ymin ymax ystep (yT yHa yHb yHc) is read from file <I CLASS="slanted">mcphas.ini<A ID="904"></A></I>
-	     and phase diagram is calculated
-</DD>
-<DT><STRONG><I CLASS="slanted">mcphas<A ID="905"></A> -h</I></STRONG></DT>
-<DD>to  print help and version of <I CLASS="slanted">McPhas</I>.
-</DD>
-<DT><STRONG><I CLASS="slanted">mcphas<A ID="907"></A> -stamax 14</I></STRONG></DT>
-<DD>end mcphas<A ID="908"></A> if standard deviation exceeds 14.
-</DD>
-<DT><STRONG><I CLASS="slanted">mcphas<A ID="909"></A> -a</I></STRONG></DT>
-<DD>avoid overwriting output files in results, append new results to existing files
-</DD>
-<DT><STRONG><I CLASS="slanted">mcphas<A ID="910"></A> -doeps</I></STRONG></DT>
-<DD>refine strain epsilon using elastic and magnetoelastic constants 
-see section <A HREF="node58.html#phonons">11</A> for how to enter these constants into <I CLASS="slanted">mcphas.j</I>
-</DD>
-<DT><STRONG><I CLASS="slanted">mcphas<A ID="913"></A> -v</I></STRONG></DT>
-<DD>to  enable verbose mode with lots of messages of <I CLASS="slanted">McPhas</I>. Specifically
-the verbose mode enables the following features:
-  
+<SPAN CLASS="SMALL">  EWALD: I think by introducing more complexity step by step, this allows you to check and detect 
+mistakes immediately:
+</SPAN>
 <UL>
-<LI>more information is printed out, 
+<LI>As a first step it is possible to
+calculate the thermodynamic properties such as magnetisation or specific heat
+considering only single ion effects. In this case all the exchange parameters
+have to be set to zero in <I CLASS="slanted">mcphas.j<A ID="1213"></A></I>. 
 </LI>
-<LI>the q-vectors file <I CLASS="slanted">./results/mcphas.qvc</I> will contain 
-				    the explicit spin configurations
-</LI>
-<LI>the display<A ID="917"></A> on screen (ghostview window using 
-				     <I CLASS="slanted">./results/.sps.eps</I>) will be updated not only 
-				    when a H-T point has been finished but always 
-				    when a structure with smaller free energy 
-				    has been stabilised
-  
-</LI>
-</UL>
- 
-</DD>
-<DT><STRONG><I CLASS="slanted">mcphas<A ID="920"></A>  -prefix 001  </I></STRONG></DT>
-<DD>try to read files starting with 001, e.g.
- 		    001mcphas.ini, if these exist, otherwise take
- 		    standard input files, check if in mcphas.ini there are
-                   parameters such as 001xmin and use those. Output goes to files
- 		    results/001mcphas*.* (option for parallel processes)
- 
-</DD>
-<DT><STRONG><I CLASS="slanted">mcphas<A ID="921"></A>         -read  001 </I></STRONG></DT>
-<DD>try to read output files of previous calculation starting
- 		     with 001, e.g. results/001mcphas.fum, if these exist, and if 
- 		    the x-y-T-Ha-Hb-Hc point is found and the calculation was stable 
-                   (i.e. free energy in results/001mcphas.fum not zero do not 
-                   recalculate it but take results from this previous calculation
- 		     and store those. Option to recalculate nonstable points only.
-</DD>
-<DT><STRONG><I CLASS="slanted">mcphasit<A ID="922"></A></I></STRONG></DT>
-<DD>to start mcphase in commandline mode without opening any window
-</DD>
-</DL>
+<LI>for more advanced calculations the two - ion interactions have to be
+considered and may lead to magnetic order. <I CLASS="slanted">mcphas</I> can perform 
+calculations in the ordered state in the following way: for 
+a given temperature <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img65.svg"
+ ALT="$T$"></SPAN> and magnetic field <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img66.svg"
+ ALT="$\mathbf H$"></SPAN> (vector)
+(and electric field and stress tensor) several possible magnetic structures are stabilised
+by a mean field algorithm and the free energy is 
+calculated. The initial values for this mean-field procedure are
+modified randomly, the result of the mean field calculation can be used by a Monte Carlo process.
 
 <P>
-<BR>
-<BR>
-<BR>
-<EM>Exercises:</EM>
+The temperature and magnetic field (and electric field and stress) is varied during the calculation
+and thereby it is possible to map out the magnetic phase diagram.
+</LI>
+</UL><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">The program produces a plot of the stabilised magnetic
+structures and the magnetisation on screen, the
+output files contain additional information 
+such as calculated magnetoelastic and  neutron-scattering
+data. Several graphic programs easy the visualisation of the
+calculated data<A ID="tex2html25"
+  HREF="footnode.html#foot9381"><SUP><SPAN CLASS="arabic">17</SPAN></SUP></A>.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html551"
+  HREF="node35.html">Input Files</A>
 <UL>
-<LI>Look at the input files for <I CLASS="slanted">McPhase</I> given in the directory
-<I CLASS="slanted">examples/ndcu2b_new</I>.  How many atoms are contained in the crystallographic basis ?
-</LI>
-<LI>Start the simulation by typing the command <I CLASS="slanted">mcphas</I>.
-</LI>
+<LI><A ID="tex2html552"
+  HREF="node36.html">Example - a simple antiferromagnet</A>
+<LI><A ID="tex2html553"
+  HREF="node37.html"><I CLASS="slanted">mcphas.ini</I> - controlling the algorithm</A>
+<LI><A ID="tex2html554"
+  HREF="node38.html">Example <I CLASS="slanted">mcphas.ini</I> file for a simple antiferromagnet</A>
+<LI><A ID="tex2html555"
+  HREF="node39.html"><I CLASS="slanted">mcphas.j</I> - lattice and exchange parameters</A>
+<LI><A ID="tex2html556"
+  HREF="node40.html">Example <I CLASS="slanted">mcphas.j</I> file for a simple antiferromagnet</A>
+<LI><A ID="tex2html557"
+  HREF="node41.html">Single Ion Property Input Files</A>
+<LI><A ID="tex2html558"
+  HREF="node42.html">Example single ion property file  for a simple antiferromagnet</A>
+<LI><A ID="tex2html559"
+  HREF="node43.html"><I CLASS="slanted">mcphas.tst</I> - input file of test spin-configurations (optional)</A>
+<LI><A ID="tex2html560"
+  HREF="node44.html">Example <I CLASS="slanted">mcphas.tst</I> file  for a simple antiferromagnet</A>
+<LI><A ID="tex2html561"
+  HREF="node45.html">subdirectory <I CLASS="slanted">./results</I> - directory where calculated data is stored</A>
+<LI><A ID="tex2html562"
+  HREF="node46.html">subdirectory <I CLASS="slanted">./fit</I> - experimental data for fit (optional) </A>
 </UL>
-
-<P>
+<BR>
+<LI><A ID="tex2html563"
+  HREF="node47.html">Starting a simulation</A>
+<LI><A ID="tex2html564"
+  HREF="node48.html">Options for a running simulation</A>
+<LI><A ID="tex2html565"
+  HREF="node49.html">Output Files - <I CLASS="slanted">mcphas.qvc,phs,sps,mf,fum,j1...,xyt,hkl</I> </A>
+</UL>
+<!--End of Table of Child-Links-->
 
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
@@ -151,28 +148,28 @@ the verbose mode enables the following features:
  HREF="node35.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node21.html">
+ HREF="manual.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node33.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html520"
-  HREF="node7.html">
+<A ID="tex2html547"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html522"
-  HREF="node164.html">
+<A ID="tex2html549"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node35.html">Options for a running</A>
+ HREF="node35.html">Input Files</A>
 <B> Up:</B> <A
- HREF="node21.html">mcphas - calculation of</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node33.html">subdirectory ./fit - experimental</A>
- &nbsp; <B>  <A ID="tex2html521"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html523"
-  HREF="node164.html">Index</A></B> </DIV>
+ HREF="node33.html">Module Usage:</A>
+ &nbsp; <B>  <A ID="tex2html548"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html550"
+  HREF="node180.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

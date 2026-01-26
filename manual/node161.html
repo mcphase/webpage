@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Unit Conventions in McPhase</TITLE>
+<TITLE>Transforming Crystal Field Parameters by Rotation of the Coordinate System</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node162.html">
+<LINK REL="next" HREF="node164.html">
 <LINK REL="previous" HREF="node160.html">
 <LINK REL="next" HREF="node162.html">
 </HEAD>
@@ -28,145 +28,483 @@
 <A
  HREF="node160.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1155"
-  HREF="node7.html">
+<A ID="tex2html1202"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1157"
-  HREF="node164.html">
+<A ID="tex2html1204"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node162.html">Installation of the program</A>
+ HREF="node162.html">Forward Rotation Matrices</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node160.html">Solution of the exercises</A>
- &nbsp; <B>  <A ID="tex2html1156"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1158"
-  HREF="node164.html">Index</A></B> 
+ HREF="node160.html">Symmetry considerations for Crystal</A>
+ &nbsp; <B>  <A ID="tex2html1203"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1205"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A ID="SECTION000400000000000000000">
-Unit Conventions in McPhase</A>
-</H1>
-
-<P>
-In most cases units of input parameters and output properties in <I CLASS="slanted">McPhase</I> cannot be modified and 
-are fixed in the program code. In output files usually the unit is given in the column header.
-In table (<A HREF="#units">9</A>) the unit conventions are listed.
-
-<P>
+<H1><A ID="SECTION000320000000000000000"></A><A ID="rotateBlm"></A>
 <BR>
-<DIV class="CENTER">
-
-<A ID="8940"></A>
-<TABLE class="PAD  BORDER" style="">
-<CAPTION><STRONG>Table 9:</STRONG>
-Units in the program package 
-<I CLASS="slanted">McPhase</I>:</CAPTION>
-<TR><TD CLASS="LEFT">Physical Quantity</TD>
-<TD CLASS="LEFT">symbol</TD>
-<TD CLASS="LEFT">unit</TD>
-<TD CLASS="LEFT">typical file(s)</TD>
-</TR>
-<TR><TD CLASS="LEFT">Charge</TD>
-<TD CLASS="LEFT">CHARGE</TD>
-<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img764.svg"
- ALT="$\vert e\vert$"></SPAN></TD>
-<TD CLASS="LEFT">*.sipf</TD>
-</TR>
-<TR><TD CLASS="LEFT">Debye Waller Factor</TD>
-<TD CLASS="LEFT">DWF, <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.12ex; vertical-align: -0.70ex; " SRC="img1731.svg"
- ALT="$B_{iso}/2$"></SPAN></TD>
-<TD CLASS="LEFT">Å<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img1043.svg"
- ALT="$^2$"></SPAN></TD>
-<TD CLASS="LEFT">*.sipf, mcdiff.in</TD>
-</TR>
-<TR><TD CLASS="LEFT">Energy</TD>
-<TD CLASS="LEFT">cf-parameters Blm Llm, free energy u</TD>
-<TD CLASS="LEFT">meV</TD>
-<TD CLASS="LEFT">*.sipf, mcphas.fum ...</TD>
-</TR>
-<TR><TD CLASS="LEFT">Lattice Constant</TD>
-<TD CLASS="LEFT">a,b,c</TD>
-<TD CLASS="LEFT">Å</TD>
-<TD CLASS="LEFT">mcdiff.in, mcphas.j</TD>
-</TR>
-<TR><TD CLASS="LEFT">Magnetic Field</TD>
-<TD CLASS="LEFT">H, Ha, Hb, Hc</TD>
-<TD CLASS="LEFT">Tesla</TD>
-<TD CLASS="LEFT">mcphas.ini, mcdisp.mf ...</TD>
-</TR>
-<TR><TD CLASS="LEFT">Magnetic Moment</TD>
-<TD CLASS="LEFT">mu, <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.69ex; vertical-align: -0.57ex; " SRC="img1732.svg"
- ALT="$\mu$"></SPAN></TD>
-<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img847.svg"
- ALT="$\mu_B$"></SPAN></TD>
-<TD CLASS="LEFT">mcphas.fum</TD>
-</TR>
-<TR><TD CLASS="LEFT">Neutron Cross Section</TD>
-<TD CLASS="LEFT">sigma ,<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img429.svg"
- ALT="$\sigma$"></SPAN></TD>
-<TD CLASS="LEFT">barn</TD>
-<TD CLASS="LEFT">mcdisp.qei</TD>
-</TR>
-<TR><TD CLASS="LEFT">Neutron Scattering Length</TD>
-<TD CLASS="LEFT">SCATTERINGLENGTHREAL</TD>
-<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
- STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img1733.svg"
- ALT="$10^{-12}$"></SPAN>&nbsp;cm</TD>
-<TD CLASS="LEFT">*.sipf, mcdiff.in</TD>
-</TR>
-<TR><TD CLASS="LEFT">&nbsp;</TD>
-<TD CLASS="LEFT">SCATTERINGLENGTHIMAG</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD CLASS="LEFT">Radial Integrals</TD>
-<TD CLASS="LEFT">R2,R4,R6 , <!-- MATH
- $\langle r^l \rangle$
+Transforming Crystal Field Parameters  by Rotation of the Coordinate System
+</H1><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">There is a special program <I CLASS="slanted">cf2mcphas</I> for rotating crystal field parameters
+(Stevens Notation) 
+given in the orientation <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1695.svg"
+ ALT="$abc\vert\vert$"></SPAN>xyz to the <I CLASS="slanted">McPhase</I> notation <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1695.svg"
+ ALT="$abc\vert\vert$"></SPAN>yzx. The 
+original crystal field parameters have to be given in a file of the above format of a single
+ion parameter file. Output is written to stdout. Note, there is also a program <I CLASS="slanted">mcphas2cf</I> for transforming parameters back. For more general rotations of 
+crystal field parameters you can use the program <I CLASS="slanted">rotateBlm</I>(see chapter&nbsp;<A HREF="node150.html#addprog">19</A>).
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">As an example we consider a tetragonal system, where the crystal field parameters
+are usually given such that  <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1695.svg"
+ ALT="$abc\vert\vert$"></SPAN>xyz - we denote these parameters as
+ <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img41.svg"
+ ALT="$B_l^m$"></SPAN>. For tetragonal symmetry only <!-- MATH
+ $B_2^0, B_4^0, B_4^4, B_6^0$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.78ex; vertical-align: -0.70ex; " SRC="img759.svg"
- ALT="$\langle r^l \rangle$"></SPAN></TD>
-<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.69ex; " SRC="img1734.svg"
- ALT="$a_0^2$"></SPAN>, <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.47ex; vertical-align: -0.12ex; " SRC="img1735.svg"
- ALT="$a0=0.5292$"></SPAN>&nbsp;Å</TD>
-<TD CLASS="LEFT">&nbsp;</TD>
-</TR>
-<TR><TD CLASS="LEFT">Temperature</TD>
-<TD CLASS="LEFT">T</TD>
-<TD CLASS="LEFT">Kelvin</TD>
-<TD CLASS="LEFT">mcphas.ini, mcdisp.mf ...</TD>
-</TR>
-<TR><TD CLASS="LEFT">Wave length</TD>
-<TD CLASS="LEFT">lambda, <SPAN CLASS="MATH"><IMG
- STYLE="height: 0.93ex; vertical-align: -0.12ex; " SRC="img1736.svg"
- ALT="$\lambda$"></SPAN></TD>
-<TD CLASS="LEFT">Å</TD>
-<TD CLASS="LEFT">mcdiff.in</TD>
-</TR>
-<TR><TD CLASS="LEFT">Wave vector</TD>
-<TD CLASS="LEFT">k, ki, kf, Q, Qx, Qy, Qz</TD>
-<TD CLASS="LEFT">1/Å</TD>
-<TD CLASS="LEFT">mcdisp.par</TD>
-</TR>
-</TABLE>
-</DIV>
-<BR>
-
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img1696.svg"
+ ALT="$B_2^0, B_4^0, B_4^4, B_6^0$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img891.svg"
+ ALT="$B_6^6$"></SPAN> are
+ not zero. In order to use these parameters in <I CLASS="slanted">mocule cfield</I>, they 
+ have to be transformed to a coordinate system <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img6.svg"
+ ALT="$xyz$"></SPAN> with <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1697.svg"
+ ALT="$abc\vert\vert yzx$"></SPAN>. Denoting the new
+ crystal field parameters which are to be used as <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1698.svg"
+ ALT="$Blm$"></SPAN> the transformation
+ is given by 
+</SPAN>
 <P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{eqnarray}
+B20&=&-\frac{1}{2} B_2^0  \nonumber \\
+ B22&=&+\frac{3}{2} B_2^0  \nonumber \\
+ B40&=&+\frac{3}{8} B_4^0+\frac{1}{8} B_4^4     \nonumber \\
+ B42&=&-\frac{5}{2} B_4^0+\frac{1}{2} B_4^4    \nonumber \\
+ B44&=&\frac{35}{8} B_4^0+\frac{1}{8} B_4^4  \nonumber \\
+ B60&=&-\frac{5}{16} B_6^0-\frac{1}{16} B_6^4  \nonumber \\
+ B62&=&+\frac{105}{32} B_6^0+\frac{5}{32} B_6^4  \nonumber \\
+ B64&=&-\frac{63}{16} B_6^0+\frac{13}{16} B_6^4  \nonumber \\
+ B66&=&\frac{231}{32} B_6^0+\frac{11}{32} B_6^4  \nonumber \\
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1699.svg"
+ ALT="$\displaystyle B20$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1700.svg"
+ ALT="$\displaystyle -\frac{1}{2} B_2^0$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1701.svg"
+ ALT="$\displaystyle B22$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1702.svg"
+ ALT="$\displaystyle +\frac{3}{2} B_2^0$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1703.svg"
+ ALT="$\displaystyle B40$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1704.svg"
+ ALT="$\displaystyle +\frac{3}{8} B_4^0+\frac{1}{8} B_4^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1705.svg"
+ ALT="$\displaystyle B42$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1706.svg"
+ ALT="$\displaystyle -\frac{5}{2} B_4^0+\frac{1}{2} B_4^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1707.svg"
+ ALT="$\displaystyle B44$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1708.svg"
+ ALT="$\displaystyle \frac{35}{8} B_4^0+\frac{1}{8} B_4^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1709.svg"
+ ALT="$\displaystyle B60$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1710.svg"
+ ALT="$\displaystyle -\frac{5}{16} B_6^0-\frac{1}{16} B_6^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1711.svg"
+ ALT="$\displaystyle B62$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1712.svg"
+ ALT="$\displaystyle +\frac{105}{32} B_6^0+\frac{5}{32} B_6^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1713.svg"
+ ALT="$\displaystyle B64$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1714.svg"
+ ALT="$\displaystyle -\frac{63}{16} B_6^0+\frac{13}{16} B_6^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1715.svg"
+ ALT="$\displaystyle B66$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1716.svg"
+ ALT="$\displaystyle \frac{231}{32} B_6^0+\frac{11}{32} B_6^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">As a second example we consider an orthorhombic system, where the crystal field parameters
+are given such that  <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1695.svg"
+ ALT="$abc\vert\vert$"></SPAN>xyz - we denote these parameters as
+ <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img41.svg"
+ ALT="$B_l^m$"></SPAN>. For orthorhombic symmetry only <!-- MATH
+ $B_2^0,B_2^2, B_4^0,B_4^2, B_4^4, B_6^0, B_6^2, %%@
+B_6^4$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img1717.svg"
+ ALT="$B_2^0,B_2^2, B_4^0,B_4^2, B_4^4, B_6^0, B_6^2, %%@
+B_6^4$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img891.svg"
+ ALT="$B_6^6$"></SPAN> are
+ not zero. In order to use these parameters in <I CLASS="slanted">mocule cfield</I>, they 
+ have to be transformed to a coordinate system <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img6.svg"
+ ALT="$xyz$"></SPAN> with <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1697.svg"
+ ALT="$abc\vert\vert yzx$"></SPAN>. Denoting the new
+ crystal field parameters which are to be used as <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1698.svg"
+ ALT="$Blm$"></SPAN> the transformation
+ is given by 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{eqnarray}
+B20&=&-\frac{1}{2} B_2^0 -\frac{1}{2} B_2^2  \nonumber \\
+ B22&=&+\frac{3}{2} B_2^0 -\frac{1}{2} B_2^2  \nonumber \\
+ B40&=&+\frac{3}{8} B_4^0 +\frac{1}{8} B_4^2 +\frac{1}{8} B_4^4     \nonumber \\
+ B42&=&-\frac{5}{2} B_4^0 -\frac{1}{2} B_4^2 +\frac{1}{2} B_4^4    \nonumber \\
+ B44&=&\frac{35}{8} B_4^0 -\frac{7}{8} B_4^2 +\frac{1}{8} B_4^4  \nonumber \\
+ B60&=&-\frac{5}{16} B_6^0-\frac{1}{16} B_6^2-\frac{1}{16} B_6^4-\frac{1}{16} B_6^6  %%@
+\nonumber \\
+ B62&=&+\frac{105}{32} B_6^0+\frac{5}{32} B_6^4+...  \nonumber \\
+ B64&=&-\frac{63}{16} B_6^0+\frac{13}{16} B_6^4+...  \nonumber \\
+ B66&=&\frac{231}{32} B_6^0+\frac{11}{32} B_6^4+...  \nonumber \\
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1699.svg"
+ ALT="$\displaystyle B20$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1718.svg"
+ ALT="$\displaystyle -\frac{1}{2} B_2^0 -\frac{1}{2} B_2^2$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1701.svg"
+ ALT="$\displaystyle B22$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1719.svg"
+ ALT="$\displaystyle +\frac{3}{2} B_2^0 -\frac{1}{2} B_2^2$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1703.svg"
+ ALT="$\displaystyle B40$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1720.svg"
+ ALT="$\displaystyle +\frac{3}{8} B_4^0 +\frac{1}{8} B_4^2 +\frac{1}{8} B_4^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1705.svg"
+ ALT="$\displaystyle B42$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1721.svg"
+ ALT="$\displaystyle -\frac{5}{2} B_4^0 -\frac{1}{2} B_4^2 +\frac{1}{2} B_4^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1707.svg"
+ ALT="$\displaystyle B44$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1722.svg"
+ ALT="$\displaystyle \frac{35}{8} B_4^0 -\frac{7}{8} B_4^2 +\frac{1}{8} B_4^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1709.svg"
+ ALT="$\displaystyle B60$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1723.svg"
+ ALT="$\displaystyle -\frac{5}{16} B_6^0-\frac{1}{16} B_6^2-\frac{1}{16} B_6^4-\frac{1}{16} B_6^6 %%@
+$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1711.svg"
+ ALT="$\displaystyle B62$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1724.svg"
+ ALT="$\displaystyle +\frac{105}{32} B_6^0+\frac{5}{32} B_6^4+...$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1713.svg"
+ ALT="$\displaystyle B64$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1725.svg"
+ ALT="$\displaystyle -\frac{63}{16} B_6^0+\frac{13}{16} B_6^4+...$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1715.svg"
+ ALT="$\displaystyle B66$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1726.svg"
+ ALT="$\displaystyle \frac{231}{32} B_6^0+\frac{11}{32} B_6^4+...$"></TD><TD class="rfill">&nbsp;</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">As a second example we consider an dhcp system with quasi cubic sites, where the crystal field parameters
+are given such that  <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1695.svg"
+ ALT="$abc\vert\vert$"></SPAN>xyz - we denote these parameters as
+ <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img41.svg"
+ ALT="$B_l^m$"></SPAN>. Only <!-- MATH
+ $B_2^0,B_2^{-1},B_2^2, B_4^0,B_4^{-1},B_4^2,B_4^{-3}, B_4^4, %%@
+B_6^0,B_6^{-1}, B_6^2,B_6^{-3}, B_6^4$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.88ex; vertical-align: -0.74ex; " SRC="img1727.svg"
+ ALT="$B_2^0,B_2^{-1},B_2^2, B_4^0,B_4^{-1},B_4^2,B_4^{-3}, B_4^4, %%@
+B_6^0,B_6^{-1}, B_6^2,B_6^{-3}, B_6^4$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img891.svg"
+ ALT="$B_6^6$"></SPAN> are
+ not zero. In order to use these parameters in <I CLASS="slanted">mocule cfield</I>, they 
+ have to be transformed to a coordinate system <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img6.svg"
+ ALT="$xyz$"></SPAN> with <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1697.svg"
+ ALT="$abc\vert\vert yzx$"></SPAN>. Denoting the new
+ crystal field parameters which are to be used as <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1698.svg"
+ ALT="$Blm$"></SPAN> the transformation
+ is given by 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{eqnarray}
+B21&=&-2B_2^{-1}  \nonumber \\
+ B20&=&-\frac{1}{2} B_2^0 -\frac{1}{2} B_2^2  \nonumber \\
+ B22&=&+\frac{3}{2} B_2^0 -\frac{1}{2} B_2^2  \nonumber \\
+ B4-3&=&-\frac{7}{4} B_4^{-1} -\frac{3}{4} B_4^{-3}  \nonumber \\
+ B4-1&=&+\frac{3}{4} B_4^{-1} -\frac{1}{4} B_4^{-3}  \nonumber \\
+ B40&=&+\frac{3}{8} B_4^0 +\frac{1}{8} B_4^2 +\frac{1}{8} B_4^4     \nonumber \\
+ B42&=&-\frac{5}{2} B_4^0 -\frac{1}{2} B_4^2 +\frac{1}{2} B_4^4    \nonumber \\
+ B44&=&\frac{35}{8} B_4^0 -\frac{7}{8} B_4^2 +\frac{1}{8} B_4^4  \nonumber \\
+ B60&=&-\frac{5}{16} B_6^0-\frac{1}{16} B_6^4+...  \nonumber \\
+ B62&=&+\frac{105}{32} B_6^0+\frac{5}{32} B_6^4+...  \nonumber \\
+ B64&=&-\frac{63}{16} B_6^0+\frac{13}{16} B_6^4+...  \nonumber \\
+ B66&=&\frac{231}{32} B_6^0+\frac{11}{32} B_6^4+...  \nonumber \\
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1728.svg"
+ ALT="$\displaystyle B21$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.88ex; vertical-align: -0.74ex; " SRC="img1729.svg"
+ ALT="$\displaystyle -2B_2^{-1}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1699.svg"
+ ALT="$\displaystyle B20$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1718.svg"
+ ALT="$\displaystyle -\frac{1}{2} B_2^0 -\frac{1}{2} B_2^2$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1701.svg"
+ ALT="$\displaystyle B22$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1719.svg"
+ ALT="$\displaystyle +\frac{3}{2} B_2^0 -\frac{1}{2} B_2^2$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.01ex; vertical-align: -0.31ex; " SRC="img1730.svg"
+ ALT="$\displaystyle B4-3$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1731.svg"
+ ALT="$\displaystyle -\frac{7}{4} B_4^{-1} -\frac{3}{4} B_4^{-3}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.01ex; vertical-align: -0.31ex; " SRC="img1732.svg"
+ ALT="$\displaystyle B4-1$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1733.svg"
+ ALT="$\displaystyle +\frac{3}{4} B_4^{-1} -\frac{1}{4} B_4^{-3}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1703.svg"
+ ALT="$\displaystyle B40$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1720.svg"
+ ALT="$\displaystyle +\frac{3}{8} B_4^0 +\frac{1}{8} B_4^2 +\frac{1}{8} B_4^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1705.svg"
+ ALT="$\displaystyle B42$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1721.svg"
+ ALT="$\displaystyle -\frac{5}{2} B_4^0 -\frac{1}{2} B_4^2 +\frac{1}{2} B_4^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1707.svg"
+ ALT="$\displaystyle B44$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1722.svg"
+ ALT="$\displaystyle \frac{35}{8} B_4^0 -\frac{7}{8} B_4^2 +\frac{1}{8} B_4^4$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1709.svg"
+ ALT="$\displaystyle B60$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1734.svg"
+ ALT="$\displaystyle -\frac{5}{16} B_6^0-\frac{1}{16} B_6^4+...$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1711.svg"
+ ALT="$\displaystyle B62$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1724.svg"
+ ALT="$\displaystyle +\frac{105}{32} B_6^0+\frac{5}{32} B_6^4+...$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1713.svg"
+ ALT="$\displaystyle B64$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1725.svg"
+ ALT="$\displaystyle -\frac{63}{16} B_6^0+\frac{13}{16} B_6^4+...$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1715.svg"
+ ALT="$\displaystyle B66$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1726.svg"
+ ALT="$\displaystyle \frac{231}{32} B_6^0+\frac{11}{32} B_6^4+...$"></TD><TD class="rfill">&nbsp;</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<P>
+<SPAN CLASS="SMALL">The general transformation matrices are given by
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><UL>
+<LI><A ID="tex2html1206"
+  HREF="node162.html">Forward Rotation Matrices</A>
+<LI><A ID="tex2html1207"
+  HREF="node163.html">Reverse Rotation Matrices</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
 
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
@@ -179,23 +517,23 @@ Units in the program package
 <A
  HREF="node160.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1155"
-  HREF="node7.html">
+<A ID="tex2html1202"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1157"
-  HREF="node164.html">
+<A ID="tex2html1204"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node162.html">Installation of the program</A>
+ HREF="node162.html">Forward Rotation Matrices</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node160.html">Solution of the exercises</A>
- &nbsp; <B>  <A ID="tex2html1156"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1158"
-  HREF="node164.html">Index</A></B> </DIV>
+ HREF="node160.html">Symmetry considerations for Crystal</A>
+ &nbsp; <B>  <A ID="tex2html1203"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1205"
+  HREF="node180.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

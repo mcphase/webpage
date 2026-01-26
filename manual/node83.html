@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>External module function Icalc - used by mcphas, singleion </TITLE>
+<TITLE>Calculation of the Crystal Field Phonon Interaction using a Point Charge Model</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,201 +23,114 @@
  HREF="node84.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node82.html">
+ HREF="node74.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node82.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html791"
-  HREF="node7.html">
+<A ID="tex2html806"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html793"
-  HREF="node164.html">
+<A ID="tex2html808"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node84.html">External module function IMcalc</A>
+ HREF="node84.html">Setting up a Point</A>
 <B> Up:</B> <A
- HREF="node82.html">Basic Module Functions</A>
+ HREF="node74.html">Crystal Field Phonon Interaction</A>
 <B> Previous:</B> <A
- HREF="node82.html">Basic Module Functions</A>
- &nbsp; <B>  <A ID="tex2html792"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html794"
-  HREF="node164.html">Index</A></B> 
+ HREF="node82.html">Calculation of the Elastic</A>
+ &nbsp; <B>  <A ID="tex2html807"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html809"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION000171100000000000000"></A><A ID="3282"></A>
+<H2><A ID="SECTION000149000000000000000"></A><A ID="determineBlmfromPC"></A>
 <BR>
-External module function <I CLASS="slanted">Icalc</I> - used by <I CLASS="slanted">mcphas</I>,
-<I CLASS="slanted">singleion</I> 
-</H3>
-
+Calculation of the Crystal Field Phonon Interaction using a Point Charge Model
+</H2><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-In order to run <I CLASS="slanted">mcphas</I>,<I CLASS="slanted">singleion<A ID="3284"></A></I>
- the following function has to be present in the module file <I CLASS="slanted">*.so</I>:
-
+<SPAN CLASS="SMALL">If crystal field - phonon coupling is to be applied in running <I CLASS="slanted">mcphas</I> and <I CLASS="slanted">mcdisp</I>,
+ magnetic ions may be added to a phonon set-up of <I CLASS="slanted">mcphas.j</I>.
+These magnetic ions should not be placed at exactly the same position as the phonon atoms - i.e. da db dc should be chosen
+(slightly) different to enable the mcphas.j loader to identify which is which.
+</SPAN>
 <P>
-<PRE>
-extern "C" void Icalc(Vector &amp; I,double * T, Vector &amp; Hxc, Vector &amp; Hext,
-                      double * gJ, Vector &amp; MODPAR,
-                      char ** sipffilename, double * lnZ,double * U,
-                      ComplexMatrix &amp; Icalc_parstorage);
-</PRE>
-
+<SPAN CLASS="SMALL">The coupling between phononic and crystal field degrees of freedom can be calculated from equations
+(<A HREF="node79.html#Gcfph">132</A>) and (<A HREF="node79.html#Gammacfph">133</A>).
+ This can be done
+using the program  <I CLASS="slanted">makenn</I> with option <I CLASS="slanted">-cfph</I>  applying small differential changes to
+the atomic positions in the unit cell in order to evaluate the gradient of the crystal field
+parameters. <I CLASS="slanted">makenn</I> will do this calculation for every magnetic ion in the unit cell,
+i.e. for all ions which have the <I CLASS="slanted">so1ion</I> or <I CLASS="slanted">ic1ion</I> module in the <I CLASS="slanted">sipf</I> file.
+It will create for these ions a new position in makenn.j with the required
+shift and also store a designated sipf file. After running <I CLASS="slanted">makenn</I> with option <I CLASS="slanted">-cfph</I> 
+the user should only take care to change the module <I CLASS="slanted">so1ion</I>  or <I CLASS="slanted">ic1ion</I> to  or <I CLASS="slanted">phonon</I>
+in the original sipf files of the magnetic ions so that there is always one phononic and one magnetic
+sipf file for each magnetic atom in the unit cell.
+</SPAN>
 <P>
-Note for windows users with MINGW the declaration should be <I CLASS="slanted">extern "C" __declspec(dllexport) void Icalc(...)</I>.
-
+<SPAN CLASS="SMALL">For examples see  several models on crystal field phonon interaction 
+in <I CLASS="slanted">examples</I>, for starting a linear chain of Ce<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img3.svg"
+ ALT="$^{3+}$"></SPAN> ions including a
+theory manuscript can be found in <I CLASS="slanted">examples/Ce3p_chain_cfphonon</I>.
+</SPAN>
 <P>
-The meaning of the symbols is as follows:
-<SPAN CLASS="FOOTNOTESIZE">
-</SPAN><PRE>
-  on input
-    T           temperature[K]
-    Hxc         vector of exchange field [meV] (n-dimensional, for a set of n operators I)
-    Hext        external magnetic field [T] (3 components)
-    gJ          Lande factor as read from sipf file
-    MODPAR      Vector with Parameters  read from single ion property file
-    sipffilename    file name of the single ion parameter file
-    Icalc_parstorage parameter matrix (initialized by Icalc_parameter_storage_matrix_init)
-                   it should/may contain any information, e.g. population numbers of the
-                   states (imaginary part of row 0)
-                   and eigenvalues (real part of row 0) with values set by the most recent call
-                   for this ion (use of this matrix is optional, it is provided to save time by
-                   storing here information instead of recalculating it for every call of Icalc)
-  on output    
-    I           thermal expectation value of operator &lt;I&gt; (n- dimensional with n&gt;=1,
-                may be an arbitrary set of operators,
-    lnZ         natural logarithm of single ion partition function
-    U           single ion magnetic energy [meV]
-    Icalc_parstorage     parameter matrix matrix (optional)
-                   it should/may contain any information for the next call of Icalc, e.g.
-                   population numbers of the states (imaginary part of row 0)
-                   and eigenvalues (real part of row 0) ...
-</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
-The module function must perform the following tasks:
-
-<OL>
-<LI>check if the dimensions of vectors <!-- MATH
- ${\hat \mathbf I}$
+<SPAN CLASS="SMALL">Note <I CLASS="slanted">makenn</I>  makes use of the program <I CLASS="slanted">pointc</I><A ID="3482"></A> to calculate 
+crystal field parameters <!-- MATH
+ $B_{\gamma}(i)=B_l^m$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.43ex; vertical-align: -0.12ex; " SRC="img823.svg"
- ALT="${\hat \mathbf I}$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img187.svg"
- ALT="${\mathbf H}$"></SPAN>xc 
-(taken by <I CLASS="slanted">mcphas</I> from the number of 
-interaction constant columns in <I CLASS="slanted">mcphas.j<A ID="3295"></A></I>)
- and MODPAR (taken by <I CLASS="slanted">mcphas</I> from the number of params in the single ion property
-file) agree with the module specifications. Note a module may be designed to 
-take different dimensions depending on the input files, however the dimensions
-of vectors  <!-- MATH
- ${\hat \mathbf I}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.43ex; vertical-align: -0.12ex; " SRC="img823.svg"
- ALT="${\hat \mathbf I}$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img187.svg"
- ALT="${\mathbf H}$"></SPAN>xc  has to agree and must be within the 
-range of dimensions which
-can be treated by the module. If the check fails the module function should exit the
-program with an appropriate error message
-</LI>
-<LI>the module should calculate from external field <!-- MATH
- $\mathbf H_{ext}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.17ex; vertical-align: -0.46ex; " SRC="img824.svg"
- ALT="$\mathbf H_{ext}$"></SPAN> at a given temperature the 
-thermal expectation values of the operators <!-- MATH
- $\langle\hat I_a\rangle, \langle\hat  I_b\rangle,\langle\hat  I_c\rangle etc$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.00ex; vertical-align: -0.70ex; " SRC="img825.svg"
- ALT="$\langle\hat I_a\rangle, \langle\hat I_b\rangle,\langle\hat I_c\rangle etc$"></SPAN> 
-and return them as
-a vector <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img826.svg"
- ALT="$\mathbf I$"></SPAN>. Input file parameters params are supplied as a vector MODPAR and
-Lande factor as gJ and  can be used for this purpose. The Hamiltonian
-is usually assumed to be of the general form
- <!-- MATH
- $\hat H=\hat H_0- \hat \mathbf M \mathbf H_{ext} - \hat I_a {\rm Hxc}(1) - \hat I_b {\rm Hxc}(2) -\hat I_c {\rm Hxc}(3)
--\hat I_d {\rm Hxc}(4) ...$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img827.svg"
- ALT="$\hat H=\hat H_0- \hat \mathbf M \mathbf H_{ext} - \hat I_a {\rm Hxc}(1) - \hat I_b {\rm Hxc}(2) -\hat I_c {\rm Hxc}(3)
--\hat I_d {\rm Hxc}(4) ...$"></SPAN>.
-</LI>
-<LI>the natural logarithm of the partition sum Z should be calculated and returned as lnZ,
-<!-- MATH
- $Z=\sum_i e^{-\epsilon_i/kT}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.98ex; vertical-align: -0.81ex; " SRC="img828.svg"
- ALT="$Z=\sum_i e^{-\epsilon_i/kT}$"></SPAN>
-</LI>
-<LI>the magnetic energy U should be calculated and returned as U, <!-- MATH
- $U=\sum_i p_i=\sum_i \epsilon_i e^{-\epsilon_i/kT}/Z$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.98ex; vertical-align: -0.81ex; " SRC="img829.svg"
- ALT="$U=\sum_i p_i=\sum_i \epsilon_i e^{-\epsilon_i/kT}/Z$"></SPAN>
-</LI>
-<LI>if <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.90ex; vertical-align: -0.21ex; " SRC="img830.svg"
- ALT="$T&lt;0$"></SPAN> all quantities should be evaluated assuming that all Boltzmann probabilities <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img139.svg"
- ALT="$p_i$"></SPAN>
- are zero except for the state number <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img831.svg"
- ALT="$n=(-T)$"></SPAN>, for which the probability <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img832.svg"
- ALT="$p_n=1$"></SPAN>.
-</LI>
-</OL>
-
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img798.svg"
+ ALT="$B_{\gamma}(i)=B_l^m$"></SPAN> (<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img516.svg"
+ ALT="$\gamma$"></SPAN> is a short hand
+notation for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img799.svg"
+ ALT="$lm$"></SPAN>) at site <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.76ex; vertical-align: -0.12ex; " SRC="img322.svg"
+ ALT="$i$"></SPAN> with Stevens convention (or alternatively also <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img114.svg"
+ ALT="$L_l^m$"></SPAN> with
+Wybourne normalisation, see appendix&nbsp;<A HREF="node157.html#cfparconventions">E</A> for details and definition of symbols) 
+using the well known expressions of the point charge model (<A HREF="node79.html#pcmodelclc">127</A>).
+</SPAN>
 <P>
-... as an example the anisotropic doublet function is given as a
-loadable module in the file <I CLASS="slanted">./examples/cecu2a/1ion_mod/kramer.c</I>, in the same
-directory a Makefile is given in order to show how this loadable
-module is compiled (for details see appendix&nbsp;<A HREF="node137.html#kramers">A</A>).
-
-<P>
-Another more complicated example, the calculation of the magnetisation
-in a tetragonal quasi-quartet system is given in Appendix&nbsp;<A HREF="node139.html#dyni2b2c">C</A>.
-
+<SPAN CLASS="SMALL"></SPAN>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
 <A
  HREF="node84.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node82.html">
+ HREF="node74.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node82.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html791"
-  HREF="node7.html">
+<A ID="tex2html806"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html793"
-  HREF="node164.html">
+<A ID="tex2html808"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node84.html">External module function IMcalc</A>
+ HREF="node84.html">Setting up a Point</A>
 <B> Up:</B> <A
- HREF="node82.html">Basic Module Functions</A>
+ HREF="node74.html">Crystal Field Phonon Interaction</A>
 <B> Previous:</B> <A
- HREF="node82.html">Basic Module Functions</A>
- &nbsp; <B>  <A ID="tex2html792"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html794"
-  HREF="node164.html">Index</A></B> </DIV>
+ HREF="node82.html">Calculation of the Elastic</A>
+ &nbsp; <B>  <A ID="tex2html807"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html809"
+  HREF="node180.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

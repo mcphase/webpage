@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>External module function spindensity_coeff - used by densplt, spins, display_density,display_densities</TITLE>
+<TITLE>External module function dm1 - used by mcdisp</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,113 +23,175 @@
  HREF="node106.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node88.html">
+ HREF="node102.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node104.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html900"
-  HREF="node7.html">
+<A ID="tex2html958"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html902"
-  HREF="node164.html">
+<A ID="tex2html960"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node106.html">External module function dspindensity_coeff1</A>
+ HREF="node106.html">External module function Lcalc</A>
 <B> Up:</B> <A
- HREF="node88.html">Module Functions for Observables</A>
+ HREF="node102.html">Module Functions for Observables</A>
 <B> Previous:</B> <A
- HREF="node104.html">External module function dchargedensity_coeff1</A>
- &nbsp; <B>  <A ID="tex2html901"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html903"
-  HREF="node164.html">Index</A></B> 
+ HREF="node104.html">External module function mMcalc</A>
+ &nbsp; <B>  <A ID="tex2html959"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html961"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION0001721700000000000000"></A><A ID="3686"></A><A ID="3687"></A><A ID="3688"></A><A ID="3689"></A>
+<H3><A ID="SECTION000162300000000000000"></A><A ID="4091"></A>
 <BR>
-External module function <I CLASS="slanted">spindensity_coeff</I> -
-used by <I CLASS="slanted">densplt</I>,
-<I CLASS="slanted">spins</I>,
-<I CLASS="slanted">display_density</I>,<I CLASS="slanted">display_densities</I>
-</H3>
-
+External module function <I CLASS="slanted">dm1</I> - used by <I CLASS="slanted">mcdisp</I>
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-In order to calculate spindensities
-the following function has to be
-present in the module file <I CLASS="slanted">*.so</I>:
-
+<SPAN CLASS="SMALL">In order to visualized magnetic moment fluctuations and to calculate neutron intensities
+in dipole approximation the external single ion module has to provide the transition
+matrix elements of the magnetic moment operator in units of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img916.svg"
+ ALT="$\mu_B$"></SPAN> by the
+vector <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img966.svg"
+ ALT="$m1$"></SPAN>, which is given by:
+ <!-- MATH
+ ${\rm m1}^s_{\alpha}=\sqrt{(p_- -p_+)}\langle -|\hat m^s_{\alpha}-\langle\hat  m^s_{\alpha}\rangle_{\mathbf H,T}|+\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.10ex; vertical-align: -0.82ex; " SRC="img967.svg"
+ ALT="${\rm m1}^s_{\alpha}=\sqrt{(p_--p_+)}\langle -\vert\hat m^s_{\alpha}-\langle\hat m^s_{\alpha}\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>. 
+</SPAN>
 <P>
-<PRE>
-extern "C" void spindensity_coeff(Vector &amp;aSlm, int &amp; xyz, double *T,Vector &amp;Hxc, 
-   Vector &amp; Hext,double *gJ,Vector &amp;MODPAR,char **sipffilename,ComplexMatrix &amp; Icalc_parstorage);
-</PRE>
-
-<P>
-Note for windows users with MINGW the declaration should be <I CLASS="slanted">extern "C" __declspec(dllexport) void spindensity_coeff(...)</I>.
-
-<P>
-The meaning of the symbols is as follows:
+<SPAN CLASS="SMALL">The format to be used is:
 <SPAN CLASS="FOOTNOTESIZE">
-</SPAN><PRE>
-  on input
-    xyz         direction index 1,2,3 = x,y,z (component for the spindensity vector to be calculated)
-    T           temperature[K]
-    Hxc        vector of exchange field [meV] (can be n-dimensional, for a set of n operators)
-     Hext      external magnetic field [T]
-    gJ          Lande factor
-    MODPAR      Vector with Parameters  read in single ion property file
-    sipffilename    file name of the single ion parameter file
-    Icalc_parstorage parameter matrix (initialized by Icalc_parameter_storage_matrix_init)
-                   it should/may contain any information, e.g. population numbers of the
-				   states (imaginary part of row 0)
-                   and eigenvalues (real part of row 0) with values set by the most recent call
-                   for this ion (making use of this matrix is optional)
-  on output
-    aSlm         Output single ion moments =expectation values of
-                coefficients of Zlm R^2(r) at a given temperature T and
-                effective field H
-</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
-
+</SPAN></SPAN><PRE>
+extern "C" int dm1(int &amp; tn,double &amp; T,Vector &amp; Hxc,Vector &amp; Hext,double * g_J,Vector &amp; MODPAR,
+char ** sipffilename,ComplexVector &amp; m1,float &amp; maxE, ComplexMatrix &amp; est)
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE">
+</SPAN></SPAN>
 <P>
+<SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE">The meaning of the symbols is as follows:
+</SPAN></SPAN>
+<P>
+<SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE"></SPAN></SPAN><PRE>
+on input
+   |tn|            transition-number  
+   sign(tn)        &gt;0 standard, &lt;0 routine should do some printout to stdout for user information
+   MODPAR          Vector with Parameters  read in single ion property file
+   sipffilename    file name of the single ion parameter file
+   g_J             Lande factor
+   T               Temperature[K]
+   Hxc             vector of exchange field [meV] (can be n-dimensional, for a set of n operators)
+   Hext            external magnetic field [T]
+   est             eigenstate matrix (initialized by estates)
+                   it should/may also contain population numbers of the states
+				   (imaginary part of row 0)
+                   and eigenvalues (real part of row 0) with values set by the most recent call
+				   for this ion (use of this matrix is optional)
+   u1(1)           ninit + i pinit (from mcdisp options  -ninit and -pinit)
+   maxE            upper boundary for transition energy (meV) to be considered
+                   (from mcdisp option -maxE)
+on output
+   int             total number of transitions
+   u1             transition matrix element vector m1=&lt;-|m-&lt;m&gt;|+&gt;sqrt((n- - n+))
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE"></SPAN>
 The module function must perform the following tasks:
-
+</SPAN>
 <OL>
-<LI>calculate the coefficients of <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.77ex; " SRC="img886.svg"
- ALT="$Z_l^m R^2(r)$"></SPAN> in the expansion of
-      the spin density vector <!-- MATH
- $M^S_{x,y,z}=\sum_{l,m} a^{x,y,z}_{S,lm} Z_l^m R^2(r)$
+<LI>check if the dimensions of vector Hxc (taken by <I CLASS="slanted">mcphas</I> from the number of 
+interaction constant columns in <I CLASS="slanted">mcphas.j<A ID="4104"></A></I>)
+ and MODPAR (taken by <I CLASS="slanted">mcphas</I> from the number of params in the single ion property
+file) agree with the module specifications. If the check fails the module function should exit the
+program with an appropriate error message
+</LI>
+<LI>the module function should do a numbering of all possible single ion transitions and return
+the total number of transitions as an integer. Input file parameters params are supplied as a vector MODPAR and
+Lande factor as g_J and  can be used for this purpose. The numbering will depend on
+the parameters ninit, pinit and maxE which are provided as input. These parameters
+have to be considered. <EM>IMPORTANT: the numbering scheme of transitions has to
+be the same for du1calc and all the corresponding d...1 functions for observables !</EM>
+</LI>
+<LI>for the transition number tn the vector m1 is to
+ be filled with 
+<!-- MATH
+ ${\mathbf m1^s_{\alpha}}=\sqrt{(p_- -p_+)}\langle -|\hat m^s_{\alpha}-\langle\hat  m^s_{\alpha}\rangle_{\mathbf H,T}|+\rangle$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.19ex; vertical-align: -1.13ex; " SRC="img887.svg"
- ALT="$M^S_{x,y,z}=\sum_{l,m} a^{x,y,z}_{S,lm} Z_l^m R^2(r)$"></SPAN>
-      The output Vector alm(1,...,49) should contain  <!-- MATH
- $a^{x,y,z}_{S,lm}$
+ STYLE="height: 3.10ex; vertical-align: -0.82ex; " SRC="img968.svg"
+ ALT="${\mathbf m1^s_{\alpha}}=\sqrt{(p_--p_+)}\langle -\vert\hat m^s_{\alpha}-\langle\hat m^s_{\alpha}\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>.
+(note <!-- MATH
+ $\hat \mathbf m=2\hat \mathbf S+ \hat \mathbf L$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.05ex; vertical-align: -1.13ex; " SRC="img888.svg"
- ALT="$a^{x,y,z}_{S,lm}$"></SPAN>
-      in the following order (lm):  00,1-1, 10,11, 2-2, 2-1,20,21,22, 3-3, 3-2, ...,65,66
+ STYLE="height: 2.62ex; vertical-align: -0.31ex; " SRC="img969.svg"
+ ALT="$\hat \mathbf m=2\hat \mathbf S+ \hat \mathbf L $"></SPAN>).
+</LI>
+<LI>If the energy of this transition
+is zero, i.e. <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img961.svg"
+ ALT="$\Delta(tn)=0$"></SPAN> (diffuse scattering), 
+the expression (<A HREF="node168.html#mmatrix">270</A>) would be zero because <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img962.svg"
+ ALT="$(p_--p_+)$"></SPAN> vanishes.
+In this case the single ion module should calculate <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img963.svg"
+ ALT="$(p_+/kT)$"></SPAN> instead of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img962.svg"
+ ALT="$(p_--p_+)$"></SPAN>.
 </LI>
 <LI>if <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.90ex; vertical-align: -0.21ex; " SRC="img830.svg"
+ STYLE="height: 1.90ex; vertical-align: -0.21ex; " SRC="img949.svg"
  ALT="$T&lt;0$"></SPAN> all quantities should be evaluated assuming that all Boltzmann probabilities <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img139.svg"
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img219.svg"
  ALT="$p_i$"></SPAN>
  are zero except for the state number <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img831.svg"
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img950.svg"
  ALT="$n=(-T)$"></SPAN>, for which the probability <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img832.svg"
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img951.svg"
  ALT="$p_n=1$"></SPAN>.
 </LI>
-</OL>
-
+</OL><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-<BR><HR>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node106.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node102.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node104.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html958"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html960"
+  HREF="node180.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node106.html">External module function Lcalc</A>
+<B> Up:</B> <A
+ HREF="node102.html">Module Functions for Observables</A>
+<B> Previous:</B> <A
+ HREF="node104.html">External module function mMcalc</A>
+ &nbsp; <B>  <A ID="tex2html959"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html961"
+  HREF="node180.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

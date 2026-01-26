@@ -1,17 +1,16 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Progam Workflow for calculating Magnetoelastic Effects and the Static Jahn Teller Effect</TITLE>
+<TITLE>Scattering geometry</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node67.html">
 <LINK REL="previous" HREF="node65.html">
 <LINK REL="next" HREF="node67.html">
 </HEAD>
@@ -23,107 +22,119 @@
  HREF="node67.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node60.html">
+ HREF="node65.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node65.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html684"
-  HREF="node7.html">
+<A ID="tex2html720"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html686"
-  HREF="node164.html">
+<A ID="tex2html722"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node67.html">Calculation of the Elastic</A>
+ HREF="node67.html">Including Quadrupolar and Higher</A>
 <B> Up:</B> <A
- HREF="node60.html">Crystal Field Phonon Interaction</A>
+ HREF="node65.html">Resonant Inelastic X-ray Scattering(RIXS)</A>
 <B> Previous:</B> <A
- HREF="node65.html">Exchange Striction</A>
- &nbsp; <B>  <A ID="tex2html685"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html687"
-  HREF="node164.html">Index</A></B> 
+ HREF="node65.html">Resonant Inelastic X-ray Scattering(RIXS)</A>
+ &nbsp; <B>  <A ID="tex2html721"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html723"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000156000000000000000">
-Progam Workflow for calculating Magnetoelastic Effects and the Static Jahn Teller Effect</A>
-</H2>
-
+<H3><A ID="SECTION000114100000000000000">
+Scattering geometry</A>
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-Technically the Hamiltonian (<A HREF="node64.html#Htot">110</A>) is of the general form for 
-McPhase&nbsp;[<A
- HREF="node163.html#rotter12-213201">37</A>], with single
-ion and interaction terms. The corresponding  mean field procedure can be done by an internal single ion module 
-&rdquo;epsilon&rdquo;, which represents not an ion, but the
-strain. Given <!-- MATH
- $\langle \hat  u_{j}^{\alpha} \rangle$
+<SPAN CLASS="SMALL"></SPAN>
+<BLOCKQUOTE><SPAN CLASS="SMALL">[Coordinate system, see[<A
+ HREF="node179.html#longfield02-054417">31</A>]:] Euclidean (orthonormal) system 
+<!-- MATH
+ $[\mathbf u_1,\mathbf u_2,\mathbf u_3]$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.88ex; vertical-align: -1.04ex; " SRC="img737.svg"
- ALT="$\langle \hat u_{j}^{\alpha} \rangle$"></SPAN> and <!-- MATH
- $\langle O_{\gamma}(\hat \mathbf J_i) \rangle$
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img363.svg"
+ ALT="$[\mathbf u_1,\mathbf u_2,\mathbf u_3]$"></SPAN>. The scattering plane, defined by the
+direction of the incident and final wave vectors  
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img364.svg"
+ ALT="$\mathbf k$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.97ex; vertical-align: -0.12ex; " SRC="img365.svg"
+ ALT="$\mathbf k'$"></SPAN>, contains <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.61ex; vertical-align: -0.46ex; " SRC="img366.svg"
+ ALT="$\mathbf u_1$"></SPAN> lying
+perpendicular and in the sense of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img364.svg"
+ ALT="$\mathbf k$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.61ex; vertical-align: -0.46ex; " SRC="img367.svg"
+ ALT="$\mathbf u_3$"></SPAN> parallel to the scattering
+vector <!-- MATH
+ $\mathbf Q=\mathbf k-\mathbf k'$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.09ex; vertical-align: -0.78ex; " SRC="img738.svg"
- ALT="$\langle O_{\gamma}(\hat \mathbf J_i) \rangle$"></SPAN> and
-appropriate interaction constants to the &rdquo;epsilon&rdquo; from (<A HREF="node62.html#Hmix">95</A>) and (<A HREF="node64.html#Hcfph">106</A>), respectively,
-the right side in (<A HREF="node64.html#zeroeps">112</A>) can be evaluated in each mean field loop 
-in module &rdquo;epsilon&rdquo; function <EM>Icalc</EM>. Then elastic constants in (<A HREF="node64.html#zeroeps">112</A>) can be used to calculate
-a new strain <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.55ex; vertical-align: -0.12ex; " SRC="img618.svg"
- ALT="$\bar \epsilon$"></SPAN>, a six component vector. Via the aforementioned appropriate
-interaction constants (from (<A HREF="node62.html#Gmix">96</A>) and (<A HREF="node64.html#Gcfph">108</A>)) the strain will produce mean
-fields on lattice displacements and magnetic ions charge density (crystal field) and so on ...
-The free energy returned by the module &rdquo;epsilon&rdquo;  correspond to the elastic energy
-per unit cell given by equation (<A HREF="node61.html#Eelconstvoigt">94</A>). 
-
+ STYLE="height: 2.42ex; vertical-align: -0.57ex; " SRC="img368.svg"
+ ALT="$\mathbf Q=\mathbf k-\mathbf k'$"></SPAN>. 
+[Polarisation of the Photon beam:] <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img534.svg"
+ ALT="$\sigma$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img536.svg"
+ ALT="$\pi$"></SPAN> refer to the polarisation
+of the beam parallel and perpendicular to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img537.svg"
+ ALT="$\mathbf u2$"></SPAN>, respectively.
+[Angles for azimuth <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img388.svg"
+ ALT="$\Psi=0$"></SPAN>:] <!-- MATH
+ $\alpha_i=\angle(\mathbf a_i \cdot \mathbf u_3)_{\Psi=0}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img538.svg"
+ ALT="$\alpha_i=\angle(\mathbf a_i \cdot \mathbf u_3)_{\Psi=0}$"></SPAN>,
+<!-- MATH
+ $\delta_i=\angle(\mathbf a_i^{\perp}\cdot \mathbf u_1)_{\Psi=0}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.80ex; vertical-align: -0.72ex; " SRC="img539.svg"
+ ALT="$\delta_i=\angle(\mathbf a_i^{\perp}\cdot \mathbf u_1)_{\Psi=0}$"></SPAN>,
+where <!-- MATH
+ $\mathbf a_{1,2,3}=\mathbf a,\mathbf b,\mathbf c$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.50ex; vertical-align: -0.78ex; " SRC="img540.svg"
+ ALT="$\mathbf a_{1,2,3}=\mathbf a,\mathbf b,\mathbf c$"></SPAN> and <!-- MATH
+ $\mathbf a_i^{\perp}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.80ex; vertical-align: -0.72ex; " SRC="img541.svg"
+ ALT="$\mathbf a_i^{\perp}$"></SPAN> is the projection of
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.61ex; vertical-align: -0.46ex; " SRC="img542.svg"
+ ALT="$\mathbf a_i$"></SPAN> onto the plane perpendicular to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.27ex; vertical-align: -0.57ex; " SRC="img387.svg"
+ ALT="$\mathbf Q$"></SPAN>.
+ In the chosen experimental geometry
+azimuth <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img388.svg"
+ ALT="$\Psi=0$"></SPAN>, when <!-- MATH
+ $\mathbf a_1 = \mathbf a$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.61ex; vertical-align: -0.46ex; " SRC="img543.svg"
+ ALT="$\mathbf a_1 = \mathbf a$"></SPAN> points to the x-ray source.
+</SPAN></BLOCKQUOTE><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-For the dynamics the &rdquo;epsilon&rdquo; module does not
-yield any single ion excitations. The excitations can be calculated without taking into account the
-term <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img15.svg"
- ALT="$H_{mix}$"></SPAN>, because this is linear in the displacement operators and in the harmonic
-approximation the spectrum of the harmonic Einstein oscillator will not change with such an
-internal force. The strain has only to be taken into account as a linear modification of the crystal field
-parameters in the first term of equation (<A HREF="node64.html#Hcfph">106</A>). This is done automatically by creating the
-file <EM>mcphas.mf</EM> with the &rdquo;epsilon&rdquo; module, i.e. the option &rdquo;-doeps&rdquo; of <I CLASS="slanted">mcphas</I>, see
-section&nbsp;<A HREF="node71.html#magelastmcphasoptions">12.11</A>.
-
+<SPAN CLASS="SMALL"></SPAN>
 <P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node67.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node60.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node65.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html684"
-  HREF="node7.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html686"
-  HREF="node164.html">
-<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A
- HREF="node67.html">Calculation of the Elastic</A>
-<B> Up:</B> <A
- HREF="node60.html">Crystal Field Phonon Interaction</A>
-<B> Previous:</B> <A
- HREF="node65.html">Exchange Striction</A>
- &nbsp; <B>  <A ID="tex2html685"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html687"
-  HREF="node164.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
+<SPAN CLASS="SMALL"></SPAN>
+<BR><HR>
 
 </BODY>
 </HTML>

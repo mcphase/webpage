@@ -61,6 +61,7 @@ TABLE		{ border-collapse: collapse; }
 
 /* document-specific styles come next */
 DIV.center		{   }
+DIV.em		{   }
 DIV.navigation		{   }
 PRE.preform		{   }
 DIV.quote		{   }

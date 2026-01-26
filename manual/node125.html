@@ -1,18 +1,17 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Searchspace and Simannfit - Fitting Experimental Data</TITLE>
+<TITLE>External module function ro_calc - used by chrgplt, charges </TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node134.html">
-<LINK REL="previous" HREF="node118.html">
+<LINK REL="previous" HREF="node124.html">
 <LINK REL="next" HREF="node126.html">
 </HEAD>
 
@@ -23,146 +22,81 @@
  HREF="node126.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="manual.html">
+ HREF="node102.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node124.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html992"
-  HREF="node7.html">
+<A ID="tex2html1038"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html994"
-  HREF="node164.html">
+<A ID="tex2html1040"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node126.html">Setting up parameter files</A>
+ HREF="node126.html">ic1ion - a module</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="node102.html">Module Functions for Observables</A>
 <B> Previous:</B> <A
- HREF="node124.html">Program felog - display</A>
- &nbsp; <B>  <A ID="tex2html993"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html995"
-  HREF="node164.html">Index</A></B> 
+ HREF="node124.html">External module function dorbmomdensity_coeff1</A>
+ &nbsp; <B>  <A ID="tex2html1039"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1041"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A ID="SECTION000210000000000000000"></A><A ID="simannfit"></A>
+<H3><A ID="SECTION0001622300000000000000"></A><A ID="4432"></A><A ID="4433"></A>
 <BR>
-<I CLASS="slanted">Searchspace and Simannfit</I> - Fitting Experimental Data
-</H1>
+External module function <I CLASS="slanted">ro_calc</I> -
+used by <I CLASS="slanted">chrgplt</I>,
+<I CLASS="slanted">charges</I>
 
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-In order to fit experimental data a very general concept of fitting program 
-has been developed. 
-<I CLASS="slanted">Perl</I> has to be installed on the system in order to run
-this fitting program.
-
+<SPAN CLASS="SMALL">In order to calculate more complex charge densities, the optional function
+<I CLASS="slanted">rocalc</I> may be present in the module file <I CLASS="slanted">*.so</I>. If present,
+it will be used by programs <I CLASS="slanted">chrgplt<A ID="4436"></A></I>,
+<I CLASS="slanted">charges<A ID="4437"></A></I>:
+</SPAN>
 <P>
-The program <I CLASS="slanted">searchspace<A ID="4403"></A></I> is used to cover the parameter space and test
-different regions of this space for local minima 
-of a specific function <I CLASS="slanted">sta(par1, par2 par3 ...)</I> of
-these parameters.. It may be used to 
-find good starting values for the program <I CLASS="slanted">simannfit<A ID="4405"></A></I>.
-
+<SPAN CLASS="SMALL"></SPAN><PRE>
+extern "C" double ro_calc(double &amp; teta,double &amp; fi,double &amp;R,Vector &amp;aLlm,  double *gJ,Vector &amp;MODPAR,char **sipffilename);
+</PRE><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-The program <I CLASS="slanted">simannfit<A ID="4406"></A></I> uses a simulated annealing algorithm described
-in&nbsp;[<A
- HREF="node163.html#kirkpatrick83-671">3</A>].
-This algorithm does a random walk through the parameter space 
-with the aim to fit the parameters to  a minimum of the function <I CLASS="slanted">sta</I>.
-  Starting at a set of parameter values (par1, par2, par3) the algorithm
-changes these values by a randomly chosen step width (the maximum step width
-is specified at the beginning) to (par1', par2', par3').
- The function <I CLASS="slanted">sta(par1', par2', par3', ...)</I> is calculated at
-for these new parameter values. The step is accepted if 
-<!-- MATH
- $exp([sta(par')-sta(par)]/T)<{\rm a random number out of} [0,1]$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1036.svg"
- ALT="$exp([sta(par')-sta(par)]/T)&lt;{\rm a random number out of} [0,1]$"></SPAN>.
-Otherwise it is rejected. The statistical temperature <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img65.svg"
- ALT="$T$"></SPAN> involved in this
-condition is lowered from step to step as well as the maximum step width allowed.
-
+<SPAN CLASS="SMALL">Note for windows users with MINGW the declaration should be <I CLASS="slanted">extern "C" __declspec(dllexport) double ro_calc(...)</I>.
+</SPAN>
 <P>
-In the following we describe how to set up the program packages of <I CLASS="slanted">McPhase</I> to
-solve a specific fitting problem.
-As an example we refer to the fitting of the magnetic 
-excitations of CeCu<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN> in <I CLASS="slanted">mcphas/examples/cecu2a/fit</I>. 
-
+<SPAN CLASS="SMALL">The meaning of the symbols is as follows:
+<SPAN CLASS="FOOTNOTESIZE">
+</SPAN></SPAN><PRE>
+  on input
+    teta, fi, R(Angsgtroem) .... spatial position in spherical coordinates
+    gJ          Lande factor
+    MODPAR      Vector with Parameters  read in single ion property file
+    sipffilename    file name of the single ion parameter file
+    aLlm          single ion moments =expectation values of
+                coefficients of Zlm F(r) at a given temperature T and
+                effective field H
+on output
+  double ro_rocalc ... the charge density
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+</SPAN>
 <P>
-
-<DIV class="CENTER"><A ID="safit"></A><A ID="4416"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 29:</STRONG>
-Layout of the fitting modules.</CAPTION>
-<TR><TD><IMG
- STYLE="height: 71.84ex; vertical-align: -0.12ex; " SRC="img1037.svg"
- ALT="\includegraphics[angle=0,width=0.7\columnwidth]{figsrc/simannfit.eps}"></TD></TR>
-</TABLE>
-</DIV>
-
+<SPAN CLASS="SMALL">The module function must perform the following tasks:
+</SPAN>
+<OL>
+<LI>calculate the charge density for plotting
+</LI>
+</OL><SPAN CLASS="SMALL">
+</SPAN>
 <P>
+<SPAN CLASS="SMALL"></SPAN>
 <BR><HR>
-<!--Table of Child-Links-->
-<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A ID="tex2html996"
-  HREF="node126.html">Setting up parameter files for fitting</A>
-<LI><A ID="tex2html997"
-  HREF="node127.html">Telling the fitting program, how to calculate the standard deviation <I CLASS="slanted">sta</I> which should be minimised</A>
-<LI><A ID="tex2html998"
-  HREF="node128.html">Starting a parameter space search</A>
-<LI><A ID="tex2html999"
-  HREF="node129.html">analysing the results of <I CLASS="slanted">searchspace</I></A>
-<LI><A ID="tex2html1000"
-  HREF="node130.html">Starting a fit</A>
-<LI><A ID="tex2html1001"
-  HREF="node131.html">Stopping a fit/parameter space search</A>
-<LI><A ID="tex2html1002"
-  HREF="node132.html">Fitting is an art: some general remarks</A>
-<LI><A ID="tex2html1003"
-  HREF="node133.html">Crystal Field  Example: Fitting Point Charges to Inverse Susceptibility Data</A>
-</UL>
-<!--End of Table of Child-Links-->
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node126.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="manual.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node124.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html992"
-  HREF="node7.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html994"
-  HREF="node164.html">
-<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
-<BR>
-<B> Next:</B> <A
- HREF="node126.html">Setting up parameter files</A>
-<B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
-<B> Previous:</B> <A
- HREF="node124.html">Program felog - display</A>
- &nbsp; <B>  <A ID="tex2html993"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html995"
-  HREF="node164.html">Index</A></B> </DIV>
-<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

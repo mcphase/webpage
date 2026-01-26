@@ -1,16 +1,17 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Program felog - display logged free energy for different moment configurations at a temperature/field (linux with pgplot grphic library only)</TITLE>
+<TITLE>External module function dorbmomdensity_coeff1 - used by mcdisp</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node125.html">
 <LINK REL="previous" HREF="node123.html">
 <LINK REL="next" HREF="node125.html">
 </HEAD>
@@ -22,75 +23,68 @@
  HREF="node125.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node118.html">
+ HREF="node102.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node123.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html988"
-  HREF="node7.html">
+<A ID="tex2html1034"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html990"
-  HREF="node164.html">
+<A ID="tex2html1036"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node125.html">Searchspace and Simannfit -</A>
+ HREF="node125.html">External module function ro_calc</A>
 <B> Up:</B> <A
- HREF="node118.html">Programs for Graphical display</A>
+ HREF="node102.html">Module Functions for Observables</A>
 <B> Previous:</B> <A
- HREF="node123.html">Program phased - graphical</A>
- &nbsp; <B>  <A ID="tex2html989"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html991"
-  HREF="node164.html">Index</A></B> 
+ HREF="node123.html">External module function orbmomdensity_coeff</A>
+ &nbsp; <B>  <A ID="tex2html1035"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1037"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000206000000000000000"></A><A ID="4382"></A>
+<H3><A ID="SECTION0001622200000000000000"></A><A ID="4417"></A>
 <BR>
-Program <I CLASS="slanted">felog</I> - display logged free energy for different moment configurations at a temperature/field (linux with pgplot grphic library only)
-</H2>
-
+External module function <I CLASS="slanted">dorbmomdensity_coeff1</I> - used by <I CLASS="slanted">mcdisp</I>
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-<DL>
-<DT><STRONG>felog</STRONG></DT>
-<DD>produces plot of logged q values in reciprocal
-space vs free energy (colours). <I CLASS="slanted">pgplot</I> and <I CLASS="slanted">perl</I> are needed in order
-to use this graphical tool.
-(Trick: in order to get a quick overview of the
-q-vector range covered by the mcphas<A ID="4386"></A> simulation just type <I CLASS="slanted">felog ./results/mcphas.qvc</I>)
-</DD>
-</DL> 
-
+<SPAN CLASS="SMALL">In order to visualize orbital moment density  fluctuations 
+ the external single ion module has to provide the transition
+matrix elements of the spindensity coefficient operator <!-- MATH
+ $a^{x,y,z}_{L,lm}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.05ex; vertical-align: -1.13ex; " SRC="img1013.svg"
+ ALT="$a^{x,y,z}_{L,lm}$"></SPAN> by a
+vector <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1009.svg"
+ ALT="$aSlm1$"></SPAN>, which is given by:
+ <!-- MATH
+ ${\rm aL1}^s_{\alpha=lm}=\sqrt{(p_- -p_+)}\langle -|a^{x,y,z}_{L,lm}-\langle a^{x,y,z}_{L,lm}\rangle_{\mathbf H,T}|+\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.41ex; vertical-align: -1.13ex; " SRC="img1017.svg"
+ ALT="${\rm aL1}^s_{\alpha=lm}=\sqrt{(p_--p_+)}\langle -\vert a^{x,y,z}_{L,lm}-\langle a^{x,y,z}_{L,lm}\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>. 
+</SPAN>
 <P>
-
-<DIV class="CENTER">
-<DIV class="CENTER">
-
-<IMG
- STYLE="height: 84.50ex; vertical-align: -0.12ex; " SRC="img1035.svg"
- ALT="\includegraphics[angle=0, width=0.8\textwidth]{figsrc/felog.eps}">
-
-</DIV>
-</DIV>
-
+<SPAN CLASS="SMALL">The format to be used is:
+<SPAN CLASS="FOOTNOTESIZE">
+</SPAN></SPAN><PRE>
+extern "C" int dspindensity_ceoff1(int &amp; tn,double &amp; T,Vector &amp; Hxc,Vector &amp; Hext,double * g_J,Vector &amp; MODPAR,
+char ** sipffilename,ComplexVector &amp; aLlm1,int &amp; xyz,float &amp; maxE, ComplexMatrix &amp; est)
+</PRE><SPAN CLASS="SMALL"><SPAN CLASS="FOOTNOTESIZE"></SPAN>
+The meaning of the symbols follows exactly that of function 
+<I CLASS="slanted">dm1</I> and therefore not explained here.
+</SPAN>
 <P>
-<BR>
-<BR>
-<BR>
-<EM>Exercises:</EM>
-
-<UL>
-<LI>Use the programs <I CLASS="slanted">phased, hkl, hkl2d, spins, javaview</I> to generate
-graphical output of the simulation results in directory 
-<I CLASS="slanted">examples/ndcu2b_new/results</I>.
-</LI>
-</UL>
-
-<P>
-<P>
+<SPAN CLASS="SMALL"></SPAN>
 <BR><HR>
 
 </BODY>

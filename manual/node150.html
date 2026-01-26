@@ -1,18 +1,18 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Derivation of the Chargedensity Formula</TITLE>
+<TITLE>Programs for Specific Tasks in the World of McPhase</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node151.html">
-<LINK REL="previous" HREF="node149.html">
+<LINK REL="previous" HREF="node141.html">
 <LINK REL="next" HREF="node151.html">
 </HEAD>
 
@@ -28,181 +28,1520 @@
 <A
  HREF="node149.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1102"
-  HREF="node7.html">
+<A ID="tex2html1158"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1104"
-  HREF="node164.html">
+<A ID="tex2html1160"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node151.html">Dynamical Susceptibility and Excitations</A>
+ HREF="node151.html">Programs for Manipulation of</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node149.html">Magnetic Form factors for</A>
- &nbsp; <B>  <A ID="tex2html1103"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1105"
-  HREF="node164.html">Index</A></B> 
+ HREF="node149.html">Crystal Field Example: Fitting</A>
+ &nbsp; <B>  <A ID="tex2html1159"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1161"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A ID="SECTION000360000000000000000"></A><A ID="chargedensityoperator"></A>
+<H1><A ID="SECTION000210000000000000000"></A><A ID="addprog"></A>
 <BR>
-Derivation of the Chargedensity Formula
-</H1>
+Programs for Specific Tasks in the World of McPhase
+</H1><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">This section  contains some further programs which do some important manipulations
+in magnetism, ...
+</SPAN><DL>
+<DT><STRONG><I CLASS="slanted">addj<A ID="5261"></A><A ID="addj"></A> 
+file1.j file2.j:</STRONG></DT>
+<DD>adds exchange parameters of file2.j to the parameters in
+file1.j - output is written to stdout, if file2.j is not given, a copy of the input file is saved 
+</I>
+<P>
+<DL>
+<DT><STRONG>Option: -nofcomponents 23</STRONG></DT>
+<DD>fixes the nofcomponents to 23 by 
+                         reducing (removing entries) or increasing (by filling with zeroes) 
+                         the exchange parameter tables
+</DD>
+<DT><STRONG>Option:            -ni</STRONG></DT>
+<DD>forces output without indexchange 
+</DD>
+<DT><STRONG>Option:            -sp  0 0 0.1</STRONG></DT>
+<DD>shift all atomic positions in file 1 by da=0 db=0 dc=0.1 
+</DD>
+<DT><STRONG>Option:            -s  0.2</STRONG></DT>
+<DD>scales all interactions (including  magnetoelastic G) in file1 by 0.2 before adding 
+</DD>
+<DT><STRONG>Option:            -sJ  0.2</STRONG></DT>
+<DD>scales all interactions (but not 
+                        magnetoelastic G) in file1 by 0.2 before adding 
+</DD>
+<DT><STRONG>Option:            -rmcomp 9 15 </STRONG></DT>
+<DD>removes components 8 to 15 from result before output
+</DD>
+<DT><STRONG>Option:            -pd</STRONG></DT>
+<DD>output a column with distance  
+</DD>
+<DT><STRONG>Option:            -ps</STRONG></DT>
+<DD>output a column with sublattice index
+</DD>
+<DT><STRONG>Option:            -pi 5 7  1 2 1 3</STRONG></DT>
+<DD>print to stdout only interaction tensor (rows 1-2, columns 1-3) of ion 5 with neighbour 7 as matrix 
+</DD>
+<DT><STRONG>Option:            -pG </STRONG></DT>
+<DD>print to stdout only magnetoelastic G matrices (no interactions)
+</DD>
+<DT><STRONG>Option:            -v </STRONG></DT>
+<DD>verbose 
+</DD>
+</DL><I CLASS="slanted">
+                 If file2.j is not given, a copy of the input file is saved 
+</DD>
+<DT><STRONG><I CLASS="slanted">anisotropy<A ID="5268"></A><A ID="anisotropy"></A>:</STRONG></DT>
+<DD> program to calculate the magnetic anistropy
+by doing a mcphas or
+               single ion calculation for different external magnetic field
+               directions and evaluating the expectation value of the magnetic 
+               moment.
+</I></I><PRE>
+     usage: anisotropy -h
+           anisotropy  T H xn yn zn nofsteps [-r sipffilename Hxc1 Hxc2 ... Hxcnofcomponents]
+           anisotropy  T H -p nofthetasteps [-r sipffilename Hxc1 Hxc2 ... Hxcnofcomponents]
+
+     -h           : this (help) message
+      T           : temperature in Kelvin
+      H           : absolute value of the external magnetic field (T)
+      xn,yn,zn    : direction normal to plane, in which the anisotropy
+                    should be calculated ... e.g. if you want to
+                    calculate the anisotropy in the xy plane, then
+                    enter xn yn zn = 0 0 1
+      nofsteps    : number of steps to be calculated 
+     -p           : calculate polycrystal average
+      nofthetastepssteps    : number of theta steps to be calculated for polycrystal average
+
+    option:
+    -r sipffilename: filename of single ion parameter file
+                      Hxc1,Hxc2,... are the exchange field components (meV)
+                     (exchange field is kept constant, external magnetic
+                     field is rotated in the anisotropy calculation)
+
+    output files:
+
+    ./results/anisotropy.out  contains anisotropy information
+</PRE><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">cfsplit<A ID="5275"></A><A ID="cfsplit"></A>:</STRONG></DT>
+<DD> Calculates via group theory, the multiplicity of crystal field split levels 
+for particular point symmetries. The command is: "<I CLASS="slanted">cfsplit <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1176.svg"
+ ALT="$\langle$"></SPAN>PTGP<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1177.svg"
+ ALT="$\rangle$"></SPAN> <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1176.svg"
+ ALT="$\langle$"></SPAN>J<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1177.svg"
+ ALT="$\rangle$"></SPAN></I>"
+where <I CLASS="slanted"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1176.svg"
+ ALT="$\langle$"></SPAN>PTGP<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1177.svg"
+ ALT="$\rangle$"></SPAN></I> is the name of the point group (both Hermman-Maguin and 
+Schoenflies notation are understood), and <I CLASS="slanted"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1176.svg"
+ ALT="$\langle$"></SPAN>J<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1177.svg"
+ ALT="$\rangle$"></SPAN></I> is the half-integer value 
+of the total angular momentum J of the lowest multiplet. E.g. "<I CLASS="slanted">cfsplit Oh 2</I>" gives the 
+familiar cubic Eg/T2g splitting (last line of output).
+See also: <I CLASS="slanted">symhmltn</I> which calculates the allowed two-ion exchange terms for a point group.
+</DD>
+<DT><STRONG><I CLASS="slanted">cif2mcphas<A ID="5285"></A><A ID="cif2mcphas"></A> [options] <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1176.svg"
+ ALT="$\langle$"></SPAN>INPUT.CIF<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1177.svg"
+ ALT="$\rangle$"></SPAN>:</STRONG></DT>
+<DD>
+Creates a set of McPhase input files (mcphas.j, sipfs) from the crystal structure given in a CIF 
+(Crystallographic Information File), with or without user interaction. CIF input files may be obtained 
+from online repositories such as the Inorganic Crystal Structures Database (ICSD), the Crystallography 
+Online Database (COD) or the American Mineralogist Database (AMCSD), or they may be generated by many 
+crystal structures programs, including FullProf. In fully automated mode, the program is invoked with 
+the name of the CIF input file as: "<I CLASS="slanted">cif2mcphas <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1176.svg"
+ ALT="$\langle$"></SPAN>INPUT.CIF<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1177.svg"
+ ALT="$\rangle$"></SPAN></I>". In this case, the
+program tries to guess which crystallographic sites contains magnetic or non-magnetic ions, and what the 
+valence (oxidation state) of that ion is. This information may also be given by the user in interactive
+mode, with the following command: "<I CLASS="slanted">cif2mcphas <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1176.svg"
+ ALT="$\langle$"></SPAN>INPUT.CIF<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1177.svg"
+ ALT="$\rangle$"></SPAN> -i</I>" (e.g. by including
+the switch <I CLASS="slanted">-i</I> (or <I CLASS="slanted">&ndash;interactive</I>) before or after the CIF input filename). The online help
+may be access by invoking the program without arguments or with the <I CLASS="slanted">-h</I> (<I CLASS="slanted">&ndash;help</I>) switch.
+Finally, if you do not have a CIF of the structure you want to calculate, you can use the template here:
+</I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I><PRE>
+; Please replace text in square brackets [] with your data
+_cell_length_a                     [a_in_Angstrom]
+_cell_length_b                     [b_in_Angstrom]
+_cell_length_c                     [b_in_Angstrom]
+_cell_angle_alpha                  [alpha_in_degrees]
+_cell_angle_beta                   [beta_in_degrees]
+_cell_angle_gamma                  [gamma_in_degrees]
+; The H-M symbol generally needed by cif2mcphas but some spacegroups
+; which have only one setting can be identified purely by the number.
+; Most orthorhombic or low symmetry spacegroups have multiple centring,
+; origin choices or unique axes which will require an H-M symbol.
+; If this is the case, and you give just the spacegroup number,
+; cif2mcphas may return with an error.
+; If you don't use one of these fields, you must comment it out, by
+; putting a ";" or "#" at the start of the line.
+_symmetry_space_group_name_H-M     [Hermann-Maguin_symbol_with_spaces]
+_symmetry_Int_Tables_number        [SpacegroupNumber]
+; At the end of the file, please list the non-equivalent
+; sites' fractional coordinates of this structure.
+loop_
+_atom_site_label
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+[AtomSite] [x_coord] [y_coord] [z_coord]
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">replacing instances of e.g. [AtomSite] or [x_coord] with the site name and fraction <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img4.svg"
+ ALT="$x$"></SPAN>-coordinate, etc.
+This template can also be generated using the command "<I CLASS="slanted">cif2mcphas -c</I>" or "<I CLASS="slanted">cif2mcphas &ndash;create</I>".
+See also: <I CLASS="slanted">icsdread</I> which downloads and creates a CIF from an entry of the (free) Korean ICSD mirror.
+</I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">For example, this template may be filled with the following information
+</I></I></I></I><PRE>
+_cell_length_a                     3.4891(4)
+_cell_length_b                     4.4898(6)
+_cell_length_c                     6.0033(8)
+_cell_angle_alpha                  90
+_cell_angle_beta                   90
+_cell_angle_gamma                  90
+_space_group_crystal_system        'orthorhombic'
+_symmetry_Int_Tables_number        38
+_symmetry_space_group_name_H-M     'A m m 2'
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+ Tm1 Tm 0.5000 0.0000   0.3850(2)     
+ Ni1 Ni 0.0000 0.0000  -0.0034(3)      
+ C1 C   0.0000 0.349(2) 0.1851(18)     
+; C-C bond charge as 0 0.5 z as C1
+ E1 E 0.0000 0.500(2) C1
+; atomic radii  Tm 227 pm C 170pm  Ni 163pm
+; C-Ni bonds at Ni+(C1-Ni)*163/(163+170)
+ E2 E Nix+(C1x-Ni)*163/(163+170) Ni+(C1-Niy)*163/(163+170)  Ni+(C1-Ni)*163/(163+170)
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">Note that atomic coordinates may also be expressed as formulas, with positions
+from previous lines as variables. In the above example the bond charge of bonding 
+electrons is denoted by the symbol E. The position coordinate is defined relative
+to the position of C1 and Ni. The indices x,y and z refer to the corresponding
+fractional coordinate and can be omitted if the coordinate to be computed
+is the same.
+</I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><EM>Options:</EM>
+</I></I></I></I><DL>
+<DT><STRONG> -h </STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>&ndash;help</STRONG></DT>
+<DD>prints help message
+ 
+</DD>
+<DT><STRONG>-c</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - create</STRONG></DT>
+<DD>create cif template without any structure information
+</DD>
+<DT><STRONG>-i</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - interactive</STRONG></DT>
+<DD>no automatic guess of pointcharges, magnetic configurations etc. 
+</DD>
+<DT><STRONG>-pc 3.6</STRONG></DT>
+<DD>do point charge calculation including charges up to 3.6 Angstroms.
+</DD>
+<DT><STRONG>-ch</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - charges</STRONG></DT>
+<DD>input charges to override defaults, e.g. -pc 5.6 -ch O=-2,Ce=+3,Pd=+2
+</DD>
+<DT><STRONG>-sp       </STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - savepcfile</STRONG></DT>
+<DD>save the .pc files with list of neighbouring ions in results/ (default is to not save these but to use coordinates internally only). If -pc is not specified, this option has no effect.
+</DD>
+<DT><STRONG>-sc       </STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - savecharges </STRONG></DT>
+<DD>store pointcharge coordinates in sipf file
+</DD>
+<DT><STRONG>-s       </STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - supercell</STRONG></DT>
+<DD>creates a super-cell of size #x#x#. (e.g. -s 2x3x4).
+</DD>
+<DT><STRONG>-rp        </STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - readpcfile</STRONG></DT>
+<DD>don't regenerate point charge coordinates but reread them from 
+the saved .pc files in results/ - this option is intended so that users can 
+modify the charges in the .pc file (e.g. by the program <I CLASS="slanted">setvariable</I><A ID="5307"></A>)
+ and regenerate the CF parameters 
+from the new charges. (You don't have to specify -pc with this option).
+</DD>
+<DT><STRONG>-nm</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - nonmagnetic</STRONG></DT>
+<DD>set nonmagnetic ion overrideing default, e.g. -nm Cu
+   
+</DD>
+<DT><STRONG>-m</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - magnetic</STRONG></DT>
+<DD>set magnetic ion overrideing default, e.g. -m Cu
 
 <P>
-The charge density operator for an electron system is given by a sum of delta
- functions on the location of the individual electrons in a system carrying
-an elementary charge <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img103.svg"
- ALT="$e$"></SPAN>:
-
+</DD>
+<DT><STRONG>-so       </STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - so1ion</STRONG></DT>
+<DD>force all ions to use so1ion
+</DD>
+<DT><STRONG>-ic        </STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - ic1ion</STRONG></DT>
+<DD>force all ions to use ic1ion
+</DD>
+<DT><STRONG>-ph        </STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - phonon</STRONG></DT>
+<DD>force all ions to use phonon
+</DD>
+<DT><STRONG>-sf </STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>- - screenfile</STRONG></DT>
+<DD>apply screening function to charges for calculation of crystal field parameters,
+                           e.g. <I CLASS="slanted">-sf sf.r</I> reads file <I CLASS="slanted">sf.r</I>, with column 1 r(Å),
+ column 2  screeningfactor for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.39ex; vertical-align: -0.69ex; " SRC="img1178.svg"
+ ALT="$B_2^m$"></SPAN>, column 3 screeningfactor for<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.39ex; vertical-align: -0.69ex; " SRC="img1179.svg"
+ ALT="$B_4^m$"></SPAN>, and column 4
+screeningfactor for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.39ex; vertical-align: -0.69ex; " SRC="img1180.svg"
+ ALT="$B_6^m$"></SPAN>.
+</DD>
+</DL><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I>
 <P>
-
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">Default is to create sipf files with so1ion module for f-electrons and ic1ion module for d-electrons
+and phonon module for nonmagnetic ions.
+ The <I CLASS="slanted">-so</I> and <I CLASS="slanted">-ic</I> options have no effect unless either <I CLASS="slanted">-pc</I>
+ or <I CLASS="slanted">-rp</I> is specified.
+<I CLASS="slanted">-so</I> takes precedent over <I CLASS="slanted">-ic</I> (e.g. 
+when typing <I CLASS="slanted">cif2mcphas -rp -so -ic file.cif</I> the program will ignore the
+<I CLASS="slanted">-ic</I> and force all ions to use so1ion).
+</I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">Some examples of the syntax are:
+</I></I></I></I><PRE>
+cif2mcphas -pc 3.5 ermno3.cif
+cif2mcphas -pc 3.5 -sp ermno3.cif
+cif2mcphas -rp ermno3.cif
+cif2mcphas -pc 3.5 -so ermno3.cif
+cif2mcphas -rp -ic ermno3.cif
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">cpsingleion<A ID="5321"></A><A ID="cpsingleion"></A> 10 100 1 file.levels.cef [options]: </STRONG></DT>
+<DD> 
+By runnning <I CLASS="slanted">singleion</I> some file.levels.cef is created in folder results.
+The <I CLASS="slanted">cpsingleion</I> program may then be used. It
+calculates the specific heat in the temperature 
+interval 10-100 K with a step width
+of 1 K. Alternatively a comparison to experimental data can be made by <I CLASS="slanted">cpsingleion 1 2 
+cpexp.dat file.levels.cef</I>,
+where the temperatures are given in column 1 and the experimental specific heat in column
+2 of file cpexp.dat. The calculated specific heat is compared to the experimental data and
+a standard deviation <EM>sta</EM> is calculated and output is written to stdout.
+Other quantities can be calculated using the options: -s  (calculate entropy  (J/molK) instead of cp),
+-f (calculate free energy (J/mol) instead of cp),-u  (calculate magnetic energy (J/mol) instead of cp),
+-z (calculate partition sum instead of cp)
+</DD>
+<DT><STRONG><I CLASS="slanted">cpso1ion 10 100 1 [options]: </STRONG></DT>
+<DD>same as <I CLASS="slanted">cpsingleion</I> but for output of program
+so1ion (no file.levels.cef required, takes values from so1ion.out) .
+</DD>
+<DT><STRONG><I CLASS="slanted">cpic1ion 10 100 1 [options]:</I></STRONG></DT>
+<DD>same as <I CLASS="slanted">cpsingleion</I> but for output of program
+ic1ion (no file.levels.cef required, takes values from ic1ion.out) .
+</DD>
+<DT><STRONG><I CLASS="slanted">cpicf1ion 10 100 1 [options]:</I></STRONG></DT>
+<DD>same as <I CLASS="slanted">cpsingleion</I> but for output of program
+icf1ion (no file.levels.cef required, takes values from icf1ion.out) .
+</DD>
+<DT><STRONG><I CLASS="slanted">epsdebye<A ID="5337"></A><A ID="epsdebye"></A> Tmax dT Tdebye scale [d1 d2 datafile]:</STRONG></DT>
+<DD>	        
+		    calculates the phonon induced strain <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img97.svg"
+ ALT="$\epsilon$"></SPAN> using the debye model
+		    according to the following formula:
+		    <!-- MATH
+ $\epsilon=S*T*D(\Theta_{D}/T)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1181.svg"
+ ALT="$\epsilon=S*T*D(\Theta_{D}/T) $"></SPAN>
+				    with    
+		    <!-- MATH
+ $D(z)=\frac{3}{z^3}\int_0^z \frac{x^3 dx}{e^x-1}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.58ex; vertical-align: -1.11ex; " SRC="img1182.svg"
+ ALT="$D(z)=\frac{3}{z^3}\int_0^z \frac{x^3 dx}{e^x-1}$"></SPAN>
+                 Range is from zero to Tmax in stepwidths dT
+		 unless a datafile is given. 
+                 If a  datafile is given, with data column d1 and d2,the strain
+                 is calculated for T-values of data column d1 and epsilon
+		  is compared to data in column d2 - a standard 
+                 deviation sta is calculated as a sum of squared deviations.
+                 As output the datafile is given, an additional is column added 
+		 containing the calculated strain epsilon. The datafile has to
+		 be sorted according to descending T values !!!
+                 output is written to stdout.
+</DD>
+<DT><STRONG><I CLASS="slanted">extendunitcell<A ID="5348"></A><A ID="extendunitcell"></A> n1 n2 n3</STRONG></DT>
+<DD>program to extend crystallographic unit cell n 
+                times in r1 (or r2,r3) direction, meaning take mcphas.j, mcphas.tst 
+                and mcdiff<A ID="5350"></A>.in and generate an extended description of the unit cell 
+                n1xr1,n2xr2,n3xr3 put result into extend.j, extend.tst and extend.in
+</DD>
+<DT><STRONG><I CLASS="slanted">fermicol<A ID="5351"></A><A ID="fermicol"></A> col T filename</STRONG></DT>
+<DD> calculates the Fermifunction from energy in column col.
+</I></I></I></I></I></I></I></I></I><DL>
+<DT><STRONG>col</STRONG></DT>
+<DD>column containing energy values (eV) relative to EF
+ 
+</DD>
+<DT><STRONG>T</STRONG></DT>
+<DD>temperature (K)
+ 
+</DD>
+<DT><STRONG>filename</STRONG></DT>
+<DD>file name
+</DD>
+</DL><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">fitfermi<A ID="5358"></A><A ID="fitfermi"></A> T EF fwhm min max filename</I></STRONG></DT>
+<DD>fits a (Gaussian convoluted) Fermi function to data in file
+</I></I></I></I></I></I></I></I></I><DL>
+<DT><STRONG>T</STRONG></DT>
+<DD>Temperature (K)
+</DD>
+<DT><STRONG>EF</STRONG></DT>
+<DD>initial value of Fermi Energy (eV)
+</DD>
+<DT><STRONG>fwhm</STRONG></DT>
+<DD>initial vlaue for resolution (eV) (if less than zero the fwhm is not fitted and set to |fwhm|)
+</DD>
+<DT><STRONG>min max</STRONG></DT>
+<DD>energy range of fit (may be less than range of experimental data points)
+</DD>
+<DT><STRONG>filename</STRONG></DT>
+<DD>filename (col 1 is energy in eV and col 2 intensity)
+</DD>
+</DL><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+The fermifunction is defined as
+      <!-- MATH
+ $f(E)=b+l(E-EF)+[d+k(E-EF)]/(\exp((E-EF)/kT)+1)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1183.svg"
+ ALT="$f(E)=b+l(E-EF)+[d+k(E-EF)]/(\exp((E-EF)/kT)+1)$"></SPAN>, the function
+      <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1184.svg"
+ ALT="$f(E)$"></SPAN> is convoluted with a Gaussian function of given fwhm
+            and the  result is compared to experimental data.
+</I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">output:  files can be found in directory results, filename.fit is created with fitted function and parameter values
+</DD>
+<DT><STRONG><I CLASS="slanted">formfactor<A ID="5362"></A> *.sipf</I></STRONG></DT>
+<DD> program to calculate the neutron magnetic formfactor
+from the formfactor coefficients in the single ion parameter file *.sipf. If a radial wave function is given in *.sipf
+then the formfactorand the expectation values of the spherical Bessel functions  are evaluated by integration
+with this radial wave function (see appendix <A HREF="node164.html#ffacts">J</A>).
+</DD>
+<DT><STRONG><I CLASS="slanted">icsdread<A ID="5367"></A><A ID="icsdread"></A> <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1176.svg"
+ ALT="$\langle$"></SPAN>ICSD_ID<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1177.svg"
+ ALT="$\rangle$"></SPAN> <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.57ex; vertical-align: -0.21ex; " SRC="img210.svg"
+ ALT="$&gt;$"></SPAN> INPUT.CIF</I></STRONG></DT>
+<DD>
+Program to create a CIF (Crystallographic Information File) from the contents of a webpage on the (free)
+Korean Inorganic Crystal Structures Database (ICSD) mirror (http://icsd.kisti.re.kr/) which is automatically 
+downloaded when the corresponding ICSD ID is given as input. This requires an internet connection. If the 
+webpage corresponding to this ICSD entry was previously downloaded, the filename can be given as input instead
+and the program will read from this file. Output is sent to the console so should be redirected into a file
+using the <I CLASS="slanted"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.57ex; vertical-align: -0.21ex; " SRC="img210.svg"
+ ALT="$&gt;$"></SPAN></I> operator for futher use, for example to set up McPhase input files using <I CLASS="slanted">cif2mcphas</I>
+</I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">jjj2j:</STRONG></DT>
+<DD>transforms file of <I CLASS="slanted">mcphas.jjj</I> format to <I CLASS="slanted">mcphas.j<A ID="5375"></A></I> format
+- output is written to stdout
+</I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">makenn 23.3[options]:</I></STRONG></DT>
+<DD><A ID="makenn"></A>  Program to calculate neighbors of atoms given a crystal structure.
+Note that in order to use <I CLASS="slanted">makenn<A ID="5381"></A></I> you have to set up a 
+working <I CLASS="slanted">mcphas.j<A ID="5382"></A></I> file with the crystal structure. 
+The program <I CLASS="slanted">makenn<A ID="5383"></A></I> takes <I CLASS="slanted">mcphas.j<A ID="5384"></A></I> and
+creates all neighbours within a sphere of distance 23.3Å, for every neighbour the classical
+dipole interaction <!-- MATH
+ $J_{\alpha\beta}(\vec R =\vec R_j - \vec R_i)=\frac{\mu_0}{4\pi} g_{J_i} g_{J_j} \mu_B^2 \frac{3R_{\alpha}R_{\beta}-\delta_{\alpha\beta}R^2}{R^5}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.67ex; vertical-align: -0.92ex; " SRC="img1185.svg"
+ ALT="$J_{\alpha\beta}(\vec R =\vec R_j - \vec R_i)=\frac{\mu_0}{4\pi} g_{J_i} g_{J_j} \mu_B^2 \frac{3R_{\alpha}R_{\beta}-\delta_{\alpha\beta}R^2}{R^5}$"></SPAN>
+(the factor <!-- MATH
+ $\frac{\mu_0}{4\pi}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.76ex; vertical-align: -0.92ex; " SRC="img1186.svg"
+ ALT="$\frac{\mu_0}{4\pi}$"></SPAN> is necessary in SI units)
+ is calculated and is stored in file <I CLASS="slanted">makenn.j</I>. If the exchange parameters 
+(and neighbour positions) are not known for your system, you can use this module 
+to generate a list of nearest neighbours and exchange parameters. Currently implemented 
+ are not only dipolar interactions, but also exchange interactions via the Bethe-Slater 
+curve or the RKKY model. 
+</I></I></I></I></I></I></I></I></I></I><DL>
+<DT><STRONG>option <I CLASS="slanted">-rkky A(meV) kf(1/A)</I></STRONG></DT>
+<DD>calculates the rkky interaction according to <!-- MATH
+ $J(R)=A %%@
+\cos(2 k_f R)/(2 k_f R)^3$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -0.78ex; " SRC="img1187.svg"
+ ALT="$J(R)=A %%@
+\cos(2 k_f R)/(2 k_f R)^3$"></SPAN>
+</DD>
+<DT><STRONG>option <I CLASS="slanted">-rkky3d A(meV) kx(1/A) ky(1/A) kz(1/A)</I></STRONG></DT>
+<DD>calculates the rkky interaction according to <!-- MATH
+ $J(R)=A cos(2 \kappa)/(2 \kappa)^3$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.70ex; " SRC="img1188.svg"
+ ALT="$J(R)=A cos(2 \kappa)/(2 \kappa)^3$"></SPAN> with <!-- MATH
+ $\kappa^2=k_x^2 R_x^2 + k_y^2 R_y^2 + %%@
+k_z^2 R_z^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -1.01ex; " SRC="img1189.svg"
+ ALT="$\kappa^2=k_x^2 R_x^2 + k_y^2 R_y^2 + %%@
+k_z^2 R_z^2$"></SPAN>
+</DD>
+<DT><STRONG>option <I CLASS="slanted">-rkkz A(meV) kf(1/A)</I></STRONG></DT>
+<DD>calculates the rkky interaction according to <!-- MATH
+ $J(R)=A %%@
+(\sin(2 k_f R)- 2 k_f R \cos(2 k_f R))/(2 k_f R)^4$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -0.78ex; " SRC="img1190.svg"
+ ALT="$J(R)=A %%@
+(\sin(2 k_f R)- 2 k_f R \cos(2 k_f R))/(2 k_f R)^4$"></SPAN>, scaling A&gt;0, kf should be the Fermi wavevector (see 5.7.35 in 
+	      [<A
+ HREF="node179.html#jensen91-1">1</A>])
+</DD>
+<DT><STRONG>option <I CLASS="slanted">-rkkz3d A(meV) kx(1/A) ky(1/A) kz(1/A)</I></STRONG></DT>
+<DD>calculates the rkky interaction according to <!-- MATH
+ $J(R)=A (\sin(2 \kappa)- 2 \kappa \cos(2 \kappa))/(2 \kappa)^4$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.70ex; " SRC="img1191.svg"
+ ALT="$J(R)=A (\sin(2 \kappa)- 2 \kappa \cos(2 \kappa))/(2 \kappa)^4$"></SPAN> with <!-- MATH
+ $\kappa^2=k_x^2 %%@
+R_x^2 + k_y^2 R_y^2 + k_z^2 R_z^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -1.01ex; " SRC="img1192.svg"
+ ALT="$\kappa^2=k_x^2 %%@
+R_x^2 + k_y^2 R_y^2 + k_z^2 R_z^2$"></SPAN>
+</DD>
+<DT><STRONG>option <I CLASS="slanted">-kaneyoshi A(meV) D(A) alpha</I></STRONG></DT>
+<DD>calculates the Kaneyoshi parametrisation for the Bethe-Slater
+                               curve: <!-- MATH
+ $J(R)= A [-(R/D)^2+(R/D)^4]exp[-\alpha (R/D)^2]$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.70ex; " SRC="img1193.svg"
+ ALT="$J(R)= A [-(R/D)^2+(R/D)^4]exp[-\alpha (R/D)^2]$"></SPAN> with <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1194.svg"
+ ALT="$D$"></SPAN> corresponding
+                               to the orbital radius
+</DD>
+<DT><STRONG>option <I CLASS="slanted">-kaneyoshi3d A(meV) Dx(A) Dy(A) Dz(A) alpha</I></STRONG></DT>
+<DD>calculates the Kaneyoshi parametrisation for the Bethe-Slater
+                               curve: <!-- MATH
+ $J(R)= A [-\rho^2+\rho^4]\exp[-\alpha \rho^2]$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.70ex; " SRC="img1195.svg"
+ ALT="$J(R)= A [-\rho^2+\rho^4]\exp[-\alpha \rho^2]$"></SPAN> with <!-- MATH
+ $\rho^2=R_x^2/D_x^2+R_y^2/D_y^2+R_z^2/D_z^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.00ex; vertical-align: -1.01ex; " SRC="img1196.svg"
+ ALT="$\rho^2=R_x^2/D_x^2+R_y^2/D_y^2+R_z^2/D_z^2$"></SPAN>
+</DD>
+<DT><STRONG>option <I CLASS="slanted">option -bvk filename</I></STRONG></DT>
+<DD>for phonon take Born van Karman model with longitudinal and
+              transversal spring constants from file - file format:
+             <PRE>#  atom_i_sipf atom_j_sipf bondlength(A) long(N/m) trans(N/m) 
+Ce1.sipf  Ce1.sipf  +4.0 200.9 100.0
+Ce1.sipf  Ce1.sipf  +4.7 70.9 0.0
+</PRE>
+              mind: into MODPAR2-6 in <I CLASS="slanted">*.sipf</I> the Einstein-oscillator parameters
+              are written, too.
+              Longitudinal/Transversal springs are described by <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img689.svg"
+ ALT="$c_L$"></SPAN>/<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img690.svg"
+ ALT="$c_T$"></SPAN>, respectively and
+              the energy is given by
+<BR>
 <DIV CLASS="displaymath">
 
 <!-- MATH
- \begin{equation}
-\hat\rho(\mathbf r) = \sum_i -|e| \delta(\mathbf r_i - \mathbf r)
-\end{equation}
+ \begin{eqnarray}
+H &=& \sum_{ij} \frac{c_L(ij)-c_T(ij)}{2|\mathbf \mathbf R_{ij}|^2} (\mathbf P_i . \mathbf R_{ij}- \mathbf P_j . \mathbf R_{ij})^2
+       + \frac{c_T(ij)}{2} (\mathbf P_i - \mathbf P_j )^2 
+\end{eqnarray}
  -->
- &nbsp;  <IMG
- STYLE="height: 5.62ex; vertical-align: -3.09ex; " SRC="img1336.svg"
- ALT="$\displaystyle \hat\rho(\mathbf r) = \sum_i -\vert e\vert \delta(\mathbf r_i - \mathbf r)
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">201</SPAN>)</SPAN>
-</DIV> 
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img1197.svg"
+ ALT="$\displaystyle H$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 6.81ex; vertical-align: -3.40ex; " SRC="img1198.svg"
+ ALT="$\displaystyle \sum_{ij} \frac{c_L(ij)-c_T(ij)}{2\vert\mathbf \mathbf R_{ij}\ver...
+...thbf P_j . \mathbf R_{ij})^2
++ \frac{c_T(ij)}{2} (\mathbf P_i - \mathbf P_j )^2$"></TD><TD class="rfill">(<SPAN CLASS="arabic">161</SPAN>)</TD></TR>
+</TABLE></DIV>
+Fig.&nbsp;<A HREF="node74.html#figbvk">18</A> shows the Born-van-Karman
+model definition of longitudinal springs <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img689.svg"
+ ALT="$c_L$"></SPAN> and transversal
+springs <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img690.svg"
+ ALT="$c_T$"></SPAN>.
+               Omit filename to create a sample file with
+              longitudinal springs calculated according to <!-- MATH
+ $C_L(ij)=25 \exp(-0.1*r^2_{ij}/\AA^2)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.17ex; vertical-align: -1.04ex; " SRC="img1199.svg"
+ ALT="$C_L(ij)=25 \exp(-0.1*r^2_{ij}/\AA^2)$"></SPAN>&nbsp;N/m.
+	      Output: file <I CLASS="slanted">makenn.Cel</I> is created containing just the elastic constants.
 
 <P>
-Using spherical coordinates the delta function in this expression can be rewritten as
-
-<P>
-
+</DD>
+<DT><STRONG>option <I CLASS="slanted">option -cfph [screeningfile.r] [-r]</I></STRONG></DT>
+<DD>calculate crystal field phonon interaction: <I CLASS="slanted">mcphas.j</I> lists 
+              magnetic and non magnetic atoms with charges defined in the 
+              sipf files by <I CLASS="slanted">CHARGE= variable</I>. For magnetic atoms the sipf 
+              file the variable <I CLASS="slanted">MAGNETIC=1</I> has to be set and information 
+              about the ion has to be present (<I CLASS="slanted">IONTYPE</I> etc.). 
+              For each magnetic ion a new site is created resembling the magnetic 
+	      electron charge cloud and this new site is shifted
+              0.1 Å along <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img5.svg"
+ ALT="$c$"></SPAN> in order to not overlap with the original site.
+              For option [-r] the original site sipf file is replaced automatically
+	      to use an sipf file with the <I CLASS="slanted">MODULE=phonon</I> similar to all the other
+              non magnetic sites (which should have a <I CLASS="slanted">MODULE=phonon</I>). 
+              For the new magnetic site the program
+              <I CLASS="slanted">pointc</I> is used by <I CLASS="slanted">makenn</I> with option -d to calculate derivatives
+              <!-- MATH
+ $\partial B_{lm}/\partial u$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1200.svg"
+ ALT="$\partial B_{lm}/\partial u$"></SPAN> which are inserted as interaction 
+              parameters between <I CLASS="slanted">MODULE=phonon</I> and <I CLASS="slanted">MODULE=so1ion</I> sites.
+              In order to use the resulting file <I CLASS="slanted">resultsmakenn.j</I> a phonon
+              model has to be set up,  
+              and the phonon model has to be added to <I CLASS="slanted">makenn.j</I>,  e.g. by
+              program <I CLASS="slanted">addj</I>. Moreover, magnetic sites sipf files are required, 
+              which are created in <I CLASS="slanted">results/makenn.a*.sipf</I>. 
+              Note: A screening file can be used to define distance dependent 
+              screening of charges for the pointcharge model calculation
+              format: col1 distance r (Å), col 2 screening factor 
+              for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.39ex; vertical-align: -0.69ex; " SRC="img1178.svg"
+ ALT="$B_2^m$"></SPAN>, col 3 for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.39ex; vertical-align: -0.69ex; " SRC="img1179.svg"
+ ALT="$B_4^m$"></SPAN> and col 4 for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.39ex; vertical-align: -0.69ex; " SRC="img1180.svg"
+ ALT="$B_6^m$"></SPAN>
+</DD>
+<DT><STRONG>option <I CLASS="slanted">option -f [filename]</I></STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>option <I CLASS="slanted">option -dm [filename]</I></STRONG></DT>
+<DD>read interaction constants from table in file. 
+              Use -f for isotropic interactions between momentum <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.46ex; " SRC="img1201.svg"
+ ALT="$\mathbf J_i$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img1202.svg"
+ ALT="$\mathbf J_j$"></SPAN>
+              at positions <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.76ex; vertical-align: -0.12ex; " SRC="img322.svg"
+ ALT="$i$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.21ex; vertical-align: -0.57ex; " SRC="img324.svg"
+ ALT="$j$"></SPAN>
+<BR>
 <DIV CLASS="displaymath">
 
 <!-- MATH
- \begin{equation}
-\delta(\mathbf r_i - \mathbf r) = \frac{1}{r^2}\delta(r-r_i) \delta(\Omega- \Omega_i)
-\end{equation}
+ \begin{eqnarray}
+\mathcal J \mathbf J_i . \mathbf J_j &  = & \mathbf J_i.
+\left( \begin{array}{ccc}
+ \mathcal J &  0 & 0\\
+0 &   \mathcal J & 0 \\
+0 &  0 &  \mathcal J \\
+\end{array}
+\right) .\mathbf J_j
+\end{eqnarray}
  -->
- &nbsp;  <IMG
- STYLE="height: 4.88ex; vertical-align: -1.71ex; " SRC="img1337.svg"
- ALT="$\displaystyle \delta(\mathbf r_i - \mathbf r) = \frac{1}{r^2}\delta(r-r_i) \delta(\Omega- \Omega_i)
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">202</SPAN>)</SPAN>
-</DIV> 
-
-<P>
-The delta function of spherical harmonics can be expressed by spherical and tesseral harmonic
- functions (see appendix&nbsp;<A HREF="node142.html#tesseral">F</A>):
-
-<P>
-
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img1203.svg"
+ ALT="$\displaystyle \mathcal J \mathbf J_i . \mathbf J_j$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 8.56ex; vertical-align: -3.72ex; " SRC="img1204.svg"
+ ALT="$\displaystyle \mathbf J_i.
+\left( \begin{array}{ccc}
+\mathcal J &amp; 0 &amp; 0\\
+0 &amp; \mathcal J &amp; 0 \\
+0 &amp; 0 &amp; \mathcal J \\
+\end{array}\right) .\mathbf J_j$"></TD><TD class="rfill">(<SPAN CLASS="arabic">162</SPAN>)</TD></TR>
+</TABLE></DIV>
+and -dm for Dzyaloshinski Moriya interactions:
+<BR>
 <DIV CLASS="displaymath">
 
 <!-- MATH
- \begin{equation}
-\delta(\Omega- \Omega_i)= \sum_{l,m} Y_l^{m\star}(\Omega_i) Y_l^{m}(\Omega)= \sum_{l,m} Z_l^{m}(\Omega_i) Z_l^{m}(\Omega)
-\end{equation}
+ \begin{eqnarray}
+\mathcal D (\mathbf J_i \times \mathbf J_j )&  = & \mathbf J_i.
+\left( \begin{array}{ccc}
+ 0 &  \mathcal D_z & -\mathcal D_y\\
+-\mathcal D_z &   0 &\mathcal D_x \\
+\mathcal D_y &  -\mathcal D_x &  0 \\
+\end{array}
+\right) .\mathbf J_j
+\end{eqnarray}
  -->
- &nbsp;  <IMG
- STYLE="height: 5.99ex; vertical-align: -3.46ex; " SRC="img1338.svg"
- ALT="$\displaystyle \delta(\Omega- \Omega_i)= \sum_{l,m} Y_l^{m\star}(\Omega_i) Y_l^{m}(\Omega)= \sum_{l,m} Z_l^{m}(\Omega_i) Z_l^{m}(\Omega)
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">203</SPAN>)</SPAN>
-</DIV> 
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img1205.svg"
+ ALT="$\displaystyle \mathcal D (\mathbf J_i \times \mathbf J_j )$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 8.56ex; vertical-align: -3.72ex; " SRC="img1206.svg"
+ ALT="$\displaystyle \mathbf J_i.
+\left( \begin{array}{ccc}
+0 &amp; \mathcal D_z &amp; -\mathc...
+...al D_x \\
+\mathcal D_y &amp; -\mathcal D_x &amp; 0 \\
+\end{array}\right) .\mathbf J_j$"></TD><TD class="rfill">(<SPAN CLASS="arabic">163</SPAN>)</TD></TR>
+</TABLE></DIV>
+To get an sample file use option -f or -dm without a filename.      
+</DD>
+<DT><STRONG>option <I CLASS="slanted">-d</I></STRONG></DT>
+<DD>puts to the last column the distance of the neighbours (A)
 
 <P>
-Using the above equations and assuming the same radial part <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img895.svg"
- ALT="$R(r)$"></SPAN> of the wave function for all electrons in an unfilled shell the radial integrals in the expectation value of the charge density operator can be substituted by the radial wavefunction <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img895.svg"
- ALT="$R(r)$"></SPAN> and we obtain the expression
+The neigbours of each atom are also stored in seperate files
+<I CLASS="slanted">results/makenn.a*.pc</I>, which can be used with the program <I CLASS="slanted">pointc</I> to evaluate
+the pointcharge model and calculate crystal field paramaters.
 
 <P>
+</DD>
+<DT><STRONG>option <I CLASS="slanted">-npc </I></STRONG></DT>
+<DD>do not keep <I CLASS="slanted">results/makenn.a*.pc</I> files
+</DD>
+<DT><STRONG>option <I CLASS="slanted">-rfunc </I></STRONG></DT>
+<DD>create <I CLASS="slanted">results/makenn.func.r</I> file with distance dependence of
+                rkky and kaneyoshi functions (only for options rkky* and kaneyoshi*)
+</DD>
+<DT><STRONG>option <I CLASS="slanted">-djdx</I></STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>option <I CLASS="slanted">-djdy</I></STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>option <I CLASS="slanted">-djdz </I></STRONG></DT>
+<DD>create files makenn.djdx .djdy .djdz instead of makenn.j, respectively
+ these contain the derivatives of the interaction paramters with respect to
+ displacement of the neighbor in x,y and z direction respectively. These derivatives
+ are useful for the calculation of exchange striction effects. 
 
-<DIV CLASS="displaymath">
-
+<P>
+</DD>
+<DT><STRONG>option <I CLASS="slanted">-djdeps1</I></STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>option <I CLASS="slanted">-djdeps2</I></STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>option <I CLASS="slanted">-djdeps3</I></STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>option <I CLASS="slanted">-djdeps4</I></STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>option <I CLASS="slanted">-djdeps5</I></STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG>option <I CLASS="slanted">-djdeps6 </I></STRONG></DT>
+<DD>create files <I CLASS="slanted">makenn.djdeps1 .djdeps2 ... .djdeps6 </I>
+instead of <I CLASS="slanted">makenn.j</I>, respectively
+ these contain the derivatives of the interaction paramters with respect to
+ the strain tensor components epsilon1, epsilon2 ... epsilon6 (in Voigt Notation) as 
+ calculated from the kf dependence on strain in the rkky formulas.
+ For a spherical Fermi surface <!-- MATH
+ $k_F=(6\pi^2/V)^{1/3}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.87ex; vertical-align: -0.70ex; " SRC="img1207.svg"
+ ALT="$k_F=(6\pi^2/V)^{1/3}$"></SPAN> and thus
 <!-- MATH
- \begin{equation}
-\langle \hat\rho(\mathbf r)\rangle=
-	       -|e|  |R(r)|^2 \sum_{l,m}Z_l^{m}(\Omega) \langle\sum_i Z_l^{m}(\Omega_i)\rangle
-\end{equation}
+ $\partial k_f/\partial \epsilon_1=-k_f/3$
  -->
- &nbsp;  <A ID="chargedensity2"></A><IMG
- STYLE="height: 5.99ex; vertical-align: -3.46ex; " SRC="img1339.svg"
- ALT="$\displaystyle
-\langle \hat\rho(\mathbf r)\rangle=
--\vert e\vert \vert R(r)\vert^2 \sum_{l,m}Z_l^{m}(\Omega) \langle\sum_i Z_l^{m}(\Omega_i)\rangle
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">204</SPAN>)</SPAN>
-</DIV> 
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img1208.svg"
+ ALT="$\partial k_f/\partial \epsilon_1=-k_f/3 $"></SPAN>. 
+ for option
+<DL>
+<DT><STRONG>-rkky</STRONG></DT>
+<DD><!-- MATH
+ $\partial {\mathcal J}/\partial \epsilon_{\alpha} = A[3\cos(2k_fR)+2k_f R \sin(2k_fR)]/24(k_fR)^3$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -0.78ex; " SRC="img1209.svg"
+ ALT="$\partial {\mathcal J}/\partial \epsilon_{\alpha} = A[3\cos(2k_fR)+2k_f R \sin(2k_fR)]/24(k_fR)^3$"></SPAN> for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img79.svg"
+ ALT="$\alpha=1,2,3$"></SPAN>.
+</DD>
+<DT><STRONG>-rkkz</STRONG></DT>
+<DD><!-- MATH
+ $\partial {\mathcal J}/\partial \epsilon_{\alpha} =  A[(1-(k_fR)^2)\sin(2k_fR)-2k_fR.\cos(2k_fR)]/(12(k_fR)^4)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -0.78ex; " SRC="img1210.svg"
+ ALT="$\partial {\mathcal J}/\partial \epsilon_{\alpha} = A[(1-(k_fR)^2)\sin(2k_fR)-2k_fR.\cos(2k_fR)]/(12(k_fR)^4)$"></SPAN> for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img79.svg"
+ ALT="$\alpha=1,2,3$"></SPAN>.
+</DD>
+</DL>
 
 <P>
-If higher multiplets are neglected, 
-the expectation values of tesseral harmonics at the right side of equation (<A HREF="#chargedensity2">220</A>) can
-be rewritten using the operator equivalent method by Stevens[<A
- HREF="node163.html#hutchings64-227">26</A>]:
-
-<P>
-
-<DIV CLASS="displaymath">
-
+For an orthorhombic distorted Fermi sphere the volume is <!-- MATH
+ $4\pi k_x k_y k_z/3=8\pi^3/V$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.78ex; vertical-align: -0.78ex; " SRC="img1211.svg"
+ ALT="$4\pi k_x k_y k_z/3=8\pi^3/V$"></SPAN> and
+it follows <!-- MATH
+ $dk_x/k_x+dk_y/k_y+dk_z/k_z=V d(1/V)=-dV/V$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img1212.svg"
+ ALT="$dk_x/k_x+dk_y/k_y+dk_z/k_z=V d(1/V)=-dV/V$"></SPAN>. Here we have assumed that the strain will not change
+the effective electron mass and band structure significantly and the change in <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.50ex; vertical-align: -0.78ex; " SRC="img1213.svg"
+ ALT="$k_x,k_y,k_z$"></SPAN> will be
+only due to the change in electron density which is correlated to a change density of electron states in k-space.
+In this case  <!-- MATH
+ $dk_x/k_x=dk_y/k_y=dk_z/k_z=-(d\epsilon_1+d\epsilon_2+d\epsilon_3)/3$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img1214.svg"
+ ALT="$dk_x/k_x=dk_y/k_y=dk_z/k_z=-(d\epsilon_1+d\epsilon_2+d\epsilon_3)/3$"></SPAN> and 
 <!-- MATH
- \begin{equation}
-\langle\sum_i Z_l^{m}(\Omega_i)\rangle = |p_{lm}| \theta_{l} \langle O_l^m(\mathbf J)\rangle_T
-\end{equation}
+ $\partial k_x/\partial \epsilon_{\alpha}=-k_x/3$
  -->
- &nbsp;  <A ID="chargedensity_coefficients"></A><IMG
- STYLE="height: 5.62ex; vertical-align: -3.09ex; " SRC="img1340.svg"
- ALT="$\displaystyle
-\langle\sum_i Z_l^{m}(\Omega_i)\rangle = \vert p_{lm}\vert \theta_{l} \langle O_l^m(\mathbf J)\rangle_T
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">205</SPAN>)</SPAN>
-</DIV> 
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1215.svg"
+ ALT="$\partial k_x/\partial \epsilon_{\alpha}=-k_x/3$"></SPAN> for <!-- MATH
+ ${\alpha}=1,2,3$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img1216.svg"
+ ALT="${\alpha}=1,2,3$"></SPAN> and similar for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.50ex; vertical-align: -0.78ex; " SRC="img1217.svg"
+ ALT="$k_y$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img1218.svg"
+ ALT="$k_z$"></SPAN>.
+We calculate
+<!-- MATH
+ $\partial J/\partial \epsilon_1=\partial J/\partial \kappa \partial \kappa/\partial \epsilon_1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1219.svg"
+ ALT="$\partial J/\partial \epsilon_1=\partial J/\partial \kappa \partial \kappa/\partial \epsilon_1$"></SPAN>
+and 
+<!-- MATH
+ $\partial \kappa/\partial \epsilon_1=\partial \kappa/\partial k_x \partial k_x/\partial \epsilon_1
++\partial \kappa/\partial k_y \partial k_y/\partial \epsilon_1
++\partial \kappa/\partial k_z \partial k_z/\partial \epsilon_1=
+        = -\kappa/3$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img1220.svg"
+ ALT="$\partial \kappa/\partial \epsilon_1=\partial \kappa/\partial k_x \partial k_x/\...
+...
++\partial \kappa/\partial k_z \partial k_z/\partial \epsilon_1=
+= -\kappa/3 $"></SPAN>
+and similar for <!-- MATH
+ $\epsilon_2, \epsilon_3$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img1221.svg"
+ ALT="$\epsilon_2, \epsilon_3$"></SPAN>.
+Thus for options
+<DL>
+<DT><STRONG>-rkky3d</STRONG></DT>
+<DD><!-- MATH
+ $\partial {\mathcal J}/\partial d\epsilon_{\alpha}  = A[3 \cos(2\kappa) + 2\kappa \sin(2\kappa)]/(24\kappa^3)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.70ex; " SRC="img1222.svg"
+ ALT="$\partial {\mathcal J}/\partial d\epsilon_{\alpha} = A[3 \cos(2\kappa) + 2\kappa \sin(2\kappa)]/(24\kappa^3)$"></SPAN> for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.21ex; vertical-align: -0.57ex; " SRC="img1223.svg"
+ ALT="$i=1,2,3$"></SPAN>.
+</DD>
+<DT><STRONG>-rkkz3d</STRONG></DT>
+<DD><!-- MATH
+ $\partial {\mathcal J}/\partial d\epsilon_{\alpha}  = A[(1-\kappa^2 )\sin(2\kappa)-2\kappa \cos(2\kappa)]/(12\kappa^4)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.70ex; " SRC="img1224.svg"
+ ALT="$\partial {\mathcal J}/\partial d\epsilon_{\alpha} = A[(1-\kappa^2 )\sin(2\kappa)-2\kappa \cos(2\kappa)]/(12\kappa^4) $"></SPAN> for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.21ex; vertical-align: -0.57ex; " SRC="img1223.svg"
+ ALT="$i=1,2,3$"></SPAN>.
+</DD>
+</DL>
 
 <P>
-For the notation see [<A
- HREF="node163.html#hutchings64-227">26</A>]:
+These derivatives are useful for the calculation of exchange striction effects. 
+
+<P>
+</DD>
+</DL><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">Note: <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img6.svg"
+ ALT="$xyz$"></SPAN> refers to a right handed Euclidean coordinate system with 
  <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img1341.svg"
- ALT="$p_{nm}$"></SPAN> the pre factors of harmonic tesseral
-functions <!-- MATH
- $Z_{lm}(\Omega)$
+ STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img249.svg"
+ ALT="$y\vert\vert\vec b$"></SPAN>, <!-- MATH
+ $z||(\vec a \times \vec b)$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1342.svg"
- ALT="$Z_{lm}(\Omega)$"></SPAN> as given in table IV in [<A
- HREF="node163.html#hutchings64-227">26</A>] and in appendix&nbsp;<A HREF="node142.html#tesseral">F</A>,
- and <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.19ex; vertical-align: -0.46ex; " SRC="img1343.svg"
- ALT="$\theta_l$"></SPAN>
-corresponds to the number of <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img1344.svg"
- ALT="$4f$"></SPAN> electrons (<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img933.svg"
- ALT="$\nu$"></SPAN>) in the
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img1345.svg"
- ALT="$4f^{\nu}$"></SPAN> configuration for <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1346.svg"
- ALT="$l=0$"></SPAN> and to
- the Stevens factors <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img82.svg"
- ALT="$\alpha$"></SPAN>,<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img1347.svg"
- ALT="$\beta$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img411.svg"
- ALT="$\gamma$"></SPAN> for <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img1348.svg"
- ALT="$l=$"></SPAN>&nbsp;2,4,6, respectively.
-
+ STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img250.svg"
+ ALT="$z\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img4.svg"
+ ALT="$x$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img251.svg"
+ ALT="$y$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img238.svg"
+ ALT="$z$"></SPAN>.
+</DD>
+<DT><STRONG><I CLASS="slanted">mcphas2jvx<A ID="5483"></A> mcphas.j</STRONG></DT>
+<DD>Creates a JavaView input file (by default <I CLASS="slanted">results/mcphas.jvx</I>) which shows the atomic positions 
+and exchange interactions in 3D graphics. It requires a <I CLASS="slanted">mcphas.j</I> type file as input. JavaView can
+then be used to view the output in 3D using: <I CLASS="slanted">javaview results/mcphas.jvx</I>. A specific output file 
+may be given using the <I CLASS="slanted">-o</I> (<I CLASS="slanted">&ndash;output</I>) switch, and for the cluster module the switch <I CLASS="slanted">-i</I> 
+(<I CLASS="slanted">&ndash;individual</I>) can be used to plot individual atoms within a cluster and the intra-cluster exchange 
+interactions. For example, to create the a non-default file with atomic positions of a cluster calculation 
+for viewing with JavaView, <I CLASS="slanted">mcphas2jvx mcphas.j -i -o results/cluster.jvx &amp;&amp; javaview results/cluster.jvx</I> 
+where the double ampersand means to execute the second (<I CLASS="slanted">javaview</I>) command if the first is successful.
+</I></I></I></I></I></I></I></I></I></I></I>
 <P>
-This results in the following expression for the chargedensity:
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I></I></I></I></I></I>
+<DIV class="CENTER"><A ID="mcphas2jvx"></A><A ID="5498"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 31:</STRONG>
+Example of output of mcphas2jvx+JavaView for a normal setup (left, Bi<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>Fe<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img23.svg"
+ ALT="$_4$"></SPAN>O<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img24.svg"
+ ALT="$_9$"></SPAN> with Fe-Fe exchange interactions shown as
+lines) and for a cluster setup (right, trimers in LuMnO<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img25.svg"
+ ALT="$_3$"></SPAN> shown as triangles with blue square block indicating trimer centre; intra-trimer
+exchange shown as purple lines, inter-cluster exchange as black lines). Linewidths are proportional to the strength of the exchange 
+interactions between the linked atoms or clusters.</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+
+<IMG
+ STYLE="height: 38.54ex; vertical-align: -0.12ex; " SRC="img1225.svg"
+ ALT="\includegraphics[angle=0, width=0.4\textwidth]{figsrc/mcphas_jvx.eps}">
+<IMG
+ STYLE="height: 38.54ex; vertical-align: -0.12ex; " SRC="img1226.svg"
+ ALT="\includegraphics[angle=0, width=0.4\textwidth]{figsrc/trimer_jvx.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">pointc<A ID="5501"></A><A ID="pointc"></A>[options] ionname<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>sipffile charge_and_position<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img935.svg"
+ ALT="$\vert$"></SPAN>file.pos:</STRONG></DT>
+<DD>
+Program to calculate Crystal field Parameters from Point Charges 
+</I></I></I></I></I></I></I></I></I></I></I></I><DL>
+<DT><STRONG>example 1: pointc  Ce3+ 0.2 4 1 5.3</STRONG></DT>
+<DD>... calculate Blm (Stevens Parameters) and Llm (Wybourne Parameters) for one point 
+    charge of +0.2<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img878.svg"
+ ALT="$\vert e\vert$"></SPAN> in distance
+                 x=4 Åy=1 Åz=5.3 Åfrom a Ce<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img3.svg"
+ ALT="$^{3+}$"></SPAN> ion. See equation&nbsp;(<A HREF="node84.html#pcmodel">3</A>) and
+appendix&nbsp;<A HREF="node157.html#cfparconventions">E</A> for formulas.
+</DD>
+<DT><STRONG>example 2: pointc Ce3+ file.pos</STRONG></DT>
+<DD>... read several charges+coordinates from file.pos,file format:
+      column 1=charge, column 2-4 = x y z coordinate. (note,program <I CLASS="slanted">makenn</I>
+      creates useful files for this option from the crystal structure).
+</DD>
+<DT><STRONG>example 3: pointc Ce3+ C2.pos 5 6</STRONG></DT>
+<DD>... same as example 2 but reduced charge model,i.e. B2m calculated, with
+     charges in col 1 of C2.pos,B4m and B6m with charges in col 5 and 6, respectively.
+Note: if an ion is not implemented, it's parameters can be 
+                      entered in a single ion property file and <I CLASS="slanted">pointc<A ID="5513"></A></I> is
+                      started as 
+</DD>
+<DT><STRONG>example 4: pointc file.sipf 0.2 4 1 5.3 0.1 0.3</STRONG></DT>
+<DD>... will use <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1227.svg"
+ ALT="$0.2\vert e\vert$"></SPAN> for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.39ex; vertical-align: -0.69ex; " SRC="img1178.svg"
+ ALT="$B_2^m$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1228.svg"
+ ALT="$0.1\vert e\vert$"></SPAN> for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.39ex; vertical-align: -0.69ex; " SRC="img1179.svg"
+ ALT="$B_4^m$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1229.svg"
+ ALT="$0.3\vert e\vert$"></SPAN> for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.39ex; vertical-align: -0.69ex; " SRC="img1180.svg"
+ ALT="$B_6^m$"></SPAN>.
+ ... the first line of the single ion property file.sipf must be
+<PRE>
+ #!MODULE=so1ion
+</PRE>
+The single ion property file must then contain the following
+                      information (# denotes comments):
+<PRE>
+ # file.sipf should contain the following information (# denotes comments):
+ # the name of the ion
+ IONTYPE=Ce3+
+ #Stevens parameters (optional, necessary for output of Blm)
+ ALPHA=-0.0571429 BETA=0.00634921 GAMMA=0
+ # the radial matrix elements RN=&lt;r^N&gt; in units of a0^N (a0=0.5292 A)
+ R2=1.309 R4=3.964 R6=23.31
+ #optional radial wave function parameters, for transition metal ions the the values
+ #are tabulated in Clementi &amp; Roetti Atomic data and nuclear data tables 14 
+ #(1974) 177-478, the radial wave function is expanded as
+ # R(r)=sum_p Cp r^(Np-1) exp(-XIp r)(2 XIp)^(Np+0.5)/sqrt(2Np!)
+ #rare earth:Freeman&amp;Watson PR127(1962)2058,Sovers J.Phys.Chem.Sol.28(1966)1073
+ #e.g. Co2+ is isoelectronic to Fe+, looking at page 422
+ #of Clemente &amp; Roetti the parameters are 
+ N1=3 XI1=4.95296 C1=0.36301 
+ N2=3 XI2=12.2963 C2=0.02707 
+ N3=3 XI3=7.03565 C3=0.14777
+</PRE>
+</DD>
+</DL><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">OUTPUT:
+</I></I></I></I></I></I></I></I></I></I></I></I>
+<UL>
+<LI><I CLASS="slanted">stdout</I> ... sipf file with CEF pars,radial matrix elements,Stevens factors,
+                pointcharges and positions (omit with option -o)
+</LI>
+<LI><I CLASS="slanted">results\pointc.out</I> ...contains results of convergence when summing up
+                 contributions of different neighbours one by one...
+</LI>
+<LI><I CLASS="slanted">results\pointc.Blm</I> ... Crystal field parameters <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img41.svg"
+ ALT="$B_l^m$"></SPAN> in Stevens Notation
+</LI>
+<LI><I CLASS="slanted">results\pointc.Llm</I> ... Crystal field parameters <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img114.svg"
+ ALT="$L_l^m$"></SPAN> in Wybourne Notation
+</LI>
+<LI><I CLASS="slanted">results\pointc.dBlm</I> .. for option -d derivatives <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.62ex; vertical-align: -0.77ex; " SRC="img1230.svg"
+ ALT="$dB_l^m/du$"></SPAN>
+</LI>
+<LI><I CLASS="slanted">results\pointc.dLlm</I> .. for option -d  derivatives <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.62ex; vertical-align: -0.77ex; " SRC="img1231.svg"
+ ALT="$dL_l^m/du$"></SPAN>,
+                  derivatives are with respect to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img1232.svg"
+ ALT="$u=$"></SPAN>neighborposition<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.83ex; vertical-align: -0.70ex; " SRC="img1233.svg"
+ ALT="$(\AA)/a_0$"></SPAN> 
+</LI>
+</UL><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">powdercell2j<A ID="5527"></A> file:</STRONG></DT>
+<DD>     used to create mcphas.j type file from output of powdercell,output is written to mcphas.j.  Example of input file:
+</I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+  No   name       crystal coordinates          cartesian coordinates
+                 x        y        z           x        y        z
+  ------------------------------------------------------------------
+  1     Sr1    0.3644   0.0000   0.2500     1.0962  -4.1497  -2.7991
+  ...
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">radwavfunc<A ID="5533"></A><A ID="radwavfunc"></A> file.sipf:</I></STRONG></DT>
+<DD> program to evaluate the radial wave function
+given by th parametrisation in file.sipf.
+</DD>
+<DT><STRONG><I CLASS="slanted">reduce_unitcell<A ID="5538"></A> [options] mcphas.j:</I></STRONG></DT>
+<DD>
+                This program checks every atom in the unit cell in file mcphas.j and removes
+                any atom, which is connected to another by a lattice vector. Useful for
+                going from a description in an extended unit cell to the primitive unit cell.
+</I></I></I></I></I></I></I></I></I></I></I></I></I><DL>
+<DT><STRONG>Option: -nofcomponents 23</STRONG></DT>
+<DD>fixes the nofcomponents to 23 by 
+                         reducing (removing entries) or increasing (by filling with zeroes) 
+                         the exchange parameter tables
+</DD>
+<DT><STRONG>Option:  -ni </STRONG></DT>
+<DD>forces output without indexchange  
+</DD>
+<DT><STRONG>Option: -delatoms 1,2,5,7 </STRONG></DT>
+<DD>instead of removing atoms connected by a lattice vector 
+ 			remove atoms number 1,2,5 and 7 from the list and also all interactions with those 
+                        Note the following approximation is of limited use and NOT recommended, better 
+                       use -delatoms phon (see below) instead of -delatoms 1,2,...:
+                     <SPAN CLASS="TINY">In case the atoms to be removed have the phonon module, 
+                         effective interactions are introduced between the remaining atoms, in this way the 
+                        crystal field phonon interactions with 4f shells can be treated in an effective way:
+                        Minimizing the energy by setting zero the derivative of the Hamiltonian (<A HREF="node79.html#Htot">134</A>) with respect to the phonon coordinate
+                        <!-- MATH
+ $\hat u_i^{\alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.44ex; vertical-align: -0.72ex; " SRC="img1234.svg"
+ ALT="$\hat u_i^{\alpha}$"></SPAN> and in the spirit of the Einstein model neglecting bilinear terms 
+                        (i.e. <!-- MATH
+ $K_{\alpha\beta}(ij)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img1235.svg"
+ ALT="$K_{\alpha\beta}(ij)$"></SPAN> with <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img1236.svg"
+ ALT="$i \neq j$"></SPAN><A ID="tex2html70"
+  HREF="footnode.html#foot9828"><SUP><SPAN CLASS="arabic">34</SPAN></SUP></A>) in <!-- MATH
+ $K_{\alpha\beta}(ii)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img1237.svg"
+ ALT="$K_{\alpha\beta}(ii)$"></SPAN>,  the phonon displacement <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.37ex; vertical-align: -0.72ex; " SRC="img1238.svg"
+ ALT="$u_i^{\alpha}$"></SPAN>
+                        can be estimated in a mean field approach by 
+   </SPAN>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+K_{\alpha\beta}(ii)u_i^{\beta}=\sum_{j\neq i,\gamma} -\Gamma^{\alpha\gamma}(ij) \langle O_{\gamma}(\hat \mathbf J_j)\rangle - G_{mix}^{\gamma\alpha}(i) \epsilon_{\gamma}
+\end{equation}
+ -->
+ &nbsp;  <A ID="findu"></A><IMG
+ STYLE="height: 3.48ex; vertical-align: -1.13ex; " SRC="img1239.svg"
+ ALT="$\displaystyle
+K_{\alpha\beta}(ii)u_i^{\beta}=\sum_{j\neq i,\gamma} -\Gamma^{...
+...mma}(\hat \mathbf J_j)\rangle - G_{mix}^{\gamma\alpha}(i) \epsilon_{\gamma}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">164</SPAN>)</SPAN>
+</DIV><SPAN CLASS="TINY">
+From <!-- MATH
+ $\overline{K}=\overline{S}^T\overline{\Omega}\overline{S}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.81ex; vertical-align: -0.12ex; " SRC="img646.svg"
+ ALT="$\overline{K}=\overline{S}^T\overline{\Omega}\overline{S}$"></SPAN> (compare equations (<A HREF="node71.html#phonsiham">91</A>) ff.) we compute the inverse 
+<!-- MATH
+ $\overline{K}^{-1}=\overline{S}\overline{\Omega}^{-1}\overline{S}^T$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.81ex; vertical-align: -0.12ex; " SRC="img1240.svg"
+ ALT="$\overline{K}^{-1}=\overline{S}\overline{\Omega}^{-1}\overline{S}^T$"></SPAN>, or in index notation 
+<!-- MATH
+ $K^{-1}_{\alpha\beta}=\sum_{\alpha'=1,2,3}S_{\alpha\alpha'}\Omega^{-1}_{\alpha'\alpha'}S_{\beta\alpha'}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.28ex; vertical-align: -1.13ex; " SRC="img1241.svg"
+ ALT="$K^{-1}_{\alpha\beta}=\sum_{\alpha'=1,2,3}S_{\alpha\alpha'}\Omega^{-1}_{\alpha'\alpha'}S_{\beta\alpha'}$"></SPAN>,
+ and compute <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.37ex; vertical-align: -0.72ex; " SRC="img1238.svg"
+ ALT="$u_i^{\alpha}$"></SPAN> from equation (<A HREF="#findu">175</A>)
+</SPAN>
+<P>
+<SPAN CLASS="TINY"></SPAN>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+u_i^{\alpha}=\sum_{\alpha'\beta=1,2,3}S_{\alpha\alpha'}\Omega^{-1}_{\alpha'\alpha'}S_{\beta\alpha'}\left[\sum_{j\neq i,\gamma} -\Gamma^{\beta\gamma}(ij) \langle O_{\gamma}(\hat \mathbf J_j)\rangle - G_{mix}^{\gamma\beta}(i) \epsilon_{\gamma} \right]
+\end{equation}
+ -->
+ &nbsp;  <A ID="u"></A><IMG
+ STYLE="height: 4.40ex; vertical-align: -1.63ex; " SRC="img1242.svg"
+ ALT="$\displaystyle
+u_i^{\alpha}=\sum_{\alpha'\beta=1,2,3}S_{\alpha\alpha'}\Omega^...
+...hat \mathbf J_j)\rangle - G_{mix}^{\gamma\beta}(i) \epsilon_{\gamma} \right]
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">165</SPAN>)</SPAN>
+</DIV><SPAN CLASS="TINY">
+</SPAN>
+<P>
+<SPAN CLASS="TINY">This expression (<A HREF="#u">176</A>) for  <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.37ex; vertical-align: -0.72ex; " SRC="img1238.svg"
+ ALT="$u_i^{\alpha}$"></SPAN> we substitute
+ into the total Hamiltonian (<A HREF="node79.html#Htot">134</A>). 
+Thus we get an effective multipole interaction contribution and an additional
+magnetoelastic contribution instead of the Einstein term <!-- MATH
+ $K_{\alpha\beta}(ii)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img1237.svg"
+ ALT="$K_{\alpha\beta}(ii)$"></SPAN> and the crystal field 
+phonon interaction <!-- MATH
+ $\Gamma^{\alpha\gamma}(ij)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1243.svg"
+ ALT="$\Gamma^{\alpha\gamma}(ij) $"></SPAN> and the mixing term <!-- MATH
+ $G_{mix}^{\gamma\alpha}(i)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.76ex; " SRC="img1244.svg"
+ ALT="$G_{mix}^{\gamma\alpha}(i)$"></SPAN>:
+ </SPAN>
+<BR>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{eqnarray}
+\hat H_{\rm tot}&=& \dots + \frac{1}{2}\sum_{\alpha'\beta\beta',i \neq jj',\gamma\gamma'=1,\dots}
+  \frac{S_{\beta\alpha'}S_{\beta'\alpha'}\Gamma^{\beta\gamma}(ij)\Gamma^{\beta'\gamma'}(ij')  }
+  {\Omega_{\alpha'\alpha'}(ii)} O_{\gamma}(\hat \mathbf J_j) \langle O_{\gamma'}(\hat \mathbf J_{j'}) \rangle + \nonumber\\
+  \dots&+&\sum_{\stackrel{i\neq j,\alpha'\beta\beta'}{\alpha=1-6,\gamma=1,\dots}} \frac{S_{\beta\alpha'}S_{\beta'\alpha'}\Gamma^{\beta\gamma}(ij) G_{mix}^{\alpha\beta'}(i) }
+  {\Omega_{\alpha'\alpha'}(ii)} \epsilon_{\alpha}O_{\gamma}(\hat \mathbf J_j)
++ \frac{1}{2}\sum_{\alpha\gamma=1-6}c_{\rm eff}^{\alpha\gamma}\epsilon_{\alpha}\epsilon_{\gamma}
+ 
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img808.svg"
+ ALT="$\displaystyle \hat H_{\rm tot}$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 7.31ex; vertical-align: -3.46ex; " SRC="img1245.svg"
+ ALT="$\displaystyle \dots + \frac{1}{2}\sum_{\alpha'\beta\beta',i \neq jj',\gamma\gam...
+...O_{\gamma}(\hat \mathbf J_j) \langle O_{\gamma'}(\hat \mathbf J_{j'}) \rangle +$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 0.48ex; vertical-align: -0.12ex; " SRC="img1246.svg"
+ ALT="$\displaystyle \dots$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img823.svg"
+ ALT="$\textstyle +$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 9.12ex; vertical-align: -5.00ex; " SRC="img1247.svg"
+ ALT="$\displaystyle \sum_{\stackrel{i\neq j,\alpha'\beta\beta'}{\alpha=1-6,\gamma=1,\...
+..._{\alpha\gamma=1-6}c_{\rm eff}^{\alpha\gamma}\epsilon_{\alpha}\epsilon_{\gamma}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">166</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="TINY">   
+Moreover, the terms quadratic in the strain <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img97.svg"
+ ALT="$\epsilon$"></SPAN> lead to a renormalisation of the
+elastic constants, which become softer because of the relaxation of atomic positions
+in the unit cell when the crystal is strained (an effect which is not included
+in the elastic constants in equations (<A HREF="node75.html#elconst">109</A>))
+</SPAN>
+<P>
+<SPAN CLASS="TINY"></SPAN>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+c_{\rm eff}^{\alpha\gamma}=c^{\alpha\gamma}+\sum_{\alpha'\beta\beta'}
+\frac{G_{mix}^{\alpha\alpha'}(i)S_{\alpha'\beta'}S_{\beta\beta'}G_{mix}^{\gamma\beta}(i)}{\Omega_{\beta'\beta'}(ii)}
+\end{equation}
+ -->
+ &nbsp;  <A ID="elconsteff"></A><IMG
+ STYLE="height: 4.86ex; vertical-align: -1.57ex; " SRC="img1248.svg"
+ ALT="$\displaystyle
+c_{\rm eff}^{\alpha\gamma}=c^{\alpha\gamma}+\sum_{\alpha'\beta\...
+...ha'\beta'}S_{\beta\beta'}G_{mix}^{\gamma\beta}(i)}{\Omega_{\beta'\beta'}(ii)}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">167</SPAN>)</SPAN>
+</DIV><SPAN CLASS="TINY">
+</SPAN>
+<P>
+<SPAN CLASS="TINY">This effective multipole interaction and  magnetoelastic terms are added in the output in case an atom which is removed has the phonon module.
+Special attention deserves in this context the first term with <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.42ex; vertical-align: -0.57ex; " SRC="img1249.svg"
+ ALT="$j=j'$"></SPAN> which in general for <!-- MATH
+ $\gamma=\gamma'$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.42ex; vertical-align: -0.57ex; " SRC="img1250.svg"
+ ALT="$\gamma=\gamma'$"></SPAN>
+has to be positive and corresponds to a phonon induced quadrupolar self interaction 
+<!-- MATH
+ $\frac{1}{2}\sum_{\alpha'\beta\beta',i \neq j}\frac{S_{\beta\alpha'}S_{\beta'\alpha'}\Gamma^{\beta\gamma}(ij)\Gamma^{\beta'\gamma'}(ij)}
+{\Omega_{\alpha'\alpha'}(ii)} O_{\gamma}(\hat \mathbf J_j) O_{\gamma}(\hat \mathbf J_{j})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 4.63ex; vertical-align: -1.34ex; " SRC="img1251.svg"
+ ALT="$\frac{1}{2}\sum_{\alpha'\beta\beta',i \neq j}\frac{S_{\beta\alpha'}S_{\beta'\al...
+...alpha'\alpha'}(ii)} O_{\gamma}(\hat \mathbf J_j) O_{\gamma}(\hat \mathbf J_{j})$"></SPAN>.
+Note that this term actually is a sum of 
+<!-- MATH
+ $\sum_{\alpha'\beta\beta',i \neq j}\frac{S_{\beta\alpha'}S_{\beta'\alpha'}\Gamma^{\beta\gamma}(ij)\Gamma^{\beta'\gamma'}(ij)}
+{\Omega_{\alpha'\alpha'}(ii)} O_{\gamma}(\hat \mathbf J_j)\langle O_{\gamma}(\hat \mathbf J_{j})\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 4.63ex; vertical-align: -1.34ex; " SRC="img1252.svg"
+ ALT="$\sum_{\alpha'\beta\beta',i \neq j}\frac{S_{\beta\alpha'}S_{\beta'\alpha'}\Gamma...
+...(ii)} O_{\gamma}(\hat \mathbf J_j)\langle O_{\gamma}(\hat \mathbf J_{j})\rangle$"></SPAN>.
+and
+<!-- MATH
+ $-\frac{1}{2}\sum_{\alpha'\beta\beta',i \neq j}\frac{S_{\beta\alpha'}S_{\beta'\alpha'}\Gamma^{\beta\gamma}(ij)\Gamma^{\beta'\gamma'}(ij)}
+{\Omega_{\alpha'\alpha'}(ii)}\langle O_{\gamma}(\hat \mathbf J_j) \rangle\langle O_{\gamma}(\hat \mathbf J_{j})\rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 4.63ex; vertical-align: -1.34ex; " SRC="img1253.svg"
+ ALT="$-\frac{1}{2}\sum_{\alpha'\beta\beta',i \neq j}\frac{S_{\beta\alpha'}S_{\beta'\a...
+...{\gamma}(\hat \mathbf J_j) \rangle\langle O_{\gamma}(\hat \mathbf J_{j})\rangle$"></SPAN>.
+Thus the mean field (<A HREF="node37.html#meanfield">37</A>) is computed without the <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img695.svg"
+ ALT="$1/2$"></SPAN> prefactor and the second term is considered in the energy 
+correction term (<A HREF="node37.html#Ecorrterm">36</A>) after the end of the mean field loop. The self interactions
+ is always ferroquadrupolar (note that by definition <!-- MATH
+ $\Omega_{\alpha'\alpha'}(ii)<0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1254.svg"
+ ALT="$\Omega_{\alpha'\alpha'}(ii)&lt;0$"></SPAN>) and thus enhances the 
+crystal field. The self interaction describes the effect, that when a crystal field is produced by a 
+point charge, then the charge density on the magnetc ion deforms according to the crystal field. This deformation
+increases the electrostatic force between the point charge and the magnetic ion and the point charge moves accordingly  and 
+this movement leads to a further increase of the crystal field. The movement continues until the restoring elastic 
+force is equal to the increase in electrostatic force.
+</SPAN>
+</DD>
+<DT><STRONG>Option: -delatoms phon </STRONG></DT>
+<DD>instead of removing atoms connected by a lattice vector 
+ 			remove atoms which have a phonon module. This option is recommended to
+                        obtain a reduced model containing only magnetic ions. In contrast
+             to the option -delatoms 1,2,5,7 it takes into account
+                        the correlated displacements which arise when a stress is applied or a
+                        magnetic atom charge density is changed by magnetic field or temperature.
+                        The program will perform the following operations
+<DL>
+<DT><STRONG>Renormalisation of Elastic Constants</STRONG></DT>
+<DD>The relaxation of the lattice
+       leads to a reduction of elastic constants with respect to the values obtained by 
+ the Born van Karman model equation (<A HREF="node75.html#elconst">109</A>). Effective elastic constants (which
+ correspond to experimental observable elastic constants) can be computed from (<A HREF="node79.html#Htot">134</A>) by applying
+ various external stresses and computing the strain. <I CLASS="slanted">reduce_unitcell</I> considers
+ in such a calculation <EM>only</EM> the phonon degrees of freedom (i.e. removes all magnetic ions) and
+ sets nonzero each component of the stress tensor to 0.01 GPa and computes the resulting
+ strains using the mean field loop of the <I CLASS="slanted">mcphasit</I> program. For the computation the parameters 
+ in <I CLASS="slanted">reduce_unitcell.ini</I> are used, supercells should be specified
+ in order to relax displacements not only with the periodicity of the primitive
+ unit cell as given in the input file.
+ The elastic compliance matrix [<A
+ HREF="node179.html#barron80-609">64</A>] is obtained by 
+ dividing the computed strain by the stress of 0.01 GPa. 
+ The elastic constants <!-- MATH
+ $c_{\rm eff}^{\alpha\gamma}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.74ex; vertical-align: -0.82ex; " SRC="img1255.svg"
+ ALT="$c_{\rm eff}^{\alpha\gamma}$"></SPAN> 
+ are computed by inverting the matrix of the compliances.
+ 
+</DD>
+<DT><STRONG>Calculation of effective phonon induced  Quadrupolar Self Interaction</STRONG></DT>
+<DD>A similar self consistent mean field procedure using (<A HREF="node79.html#Htot">134</A>) is adopted to calculate the phonon induced
+ quadrupolar self interaction , initially without any stress/strain to determine the reference energy
+ <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img1256.svg"
+ ALT="$U_0$"></SPAN>:
+  
+<OL>
+<LI>From the input parameters all interactions between the magnetic ions are removed
+</LI>
+<LI>Similar, all the magnetoelastic interactions are removed.
+</LI>
+<LI>all <EM>magnetic</EM> interaction operator expectation values are set to zero 
+         except one component <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img516.svg"
+ ALT="$\gamma$"></SPAN> for the ion <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
+ ALT="$n$"></SPAN>, i.e.
+          <!-- MATH
+ $\langle I^i_{\beta}\rangle=\delta_{\beta\gamma}\delta_{in}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.11ex; vertical-align: -1.09ex; " SRC="img1257.svg"
+ ALT="$\langle I^i_{\beta}\rangle=\delta_{\beta\gamma}\delta_{in}$"></SPAN>.
+</LI>
+<LI>a mean field loop is performed at zero strain to determine the <EM>phonon</EM>
+         displacements <!-- MATH
+ $\langle \mathbf u_{j} \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img1258.svg"
+ ALT="$\langle \mathbf u_{j} \rangle$"></SPAN> induced by the crystal field phonon
+         interaction <!-- MATH
+ $\Gamma^{\alpha\gamma}(jn)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1259.svg"
+ ALT="$\Gamma^{\alpha\gamma}(jn)$"></SPAN> in equation (<A HREF="node79.html#Gammacfph">133</A>) and
+         to determine the corresponding energy <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.32ex; vertical-align: -0.46ex; " SRC="img1260.svg"
+ ALT="$U'&lt;U_0$"></SPAN>.
+</LI>
+<LI>The phonon induced self interaction is determined 
+         by <!-- MATH
+ $\mathcal J_{\gamma\gamma}(nn)=-2(U'-U_0)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img1261.svg"
+ ALT="$\mathcal J_{\gamma\gamma}(nn)=-2(U'-U_0)$"></SPAN> and inserted in the output of
+         <I CLASS="slanted">reduce_unitcell</I>.
+</LI>
+<LI>this procedure is repeated for all components of all interaction operators 
+         of all magnetic ions.
+  
+</LI>
+</OL>
+</DD>
+<DT><STRONG>Calculation of effective  phonon induced Magnetoelastic Interactions </STRONG></DT>
+<DD>The next step is to do mean field loops using (<A HREF="node79.html#Htot">134</A>) the same way as for the 
+  quadrupolar self interaction (i.e. setting 
+          <!-- MATH
+ $\langle I^i_{\beta}\rangle=\delta_{\beta\gamma}\delta_{in}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.11ex; vertical-align: -1.09ex; " SRC="img1257.svg"
+ ALT="$\langle I^i_{\beta}\rangle=\delta_{\beta\gamma}\delta_{in}$"></SPAN>) 
+  and setting the strain tensor constant 
+  to be <!-- MATH
+ $\epsilon_{\alpha}=\delta_{\alpha1} 10^{-6}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.46ex; vertical-align: -0.46ex; " SRC="img1262.svg"
+ ALT="$\epsilon_{\alpha}=\delta_{\alpha1} 10^{-6}$"></SPAN>. <EM>phonon</EM>
+         displacements <!-- MATH
+ $\langle \mathbf u_{j} \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img1258.svg"
+ ALT="$\langle \mathbf u_{j} \rangle$"></SPAN> and energy <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.97ex; vertical-align: -0.12ex; " SRC="img1263.svg"
+ ALT="$U''$"></SPAN> are calculated
+   self consistently. The phonon induced magnetoelastic interaction 
+     <!-- MATH
+ $G^{1\gamma}_{\rm phon-induced-cfph}(n)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.40ex; vertical-align: -1.13ex; " SRC="img1264.svg"
+ ALT="$G^{1\gamma}_{\rm phon-induced-cfph}(n)$"></SPAN> is computed
+   using the energy difference <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.16ex; vertical-align: -0.31ex; " SRC="img1265.svg"
+ ALT="$U''-U'$"></SPAN> and the effective elastic energy 
+   <!-- MATH
+ $E_{el}=\frac{1}{2}c_{\rm eff}^{11}\epsilon_{1}\epsilon_{1}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.98ex; vertical-align: -0.92ex; " SRC="img1266.svg"
+ ALT="$E_{el}=\frac{1}{2}c_{\rm eff}^{11}\epsilon_{1}\epsilon_{1}$"></SPAN>
+   by
 
 <P>
 
@@ -210,21 +1549,520 @@ This results in the following expression for the chargedensity:
 
 <!-- MATH
  \begin{equation}
-\langle \hat\rho(\mathbf r)\rangle=-|e||R_{4f}(r)|^2 \sum_{l=0,2,4,6}\sum_{m=-l,...,l}
-	         |p_{lm}| \theta_{l} \langle O_l^m(\mathbf J)\rangle_T Z_{lm}(\Omega)
+G^{1\gamma}_{\rm phon-induced-cfph}(n)=-\frac{(U''-U')+E_{el}}{\epsilon_{1}}
 \end{equation}
  -->
- &nbsp;  <A ID="chargedensity_operator2"></A><IMG
- STYLE="height: 5.99ex; vertical-align: -3.46ex; " SRC="img1349.svg"
- ALT="$\displaystyle
-\langle \hat\rho(\mathbf r)\rangle=-\vert e\vert\vert R_{4f}(r)\...
-...\vert p_{lm}\vert \theta_{l} \langle O_l^m(\mathbf J)\rangle_T Z_{lm}(\Omega)
+ &nbsp;  <IMG
+ STYLE="height: 5.47ex; vertical-align: -2.06ex; " SRC="img1267.svg"
+ ALT="$\displaystyle G^{1\gamma}_{\rm phon-induced-cfph}(n)=-\frac{(U''-U')+E_{el}}{\epsilon_{1}}
 $"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">206</SPAN>)</SPAN>
-</DIV> 
+(<SPAN CLASS="arabic">168</SPAN>)</SPAN>
+</DIV>
 
 <P>
+This phonon induced magnetoelastic interaction 
+     <!-- MATH
+ $G^{1\gamma}_{\rm phon-induced-cfph}(n)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.40ex; vertical-align: -1.13ex; " SRC="img1264.svg"
+ ALT="$G^{1\gamma}_{\rm phon-induced-cfph}(n)$"></SPAN> is added to the <!-- MATH
+ $G^{1\gamma}_{\rm cfph}(n)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.40ex; vertical-align: -1.13ex; " SRC="img1268.svg"
+ ALT="$G^{1\gamma}_{\rm cfph}(n)$"></SPAN>
+    given in the input file and the sum is output by <I CLASS="slanted">reduce_unitcell</I>.
+   The procedure outlined above for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img1269.svg"
+ ALT="$\epsilon_1$"></SPAN> is repeated for all components of the strain
+   tensor <!-- MATH
+ $\epsilon_{\alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img773.svg"
+ ALT="$\epsilon_{\alpha}$"></SPAN> and thus the full set of phonon induced magnetoelastic
+   interactions <!-- MATH
+ $G^{\alpha\gamma}_{\rm phon-induced-cfph}(n)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.05ex; vertical-align: -1.13ex; " SRC="img1270.svg"
+ ALT="$G^{\alpha\gamma}_{\rm phon-induced-cfph}(n)$"></SPAN> is obtained.
+</DD>
+<DT><STRONG>Calculation of effective phonon induced Quadrupolar Interactions</STRONG></DT>
+<DD>In a further step the effective phonon induced Quadrupolar Interactions are calculated.
+ In the mean field loop the strain is kept zero. In order to compute
+ <!-- MATH
+ $\mathcal J_{\gamma\gamma'}(nn')$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img1271.svg"
+ ALT="$\mathcal J_{\gamma\gamma'}(nn')$"></SPAN> the
+interaction operator expectation values are set to zero 
+         except for the 
+ component <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img516.svg"
+ ALT="$\gamma$"></SPAN> for the ion <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
+ ALT="$n$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.42ex; vertical-align: -0.57ex; " SRC="img1272.svg"
+ ALT="$\gamma'$"></SPAN> for the ion <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.97ex; vertical-align: -0.12ex; " SRC="img1273.svg"
+ ALT="$n'$"></SPAN>, i.e.
+  <!-- MATH
+ $\langle I^i_{\beta}\rangle=\delta_{\beta\gamma}\delta_{in}+\delta_{\beta\gamma'}\delta_{in'}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.11ex; vertical-align: -1.09ex; " SRC="img1274.svg"
+ ALT="$\langle I^i_{\beta}\rangle=\delta_{\beta\gamma}\delta_{in}+\delta_{\beta\gamma'}\delta_{in'}$"></SPAN>. 
+ Note the self interaction term (<!-- MATH
+ $\mathcal J_{\gamma\gamma}(nn)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img1275.svg"
+ ALT="$\mathcal J_{\gamma\gamma}(nn)$"></SPAN> has been computed already).
+ The result of the mean field computation is the energy <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.97ex; vertical-align: -0.12ex; " SRC="img1276.svg"
+ ALT="$U'''$"></SPAN> and the 
+ effective phonon induced quadrupolar interaction constants are computed by
+ <!-- MATH
+ $\mathcal J_{\gamma\gamma'}(nn')=-(U'''-U_0)-\mathcal J_{\gamma\gamma}(nn)/2-\mathcal J_{\gamma'\gamma'}(n'n')/2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img1277.svg"
+ ALT="$\mathcal J_{\gamma\gamma'}(nn')=-(U'''-U_0)-\mathcal J_{\gamma\gamma}(nn)/2-\mathcal J_{\gamma'\gamma'}(n'n')/2$"></SPAN>.
+ These interactions are added by <I CLASS="slanted">reduce_unitcell</I> 
+ to the the two ion interactions of the input file.
+</DD>
+</DL>
 
+<P>
+</DD>
+<DT><STRONG>Option: -delatoms 1:3+-0.75:4+-0.25,2,5,7</STRONG></DT>
+<DD>removes atoms number 1,2,5,7 for atom 1 the interactions
+ 			 are transferred to 75% to atom 3 and 25% to atom 4 and interactions to atoms 3 and 4 are
+ 			 removed, for 2 5 7 all the interactions with other atoms are removed
+</DD>
+<DT><STRONG>Option: -mcdiff </STRONG></DT>
+<DD>create also mcdiff.in file with reduced unit cell
+</DD>
+<DT><STRONG>Option: -v </STRONG></DT>
+<DD>verbose mode
+</DD>
+</DL><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">rotateBlm<A ID="5751"></A><A ID="rotateBlm"></A></STRONG></DT>
+<DD>
+  </I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+    Rotates a set of  crystal field  parameters for  Stevens equivalent
+    operators by an azimuthal angle fi about the original z axis and
+    a polar angle theta about the new y axis. A right hand axis system is assumed
+    and a positive rotation is one which advances a right-hand screw in a
+    positive direction along the axis.
+
+    The calculations are  done by means of matrix  multiplication based on
+    the method of Buckmaster (phys. stat. sol. a, vol 13,  pp 9, 1972) and
+    Rudowicz (J. Phys: Solid State Phys., vol 18, pp 1415, 1985).   
+
+    usage: rotateBlm [-h] [--help] 
+              [-i input_file] [--input input_file]
+	      [-o output_file] [--output output_file]
+              [-v] [--verbose] [-th theta] [-fi fi] [CF parameters]
+
+          
+     -h          : this (help) message
+     -i in_file  : input CF parameters file in cfield or mcphase formats
+     -o out_file : output CF parameters file in mcphase format
+     -v          : verbose mode. Will print out input parameters as read.
+     -th	 : polar angle theta in degrees
+     -fi         : azimuthal angle fi in degrees
+
+    if -i is omitted, the program will  assume the input CF parameters are
+          given on the command line in the format: Bkq=x.xx,Bkq=x.xx, etc.
+          e.g. $0 B20=0.21,B40=0.0005,B60=0.051,B66=0.626
+    negative q parameters such as B_2^{-2},  are specified as:  B22S, with 
+          an 'S' at the end, as per the McPhase convention.
+    you may also  specify the ion type by a dding another  parameter after
+          the CF parameters: e.g. $0 B20=0.21,B40=0.5 Pr3+
+    if -o is omitted, the program prints the parameters to standard output.
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">setup_jqfit<A ID="5758"></A><A ID="setup_jqfit"></A>[-h] 
+[&ndash;help] h k l:</I></STRONG></DT>
+<DD> 
+program to setup a fit of exchange parameters in order to reproduce an experimental propagation vector.
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+     -h          : print help message
+      hkl        : Miller indices of propagation vector
+
+    required input files:
+
+    mcphas.j (+ single ion paramter files)
+                 :  structural information including all magnetic atoms
+
+    output files:
+
+    mcdisp.par   :  contains propagation vector and list of other hkl to
+                    be probed
+    mcdisp.mf    :  required input file for mcdisp
+    calcsta      :  required input file for simannfit and searchspace
+    calcsta.pl.forfit: file with fitparameters for Bethe slater, RKKY fits
+    fit.bat      :  batch to start the fit
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">After running this program you can start immediately a fit of exchange
+    parameters. Edit <I CLASS="slanted">calcsta.pl.forfit</I> and <I CLASS="slanted">fit.bat</I> to fine tune the fit 
+    according to your needs.
+    During fitting a value of sta <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.21ex; " SRC="img1278.svg"
+ ALT="$&lt; 1$"></SPAN>&nbsp; indicates, that the maximum of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1279.svg"
+ ALT="$J(Q)$"></SPAN> is
+    at the propagation vector tau. How much it is below one depends on the
+    magnitude of <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1279.svg"
+ ALT="$J(Q)$"></SPAN> for the competing wavevectors in the list in<I CLASS="slanted">mcdisp.par</I>.
+</DD>
+<DT><STRONG><I CLASS="slanted">setup_mcdiff_in<A ID="5770"></A><A ID="setup_mcdiff_in"></A> [option] T Ha Hb Hc:</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG><I CLASS="slanted">setup_mcdiff_in<A ID="5776"></A> [option] x y:</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG><I CLASS="slanted">setup_mcdiff_in<A ID="5778"></A> [option] out1 out2 out3 ou4 out5 out6 out7:</STRONG></DT>
+<DD>program
+ to setup <I CLASS="slanted">mcdiff.in</I> with information on spinconfiguration
+                    to be used by program <I CLASS="slanted">mcdiff<A ID="5781"></A></I>. Note, you must
+                    have done a <I CLASS="slanted">mcphas<A ID="5782"></A></I> calculation to stabilise
+                    a magnetic structure at the desired Temperature/Field.
+                   <I CLASS="slanted">setup_mcdiff_in</I> reads the results of this calculation
+                    from <I CLASS="slanted">results/mcphas.mf</I> and generates an input file
+                    <I CLASS="slanted">mcdiff.in</I>
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+     -h          : help  message
+      T          : Temperature (K)
+      Ha,Hb,Hc   : Magnetic Field (T)
+      x,y         : x,y values in phasediagram
+      out1-out7  : values of external parameters in columns 1-7 of output files mcphas.*
+
+    required input files:
+
+    results/mcphas.sps
+                 :  result of a mcphas calculation
+
+    optional input files:
+
+    mcdiff.in
+                 :  if present experimental parameters (section 1)
+                    and nonmagnetic atoms (section 2) are taken from
+                    this file
+
+    output files:
+
+    mcdiff.in    :  required input file for mcdiff
+
+    - after running this program you can start mcdiff to do the calculation
+      magnetic diffraction pattern
+
+    options:
+
+    -prefix 001  :  instead of results/mcphas.mf read results/001mcphas.mf
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">setup_mcdisp_mf <A ID="5788"></A><A ID="setup_mcdisp_mf"></A> [options] T Ha Hb Hc:</STRONG></DT>
+<DD> 
+</DD>
+<DT><STRONG><I CLASS="slanted">setup_mcdisp_mf <A ID="5794"></A> [options] x y:</STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG><I CLASS="slanted">setup_mcdisp_mf <A ID="5796"></A> [options] out1 out2 out3 ou4 out5 out6 out7:</STRONG></DT>
+<DD></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">program to setup<I CLASS="slanted">mcdisp.mf</I> with information on meanfields
+                    to be used by program <I CLASS="slanted">mcdisp<A ID="5799"></A></I>. Note, you must
+                    have done a <I CLASS="slanted">mcphas<A ID="5800"></A></I> calculation to stabilise
+                    a magnetic structure at the desired Temperature/Field.
+                    <I CLASS="slanted">setup_mcdisp_mf</I> reads the results of this calculation
+                    from <I CLASS="slanted">results/mcphas.mf</I> and puts the meanfields into
+                    <I CLASS="slanted">mcdisp.mf</I>.
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+     -h          : this (help) message
+      T          : Temperature (K)
+      Ha,Hb,Hc   : Magnetic Field (T)
+      x,y        : x,y values in phasediagram
+      out1-out7  : values of external parameters in columns 1-7 of output files mcphas.*
+
+    required input files:
+
+    results/mcphas.mf
+                 :  result of a mcphas calculation
+
+    output files:
+
+    mcdisp.mf    :  required input file for mcdisp
+
+    - after running this program you can start mcdisp to do the calculation
+      of dispersion of excitations or diffuse scattering
+
+    options:
+
+    -prefix 001  :  instead of results/mcphas.mf read results/001mcphas.mf
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">setup_mcphasjforfit<A ID="5806"></A>  [-h]:</I></STRONG></DT>
+<DD> program to setup a fit of exchange parameters by   creating mcphas.j.forfit from mcphas.j
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+     -h          : print help message
+
+    required input files:
+
+    mcphas.j (+ single ion parameter files)
+                 :  structural information including all magnetic atoms
+
+    output files:
+
+    mcphas.j.forfit  : all interaction parameters are substituted
+                       with parJxxx[0.0,-1e0,1e0,0,1e-6]
+
+    - after running this program you must setup a file calcsta 
+      to calculate the standard deviation and then you can start
+      a fit by simannfit or searchspace
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><A ID="5813"></A><A ID="5814"></A>
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">singleion<A ID="5815"></A> [options] T[K] Hexta[T] Hextb[T] Hextc[T] Hxc1 Hxc2 Hxc3 ... Hxcnofcomponents</STRONG></DT>
+<DD>
+ single ion  - calculate single ion expectations values <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img1280.svg"
+ ALT="$&lt;Ia&gt;, &lt;Ib&gt; $"></SPAN>... and transition energies.
+ Options may be used to trigger calculation of magnetic Moment and other Quantities.
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE> 
+           T    ..... temperature in Kelvin
+           Hext ..... external field in Tesla 
+           Hxc... exchange (molecular) field in meV
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+<I CLASS="slanted">singleion</I> reads <I CLASS="slanted">mcphas.j</I> and the singleion parameter files quoted therein
+and calculates energies, eigenstates, expectation values <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.90ex; vertical-align: -0.21ex; " SRC="img1281.svg"
+ ALT="$&lt;I&gt;$"></SPAN> for the given
+temperature, external magnetic field Hext and exchange field Hxc (the
+interaction constants given in mcphas.j are ignored).
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">for each single ion property file the following files are generated:
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+   results/file.sipf.levels.cef .. energy levels and eigenstates and &lt;I&gt;
+   results/file.sipf.trs ......... transition energies,matrix elements
+                                   and (powder) neutron intensities
+   results/_file.sipf    ......... input parameter files as read and used by singleion 
+
+options: -nt ......... by default only 5 transition energies are output,
+                       if you want more, start e.g. with 
+                       option -nt 7 to output 7 transition energies
+         -pinit 0.1 .. consider only transitions with population of initial state &gt; 0.1
+         -ninit 3  ... consider only transitions from the 3 lowest eigenstates
+         -maxE 30  ... consider only transitions with energy lower than 30 meV
+         -E        ... output to stdout energy of cf levels instead of transition energy
+         -E0       ... output to stdout energy of cf levels relative to ground state ...
+         -E0f 0.3 0 2.1 3 4  ... output to stdout energy of cf levels relative to ground state 
+                       and calculate sta (sum of squared deviations) of nt (by default 5,
+                       see option -nt, which if used must be given prior to -E0f) 
+                       transition energies (meV) to the numbers following -E0f 
+                       a '0' will exclude this transition from contributing to sta
+         -r ion.sipf . do not read mcphas-j but only the single ion
+                       parameter file ion.sipf
+         -U  ......... calculate energy U, ln of partition sum Z, free energy F
+                       instead of &lt;I&gt;
+         -t  ......... reads .trs files from previous run (possibly modified by user, 
+                       i.e. removing
+                       some lines to speed up an approximate calculation of spectra.)
+         -Esteps 10 27 for option -d in addition to initial Energy calculate 10 further
+                       Energies until 27 meV has been reached
+         -Tsteps 10 27 in addition to initial temperature calculate 10 further temperatures
+                       until 27K has been reached
+         -Hsteps 20 0 0 10 in addition to initial field calculate 20 further external fields
+                       until (0 0 10) Tesla has been reached
+         -HE ......... in addition to magnetic field also apply electrical field in kV/mm, 
+                       i.e. there will be 
+                       instead of 3 components  Hexti Hextj Hextk in the command 
+                       line 6 components 
+                       Hexti Hextj Hextk Eexti Eextj Eextk, similar for Hsteps option 
+                       there will be 6 components
+                       (therefore: mind that -HE is given before -Hsteps in the command line)
+         -opmat 2 .... output operator matrix number n=2 to results/*.opmat
+                Operators in results/output op.mat for different values of n:
+                n=0                    Hamiltonian
+                n=1,...,nofcomponents  operator Matrix In in standard basis
+                n=-1,..,-nofomponents  operator Matrix In for Hamiltonian eigenstates 
+                                       basis
+                n&gt;nofomponents: all operator Matrices (n=0 to n=nofcomponents) in 
+                                standard basis
+                n&lt;-nofomponents: all operator Matrices (n=0 to n=-nofcomponents) 
+                                 in Hamiltonian  eigenstates basis
+         -v       .... verbose, output more information on ongoing calculation
+
+  Other Observables:
+         -M  ...magnetic moment: calculate expectation values and transition matrix
+                       elements for magnetic moment M (muB)instead of I
+         -P  ...phonon displacement: calculate phonon displacement in A instead of I
+         -pel ..electric dipole moment: calculate electrical dipole moment pel in |e|pm
+                       instead of I
+         -L  ....orbital momentum: calculate expectation values and transition matrix
+                       elements for orbital momentum L
+         -S  ....spin: calculate expectation values and transition matrix
+                       elements for spin S
+         -MQ 0 0 1 ...M(Q),Fourier transform of magnetic moment density:  instead of &lt;I&gt;
+                       calculate expectation values, transition matrix elements
+                       for M(Q=(0 0 1)/A), the Fourier Transform  of magnetic moment 
+                       density M(r) 
+         -sx ....spin density: calculate expectation values and transition matrix
+                       elements for spindensity coefficients aSx(lm) in expansion 
+                       of spindensity-x-component in Ms(r) = sum_lm aS(l,m) R^2(r) Zlm(Omega)
+                        E. Balcar J. Phys. C. 8 (1975) 1581
+         -sy -sz ......for y and z components use option -sy and  -sz
+         -lx ....orbital moment density: calculate expectation values and transition matrix
+                       elements for orbital moment density coefficients aLx(lm) in expansion 
+                       of orbital moment density-x-component 
+                       in Ml(r)=sum_lm  aLx(l,m) F(r) Zlm(Omega)
+                       with F(r)==1/r int_r^inf R^2(x) dx,   E. Balcar J. Phys. C. 8 (1975) 1581
+         -ly -lz ......for y and z components use option -ly and  -lz
+
+   Susceptibilities:
+         -X[observable] 24 0.1  ... calculate susceptibility chi(z) for z=E + i epsilon with
+                       E=24 meV and epsilon=0.1 meV. The susceptibility  chi is defined as the
+                       derivative of I (or any observable) with respect to the field, e.g. for
+                       the observable magnetic moment -XM the susceptibility is chi=dM/dH
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"> 
+The program evaluates equation (<A HREF="node167.html#singleionsusceptibility">267</A>) setting <!-- MATH
+ $\hat \mathcal I_{\alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img1282.svg"
+ ALT="$\hat \mathcal I_{\alpha}$"></SPAN>
+equal to the magnetic moment operator <!-- MATH
+ $\hat M_{\alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img1283.svg"
+ ALT="$\hat M_{\alpha}$"></SPAN> with <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img79.svg"
+ ALT="$\alpha=1,2,3$"></SPAN> for the
+three cartesian directions x,y and z. Having evaluated the magnetic single ion susceptibility
+it is possible to use the fluctuation dissipation theorem to calculate the magnetic inelastic
+single ion neutron scattering cross section   
+in dipole approximation for a polycrystal neglecting
+form factor, Debye Waller factor by the following relation
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+S_{\rm mag,poly}^{inel}(Q=0,z)=  \frac{2}{3}\frac{(\gamma r_0)^2}{4\pi} \frac{1}{1-exp(- z/k_bT)}     \sum_{\alpha=1,2,3}\chi''_{\alpha\alpha}(z)
+\end{equation}
+ -->
+ &nbsp;  <A ID="Smagpoly"></A><IMG
+ STYLE="height: 4.00ex; vertical-align: -1.32ex; " SRC="img1284.svg"
+ ALT="$\displaystyle
+S_{\rm mag,poly}^{inel}(Q=0,z)= \frac{2}{3}\frac{(\gamma r_0)^2}{4\pi} \frac{1}{1-exp(- z/k_bT)} \sum_{\alpha=1,2,3}\chi''_{\alpha\alpha}(z)
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">169</SPAN>)</SPAN>
+</DIV><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">Note, the prefactor <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1285.svg"
+ ALT="$2/3$"></SPAN> comes
+from the average of the polarisation factor. 
+Compare (<A HREF="node169.html#fluctdissbeyond">279</A>), (<A HREF="node173.html#Sinelperp">305</A>) and (<A HREF="node173.html#sinelmag">306</A>). 
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><PRE>
+                       units: standard unit is (unit of observable)^2/meV, e.g. for -XM
+                              (muB)^2/meV. you can use the options ... 
+         -emu 0.3 0.1 . to obtain the magnetic susceptibility chi in units of emu/mol with
+                       constant offset X0=0.3 emu/mol and molecular field constant 
+                       lambda=0.1 mol/emu
+                       1/(X-X0)=(1/Xcf)-lambda. Xcf obtained the same way as option 
+                       -d 0 0 and
+                       converting the results to emu/mol by multiplying with factor
+                       MU_B MU_B NA/10000=
+                       = 0.0578838263*0.55848973464 = 0.0323275227902. 
+                       lambda is only applied if Xcf is diagonal.
+                       e.g. -XM 0 0 -emu 0 0 will calculate the static magnetic 
+                       susceptibility in emu/mol
+         -SI ......... to obtain the magnetic susceptibility (-XM) in SI units (Am^2/mol)
+         -muBT ......... to obtain the magnetic susceptibility (-XM) in  (muB/Tesla)
+         -iX[observable] 24 0.1  ....same as -X, but output inverse susceptibility
+                       (works only if off diagonal elements of X are zero)
+
+
+ Note: for calculating T,H dependencies you can instead of using options -Tsteps 
+      or -Hsteps put singleion in a LOOP
+      and pipe the result into a file
+ ... LOOP linux:   for B in $(seq 0 0.1 14); do singleion 2 $B 0 0 0 0 0; done &gt; results/fielddep.dat
+ ... LOOP linux using perl:
+perl -e 'for($B=1;$B&lt;14;$B+=0.1){system("singleion 2 ".$B." 0 0  0 0 0");}' &gt; results/sus1Tesla.clc 
+ ... LOOP for windows using perl:
+perl -e "for($B=1;$B&lt;14;$B+=0.1){system('singleion 2 '.$B.' 0 0  0 0 0');}" &gt; results\sus1Tesla.clc
+
+  .... windows command line: for /L %B in (0,1,14)  do singleion 2 %B 0 0 0 0 0 &gt;&gt; results\fielddep.dat
+
+  .... windows batch file (needed for noninteger numbers):
+          @echo off &amp;&amp; setlocal ENABLEDELAYEDEXPANSION
+          for /L %%I in (0,2,140) do ( set /A W=%%I/10 &amp;&amp; set /A "f = %%I %% 10"
+          set B=!w!.!f!
+          @echo on &amp;&amp; singleion 2 0 0 !B! 0 0 0 &amp;&amp; @echo off )
+          endlocal &amp;&amp; @echo on
+</PRE><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">      
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+<DT><STRONG><I CLASS="slanted">symhmltn:</STRONG></DT>
+<DD> Calculates via group theory, the allowed two-ion multipolar exchange terms
+between two ions whose center has some particular point symmetry. Syntax is: 
+"<I CLASS="slanted">symhmltn <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1176.svg"
+ ALT="$\langle$"></SPAN>PTGP<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1177.svg"
+ ALT="$\rangle$"></SPAN> <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1176.svg"
+ ALT="$\langle$"></SPAN>l<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1177.svg"
+ ALT="$\rangle$"></SPAN></I>" where <I CLASS="slanted"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1176.svg"
+ ALT="$\langle$"></SPAN>PTGP<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1177.svg"
+ ALT="$\rangle$"></SPAN></I> is 
+the name of the point group (both Hermman-Maguin and Schoenflies notation are understood), and 
+<I CLASS="slanted"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1176.svg"
+ ALT="$\langle$"></SPAN>l<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img1177.svg"
+ ALT="$\rangle$"></SPAN></I> is the integer multipolar order (l=1 for dipolar exchange, l=2 for 
+quadrupolar, etc.).
+E.g. "<I CLASS="slanted">symhmltn Oh 1</I>" gives the familiar Heisenberg exchange terms. 
+See also: <I CLASS="slanted">cfsplit</I> which calculates the multiplicities of the crystal field split levels of a
+particular point group.
+</I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I>
+<P>
+<I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted"><I CLASS="slanted">
+</DD>
+</DL></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I></I><SPAN CLASS="SMALL"> 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
 <A
@@ -236,23 +2074,23 @@ $"> <SPAN class="FLOATRIGHT">
 <A
  HREF="node149.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1102"
-  HREF="node7.html">
+<A ID="tex2html1158"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1104"
-  HREF="node164.html">
+<A ID="tex2html1160"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node151.html">Dynamical Susceptibility and Excitations</A>
+ HREF="node151.html">Programs for Manipulation of</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node149.html">Magnetic Form factors for</A>
- &nbsp; <B>  <A ID="tex2html1103"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1105"
-  HREF="node164.html">Index</A></B> </DIV>
+ HREF="node149.html">Crystal Field Example: Fitting</A>
+ &nbsp; <B>  <A ID="tex2html1159"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1161"
+  HREF="node180.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

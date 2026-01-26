@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Mixing term </TITLE>
+<TITLE>Creation of the q-vector list</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,181 +23,69 @@
  HREF="node63.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node60.html">
+ HREF="node61.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node61.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html668"
-  HREF="node7.html">
+<A ID="tex2html703"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html670"
-  HREF="node164.html">
+<A ID="tex2html705"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node63.html">The lattice dynamic terms</A>
+ HREF="node63.html">Calculation of the Dispersion</A>
 <B> Up:</B> <A
- HREF="node60.html">Crystal Field Phonon Interaction</A>
+ HREF="node61.html">Powder Neutron Cross Section</A>
 <B> Previous:</B> <A
- HREF="node61.html">Elastic Energy</A>
- &nbsp; <B>  <A ID="tex2html669"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html671"
-  HREF="node164.html">Index</A></B> 
+ HREF="node61.html">Powder Neutron Cross Section</A>
+ &nbsp; <B>  <A ID="tex2html704"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html706"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000152000000000000000">
-Mixing term <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img15.svg"
- ALT="$H_{mix}$"></SPAN></A>
-</H2>
-
+<H3><A ID="SECTION000113100000000000000">
+Creation of the q-vector list</A>
+</H3><SPAN CLASS="SMALL">
+The first step is to create a list of reflections to be used for 
+the averaging of the powder neutron cross section. 
+</SPAN>
 <P>
-The mixing term <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img15.svg"
- ALT="$H_{mix}$"></SPAN> is 
-
+<SPAN CLASS="SMALL">just type: powdermagnon 0.3 2 0.1 80
+</SPAN>
 <P>
-<BR>
-<DIV CLASS="displaymath"><A ID="Hmix"></A>
-<!-- MATH
- \begin{eqnarray}
-\hat H_{mix}&=&\frac{1}{2} \sum_{ij} \frac{c_L(ij)-c_T(ij)}{|\mathbf R_{ij}|^2}
-\mathbf R_{ij}^T\bar a \mathbf R_{ij}\mathbf R_{ij}^T \hat \mathbf P_{ij}  \nonumber \\
-      && + c_T(ij) \mathbf R_{ij}^T\bar a^T\mathbf P_{ij} \nonumber \\
-&=& \frac{1}{2}\sum_{ij} 2\frac{c_L(ij)-c_T(ij)}{|\mathbf R_{ij}|^2} 
-\mathbf R_{ij}^T\bar a \mathbf R_{ij}\mathbf R_{ij}^T \hat \mathbf P_{i}  \nonumber \\
-      && + 2 c_T(ij) \mathbf R_{ij}^T\bar a^T\hat \mathbf P_{i} \nonumber \\
-&=& \sum_{ij,\alpha\beta} \frac{c_L(ij)-c_T(ij)}{|\mathbf R_{ij}|^2} 
-R_{ij}^{\alpha} a_{\alpha\beta} R_{ij}^{\beta} R_{ij}^{\gamma}\hat   P_{i}^{\gamma}  \nonumber \\
-      && +  c_T(ij)   R_{ij}^{\beta} a_{\alpha\beta} \delta_{\alpha\gamma}\hat  P_{i}^{\gamma}  \\
-&=&-\sum_{\stackrel{i,\alpha=1,..,6}{ \gamma=1,2,3}} G_{mix}^{\alpha\gamma}(i) \epsilon_{\alpha}\hat  P_{i}^{\gamma}/a_0 +
- \sum_{ij,\alpha\beta}  c_T(ij)   R_{ij}^{\beta} \omega_{\alpha\beta}\hat  P_{i}^{\alpha} \nonumber
-\end{eqnarray}
- -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img652.svg"
- ALT="$\displaystyle \hat H_{mix}$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 6.81ex; vertical-align: -3.40ex; " SRC="img653.svg"
- ALT="$\displaystyle \frac{1}{2} \sum_{ij} \frac{c_L(ij)-c_T(ij)}{\vert\mathbf R_{ij}\vert^2}
-\mathbf R_{ij}^T\bar a \mathbf R_{ij}\mathbf R_{ij}^T \hat \mathbf P_{ij}$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 3.18ex; vertical-align: -1.01ex; " SRC="img654.svg"
- ALT="$\displaystyle + c_T(ij) \mathbf R_{ij}^T\bar a^T\mathbf P_{ij}$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 6.81ex; vertical-align: -3.40ex; " SRC="img655.svg"
- ALT="$\displaystyle \frac{1}{2}\sum_{ij} 2\frac{c_L(ij)-c_T(ij)}{\vert\mathbf R_{ij}\vert^2}
-\mathbf R_{ij}^T\bar a \mathbf R_{ij}\mathbf R_{ij}^T \hat \mathbf P_{i}$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 3.32ex; vertical-align: -1.01ex; " SRC="img656.svg"
- ALT="$\displaystyle + 2 c_T(ij) \mathbf R_{ij}^T\bar a^T\hat \mathbf P_{i}$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 6.86ex; vertical-align: -3.46ex; " SRC="img657.svg"
- ALT="$\displaystyle \sum_{ij,\alpha\beta} \frac{c_L(ij)-c_T(ij)}{\vert\mathbf R_{ij}\...
-...{ij}^{\alpha} a_{\alpha\beta} R_{ij}^{\beta} R_{ij}^{\gamma}\hat P_{i}^{\gamma}$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 3.43ex; vertical-align: -1.08ex; " SRC="img658.svg"
- ALT="$\displaystyle + c_T(ij) R_{ij}^{\beta} a_{\alpha\beta} \delta_{\alpha\gamma}\hat P_{i}^{\gamma}$"></TD><TD class="rfill">(<SPAN CLASS="arabic">89</SPAN>)</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 7.32ex; vertical-align: -4.79ex; " SRC="img659.svg"
- ALT="$\displaystyle -\sum_{\stackrel{i,\alpha=1,..,6}{ \gamma=1,2,3}} G_{mix}^{\alpha...
-...{ij,\alpha\beta} c_T(ij) R_{ij}^{\beta} \omega_{\alpha\beta}\hat P_{i}^{\alpha}$"></TD><TD class="rfill">&nbsp;</TD></TR>
-</TABLE></DIV>
-
-<P>
-Note that without crystal field phonon interaction the mixing term <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.77ex; vertical-align: -0.46ex; " SRC="img660.svg"
- ALT="$\hat H_{mix}$"></SPAN> is zero, because
-the expectation values <!-- MATH
- $\langle \hat \mathbf P_i \rangle$
+<SPAN CLASS="SMALL">meaning take file <I CLASS="slanted">mcphas.j<A ID="2148"></A></I>, generate a reflection list and put it to 
+file <I CLASS="slanted">mcdisp.par<A ID="2149"></A></I>. Parameters in the above command are 
+</SPAN>
+<UL>
+<LI>0.3 ....qmin   [1/A] minimal q vector
+</LI>
+<LI>2   ....qmax   [1/A] maximal q vector
+</LI>
+<LI>0.1 ....deltaq [1/A] step width in q
+</LI>
+<LI>80  ....number of steps in polar coordinate <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img352.svg"
+ ALT="$\Theta$"></SPAN>
+        (steps in polar angle <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img520.svg"
+ ALT="$\phi$"></SPAN> are  then calculated in module
+        <I CLASS="slanted">powdermagnon</I> by <!-- MATH
+ $\delta \phi= \delta \Theta*\pi/(4*sin(\Theta))$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.01ex; vertical-align: -0.70ex; " SRC="img661.svg"
- ALT="$\langle \hat \mathbf P_i \rangle$"></SPAN> are zero in this case. The last term reflects
-the fact, that the energy is not invariant under rotations in case of transversal springs.
-
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img521.svg"
+ ALT="$\delta \phi= \delta \Theta*\pi/(4*sin(\Theta))$"></SPAN>
+</LI>
+</UL><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-In (<A HREF="#Hmix">95</A>) we made use of the phonon-strain interaction constants <!-- MATH
- $G_{mix}^{\alpha\gamma}(i)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.69ex; vertical-align: -0.76ex; " SRC="img662.svg"
- ALT="$G_{mix}^{\alpha\gamma}(i)$"></SPAN>
-defined writing explicitly the Voigt notation <!-- MATH
- $\alpha=(\alpha\beta)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img663.svg"
- ALT="$\alpha=(\alpha\beta)$"></SPAN> by
-
-<P>
-<BR>
-<DIV CLASS="displaymath"><A ID="Gmix"></A>
-<!-- MATH
- \begin{eqnarray}
-G_{mix}^{(\alpha\beta)\gamma}(i)&=&
--a_0\sum_{j} \frac{c_L(ij)-c_T(ij)}{|\mathbf R_{ij}|^2} 
-R_{ij}^{\alpha} R_{ij}^{\beta} R_{ij}^{\gamma} -   \nonumber \\
-      && -a_0\frac{1}{2}\sum_{j}  c_T(ij)   (R_{ij}^{\beta}  \delta_{\alpha\gamma}+
-R_{ij}^{\alpha}  \delta_{\beta\gamma}) 
-\end{eqnarray}
- -->
-<TABLE CLASS="equation" >
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
- STYLE="height: 3.29ex; vertical-align: -0.76ex; " SRC="img664.svg"
- ALT="$\displaystyle G_{mix}^{(\alpha\beta)\gamma}(i)$"></TD>
-<TD style="text-align:center"><IMG
- STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img94.svg"
- ALT="$\textstyle =$"></TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 6.81ex; vertical-align: -3.40ex; " SRC="img665.svg"
- ALT="$\displaystyle -a_0\sum_{j} \frac{c_L(ij)-c_T(ij)}{\vert\mathbf R_{ij}\vert^2}
-R_{ij}^{\alpha} R_{ij}^{\beta} R_{ij}^{\gamma} -$"></TD><TD class="rfill">&nbsp;</TD></TR>
-<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD style="text-align:left;"><IMG
- STYLE="height: 6.57ex; vertical-align: -3.40ex; " SRC="img666.svg"
- ALT="$\displaystyle -a_0\frac{1}{2}\sum_{j} c_T(ij) (R_{ij}^{\beta} \delta_{\alpha\gamma}+
-R_{ij}^{\alpha} \delta_{\beta\gamma})$"></TD><TD class="rfill">(<SPAN CLASS="arabic">90</SPAN>)</TD></TR>
-</TABLE></DIV>
-
-<P>
-Note a symmetry property: 
- in case of inversion symmetry at the position of an ion, the 
-phonon-strain interaction constants <!-- MATH
- $G_{mix}^{\alpha\gamma}(i)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.69ex; vertical-align: -0.76ex; " SRC="img662.svg"
- ALT="$G_{mix}^{\alpha\gamma}(i)$"></SPAN> will be zero.
-
-<P>
+<SPAN CLASS="SMALL"></SPAN>
 <BR><HR>
 
 </BODY>

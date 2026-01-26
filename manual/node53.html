@@ -1,16 +1,17 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Scattering geometry</TITLE>
+<TITLE>Formalism I - Resonant Magnetic Xray Scattering Intensity</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node54.html">
 <LINK REL="previous" HREF="node52.html">
 <LINK REL="next" HREF="node54.html">
 </HEAD>
@@ -22,118 +23,297 @@
  HREF="node54.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node52.html">
+ HREF="node50.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node52.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html615"
-  HREF="node7.html">
+<A ID="tex2html654"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html617"
-  HREF="node164.html">
+<A ID="tex2html656"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node54.html">Including Quadrupolar and Higher</A>
+ HREF="node54.html">Formalism II - Neutron</A>
 <B> Up:</B> <A
- HREF="node52.html">Resonant Inelastic X-ray Scattering(RIXS)</A>
+ HREF="node50.html">mcdiff - calculate and</A>
 <B> Previous:</B> <A
- HREF="node52.html">Resonant Inelastic X-ray Scattering(RIXS)</A>
- &nbsp; <B>  <A ID="tex2html616"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html618"
-  HREF="node164.html">Index</A></B> 
+ HREF="node52.html">How to calculate only</A>
+ &nbsp; <B>  <A ID="tex2html655"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html657"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION000124100000000000000">
-Scattering geometry</A>
-</H3>
-
+<H2><A ID="SECTION000103000000000000000">
+Formalism I - Resonant Magnetic Xray Scattering Intensity</A>
+</H2><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-<BLOCKQUOTE>
-[Coordinate system, see[<A
- HREF="node163.html#longfield02-054417">29</A>]:] Euclidean (orthonormal) system 
+<SPAN CLASS="SMALL">The resonant magnetic scattering intensity is calculated as outlined for example in&nbsp;[<A
+ HREF="node179.html#longfield02-054417">31</A>]
+for the magnetic electric dipole scattering according to the squared absolute value of the scattering
+amplitude given for the ion <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
+ ALT="$n$"></SPAN> in the lattice as
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath">
+
 <!-- MATH
+ \begin{eqnarray}
+&&f_{nE1}^{RXMS}=   \\
+&&=\left (
+\begin{array}{cc}
+\sigma \rightarrow \sigma & \pi \rightarrow \sigma \\
+\sigma \rightarrow \pi & \pi \rightarrow \pi 
+\end{array}
+ \right) = F^{(0)}
+\left ( \begin{array}{cc}
+1 & 0 \\
+0 & \cos2\Theta 
+\end{array} \right )
+-iF^{(1)}  \nonumber \\
+&&\times 
+\left ( \begin{array}{cc}
+0 & z_1 \cos \Theta + z_3 \sin \Theta \\
+z_3 \sin \Theta - z_1 \cos \Theta & -z_2 \sin 2\Theta  
+\end{array} \right ) + F^{(2)}\nonumber \\
+&&\times 
+\left ( \begin{array}{cc}
+z_2^2 & -z_2(z_1 \sin \Theta - z_3 \cos \Theta) \\
++z_2(z_1 \sin \Theta + z_3 \cos \Theta) & -\cos^2 \Theta (z_1^2 \tan^2 \Theta + z_3^2)
+\end{array} \right ) \nonumber \\
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.87ex; vertical-align: -0.69ex; " SRC="img357.svg"
+ ALT="$\displaystyle f_{nE1}^{RXMS}=$"></TD><TD class="rfill">(<SPAN CLASS="arabic">43</SPAN>)</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.79ex; vertical-align: -2.32ex; " SRC="img358.svg"
+ ALT="$\displaystyle =\left (
+\begin{array}{cc}
+\sigma \rightarrow \sigma &amp; \pi \right...
+...ft ( \begin{array}{cc}
+1 &amp; 0 \\
+0 &amp; \cos2\Theta
+\end{array} \right )
+-iF^{(1)}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.79ex; vertical-align: -2.32ex; " SRC="img359.svg"
+ ALT="$\displaystyle \times
+\left ( \begin{array}{cc}
+0 &amp; z_1 \cos \Theta + z_3 \sin \...
+...sin \Theta - z_1 \cos \Theta &amp; -z_2 \sin 2\Theta
+\end{array} \right ) + F^{(2)}$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 5.79ex; vertical-align: -2.32ex; " SRC="img360.svg"
+ ALT="$\displaystyle \times
+\left ( \begin{array}{cc}
+z_2^2 &amp; -z_2(z_1 \sin \Theta - z...
+...cos \Theta) &amp; -\cos^2 \Theta (z_1^2 \tan^2 \Theta + z_3^2)
+\end{array} \right )$"></TD><TD class="rfill">&nbsp;</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL"> 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">Here, dropping the site index <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img72.svg"
+ ALT="$n$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img352.svg"
+ ALT="$\Theta$"></SPAN> is the Bragg scattering angle and
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img361.svg"
+ ALT="$z_1, z_2$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img362.svg"
+ ALT="$z_3$"></SPAN> aree components of the magnetization vector with respect
+to the coordinate system <!-- MATH
  $[\mathbf u_1,\mathbf u_2,\mathbf u_3]$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img265.svg"
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img363.svg"
  ALT="$[\mathbf u_1,\mathbf u_2,\mathbf u_3]$"></SPAN>. The scattering plane, defined by the
-direction of the incident and final wave vectors  
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img266.svg"
+direction of the incident and final wave vectors  <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img364.svg"
  ALT="$\mathbf k$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.97ex; vertical-align: -0.12ex; " SRC="img267.svg"
+ STYLE="height: 1.97ex; vertical-align: -0.12ex; " SRC="img365.svg"
  ALT="$\mathbf k'$"></SPAN>, contains <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.61ex; vertical-align: -0.46ex; " SRC="img268.svg"
+ STYLE="height: 1.61ex; vertical-align: -0.46ex; " SRC="img366.svg"
  ALT="$\mathbf u_1$"></SPAN> lying
 perpendicular and in the sense of <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img266.svg"
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img364.svg"
  ALT="$\mathbf k$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.61ex; vertical-align: -0.46ex; " SRC="img269.svg"
+ STYLE="height: 1.61ex; vertical-align: -0.46ex; " SRC="img367.svg"
  ALT="$\mathbf u_3$"></SPAN> parallel to the scattering
 vector <!-- MATH
  $\mathbf Q=\mathbf k-\mathbf k'$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.42ex; vertical-align: -0.57ex; " SRC="img270.svg"
- ALT="$\mathbf Q=\mathbf k-\mathbf k'$"></SPAN>. 
-[Polarisation of the Photon beam:] <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img429.svg"
- ALT="$\sigma$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img431.svg"
- ALT="$\pi$"></SPAN> refer to the polarisation
-of the beam parallel and perpendicular to <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img432.svg"
- ALT="$\mathbf u2$"></SPAN>, respectively.
-[Angles for azimuth <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img290.svg"
- ALT="$\Psi=0$"></SPAN>:] <!-- MATH
- $\alpha_i=\angle(\mathbf a_i \cdot \mathbf u_3)_{\Psi=0}$
- -->
+ STYLE="height: 2.42ex; vertical-align: -0.57ex; " SRC="img368.svg"
+ ALT="$\mathbf Q=\mathbf k-\mathbf k'$"></SPAN>. The scattering channels for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.12ex; " SRC="img369.svg"
+ ALT="$F^{(1)}$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.87ex; vertical-align: -0.70ex; " SRC="img370.svg"
+ ALT="$F^(2)$"></SPAN> terms are considered
+separately and no interference is considered. 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">To determine the azimuthal dependence the <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img371.svg"
+ ALT="$z_i$"></SPAN> are expanded in terms of the components
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img433.svg"
- ALT="$\alpha_i=\angle(\mathbf a_i \cdot \mathbf u_3)_{\Psi=0}$"></SPAN>,
+ STYLE="height: 1.89ex; vertical-align: -0.78ex; " SRC="img372.svg"
+ ALT="$\mu_x,\mu_y$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img373.svg"
+ ALT="$\mu_z$"></SPAN> of the magnetic moment along the orthogonal euclidean coordinate
+system defined by  y||b, z||(a x b) and x perpendicular to y and z.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR>
+<DIV CLASS="displaymath">
+
 <!-- MATH
- $\delta_i=\angle(\mathbf a_i^{\perp}\cdot \mathbf u_1)_{\Psi=0}$
+ \begin{eqnarray}
+z_1&=&\mu_x \sin \alpha_1 \cos(\Psi+\delta_1)+\mu_y \sin \alpha_2 \cos(\Psi +\delta_2) \nonumber \\
+&& +\mu_z \sin \alpha_3 \cos (\Psi +\delta_3), \nonumber \\
+z_2 & = & \mu_x \sin \alpha_1 \sin (\Psi +\delta_1)+\mu_y \sin \alpha_2 \sin (\Psi+\delta_2) \nonumber \\
+& & +\mu_z \sin \alpha_3 \sin (\Psi +\delta_3) \nonumber \\
+z_3 & = & \mu_x \cos \alpha_1 + \mu_y \cos \alpha_2 + \mu_z \cos \alpha_3 
+\end{eqnarray}
+ -->
+<TABLE CLASS="equation" >
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img374.svg"
+ ALT="$\displaystyle z_1$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img375.svg"
+ ALT="$\displaystyle \mu_x \sin \alpha_1 \cos(\Psi+\delta_1)+\mu_y \sin \alpha_2 \cos(\Psi +\delta_2)$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img376.svg"
+ ALT="$\displaystyle +\mu_z \sin \alpha_3 \cos (\Psi +\delta_3),$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img377.svg"
+ ALT="$\displaystyle z_2$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img378.svg"
+ ALT="$\displaystyle \mu_x \sin \alpha_1 \sin (\Psi +\delta_1)+\mu_y \sin \alpha_2 \sin (\Psi+\delta_2)$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img379.svg"
+ ALT="$\displaystyle +\mu_z \sin \alpha_3 \sin (\Psi +\delta_3)$"></TD><TD class="rfill">&nbsp;</TD></TR>
+<TR><TD class="lfill"></TD><TD style="text-align:RIGHT"><IMG
+ STYLE="height: 1.58ex; vertical-align: -0.46ex; " SRC="img380.svg"
+ ALT="$\displaystyle z_3$"></TD>
+<TD style="text-align:center"><IMG
+ STYLE="height: 1.08ex; vertical-align: -0.12ex; " SRC="img99.svg"
+ ALT="$\textstyle =$"></TD>
+<TD style="text-align:left;"><IMG
+ STYLE="height: 2.24ex; vertical-align: -0.78ex; " SRC="img381.svg"
+ ALT="$\displaystyle \mu_x \cos \alpha_1 + \mu_y \cos \alpha_2 + \mu_z \cos \alpha_3$"></TD><TD class="rfill">(<SPAN CLASS="arabic">44</SPAN>)</TD></TR>
+</TABLE></DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">with angles <!-- MATH
+ $\alpha_i=\angle( \hat \mathbf x_i \cdot \mathbf u_3)_{\Psi=0}$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.80ex; vertical-align: -0.72ex; " SRC="img434.svg"
- ALT="$\delta_i=\angle(\mathbf a_i^{\perp}\cdot \mathbf u_1)_{\Psi=0}$"></SPAN>,
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img382.svg"
+ ALT="$\alpha_i=\angle( \hat \mathbf x_i \cdot \mathbf u_3)_{\Psi=0}$"></SPAN> 
+and <!-- MATH
+ $\delta_i=\angle(\mathbf x_i^{\perp}\cdot \mathbf u_1)_{\Psi=0}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.80ex; vertical-align: -0.72ex; " SRC="img383.svg"
+ ALT="$\delta_i=\angle(\mathbf x_i^{\perp}\cdot \mathbf u_1)_{\Psi=0}$"></SPAN>, 
 where <!-- MATH
- $\mathbf a_{1,2,3}=\mathbf a,\mathbf b,\mathbf c$
+ $\hat \mathbf x_{1,2,3}=\hat \mathbf x,\hat \mathbf y,\hat \mathbf z$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.50ex; vertical-align: -0.78ex; " SRC="img435.svg"
- ALT="$\mathbf a_{1,2,3}=\mathbf a,\mathbf b,\mathbf c$"></SPAN> and <!-- MATH
- $\mathbf a_i^{\perp}$
+ STYLE="height: 2.53ex; vertical-align: -0.78ex; " SRC="img384.svg"
+ ALT="$\hat \mathbf x_{1,2,3}=\hat \mathbf x,\hat \mathbf y,\hat \mathbf z$"></SPAN> 
+and <!-- MATH
+ $\mathbf x_i^{\perp}$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.80ex; vertical-align: -0.72ex; " SRC="img436.svg"
- ALT="$\mathbf a_i^{\perp}$"></SPAN> is the projection of
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.61ex; vertical-align: -0.46ex; " SRC="img437.svg"
- ALT="$\mathbf a_i$"></SPAN> onto the plane perpendicular to <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.27ex; vertical-align: -0.57ex; " SRC="img289.svg"
- ALT="$\mathbf Q$"></SPAN>.
- In the chosen experimental geometry
-azimuth <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img290.svg"
- ALT="$\Psi=0$"></SPAN>, when <!-- MATH
- $\mathbf a_1 = \mathbf a$
+ STYLE="height: 2.80ex; vertical-align: -0.72ex; " SRC="img385.svg"
+ ALT="$\mathbf x_i^{\perp}$"></SPAN> is the projection of
+<!-- MATH
+ $\hat \mathbf x_i$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.61ex; vertical-align: -0.46ex; " SRC="img438.svg"
- ALT="$\mathbf a_1 = \mathbf a$"></SPAN> points to the x-ray source.
-
-</BLOCKQUOTE>
-
+ STYLE="height: 2.22ex; vertical-align: -0.46ex; " SRC="img386.svg"
+ ALT="$\hat \mathbf x_i$"></SPAN> onto the plane perpendicular to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.27ex; vertical-align: -0.57ex; " SRC="img387.svg"
+ ALT="$\mathbf Q$"></SPAN>. In the chosen experimental geometry
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img388.svg"
+ ALT="$\Psi=0$"></SPAN> when <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.26ex; vertical-align: -0.12ex; " SRC="img389.svg"
+ ALT="$\mathbf x$"></SPAN> points to the x-ray source (and for the special case
+of <!-- MATH
+ $\mathbf Q|| \mathbf x$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img390.svg"
+ ALT="$\mathbf Q\vert\vert \mathbf x$"></SPAN> when <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.71ex; vertical-align: -0.57ex; " SRC="img391.svg"
+ ALT="$\mathbf y$"></SPAN> points to the x-ray source).
+</SPAN>
 <P>
-<P>
-<BR><HR>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node54.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node50.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node52.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html654"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html656"
+  HREF="node180.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node54.html">Formalism II - Neutron</A>
+<B> Up:</B> <A
+ HREF="node50.html">mcdiff - calculate and</A>
+<B> Previous:</B> <A
+ HREF="node52.html">How to calculate only</A>
+ &nbsp; <B>  <A ID="tex2html655"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html657"
+  HREF="node180.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

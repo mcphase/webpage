@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>subdirectory ./fit - experimental data for fit (optional) </TITLE>
+<TITLE>Module Usage:</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -22,116 +22,169 @@
  HREF="node34.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node22.html">
+ HREF="node31.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node32.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html516"
-  HREF="node7.html">
+<A ID="tex2html543"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html518"
-  HREF="node164.html">
+<A ID="tex2html545"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node34.html">Starting a simulation</A>
+ HREF="node34.html">mcphas - calculation of</A>
 <B> Up:</B> <A
- HREF="node22.html">Input Files</A>
+ HREF="node31.html">Using the so1ion module</A>
 <B> Previous:</B> <A
- HREF="node32.html">subdirectory ./results - directory</A>
- &nbsp; <B>  <A ID="tex2html517"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html519"
-  HREF="node164.html">Index</A></B> 
+ HREF="node32.html">Module Tasks:</A>
+ &nbsp; <B>  <A ID="tex2html544"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html546"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION0001011100000000000000">
-subdirectory <I CLASS="slanted">./fit</I> - experimental data for fit (optional) </A>
-</H3> 
-
+<H3><A ID="SECTION00083200000000000000">
+Module Usage:</A>
+</H3><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-In order that <I CLASS="slanted">McPhase</I> can calculate the standard deviation between
- experimental data and the results of the simulation, some experimental data
- can be given in the subdirectory <I CLASS="slanted">./fit</I>. The filenames and the data-format
- are the same as the output files of <I CLASS="slanted">McPhas</I>, e.g. <I CLASS="slanted">mcphas.fum</I>, <I CLASS="slanted">mcphas.hkl</I>
- etc. <I CLASS="slanted">McPhase</I> looks into the directory <I CLASS="slanted">./fit</I> and if it finds any
- of these files, the standard deviation is increased correspondingly. 
-
+<SPAN CLASS="SMALL">  SIMPLICIUS: Ok, I understood what you mean by single ion module, but how can we do some calculation
+in <I CLASS="slanted">McPhase</I> using the crystal field parameters ?
+</SPAN>
 <P>
-What measurement data can be used to calculate a standard deviation ?
-
+<SPAN CLASS="SMALL">  EWALD: 
+The program <I CLASS="slanted">mcphas</I> (-calculation of the magnetic phase diagram) 
+requires a single ion
+property input file of the same format as given above in
+section&nbsp;<A HREF="node30.html#cfieldexample">6.2</A> (also for each ion in the
+crystallographic unit cell):
+</SPAN>
 <P>
-<DL>
-<DT><STRONG><I CLASS="slanted">mcphas.fum</I></STRONG></DT>
-<DD>if given in column 8,9,10,.. in <I CLASS="slanted">./fit/mcphas.fum</I> the
-            free energy <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img136.svg"
- ALT="$f$"></SPAN>, the energy <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img230.svg"
- ALT="$u$"></SPAN>, the magnetisation and the strain is used for calculation
-	    of the standard deviation sta. The standard deviation is calculated
-	    as <!-- MATH
- ${\rm sta}=\sum_{\rm data points i} ({m}_i^{calc}-{m}_i^{meas})^2/({\Delta m}_i^{meas})^2$
+<SPAN CLASS="SMALL"></SPAN>
+<UL>
+<LI>The first line in the single ion property file tells <I CLASS="slanted">mcphas</I> that the module
+<I CLASS="slanted">so1ion<A ID="1193"></A></I> should be used for this ion. 
+</LI>
+<LI>Comment lines start with #. 
+</LI>
+<LI>The type of ion has to be given plus
+several lines containing the crystal field parameters. 
+</LI>
+</UL><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">It follows a simple  example (for more complicated examples see section <A HREF="node41.html#sifile">7.1.6</A> and 
+<I CLASS="slanted">mcphas.cf1</I> in the 
+directory <I CLASS="slanted">examples/ndcu2b_new</I>):
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN><PRE>
+#!MODULE=so1ion
+#&lt;!--mcphas.sipf--&gt;
+# comment followed by
+# the ion type and the crystal field parameters [meV]
+ IONTYPE=Nd3+
+# - note you can also do any pure spin problem by entering e.g. IONTYPE=S=2.5 
+ B20=  0.116765                                           
+ B22  =  0.134172                                           
+ B40  =  0.0019225                                          
+ B42  =  0.0008704                                          
+ B44  =  0.0016916                                          
+ B60  =  0.0000476                                          
+ B62  =  0.0000116                                          
+ B64  =  0.0000421                                          
+ B66  =  0.0003662
+</PRE><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN><DL>
+<DT><STRONG>Note:</STRONG></DT>
+<DD>In order to use the <I CLASS="slanted">so1ion<A ID="1201"></A></I>  module in <I CLASS="slanted">McPhase</I> a convention for
+the orientation of the <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img6.svg"
+ ALT="$xyz$"></SPAN> coordinate system (of the crystal field) relative
+to the crystal axis <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img242.svg"
+ ALT="$abc$"></SPAN> has to be made:
+ The axes convention adopted in module <I CLASS="slanted">so1ion</I> for the crystal field parameters
+is - <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img243.svg"
+ ALT="$\vec a\vert\vert x$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img244.svg"
+ ALT="$\vec b\vert\vert y$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img245.svg"
+ ALT="$\vec c\vert\vert z$"></SPAN>. <A ID="tex2html24"
+  HREF="footnode.html#foot9376"><SUP><SPAN CLASS="arabic">16</SPAN></SUP></A>
+In case of non-orthogonal axes the convention 
+is <SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img249.svg"
+ ALT="$y\vert\vert\vec b$"></SPAN>, <!-- MATH
+ $z||(\vec a \times \vec b)$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.21ex; vertical-align: -1.13ex; " SRC="img231.svg"
- ALT="${\rm sta}=\sum_{\rm data points i} ({m}_i^{calc}-{m}_i^{meas})^2/({\Delta m}_i^{meas})^2$"></SPAN>.
-	    A measured quantity is used for fitting only, if the experimental error <!-- MATH
- ${\Delta m}_i^{meas}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.51ex; vertical-align: -0.69ex; " SRC="img232.svg"
- ALT="${\Delta m}_i^{meas}$"></SPAN> is given
-            after the number <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.37ex; vertical-align: -0.72ex; " SRC="img233.svg"
- ALT="${m}_i^{meas}$"></SPAN> in the file <I CLASS="slanted">./fit/mcphas.fum</I> 
-            using the notation: <PRE> 3.24+-0.2
-</PRE>
+ STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img250.svg"
+ ALT="$z\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img4.svg"
+ ALT="$x$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img251.svg"
+ ALT="$y$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img238.svg"
+ ALT="$z$"></SPAN>.
 
+<P>
+The reason for
+this unique choice is to make it possible to treat quadrupolar interactions - the 
+generalisation of bilinear interactions to these higher order interactions
+is much easier in a unique axes convention.
+
+<P>
+<SPAN CLASS="SMALL">
+<B>Information for experienced users:</B> the first line in the single ion property file
+can either refer to  one of the standard
+single ion property modules (e.g. Kramers ground state
+doublet #!MODULE=kramers, full crystal field #!MODULE=so1ion) or a shared library file, which will be loaded
+dynamically into the program at runtime 
+ - for a description
+of this file see section&nbsp;<A HREF="node41.html#sifile">7.1.6</A>.
+</SPAN>
+
+<P>
 <P>
 </DD>
-</DL>
-
-<P>
-Note that the measured data has to be given in those (H-T) points which are 
-calculated by mcphas<A ID="894"></A> in order to be used by the program to increase <I CLASS="slanted">sta</I>.
-It is usually most effective to fit only few data points, because a large set
-of data points will not improve the quality of the fit and only require a large
-amount of calculation time.
-
-<P>
-
+</DL></SPAN>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
 <A
  HREF="node34.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node22.html">
+ HREF="node31.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node32.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html516"
-  HREF="node7.html">
+<A ID="tex2html543"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html518"
-  HREF="node164.html">
+<A ID="tex2html545"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node34.html">Starting a simulation</A>
+ HREF="node34.html">mcphas - calculation of</A>
 <B> Up:</B> <A
- HREF="node22.html">Input Files</A>
+ HREF="node31.html">Using the so1ion module</A>
 <B> Previous:</B> <A
- HREF="node32.html">subdirectory ./results - directory</A>
- &nbsp; <B>  <A ID="tex2html517"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html519"
-  HREF="node164.html">Index</A></B> </DIV>
+ HREF="node32.html">Module Tasks:</A>
+ &nbsp; <B>  <A ID="tex2html544"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html546"
+  HREF="node180.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

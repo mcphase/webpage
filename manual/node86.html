@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>External module function du1calc - used by mcdisp,singleion</TITLE>
+<TITLE>Magnetoelastic Options to mcphas</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,235 +23,181 @@
  HREF="node87.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node82.html">
+ HREF="node74.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node85.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html803"
-  HREF="node7.html">
+<A ID="tex2html818"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html805"
-  HREF="node164.html">
+<A ID="tex2html820"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node87.html">External module function estates</A>
+ HREF="node87.html">TmCu - magnetoelastic effects</A>
 <B> Up:</B> <A
- HREF="node82.html">Basic Module Functions</A>
+ HREF="node74.html">Crystal Field Phonon Interaction</A>
 <B> Previous:</B> <A
- HREF="node85.html">External module function Icalc_parameter_storage_matrix_init</A>
- &nbsp; <B>  <A ID="tex2html804"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html806"
-  HREF="node164.html">Index</A></B> 
+ HREF="node85.html">Calculation of the Exchange</A>
+ &nbsp; <B>  <A ID="tex2html819"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html821"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION000171400000000000000"></A><A ID="3349"></A><A ID="3350"></A>
+<H2><A ID="SECTION0001412000000000000000"></A><A ID="magelastmcphasoptions"></A>
 <BR>
-External module function <I CLASS="slanted">du1calc</I> - used by <I CLASS="slanted">mcdisp</I>,<I CLASS="slanted">singleion</I>
-</H3>
-
-<P>
-The external single ion module has to provide the components nofcomponentsxnofcomponents
-matrix <!-- MATH
- $M^s_{\alpha\beta}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.78ex; vertical-align: -1.09ex; " SRC="img834.svg"
- ALT="$M^s_{\alpha\beta}$"></SPAN> (see equation (<A HREF="node152.html#mmatrix">240</A>)) for every transition
-<!-- MATH
- $|-\rangle \rightarrow |+\rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img835.svg"
- ALT="$\vert-\rangle \rightarrow \vert+\rangle$"></SPAN>which is to be taken into consideration 
-in the calculation. Note, in general<!-- MATH
- $M^s_{\alpha\beta}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.78ex; vertical-align: -1.09ex; " SRC="img834.svg"
- ALT="$M^s_{\alpha\beta}$"></SPAN> it is a quadratic matrix with the same
-dimension as the vectors <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.82ex; vertical-align: -0.12ex; " SRC="img826.svg"
- ALT="$\mathbf I$"></SPAN> and Hxc. 
-Actually it is not necessary to compute the whole  Matrix <!-- MATH
- $M^s_{\alpha\beta}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.78ex; vertical-align: -1.09ex; " SRC="img834.svg"
- ALT="$M^s_{\alpha\beta}$"></SPAN>, because
-only the first eigenvector is needed in the computations.
-Thus, in order to make calculations easier and provide a unique phase of the eigenvectors, the 
-external single ion module must return not the Matrix <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img836.svg"
- ALT="$M$"></SPAN> but the unnormalized
-eigenvector <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.72ex; vertical-align: -0.12ex; " SRC="img837.svg"
- ALT="$u1$"></SPAN>, which is given by equation (<A HREF="node152.html#ufirstrow">242</A>):
- <!-- MATH
- ${\mathbf u^s_{\alpha1}}=\sqrt{(p_- -p_+)}\langle -|I^s_{\alpha}-\langle I^s_{\alpha}\rangle_{\mathbf H,T}|+\rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.10ex; vertical-align: -0.82ex; " SRC="img838.svg"
- ALT="${\mathbf u^s_{\alpha1}}=\sqrt{(p_--p_+)}\langle -\vert I^s_{\alpha}-\langle I^s_{\alpha}\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>. 
-Note that in contrast to <!-- MATH
- ${\mathcal U^s_{\alpha1}}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.39ex; vertical-align: -0.69ex; " SRC="img839.svg"
- ALT="${\mathcal U^s_{\alpha1}}$"></SPAN> the eigenvector
-<!-- MATH
- ${\mathbf u^s_{\alpha1}}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.34ex; vertical-align: -0.69ex; " SRC="img840.svg"
- ALT="${\mathbf u^s_{\alpha1}}$"></SPAN> is not normalised (no <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img411.svg"
- ALT="$\gamma$"></SPAN>!)
-and thus the matrix  <!-- MATH
- $M^s_{\alpha\beta}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.78ex; vertical-align: -1.09ex; " SRC="img834.svg"
- ALT="$M^s_{\alpha\beta}$"></SPAN> may be recovered from it.
-
-<P>
-The format to be used is:
-<SPAN CLASS="FOOTNOTESIZE">
-</SPAN><PRE>
-extern "C" int du1calc(int &amp; tn,double &amp; T,Vector &amp; Hxc,Vector &amp; Hext,double * g_J,Vector &amp; MODPAR,
-char ** sipffilename,ComplexVector &amp; u1,float &amp; delta, int &amp; n, int &amp; nd, ComplexMatrix &amp; est)
-</PRE><SPAN CLASS="FOOTNOTESIZE">
+Magnetoelastic Options to <I CLASS="slanted">mcphas</I>
+</H2><SPAN CLASS="SMALL">
 </SPAN>
 <P>
-<SPAN CLASS="FOOTNOTESIZE">The meaning of the symbols is as follows:
+<SPAN CLASS="SMALL"></SPAN><table width="90%"><tr><td align="right" valign="top"><I CLASS="slanted">-doeps</I></td><td valign="top">&nbsp;If the program <EM>mcphas</EM> is started with option <I CLASS="slanted">-doeps</I>
+and it finds elastic constants in the input file <EM>mcphas.j</EM> (note, that the elastic constants
+in the input file are normalised to the primitive crystallographic unit cell, units are 
+meV / primitive crystallographic unit cell), it
+ will use these and determine selfconsistently the strain <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img97.svg"
+ ALT="$\epsilon$"></SPAN> by solving equations
+(<A HREF="node79.html#zeroeps">136</A>) and (<A HREF="node79.html#Htot">134</A>). Elastic energy and strain tensor are stored in <EM>results/mcphas.fum</EM>.
+ In this way it is be possible to model Jahn Teller transitions,
+phase diagrams, magnetostriction, thermal expansion (magnetic part) and dynamics consistently based
+only on point charges and Born von Karman springs. 
+If <I CLASS="slanted">mcphas</I> is used with option <I CLASS="slanted">-doeps</I> and 
+it finds files <I CLASS="slanted">mcphas.djdx</I>, <I CLASS="slanted">mcphas.djdy</I>, <I CLASS="slanted">mcphas.djdz</I> with
+derivatives of the two ion interaction parameters with respect to
+spatial coordinates <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img892.svg"
+ ALT="$x,y,z$"></SPAN> respectively, it performs a calculation of
+the corresponding correlation functions and computes the strain  using
+equation (<A HREF="node80.html#zeroepsex">140</A>) at each iteration. 
+
+<P>
+Similar, If <I CLASS="slanted">mcphas</I> 
+is used with option <I CLASS="slanted">-doeps</I> and it finds files <I CLASS="slanted">mcphas.djdeps1</I>, <I CLASS="slanted">mcphas.djdeps2</I>,...,
+ <I CLASS="slanted">mcphas.djdeps6</I> with
+derivatives of the two ion interaction parameters with respect to
+strain components in Voigt notation <!-- MATH
+ $\epsilon_1,\dots,\epsilon_6$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img893.svg"
+ ALT="$\epsilon_1,\dots,\epsilon_6$"></SPAN> respectively,it performs a calculation of
+the corresponding correlation functions and computes the strain  using
+equation (<A HREF="node80.html#zeroepsex">140</A>) at each iteration.
+
+<P>
+Subsequently, making use of the Taylor expansion
+of the interaction constants (<A HREF="node80.html#jjtaylor">138</A>) the computed strain is used 
+in the next iteration for the the mean field Hamiltonian 
+(mean field theory is used by <EM>McPhase</EM>
+to solve the Hamiltonian (<A HREF="node80.html#Hwithexstric">137</A>) and (<A HREF="node79.html#Htot">134</A>)). 
+At the end of the iteration loop mean fields, moments <!-- MATH
+ $\langle I \rangle$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img894.svg"
+ ALT="$\langle I \rangle$"></SPAN> and 
+a selfconsistent strain tensor <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img97.svg"
+ ALT="$\epsilon$"></SPAN> is obtained. 
+
+<P></td></tr>
+<tr><td align="right" valign="top"><I CLASS="slanted">-linepscf</I></td><td valign="top">&nbsp;The option <I CLASS="slanted">-linepscf</I> together with <I CLASS="slanted">-doeps</I> will trigger 
+a calculation where equation (<A HREF="node79.html#zeroeps">136</A>) (and in case
+of exchange striction terms (<A HREF="node80.html#zeroepsex">140</A>))
+is used to calculate the strain <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img97.svg"
+ ALT="$\epsilon$"></SPAN>, however the last two terms in
+(<A HREF="node79.html#Htot">134</A>) are always evaluated
+for zero strain, i.e. the crystal field striction is not calculated
+selfconsistently, but only in the linear approximation assuming that the 
+strain leads only to a negligible perturbation of the crystal field
+Hamiltonian. 
+
+<P></td></tr>
+<tr><td align="right" valign="top"><I CLASS="slanted">-linepsjj</I></td><td valign="top">&nbsp;The option <I CLASS="slanted">-linepsjj</I> together with <I CLASS="slanted">-doeps</I> will trigger 
+a calculation where equation (<A HREF="node80.html#zeroepsex">140</A>)
+is used to calculate the strain <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img97.svg"
+ ALT="$\epsilon$"></SPAN>, yet the modification of
+the two ion interaction by the strain is assumed to be small
+and two ion interaction parameters (<A HREF="node80.html#jjtaylor">138</A>) are used
+in the mean field loop always for zero strain, i.e. the exchange striction is not calculated
+selfconsistently, but only in the linear approximation assuming that the 
+strain leads only to a negligible perturbation of the two ion interaction
+Hamiltonian.
+
+<P>
+</td></tr></table>
+<SPAN CLASS="SMALL">
 </SPAN>
 <P>
-<SPAN CLASS="FOOTNOTESIZE"></SPAN><PRE>
-on input
-   |tn|            transition-number  
-   sign(tn)        &gt;0 standard, &lt;0 routine should do some printout to stdout for user information
-   MODPAR          Vector with Parameters  read in single ion property file
-   sipffilename    file name of the single ion parameter file
-   g_J             Lande factor
-   T               Temperature[K]
-   Hxc             vector of exchange field [meV] (can be n-dimensional, for a set of n operators)
-   Hext            external magnetic field [T]
-   est             eigenstate matrix (initialized by estates)
-                   it should/may also contain population numbers of the states
-				   (imaginary part of row 0)
-                   and eigenvalues (real part of row 0) with values set by the most recent call
-				   for this ion (use of this matrix is optional)
-   u1(1)           ninit + i pinit (from mcdisp options  -ninit and -pinit)
-   delta           upper boundary for transition energy (meV) to be considered
-                   (from mcdisp option -maxE)
-on output
-   int             total number of transitions
-   delta           transition energy [meV]
-   n,nd            initial and final level
-   u1             vector u1=&lt;-|Ialpha-&lt;Ialpha&gt;|+&gt;sqrt((p- - p+))                          
-                note that as in Icalc the single ion momentum vector &lt;-|I|+&gt; 
-				(n- dimensional with n&gt;=1)
-                may be an arbitrary set of operators
-</PRE><SPAN CLASS="FOOTNOTESIZE"></SPAN>
-The module function must perform the following tasks:
-
-<OL>
-<LI>check if the dimensions of vectors I,Hxc (taken by <I CLASS="slanted">mcphas</I> from the number of 
-interaction constant columns in <I CLASS="slanted">mcphas.j<A ID="3370"></A></I>)
- and MODPAR (taken by <I CLASS="slanted">mcphas</I> from the number of params in the single ion property
-file) agree with the module specifications. Note a module may be designed to 
-take different dimensions depending on the input files, however the dimensions
-of vectors I and Hxc has to agree and must be within the range of dimensions which
-can be treated by the module. If the check fails the module function should exit the
-program with an appropriate error message
-</LI>
-<LI>the module function should do a numbering of all possible single ion transitions and return
-the total number of transitions as an integer. Input file parameters params are supplied as a vector MODPAR and
-Lande factor as g_J and  can be used for this purpose. The numbering will depend on
-the parameters ninit, pinit and maxE which are provided as input. These parameters
-have to be considered. <EM>IMPORTANT: the numbering scheme of transitions has to
-be the same for du1calc and all the corresponding d...1 functions for observables !</EM>
-</LI>
-<LI>it should calculate from meanfields at a given temperature the 
-transition energy of transition number <I CLASS="slanted">tn</I>. The result should be returned as <I CLASS="slanted">delta</I>
-</LI>
-<LI>for the transition number tn the vector u1 is to
- be filled with 
-<!-- MATH
- ${\mathbf u^s_{\alpha1}}=\sqrt{(p_- -p_+)}\langle -|\hat I^s_{\alpha}-\langle \hat I^s_{\alpha}\rangle_{\mathbf H,T}|+\rangle$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.13ex; vertical-align: -0.82ex; " SRC="img841.svg"
- ALT="${\mathbf u^s_{\alpha1}}=\sqrt{(p_--p_+)}\langle -\vert\hat I^s_{\alpha}-\langle \hat I^s_{\alpha}\rangle_{\mathbf H,T}\vert+\rangle$"></SPAN>.
-</LI>
-<LI>If the energy of this transition
-is zero, i.e. <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img842.svg"
- ALT="$\Delta(tn)=0$"></SPAN> (diffuse scattering), 
-the expression (<A HREF="node152.html#mmatrix">240</A>) would be zero because <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img843.svg"
- ALT="$(p_--p_+)$"></SPAN> vanishes.
-In this case the single ion module should calculate <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img844.svg"
- ALT="$(p_+/kT)$"></SPAN> instead of <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img843.svg"
- ALT="$(p_--p_+)$"></SPAN>.
-</LI>
-<LI>if transition is from a level to itself, then a negative 
-value of <!-- MATH
- $\Delta=-10^{-10}$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.31ex; vertical-align: -0.31ex; " SRC="img845.svg"
- ALT="$\Delta=-10^{-10}$"></SPAN> should be returned.
-</LI>
-<LI>if <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.90ex; vertical-align: -0.21ex; " SRC="img830.svg"
- ALT="$T&lt;0$"></SPAN> all quantities should be evaluated assuming that all Boltzmann probabilities <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img139.svg"
- ALT="$p_i$"></SPAN>
- are zero except for the state number <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img831.svg"
- ALT="$n=(-T)$"></SPAN>, for which the probability <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.17ex; vertical-align: -0.57ex; " SRC="img832.svg"
- ALT="$p_n=1$"></SPAN>.
-</LI>
-</OL>
-
+<SPAN CLASS="SMALL">The length change <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img895.svg"
+ ALT="$\Delta L/L$"></SPAN> of a sample in a dilatometer experiment
+can be calculated from the strain tensor components
+ using&nbsp;<A ID="tex2html46"
+  HREF="footnode.html#foot3658"><SUP><SPAN CLASS="arabic">23</SPAN></SUP></A>
+</SPAN>
 <P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV CLASS="displaymath">
 
+<!-- MATH
+ \begin{equation}
+\frac{\Delta L}{L}=\sum_{\alpha\beta} \epsilon_{\alpha\beta} \hat L_{\alpha} \hat L_{\beta}
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 6.71ex; vertical-align: -3.46ex; " SRC="img896.svg"
+ ALT="$\displaystyle \frac{\Delta L}{L}=\sum_{\alpha\beta} \epsilon_{\alpha\beta} \hat L_{\alpha} \hat L_{\beta}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">135</SPAN>)</SPAN>
+</DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">where <!-- MATH
+ $\hat \mathbf L$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.43ex; vertical-align: -0.12ex; " SRC="img897.svg"
+ ALT="$\hat \mathbf L$"></SPAN> denotes the unit vector in the direction of
+measurement.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
 <A
  HREF="node87.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node82.html">
+ HREF="node74.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node85.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html803"
-  HREF="node7.html">
+<A ID="tex2html818"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html805"
-  HREF="node164.html">
+<A ID="tex2html820"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node87.html">External module function estates</A>
+ HREF="node87.html">TmCu - magnetoelastic effects</A>
 <B> Up:</B> <A
- HREF="node82.html">Basic Module Functions</A>
+ HREF="node74.html">Crystal Field Phonon Interaction</A>
 <B> Previous:</B> <A
- HREF="node85.html">External module function Icalc_parameter_storage_matrix_init</A>
- &nbsp; <B>  <A ID="tex2html804"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html806"
-  HREF="node164.html">Index</A></B> </DIV>
+ HREF="node85.html">Calculation of the Exchange</A>
+ &nbsp; <B>  <A ID="tex2html819"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html821"
+  HREF="node180.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Solution of the exercises</TITLE>
+<TITLE>Symmetry considerations for Crystal Field Parameters</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -28,220 +28,523 @@
 <A
  HREF="node159.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1151"
-  HREF="node7.html">
+<A ID="tex2html1198"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1153"
-  HREF="node164.html">
+<A ID="tex2html1200"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node161.html">Unit Conventions in McPhase</A>
+ HREF="node161.html">Transforming Crystal Field Parameters</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node159.html">Theory for program bfk</A>
- &nbsp; <B>  <A ID="tex2html1152"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1154"
-  HREF="node164.html">Index</A></B> 
+ HREF="node159.html">Stevens Operators</A>
+ &nbsp; <B>  <A ID="tex2html1199"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1201"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A ID="SECTION000390000000000000000">
-Solution of the exercises</A>
-</H1>
-
+<H1><A ID="SECTION000310000000000000000">
+Symmetry considerations for Crystal Field Parameters</A>
+</H1><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-<DL>
-<DT><STRONG>section&nbsp;<A HREF="node12.html#hamiltonian">5</A> <EM>The Hamiltonian</EM></STRONG></DT>
-<DD> 
- 
-<OL>
-<LI>Fast and simple: take some book on crystal fields&nbsp;[<A
- HREF="node163.html#hutchings64-227">26</A>] and look up which parameters are nonzero 
- for the orthorhombic crystal field (<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img17.svg"
- ALT="$B_2^0$"></SPAN>,<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img60.svg"
- ALT="$B_2^2$"></SPAN>,<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img771.svg"
- ALT="$B_4^0$"></SPAN>,<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img772.svg"
- ALT="$B_4^2$"></SPAN>,<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img773.svg"
- ALT="$B_4^4$"></SPAN>,<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img774.svg"
- ALT="$B_6^0$"></SPAN>,<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img775.svg"
- ALT="$B_6^2$"></SPAN>,<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img776.svg"
- ALT="$B_6^4$"></SPAN>,<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img777.svg"
- ALT="$B_6^6$"></SPAN>).
-
+<SPAN CLASS="SMALL">Symmetry considerations allow to compile 
+table&nbsp;<A HREF="#tab:symmetry">8</A>, where the nonvanishing
+CEF parameters for all 
+crystallographic point groups are
+given&nbsp;[<A
+ HREF="node179.html#bauer09-183">71</A>].
+</SPAN>
 <P>
-Detailed Calculation: take the point group <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.63ex; vertical-align: -0.69ex; " SRC="img1724.svg"
- ALT="$D_2^h$"></SPAN>, the Stevens Operators <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img88.svg"
- ALT="$O_l^m$"></SPAN> taken as a vector form
- a representation of this point group, which is reducible. Follow the procedure outlined in the book&nbsp;[<A
- HREF="node163.html#elliott79-1">73</A>]
- to split this representation into irreducible parts. The basis vectors of the unit representation may then be 
- linear combined with some arbitrary crystal field parameters to give the most general crystal field.
- Note that the basis vectors of the unit representation can be obtained efficiently by constructing the
- projection operator (eq. 4.51 in&nbsp;[<A
- HREF="node163.html#elliott79-1">73</A>])
-  into the subspace transforming according to the irreducible unit representation. 
-</LI>
-<LI>Unfortunately no table is available for all relevant problems. Some cases are given in&nbsp;[<A
- HREF="node163.html#morin90-1">33</A>].
- 2 ways are possible to solve the problem. The accurate group theoretical approach which follows the calculation
- outlined above for the crystal field  and needs a lot of knowledge in group theory. However a more intuitive calculation
- can be made by writing down the most general two ion interaction and subsequent introduction of symmetry elements which
- will then give relation between parameters. As an example in the primitive orthorhombic lattice there are 2 nearest neighbours, which
- are equivalent. 
+<SPAN CLASS="SMALL"></SPAN>
+<BR><P></P>
+<DIV class="CENTER"><A ID="tab:symmetry"></A>
 
-<P>
-In general the bilinear two ion interaction  has the form 
- <!-- MATH
- $-\frac{1}{2}  \sum_{ij}  {\mathbf J}_i^{alpha}{\mathcal J}_{\alpha\beta}(ij){\mathbf J}_j^{\beta}$
+<A ID="10287"></A>
+<TABLE class="PAD  BORDER" style="">
+<CAPTION><STRONG>Table 8:</STRONG>
+Possible local symmetries and corresponding non zero CEF parameters.
+  In the case when <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.21ex; " SRC="img40.svg"
+ ALT="$m&gt;0$"></SPAN> and both parameters <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img41.svg"
+ ALT="$B_l^m$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.92ex; vertical-align: -0.82ex; " SRC="img42.svg"
+ ALT="$B_l^{-m}$"></SPAN> are
+nonzero, one of these <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img41.svg"
+ ALT="$B_l^m$"></SPAN> with <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.81ex; vertical-align: -0.21ex; " SRC="img40.svg"
+ ALT="$m&gt;0$"></SPAN>
+ can by made zero by a rotation of the coordinate system.
+However, the appropriate orientation of 
+the coordinate system in these cases is not known <EM>a priori</EM>. It requires
+the knowledge of the CEF parameters.
+Note, that for cubic symmetry additionally 
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img43.svg"
+ ALT="$B_4^4=5 B_4^0$"></SPAN>, <!-- MATH
+ $B_6^4=-21 B_6^0$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.63ex; vertical-align: -1.13ex; " SRC="img1725.svg"
- ALT="$-\frac{1}{2} \sum_{ij} {\mathbf J}_i^{alpha}{\mathcal J}_{\alpha\beta}(ij){\mathbf J}_j^{\beta}$"></SPAN>.
- <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.76ex; vertical-align: -0.12ex; " SRC="img367.svg"
- ALT="$i$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.21ex; vertical-align: -0.57ex; " SRC="img692.svg"
- ALT="$j$"></SPAN> number the different positions of the magnetic ions in the lattice. Without loss of 
- generality the interaction constants <!-- MATH
- ${\mathcal J}_{\alpha\beta}(ij)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.77ex; vertical-align: -0.78ex; " SRC="img1726.svg"
- ALT="${\mathcal J}_{\alpha\beta}(ij)$"></SPAN> can be chosen such that
- <!-- MATH
- ${\mathcal J}_{\alpha\beta}(ij)={\mathcal J}_{\beta\alpha}(ji)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="img1727.svg"
- ALT="${\mathcal J}_{\alpha\beta}(ij)={\mathcal J}_{\beta\alpha}(ji)$"></SPAN> (because the expression is symmetric in
- angular momentum components any anisotropic part of the interaction tensor does not contribute to the
- interaction energy).  
-
-<P>
-If <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.76ex; vertical-align: -0.12ex; " SRC="img367.svg"
- ALT="$i$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.21ex; vertical-align: -0.57ex; " SRC="img692.svg"
- ALT="$j$"></SPAN> are nearest neighbours on a orthorhombic lattice, they are situated on one of the
- crystallographic axes, for example at [<SPAN CLASS="MATH"><IMG
- STYLE="height: 8.56ex; vertical-align: -0.31ex; " SRC="img1728.svg"
- ALT="$\pm$"></SPAN>100]. The off-diagonal components of the corresponding
- interaction tensor <!-- MATH
- ${\mathcal J}_{\alpha\beta}(\pm100)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.78ex; " SRC="img1729.svg"
- ALT="${\mathcal J}_{\alpha\beta}(\pm100)$"></SPAN> vanish, because spin-configurations such as
- a moment (m00) on [000] and (0m0) on [100] must have the same magnetic energy as (m00) on [000] and
- (0-m0) on [100]. Furthermore the spin-configuration with (m00) on [000] and (m'00) on [100] must
- have the same magnetic energy as (m00) on [000] and (m'00) on [-100]. This and similar
- considerations lead to the conclusion that the interaction tensor must be the same for [-100] and
- [+100]. Therefore the most general form of the interaction <!-- MATH
- ${\mathcal J}_{\alpha\beta}(\pm100)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.78ex; " SRC="img1729.svg"
- ALT="${\mathcal J}_{\alpha\beta}(\pm100)$"></SPAN>
- is 
- 
-<DIV CLASS="displaymath">
-
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img44.svg"
+ ALT="$B_6^4=-21 B_6^0$"></SPAN> (for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img45.svg"
+ ALT="$xyz\vert\vert abc$"></SPAN>), 
 <!-- MATH
- \begin{equation}
-{\mathcal J}_{\alpha\beta}(\pm100)=\left(
- \begin{array}{ccc}
- {\mathcal J}_{aa}(\pm100) & 0 & 0 \\
- 0 & {\mathcal J}_{bb}(\pm100) &  0 \\
- 0 & 0 & {\mathcal J}_{cc}(\pm100) \\
- \end{array}
- \right)
- 
-\end{equation}
+ $L_4^4=5/\sqrt{70} L_4^0$
  -->
- &nbsp;  <IMG
- STYLE="height: 1.68ex; vertical-align: -3.72ex; " SRC="img1730.svg"
- ALT="$\displaystyle {\mathcal J}_{\alpha\beta}(\pm100)=\left(
-\begin{array}{ccc}
-...
-...100) &amp; 0 \\
-0 &amp; 0 &amp; {\mathcal J}_{cc}(\pm100) \\
-\end{array}
-\right)
-$"> <SPAN class="FLOATRIGHT">
-(<SPAN CLASS="arabic">264</SPAN>)</SPAN>
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.91ex; vertical-align: -0.70ex; " SRC="img46.svg"
+ ALT="$L_4^4=5/\sqrt {70} L_4^0$"></SPAN>, <!-- MATH
+ $L_6^4=-\sqrt{7/2} L_6^0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.10ex; vertical-align: -0.82ex; " SRC="img47.svg"
+ ALT="$L_6^4=-\sqrt {7/2} L_6^0$"></SPAN> (for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img45.svg"
+ ALT="$xyz\vert\vert abc$"></SPAN>), 
+<!-- MATH
+ $B_4^{3_{111}}=-20\sqrt{2} B_4^{0_{111}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.95ex; vertical-align: -0.74ex; " SRC="img48.svg"
+ ALT="$B_4^{3_{111}}=-20\sqrt {2} B_4^{0_{111}}$"></SPAN>, <!-- MATH
+ $B_6^{3_{111}}=35\sqrt{2}/4 B_6^{0_{111}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.95ex; vertical-align: -0.74ex; " SRC="img49.svg"
+ ALT="$B_6^{3_{111}}=35\sqrt {2}/4 B_6^{0_{111}}$"></SPAN> <!-- MATH
+ $B_6^{6_{111}}=77/8 B_6^{0_{111}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.92ex; vertical-align: -0.74ex; " SRC="img50.svg"
+ ALT="$B_6^{6_{111}}=77/8 B_6^{0_{111}}$"></SPAN> for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img51.svg"
+ ALT="$z\vert\vert[111]$"></SPAN> 
+<!-- MATH
+ $L_4^{3_{111}}=-\sqrt{10/7} L_4^{0_{111}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.10ex; vertical-align: -0.82ex; " SRC="img52.svg"
+ ALT="$L_4^{3_{111}}=-\sqrt {10/7} L_4^{0_{111}}$"></SPAN>, <!-- MATH
+ $L_6^{3_{111}}=\frac{1}{8}\sqrt{70/3} L_6^{0_{111}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.19ex; vertical-align: -0.92ex; " SRC="img53.svg"
+ ALT="$L_6^{3_{111}}=\frac {1}{8}\sqrt {70/3} L_6^{0_{111}}$"></SPAN> 
+<!-- MATH
+ $L_6^{6_{111}}=\frac{1}{8}\sqrt{77/3} L_6^{0_{111}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.19ex; vertical-align: -0.92ex; " SRC="img54.svg"
+ ALT="$L_6^{6_{111}}=\frac {1}{8}\sqrt {77/3} L_6^{0_{111}}$"></SPAN> for <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img51.svg"
+ ALT="$z\vert\vert[111]$"></SPAN> 
+       with <!-- MATH
+ $B_4^{0_{111}}=(-2/3)B_4^0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.92ex; vertical-align: -0.74ex; " SRC="img55.svg"
+ ALT="$B_4^{0_{111}}=(-2/3)B_4^0$"></SPAN>, <!-- MATH
+ $B_6^{0_{111}}=16/9B_6^0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.92ex; vertical-align: -0.74ex; " SRC="img56.svg"
+ ALT="$B_6^{0_{111}}=16/9B_6^0$"></SPAN>. 
+For the icosahedral case (not compatible with
+translational symmetry) B<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img57.svg"
+ ALT="$_6^5$"></SPAN>=-42B<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img58.svg"
+ ALT="$_6^0$"></SPAN>&nbsp;[<A
+ HREF="node179.html#walter87-2504">72</A>].</CAPTION>
+<TR><TD CLASS="LEFT">symmetry</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">B<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img1660.svg"
+ ALT="$_2^0$"></SPAN></TD>
+<TD CLASS="LEFT">B<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.88ex; vertical-align: -0.74ex; " SRC="img1661.svg"
+ ALT="$_2^{\pm 1}$"></SPAN></TD>
+<TD CLASS="LEFT">B<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.88ex; vertical-align: -0.74ex; " SRC="img1662.svg"
+ ALT="$_2^{\pm 2}$"></SPAN></TD>
+<TD CLASS="LEFT">B<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img1663.svg"
+ ALT="$_4^0$"></SPAN></TD>
+<TD CLASS="LEFT">B<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.88ex; vertical-align: -0.74ex; " SRC="img1664.svg"
+ ALT="$_4^{\pm 1}$"></SPAN></TD>
+<TD CLASS="LEFT">B<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.88ex; vertical-align: -0.74ex; " SRC="img1665.svg"
+ ALT="$_4^{\pm 2}$"></SPAN></TD>
+<TD CLASS="LEFT">B<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.88ex; vertical-align: -0.74ex; " SRC="img1666.svg"
+ ALT="$_4^{\pm 3}$"></SPAN></TD>
+<TD CLASS="LEFT">B<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.88ex; vertical-align: -0.74ex; " SRC="img1667.svg"
+ ALT="$_4^{\pm 4}$"></SPAN></TD>
+<TD CLASS="LEFT">B<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img58.svg"
+ ALT="$_6^0$"></SPAN></TD>
+<TD CLASS="LEFT">B<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.88ex; vertical-align: -0.74ex; " SRC="img1668.svg"
+ ALT="$_6^{\pm 1}$"></SPAN></TD>
+<TD CLASS="LEFT">B<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.88ex; vertical-align: -0.74ex; " SRC="img1669.svg"
+ ALT="$_6^{\pm 2}$"></SPAN></TD>
+<TD CLASS="LEFT">B<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.88ex; vertical-align: -0.74ex; " SRC="img1670.svg"
+ ALT="$_6^{\pm 3}$"></SPAN></TD>
+<TD CLASS="LEFT">B<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.88ex; vertical-align: -0.74ex; " SRC="img1671.svg"
+ ALT="$_6^{\pm 4}$"></SPAN></TD>
+<TD CLASS="LEFT">B<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.88ex; vertical-align: -0.74ex; " SRC="img1672.svg"
+ ALT="$_6^{\pm 5}$"></SPAN></TD>
+<TD CLASS="LEFT">B<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.88ex; vertical-align: -0.74ex; " SRC="img1673.svg"
+ ALT="$_6^{\pm 6}$"></SPAN></TD>
+</TR>
+<TR><TD CLASS="LEFT">triclinic</TD>
+<TD CLASS="LEFT">C<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.30ex; vertical-align: -0.46ex; " SRC="img1674.svg"
+ ALT="$_i$"></SPAN> C<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1675.svg"
+ ALT="$_1$"></SPAN></TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img1676.svg"
+ ALT="$\pm$"></SPAN></TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img1676.svg"
+ ALT="$\pm$"></SPAN></TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img1676.svg"
+ ALT="$\pm$"></SPAN></TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img1676.svg"
+ ALT="$\pm$"></SPAN></TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img1676.svg"
+ ALT="$\pm$"></SPAN></TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img1676.svg"
+ ALT="$\pm$"></SPAN></TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img1676.svg"
+ ALT="$\pm$"></SPAN></TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img1676.svg"
+ ALT="$\pm$"></SPAN></TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img1676.svg"
+ ALT="$\pm$"></SPAN></TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img1676.svg"
+ ALT="$\pm$"></SPAN></TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img1676.svg"
+ ALT="$\pm$"></SPAN></TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img1676.svg"
+ ALT="$\pm$"></SPAN></TD>
+</TR>
+<TR><TD CLASS="LEFT">monoclinic</TD>
+<TD CLASS="LEFT">C<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN> C<SPAN CLASS="MATH"><IMG
+ STYLE="height: 0.93ex; vertical-align: -0.46ex; " SRC="img1677.svg"
+ ALT="$_s$"></SPAN> C<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.36ex; vertical-align: -0.46ex; " SRC="img1678.svg"
+ ALT="$_{2h}$"></SPAN></TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img1676.svg"
+ ALT="$\pm$"></SPAN></TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img1676.svg"
+ ALT="$\pm$"></SPAN></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img1676.svg"
+ ALT="$\pm$"></SPAN></TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img1676.svg"
+ ALT="$\pm$"></SPAN></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img1676.svg"
+ ALT="$\pm$"></SPAN></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img1676.svg"
+ ALT="$\pm$"></SPAN></TD>
+</TR>
+<TR><TD CLASS="LEFT">rhombic</TD>
+<TD CLASS="LEFT">C<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1679.svg"
+ ALT="$_{2v}$"></SPAN> D<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1680.svg"
+ ALT="$_{2}$"></SPAN> D<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.36ex; vertical-align: -0.46ex; " SRC="img1678.svg"
+ ALT="$_{2h}$"></SPAN></TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+</TR>
+<TR><TD CLASS="LEFT">tetragonal</TD>
+<TD CLASS="LEFT">C<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1681.svg"
+ ALT="$_{4}$"></SPAN> S<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1681.svg"
+ ALT="$_{4}$"></SPAN> C<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.36ex; vertical-align: -0.46ex; " SRC="img1682.svg"
+ ALT="$_{4h}$"></SPAN></TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img1676.svg"
+ ALT="$\pm$"></SPAN></TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img1676.svg"
+ ALT="$\pm$"></SPAN></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">tetragonal</TD>
+<TD CLASS="LEFT">D<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1681.svg"
+ ALT="$_{4}$"></SPAN> C<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1683.svg"
+ ALT="$_{4v}$"></SPAN> D<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.36ex; vertical-align: -0.46ex; " SRC="img1684.svg"
+ ALT="$_{2d}$"></SPAN> D<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.36ex; vertical-align: -0.46ex; " SRC="img1682.svg"
+ ALT="$_{4h}$"></SPAN></TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">trigonal</TD>
+<TD CLASS="LEFT">C<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1685.svg"
+ ALT="$_{3}$"></SPAN> S<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1686.svg"
+ ALT="$_{6}$"></SPAN></TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img1676.svg"
+ ALT="$\pm$"></SPAN></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img1676.svg"
+ ALT="$\pm$"></SPAN></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img1676.svg"
+ ALT="$\pm$"></SPAN></TD>
+</TR>
+<TR><TD CLASS="LEFT">trigonal</TD>
+<TD CLASS="LEFT">D<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1685.svg"
+ ALT="$_{3}$"></SPAN> C<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1687.svg"
+ ALT="$_{3v}$"></SPAN> D<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.36ex; vertical-align: -0.46ex; " SRC="img1688.svg"
+ ALT="$_{3d}$"></SPAN></TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+</TR>
+<TR><TD CLASS="LEFT">hexagonal</TD>
+<TD CLASS="LEFT">C<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1686.svg"
+ ALT="$_{6}$"></SPAN> C<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.36ex; vertical-align: -0.46ex; " SRC="img1689.svg"
+ ALT="$_{3h}$"></SPAN> C<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.36ex; vertical-align: -0.46ex; " SRC="img1690.svg"
+ ALT="$_{6h}$"></SPAN></TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT"><SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.77ex; vertical-align: -0.31ex; " SRC="img1676.svg"
+ ALT="$\pm$"></SPAN></TD>
+</TR>
+<TR><TD CLASS="LEFT">hexagonal</TD>
+<TD CLASS="LEFT">D<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1686.svg"
+ ALT="$_{6}$"></SPAN> C<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1691.svg"
+ ALT="$_{6v}$"></SPAN> D<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.36ex; vertical-align: -0.46ex; " SRC="img1689.svg"
+ ALT="$_{3h}$"></SPAN> D<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.36ex; vertical-align: -0.46ex; " SRC="img1690.svg"
+ ALT="$_{6h}$"></SPAN></TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+</TR>
+<TR><TD CLASS="LEFT">cubic</TD>
+<TD CLASS="LEFT">T         T<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.36ex; vertical-align: -0.46ex; " SRC="img1692.svg"
+ ALT="$_{h}$"></SPAN></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+</TR>
+<TR><TD CLASS="LEFT">cubic</TD>
+<TD CLASS="LEFT">T<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.36ex; vertical-align: -0.46ex; " SRC="img1693.svg"
+ ALT="$_{d}$"></SPAN> O O<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.36ex; vertical-align: -0.46ex; " SRC="img1692.svg"
+ ALT="$_{h}$"></SPAN></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">icosahedral</TD>
+<TD CLASS="LEFT">I<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.36ex; vertical-align: -0.46ex; " SRC="img1694.svg"
+ ALT="$_h$"></SPAN></TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+<TD CLASS="LEFT">+</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+</TABLE>
 </DIV>
-</LI>
-</OL>
-</DD>
-<DT><STRONG>section&nbsp;<A HREF="node16.html#cfieldsep">6.1</A> <EM>Using <I CLASS="slanted">so1ion</I> separately</EM></STRONG></DT>
-<DD> 
- 
-<UL>
-<LI>type: so1ion -c -B m m Nd3+ 2 10 rk
-</LI>
-<LI>edit file bkq.parameter and enter the crystal field parameters given in section&nbsp;<A HREF="node18.html#cf1ion">6.3</A>
-</LI>
-<LI>type: so1ion -r -B
-</LI>
-<LI>edit file results/so1ion.output to see the result of the calculation
- 
-</LI>
-</UL>
-</DD>
-<DT><STRONG>section&nbsp;<A HREF="node34.html#start">7.2</A> <EM>starting a simulation</EM></STRONG></DT>
-<DD> 
-
+<BR><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-
-<OL>
-<LI>In the crystallographic basis there are two ions.
-</LI>
-<LI>... the simulation should run after typing <I CLASS="slanted">mcphas</I>
- 
-</LI>
-</OL>
-</DD>
-<DT><STRONG>section&nbsp;<A HREF="node36.html#outputfiles">7.4</A> <EM>output files</EM></STRONG></DT>
-<DD> 
- 
-<OL>
-<LI>at 2.8 Tesla
-</LI>
-<LI>(0.6 0 0), (2/3 0 0) and (0.625 0 0)
- 
-</LI>
-</OL>
-</DD>
-<DT><STRONG>section&nbsp;<A HREF="node43.html#mcdisp">9</A> <EM><I CLASS="slanted">McDisp</I> - the calculation program for magnetic excitations</EM></STRONG></DT>
-<DD> 
-<BR>
-the inspection of the file <I CLASS="slanted">mcdisp.mf<A ID="8063"></A></I> shows that the calculation is performed at 3.2 Tesla field
- parallel to <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="img2.svg"
- ALT="$b$"></SPAN>, i.e. in the ferromagnetically aligned state. Due to the two ions in the crystallographic
- unit cell in general 2 modes are expected for each crystal field transition. After running <I CLASS="slanted">mcdisp<A ID="8064"></A></I>
- the results may be inspected in file <I CLASS="slanted">./results/mcdisp.qom</I>, graphically using the program <I CLASS="slanted">disp</I>.
- It turns out the the soft mode (gap at (2/3&nbsp;1&nbsp;0) shows the largest intensity.
-</DD>
-</DL>
-
-<P>
-
+<SPAN CLASS="SMALL"></SPAN>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
 <A
@@ -253,23 +556,23 @@ the inspection of the file <I CLASS="slanted">mcdisp.mf<A ID="8063"></A></I> sho
 <A
  HREF="node159.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html1151"
-  HREF="node7.html">
+<A ID="tex2html1198"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html1153"
-  HREF="node164.html">
+<A ID="tex2html1200"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node161.html">Unit Conventions in McPhase</A>
+ HREF="node161.html">Transforming Crystal Field Parameters</A>
 <B> Up:</B> <A
- HREF="manual.html">McPhase USERS MANUAL</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node159.html">Theory for program bfk</A>
- &nbsp; <B>  <A ID="tex2html1152"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html1154"
-  HREF="node164.html">Index</A></B> </DIV>
+ HREF="node159.html">Stevens Operators</A>
+ &nbsp; <B>  <A ID="tex2html1199"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html1201"
+  HREF="node180.html">Index</A></B> </DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

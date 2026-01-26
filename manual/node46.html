@@ -1,18 +1,17 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Viewing the results of McDisp</TITLE>
+<TITLE>subdirectory ./fit - experimental data for fit (optional) </TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node47.html">
-<LINK REL="previous" HREF="node43.html">
+<LINK REL="previous" HREF="node45.html">
 <LINK REL="next" HREF="node47.html">
 </HEAD>
 
@@ -23,88 +22,128 @@
  HREF="node47.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node43.html">
+ HREF="node35.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node45.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html583"
-  HREF="node7.html">
+<A ID="tex2html621"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html585"
-  HREF="node164.html">
+<A ID="tex2html623"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node47.html">Diffuse Scattering</A>
+ HREF="node47.html">Starting a simulation</A>
 <B> Up:</B> <A
- HREF="node43.html">mcdisp - the Calculation</A>
+ HREF="node35.html">Input Files</A>
 <B> Previous:</B> <A
- HREF="node45.html">example of input file</A>
- &nbsp; <B>  <A ID="tex2html584"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html586"
-  HREF="node164.html">Index</A></B> 
+ HREF="node45.html">subdirectory ./results - directory</A>
+ &nbsp; <B>  <A ID="tex2html622"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html624"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000121000000000000000">
-Viewing the results of McDisp</A>
-</H2>
+<H3><A ID="SECTION000911100000000000000">
+subdirectory <I CLASS="slanted">./fit</I> - experimental data for fit (optional) </A>
+</H3><SPAN CLASS="SMALL"> 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">In order that <I CLASS="slanted">McPhase</I> can calculate the standard deviation between
+ experimental data and the results of the simulation, some experimental data
+ can be given in the subdirectory <I CLASS="slanted">./fit</I>. The filenames and the data-format
+ are the same as the output files of <I CLASS="slanted">McPhas</I>, e.g. <I CLASS="slanted">mcphas.fum</I>, <I CLASS="slanted">mcphas.hkl</I>
+ etc. <I CLASS="slanted">McPhase</I> looks into the directory <I CLASS="slanted">./fit</I> and if it finds any
+ of these files, the standard deviation is increased correspondingly. 
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">What measurement data can be used to calculate a standard deviation ?
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN><DL>
+<DT><STRONG><I CLASS="slanted">mcphas.fum</I></STRONG></DT>
+<DD>In column 1-7 the file has to contain 
+            x y T(K) H(T) Hi(T) Hj(T) Hk(T)  with ijk coordinates 
+            defined by  <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img315.svg"
+ ALT="$j\vert\vert b$"></SPAN>, <!-- MATH
+ $k||(a \times b)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img316.svg"
+ ALT="$k\vert\vert(a \times b)$"></SPAN> and i normal to k and j.
+            If given in column 8,9,10,.. in <I CLASS="slanted">./fit/mcphas.fum</I> the
+            free energy <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="img216.svg"
+ ALT="$f$"></SPAN>, the energy <SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img317.svg"
+ ALT="$u$"></SPAN>, the magnetisation, the strain and electrical polarisation
+             is used for calculation
+	    of the standard deviation sta. The standard deviation is calculated
+	    as <!-- MATH
+ ${\rm sta}=\sum_{\rm data points i} ({m}_i^{calc}-{m}_i^{meas})^2/({\Delta m}_i^{meas})^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 3.21ex; vertical-align: -1.13ex; " SRC="img318.svg"
+ ALT="${\rm sta}=\sum_{\rm data points i} ({m}_i^{calc}-{m}_i^{meas})^2/({\Delta m}_i^{meas})^2$"></SPAN>.
+	    A measured quantity is used for fitting only, if the experimental error <!-- MATH
+ ${\Delta m}_i^{meas}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.51ex; vertical-align: -0.69ex; " SRC="img319.svg"
+ ALT="${\Delta m}_i^{meas}$"></SPAN> is given
+            after the number <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.37ex; vertical-align: -0.72ex; " SRC="img320.svg"
+ ALT="${m}_i^{meas}$"></SPAN> in the file <I CLASS="slanted">./fit/mcphas.fum</I> 
+            using the notation: <PRE> 3.24+-0.2
+</PRE>
 
 <P>
-<BLOCKQUOTE>
-[<I CLASS="slanted">displaybubbles<A ID="1496"></A> ] produces a plot of the calculated dispersion on screen, which is 
-                       automatically updated when the file changes. In contrast to the normal
-		       display<A ID="1497"></A> program the radius of the symbols is increased according to
-		       the values of a radius column (in our case intensity column in file
-		       mcdisp.qui). Use as <I CLASS="slanted">displaybubbles<A ID="1498"></A> 
-		       xcol ycol rcol filename</I> - i.e. for displaying the dispersion along
-		       <EM>h</EM> type <I CLASS="slanted">displaybubbles<A ID="1500"></A>  5 8 9 mcdisp.qei</I>. 
-[<I CLASS="slanted">displaycontour<A ID="1501"></A>] displays contour plot of scattering intensity - use as
-                       <I CLASS="slanted">displaycontour<A ID="1502"></A> xcol ycol zcol filename</I> - i.e. for displaying
-		       the intensity versus <EM>hk</EM> type <I CLASS="slanted">displaycontour<A ID="1504"></A> 5 6 8 mcdisp.dsigma.tot</I>
-		       (see fig.&nbsp;<A HREF="#ho2ti2o7diffuse">12</A>)
-[<I CLASS="slanted">spectrum]  reads mcdisp.qom or mcdisp.dsigma and produces spectrum
-                       as an xy file, use as <I CLASS="slanted">spectrum h k l filename</I>
-[<I CLASS="slanted">display_densities<A ID="1507"></A>] produces an animation of the 
-                       oscillation of spin, magmoments, chargedensity,... see also
-                       section&nbsp;<A HREF="node121.html#displaydensities">17.3</A> and appendix&nbsp;<A HREF="node154.html#visualization">M.3</A>.
-
-</I></I></I></I></BLOCKQUOTE>
-
+</DD>
+</DL><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-
-<DIV class="CENTER"><A ID="ho2ti2o7diffuse"></A><A ID="8955"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 12:</STRONG>
-
-Ho<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN>Ti<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
- ALT="$_2$"></SPAN>O<SPAN CLASS="MATH"><IMG
- STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img8.svg"
- ALT="$_7$"></SPAN> - calculated diffuse magnetic scattering intensity in the (110)-(001)
- plane at <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.81ex; vertical-align: -0.12ex; " SRC="img9.svg"
- ALT="$T=10$"></SPAN>&nbsp;K.
-[plot created by program <I CLASS="slanted">displaycontour<A ID="1516"></A></I>]
-</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-
-<IMG
- STYLE="height: 63.51ex; vertical-align: -0.12ex; " SRC="img412.svg"
- ALT="\includegraphics[angle=-0, width=0.6\textwidth]{figsrc/ho2ti2o7diffuse.eps}">
-
-</DIV></TD></TR>
-</TABLE>
-</DIV>
-
+<SPAN CLASS="SMALL">Note that the measured data has to be given in those (H-T) points which are 
+calculated by mcphas<A ID="1439"></A> in order to be used by the program to increase <I CLASS="slanted">sta</I>.
+It is usually most effective to fit only few data points, because a large set
+of data points will not improve the quality of the fit and only require a large
+amount of calculation time.
+</SPAN>
 <P>
-<BR><HR>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node47.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node35.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node45.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html621"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html623"
+  HREF="node180.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node47.html">Starting a simulation</A>
+<B> Up:</B> <A
+ HREF="node35.html">Input Files</A>
+<B> Previous:</B> <A
+ HREF="node45.html">subdirectory ./results - directory</A>
+ &nbsp; <B>  <A ID="tex2html622"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html624"
+  HREF="node180.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

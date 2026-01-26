@@ -1,18 +1,18 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Calculation of the Elastic Constants using makenn</TITLE>
+<TITLE>Including Quadrupolar and Higher Order Interactions</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node68.html">
-<LINK REL="previous" HREF="node66.html">
+<LINK REL="next" HREF="node71.html">
+<LINK REL="previous" HREF="node56.html">
 <LINK REL="next" HREF="node68.html">
 </HEAD>
 
@@ -23,53 +23,100 @@
  HREF="node68.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node60.html">
+ HREF="manual.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node66.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html688"
-  HREF="node7.html">
+<A ID="tex2html724"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html690"
-  HREF="node164.html">
+<A ID="tex2html726"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node68.html">Calculation of the Crystal</A>
+ HREF="node68.html">Setting up mcphas.j and</A>
 <B> Up:</B> <A
- HREF="node60.html">Crystal Field Phonon Interaction</A>
+ HREF="manual.html">USERS MANUAL Workshops available</A>
 <B> Previous:</B> <A
- HREF="node66.html">Progam Workflow for calculating</A>
- &nbsp; <B>  <A ID="tex2html689"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html691"
-  HREF="node164.html">Index</A></B> 
+ HREF="node66.html">Scattering geometry</A>
+ &nbsp; <B>  <A ID="tex2html725"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html727"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000157000000000000000"></A><A ID="determineElconst"></A>
+<H1><A ID="SECTION000120000000000000000"></A>
+<A ID="qint"></A>
 <BR>
-Calculation of the Elastic Constants using <I CLASS="slanted">makenn</I>
-</H2>
-
+Including Quadrupolar and Higher Order Interactions
+</H1><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-Elastic constants and mixing term parameters <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.16ex; vertical-align: -0.46ex; " SRC="img739.svg"
- ALT="$G_{mix}$"></SPAN> should be created with the
-option <EM>-bvk</EM> of the program <EM>makenn</EM> and stored in the 
-file <EM>mcphas.j</EM>. Using <EM>makenn</EM> with the option <EM>-cfph</EM> will create
-the magnetoelastic parameters <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img740.svg"
- ALT="$G_{\rm cfph}$"></SPAN> and <!-- MATH
- $\Gamma_{\rm cfph}$
+<SPAN CLASS="SMALL">  SIMPLICIUS: The interest of modern solid state physics is in exotic matter - so we need
+some advanced concepts in order to achieve excellence in our studies. Can you 
+predict the Jahn Teller effect in <I CLASS="slanted">McPhase</I> ?
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">  ORLANDO: Indeed I would have interest in this subject as well, if we put Pr in our sample,
+the system becomes nonmagnetic and it shows huge magnetostrictive effects at
+an ordering temperature, which is most probably a Jahn-Teller transition.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">  EWALD: So what we need to do such calculations are higher order interactions.
+Some modules such as <I CLASS="slanted">so1ion</I><A ID="2220"></A>
+ allow  to calculate systems with higher order interactions such
+as quadrupolar interactions. Quadrupolar and higher order interactions can be calculated, which
+can be described by products of Stevens operators. The general two ion exchange coupling is
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+{\mathcal H}_{JJ}=
+             -\frac{1}{2}  \sum_{ij} \sum_ {ll'mm'}
+     {\mathcal K}^{lml'm'}(ij) \hat O_{lm}({\mathbf J}^i) \hat O_{l'm'}({\mathbf J}^{j})
+=-\frac{1}{2}  \sum_{ij} \sum_{\stackrel{\alpha=(lm)}{ \alpha'=(l'm')}} J_{\alpha\alpha'}(ij) 
+\hat I_{\alpha}^i \hat I_{\alpha'}^{j}
+\end{equation}
  -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.48ex; vertical-align: -0.78ex; " SRC="img741.svg"
- ALT="$\Gamma_{\rm cfph}$"></SPAN>.
-
+ &nbsp;  <A ID="multipolehamiltonrepeated"></A><IMG
+ STYLE="height: 4.82ex; vertical-align: -2.52ex; " SRC="img544.svg"
+ ALT="$\displaystyle
+{\mathcal H}_{JJ}=
+-\frac{1}{2} \sum_{ij} \sum_ {ll'mm'}
+{...
+...lpha'=(l'm')}} J_{\alpha\alpha'}(ij)
+\hat I_{\alpha}^i \hat I_{\alpha'}^{j}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">85</SPAN>)</SPAN>
+</DIV><SPAN CLASS="SMALL">
+</SPAN>
 <P>
+<SPAN CLASS="SMALL">For further information on the notation and symmetry restrictions to the
+parameters in the Hamiltonian refer to&nbsp;[<A
+ HREF="node179.html#jensen91-1">1</A>].
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html728"
+  HREF="node68.html">Setting up <I CLASS="slanted">mcphas.j</I> and other input files</A>
+<LI><A ID="tex2html729"
+  HREF="node69.html">Option <I CLASS="slanted">indexexchange</I> in order to shorten notation in <I CLASS="slanted">mcphas.j</I></A>
+<LI><A ID="tex2html730"
+  HREF="node70.html">Running <I CLASS="slanted">McPhase</I> and <I CLASS="slanted">McDisp</I></A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 
 </BODY>

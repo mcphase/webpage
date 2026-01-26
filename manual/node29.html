@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2024.2 (Released October 21, 2024) -->
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
 <HTML lang="en">
 <HEAD>
-<TITLE>Example single ion property file for a simple antiferromagnet</TITLE>
+<TITLE>Doing Single Ion Calculations</TITLE>
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2024.2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
@@ -23,148 +23,217 @@
  HREF="node30.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node22.html">
+ HREF="node28.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node28.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html500"
-  HREF="node7.html">
+<A ID="tex2html525"
+  HREF="node8.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
-<A ID="tex2html502"
-  HREF="node164.html">
+<A ID="tex2html527"
+  HREF="node180.html">
 <IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
 <BR>
 <B> Next:</B> <A
- HREF="node30.html">mcphas.tst - input file</A>
+ HREF="node30.html">Example - how to</A>
 <B> Up:</B> <A
- HREF="node22.html">Input Files</A>
+ HREF="node28.html">singleion - a Crystal</A>
 <B> Previous:</B> <A
- HREF="node28.html">Single Ion Property Input</A>
- &nbsp; <B>  <A ID="tex2html501"
-  HREF="node7.html">Contents</A></B> 
- &nbsp; <B>  <A ID="tex2html503"
-  HREF="node164.html">Index</A></B> 
+ HREF="node28.html">singleion - a Crystal</A>
+ &nbsp; <B>  <A ID="tex2html526"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html528"
+  HREF="node180.html">Index</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION000101700000000000000">
-Example single ion property file  for a simple antiferromagnet</A>
-</H3>
-
+<H2><A ID="SECTION00081000000000000000"></A>
+<A ID="cfieldsep"></A>
+<BR>
+Doing Single Ion Calculations
+</H2><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-Here is an example file <I CLASS="slanted">mcphas.cf1</I> describing the anisotropy of a 
-simple antiferromagnet with Ce atoms having basal plane anisotropy. Note the
-axis convention xyz<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="img220.svg"
- ALT="$\vert\vert$"></SPAN>abc, in case of non-orthogonal axes the convention 
-is <SPAN CLASS="MATH"><IMG
- STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img169.svg"
- ALT="$y\vert\vert\vec b$"></SPAN>, <!-- MATH
- $z||(\vec a \times \vec b)$
+<SPAN CLASS="SMALL">  SIMPLICIUS: I always tell in my lectures that 
+the crystal field is the electrostatic field, which is produced by the
+charges of the crystal environment of a rare earth atom. It acts on the
+4f electrons of the rare earth and causes magnetic anisotropy. In addition
+to the electrostatic origin of the crystal field there is also a contribution due to the 
+bonding.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">  EWALD: Look, Simplicius , in Fig.&nbsp;<A HREF="#chrgpla">3</A> and
+<A HREF="#chrgplb">4</A> I can show the you the effect of the crystal field on the charge distribution.
+Such plots can be made by using the programs <I CLASS="slanted">pointc<A ID="957"></A></I> to calculate
+the crystal field parameters and
+ <I CLASS="slanted">display_density<A ID="958"></A></I> to plot the charge density
+<A ID="tex2html14"
+  HREF="footnode.html#foot9348"><SUP><SPAN CLASS="arabic">11</SPAN></SUP></A>.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV class="CENTER"><A ID="chrgpla"></A><A ID="9349"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 3:</STRONG>
+
+The crystal field model: the figure shows the influence of two positive 
+charges on the charge density of 4f-electrons. The
+charge density is distorted by the electric field from the neighbouring atoms.
+Furthermore, this distortion leads to an anisotropy of the magnetic properties
+of the 4f shell. The resulting 
+easy direction of the magnetic moment is shown by arrows for the different tri positive
+rare earth ions.</CAPTION>
+<TR><TD><IMG
+ STYLE="height: 47.81ex; vertical-align: -0.12ex; " SRC="img198.svg"
+ ALT="\includegraphics[angle=0,width=0.7\columnwidth]{figsrc/crystalfieldplot.eps}"></TD></TR>
+</TABLE>
+</DIV>
+<SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV class="CENTER"><A ID="chrgplb"></A><A ID="10216"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 4:</STRONG>
+
+Calculated charge density of 4f-electrons in an orthorhombic crystal field. In
+this example the charge density of a Nd<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.12ex; vertical-align: -0.12ex; " SRC="img3.svg"
+ ALT="$^{3+}$"></SPAN> ion at a temperature of 10&nbsp;K was 
+calculated by taking the crystal
+field parameters determined by neutron spectroscopy and 
+magnetic measurements in NdCu<SPAN CLASS="MATH"><IMG
+ STYLE="height: 1.28ex; vertical-align: -0.46ex; " SRC="img1.svg"
+ ALT="$_2$"></SPAN>&nbsp;[<A
+ HREF="node179.html#gratz91-9297">26</A>].
+[plot created by program <I CLASS="slanted">display_density<A ID="969"></A></I>]</CAPTION>
+<TR><TD><IMG
+ STYLE="height: 60.19ex; vertical-align: -0.12ex; " SRC="img199.svg"
+ ALT="\includegraphics[angle=0,width=0.7\columnwidth]{figsrc/chrgpla.eps}"></TD></TR>
+</TABLE>
+</DIV>
+<SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">  ORLANDO: Ewald , I appreciate the effort to do such beautiful plots of the charge density, 
+but with your kind permission may I ask what relevance this has for experiments ? 
+Normally in the literature I find the following expressions for the crystal field Hamiltonian
+<A ID="tex2html17"
+  HREF="footnode.html#foot9351"><SUP><SPAN CLASS="arabic">12</SPAN></SUP></A>
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+{\mathcal H}= \sum_{n,lm} B_{lm} O_{lm}({\mathbf J}^n)
+	     - \sum_{n} g_{Jn} \mu_B {\mathbf J}^n {\mathbf H} 
+\end{equation}
  -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 3.07ex; vertical-align: -0.70ex; " SRC="img170.svg"
- ALT="$z\vert\vert(\vec a \times \vec b)$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img4.svg"
- ALT="$x$"></SPAN> perpendicular to <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.68ex; vertical-align: -0.57ex; " SRC="img171.svg"
- ALT="$y$"></SPAN> and <SPAN CLASS="MATH"><IMG
- STYLE="height: 1.23ex; vertical-align: -0.12ex; " SRC="img158.svg"
- ALT="$z$"></SPAN>.
-
+ &nbsp;  <A ID="cfham"></A><IMG
+ STYLE="height: 2.98ex; vertical-align: -1.13ex; " SRC="img201.svg"
+ ALT="$\displaystyle
+{\mathcal H}= \sum_{n,lm} B_{lm} O_{lm}({\mathbf J}^n)
+- \sum_{n} g_{Jn} \mu_B {\mathbf J}^n {\mathbf H}
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">25</SPAN>)</SPAN>
+</DIV><SPAN CLASS="SMALL">
+</SPAN>
 <P>
-<SPAN CLASS="SMALL"></SPAN><PRE>
-#!MODULE=so1ion
-#&lt;!--mcphase.sipf--&gt;
-#***************************************************************
-# Single Ion Parameter File for Module Cfield for  
-# mcphas version 3.0
-# - program to calculate static magnetic properties
-# reference: M. Rotter JMMM 272-276 (2004) 481
-# mcdisp version 3.0
-# - program to calculate the dispersion of magnetic excitations
-# reference: M. Rotter et al. J. Appl. Phys. A74 (2002) 5751
-# mcdiff version 3.0
-# - program to calculate neutron and magnetic xray diffraction
-# reference: M. Rotter and A. Boothroyd PRB 79 (2009) 140405R
-#***************************************************************
-#
-#
-# crystal field paramerized in Stevens formalism
-#
-#-----------
-IONTYPE=Ce3+
-#-----------
-
-#--------------------------------------------------------------------------
-# Crystal Field parameters in Stevens Notation (coordinate system xyz||abc)
-#--------------------------------------------------------------------------
-units=meV
-B20=0.02
-
-
-#----------------
-# Stevens Factors
-#----------------
-ALPHA=-0.0571429
-BETA=0.00634921
-GAMMA=0
-
-#---------------------------------------------------------
-# Radial Matrix Elements (e.g. Abragam Bleaney 1971 p 399)
-#---------------------------------------------------------
-#&lt;r^2&gt; in units of a0^2 a0=0.5292 Angstroem
-R2=1.309
-#&lt;r^4&gt; in units of a0^4 a0=0.5292 Angstroem
-R4=3.964
-#&lt;r^6&gt; in units of a0^6 a0=0.5292 Angstroem
-R6=23.31
-
-#----------------
-# Lande factor gJ
-#----------------
-GJ=0.857143
-
-#-------------------------------------------------------
-# Neutron Scattering Length (10^-12 cm) (can be complex)
-#-------------------------------------------------------
-SCATTERINGLENGTHREAL=0.484
-SCATTERINGLENGTHIMAG=0
-#  ... note: - if an occupancy other than 1.0 is needed, just reduce 
-#              the scattering length linear accordingly
-
-#-------------------------------------------------------
-# Debye-Waller Factor: sqr(Intensity)~|sf|~EXP(-2 * DWF *s*s)=EXP (-W)
-#                      with s=sin(theta)/lambda=Q/4pi
-# relation to other notations: 2*DWF=Biso=8 pi^2 &lt;u^2&gt;
-# unit of DWF is [A^2]
-#-------------------------------------------------------
-DWF=0
-#--------------------------------------------------------------------------------------
-# Neutron Magnetic Form Factor coefficients - thanks to J Brown
-#   d = 2*pi/Q      
-#   s = 1/2/d = Q/4/pi   
-#   sin(theta) = lambda * s
-#   r= s*s = Q*Q/16/pi/pi
-#
-#   &lt;j0(Qr)&gt;=   FFj0A*EXP(-FFj0a*r) + FFj0B*EXP(-FFj0b*r) + FFj0C*EXP(-FFj0c*r) + FFj0D
-#   &lt;j2(Qr)&gt;=r*(FFj2A*EXP(-FFj2a*r) + FFj2B*EXP(-FFj2b*r) + FFj2C*EXP(-FFj2c*r) + FFj2D
-#   &lt;j4(Qr)&gt;=r*(FFj4A*EXP(-FFj4a*r) + FFj4B*EXP(-FFj4b*r) + FFj4C*EXP(-FFj4c*r) + FFj4D
-#   &lt;j6(Qr)&gt;=r*(FFj6A*EXP(-FFj6a*r) + FFj6B*EXP(-FFj6b*r) + FFj6C*EXP(-FFj6c*r) + FFj6D
-#
-#   Dipole Approximation for Neutron Magnetic Formfactor:
-#        -Spin Form Factor       FS(Q)=&lt;j0(Q)&gt;
-#        -Angular Form Factor    FL(Q)=&lt;j0(Q)&gt;+&lt;j2(Q)&gt;
-#        -Rare Earth Form Factor F(Q) =&lt;j0(Q)&gt;+&lt;j2(Q)&gt;*(2/gJ-1)
-
-#--------------------------------------------------------------------------------------
-FFj0A=+0.2953 FFj0a=+17.6846 FFj0B=+0.2923 FFj0b=+6.7329 FFj0C=+0.4313 FFj0c=+5.3827 FFj0D=-0.0194
-FFj2A=+0.9809 FFj2a=+18.0630 FFj2B=+1.8413 FFj2b=+7.7688 FFj2C=+0.9905 FFj2c=+2.8452 FFj2D=+0.0120
-</PRE><SPAN CLASS="SMALL"></SPAN>
+<SPAN CLASS="SMALL">  EWALD: This is exactly what the <I CLASS="slanted">so1ion</I><A ID="985"></A> module  of <I CLASS="slanted">McPhase</I>
+ uses to evaluate quantitatively the crystal field influence.
+</SPAN>
 <P>
-<BR><HR>
+<SPAN CLASS="SMALL">In the case of isolating materials the crystal field parameters <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.47ex; vertical-align: -0.77ex; " SRC="img41.svg"
+ ALT="$B_l^m$"></SPAN>
+ can be obtained by the point charge model<A ID="tex2html18"
+  HREF="footnode.html#foot9352"><SUP><SPAN CLASS="arabic">13</SPAN></SUP></A>,
+in the <I CLASS="slanted">McPhase</I> suite use programs <I CLASS="slanted">makenn</I> and <I CLASS="slanted">pointc</I> to evaluate
+the pointcharge model for a given crystal structure<A ID="tex2html19"
+  HREF="footnode.html#foot9353"><SUP><SPAN CLASS="arabic">14</SPAN></SUP></A>.
+For metals the conduction electrons screen the point charges and the determination
+of the crystal field is usually only possible by fits to experimental data. 
+The program package <I CLASS="slanted">McPhase</I> may be used to solve such crystal field problems.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">  SIMPLICIUS: In my lectures I am using a simpler way of dealing with crystal field anisotropy,
+it is to write instead of the first term in equ.&nbsp;<A HREF="#cfham">25</A>
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV CLASS="displaymath">
+
+<!-- MATH
+ \begin{equation}
+\sum_s D_x^2 (J_x^s)^2 + D_y^2 (J_y^s)^2 +D_z^2 (J_z^s)^2
+\end{equation}
+ -->
+ &nbsp;  <IMG
+ STYLE="height: 5.55ex; vertical-align: -3.02ex; " SRC="img202.svg"
+ ALT="$\displaystyle \sum_s D_x^2 (J_x^s)^2 + D_y^2 (J_y^s)^2 +D_z^2 (J_z^s)^2
+$"> <SPAN class="FLOATRIGHT">
+(<SPAN CLASS="arabic">26</SPAN>)</SPAN>
+</DIV><SPAN CLASS="SMALL">
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">  EWALD: Honorable Simplicius , indeed this is also possible - yet it is currently not possible to
+compute the parameters <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.69ex; vertical-align: -0.69ex; " SRC="img203.svg"
+ ALT="$D^2_{\alpha}$"></SPAN> from a point charge model.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">  ORLANDO: For a diagonalisation of the single ion crystal field Hamiltonian
+the module we have always used the program <I CLASS="slanted">so1ion</I><A ID="998"></A>(<I CLASS="slanted">cfield<A ID="999"></A></I>, 
+written by P. Fabi né Hoffmann). It can calculate also transition elements
+and  the inelastic neutron scattering cross section.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL">  EWALD: Exactly this program
+ has been included into <I CLASS="slanted">McPhase</I>. It  can be used  to 
+calculate crystal field problems for rare earth ions. There is a program 
+<I CLASS="slanted">so1ion</I><A ID="1002"></A>, which is self explaining, provided 
+the user has a basic knowledge of crystal field 
+theory (see e.g. the famous article by Hutchings&nbsp;[<A
+ HREF="node179.html#hutchings64-227">27</A>]).
+However, I would recommend how to use the program <I CLASS="slanted">singleion</I> to do crystal field calculation
+for rare earth ions, because setting up the calculation in this way it
+ can be easily extended to intermediate coupling schemes if necessary.
+</SPAN>
+<P>
+<SPAN CLASS="SMALL"></SPAN>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node30.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node28.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node28.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html525"
+  HREF="node8.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A> 
+<A ID="tex2html527"
+  HREF="node180.html">
+<IMG WIDTH="43" HEIGHT="24" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A
+ HREF="node30.html">Example - how to</A>
+<B> Up:</B> <A
+ HREF="node28.html">singleion - a Crystal</A>
+<B> Previous:</B> <A
+ HREF="node28.html">singleion - a Crystal</A>
+ &nbsp; <B>  <A ID="tex2html526"
+  HREF="node8.html">Contents</A></B> 
+ &nbsp; <B>  <A ID="tex2html528"
+  HREF="node180.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>
